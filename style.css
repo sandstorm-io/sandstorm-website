@@ -48,14 +48,17 @@ header {
 
 header #crowdfunding {
   display: block;
-  background-color: #eb1478;
   text-align: center;
   margin-top: 32px;
   padding: 16px;
   font-size: 24pt;
-  color: white;
+
+  border-top: 4px solid #eb1478;
+  border-bottom: 4px solid #eb1478;
+  color: #eb1478;
+  background-color: white;
 }
-header #crowdfunding:hover {
+header #crowdfunding:hover div {
   text-decoration: underline;
 }
 
@@ -86,8 +89,54 @@ section {
   overflow: hidden;
 }
 
-section:nth-child(2n+1) {
+section:after {
+  content: "";
+  display: block;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-bottom: 1px solid #a49f97;
+}
+
+/*section:nth-child(2n+1) {
   background-color: #f4f4f4;
+}*/
+
+section.press>p {
+  width: 800px;
+  margin: 32px auto;
+  font-size: 120%;
+}
+section.press>p span.img {
+  display: inline-block;
+  width: 300px;
+  vertical-align: middle;
+  text-align: center;
+}
+section.press>p span.headline {
+  display: inline-block;
+  vertical-align: middle;
+  width: 450px;
+  text-align: left;
+}
+
+section.press>p a {
+  color: inherit;
+}
+
+@media screen and (max-width: 800px) {
+  section.press>p {
+    width: auto;
+    margin: 32px 16px;
+  }
+  section.press>p span.img {
+    display: block;
+    width: auto;
+  }
+  section.press>p span.headline {
+    display: block;
+    width: auto;
+    text-align: center;
+  }
 }
 
 #logo {
@@ -239,25 +288,50 @@ section>p {
   text-align: left;
 }
 
+div.indiegogo-embed {
+  width: 220px;
+  height: 80px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+div.indiegogo-embed>iframe {
+  width: 222px;
+  height: 445px;
+  position: absolute;
+  bottom: -1px;
+  left: -1px;
+}
+
 #crowdfunding2 {
   padding: 8px;
   width: 430px;
   margin: 32px auto;
   display: inline-block;
-  height: 253px;
+  height: 226px;
   vertical-align: middle;
+  position: relative;
 }
 
-#crowdfunding2 a {
-  display: block;
-  width: 100%;
-  height: 210px;
-  margin: 16px 0 16px;
-  background-color: #eb1478;
+#crowdfunding2>div:last-child {
+  position: absolute;
+  bottom: 0;
+}
+
+#crowdfunding2>div:last-child a {
+  background-color: #428bca;
+  padding: 10px 16px;
+  font-size: 200%;
+  line-height: 1.33;
   border-radius: 6px;
+  border: none;
   color: white;
-  font-size: 65px;
-  padding: 15px;
+  cursor: pointer;
+  font-weight: 300;
+  text-align: middle;
+  display: inline-block;
 }
 
 #signup-form.glowing-border {
@@ -398,11 +472,14 @@ a.link-button {
   border: none;
   color: white;
   cursor: pointer;
+
+  display: inline-block;
+  width: 110px;
+  text-align: center;
 }
 
 p.link-button-box {
-  margin: 32px 32px 32px 0;
-  text-align: center;
+  float: right;
 }
 
 .footer {

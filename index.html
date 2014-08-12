@@ -63,7 +63,13 @@
                  src="//platform.twitter.com/widgets/follow_button.html?screen_name=SandstormIO&show_count=false"
                  style="display: inline-block; width:150px; height:20px;"></iframe></p>
 
-      <a id="crowdfunding" href="http://igg.me/at/sandstorm">We are crowdfunding »</a>
+      <a id="crowdfunding" href="http://igg.me/at/sandstorm">
+        <div class="indiegogo-embed">
+          <iframe src="https://www.indiegogo.com/project/sandstorm-io-personal-cloud-platform/embedded/8180226" frameborder="0" scrolling="no"></iframe>
+        </div>
+        <div style="display: inline-block; vertical-align: middle; text-align: left">
+          Fund us on<br>Indiegogo »</div></a>
+
     </header>
 
     <section>
@@ -169,64 +175,98 @@
 
       <div class="row-wide">
         <div class="column">
+          <p class="link-button-box"><a class="link-button" href="javascript:highlightSubscribeForm()">Sign up »</a>
           <h3>Use Our Servers...</h3>
           <p>We offer managed Sandstorm instances.  Starting in March 2014, this service is in
             closed alpha testing.  As we ramp up, we will send invites to people on the mailing
             list on a first-come-first-serve basis.
-          <p class="link-button-box"><a class="link-button" href="javascript:highlightSubscribeForm()">Sign up »</a>
         </div>
         <div class="column">
+          <p class="link-button-box"><a class="link-button" href="http://github.com/sandstorm-io/sandstorm">Github »</a>
           <h3>...Or Run Your Own</h3>
           <p>Sandstorm is Open Source Software.  You can find the code and installation instructions
             at Github.  You will need a Linux machine and an understanding of Linux system
             administration to set up your server, but you can then share that server with friends
             and family who do not know Linux.
-          <p class="link-button-box"><a class="link-button" href="http://github.com/sandstorm-io/sandstorm">Github Project »</a>
         </div>
         <div class="column">
+          <p class="link-button-box"><a class="link-button" href="https://groups.google.com/group/sandstorm-dev">Dev Group »</a>
           <h3>Develop Apps</h3>
           <p>We need apps!  We have <a href="apps/">a few</a> already, but we need more.  Check
             out <a href="http://github.com/sandstorm-io/sandstorm">the Github project</a> for
             instructions.  Join the developer group to discuss your plans and get help.
-          <p class="link-button-box"><a class="link-button" href="https://groups.google.com/group/sandstorm-dev">Dev Group »</a>
         </div>
         <div class="column">
+          <p class="link-button-box"><a class="link-button" href="https://demo.sandstorm.io/demo">Demo »</a>
           <h3>Try the Demo</h3>
           <p>If you just want to see what Sandstorm is like, you can create a demo account that
             will last one hour. (Sorry, we don't yet have the resources to give long-lived free
             accounts to everyone.)
-          <p class="link-button-box"><a class="link-button" href="https://demo.sandstorm.io/demo">Try the Demo »</a>
         </div>
+      </div>
+
+      <h2>Most importantly...</h2>
+
+      <!-- mailing list signup form -->
+      <div style="text-align: center">
+      <form id="signup-form" action="http://sandstorm.us7.list-manage1.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+        <h3>Get on the list</h3>
+        <p>We'll keep you updated as things progress.
+        <div><input type="email" value="" name="EMAIL" id="subscribe-email" placeholder="you@example.com" required><br></div>
+        <div style="display: table; width: 100%;">
+          <div style="display: table-cell; vertical-align: middle;">
+            <strong>I'm interested in... </strong><br>
+            <input type="checkbox" name="group[9385][1]" value="1" checked>Using Sandstorm<br>
+            <input type="checkbox" name="group[9385][2]" value="2" checked>Developing apps<br clear="right">
+          </div>
+          <div style="display: table-cell; vertical-align: middle; text-align: right;">
+            <input type="submit" value="Subscribe »">
+          </div>
+        </div>
+        <!-- iz you a bot? -->
+        <div style="position: absolute; left: -5000px;">
+          <input type="text" name="b_1a036c5ea0fc3c215793748ed_5d9399a0af" value="">
+        </div>
+      </form>
+      <!-- end mailing list signup form -->
+      <div id="crowdfunding2">
+        <h3>Help fund us</h3>
+
+        <p>You can pre-order hosting or get other great perks by funding our <a href="http://igg.me/at/sandstorm">Indiegogo campaign</a>.
+        <div><div class="indiegogo-embed">
+          <iframe src="https://www.indiegogo.com/project/sandstorm-io-personal-cloud-platform/embedded/8180226" frameborder="0" scrolling="no"></iframe>
+        </div><a href="http://igg.me/at/sandstorm">Contribute»</a></div>
+
+        <!--a href="http://igg.me/at/sandstorm">Fund us on<br>Indiegogo »<br>
+        <div class="indiegogo-embed">
+          <iframe src="https://www.indiegogo.com/project/sandstorm-io-personal-cloud-platform/embedded/8180226" frameborder="0" scrolling="no"></iframe>
+        </div></a-->
+      </div>
       </div>
     </section>
 
-    <!-- mailing list signup form -->
-    <div style="text-align: center">
-    <form id="signup-form" action="http://sandstorm.us7.list-manage1.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
-      <h3>Get on the list</h3>
-      <p>We'll keep you updated as development progresses
-        and send you an <b>invite key</b> when there's space.
-      <div><input type="email" value="" name="EMAIL" id="subscribe-email" placeholder="you@example.com" required><br></div>
-      <div style="display: table; width: 100%;">
-        <div style="display: table-cell; vertical-align: middle;">
-          <strong>I'm interested in... </strong><br>
-          <input type="checkbox" name="group[9385][1]" value="1" checked>Using Sandstorm<br>
-          <input type="checkbox" name="group[9385][2]" value="2" checked>Developing apps<br clear="right">
-        </div>
-        <div style="display: table-cell; vertical-align: middle; text-align: right;">
-          <input type="submit" value="Subscribe »">
-        </div>
-      </div>
-      <!-- iz you a bot? -->
-      <div style="position: absolute; left: -5000px;">
-        <input type="text" name="b_1a036c5ea0fc3c215793748ed_5d9399a0af" value="">
-      </div>
-    </form>
-    <div id="crowdfunding2">
-      <a href="http://igg.me/at/sandstorm">Fund us on<br>Indiegogo »</a>
-    </form>
-    </div>
-    <!-- end mailing list signup form -->
+    <section class="press">
+      <p><a href="http://gigaom.com/2014/08/01/sandstorms-decentralized-hosting-platform-could-finally-make-indie-web-apps-viable/">
+        <span class="img"><img src="thirdparty/gigaom.png" alt="GigaOM:" title="GigaOM"></span>
+        <span class="headline">Sandstorm’s decentralized hosting platform could finally make indie web apps viable »</span></a>
+
+      <p><a href="http://techcrunch.com/2014/08/05/sandstorm/">
+        <span class="img"><img src="thirdparty/techcrunch.png" alt="TechCrunch:" title="TechCrunch"></span>
+        <span class="headline">Sandstorm Wants Web Users To Gain More Control Over The Apps They Use »</span></a>
+
+      <p><a href="http://www.wired.com/2014/07/out-in-the-open-sandstorm-makes-it-easy-to-control-your-apps-in-the-cloud/">
+        <span class="img"><img src="thirdparty/wired.png" alt="WIRED:" title="WIRED"></span>
+        <span class="headline">Sandstorm Makes It Easy to Control Your Apps in the Cloud »</span></a>
+
+      <p><a href="http://lwn.net/Articles/603485/">
+        <span class="img"><img src="thirdparty/lwn.png" alt="Linux Weekly News:" title="Linux Weekly News"></span>
+        <span class="headline">Sandstorm personal cloud platform »</span></a>
+
+      <p><a href="http://opensource.com/life/14/8/sandstorm-open-source-web-apps">
+        <span class="img"><img src="thirdparty/opensource.com.png" alt="Opensource.com:" title="Opensource.com"></span>
+        <span class="headline">What owning your personal cloud means for the open source movement »</span></a>
+
+    </section>
 
     <h3 class="footer">Sandstorm is developed by:</h3>
     <div id="nametags">
