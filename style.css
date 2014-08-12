@@ -321,7 +321,7 @@ div.indiegogo-embed>iframe {
 }
 
 #crowdfunding2>div:last-child a {
-  background-color: #428bca;
+  background-color: #eb1478;
   padding: 10px 16px;
   font-size: 200%;
   line-height: 1.33;
@@ -332,6 +332,13 @@ div.indiegogo-embed>iframe {
   font-weight: 300;
   text-align: middle;
   display: inline-block;
+}
+
+#crowdfunding2 a {
+  color: #eb1478;
+}
+#crowdfunding2 a:hover {
+  color: #ff79b7;
 }
 
 #signup-form.glowing-border {
