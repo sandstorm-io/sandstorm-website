@@ -185,8 +185,8 @@ function composeRect(parent, eventName, x, y, width, startT, endT, vel, parentSp
       }
 
       var r = document.createElementNS(svgns, "rect");
-      r.setAttributeNS(null, "width", pieceWidth * 1.05);
-      r.setAttributeNS(null, "height", pieceWidth * 1.05);
+      r.setAttributeNS(null, "width", pieceWidth * 1.1);
+      r.setAttributeNS(null, "height", pieceWidth * 1.1);
       r.setAttributeNS(null, "x", 0);
       r.setAttributeNS(null, "y", -100);
       r.setAttributeNS(null, "fill", "#524444");
