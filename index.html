@@ -3,7 +3,30 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+      // Really hacky code to set meta-viewport.
+      //
+      // The site was originally designed around a mobile viewport width of 480px. However, this
+      // looked bad on tablets. But setting width=device-width doesn't really work either, because
+      // iPhones and similar devices report a width of 320, which is too thin and breaks all our
+      // layout. Also, viewport widths between about 500 and 690 look bad because there's a single
+      // column down the middle with excessive whitespace on the edges. At 690 we start showing
+      // two columns. So our solution is to force all screens with device widths less than 690 to
+      // use a viewport of 480. Above that, we let the responsive design do its thing.
+      //
+      // TODO(cleanup): Adjust the design so it works down to 320, and doesn't have whitespace
+      //   problems on things in between?
+      var viewportTag = document.createElement("meta");
+      viewportTag.name = "viewport";
+
+      function updateViewport() {
+        viewportTag.content = "width=" + (screen.width < 690 ? 480 : screen.width);
+      }
+      updateViewport();
+
+      document.head.appendChild(viewportTag);
+      window.onorientationchange = updateViewport;
+    </script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css">
     <meta property="og:title" content="Sandstorm.io">
