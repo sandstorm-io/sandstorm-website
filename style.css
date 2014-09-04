@@ -498,14 +498,14 @@ h3.footer {
   margin-bottom: 8px;
 }
 
-#nametags {
+.nametags {
   text-align: center;
   margin: auto;
 }
 
 @media screen and (max-width: 1900px) {
   /* Don't display three boxes followed by one. */
-  #nametags {
+  .nametags {
     max-width: 1000px;
   }
 }
@@ -534,4 +534,22 @@ h3.footer {
   vertical-align: middle;
   text-align: left;
   width: 270px;
+}
+
+.corptags {
+  text-align: center;
+  margin: auto;
+}
+
+.corptag {
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+}
+
+.corptag img {
+  max-width: 300px;
+  max-height: 300px;
+  vertical-align: middle;
 }
