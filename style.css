@@ -97,6 +97,19 @@ section:after {
   border-bottom: 1px solid #a49f97;
 }
 
+section>p {
+  max-width: 800px;
+  margin: 1em auto;
+}
+
+section>.bigquote {
+  max-width: 800px;
+  margin: 32px auto;
+  text-align: left;
+  font-size: 175%;
+  padding: 0 16px;
+}
+
 /*section:nth-child(2n+1) {
   background-color: #f4f4f4;
 }*/
@@ -173,8 +186,8 @@ section>p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1700px) {
-  /* Don't display four boxes followed by one. */
+@media screen and (max-width: 2040px) {
+  /* Don't display four boxes followed by two or five followed by one. */
   .row, .row-wide {
     max-width: 1100px;
   }
@@ -316,8 +329,7 @@ div.indiegogo-embed>iframe {
 }
 
 #crowdfunding2>div:last-child {
-  position: absolute;
-  bottom: 0;
+  margin: 0 auto;
 }
 
 #crowdfunding2>div:last-child a {
@@ -482,6 +494,21 @@ a.link-button {
 
   display: inline-block;
   width: 110px;
+  text-align: center;
+}
+
+a.big-link-button {
+  font-family: inherit;
+  background-color: #428bca;
+
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 175%;
+  border: none;
+  color: white;
+  cursor: pointer;
+
+  display: inline-block;
   text-align: center;
 }
 
