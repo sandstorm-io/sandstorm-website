@@ -75,8 +75,10 @@ header p {
   text-align: center;
 }
 
-header p.sublinks {
+header .sublinks {
   margin: 8px;
+  font-size: 1.2em;
+  text-align: center;
 }
 
 header h2 {

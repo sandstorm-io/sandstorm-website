@@ -80,11 +80,13 @@
          <a href="javascript:highlightSubscribeForm()">Sign Up</a> -
          <a href="https://blog.sandstorm.io/">News</a> -
          <a href="https://demo.sandstorm.io/demo">Demo</a>
-      <p class="sublinks">
-         <span class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107599969974415778560" data-rel="publisher"></span>
+      <div class="sublinks">
+         <span style="display: inline-block" class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107599969974415778560" data-rel="publisher"></span>
+         <div style="display: inline-block; font-size: 1px;" class="fb-follow" data-href="https://www.facebook.com/sandstorm.io" data-colorscheme="light" data-layout="button" data-show-faces="false" data-height="20"></div>
          <iframe allowtransparency="true" frameborder="0" scrolling="no"
                  src="//platform.twitter.com/widgets/follow_button.html?screen_name=SandstormIO&show_count=false"
-                 style="display: inline-block; width:150px; height:20px;"></iframe></p>
+                 style="display: inline-block; width:150px; height:20px"></iframe>
+      </div>
 
       <a id="crowdfunding" href="http://igg.me/at/sandstorm">
         <div class="indiegogo-embed">
@@ -456,6 +458,16 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
       })();
     </script>
+
+    <!-- Facebook buttons. -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
     <!-- Google Analytics -->
     <script>
