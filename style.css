@@ -582,3 +582,15 @@ h3.footer {
   max-height: 300px;
   vertical-align: middle;
 }
+
+#backers {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+
+#backers li {
+  display: inline-block;
+  text-align: center;
+  padding: 0 16px;
+}
