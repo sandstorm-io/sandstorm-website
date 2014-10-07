@@ -42,7 +42,8 @@ header {
   line-height: 1;
   padding: 32px 0 0;
   margin: 0;
-  margin-bottom: 64px;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
 /*  border-bottom: 2px solid #a49f97; */
 }
 
@@ -109,7 +110,7 @@ section>.bigquote {
   margin: 32px auto;
   text-align: left;
   font-size: 175%;
-  padding: 0 16px;
+  padding: 0 16px 0 32px;
 }
 
 /*section:nth-child(2n+1) {
@@ -181,17 +182,23 @@ section>h2 {
 
 section>p {
   text-align: center;
+  padding: 0 16px;
 }
 
 .row, .row-wide {
   text-align: center;
   margin: 0 auto;
+  max-width: 1100px;
 }
 
-@media screen and (max-width: 2040px) {
-  /* Don't display four boxes followed by two or five followed by one. */
+@media screen and (max-width: 1024px) {
+  /* Don't display two boxes followed by one. */
   .row, .row-wide {
-    max-width: 1100px;
+    max-width: 450px;
+  }
+
+  .row>.column {
+    width: 400px;
   }
 }
 
@@ -205,12 +212,6 @@ section>p {
 
 .row-wide>.column {
   width: 400px;
-}
-
-@media screen and (max-width: 864px) {
-  .row-wide>.column {
-    width: 300px;
-  }
 }
 
 .bigpill {
