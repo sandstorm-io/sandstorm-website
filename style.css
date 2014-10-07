@@ -108,9 +108,10 @@ section>p {
 section>.bigquote {
   max-width: 800px;
   margin: 32px auto;
-  text-align: left;
+  text-align: center;
   font-size: 175%;
   padding: 0 16px 0 32px;
+  font-weight: 600;
 }
 
 /*section:nth-child(2n+1) {
