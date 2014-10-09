@@ -28,7 +28,7 @@
       window.onorientationchange = updateViewport;
     </script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="style-next.css">
     <meta property="og:title" content="Sandstorm.io">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
@@ -118,132 +118,165 @@
       </div>
     </section-->
 
-    <section>
-      <div class="bigquote">Sandstorm is a better way to run a personal server.</div>
+    <section id="principles">
+      <h2>Sandstorm is a better<br>way to run your server.</h2>
 
       <div class="row">
-        <div class="column">
+        <div class="column" style="height: 220px" id="tab-usability" data-group="principles">
           <h3>Usability</h3>
-          <p>Sandstorm is the easiest way there has ever been to run a server. Install apps to your personal cloud as easily as you'd install apps on your phone. No command lines, no config files; everything happens through your web browser.
-        </div>
-
-        <div class="column">
+          <p>Sandstorm is the easiest way there has ever been to run a server. Install apps as easily as on your phone.
+          <p><a href="#usability">Learn more »</a>
+        </div><div class="column" style="height: 220px" id="tab-security" data-group="principles">
           <h3>Security</h3>
-          <p>Sandstorm is so secure that you can safely run apps that are actively evil, without any harm to your other apps. Meanwhile, our innovative capability-based security model and Powerbox UI make sure security never gets in the way.
-        </div>
-
-        <div class="column">
+          <p>Sandstorm protects you from evil (or buggy) apps while making sure security never gets in the way.
+          <p><a href="#security">Learn more »</a>
+        </div><div class="column" style="height: 220px" id="tab-freedom" data-group="principles">
           <h3>Freedom</h3>
-          <p>Run the apps you want, where you want. Don't get locked into walled gardens. Use open source apps -- and modify them if you want. Hook apps together in ways that the developers never thought of. With Sandstorm, you call the shots.
+          <p>Don't get locked into walled gardens. Run any app you want -- even upload your own. You call the shots.
+          <p><a href="#freedom">Learn more »</a>
         </div>
+      </div>
+
+      <div class="overlay" id="usability" data-group="principles">
+        <p>Sandstorm is designed from the ground up to be radically easier to use than any other server platform.
+        <p><b>Easy to get apps:</b> Installing an app on your server is like installing an app on your phone. Just choose the app you want from the app store and click "install". You never have to use command shells nor edit config files. You don't have to know about databases nor reverse proxies. Everything is done through your web browser, or handled automatically.
+        <p><b>Easy to collaborate:</b> Sharing is built into Sandstorm. You can share any app or document with anyone, whether or not they have an account. Sandstorm supports real-time collaboration apps, including document and spreadsheet editors that allow your collaborators to see what you are typing in real time.
+        <p><b>Easy to set up:</b> Installing Sandstorm on your own Linux machine today is as easy as running one script, and it automatically keeps itself up to date. We are working on ways to make it even easier, such as building a Sandstorm distro that can be installed on any machine or VM. We also plan to launch a hosting service where we will manage your server for you, for those who would rather have their apps "in the cloud".
+      </div>
+
+      <div class="overlay" id="security" data-group="principles">
+        <p>Sandstorm is designed by security wonks. Where most developers don't want to think about security, we care deeply about it, and have designed the whole system to protect you.
+        <p><b>Protection from malware:</b> On a traditional server, installing an evil app could mean you lose everything. Under Sandstorm, each app runs in its own secure "sandbox" which starts out isolated from the world. It can't interfere with your other apps nor "phone home" to its developer until you give it permission.
+        <p><b>Protection from bugs:</b> Let's face it: most developers don't think enough about security, and they end up producing apps that have bugs allowing hackers to get in. Sandstorm automatically protects apps against a wide range of common vulnerabilities, and security-critical functions like login and sharing are handled by the system itself.
+        <p><b>Protection from spying:</b> Sandstorm apps cannot phone home, so they cannot collect data about you for advertising purposes nor perform unwanted experiments on you. Moreover, we are developing advanced per-document encryption techniques to thwart even dedicated hackers.
+        <p><b>No protection from getting your job done:</b> Security can often be a hassle, getting in the way of your work. Sandstorm is different. When you tell a Sandstorm app to talk to some other app, or to talk to the internet, Sandstorm sees your intent and automatically grants it access. So, you are never interrupted by a prompt asking "Do you want to allow this app to the thing you just told it to do?" And yet, the apps only get the permissions you actually wanted them to have.
+      </div>
+
+      <div class="overlay" id="freedom" data-group="principles">
+        <p>By separating app developers from hosts, Sandstorm leaves you in control.
+        <p><b>Freedom to Choose:</b> Run any app you want. You are not limited to what's in the app store. Any developer can build a Sandstorm package, and you can upload any package to your server. You can even run Open Source and Indie apps from developers who don't have the funding to run their own servers.
+        <p><b>Freedom to Customize:</b> When you are running your own copy of an app on Sandstorm, there's nothing stopping you from customizing it to your needs, because your changes only affect you. Especially with open source apps, if you don't like the way a feature works, or wish you had a feature that's not there, you can fix it. Not a developer? Perhaps a friend can help, or at worst you can pay someone for a day of work. Compare this to big centralized web services, where you are at the mercy of the operator, who will probably ignore your requests.
+        <p><b>Freedom to Integrate:</b> Big centralized web providers tend to build walled gardens that lock you in. Their apps tend only to integrate with other apps from the same company. This isn't because they are evil -- usually it's because they are lazy. With Sandstorm, all your apps live under one roof and behind one login system, which makes it much easier for them to talk to each other securely. And if an app allows <i>any</i> other app to integrate with it, then it must allow <i>all</i> apps that speak the same protocol to do so, so developers can't shut each other out.
       </div>
 
       <p><a class="big-link-button" href="https://demo.sandstorm.io">Try the demo »</a></p>
     </section>
 
-    <section>
-      <h2>Why have a personal server?</h2>
-      <p>Sandstorm lets you keep control over your personal cloud.
+    <section id="users">
+      <h2>Who is this for?</h2>
 
       <div class="row">
-        <div class="column">
-          <h3>Lots of Apps</h3>
-          <p>Use <a href="/apps/">a wide variety of web apps</a> on Sandstorm, including things that you can't find elsewhere. We have the usual e-mail, photo sharing, and collaborative document editing, but also niche apps that the big guys will never offer because they can't be monetized. Moreover, Sandstorm is <a href="https://blog.sandstorm.io/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">the only easy way to run many great open source apps</a>.
-        </div>
-
-        <div class="column">
-          <h3>Protect your privacy</h3>
-          <p>Sandstorm apps can only talk to the outside world with your explicit permission.  That
-            means they can't secretly
-            <a href="http://news.cnet.com/8301-10805_3-57620658-75/microsoft-sniffed-bloggers-hotmail-account-to-trace-leak/">spy</a> on you, develop an <a href="https://www.google.com/settings/ads">advertising profile</a> from your data, or <a href="http://www.nytimes.com/2014/06/30/technology/facebook-tinkers-with-users-emotions-in-news-feed-experiment-stirring-outcry.html?_r=0">perform psych experiments</a> on you without your consent. Plus, apps running on your server do not <a href="http://reader.google.com">disappear</a> when the developer stops supporting them.
-        </div>
-
-        <div class="column">
-          <h3>Don't get locked in</h3>
-          <p>When developers run the servers, they can lock you in to their walled garden, refusing to play nice with competitors they don't like. Sandstorm puts all your apps and data under <i>your</i> roof, where you can mix and match apps as you please. You can even freely move between hosts and take all your apps and data with you.
+        <div class="column" style="height: 300px" id="tab-individuals" data-group="users">
+          <h3>Individuals</h3>
+          <p>Use Sandstorm to run your personal cloud. Run the apps you choose. Support open source developers. Keep all your data in one place. Avoid spying, advertising, unwanted experiments, and disappearing apps.
+          <p><a href="#individuals">Learn more »</a>
+        </div><div class="column" style="height: 300px" id="tab-developers" data-group="users">
+          <h3>Developers</h3>
+          <p>Building your app on Sandstorm lets you focus on your product. No need to maintain or pay for servers, carry a pager, nor even design for scalability. Just build your app and put it on the app store.
+          <p><a href="#developers">Learn more »</a>
+        </div><div class="column" style="height: 300px" id="tab-enterprises" data-group="users">
+          <h3>Enterprises</h3>
+          <p>We are building tools that allow you to run your corporate server cluster much more easily. Treat a group of machines as a single Sandstorm instance. Reduce IT costs while vastly improving security.
+          <p><a href="#enterprises">Learn more »</a>
         </div>
       </div>
+
+      <div class="overlay" id="individuals" data-group="users">
+        <p>Why have a personal server? Lots of reasons:
+
+        <p><b>Lots of Apps:</b> Use <a href="/apps/">a wide variety of web apps</a> on Sandstorm, including things that you can't find elsewhere. We have the usual e-mail, photo sharing, and collaborative document editing, but also niche apps that the big guys will never offer because they can't be monetized. Moreover, Sandstorm is <a href="https://blog.sandstorm.io/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">the only easy way to run many great open source apps</a>.
+
+        <p><b>Protect your privacy:</b> Sandstorm apps can only talk to the outside world with your explicit permission.  That means they can't secretly <a href="http://news.cnet.com/8301-10805_3-57620658-75/microsoft-sniffed-bloggers-hotmail-account-to-trace-leak/">spy</a> on you, develop an <a href="https://www.google.com/settings/ads">advertising profile</a> from your data, or <a href="http://www.nytimes.com/2014/06/30/technology/facebook-tinkers-with-users-emotions-in-news-feed-experiment-stirring-outcry.html?_r=0">perform psych experiments</a> on you without your consent. Plus, apps running on your server do not <a href="http://reader.google.com">disappear</a> when the developer stops supporting them.
+
+        <p><b>Don't get locked in:</b> When developers run the servers, they can lock you in to their walled garden, refusing to play nice with competitors they don't like. Sandstorm puts all your apps and data under <i>your</i> roof, where you can mix and match apps as you please. You can even freely move between hosts and take all your apps and data with you.
+
+        <p style="text-align: center"><a class="big-link-button" href="https://github.com/sandstorm-io/sandstorm">Install Now »</a> <a class="big-link-button" href="javascript:highlightSubscribeForm()">Stay Updated »</a></p>
+      </div>
+
+      <div class="overlay" id="developers" data-group="users">
+        <p>What's in it for developers? As it turns out, lots of things:
+        <p><b>Focus on your Product:</b> Just build your app and put it in the app store. No need to maintain or pay for servers. No need to carry a pager. No need to design for scalability. Use any tech stack that runs on Linux &mdash; Node, Rails, PHP, Java, Python, whatever. It's easy to port existing code to run on Sandstorm.
+        <p><b>Security is Built-in:</b> You don't have to implement login. You don't even have to implement sharing — Sandstorm does that for you. You can even export APIs and integrate with other apps without thinking about OAuth. Sandstorm protects you and your users from most common security problems, so you can rest easy.
+        <p><b>Behind-the-firewall:</b> Do your corporate customers often ask to run your app on-prem, behind their firewall? Does that sound like a huge pain to support? Sandstorm makes it easy, handling packaging, deployment, and updates.
+        <p style="text-align: center"><a class="big-link-button" href="https://github.com/sandstorm-io/sandstorm/wiki">Start Hacking »</a></p>
+      </div>
+
+      <div class="overlay" id="enterprises" data-group="users">
+        <p>Use Sandstorm to run your enterprise server cluster:
+        <p><b>Easy App Deployment:</b> A Sandstorm app only takes a couple clicks to deploy. It's so easy and secure that non-technical employees can actually deploy the apps they need themselves, without wasting valuable IT time. Get SaaS-like ease-of-use while keeping your data on-prem and under your control.
+        <p><b>Ridiculously Secure:</b> Sandstorm automatically compartmentalizes apps and users, <b>preventing</b> application bugs from leading to <a href="http://www.informationisbeautiful.net/visualizations/worlds-biggest-data-breaches-hacks/">catastrophic security failures</a>. Meanwhile, Sandstorm's innovative security model ensures that these protections never get in the way of people doing their jobs.
+        <p><b>Cluster Management:</b> Sandstorm's enterprise tools will allow a cluster of machines to be treated like one big server. Just load the Sandstorm image on each machine and turn them on, and they'll self-organize. Install apps just as easily as with the personal version, as seen in <a href="https://demo.sandstorm.io/">our demo</a>.
+        <p style="text-align: center"><a class="big-link-button" href="mailto:sales@sandstorm.io">Request Early Access »</a>
+      </div>
+
     </section>
 
+    <script type="text/javascript">
+      (function () {
+        var toArray = Array.prototype.slice.call.bind(Array.prototype.slice);
+
+        function openOverlay(id) {
+          var section = document.getElementById(id);
+          var group = section.getAttribute("data-group");
+          toArray(document.getElementsByClassName("overlay")).forEach(function (element) {
+            if (element.getAttribute("data-group") === group) {
+              element.style.display = "none";
+            }
+          });
+          section.style.display = "block";
+
+          toArray(document.getElementsByClassName("column")).forEach(function (element) {
+            if (element.getAttribute("data-group") === group) {
+              element.className = "column";
+            }
+          });
+          var tab = document.getElementById("tab-" + id);
+          tab.className = "column selected";
+
+          return group;
+        }
+
+        function openOverlayHandler(id) {
+          console.log("overlay for", id);
+          return function (event) {
+            window.history.replaceState({}, document.title, "#" + id);
+            openOverlay(id);
+            event.preventDefault();
+          }
+        }
+
+        if (document.location.hash) {
+          var topic = document.location.hash;
+          if (topic.slice(0, 1) === '#') topic = topic.slice(1);
+          var group = openOverlay(topic);
+          setTimeout(function () {document.getElementById(group).scrollIntoView();}, 0);
+        }
+
+        var urlPrefix = (document.location + "").split("#")[0];
+
+        toArray(document.getElementsByTagName("a")).forEach(function (link) {
+          console.log(link.href);
+
+          var parts = link.href.split("#");
+
+          if (parts.length === 2 && parts[0] == urlPrefix) {
+            link.onclick = openOverlayHandler(parts[1]);
+          }
+        });
+
+        toArray(document.getElementsByClassName("overlay")).forEach(function (section) {
+/*          var closer = document.createElement("div");
+          closer.className = "closer";
+          closer.onclick = function () {
+            window.history.replaceState({}, document.title, ".")
+            section.style.display = "none";
+          }*/
+          section.insertBefore(closer, section.childNodes[0]);
+        });
+      })();
+    </script>
+
     <section>
-      <h2>What's in it for the developers?</h2>
-      <p>Build web apps without all the hassle.
-
-      <div class="row">
-        <div class="column">
-          <h3>Focus on your Product</h3>
-          <p>Just build your app and put it in the app store. No need to maintain or pay for servers. No need to carry a pager. No need to design for scalability. Use any tech stack that runs on Linux &mdash; Node, Rails, PHP, Java, Python, whatever. It's easy to port existing code to run on Sandstorm.
-        </div>
-        <div class="column">
-          <h3>Security is Built-in</h3>
-          <p>You don't have to implement login. You don't even have to implement sharing — Sandstorm does that for you. You can even export APIs and integrate with other apps without thinking about OAuth. Sandstorm protects you and your users from most common security problems, so you can rest easy.
-        </div>
-        <div class="column">
-          <h3>Behind-the-firewall</h3>
-          <p>Do your corporate customers often ask to run your app on-prem, behind their firewall? Does that sound like a huge pain to support? Sandstorm makes it easy, handling packaging, deployment, and updates.
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>What about enterprise?</h2>
-      <p>We are building tools that allow you to run your corporate server cluster much more easily.
-
-      <div class="row">
-        <div class="column">
-          <h3>Easy App Deployment</h3>
-          <p>A Sandstorm app only takes a couple clicks to deploy. It's so easy and secure that non-technical employees can actually deploy the apps they need themselves, without wasting valuable IT time. Get SaaS-like ease-of-use while keeping your data on-prem and under your control.
-        </div>
-        <div class="column">
-          <h3>Ridiculously Secure</h3>
-          <p>Sandstorm automatically compartmentalizes apps and users, <b>preventing</b> application bugs from leading to <a href="http://krebsonsecurity.com/2014/02/target-hackers-broke-in-via-hvac-company/">catastrophic security failures</a>. Meanwhile, Sandstorm's innovative security model ensures that these protections never get in the way of people doing their jobs.
-        </div>
-        <div class="column">
-          <h3>Cluster Management</h3>
-          <p>Sandstorm's enterprise tools will allow a cluster of machines to be treated like one big server. Just load the Sandstorm image on each machine and turn them on, and they'll self-organize. Install apps just as easily as with the personal version, as seen in <a href="https://demo.sandstorm.io/">our demo</a>.
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>So what do I do?</h2>
-
-      <p>We're still in the early days of development, but you can start playing with Sandstorm
-        now!
-
-      <div class="row-wide">
-        <div class="column">
-          <p class="link-button-box"><a class="link-button" href="javascript:highlightSubscribeForm()">Sign up »</a>
-          <h3>Use Our Servers...</h3>
-          <p>We plan to begin offering managed hosting for Sandstorm in spring of 2015. Invites to
-            our closed alpha and beta tests were offered as part of
-            <a href="http://igg.me/at/sandstorm">our crowdfunding campaign</a>. To get updates on
-            the service, subscribe to our mailing list.
-        </div>
-        <div class="column">
-          <p class="link-button-box"><a class="link-button" href="http://github.com/sandstorm-io/sandstorm">Github »</a>
-          <h3>...Or Run Your Own</h3>
-          <p>Sandstorm is Open Source Software.  You can find the code and installation instructions
-            at Github.  You will need a Linux machine and an understanding of Linux system
-            administration to set up your server, but you can then share that server with friends
-            and family who do not know Linux.
-        </div>
-        <div class="column">
-          <p class="link-button-box"><a class="link-button" href="https://groups.google.com/group/sandstorm-dev">Dev Group »</a>
-          <h3>Develop Apps</h3>
-          <p>We need apps!  We have <a href="apps/">a bunch</a> already, but we need more.  Check
-            out <a href="http://github.com/sandstorm-io/sandstorm">the Github project</a> for
-            instructions.  Join the developer group to discuss your plans and get help.
-        </div>
-        <div class="column">
-          <p class="link-button-box"><a class="link-button" href="https://demo.sandstorm.io/demo">Demo »</a>
-          <h3>Try the Demo</h3>
-          <p>If you just want to see what Sandstorm is like, you can create a demo account that
-            will last one hour. (Sorry, we don't yet have the resources to give long-lived free
-            accounts to everyone.)
-        </div>
-      </div>
-
       <h2>Like what you see?</h2>
 
       <!-- mailing list signup form -->
@@ -425,7 +458,7 @@
         <a href="http://draw.io"><img src="thirdparty/draw.io-logo.svg"></a>
       </div>
       <div class="corptag">
-        <img src="thirdparty/humanweb.png">
+        <img src="thirdparty/humanweb.png" style="padding: 111px 0">
       </div>
       <div class="corptag">
         <a href="https://uniregistry.com"><img src="thirdparty/uniregistry.svg"></a>

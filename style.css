@@ -113,6 +113,52 @@ section>.bigquote {
   padding: 0 16px 0 32px;
   font-weight: 600;
 }
+/*
+.overlay {
+  display: none;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 16px;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid black;
+}
+
+.overlay .closer {
+  float: right;
+  background-image: url("close.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+*/
+
+.overlay {
+  display: none;
+  max-width: 800px;
+  padding: 0 100px;
+  margin: -1px auto 16px;
+
+  border: 1px solid #c4bbbb;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.overlay .closer {
+  float: right;
+  background-image: url("close.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
 
 /*section:nth-child(2n+1) {
   background-color: #f4f4f4;
@@ -209,6 +255,17 @@ section>p {
   text-align: left;
   width: 300px;
   vertical-align: top;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-top: 1px solid #fff;
+}
+
+.column.selected {
+  border: 1px solid #c4bbbb;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom: 1px solid #fff;
+  background-color: #fff;
 }
 
 .row-wide>.column {
@@ -582,13 +639,20 @@ h3.footer {
 .corptag img {
   max-width: 300px;
   max-height: 300px;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 #backers {
   list-style: none;
   text-align: center;
   padding: 0;
+  margin: 1em auto;
+  max-width: 800px;
+  height: 600px;
+  overflow: auto;
+  border: 1px solid #524444;
+  border-radius: 4px;
+  box-shadow: 0 0 4px #524444;
 }
 
 #backers li {
