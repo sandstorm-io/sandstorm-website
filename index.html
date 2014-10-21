@@ -3,6 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
     <script type="text/javascript">
       // Really hacky code to set meta-viewport.
       //
@@ -28,7 +29,7 @@
       window.onorientationchange = updateViewport;
     </script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" media="screen" href="style-next.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
     <meta property="og:title" content="Sandstorm.io">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
@@ -121,45 +122,48 @@
     <section id="principles">
       <h2>Sandstorm is a better<br>way to run your server.</h2>
 
-      <div class="row">
-        <div class="column" style="height: 220px" id="tab-usability" data-group="principles">
+      <div class="layer" id="usability" data-group="principles">
+        <div class="tab">
           <h3>Usability</h3>
           <p>Sandstorm is the easiest way there has ever been to run a server. Install apps as easily as on your phone.
-          <p><a href="#usability">Learn more »</a>
-        </div><div class="column" style="height: 220px" id="tab-security" data-group="principles">
-          <h3>Security</h3>
-          <p>Sandstorm protects you from evil (or buggy) apps while making sure security never gets in the way.
-          <p><a href="#security">Learn more »</a>
-        </div><div class="column" style="height: 220px" id="tab-freedom" data-group="principles">
-          <h3>Freedom</h3>
-          <p>Don't get locked into walled gardens. Run any app you want -- even upload your own. You call the shots.
-          <p><a href="#freedom">Learn more »</a>
+        </div>
+
+        <div class="content">
+          <p>Sandstorm is designed from the ground up to be radically easier to use than any other server platform.
+          <p><b>Easy to get apps:</b> Installing an app on your server is like installing an app on your phone. Just choose the app you want from the app store and click "install". You never have to use command shells nor edit config files. You don't have to know about databases nor reverse proxies. Everything is done through your web browser, or handled automatically.
+          <p><b>Easy to collaborate:</b> Sharing is built into Sandstorm. You can share any app or document with anyone, whether or not they have an account. Sandstorm supports real-time collaboration apps, including document and spreadsheet editors that allow your collaborators to see what you are typing in real time.
+          <p><b>Easy to set up:</b> Installing Sandstorm on your own Linux machine today is as easy as running one script, and it automatically keeps itself up to date. We are working on ways to make it even easier, such as building a Sandstorm distro that can be installed on any machine or VM. We also plan to launch a hosting service where we will manage your server for you, for those who would rather have their apps "in the cloud".
         </div>
       </div>
 
-      <div class="overlay" id="usability" data-group="principles">
-        <p>Sandstorm is designed from the ground up to be radically easier to use than any other server platform.
-        <p><b>Easy to get apps:</b> Installing an app on your server is like installing an app on your phone. Just choose the app you want from the app store and click "install". You never have to use command shells nor edit config files. You don't have to know about databases nor reverse proxies. Everything is done through your web browser, or handled automatically.
-        <p><b>Easy to collaborate:</b> Sharing is built into Sandstorm. You can share any app or document with anyone, whether or not they have an account. Sandstorm supports real-time collaboration apps, including document and spreadsheet editors that allow your collaborators to see what you are typing in real time.
-        <p><b>Easy to set up:</b> Installing Sandstorm on your own Linux machine today is as easy as running one script, and it automatically keeps itself up to date. We are working on ways to make it even easier, such as building a Sandstorm distro that can be installed on any machine or VM. We also plan to launch a hosting service where we will manage your server for you, for those who would rather have their apps "in the cloud".
+      <div class="layer" id="security" data-group="principles">
+        <div class="tab">
+          <h3>Security</h3>
+          <p>Sandstorm protects you from evil (or buggy) apps while making sure security never gets in the way.
+        </div>
+
+        <div class="content">
+          <p>Sandstorm is designed by security wonks. Where most developers don't want to think about security, we care deeply about it, and have designed the whole system to protect you.
+          <p><b>Protection from malware:</b> On a traditional server, installing an evil app could mean you lose everything. Under Sandstorm, each app runs in its own secure "sandbox" which starts out isolated from the world. It can't interfere with your other apps nor "phone home" to its developer until you give it permission.
+          <p><b>Protection from bugs:</b> Let's face it: most developers don't think enough about security, and they end up producing apps that have bugs allowing hackers to get in. Sandstorm automatically protects apps against a wide range of common vulnerabilities, and security-critical functions like login and sharing are handled by the system itself.
+          <p><b>Protection from spying:</b> Sandstorm apps cannot phone home, so they cannot collect data about you for advertising purposes nor perform unwanted experiments on you. Moreover, we are developing advanced per-document encryption techniques to thwart even dedicated hackers.
+          <p><b>No protection from getting your job done:</b> Security can often be a hassle, getting in the way of your work. Sandstorm is different. When you tell a Sandstorm app to talk to some other app, or to talk to the internet, Sandstorm sees your intent and automatically grants it access. So, you are never interrupted by a prompt asking "Do you want to allow this app to the thing you just told it to do?" And yet, the apps only get the permissions you actually wanted them to have.
+        </div>
       </div>
 
-      <div class="overlay" id="security" data-group="principles">
-        <p>Sandstorm is designed by security wonks. Where most developers don't want to think about security, we care deeply about it, and have designed the whole system to protect you.
-        <p><b>Protection from malware:</b> On a traditional server, installing an evil app could mean you lose everything. Under Sandstorm, each app runs in its own secure "sandbox" which starts out isolated from the world. It can't interfere with your other apps nor "phone home" to its developer until you give it permission.
-        <p><b>Protection from bugs:</b> Let's face it: most developers don't think enough about security, and they end up producing apps that have bugs allowing hackers to get in. Sandstorm automatically protects apps against a wide range of common vulnerabilities, and security-critical functions like login and sharing are handled by the system itself.
-        <p><b>Protection from spying:</b> Sandstorm apps cannot phone home, so they cannot collect data about you for advertising purposes nor perform unwanted experiments on you. Moreover, we are developing advanced per-document encryption techniques to thwart even dedicated hackers.
-        <p><b>No protection from getting your job done:</b> Security can often be a hassle, getting in the way of your work. Sandstorm is different. When you tell a Sandstorm app to talk to some other app, or to talk to the internet, Sandstorm sees your intent and automatically grants it access. So, you are never interrupted by a prompt asking "Do you want to allow this app to the thing you just told it to do?" And yet, the apps only get the permissions you actually wanted them to have.
-      </div>
+      <div class="layer" id="freedom" data-group="principles">
+        <div class="tab">
+          <h3>Freedom</h3>
+          <p>Don't get locked into walled gardens. Run any app you want -- even upload your own. You call the shots.
+        </div>
 
-      <div class="overlay" id="freedom" data-group="principles">
-        <p>By separating app developers from hosts, Sandstorm leaves you in control.
-        <p><b>Freedom to Choose:</b> Run any app you want. You are not limited to what's in the app store. Any developer can build a Sandstorm package, and you can upload any package to your server. You can even run Open Source and Indie apps from developers who don't have the funding to run their own servers.
-        <p><b>Freedom to Customize:</b> When you are running your own copy of an app on Sandstorm, there's nothing stopping you from customizing it to your needs, because your changes only affect you. Especially with open source apps, if you don't like the way a feature works, or wish you had a feature that's not there, you can fix it. Not a developer? Perhaps a friend can help, or at worst you can pay someone for a day of work. Compare this to big centralized web services, where you are at the mercy of the operator, who will probably ignore your requests.
-        <p><b>Freedom to Integrate:</b> Big centralized web providers tend to build walled gardens that lock you in. Their apps tend only to integrate with other apps from the same company. This isn't because they are evil -- usually it's because they are lazy. With Sandstorm, all your apps live under one roof and behind one login system, which makes it much easier for them to talk to each other securely. And if an app allows <i>any</i> other app to integrate with it, then it must allow <i>all</i> apps that speak the same protocol to do so, so developers can't shut each other out.
+        <div class="content">
+          <p>By separating app developers from hosts, Sandstorm leaves you in control.
+          <p><b>Freedom to Choose:</b> Run any app you want. You are not limited to what's in the app store. Any developer can build a Sandstorm package, and you can upload any package to your server. You can even run Open Source and Indie apps from developers who don't have the funding to run their own servers.
+          <p><b>Freedom to Customize:</b> When you are running your own copy of an app on Sandstorm, there's nothing stopping you from customizing it to your needs, because your changes only affect you. Especially with open source apps, if you don't like the way a feature works, or wish you had a feature that's not there, you can fix it. Not a developer? Perhaps a friend can help, or at worst you can pay someone for a day of work. Compare this to big centralized web services, where you are at the mercy of the operator, who will probably ignore your requests.
+          <p><b>Freedom to Integrate:</b> Big centralized web providers tend to build walled gardens that lock you in. Their apps tend only to integrate with other apps from the same company. This isn't because they are evil -- usually it's because they are lazy. With Sandstorm, all your apps live under one roof and behind one login system, which makes it much easier for them to talk to each other securely. And if an app allows <i>any</i> other app to integrate with it, then it must allow <i>all</i> apps that speak the same protocol to do so, so developers can't shut each other out.
+        </div>
       </div>
-
-      <p><a class="big-link-button" href="https://demo.sandstorm.io">Try the demo »</a></p>
     </section>
 
     <section id="users">
@@ -237,7 +241,6 @@
         }
 
         function openOverlayHandler(id) {
-          console.log("overlay for", id);
           return function (event) {
             window.history.replaceState({}, document.title, "#" + id);
             openOverlay(id);
@@ -255,8 +258,6 @@
         var urlPrefix = (document.location + "").split("#")[0];
 
         toArray(document.getElementsByTagName("a")).forEach(function (link) {
-          console.log(link.href);
-
           var parts = link.href.split("#");
 
           if (parts.length === 2 && parts[0] == urlPrefix) {
@@ -264,14 +265,20 @@
           }
         });
 
-        toArray(document.getElementsByClassName("overlay")).forEach(function (section) {
-/*          var closer = document.createElement("div");
-          closer.className = "closer";
-          closer.onclick = function () {
-            window.history.replaceState({}, document.title, ".")
-            section.style.display = "none";
-          }*/
-          section.insertBefore(closer, section.childNodes[0]);
+        toArray(document.getElementsByClassName("tab")).forEach(function (tab) {
+          tab.onclick = function () {
+            var layer = tab.parentNode;
+            var section = layer.parentNode;
+            toArray(section.getElementsByClassName("layer")).forEach(function (otherLayer) {
+              otherLayer.removeAttribute("data-selected");
+            });
+            layer.setAttribute("data-selected", "true");
+
+            var topMargin = layer.getBoundingClientRect().top -
+                            section.getBoundingClientRect().top
+
+            section.style.height = (topMargin + layer.clientHeight) + "px";
+          };
         });
       })();
     </script>

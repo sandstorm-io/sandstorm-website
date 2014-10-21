@@ -90,8 +90,13 @@ header h2 {
 
 section {
   overflow: hidden;
+  width: 1050px;
+  height: 500px;
+  margin: auto;
+  position: relative;
 }
 
+/*
 section:after {
   content: "";
   display: block;
@@ -99,6 +104,7 @@ section:after {
   margin: 0 auto;
   border-bottom: 1px solid #a49f97;
 }
+*/
 
 section>p {
   max-width: 800px;
@@ -113,6 +119,78 @@ section>.bigquote {
   padding: 0 16px 0 32px;
   font-weight: 600;
 }
+
+section>.layer {
+  width: 1000px;
+  position: absolute;
+  pointer-events: none;
+  margin: 25px;
+}
+
+section>.layer[data-selected] {
+  -webkit-filter: drop-shadow(0 0 4px #524444);
+}
+
+section>.layer>.tab {
+  width: 298px;
+  border: 1px solid white;
+  height: 168px;
+  background-color: white;
+  pointer-events: auto;
+  padding: 0 10px;
+  margin-bottom: 0;
+  margin-top: 10px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+section>.layer:nth-of-type(1) {
+  z-index: 300;
+}
+section>.layer:nth-of-type(2) {
+  z-index: 200;
+}
+section>.layer:nth-of-type(3) {
+  z-index: 100;
+}
+section>.layer[data-selected]:nth-of-type(1) {
+  z-index: 400;
+}
+section>.layer[data-selected]:nth-of-type(2) {
+  z-index: 400;
+}
+section>.layer[data-selected]:nth-of-type(3) {
+  z-index: 400;
+}
+
+section>.layer:nth-of-type(2)>.tab {
+  margin-left: 340px;
+}
+
+section>.layer:nth-of-type(3)>.tab {
+  margin-left: 680px;
+}
+
+section>.layer>.content {
+  margin-top: 0;
+  width: 978px;
+  background-color: white;
+  pointer-events: auto;
+  padding-bottom: 50px;
+  border: 1px solid white;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding: 0 10px;
+}
+
+
+
+
+
+
+
+
+
 /*
 .overlay {
   display: none;
