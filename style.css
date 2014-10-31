@@ -169,12 +169,14 @@ header>ul#social {
   display: inline-block;
   margin: 0;
   vertical-align: bottom;
+  padding-left: 20px;
 }
 
 header>ul#social>li {
   display: inline-block;
   list-style-type: none;
-  padding: 4px;
+  padding: 0 4px;
+  vertical-align: bottom;
 }
 
 header>ul#social>li>a {
