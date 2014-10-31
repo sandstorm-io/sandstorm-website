@@ -83,6 +83,12 @@ function registerHandlers() {
     }, false);
   });
 
+  toArray(document.querySelectorAll("section.tabs>section>details>div")).forEach(function (elem) {
+    elem.addEventListener("click", function (event) {
+      event.stopPropagation();
+    }, false);
+  });
+
   var hash = (document.location + "").split("#")[1];
   if (hash) {
     setTimeout(function () {
@@ -99,9 +105,9 @@ function registerHandlers() {
     elem.addEventListener("click", function (event) {
       event.preventDefault();
       toArray(elem.parentNode.parentNode.children).forEach(function (sibling) {
-        sibling.removeAttribute("selected");
+        sibling.removeAttribute("data-selected");
       });
-      elem.parentNode.setAttribute("selected", "");
+      elem.parentNode.setAttribute("data-selected", "");
     }, false);
   });
 }

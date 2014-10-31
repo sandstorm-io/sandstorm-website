@@ -11,7 +11,7 @@
     <meta property="og:url" content="https://sandstorm.io">
     <meta property="og:description"
         content="Take control of your web by running your own personal cloud server with Sandstorm.">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="script.js"></script>
   </head>
 
@@ -28,8 +28,9 @@
       <h1>Take control of your web</h1>
       <p>Sandstorm is a better way to run a personal server.</p>
       <a class="button" href="https://demo.sandstorm.io">Try the demo »</a>
-      <form><p>Join our mailing list for updates</p>
-        <input type="email" placeholder="e-mail">
+      <form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+        <p>Join our mailing list for updates</p>
+        <input type="email" name="EMAIL" placeholder="e-mail" required>
         <input type="submit" value="Sign-up">
       </form>
       <ul id="social">
@@ -160,7 +161,7 @@
     <section id="team">
       <h2>Team</h2>
 
-      <section id="members" selected>
+      <section id="members" data-selected>
         <h3>Developers</h3>
 
         <section id="kenton" class="nametag">
@@ -204,6 +205,17 @@
           <ul class="social">
             <li class="twitter"><a href="https://twitter.com/dwrensha">Twitter</a>
             <li class="google-plus"><a href="https://plus.google.com/107632655984872807631">Google+</a>
+          </ul>
+        </section>
+
+        <section id="nena" class="nametag">
+          <h4><a href="http://nenanguyen.ca/">Néna Nguyễn</a></h4>
+          <ul class="credentials">
+            <li><a href="http://nenanguyen.ca/">Designer / Illustrator</a>
+            <li><a href="https://www.behance.net/gallery/948192/Urban-Vinyl">Toy tinkerer</a>
+          </ul>
+          <ul class="social">
+            <li class="twitter"><a href="https://twitter.com/nenanguyen">Twitter</a>
           </ul>
         </section>
 
@@ -280,7 +292,7 @@
 
       <section id="corporate-sponsors">
         <h3>Corporate Sponsors</h3>
-        <summary>These companies contributed heavily to <a href="http://igg.me/at/sandstorm">Sandstorm's crowdfunding campaign</a>.</summary>
+        <p>These companies contributed heavily to <a href="http://igg.me/at/sandstorm">Sandstorm's crowdfunding campaign</a>.</p>
 
         <ul>
           <li id="draw-io"><a href="http://draw.io">draw.io</a>
@@ -291,7 +303,7 @@
 
       <section id="individual-sponsors">
         <h3>Key Individual Sponsors</h3>
-        <summary>These folks contributed heavily to <a href="http://igg.me/at/sandstorm">Sandstorm's crowdfunding campaign</a>.</summary>
+        <p>These folks contributed heavily to <a href="http://igg.me/at/sandstorm">Sandstorm's crowdfunding campaign</a>.</p>
 
         <section id="wagner" class="nametag">
           <h4><a href="http://rogerwagner.com">Roger Wagner</a></h4>
@@ -313,7 +325,7 @@
 
     <section id="contributors">
       <h2>Contributors</h2>
-      <summary>These 675 people contributed to <a href="http://igg.me/at/sandstorm">Sandstorm's crowdfunding campaign</a>.</summary>
+      <p>These 675 people contributed to <a href="http://igg.me/at/sandstorm">Sandstorm's crowdfunding campaign</a>.</p>
 
       <ul>
         <li>343max</li>
@@ -892,6 +904,7 @@
         <li><a href="https://github.com/sandstorm-io/sandstorm">Github</a>
         <li><a href="https://groups.google.com/group/sandstorm-dev">Dev Group</a>
       </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
     </footer>
 
     <script type="text/javascript">

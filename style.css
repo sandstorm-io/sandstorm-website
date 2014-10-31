@@ -34,6 +34,22 @@
       url(fonts/opensans-semibolditalic.ttf) format('ttf');
 }
 
+@font-face {
+  font-family: "Droid Sans";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Droid Sans"), local("DroidSans"),
+      url(fonts/droidsans.woff) format('woff');
+}
+
+@font-face {
+  font-family: "Droid Sans";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Droid Sans Bold"), local("DroidSans-Bold"),
+      url(fonts/droidsans-bold.woff) format('woff');
+}
+
 html {
   background-color: #ddd;
 }
@@ -44,6 +60,10 @@ body {
   width: 1100px;
   background-color: white;
   box-shadow: 0 0 20px black;
+}
+
+body.droid {
+  font-family: "Droid Sans";
 }
 
 nav {
@@ -173,8 +193,14 @@ header>ul#social>li>a:hover {
 
 header>ul#social>li#twitter>a { background-image: url(images/twitter.svg); }
 header>ul#social>li#google-plus>a { background-image: url(images/google-plus.svg); }
+header>ul#social>li#facebook>a { background-image: url(images/facebook.svg); }
 
+/* For browsers that don't recognize these. */
 details { display: block; }
+summary { display: block; }
+
+/* For browsers that do. */
+summary:focus { outline: none; }
 
 /* ==================================================================================== */
 
@@ -230,8 +256,20 @@ section.tabs>section>details>div>div {
 }
 
 #principles>section {
-  padding-top: 150px;
   width: 250px;
+}
+
+#principles>section::before {
+  content: " ";
+  display: block;
+  width: 250px;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+#principles>section>details>summary {
+  color: #47314c;
 }
 
 #principles>section>details>summary::after {
@@ -283,9 +321,9 @@ section.tabs>section>details>div>div {
 #principles>section:nth-of-type(2)>details>div { left: -425px; }
 #principles>section:nth-of-type(3)>details>div { left: -750px; }
 
-#usability { background-image: url(images/usability.svg); }
-#security  { background-image: url(images/security.svg); }
-#freedom   { background-image: url(images/freedom.svg); }
+#usability::before { background-image: url(images/usability.svg); }
+#security::before  { background-image: url(images/security.svg); }
+#freedom::before   { background-image: url(images/freedom.svg); }
 
 #usability>details>div>div::before { background-image: url(images/usability-mono.svg); }
 #security>details>div>div::before  { background-image: url(images/security-mono.svg); }
@@ -476,9 +514,8 @@ section.tabs>section>details>div>div {
 /* ==================================================================================== */
 
 #team {
-  background-image: url(images/team-bg.png);
-  background-color: #e89c9a;
-  background-repeat: repeat-x;
+  background: url(images/stars.svg) no-repeat top center,
+              #e89c9a url(images/team-bg.svg) repeat-x top right / 1px 1150px;
   overflow: hidden;
   position: relative;
   height: 1820px;
@@ -526,11 +563,11 @@ section.tabs>section>details>div>div {
   cursor: pointer;
 }
 
-#team>section[selected] {
+#team>section[data-selected] {
   z-index: 2;
 }
 
-#team>section[selected]>h3 {
+#team>section[data-selected]>h3 {
   color: #f4f4f4;
 }
 
@@ -614,6 +651,7 @@ section.nametag>ul.social>li.google-plus>a { background-image: url(images/google
 #jade>h4>a::before   { background-image: url(images/people/jade.png); }
 #jason>h4>a::before  { background-image: url(images/people/jason.png); }
 #david>h4>a::before  { background-image: url(images/people/david.png); }
+#nena>h4>a::before   { background-image: url(images/people/nena.png); }
 #garply>h4>a::before { background-image: url(images/people/garply.png); }
 
 #luto>h4>a::before     { background-image: url(images/people/luto.png); }
@@ -676,8 +714,7 @@ section.nametag>ul.social>li.google-plus>a { background-image: url(images/google
   margin: 0.5em 0;
 }
 
-#sponsors>section>summary {
-  display: block;
+#sponsors>section>p {
   margin: 1em 0 30px;
 }
 
@@ -738,7 +775,7 @@ section.nametag>ul.social>li.google-plus>a { background-image: url(images/google
   background-position: right;
 }
 
-#contributors>summary {
+#contributors>p {
   display: none;
 }
 
@@ -755,6 +792,10 @@ section.nametag>ul.social>li.google-plus>a { background-image: url(images/google
   list-style-type: none;
   margin: 0 10px;
   font-size: 10pt;
+}
+
+#anonymous {
+  font-weight: bold;
 }
 
 /* ==================================================================================== */
@@ -786,7 +827,7 @@ footer>h2::before {
 
 footer>ul {
   padding: 0;
-  margin: 60px 100px 30px;
+  margin: 60px 100px 0;
   border-top: 1px solid #b19fc2;
   text-align: center;
 }
@@ -800,4 +841,11 @@ footer>ul>li {
 footer>ul>li>a {
   color: white;
   text-decoration: none;
+}
+
+footer>p {
+  padding: 0;
+  margin: 0 100px 30px;
+  text-align: center;
+  color: #a993af;
 }
