@@ -110,4 +110,17 @@ function registerHandlers() {
       elem.parentNode.setAttribute("data-selected", "");
     }, false);
   });
+
+  window.addEventListener("scroll", function (event) {
+    var section = document.querySelector("#team-bg");
+
+    var y = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+
+    var f = (y + window.innerHeight / 2 - team.offsetTop) / section.clientHeight;
+    if (f < 0) f = 0;
+    if (f > 1) f = 1;
+
+    var bg = "#e89c9a url(images/team-bg.svg) repeat-x 0px -" + (f*11500) + "px / 10px 11500px";
+    section.style.background = bg;
+  }, false);
 }

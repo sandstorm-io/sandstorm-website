@@ -515,11 +515,10 @@ section.tabs>section>details>div>div {
 
 #press {
   overflow: hidden;
-  position: absolute;
-  z-index: -1;
-  height: 2048px;
-  width: 100%;
-  min-width: 1100px;
+  height: 228px;
+  width: 1000px;
+  padding: 0 50px;
+  margin: 0 auto;
 }
 
 #press::before {
@@ -543,15 +542,12 @@ section.tabs>section>details>div>div {
   font-weight: normal;
   font-size: 25pt;
   color: #764e7f;
-  margin: 48px auto 0;
-  width: 1000px;
+  margin: 48px 0 0;
 }
 
 #press>ul {
   text-align: center;
   padding: 10px 0 0;
-  margin: 1em auto;
-  width: 1000px;
 }
 
 #press>ul>li {
@@ -583,18 +579,18 @@ section.tabs>section>details>div>div {
   position: relative;
   height: 1820px;
   width: 1100px;
-  margin: 228px auto 0;
+  margin: 0 auto;
+  background: url(images/stars.svg) no-repeat top center / 1100px 1014px;
 }
 
-#press::after {
+#team-bg {
   content: " ";
   display: block;
   position: absolute;
-  background: url(images/stars.svg) no-repeat top center / 1100px 1014px,
-              #e89c9a url(images/team-bg.svg) repeat-x top right / 1px 1150px;
+  z-index: -1;
+  background: #e89c9a url(images/team-bg.svg) repeat-x top right / 1px 1150px;
   left: 0;
   right: 0;
-  top: 228px;
   height: 1820px;
   min-width: 1100px;
 }
