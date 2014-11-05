@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px"
+   preserveAspectRatio="xMidYMin" viewBox="0 0 2150.8 991.5"
+   xml:space="preserve" width="100%" height="100%">
+   <g id="g3055" transform="translate(580,0)">
+     <circle r="3.8" cy="168" cx="990.79999" style="opacity:0.6;fill:#ffffff" />
+     <circle r="4.1999998" cy="113" cx="239.60001" style="opacity:0.6;fill:#ffffff" />
+     <circle r="4.1999998" cy="659.40002" cx="1036" style="opacity:0.6;fill:#ffffff" />
+     <circle r="4.1999998" cy="984" cx="39.299999" style="opacity:0.6;fill:#ffffff" />
+     <circle r="2.0999999" cy="236" cx="826.59998" style="opacity:0.6;fill:#ffffff" />
+     <circle r="2.0999999" cy="240.3" cx="1071.8" style="opacity:0.6;fill:#ffffff" />
+     <circle r="2.0999999" cy="7.9000001" cx="621" style="opacity:0.6;fill:#ffffff" />
+     <circle r="2.0999999" cy="496" cx="7.6999998" style="opacity:0.6;fill:#ffffff" />
+     <circle r="2.0999999" cy="855" cx="724.70001" style="fill:#ccb8d3" />
+   </g><g transform="translate(580,0)">
+     <circle r="4.1999998" cy="113" cx="239.60001" style="opacity:0.6;fill:#ffffff" transform="matrix(1,0,0,-1,1072.519,991.857)" />
+     <circle r="4.1999998" cy="984" cx="39.299999" style="opacity:0.6;fill:#ffffff" transform="matrix(1,0,0,-1,1072.519,991.857)" />
+     <circle r="2.0999999" cy="496" cx="7.6999998" style="opacity:0.6;fill:#ffffff" transform="matrix(1,0,0,-1,1072.519,991.857)" />
+   </g><g transform="translate(580,0)"><circle r="3.8" cy="168" cx="990.79999" style="opacity:0.6;fill:#ffffff" transform="matrix(1,0,0,-1,-1091.481,991.857)" />
+     <circle r="4.1999998" cy="659.40002" cx="1036" style="opacity:0.6;fill:#ffffff" transform="matrix(1,0,0,-1,-1091.481,991.857)" />
+     <circle r="2.0999999" cy="236" cx="826.59998" style="opacity:0.6;fill:#ffffff" transform="matrix(1,0,0,-1,-1091.481,991.857)" />
+     <circle r="2.0999999" cy="240.3" cx="1071.8" style="opacity:0.6;fill:#ffffff" transform="matrix(1,0,0,-1,-1091.481,991.857)" />
+     <circle r="2.0999999" cy="7.9000001" cx="621" style="opacity:0.6;fill:#ffffff" transform="matrix(1,0,0,-1,-1091.481,991.857)" />
+     <circle r="2.0999999" cy="855" cx="724.70001" style="fill:#ccb8d3" transform="matrix(1,0,0,-1,-1091.481,991.857)" />
+   </g>
+</svg>

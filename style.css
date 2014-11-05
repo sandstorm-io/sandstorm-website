@@ -580,12 +580,9 @@ section.tabs>section>details>div>div {
   height: 1820px;
   width: 1100px;
   margin: 0 auto;
-  background: url(images/stars.svg) no-repeat top center / 1100px 1014px;
 }
 
 #team-bg {
-  content: " ";
-  display: block;
   position: absolute;
   z-index: -1;
   background: #e89c9a url(images/team-bg.svg) repeat-x top right / 1px 1150px;
@@ -593,6 +590,17 @@ section.tabs>section>details>div>div {
   right: 0;
   height: 1820px;
   min-width: 1100px;
+}
+
+#team-bg::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  background: url(images/stars-wide.svg) no-repeat top center / 2200px 1014px;
+  left: 0;
+  right: 0;
+  height: 1150px;
 }
 
 #team>h2 {
