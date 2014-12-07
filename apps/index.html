@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="style.css">
 
     <title>Sandstorm Apps</title>
-    
+
     <script type="text/javascript">
       function install(packageId) {
         document.getElementById("other-addr").required =
@@ -52,7 +52,7 @@
                        "using the radio buttons before clicking \"Install\".");
           return;
         }
-        
+
         document.location = target + "/install/" + packageId;
       }
     </script>
@@ -74,7 +74,7 @@
             <input type="text" placeholder="http://example.com" id="other-addr">
         <input type="submit" id="fake-submit" style="display:none">
       </form>
-      
+
       <script type="text/javascript">
         (function () {
           var query = document.location.search;
