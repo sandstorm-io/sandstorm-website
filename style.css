@@ -143,16 +143,33 @@ header>p {
   margin-right: 50px;
 }
 
-a.button {
+div#buttons {
   display: block;
-  background-color: #783189;
-  margin: 1em auto;
-  color: #fffbfb;
-  width: 310px;
+  margin: 0 auto 2em auto;
   padding: 4px 0;
+}
+
+a.button {
+  display: inline-block;
+  margin: 0 5px;
+  width: 220px;
+  padding: 8px 0;
   border-radius: 10px;
-  font-size: 24pt;
+  font-size: 16pt;
   text-decoration: none;
+}
+
+a.demo {
+  background-color: #783189;
+  color: #fffbfb;
+}
+
+a.preorder {
+  background-color: #ffd4ec;
+  color: #ae72b1;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
 }
 
 header>form {
