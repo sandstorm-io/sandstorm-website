@@ -577,7 +577,7 @@ section.tabs>section>details>div>div {
 #team {
   overflow: hidden;
   position: relative;
-  height: 1820px;
+  height: 1970px;
   width: 1100px;
   margin: 0 auto;
 }
@@ -588,7 +588,7 @@ section.tabs>section>details>div>div {
   background: #e89c9a url(images/team-bg.svg) repeat-x top right / 1px 1150px;
   left: 0;
   right: 0;
-  height: 1820px;
+  height: 1970px;
   min-width: 1100px;
 }
 
@@ -618,7 +618,7 @@ section.tabs>section>details>div>div {
   left: 100px;
   right: 100px;
   top: 250px;
-  height: 490px;
+  height: 640px;
   text-align: left;
   padding: 60px 60px 0;
   z-index: 1;
@@ -734,6 +734,7 @@ section.nametag>ul.social>li.google-plus>a { background-image: url(images/google
 #jade>h4>a::before   { background-image: url(images/people/jade.png); }
 #jason>h4>a::before  { background-image: url(images/people/jason.png); }
 #david>h4>a::before  { background-image: url(images/people/david.png); }
+#asheesh>h4>a::before{ background-image: url(images/people/asheesh.png); }
 #nena>h4>a::before   { background-image: url(images/people/nena.png); }
 #garply>h4>a::before { background-image: url(images/people/garply.png); }
 
