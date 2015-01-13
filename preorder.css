@@ -1,0 +1,295 @@
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Open Sans Light"), local("OpenSans-Light"),
+      url(fonts/opensans-light.woff) format('woff'),
+      url(fonts/opensans-light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Open Sans Semibold"), local("OpenSans-Semibold"),
+      url(fonts/opensans-semibold.woff) format('woff'),
+      url(fonts/opensans-semibold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: normal;
+  src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"),
+      url(fonts/opensans-lightitalic.woff) format('woff'),
+      url(fonts/opensans-lightitalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: bold;
+  src: local("Open Sans Semibold Italic"), local("OpenSans-SemiboldItalic"),
+      url(fonts/opensans-semibolditalic.woff) format('woff'),
+      url(fonts/opensans-semibolditalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Source Sans";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Source Sans Light"), local("SourceSans-Light"),
+      url(fonts/sourcesans-light.woff) format('woff'),
+      url(fonts/sourcesans-light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Source Sans";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Source Sans"), local("SourceSans"),
+      url(fonts/sourcesans-regular.woff) format('woff'),
+      url(fonts/sourcesans-regular.ttf) format('truetype');
+}
+
+nav {
+  font-family: "Open Sans", sans-serif;
+  background-image: url(images/logo.svg);
+  background-repeat: no-repeat;
+  background-size: 160px 35px;
+  height: 44px;
+  color: #460e54;
+  line-height: 44px;
+  text-align: right;
+  font-size: 14pt;
+  width: 1100px;
+  margin: 0 auto;
+}
+
+nav::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  z-index: -1;
+  background-color: #fffbfb;
+}
+
+nav::before {
+  display: inline-block;
+  content: "Sandstorm.io";
+  padding-left: 50px;
+  float: left;
+  margin: 0;
+}
+
+nav>a {
+  display: inline-block;
+  padding: 0 32px;
+  text-decoration: none;
+  color: #460e54;
+}
+
+div#modal-header {
+  width: 100%;
+  display: table;
+  min-height: 200px;
+  background: linear-gradient(#281E43, #8964A7);
+  margin: 0px;
+}
+
+/* hackery to vertically align the contents like a table */
+div#modal-header-box {
+  font-family: "Open Sans", sans-serif;
+  display: table-cell;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+}
+
+div#modal-header-box > h3 {
+  font-size: 48px;
+  margin-bottom: 0px;
+}
+
+div#modal-header-box > h3::before {
+  content: " ";
+  display: inline-block;
+  background-image: url(images/logo-white.svg);
+  background-repeat: no-repeat;
+  width: 90px;
+  height: 90px;
+  vertical-align: center;
+  margin-right: -20px;
+}
+
+div#modal-header-box > h4 {
+  color: #FFD4EC;
+  font-weight: 300;
+  margin-top: 0.25em;
+  font-size: 28px;
+}
+
+body {
+  font-family: "Source Sans", sans-serif;
+  font-size: 21px;
+  text-align: center;
+  margin: 0px;
+}
+
+p {
+  color: #6A237C;
+  margin: 0px;
+}
+
+hr {
+  width: 800px;
+  border: 0px;
+  border-bottom: solid 1px #EDB2DB;
+}
+
+p#title {
+  margin-top: 2em;
+  font-size: 34px;
+}
+
+p#textbody {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  line-height: 150%;
+}
+
+p#questions {
+  margin-top: 3em;
+}
+
+p#questions-subtitle {
+  margin-bottom: 2em;
+}
+
+div#note {
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  background-color: #FDE5EF;
+  color: #783189;
+}
+
+div#note > p {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+table#preorder {
+  width: 750px;
+  margin: 50px auto 50px auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+table#preorder tr {
+  text-align: center;
+}
+
+table#preorder th {
+  color: white;
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
+table#preorder td {
+  color: #783189;
+  font-weight: 300;
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-right: 10px;
+}
+
+table#preorder small {
+  font-size: 18px;
+}
+
+table#preorder td:nth-of-type(n+2) {
+  font-size: 30px;
+}
+
+table#preorder tr:nth-of-type(n+2) > th:nth-of-type(1):after,
+table#preorder tr:nth-of-type(n+2) > td:nth-of-type(1):after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+  border-bottom: solid 1px #EDB2DB;
+}
+
+table#preorder th:nth-of-type(n+2):after,
+table#preorder td:nth-of-type(n+2):after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 10px;
+  bottom: 0px;
+  z-index: -1;
+  border-bottom: solid 1px #EDB2DB;
+}
+
+table#preorder th:nth-of-type(n+2):after {
+  background-color: #783189;
+}
+
+table#preorder td:nth-of-type(n+2):after {
+  background-color: #FDE5EF;
+}
+
+table#preorder tr > *:nth-child(1) {
+  text-align: left;
+  position: relative;
+}
+
+table#preorder tr:nth-last-child(1) {
+  background-color: white;
+}
+
+table#preorder tr.beta > td:nth-of-type(n+2):after {
+  background-color: #FEEFF5;
+}
+
+table#preorder tr.price > td:nth-of-type(n+2) > small {
+  color: #9665A3;
+}
+
+table#preorder tr.price > td:nth-of-type(n+2):after {
+  background-color: #F5DAED;
+}
+
+table#preorder .stripe-button-el {
+  background-image: none;
+  background-color: #FDE5EF;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+table#preorder .stripe-button-el > * {
+  background-image: none;
+  background-color: #FDE5EF;
+  font-family: "Source Sans", sans-serif;
+  font-size: 21px;
+  font-weight: 300;
+  color: #783189;
+}
