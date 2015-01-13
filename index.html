@@ -28,8 +28,8 @@
       <h1>Take control of your web</h1>
       <p>Sandstorm is a better way to run a personal server.</p>
       <div id="buttons">
-        <a class="button demo" href="https://demo.sandstorm.io">Try the demo »</a>
-        <a class="button preorder" href="#">Pre-order Now »</a>
+        <a class="button" id="demo" href="https://demo.sandstorm.io">Try the demo »</a>
+        <a class="button" id="preorder" href="#">Pre-order Now »</a>
       </div>
       <form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
         <p>Join our mailing list for updates</p>
@@ -109,7 +109,7 @@
               <li><h4>Protect your privacy</h4><p>Sandstorm apps can only talk to the outside world with your explicit permission.  That means they can't secretly <a href="http://news.cnet.com/8301-10805_3-57620658-75/microsoft-sniffed-bloggers-hotmail-account-to-trace-leak/">spy</a> on you, develop an <a href="https://www.google.com/settings/ads">advertising profile</a> from your data, or <a href="http://www.nytimes.com/2014/06/30/technology/facebook-tinkers-with-users-emotions-in-news-feed-experiment-stirring-outcry.html?_r=0">perform psych experiments</a> on you without your consent. Plus, apps running on your server do not <a href="http://reader.google.com">disappear</a> when the developer stops supporting them.
               <li><h4>Don't get locked in</h4><p>When developers run the servers, they can lock you in to their walled garden, refusing to play nice with competitors they don't like. Sandstorm puts all your apps and data under <i>your</i> roof, where you can mix and match apps as you please. You can even freely move between hosts and take all your apps and data with you.
             </ul>
-            <p style="text-align: center"><a class="button" href="https://github.com/sandstorm-io/sandstorm">Install Now »</a></p>
+            <p style="text-align: center"><a class="button install" href="https://github.com/sandstorm-io/sandstorm">Install Now »</a></p>
           </div></div>
         </details>
       </section>
@@ -911,6 +911,124 @@
       </ul>
       <p>This page was hand-crafted using only the finest web technologies.
     </footer>
+
+    <div class="modal" id="modal-background"></div>
+    <div class="modal" id="modal-content">
+      <div id="modal-header">
+        <div id="modal-header-box">
+          <h3>Sandstorm.io</h3>
+          <h4>EARLY BIRD PRE-ORDER</h4>
+        </div>
+      </div>
+      <div id="modal-body">
+        <p id="title">
+          <b>Sandstorm will always be open source</b> and you're free to<br />
+          host it on your own linux box for yourself and your friends.
+        </p>
+        <p id="textbody">
+          But not everyone wants to carry a pager or has the time and experience to maintain their own<br />
+          instance, so we're offering the convenience of managed hosting, which you can pre-order.
+        </p>
+        <p id="textbody">
+          If you don't know Sandstorm yet, try the <a href="https://demo.sandstorm.io/">demo</a>!
+        </p>
+        <div id="note">
+          <p>
+            Once Sandstorm is ready for beta, all pre-order customers will enjoy free access. You'll have<br />
+            access until at least early May, when this pricing will come into effect.
+          </p>
+        </div>
+        <table id="preorder">
+         <tr>
+           <th></th>
+           <th>STANDARD</th>
+           <th>LARGE</th>
+           <th>MEGA</th>
+         </tr>
+          <tr>
+            <td>Resource Units *</td>
+            <td>200 <small>GBrh</small></td>
+            <td>400 <small>GBrh</small></td>
+            <td>600 <small>GBrh</small></td>
+          </tr>
+          <tr>
+            <td>Storage</td>
+            <td>5 <small>GB</small></td>
+            <td>30 <small>GB</small></td>
+            <td>100 <small>GB</small></td>
+          </tr>
+          <tr>
+            <td>Bandwidth</td>
+            <td>Unlimited</td>
+            <td>Unlimited</td>
+            <td>Unlimited</td>
+          </tr>
+          <tr class="beta">
+            <td>Beta Access</td>
+            <td>FREE</td>
+            <td>FREE</td>
+            <td>FREE</td>
+          </tr>
+          <tr class="price">
+            <td>Pre-order Special</td>
+            <td>$6 <br /><small>/ month</small></td>
+            <td>$12 <br /><small>/ month</small></td>
+            <td>$24 <br /><small>/ month</small></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <form class="preorder" action="http://sandstormtest.ninjasoapray.com:33412/pre-order-standard-instance" method="POST">
+                <script
+                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="pk_test_Y5kzjokPy5SMH0N6VRTVKfSs"
+                  data-name="Sandstorm"
+                  data-image="/images/sandstorm-purplecircle.png"
+                  data-description="Pre-order Standard Instance"
+                  data-amount="600"
+                  data-label="Standard >>"
+                  data-allow-remember-me="false"
+                  data-panel-label="{{amount}} / Month">
+                </script>
+              </form>
+            </td>
+            <td>
+              <form class="preorder" action="http://sandstormtest.ninjasoapray.com:33412/pre-order-large-instance" method="POST">
+                <script
+                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="pk_test_Y5kzjokPy5SMH0N6VRTVKfSs"
+                  data-name="Sandstorm"
+                  data-image="/images/sandstorm-purplecircle.png"
+                  data-description="Pre-order Large Instance"
+                  data-amount="1200"
+                  data-label="Large >>"
+                  data-allow-remember-me="false"
+                  data-panel-label="{{amount}} / Month">
+                </script>
+              </form>
+            </td>
+            <td>
+              <form class="preorder" action="http://sandstormtest.ninjasoapray.com:33412/pre-order-mega-instance" method="POST">
+                <script
+                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="pk_test_Y5kzjokPy5SMH0N6VRTVKfSs"
+                  data-name="Sandstorm"
+                  data-image="/images/sandstorm-purplecircle.png"
+                  data-description="Pre-order Mega Instance"
+                  data-amount="2400"
+                  data-label="Mega >>"
+                  data-allow-remember-me="false"
+                  data-panel-label="{{amount}} / Month">
+                </script>
+              </form>
+            </td>
+          </tr>
+        </table>
+        <hr />
+        <p id="questions">Questions?</p>
+        <p id="questions-subtitle">Pre-orders will also get you access to the private beta.</p>
+      </div>
+    </div>
 
     <script type="text/javascript">
       registerHandlers();

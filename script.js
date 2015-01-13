@@ -89,6 +89,21 @@ function registerHandlers() {
     }, false);
   });
 
+  var modalBackground = document.getElementById("modal-background");
+  document.getElementById("preorder").addEventListener("click", function (event) {
+    toArray(document.querySelectorAll(".modal")).forEach(function (elem) {
+      elem.style.display = "block";
+    });
+
+    var modalBackgroundClick = function (event) {
+      toArray(document.querySelectorAll(".modal")).forEach(function (elem) {
+        elem.style.display = "none";
+      });
+      modalBackground.removeEventListener("click", modalBackgroundClick);
+    };
+    modalBackground.addEventListener("click", modalBackgroundClick);
+  });
+
   var hash = (document.location + "").split("#")[1];
   if (hash) {
     setTimeout(function () {
