@@ -143,42 +143,16 @@ header>p {
   margin-right: 50px;
 }
 
-div#buttons {
-  display: block;
-  margin: 0 auto 2em auto;
-  padding: 4px 0;
-}
-
 a.button {
-  display: inline-block;
-  margin: 0 5px;
-  width: 220px;
-  padding: 8px 0;
-  border-radius: 10px;
-  font-size: 16pt;
-  text-decoration: none;
-}
-
-a#demo,
-a#install {
+  display: block;
   background-color: #783189;
+  margin: 1em auto;
   color: #fffbfb;
-}
-
-a#preorder {
-  background-color: #FFD4EC;
-  color: #783189;
-  border-style: solid;
-  border-width: 1px;
-  border-color: white;
-}
-
-a#preorder2 {
-  background-color: #FFD4EC;
-  color: #783189;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #BA93BC;
+  width: 310px;
+  padding: 4px 0;
+  border-radius: 10px;
+  font-size: 24pt;
+  text-decoration: none;
 }
 
 header>form {
