@@ -34,22 +34,6 @@
       url(fonts/opensans-semibolditalic.ttf) format('truetype');
 }
 
-@font-face {
-  font-family: "Droid Sans";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Droid Sans"), local("DroidSans"),
-      url(fonts/droidsans.woff) format('woff');
-}
-
-@font-face {
-  font-family: "Droid Sans";
-  font-style: normal;
-  font-weight: bold;
-  src: local("Droid Sans Bold"), local("DroidSans-Bold"),
-      url(fonts/droidsans-bold.woff) format('woff');
-}
-
 html {
   background-color: white;
 }

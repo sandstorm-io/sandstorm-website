@@ -5,12 +5,6 @@
     <title>Sandstorm</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1100px">
-    <meta property="og:title" content="Sandstorm.io">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
-    <meta property="og:url" content="https://sandstorm.io">
-    <meta property="og:description"
-        content="Take control of your web by running your own personal cloud server with Sandstorm.">
     <link rel="stylesheet" type="text/css" href="preorder.css">
   </head>
 
@@ -24,130 +18,128 @@
     </nav>
 
     <header>
+      <div>
+        <h3>Sandstorm.io</h3>
+        <h4>EARLY BIRD PRE-ORDER</h4>
+      </div>
     </header>
 
-    <div class="modal" id="modal-background"></div>
-    <div class="modal" id="modal-content">
-      <div id="modal-header">
-        <div id="modal-header-box">
-          <h3>Sandstorm.io</h3>
-          <h4>EARLY BIRD PRE-ORDER</h4>
-        </div>
-      </div>
-      <div id="modal-body">
-        <p id="title">
-          <b>Sandstorm will always be open source</b> and you're free to<br />
-          host it on your own linux box for yourself and your friends.
-        </p>
-        <p id="textbody">
-          But not everyone wants to use their own machine or has the time and experience to maintain a<br /> Linux server, so we're offering the convenience of managed hosting, which you can pre-order.
-        </p>
-        <p id="textbody">
-          If you don't know Sandstorm yet, try the <a href="https://demo.sandstorm.io/">demo</a>!
-        </p>
-        <div id="note">
-          <p>
-            Once Sandstorm is ready for beta, all pre-order customers will enjoy free access. You'll have<br />
-            access until at least early May, when this pricing will come into effect.
-          </p>
-        </div>
-        <table id="preorder">
-         <tr>
-           <th></th>
-           <th>STANDARD</th>
-           <th>LARGE</th>
-           <th>MEGA</th>
-         </tr>
-          <tr>
-            <td>Compute Units <a href="#resource-units">*</a></td>
-            <td>200 <small>CU</small></td>
-            <td>400 <small>CU</small></td>
-            <td>600 <small>CU</small></td>
-          </tr>
-          <tr>
-            <td>Storage</td>
-            <td>5 <small>GB</small></td>
-            <td>30 <small>GB</small></td>
-            <td>100 <small>GB</small></td>
-          </tr>
-          <tr>
-            <td>Bandwidth</td>
-            <td>Unlimited</td>
-            <td>Unlimited</td>
-            <td>Unlimited</td>
-          </tr>
-          <tr class="beta">
-            <td>Beta Access</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-          <tr class="price">
-            <td>Pre-order Special</td>
-            <td>$6 <br /><small>/ month</small></td>
-            <td>$12 <br /><small>/ month</small></td>
-            <td>$24 <br /><small>/ month</small></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <form class="preorder" action="https://payments.sandstorm.io/pre-order-standard-instance" method="POST">
-                <script
-                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="pk_test_euywwlSEioegnYyeZPPjYGZ2"
-                  data-name="Sandstorm"
-                  data-image="/images/sandstorm-purplecircle.png"
-                  data-description="Pre-order Standard Instance"
-                  data-amount="600"
-                  data-label="Standard >>"
-                  data-allow-remember-me="false"
-                  data-panel-label="{{amount}} / Month">
-                </script>
-              </form>
-            </td>
-            <td>
-              <form class="preorder" action="https://payments.sandstorm.io/pre-order-large-instance" method="POST">
-                <script
-                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="pk_test_euywwlSEioegnYyeZPPjYGZ2"
-                  data-name="Sandstorm"
-                  data-image="/images/sandstorm-purplecircle.png"
-                  data-description="Pre-order Large Instance"
-                  data-amount="1200"
-                  data-label="Large >>"
-                  data-allow-remember-me="false"
-                  data-panel-label="{{amount}} / Month">
-                </script>
-              </form>
-            </td>
-            <td>
-              <form class="preorder" action="https://payments.sandstorm.io/pre-order-mega-instance" method="POST">
-                <script
-                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="pk_test_euywwlSEioegnYyeZPPjYGZ2"
-                  data-name="Sandstorm"
-                  data-image="/images/sandstorm-purplecircle.png"
-                  data-description="Pre-order Mega Instance"
-                  data-amount="2400"
-                  data-label="Mega >>"
-                  data-allow-remember-me="false"
-                  data-panel-label="{{amount}} / Month">
-                </script>
-              </form>
-            </td>
-          </tr>
-        </table>
-        <hr />
+    <main>
+      <p id="title">
+        <b>Sandstorm is open source</b> and you're free to host it<br />
+        on your own Linux box for yourself and your friends.
+      </p>
+      <p id="textbody">
+        But not everyone wants to use their own machine or has the time and experience to maintain a<br /> Linux server, so we're offering the convenience of managed hosting, which you can pre-order.
+      </p>
+      <p id="textbody">
+        If you don't know Sandstorm yet, try the <a href="https://demo.sandstorm.io/">demo</a>!
+      </p>
+      <div id="note">
+        <p>
+          All pre-order customers will enjoy free access to the beta once it's ready.<br>
 
-        <p id="resource-units">
-          <span id="resource-units-star">*</span>
-          A compute unit is 1 GB of RAM used for one hour. Sandstorm apps only use RAM while you are actively using them, so 200 CU should be far more than enough for most users. <a href="#">Learn more about compute units >></a>
+          We will not charge you until Sandstorm comes out of beta, no earlier than May 2015.<br>
+
+          Beta invites will be distributed first-come-first-serve as capacity ramps up.
         </p>
-        <p id="questions">Questions?</p>
-        <hr id="questions-line"/>
-        <p id="questions-subtitle">support@sandstorm.io</p>
       </div>
-    </div>
+      <table id="preorder">
+       <tr>
+         <th></th>
+         <th>STANDARD</th>
+         <th>LARGE</th>
+         <th>MEGA</th>
+       </tr>
+        <tr>
+          <td>Compute Units <a href="#compute-units">*</a></td>
+          <td>200 <small>CU</small></td>
+          <td>400 <small>CU</small></td>
+          <td>600 <small>CU</small></td>
+        </tr>
+        <tr>
+          <td>Storage</td>
+          <td>5 <small>GB</small></td>
+          <td>30 <small>GB</small></td>
+          <td>100 <small>GB</small></td>
+        </tr>
+        <tr>
+          <td>Bandwidth</td>
+          <td>Unlimited</td>
+          <td>Unlimited</td>
+          <td>Unlimited</td>
+        </tr>
+        <tr class="beta">
+          <td>Beta Access</td>
+          <td>FREE</td>
+          <td>FREE</td>
+          <td>FREE</td>
+        </tr>
+        <tr class="price">
+          <td>Pre-order Special</td>
+          <td>$6 <br /><small>/ month</small></td>
+          <td>$12 <br /><small>/ month</small></td>
+          <td>$24 <br /><small>/ month</small></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <form class="preorder" action="https://payments.sandstorm.io/pre-order-standard-instance" method="POST">
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_euywwlSEioegnYyeZPPjYGZ2"
+                data-name="Sandstorm"
+                data-image="/images/sandstorm-purplecircle.png"
+                data-description="Pre-order Standard Instance"
+                data-amount="600"
+                data-label="Standard >>"
+                data-allow-remember-me="false"
+                data-panel-label="{{amount}} / Month">
+              </script>
+            </form>
+          </td>
+          <td>
+            <form class="preorder" action="https://payments.sandstorm.io/pre-order-large-instance" method="POST">
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_euywwlSEioegnYyeZPPjYGZ2"
+                data-name="Sandstorm"
+                data-image="/images/sandstorm-purplecircle.png"
+                data-description="Pre-order Large Instance"
+                data-amount="1200"
+                data-label="Large >>"
+                data-allow-remember-me="false"
+                data-panel-label="{{amount}} / Month">
+              </script>
+            </form>
+          </td>
+          <td>
+            <form class="preorder" action="https://payments.sandstorm.io/pre-order-mega-instance" method="POST">
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_euywwlSEioegnYyeZPPjYGZ2"
+                data-name="Sandstorm"
+                data-image="/images/sandstorm-purplecircle.png"
+                data-description="Pre-order Mega Instance"
+                data-amount="2400"
+                data-label="Mega >>"
+                data-allow-remember-me="false"
+                data-panel-label="{{amount}} / Month">
+              </script>
+            </form>
+          </td>
+        </tr>
+      </table>
+      <hr />
+
+      <p id="compute-units">
+        <span id="compute-units-star">*</span>
+        A compute unit is 1 GB of RAM used for one hour. Sandstorm apps only use RAM while you are actively using them, so 200 CU should be far more than enough for most users. <a href="https://blog.sandstorm.io/news/2015-01-14-compute-units.html">Learn more about compute units >></a>
+      </p>
+      <p id="questions">Questions?</p>
+      <hr id="questions-line"/>
+      <p id="questions-subtitle"><a href="mailto:support@sandstorm.io">support@sandstorm.io</a></p>
+    </main>
 
     <!-- Google Analytics -->
     <script type="text/javascript">

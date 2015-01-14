@@ -1,0 +1,321 @@
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Open Sans Light"), local("OpenSans-Light"),
+      url(fonts/opensans-light.woff) format('woff'),
+      url(fonts/opensans-light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Open Sans Semibold"), local("OpenSans-Semibold"),
+      url(fonts/opensans-semibold.woff) format('woff'),
+      url(fonts/opensans-semibold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: normal;
+  src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"),
+      url(fonts/opensans-lightitalic.woff) format('woff'),
+      url(fonts/opensans-lightitalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: bold;
+  src: local("Open Sans Semibold Italic"), local("OpenSans-SemiboldItalic"),
+      url(fonts/opensans-semibolditalic.woff) format('woff'),
+      url(fonts/opensans-semibolditalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Source Sans";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Source Sans Light"), local("SourceSans-Light"),
+      url(fonts/sourcesans-light.woff) format('woff'),
+      url(fonts/sourcesans-light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Source Sans";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Source Sans"), local("SourceSans"),
+      url(fonts/sourcesans-regular.woff) format('woff'),
+      url(fonts/sourcesans-regular.ttf) format('truetype');
+}
+
+nav {
+  font-family: "Open Sans", sans-serif;
+  background-image: url(images/logo.svg);
+  background-repeat: no-repeat;
+  background-size: 160px 35px;
+  height: 44px;
+  color: #460e54;
+  line-height: 44px;
+  text-align: right;
+  font-size: 14pt;
+  width: 1100px;
+  margin: 0 auto;
+}
+
+nav::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  z-index: -1;
+  background-color: #fffbfb;
+}
+
+nav::before {
+  display: inline-block;
+  content: "Sandstorm.io";
+  padding-left: 50px;
+  float: left;
+  margin: 0;
+}
+
+nav>a {
+  display: inline-block;
+  padding: 0 32px;
+  text-decoration: none;
+  color: #460e54;
+}
+
+header {
+  position: relative;
+  width: 100%;
+  display: table;
+  height: 200px;
+  background-image: url(images/sunrise-banner.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: auto 200px;
+  margin: 0px;
+}
+
+header::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image: url(images/sunrise-gradient.svg);
+  background-repeat: repeat-x;
+}
+
+header>h1 {
+  color: white;
+  font-size: 30px;
+  margin: 0;
+  text-align: center;
+  padding: 70px 0 0 400px;
+}
+
+body {
+  font-family: "Source Sans", sans-serif;
+  font-size: 20px;
+  margin: 0px;
+}
+
+#confirmation>p {
+  display: none;
+  width: 850px;
+  border-radius: 8px;
+  margin: 1em auto 0;
+  padding: 8px;
+}
+
+#confirmation>p.confirmed {
+  background-color: #b5e58a;
+}
+#confirmation>p.unconfirmed {
+  background-color: #e5d78a;
+}
+
+#confirmation>p>a {
+  color: inherit;
+  font-weight: bold;
+  text-decoration: none;
+  color: #783189;
+}
+#confirmation>p>a:hover {
+  color: #b862cc;
+}
+
+#confirmation.confirmed>p.confirmed {
+  display: block;
+}
+#confirmation.unconfirmed>p.unconfirmed {
+  display: block;
+}
+
+#order {
+  width: 850px;
+  margin: 75px auto 0;
+  padding-bottom: 25px;
+
+  background-image: url(images/sandcat.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+#order>h2, #order>table {
+  width: 520px;
+}
+
+#order>h2 {
+  padding-bottom: 4px;
+  border-bottom: 1px solid #ede4ed;
+}
+
+#order>table {
+  border-collapse: collapse;
+}
+
+#order>table td {
+  padding-bottom: 15px;
+  line-height: 35px;
+  padding-left: 10px;
+}
+
+#order>table td:first-child {
+  font-weight: bold;
+  width: 200px;
+}
+
+#order>table tr.bottom-line {
+  background-color: #f6f1f6;
+  border-top: 1px solid #ede4ed;
+}
+
+#order>table tr.bottom-line td {
+  padding-bottom: 0;
+}
+
+#order>p {
+  color: #6A237C;
+  font-size: 12pt;
+  margin-top: 20px;
+}
+
+#notes {
+  text-align: center;
+  background-color: #ede4ed;
+  color: #783189;
+  padding: 1em;
+}
+
+#what-next {
+  text-align: center;
+  color: #783189;
+}
+
+#what-next>div {
+  display: inline-block;
+  width: 250px;
+  padding: 25px;
+  vertical-align: top;
+  text-align: left;
+}
+
+#what-next>div>h3 {
+  border-bottom: 3px solid #ede4ed;
+  font-size: 15pt;
+  padding-bottom: 4px;
+}
+
+#what-next>.start-porting>p {
+  margin: 0 20px;
+  padding: 10px 0;
+  font-size: 14pt;
+  background-image: url(images/page.svg);
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+#what-next>.start-porting>p:first-line {
+  font-size: 12pt;
+}
+
+#what-next>.social>ul {
+  padding: 10px 0;
+  vertical-align: top;
+  text-align: center;
+}
+
+#what-next>.social>ul>li {
+  display: inline-block;
+  list-style-type: none;
+  padding: 0 4px;
+  vertical-align: bottom;
+}
+
+#what-next>.social>ul>li>a {
+  display: block;
+  color: transparent;
+  width: 42px;
+  height: 42px;
+  background-color: #ffd4ec;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+#what-next>.social>ul>li>a:hover {
+  background-color: #fffbfb;
+}
+
+#what-next>.social>ul>li#github>a { background-image: url(images/github.svg); }
+#what-next>.social>ul>li#feed>a { background-image: url(images/rss.svg); }
+#what-next>.social>ul>li#twitter>a { background-image: url(images/twitter.svg); }
+#what-next>.social>ul>li#google-plus>a { background-image: url(images/google-plus.svg); }
+#what-next>.social>ul>li#facebook>a { background-image: url(images/facebook.svg); }
+
+#what-next>.contact>h3 {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+#what-next>.contact>a:first-of-type {
+  display: block;
+  width: auto;
+  background-color: #783189;
+  margin-top: 0;
+  margin-bottom: 1em;
+  color: #fffbfb;
+  border-radius: 8px;
+  text-decoration: none;
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+#what-next>.contact>a:last-of-type {
+  display: block;
+  width: auto;
+  background-color: #ede4ed;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: #783189;
+  border-radius: 8px;
+  text-decoration: none;
+  padding: 8px 16px;
+  font-size: 13pt;
+  text-align: right;
+  background-image: url(images/envelope.svg);
+  background-repeat: no-repeat;
+  background-position: 16px center;
+  background-size: auto 50%;
+}

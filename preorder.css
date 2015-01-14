@@ -93,7 +93,7 @@ nav>a {
   color: #460e54;
 }
 
-div#modal-header {
+header {
   width: 100%;
   display: table;
   min-height: 200px;
@@ -102,7 +102,7 @@ div#modal-header {
 }
 
 /* hackery to vertically align the contents like a table */
-div#modal-header-box {
+header>div {
   font-family: "Open Sans", sans-serif;
   display: table-cell;
   margin: auto;
@@ -111,12 +111,12 @@ div#modal-header-box {
   color: white;
 }
 
-div#modal-header-box > h3 {
+header>div>h3 {
   font-size: 48px;
   margin-bottom: 0px;
 }
 
-div#modal-header-box > h3::before {
+header>div>h3::before {
   content: " ";
   display: inline-block;
   background-image: url(images/logo-white.svg);
@@ -126,7 +126,7 @@ div#modal-header-box > h3::before {
   margin-right: -20px;
 }
 
-div#modal-header-box > h4 {
+header>div>h4 {
   color: #FFD4EC;
   font-weight: 300;
   margin-top: 0.25em;
@@ -311,12 +311,12 @@ table#preorder .stripe-button-el:hover > * {
   color: #F5DAED;
 }
 
-#resource-units-star {
+#compute-units-star {
   position: absolute;
   left: -12px;
 }
 
-#resource-units {
+#compute-units {
   width: 750px;
   margin: auto;
   position: relative;
@@ -337,5 +337,4 @@ p#questions {
 p#questions-subtitle {
   margin-bottom: 2em;
   font-size: 18px;
-  font-weight: bold;
 }
