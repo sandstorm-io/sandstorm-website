@@ -134,6 +134,7 @@ header>h1 {
   font-size: 28pt;
   margin-top: 2em;
   color: #fffbfb;
+  font-weight: normal;
 }
 
 header>p {
@@ -144,7 +145,7 @@ header>p {
 }
 
 a.button {
-  display: block;
+  display: inline-block;
   background-color: #783189;
   margin: 1em auto;
   color: #fffbfb;
@@ -155,14 +156,69 @@ a.button {
   text-decoration: none;
 }
 
+header>a.demo-button {
+  display: block;
+  color: #6f2782;
+  background-color: #ffd4ec;
+  margin-bottom: 0;
+  width: 230px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 22pt;
+}
+
+header>div.action-button {
+  display: inline-block;
+  width: 200px;
+  color: #ffe8f5;
+  padding: 0 10px 1em;
+  vertical-align: top;
+}
+
+header>div.action-or {
+  display: inline-block;
+  width: 40px;
+  color: #ffe8f5;
+  text-align: center;
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+header>div.action-button>a.button {
+  display: block;
+  font-size: 14pt;
+  width: 200px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 0 8px;
+}
+
+header>table.fork {
+  width: 270px;
+  height: 50px;
+  margin: 8px auto;
+  border-collapse: collapse;
+}
+
+header>table.fork tr td {
+  border: 0px solid #d3a5c8;
+}
+
+header>table.fork tr:first-child td:first-child { border-width: 0 1px 1px 0; }
+header>table.fork tr:first-child td:last-child  { border-width: 0 0 1px 1px; }
+header>table.fork tr:last-child  td:first-child { border-width: 1px 0 0 1px; }
+header>table.fork tr:last-child  td:last-child  { border-width: 1px 1px 0 0; }
+
 header>form {
   display: inline-block;
   text-align: left;
-  vertical-align: bottom;
+  vertical-align: top;
+  color: #ffd4ec;
+  padding-top: 4px;
 }
 
 header>form>p {
-  margin: 0.5em 0;
+  margin: 0 0;
   font-size: 12pt;
 }
 
@@ -192,7 +248,7 @@ header>form>input[type="email"]:-ms-input-placeholder { color: #ae82b7; }
 header>ul#social {
   display: inline-block;
   margin: 0;
-  vertical-align: bottom;
+  vertical-align: top;
   padding-left: 20px;
 }
 
