@@ -177,7 +177,8 @@ a.button {
   text-decoration: none;
 }
 
-a#demo {
+a#demo,
+a#install {
   background-color: #783189;
   color: #fffbfb;
 }
@@ -188,6 +189,14 @@ a#preorder {
   border-style: solid;
   border-width: 1px;
   border-color: white;
+}
+
+a#preorder2 {
+  background-color: #FFD4EC;
+  color: #783189;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #BA93BC;
 }
 
 header>form {
