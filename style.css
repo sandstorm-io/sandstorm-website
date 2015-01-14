@@ -50,24 +50,6 @@
       url(fonts/droidsans-bold.woff) format('woff');
 }
 
-@font-face {
-  font-family: "Source Sans";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Source Sans Light"), local("SourceSans-Light"),
-      url(fonts/sourcesans-light.woff) format('woff'),
-      url(fonts/sourcesans-light.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: "Source Sans";
-  font-style: normal;
-  font-weight: bold;
-  src: local("Source Sans"), local("SourceSans"),
-      url(fonts/sourcesans-regular.woff) format('woff'),
-      url(fonts/sourcesans-regular.ttf) format('truetype');
-}
-
 html {
   background-color: white;
 }
