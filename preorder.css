@@ -215,6 +215,10 @@ table#preorder small {
   font-size: 18px;
 }
 
+table#preorder a {
+  text-decoration: none;
+}
+
 table#preorder td:nth-of-type(n+2) {
   font-size: 30px;
 }
