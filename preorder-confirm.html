@@ -22,12 +22,16 @@
     </header>
 
     <section id="confirmation">
-      <p class="unconfirmed">Please check your email, <b class="populate-email">garply@example.com</b>,
-        for confirmation of your email address. If you don't get a confirmation email shortly,
-        or if you mistyped your email address, please reach out to a human at
-        <a href="mailto:support@sandstorm.io">support@sandstorm.io</a>.
-      <p class="confirmed">Your email address is confirmed. Thank you!
-        <a id="sticker-link" href="https://docs.google.com/a/corp.sandstorm.io/forms/d/1EG9lbWwAQkLF4hszlNtdISUp4_wfFSuBxLpXTlFHO38/viewform">Have some Sandcat stickers »</a>
+      <div class="unconfirmed">
+        <p>Please check your email, <b class="populate-email">garply@example.com</b>, to
+          confirm your email address.
+        <p>If you don't get a confirmation email shortly, or if you mistyped your email address,
+          please reach out to a human at <a href="mailto:support@sandstorm.io"><b>support@sandstorm.io</b></a>.
+      </div>
+      <div class="confirmed">
+        <p>Your email address is confirmed. Thank you!
+        <p><a id="sticker-link" href="https://docs.google.com/a/corp.sandstorm.io/forms/d/1EG9lbWwAQkLF4hszlNtdISUp4_wfFSuBxLpXTlFHO38/viewform">Have some <b>Sandcat stickers</b> »</a>
+      </div>
     </section>
 
     <section id="order">
@@ -39,7 +43,7 @@
         <tr><td>Plan</td><td class="populate-plan">Mega</td></tr>
         <tr class="bottom-line"><td>Monthly Bill</td><td class="populate-price">$24</td></tr>
       </table>
-      <p>Just a heads up: your credit card will not be chraged until Sandstorm comes out of beta.
+      <p>Just a heads up: your credit card will not be charged until Sandstorm comes out of beta.
     </section>
 
     <section id="notes">
@@ -77,6 +81,8 @@
         if (hash.lastIndexOf("#", 0) === 0) {
           hash = hash.slice(1);
         }
+
+        document.getElementById("confirmation").className = "";
 
         var parts = hash.split(",");
         for (var i in parts) {

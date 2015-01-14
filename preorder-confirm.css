@@ -132,24 +132,59 @@ body {
   margin: 0px;
 }
 
-#confirmation>p {
+#confirmation {
+  position: relative;
+  width: 700px;
+  margin: 0 auto;
+}
+
+#confirmation>div {
   display: none;
-  width: 850px;
+  text-align: center;
+}
+
+#confirmation>div>p:first-of-type {
+  width: 650px;
   border-radius: 8px;
   margin: 1em auto 0;
-  padding: 8px;
+  padding: 16px 0;
+  font-size: 14pt;
 }
 
-#confirmation>p.confirmed {
+#confirmation>div>p:last-of-type {
+  color: #6A237C;
+  font-size: 12pt;
+  margin-top: 20px;
+}
+
+#confirmation>div.confirmed>p:first-of-type {
   background-color: #b5e58a;
 }
-#confirmation>p.unconfirmed {
-  background-color: #e5d78a;
+#confirmation>div.unconfirmed>p:first-of-type {
+  background-color: #ffc878;
 }
 
-#confirmation>p>a {
+#confirmation>.confirmed>p:last-of-type {
+  font-size: 14pt;
+}
+
+#confirmation>.confirmed>p:last-of-type>a::before {
+  content: " ";
+  display: block;
+  background-image: url(images/sandstorm-purplecircle.png);
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 20px;
+  right: 50px;
+}
+
+#confirmation>div>p>a {
   color: inherit;
-  font-weight: bold;
+  font-weight: normal;
   text-decoration: none;
   color: #783189;
 }
@@ -157,10 +192,10 @@ body {
   color: #b862cc;
 }
 
-#confirmation.confirmed>p.confirmed {
+#confirmation.confirmed>.confirmed {
   display: block;
 }
-#confirmation.unconfirmed>p.unconfirmed {
+#confirmation.unconfirmed>.unconfirmed {
   display: block;
 }
 
