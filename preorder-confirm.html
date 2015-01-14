@@ -27,7 +27,7 @@
         or if you mistyped your email address, please reach out to a human at
         <a href="mailto:support@sandstorm.io">support@sandstorm.io</a>.
       <p class="confirmed">Your email address is confirmed. Thank you!
-        <a href="https://docs.google.com/a/corp.sandstorm.io/forms/d/1EG9lbWwAQkLF4hszlNtdISUp4_wfFSuBxLpXTlFHO38/viewform">Have some Sandcat stickers »</a>
+        <a id="sticker-link" href="https://docs.google.com/a/corp.sandstorm.io/forms/d/1EG9lbWwAQkLF4hszlNtdISUp4_wfFSuBxLpXTlFHO38/viewform">Have some Sandcat stickers »</a>
     </section>
 
     <section id="order">
@@ -89,6 +89,12 @@
               } else {
                 document.getElementById("confirmation").className = "unconfirmed";
               }
+            }
+            if (assn[0] === "email") {
+              document.getElementById("sticker-link").href =
+                "https://docs.google.com/a/corp.sandstorm.io/forms/d/" +
+                "1EG9lbWwAQkLF4hszlNtdISUp4_wfFSuBxLpXTlFHO38/viewform?entry_1806603704=" +
+                encodeURIComponent(decodeURIComponent(assn[1]));
             }
             var elems = document.getElementsByClassName("populate-" + assn[0]);
             for (var j in elems) {
