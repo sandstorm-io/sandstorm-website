@@ -1,4 +1,9 @@
-var toArray = Array.prototype.slice.call.bind(Array.prototype.slice);
+function toArray(arr) {
+  // On newer browsers this can also be defined as:
+  //   var toArray = Array.prototype.slice.call.bind(Array.prototype.slice);
+
+  return Array.prototype.slice.call(arr);
+}
 
 function closeSubsection(elem) {
   var details = elem.getElementsByTagName("details")[0];

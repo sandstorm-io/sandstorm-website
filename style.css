@@ -126,6 +126,7 @@ header::before {
   background-image: url(images/sandcat-bg.svg);
   background-position: top center;
   background-size: 2868px 484px;
+  background-color: #996da5;
   z-index: -1;
   min-width: 1100px;
 }
@@ -641,7 +642,8 @@ section.tabs>section>details>div>div {
 #team-bg {
   position: absolute;
   z-index: -1;
-  background: #e89c9a url(images/team-bg.svg) repeat-x top right / 1px 1150px;
+  background-color: #996da5;
+  background: #996da5 url(images/team-bg.svg) repeat-x top right / 1px 1150px;
   left: 0;
   right: 0;
   height: 1970px;
