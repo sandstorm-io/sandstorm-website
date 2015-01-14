@@ -123,7 +123,6 @@ div#modal-header-box > h3::before {
   background-repeat: no-repeat;
   width: 90px;
   height: 90px;
-  vertical-align: center;
   margin-right: -20px;
 }
 
@@ -163,18 +162,16 @@ p#textbody {
   line-height: 150%;
 }
 
-p#questions {
-  margin-top: 3em;
-}
-
-p#questions-subtitle {
-  margin-bottom: 2em;
+p > a {
+  color: #943E9B;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 div#note {
   width: 100%;
-  height: 100px;
-  line-height: 100px;
+  height: 130px;
+  line-height: 130px;
   text-align: center;
   background-color: #FDE5EF;
   color: #783189;
@@ -265,6 +262,10 @@ table#preorder tr:nth-last-child(1) {
   background-color: white;
 }
 
+table#preorder tr:nth-last-child(2) {
+  line-height: .75;
+}
+
 table#preorder tr.beta > td:nth-of-type(n+2):after {
   background-color: #FEEFF5;
 }
@@ -283,6 +284,8 @@ table#preorder .stripe-button-el {
   width: 100%;
   padding-top: 5px;
   padding-bottom: 5px;
+  box-shadow: none;
+  border-radius: 8px;
 }
 
 table#preorder .stripe-button-el > * {
@@ -292,4 +295,43 @@ table#preorder .stripe-button-el > * {
   font-size: 21px;
   font-weight: 300;
   color: #783189;
+  box-shadow: none;
+}
+
+table#preorder .stripe-button-el:hover {
+  background-color: #783189;
+}
+
+table#preorder .stripe-button-el:hover > * {
+  background-color: #783189;
+  color: #F5DAED;
+}
+
+#resource-units-star {
+  position: absolute;
+  left: -12px;
+}
+
+#resource-units {
+  width: 750px;
+  margin: auto;
+  position: relative;
+  text-align: left;
+  font-size: 18px;
+  color: #6A237C;
+}
+
+#questions-line {
+  border-bottom-color: #EDB2DB;
+  width: 175px;
+}
+p#questions {
+  margin-top: 3em;
+  font-size: 22px;
+}
+
+p#questions-subtitle {
+  margin-bottom: 2em;
+  font-size: 18px;
+  font-weight: bold;
 }
