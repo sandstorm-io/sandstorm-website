@@ -114,8 +114,7 @@ header::before {
   top: 0;
   bottom: 0;
   z-index: -1;
-  background-image: url(images/sunrise-gradient.svg);
-  background-repeat: repeat-x;
+  background: #e89c9a url(images/sunrise-gradient.svg) repeat-x top right / 1px 200px;
 }
 
 header>h1 {
@@ -274,13 +273,16 @@ body {
   padding-bottom: 4px;
 }
 
-#what-next>.start-porting>p {
+#what-next>.start-porting>a {
+  display: block;
   margin: 0 20px;
   padding: 10px 0;
   font-size: 14pt;
   background-image: url(images/page.svg);
   background-position: right center;
   background-repeat: no-repeat;
+  color: inherit;
+  text-decoration: none;
 }
 
 #what-next>.start-porting>p:first-line {
