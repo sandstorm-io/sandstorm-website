@@ -78,19 +78,17 @@ nav::after {
   background-color: #fffbfb;
 }
 
-nav::before {
-  display: inline-block;
-  content: "Sandstorm.io";
-  padding-left: 50px;
-  float: left;
-  margin: 0;
-}
-
 nav>a {
   display: inline-block;
   padding: 0 32px;
   text-decoration: none;
   color: #460e54;
+}
+
+nav>a:first-of-type {
+  padding-left: 50px;
+  float: left;
+  margin: 0;
 }
 
 header {
