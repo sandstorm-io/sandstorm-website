@@ -596,3 +596,7 @@ h3.footer {
   text-align: center;
   padding: 0 16px;
 }
+
+.nobr	{
+  white-space:nowrap;
+}
