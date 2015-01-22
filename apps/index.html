@@ -37,7 +37,7 @@
         } else if (document.getElementById("location-demo").checked) {
           target = "https://demo.sandstorm.io";
         } else if (document.getElementById("location-localhost").checked) {
-          target = "http://localhost:6080";
+          target = "http://local.sandstorm.io:6080";
         } else if (document.getElementById("location-other").checked) {
           target = document.getElementById("other-addr").value;
           if (!target) {
@@ -69,7 +69,7 @@
           Before installing you must tell us where to install:<br>
         <input type="radio" required name="location" id="location-alpha"> Sandstorm Alpha (https://alpha.sandstorm.io)<br>
         <input type="radio" required name="location" id="location-demo"> Sandstorm Demo (https://demo.sandstorm.io)<br>
-        <input type="radio" required name="location" id="location-localhost"> Local instance (http://localhost:6080)<br>
+        <input type="radio" required name="location" id="location-localhost"> Local instance (http://local.sandstorm.io:6080)<br>
         <input type="radio" required name="location" id="location-other"> Other
             <input type="text" placeholder="http://example.com" id="other-addr">
         <input type="submit" id="fake-submit" style="display:none">
@@ -85,7 +85,7 @@
               document.getElementById("location-alpha").checked = true;
             } else if (origin == "https://demo.sandstorm.io") {
               document.getElementById("location-demo").checked = true;
-            } else if (origin == "http://localhost:6080") {
+            } else if (origin == "http://local.sandstorm.io:6080") {
               document.getElementById("location-localhost").checked = true;
             } else if (origin.lastIndexOf("https:", 0) === 0 ||
                        origin.lastIndexOf("http:", 0) === 0) {
