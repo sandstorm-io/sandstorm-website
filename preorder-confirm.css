@@ -314,11 +314,11 @@ body {
   background-color: #fffbfb;
 }
 
-#what-next>.social>ul>li#github>a { background-image: url(images/github.svg); }
-#what-next>.social>ul>li#feed>a { background-image: url(images/rss.svg); }
-#what-next>.social>ul>li#twitter>a { background-image: url(images/twitter.svg); }
-#what-next>.social>ul>li#google-plus>a { background-image: url(images/google-plus.svg); }
-#what-next>.social>ul>li#facebook>a { background-image: url(images/facebook.svg); }
+#what-next>.social>ul>li#github>a { background-image: url(images/github-lbg.svg); }
+#what-next>.social>ul>li#feed>a { background-image: url(images/rss-lbg.svg); }
+#what-next>.social>ul>li#twitter>a { background-image: url(images/twitter-lbg.svg); }
+#what-next>.social>ul>li#google-plus>a { background-image: url(images/google-plus-lbg.svg); }
+#what-next>.social>ul>li#facebook>a { background-image: url(images/facebook-lbg.svg); }
 
 #what-next>.contact>h3 {
   border-bottom: none;

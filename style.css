@@ -193,11 +193,12 @@ header>table.fork tr:last-child  td:first-child { border-width: 1px 0 0 1px; }
 header>table.fork tr:last-child  td:last-child  { border-width: 1px 1px 0 0; }
 
 header>form {
-  display: inline-block;
   text-align: left;
   vertical-align: top;
   color: #ffd4ec;
   padding-top: 4px;
+  float: left;
+  padding-left: 25px;
 }
 
 header>form>p {
@@ -229,10 +230,11 @@ header>form>input[type="email"]::-moz-placeholder { color: #ae82b7; }
 header>form>input[type="email"]:-ms-input-placeholder { color: #ae82b7; }
 
 header>ul#social {
-  display: inline-block;
+  float: right;
   margin: 0;
   vertical-align: top;
   padding-left: 20px;
+  padding-right: 25px;
 }
 
 header>ul#social>li {
