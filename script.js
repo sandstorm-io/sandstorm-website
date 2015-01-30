@@ -73,6 +73,9 @@ function openUserTab(elem) {
   }
 }
 
+var pressed_keys = new Array(10);
+var konami_keys = [38,38,40,40,37,39,37,39,66,65];
+
 function registerHandlers() {
   toArray(document.querySelectorAll("#principles>section")).forEach(function (elem) {
     elem.addEventListener("click", function (event) {
@@ -105,6 +108,17 @@ function registerHandlers() {
       }
     }, 100);
   }
+
+	document.addEventListener("keydown", function(e) {
+		pressed_keys.push(e.keyCode);
+		pressed_keys.shift();
+		if (pressed_keys.toString() == konami_keys.toString()) {
+			var iframe = document.createElement("IFRAME");
+			iframe.hidden = true;
+			iframe.src = "https://www.youtube.com/embed/y6120QOlsfU?autoplay=1";
+			document.body.appendChild(iframe);
+		}
+	});
 
   toArray(document.querySelectorAll("#team>section>h3")).forEach(function (elem) {
     elem.addEventListener("click", function (event) {
