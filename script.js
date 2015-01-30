@@ -109,16 +109,16 @@ function registerHandlers() {
     }, 100);
   }
 
-	document.addEventListener("keydown", function(e) {
-		pressed_keys.push(e.keyCode);
-		pressed_keys.shift();
-		if (pressed_keys.toString() == konami_keys.toString()) {
-			var iframe = document.createElement("IFRAME");
-			iframe.hidden = true;
-			iframe.src = "https://www.youtube.com/embed/y6120QOlsfU?autoplay=1";
-			document.body.appendChild(iframe);
-		}
-	});
+  document.addEventListener("keydown", function(e) {
+    pressed_keys.push(e.keyCode);
+    pressed_keys.shift();
+    if (pressed_keys.toString() == konami_keys.toString()) {
+      var iframe = document.createElement("IFRAME");
+      iframe.hidden = true;
+      iframe.src = "https://www.youtube.com/embed/y6120QOlsfU?autoplay=1";
+      document.body.appendChild(iframe);
+    }
+  });
 
   toArray(document.querySelectorAll("#team>section>h3")).forEach(function (elem) {
     elem.addEventListener("click", function (event) {
