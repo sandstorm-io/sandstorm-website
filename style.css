@@ -320,6 +320,27 @@ section.tabs>section>details>div>div {
 
 /* ==================================================================================== */
 
+#description {
+  padding: 50px 0;
+  color: #6A237C;
+  background-color: #FDE5EF;
+}
+
+#description>p {
+  text-align: center;
+  width: 900px;
+  margin: 0 auto;
+  font-size: 25px;
+}
+
+#description>p a {
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit;
+}
+
+/* ==================================================================================== */
+
 #principles {
   height: 300px;
 }
