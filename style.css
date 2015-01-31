@@ -321,7 +321,7 @@ section.tabs>section>details>div>div {
 /* ==================================================================================== */
 
 #description {
-  padding: 50px 0;
+  padding: 35px 0;
   color: #6A237C;
   background-color: #FDE5EF;
 }
@@ -331,6 +331,7 @@ section.tabs>section>details>div>div {
   width: 900px;
   margin: 0 auto;
   font-size: 25px;
+  line-height: 45px;
 }
 
 #description>p a {
