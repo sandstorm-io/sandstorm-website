@@ -55,6 +55,13 @@
 
         document.location = target + "/install/" + packageId;
       }
+
+      function showAll() {
+        document.getElementById("apps").className = "";
+      }
+      function showOpenSource() {
+        document.getElementById("apps").className = "open-source-only";
+      }
     </script>
   </head>
   <body>
@@ -77,6 +84,10 @@
             <input type="text" placeholder="http://example.com" id="other-addr">
         <input type="submit" id="fake-submit" style="display:none">
       </form>
+
+      <p><b>Filter:</b><br>
+        <input type="radio" name="filter" onclick="showAll()" checked> Show all apps.<br>
+        <input type="radio" name="filter" onclick="showOpenSource()" id="filter-opensource"> Show only open source apps.
 
       <script type="text/javascript">
         (function () {
@@ -102,6 +113,12 @@
               document.getElementById("target-form").style.display = "none";
             }
           }
+
+          // If the user got here by clicking "back", the radio buttons may not be in the default
+          // state. Make sure we honor what the user chose previously.
+          if (document.getElementById("filter-opensource").checked) {
+            showOpenSource();
+          }
         })();
       </script>
 
@@ -118,6 +135,20 @@
         <p>Note: Despite the similar names, Etherpad and EtherCalc are not related.
         <p><a href="https://blog.sandstorm.io/news/2014-08-05-ethercalc.html">Read more on the Sandstorm blog »</a>
         <p><img src="ethercalc.png"><br>
+      </div>
+
+      <div class="app proprietary">
+        <button data-app-id="nfqhx83vvzm80edpgkpax8mhqp176qj2vwg67rgq5e3kjc5r4cyh" data-package-id="5704644ebff9cc50833c77a33cab1b73" data-package-url="https://www.jgraph.com/sandstorm/package.spk">Install »</button>
+        <h3>draw.io</h3>
+        <div class="app-details">
+          Maintained by: <a href="https://www.jgraph.com">JGraph</a><br>
+          License: Proprietary (no cost)<br>
+          Updated: Feb 02 2015
+        </div>
+        <p>draw.io is an advanced diagramming application with native Sandstorm integration. The <a href="https://www.draw.io">non-Sandstorm version</a> synchronizes with external storage like Dropbox or Google Drive, but the Sandstorm version stores directly to your server.
+        <p><a href="https://support.draw.io/display/DFS/2015/02/02/draw.io+for+Sandstorm+0.1">Read the draw.io release announcement »</a>
+        <p><a href="https://blog.sandstorm.io/news/2015-02-03-draw.io.html">Read more on the Sandstorm blog »</a>
+        <p><a href="drawio-big.png"><img src="drawio.png"></a><br>
       </div>
 
       <div class="app">
@@ -462,19 +493,6 @@
           serves as an example of how easy it is to port Meteor apps to Sandstorm.
         <p><a href="https://blog.sandstorm.io/news/2014-08-12-meteor-spk.html">Read more on the Sandstorm blog »</a>
         <p><img src="meteor-blocks.png">
-      </div>
-
-      <div class="app">
-        <button data-app-id="nfqhx83vvzm80edpgkpax8mhqp176qj2vwg67rgq5e3kjc5r4cyh" data-package-id="5704644ebff9cc50833c77a33cab1b73" data-package-url="https://www.jgraph.com/sandstorm/package.spk">Install »</button>
-        <h3>draw.io</h3>
-        <div class="app-details">
-          Maintained by: <a href="https://www.jgraph.com">JGraph</a><br>
-          License: Free to use, non-open source<br>
-          Updated: Feb 02 2015
-        </div>
-        <p>draw.io is a diagramming application with native Sandstorm integration. You can test it out <a href="https://www.draw.io">online</a>
-        <p><a href="https://support.draw.io/display/DFS/2015/02/02/draw.io+for+Sandstorm+0.1">See the 0.1 release post.</a>
-        <p><img src="https://www.jgraph.com/sandstorm/ss4.png"><br>
       </div>
 
       <div class="app">

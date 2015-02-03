@@ -600,3 +600,7 @@ h3.footer {
 .nobr	{
   white-space:nowrap;
 }
+
+.open-source-only .proprietary {
+  display: none;
+}
