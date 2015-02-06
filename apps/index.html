@@ -55,6 +55,13 @@
 
         document.location = target + "/install/" + packageId;
       }
+
+      function showAll() {
+        document.getElementById("apps").className = "";
+      }
+      function showOpenSource() {
+        document.getElementById("apps").className = "open-source-only";
+      }
     </script>
   </head>
   <body>
@@ -77,6 +84,10 @@
             <input type="text" placeholder="http://example.com" id="other-addr">
         <input type="submit" id="fake-submit" style="display:none">
       </form>
+
+      <p><b>Filter:</b><br>
+        <input type="radio" name="filter" onclick="showAll()" checked> Show all apps.<br>
+        <input type="radio" name="filter" onclick="showOpenSource()" id="filter-opensource"> Show only open source apps.
 
       <script type="text/javascript">
         (function () {
@@ -102,6 +113,12 @@
               document.getElementById("target-form").style.display = "none";
             }
           }
+
+          // If the user got here by clicking "back", the radio buttons may not be in the default
+          // state. Make sure we honor what the user chose previously.
+          if (document.getElementById("filter-opensource").checked) {
+            showOpenSource();
+          }
         })();
       </script>
 
@@ -118,6 +135,20 @@
         <p>Note: Despite the similar names, Etherpad and EtherCalc are not related.
         <p><a href="https://blog.sandstorm.io/news/2014-08-05-ethercalc.html">Read more on the Sandstorm blog »</a>
         <p><img src="ethercalc.png"><br>
+      </div>
+
+      <div class="app proprietary">
+        <button data-app-id="nfqhx83vvzm80edpgkpax8mhqp176qj2vwg67rgq5e3kjc5r4cyh" data-package-id="5704644ebff9cc50833c77a33cab1b73" data-package-url="https://www.jgraph.com/sandstorm/package.spk">Install »</button>
+        <h3>draw.io</h3>
+        <div class="app-details">
+          Developed by: <a href="https://www.jgraph.com">JGraph</a><br>
+          License: Proprietary (no cost)<br>
+          Updated: Feb 02 2015
+        </div>
+        <p>draw.io is an advanced diagramming application with native Sandstorm integration. The <a href="https://www.draw.io">non-Sandstorm version</a> synchronizes with external storage like Dropbox or Google Drive, but the Sandstorm version stores directly to your server.
+        <p><a href="https://support.draw.io/display/DFS/2015/02/02/draw.io+for+Sandstorm+0.1">Read the draw.io release announcement »</a>
+        <p><a href="https://blog.sandstorm.io/news/2015-02-03-draw.io.html">Read more on the Sandstorm blog »</a>
+        <p><a href="drawio-big.png"><img src="drawio.png"></a><br>
       </div>
 
       <div class="app">
@@ -138,13 +169,14 @@
       </div>
 
       <div class="app">
-        <button data-app-id="zx9d3pt0fjh4uqrprjftgpqfwgzp6y2ena6098ug3ctv37uv6kfh" data-package-id="8a539a2697fe502963412fe947587a12" data-package-url="http://sandstorm.io/apps/david/gitlab.spk">Install »</button>
+        <button data-app-id="zx9d3pt0fjh4uqrprjftgpqfwgzp6y2ena6098ug3ctv37uv6kfh" data-package-id="bb63ed12abb592ba39462d51329ee663" data-package-url="http://sandstorm.io/apps/david/gitlab1.spk">Install »</button>
         <h3>GitLab</h3>
         <div class="app-details">
           Originally by: <a href="https://about.gitlab.com/">GitLab B. V.</a><br>
           Ported by: <a href="https://github.com/dwrensha/">David Renshaw</a><br>
           License: MIT<br>
-          Code: <a href="https://github.com/dwrensha/gitlab-sandstorm">On Github</a>
+          Code: <a href="https://github.com/dwrensha/gitlab-sandstorm">On Github</a><br>
+          Updated: Feb 3 2015
         </div>
 
         <p>A port of <a href="https://about.gitlab.com/">GitLab</a>, an open source alternative to Github.
@@ -153,14 +185,14 @@
       </div>
 
       <div class="app">
-        <button data-app-id="wfg1r0qra2ewyvns05r0rddqttt57qxurz3nz5z95rjnm63et7e0" data-package-id="5ef362de47ee214922905b124d3283ee" data-package-url="http://sandstorm.io/apps/groovebasin2.spk">Install »</button>
+        <button data-app-id="wfg1r0qra2ewyvns05r0rddqttt57qxurz3nz5z95rjnm63et7e0" data-package-id="9b1d6f74c48bc7ae37bae7cce1ff6b3e" data-package-url="http://sandstorm.io/apps/david/groovebasin3.spk">Install »</button>
         <h3>Groove Basin</h3>
         <div class="app-details">
           Originally by: <a href="http://andrewkelley.me/">Andrew Kelley</a><br>
           Ported by: <a href="https://github.com/dwrensha">David Renshaw</a><br>
           License: MIT<br>
           Code: <a href="https://github.com/dwrensha/groovebasin/tree/sandstorm-app">On GitHub</a><br>
-          Updated: Nov 4 2014
+          Updated: Feb 2 2015
         </div>
         <p>A port of <a href="http://groovebasin.com/">Groove Basin</a>, a music library and player.
           Groove Basin not only plays music, but also allows multiple clients to collaboratively
@@ -191,13 +223,14 @@
       </div>
 
       <div class="app">
-        <button data-app-id="h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60" data-package-id="b27f0cef42ae851ece6f6621f8d35496" data-package-url="http://sandstorm.io/apps/etherpad2.spk">Install »</button>
+        <button data-app-id="h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60" data-package-id="701af97f56e14227f77cabbe75f73af0" data-package-url="http://sandstorm.io/apps/etherpad3.spk">Install »</button>
         <h3>Etherpad</h3>
         <div class="app-details">
           Originally by: <a href="http://etherpad.org/">Etherpad Foundation</a><br>
-          Ported by: <a href="https://github.com/jparyani/">Jason Paryani</a><br>
+          Ported by: <a href="https://github.com/jparyani/">Jason Paryani</a> &amp; <a href="https://github.com/kentonv/">Kenton Varda</a><br>
           License: Apache 2.0<br>
-          Code: <a href="https://github.com/jparyani/etherpad-lite/tree/sandstorm">On GitHub</a>
+          Code: <a href="https://github.com/kentonv/etherpad-lite/tree/sandstorm">On GitHub</a><br>
+          Updated: Feb 4 2015
         </div>
 
         <p>This is a port of <a href="http://etherpad.org/">Etherpad</a>, a collaborative document
@@ -206,14 +239,14 @@
       </div>
 
       <div class="app">
-        <button data-app-id="rprqf3t2h3vd3swfkhwk076qrennh9msreyjv70g7sgw5hkdxjph" data-package-id="0a9206137db58d7e292b2d3f2fe5ceb5" data-package-url="http://sandstorm.io/apps/jparyani/ipython-15.spk">Install »</button>
+        <button data-app-id="rprqf3t2h3vd3swfkhwk076qrennh9msreyjv70g7sgw5hkdxjph" data-package-id="77a704fe6c4af771eba23a938e412bad" data-package-url="http://sandstorm.io/apps/jparyani/ipython-16.spk">Install »</button>
         <h3>IPython Notebook</h3>
         <div class="app-details">
           Originally by: <a href="http://ipython.org/">IPython Team</a><br>
           Ported by: <a href="https://github.com/jparyani/">Jason Paryani</a><br>
           License: 3-clause BSD<br>
           Code: <a href="https://github.com/jparyani/ipython/tree/sandstorm-2">On GitHub</a><br>
-          Updated: Dec 10 2014
+          Updated: Feb 5 2015
         </div>
         <p>A port of <a href="http://ipython.org/notebook.html">IPython Notebook</a>, a web-based
           interactive computational environment where you can execute Python code, plot graphs,
@@ -222,13 +255,14 @@
       </div>
 
       <div class="app">
-        <button data-app-id="aax9j672p6z8n7nyupzvj2nmumeqd4upa0f7mgu8gprwmy53x04h" data-package-id="302a1a51e2dd1dc75455f184b08484c0" data-package-url="http://sandstorm.io/apps/wordpress.spk">Install »</button>
+        <button data-app-id="aax9j672p6z8n7nyupzvj2nmumeqd4upa0f7mgu8gprwmy53x04h" data-package-id="9edc3864ec72f951e2a642a787b1f775" data-package-url="http://sandstorm.io/apps/david/wordpress2.spk">Install »</button>
         <h3>WordPress</h3>
         <div class="app-details">
           Originally by: <a href="http://wordpress.org/">WordPress Project</a><br>
           Ported by: <a href="https://github.com/dwrensha">David Renshaw</a><br>
           License: GNU GPL<br>
-          Code: <a href="https://github.com/dwrensha/wordpress-sandstorm">On GitHub</a>
+          Code: <a href="https://github.com/dwrensha/wordpress-sandstorm">On GitHub</a><br>
+          Updated: Feb 4 2015
         </div>
         <p>A port of <a href="http://wordpress.org/">WordPress</a>, a blogging platform and probably
           one of the most popular open source web apps in existence. With this app, you can publish
@@ -238,14 +272,14 @@
       </div>
 
       <div class="app">
-        <button data-app-id="mkqyz71cc96e8gmq2h4dhnfm56k90t2055muv33h2ptw1q6h8n4h" data-package-id="359d2e296aaba05dd1eb87836d438bd3" data-package-url="http://sandstorm.io/apps/ghost5.spk">Install »</button>
+        <button data-app-id="mkqyz71cc96e8gmq2h4dhnfm56k90t2055muv33h2ptw1q6h8n4h" data-package-id="d234634a93d230626abccc7a0928a968" data-package-url="http://sandstorm.io/apps/jparyani/ghost-7.spk">Install »</button>
         <h3>Ghost</h3>
         <div class="app-details">
           Originally by: <a href="https://ghost.org/">Ghost Foundation</a><br>
           Ported by: <a href="https://github.com/jparyani/">Jason Paryani</a> &amp; <a href="https://github.com/Sing-Li/">Sing Li</a><br>
           License: MIT<br>
           Code: <a href="https://github.com/jparyani/GhostSS">On GitHub</a><br>
-          Updated: Oct 9 2014
+          Updated: Feb 3 2015
         </div>
         <p>A port of <a href="https://ghost.org/">Ghost</a>, a beautifully-designed blogging
           platform. Use Ghost in Sandstorm to edit your blog, then publish it to any domain you
@@ -271,14 +305,14 @@
       </div>
 
       <div class="app">
-        <button data-app-id="5h13ka55xn93gpenjc29f5kxqpjf5gk4drgx949q4dx7gk968smh" data-package-id="a522699b2f89399b65400cf88540e70b" data-package-url="http://sandstorm.io/apps/telescope.spk">Install »</button>
+        <button data-app-id="5h13ka55xn93gpenjc29f5kxqpjf5gk4drgx949q4dx7gk968smh" data-package-id="fcb174664ccc279c32fc90d87fd53d15" data-package-url="http://sandstorm.io/apps/jparyani/telescope-1.spk">Install »</button>
         <h3>Telescope</h3>
         <div class="app-details">
           Originally by: <a href="https://github.com/SachaG">Sacha Greif</a> &amp; <span class="nobr"><a href="https://github.com/tmeasday">Tom Coleman</a></span><br>
           Ported by: <a href="https://github.com/jparyani/">Jason Paryani</a><br>
           License: MIT<br>
           Code: <a href="https://github.com/jparyani/Telescope">On GitHub</a><br>
-          Updated: Nov 4 2014
+          Updated: Feb 2 2015
         </div>
         <p>A port of <a href="http://telesc.pe/">Telescope</a>, an open source clone of Reddit /
           Hacker News built on <a href="https://meteor.com">Meteor</a>. Use this to run a private
@@ -304,14 +338,14 @@
       </div>
 
       <div class="app">
-        <button data-app-id="70awyqss6jq2gkz7dwzsnvumzr07256pzdt3hda9acfuxwh6uh7h" data-package-id="94457aeac92bcf0b728a3803c5dccf4f" data-package-url="http://sandstorm.io/apps/mediagoblin2.spk">Install »</button>
+        <button data-app-id="70awyqss6jq2gkz7dwzsnvumzr07256pzdt3hda9acfuxwh6uh7h" data-package-id="37c06e087d3c7c2feb419b9beef083e2" data-package-url="http://sandstorm.io/apps/jparyani/mediagoblin-3.spk">Install »</button>
         <h3>MediaGoblin</h3>
         <div class="app-details">
           Originally by: <a href="http://mediagoblin.org/">MediaGoblin Project</a><br>
           Ported by: <a href="https://github.com/jparyani/">Jason Paryani</a> &amp; <span class="nobr"><a href="https://github.com/judytuna">Judy Tuan</a></span><br>
           License: GNU AGPL<br>
           Code: <a href="https://github.com/jparyani/mediagoblin">On GitHub</a><br>
-          Updated: Oct 9 2014
+          Updated: Feb 3 2015
         </div>
         <p>A port of <a href="http://mediagoblin.org">MediaGoblin</a>, a Free Software federated
           media publishing platform. An alternative to Flickr, YouTube, SoundCloud, etc.
@@ -322,13 +356,14 @@
       </div>
 
       <div class="app">
-        <button data-app-id="0s6hcw325yjs22c03hh09uyr0wxy8r09qet34637kep6tncfh9uh" data-package-id="992eb56f773d67f6c56abd88b00b089e" data-package-url="http://sandstorm.io/apps/mailpile2.spk">Install »</button>
+        <button data-app-id="0s6hcw325yjs22c03hh09uyr0wxy8r09qet34637kep6tncfh9uh" data-package-id="f9930c1cd518417965552daee9c340e9" data-package-url="http://sandstorm.io/apps/jparyani/mailpile-4.spk">Install »</button>
         <h3>Mailpile</h3>
         <div class="app-details">
           Originally by: <a href="https://www.mailpile.is/">Mailpile Team</a><br>
           Ported by: <a href="https://github.com/jparyani/">Jason Paryani</a><br>
           License: Apache 2.0 / AGPL<br>
-          Code: <a href="https://github.com/jparyani/Mailpile/tree/sandstorm-master">On GitHub</a>
+          Code: <a href="https://github.com/jparyani/Mailpile/tree/sandstorm">On GitHub</a><br>
+          Updated: Feb 5 2015
         </div>
 
         <p>This is a port of <a href="https://www.mailpile.is/">Mailpile Alpha II</a>, an e-mail app.
@@ -338,13 +373,14 @@
       </div>
 
       <div class="app">
-        <button data-app-id="0qhha1v9ne1p42s5jw7r6qq6rt5tcx80zpg1f5ptsg7ryr4hws1h" data-package-id="5e7b642c74c6e82e515beb6268fc90ad" data-package-url="http://sandstorm.io/apps/roundcube.spk">Install »</button>
+        <button data-app-id="0qhha1v9ne1p42s5jw7r6qq6rt5tcx80zpg1f5ptsg7ryr4hws1h" data-package-id="d349324eb5ffc7df9c33c426d3a83803" data-package-url="http://sandstorm.io/apps/jparyani/roundcube-1.spk">Install »</button>
         <h3>Roundcube</h3>
         <div class="app-details">
           Originally by: <a href="http://roundcube.net/">Roundcube.net</a><br>
           Ported by: <a href="https://github.com/jparyani/">Jason Paryani</a><br>
           License: GNU GPL<br>
-          Code: <a href="https://github.com/jparyani/roundcubemail">On GitHub</a>
+          Code: <a href="https://github.com/jparyani/roundcubemail">On GitHub</a><br>
+          Updated: Feb 4 2015
         </div>
 
         <p>This is a port of <a href="http://roundcube.net/">Roundcube</a>, an e-mail app.
@@ -356,13 +392,14 @@
       </div>
 
       <div class="app">
-        <button data-app-id="6va4cjamc21j0znf5h5rrgnv0rpyvh1vaxurkrgknefvj0x63ash" data-package-id="79bf8d12b973ac85e3b9409db44b00a2" data-package-url="http://sandstorm.io/apps/david/gitweb.spk">Install »</button>
+        <button data-app-id="6va4cjamc21j0znf5h5rrgnv0rpyvh1vaxurkrgknefvj0x63ash" data-package-id="6a47cde8721039a4f4e5092b41363a76" data-package-url="http://sandstorm.io/apps/david/gitweb1.spk">Install »</button>
         <h3>GitWeb</h3>
         <div class="app-details">
           Originally by: <a href="https://github.com/kaysievers">Kay Sievers</a><br>
           Ported by: <a href="https://github.com/dwrensha/">David Renshaw</a><br>
           License: GNU GPL<br>
-          Code: <a href="https://github.com/dwrensha/gitweb-sandstorm">On Github</a>
+          Code: <a href="https://github.com/dwrensha/gitweb-sandstorm">On Github</a><br>
+          Updated: Feb 3 2015
         </div>
 
         <p>A simple wrapper around <a href="http://git-scm.com/docs/gitweb">GitWeb</a> and
@@ -373,13 +410,14 @@
       </div>
 
       <div class="app">
-        <button data-app-id="y88wavuqwz0p3tjcqtdt8egauq9hpnzr1s9efq1d63rwtj1w0ech" data-package-id="1059a304ac63483e586db78dd663eebc" data-package-url="http://sandstorm.io/apps/mediawiki.spk">Install »</button>
+        <button data-app-id="y88wavuqwz0p3tjcqtdt8egauq9hpnzr1s9efq1d63rwtj1w0ech" data-package-id="73a24c1081699b11b64c2b7397dc0719" data-package-url="http://sandstorm.io/apps/jparyani/mediawiki-1.spk">Install »</button>
         <h3>MediaWiki</h3>
         <div class="app-details">
           Originally by: <span class="nobr"><a href="https://www.mediawiki.org">MediaWiki Contributors</a></span><br>
           Ported by: <a href="https://github.com/jparyani/">Jason Paryani</a> &amp; <a href="http://jotaro.com">Joe Lee</a><br>
           License: GNU GPL<br>
-          Code: <a href="https://github.com/jparyani/mediawiki-sandstorm">On GitHub</a>
+          Code: <a href="https://github.com/jparyani/mediawiki-sandstorm">On GitHub</a><br>
+          Updated: Feb 2 2015
         </div>
         <p>A port of <a href="https://www.mediawiki.org">MediaWiki</a>, the software that powers
           <a href="http://www.wikipedia.org">Wikipedia</a>. Use to host private wikis accessible
@@ -414,12 +452,13 @@
       </div>
 
       <div class="app">
-        <button data-app-id="nqmcqs9spcdpmqyuxemf0tsgwn8awfvswc58wgk375g4u25xv6yh" data-package-id="ca690ad886bf920026f8b876c19539c1" data-package-url="http://sandstorm.io/apps/ssjekyll8.spk">Install »</button>
+        <button data-app-id="nqmcqs9spcdpmqyuxemf0tsgwn8awfvswc58wgk375g4u25xv6yh" data-package-id="9d3e98e295a9b89c8eb23b499c93fa37" data-package-url="http://sandstorm.io/apps/ssjekyll9.spk">Install »</button>
         <h3>Hacker CMS</h3>
         <div class="app-details">
           Developed by: <a href="https://github.com/kentonv/">Kenton Varda</a><br>
           License: 2-clause BSD<br>
-          Code: <a href="https://github.com/kentonv/ssjekyll">On GitHub</a>
+          Code: <a href="https://github.com/kentonv/ssjekyll">On GitHub</a><br>
+          Updated: Feb 5 2015
         </div>
         <p>This is a mash-up of <a href="http://jekyllrb.com/">Jekyll</a>,
           <a href="http://ace.c9.io/">Ace</a>, and <a href="http://www.jstree.com/">jsTree</a>
@@ -460,19 +499,6 @@
           serves as an example of how easy it is to port Meteor apps to Sandstorm.
         <p><a href="https://blog.sandstorm.io/news/2014-08-12-meteor-spk.html">Read more on the Sandstorm blog »</a>
         <p><img src="meteor-blocks.png">
-      </div>
-
-      <div class="app">
-        <button data-app-id="nfqhx83vvzm80edpgkpax8mhqp176qj2vwg67rgq5e3kjc5r4cyh" data-package-id="5704644ebff9cc50833c77a33cab1b73" data-package-url="https://www.jgraph.com/sandstorm/package.spk">Install »</button>
-        <h3>draw.io</h3>
-        <div class="app-details">
-          Maintained by: <a href="https://www.jgraph.com">JGraph</a><br>
-          License: Free to use, non-open source<br>
-          Updated: Feb 02 2015
-        </div>
-        <p>draw.io is a diagramming application with native Sandstorm integration. You can test it out <a href="https://www.draw.io">online</a>
-        <p><a href="https://support.draw.io/display/DFS/2015/02/02/draw.io+for+Sandstorm+0.1">See the 0.1 release post.</a>
-        <p><img src="https://www.jgraph.com/sandstorm/ss4.png"><br>
       </div>
 
       <div class="app">
