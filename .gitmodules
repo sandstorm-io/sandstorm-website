@@ -1,0 +1,3 @@
+[submodule "logos"]
+	path = logos
+	url = https://github.com/sandstorm-io/logos.git
