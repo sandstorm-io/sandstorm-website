@@ -119,6 +119,20 @@
           if (document.getElementById("filter-opensource").checked) {
             showOpenSource();
           }
+
+          // Change between demo and install buttons on selection
+          document.getElementById("location-alpha").addEventListener("click", function () {
+            changeButtonsToInstall();
+          });
+          document.getElementById("location-localhost").addEventListener("click", function () {
+            changeButtonsToInstall();
+          });
+          document.getElementById("location-other").addEventListener("click", function () {
+            changeButtonsToInstall();
+          });
+          document.getElementById("location-demo").addEventListener("click", function () {
+            changeButtonsToDemo();
+          });
         })();
       </script>
 
@@ -633,6 +647,24 @@
         }
       }
       bindButtonToInstall();
+    </script>
+    <!-- If there is no search/query parameter, change buttons to be "Try Demo" -->
+    <script>
+      function changeButtonsToInstall() {
+        var buttons = document.getElementsByTagName('button');
+        for (i = 0 ; i < buttons.length; i++) {
+          buttons[i].textContent = "Install »";
+        }
+      }
+      function changeButtonsToDemo() {
+        var buttons = document.getElementsByTagName('button');
+        for (i = 0 ; i < buttons.length; i++) {
+          buttons[i].textContent = "Try Demo »";
+        }
+      }
+      if (window.location.search.lastIndexOf("?host=", 0) !== 0) {
+        changeButtonsToDemo();
+      }
     </script>
   </body>
 </html>
