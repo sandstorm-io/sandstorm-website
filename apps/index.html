@@ -53,6 +53,7 @@
           return;
         }
 
+        localStorage.sandstormHost = target;
         document.location = target + "/install/" + packageId;
       }
 
@@ -92,26 +93,33 @@
       <script type="text/javascript">
         (function () {
           var query = document.location.search;
-          if (query.lastIndexOf("?host=", 0) === 0) {
-            var origin = query.slice(6);
-            var hideFrame = true;
+
+          function selectSandstormHost(origin) {
             if (origin == "https://alpha.sandstorm.io") {
               document.getElementById("location-alpha").checked = true;
+              return true;
             } else if (origin == "https://demo.sandstorm.io") {
               document.getElementById("location-demo").checked = true;
+              return true;
             } else if (origin == "http://local.sandstorm.io:6080") {
               document.getElementById("location-localhost").checked = true;
+              return true;
             } else if (origin.lastIndexOf("https:", 0) === 0 ||
                        origin.lastIndexOf("http:", 0) === 0) {
               document.getElementById("location-other").checked = true;
               document.getElementById("other-addr").value = origin;
+              return true;
             } else {
-              hideFrame = false;
+              return false;
             }
+          }
 
-            if (hideFrame) {
+          if (query.lastIndexOf("?host=", 0) === 0) {
+            if (selectSandstormHost(query.slice(6))) {
               document.getElementById("target-form").style.display = "none";
             }
+          } else if (localStorage.sandstormHost) {
+            selectSandstormHost(localStorage.sandstormHost);
           }
 
           // If the user got here by clicking "back", the radio buttons may not be in the default
@@ -674,7 +682,8 @@
           buttons[i].textContent = "Try Demo »";
         }
       }
-      if (window.location.search.lastIndexOf("?host=", 0) !== 0) {
+      if (window.location.search.lastIndexOf("?host=", 0) !== 0 &&
+          document.getElementById("location-demo").checked) {
         changeButtonsToDemo();
       }
     </script>
