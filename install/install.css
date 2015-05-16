@@ -1,0 +1,215 @@
+/* Responsive classes to throw away some navigation as needed. */
+@media only screen and (max-width: 768px) {
+  .md {
+    display: none;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .lg {
+    display: none;
+  }
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Open Sans Light"), local("OpenSans-Light"),
+      url(/fonts/opensans-light.woff) format('woff'),
+      url(/fonts/opensans-light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Open Sans Semibold"), local("OpenSans-Semibold"),
+      url(/fonts/opensans-semibold.woff) format('woff'),
+      url(/fonts/opensans-semibold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: normal;
+  src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"),
+      url(/fonts/opensans-lightitalic.woff) format('woff'),
+      url(/fonts/opensans-lightitalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: bold;
+  src: local("Open Sans Semibold Italic"), local("OpenSans-SemiboldItalic"),
+      url(/fonts/opensans-semibolditalic.woff) format('woff'),
+      url(/fonts/opensans-semibolditalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Source Sans";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Source Sans Light"), local("SourceSans-Light"),
+      url(/fonts/sourcesans-light.woff) format('woff'),
+      url(/fonts/sourcesans-light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Source Sans";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Source Sans"), local("SourceSans"),
+      url(/fonts/sourcesans-regular.woff) format('woff'),
+      url(/fonts/sourcesans-regular.ttf) format('truetype');
+}
+
+nav {
+  font-family: "Open Sans", sans-serif;
+  background-image: url(/images/logo.svg);
+  background-repeat: no-repeat;
+  background-size: 160px 35px;
+  height: 44px;
+  color: #460e54;
+  line-height: 44px;
+  text-align: right;
+  font-size: 14pt;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+nav::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  z-index: -1;
+  background-color: #fffbfb;
+}
+
+nav>a {
+  display: inline-block;
+  padding: 0 32px;
+  text-decoration: none;
+  color: #460e54;
+}
+
+nav>a:first-of-type {
+  padding-left: 50px;
+  float: left;
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  display: table;
+  min-height: 200px;
+  background-color: #783189;
+  background: linear-gradient(#281E43, #8964A7);
+  margin: 0px;
+}
+
+/* hackery to vertically align the contents like a table */
+header>div {
+  font-family: "Open Sans", sans-serif;
+  display: table-cell;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+}
+
+header>div>h3 {
+  font-size: 48px;
+  margin-bottom: 0px;
+}
+
+header>div>h3::before {
+  content: " ";
+  display: inline-block;
+  background-image: url(/images/logo-white.svg);
+  background-repeat: no-repeat;
+  width: 90px;
+  height: 90px;
+  margin-right: -20px;
+}
+
+header>div>h4 {
+  color: #FFD4EC;
+  font-weight: 300;
+  margin-top: 0.25em;
+  font-size: 28px;
+}
+
+body {
+  font-family: "Source Sans", sans-serif;
+  font-size: 21px;
+  text-align: center;
+  margin: 0px;
+}
+
+p {
+  color: #6A237C;
+  margin: 0px;
+}
+
+hr {
+  max-width: 400px;
+  border: 0px;
+  border-bottom: solid 1px #EDB2DB;
+}
+
+p#title {
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: 2em;
+  font-size: 34px;
+}
+
+p.textbody {
+  padding-right: 1em;
+  padding-left: 1em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  line-height: 150%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p > a {
+  color: #943E9B;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+div#note {
+  margin-top: 1em;
+  width: 100%;
+  text-align: center;
+  background-color: #FDE5EF;
+  color: #783189;
+}
+
+div#note > p {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#note > p+p {
+  margin-top: 1em;
+}
+
+p.subtitle {
+  margin-top: 3em;
+  font-size: 22px;
+}
+
+pre {
+  margin-left: 1em;
+  margin-right: 1em;
+}
