@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Install Sandstorm</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/install/install.css">
+  </head>
+
+  <body>
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a class="md" href="https://demo.sandstorm.io">Demo</a>
+      <a class="md" href="https://blog.sandstorm.io">News</a>
+      <a class="md" href="https://github.com/sandstorm-io/sandstorm">GitHub</a>
+      <a class="md" href="https://github.com/sandstorm-io/sandstorm/wiki/Get-Involved">Get Involved</a>
+      <a class="lg" href="https://groups.google.com/group/sandstorm-dev">Dev Group</a>
+    </nav>
+
+    <header>
+      <div>
+        <h3>Sandstorm.io</h3>
+        <h4>INSTALL INSTRUCTIONS</h4>
+      </div>
+    </header>
+
+    <main>
+      <p id="title">
+        <b>Sandstorm is <span id="js-replace-appname">open source</a></b>
+        and runs on recent Linux distributions.
+      </p>
+      <p class="textbody">
+        If you don't know Sandstorm
+        yet, it lets you install server apps as easily as you install apps on your phone. <span id="js-replace-check-out">Try
+          the</span> <a id="js-replace-homepage-url" href="https://demo.sandstorm.io/">
+          <span id="js-replace-website">90 second demo</span></a>!
+      </p>
+
+      <div id="note">
+        <p>
+          To run Sandstorm, you need a Linux server connected to the Internet.
+        </p>
+
+        <p>
+          If you don't already have somewhere to run Sandstorm,
+          consider creating an Ubuntu 14.04 virtual machine
+          on your favorite cloud provider.
+        </p>
+      </div>
+
+      <p class="subtitle">1. Download & run the installer</p>
+      <hr>
+      <p class="textbody">Run this in a terminal. <a href="https://asciinema.org/a/bw9mgfk8m55rfa3ntrfvhvjat?autoplay=1">(Or watch a 30 second screencast.)</a></p>
+      <p class="textbody"><pre>curl https://install.sandstorm.io | bash</pre></p>
+      <p class="textbody">
+
+      <p class="subtitle">2. Configure login</p>
+      <hr>
+      <p class="textbody">The install script prints the URL of your
+      server's admin panel. Follow that link.</p>
+      <p class="textbody">Your first action with Sandstorm is to use
+        the <em>admin panel</em> to choose Google login,
+        GitHub login, or email login.
+      </p>
+
+      <p class="subtitle">3. Install apps</p>
+      <hr>
+      <p class="textbody">Once you've logged in, click the <em>Install apps</em> button.</p>
+
+      <p class="secondary textbody">Apps in Sandstorm run with a click. You won't need to edit server configuration files or provision databases. Sandstorm manages access control, so apps are private by default.</p>
+
+      <!-- When Sandcats is announced, add a remark here. -->
+
+      <p class="subtitle">4. Stay in touch</p>
+      <hr>
+      <p class="textbody">Read about how
+      to <a href="https://github.com/sandstorm-io/sandstorm/wiki/Get-Involved">get
+      involved</a> in the project and become a part of the
+      community.</p>
+</main>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-42127409-1', 'sandstorm.io');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- JS to rewrite the page header in case we came from appDemo. -->
+    <script src="install.js"></script>
+  </body>
+</html>
