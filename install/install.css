@@ -180,6 +180,10 @@ p.textbody {
   margin-right: auto;
 }
 
+p.secondary {
+  color: #9c83aa;
+}
+
 p > a {
   color: #943E9B;
   font-weight: bold;
