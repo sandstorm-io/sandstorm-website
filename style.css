@@ -800,6 +800,7 @@ section.nametag>ul.social>li.google-plus>a { background-image: url(images/google
 #david>h4>a::before  { background-image: url(images/people/david.png); }
 #asheesh>h4>a::before{ background-image: url(images/people/asheesh.png); }
 #nena>h4>a::before   { background-image: url(images/people/nena.png); }
+#drew>h4>a::before   { background-image: url(images/people/drew.png); }
 #garply>h4>a::before { background-image: url(images/people/garply.png); }
 
 #luto>h4>a::before     { background-image: url(images/people/luto.png); }
