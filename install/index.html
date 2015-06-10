@@ -91,8 +91,7 @@
       ga('create', 'UA-42127409-1', 'sandstorm.io');
       // Send a pageview event that indicates the window.location.hash, so we
       // have a sense of which apps' install links are popular.
-      var fullUrl = (window.location.protocol + '//' + window.location.hostname +
-                     window.location.pathname + window.location.hash);
+      var fullUrl = (window.location.pathname + window.location.hash);
       ga('send', 'pageview', fullUrl);
     </script>
 
