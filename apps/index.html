@@ -708,7 +708,10 @@
         var buttons = document.getElementsByTagName('button');
         for (i = 0 ; i < buttons.length; i++) {
           buttons[i].addEventListener('click', function (e) {
-            install(e.target.dataset.packageId + "?url=" + e.target.dataset.packageUrl);
+            var target = e.target;
+            var packageId = target.getAttribute("data-package-id");
+            var packageUrl = target.getAttribute("data-package-url");
+            install(packageId + "?url=" + packageUrl);
           });
         }
       }
