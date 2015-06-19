@@ -34,6 +34,8 @@
         var target;
         if (document.getElementById("location-alpha").checked) {
           target = "https://alpha.sandstorm.io";
+        } else if (document.getElementById("location-oasis").checked) {
+          target = "https://oasis.sandstorm.io";
         } else if (document.getElementById("location-demo").checked) {
           target = "https://demo.sandstorm.io";
         } else if (document.getElementById("location-localhost").checked) {
@@ -76,6 +78,7 @@
         <p><b>Where is your Sandstorm instance?</b><br>
           Before installing you must tell us where to install:<br>
         <input type="radio" required name="location" id="location-demo" checked> Sandstorm Demo (https://demo.sandstorm.io &mdash; use this one if you don't have Sandstorm yet!)<br>
+        <input type="radio" required name="location" id="location-oasis"> Sandstorm Oasis (https://oasis.sandstorm.io)<br>
         <input type="radio" required name="location" id="location-alpha"> Sandstorm Alpha (https://alpha.sandstorm.io)<br>
         <input type="radio" required name="location" id="location-localhost"> Local instance (http://local.sandstorm.io:6080)<br>
         <input type="radio" required name="location" id="location-other"> Other
