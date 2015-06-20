@@ -178,6 +178,7 @@ p.textbody {
   max-width: 400px;
   margin-left: auto;
   margin-right: auto;
+  text-align: left;
 }
 
 p.secondary {
@@ -198,6 +199,7 @@ div#note {
   background-color: #FDE5EF;
   color: #783189;
   padding-bottom: 10px;
+  text-align: left;
 }
 
 div#note > p {
