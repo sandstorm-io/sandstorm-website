@@ -993,7 +993,7 @@ footer>ul {
 footer>ul>li {
   list-style-type: none;
   display: inline-block;
-  margin: 1em 60px;
+  margin: 1em 50px;
 }
 
 footer>ul>li>a {
