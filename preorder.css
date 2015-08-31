@@ -164,6 +164,9 @@ p#textbody {
 p > a {
   color: #943E9B;
   font-weight: bold;
+}
+
+a {
   text-decoration: none;
 }
 
