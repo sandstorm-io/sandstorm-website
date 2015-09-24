@@ -122,12 +122,13 @@ header>div {
   color: white;
 }
 
-header>div>h3 {
+header>div>h1 {
   font-size: 48px;
+  margin-top: 48px;
   margin-bottom: 0px;
 }
 
-header>div>h3::before {
+header>div>h1::before {
   content: " ";
   display: inline-block;
   background-image: url(/images/logo-white.svg);
@@ -137,29 +138,86 @@ header>div>h3::before {
   margin-right: -20px;
 }
 
-header>div>h4 {
+header>div>p {
   color: #FFD4EC;
   font-weight: 300;
   margin-top: 0.25em;
   font-size: 28px;
+  margin-bottom: 37px;
 }
 
 body {
   font-family: "Source Sans", sans-serif;
-  font-size: 21px;
-  text-align: center;
   margin: 0px;
+  font-size: 22px;
+}
+
+section {
+  margin: 64px auto;
+  max-width: 1000px;
+  box-sizing: border-box;
+}
+
+#intro {
+  text-align: center;
+}
+#intro>h2 { font-size: 30px; font-weight: normal; }
+#intro>p { padding: 0 32px; }
+
+#requirements {
+  background-color: #F0EDF7;
+  padding: calc(32px - 1em) 32px;
+}
+
+.section-content {
+  border: 1px solid #F0EDF7;
+  padding: calc(24px - 1em) 24px;
+  box-sizing: border-box;
+  margin: 1em 0;
+}
+
+@media screen and (min-width: 900px) {
+  #https-verified {
+    float: left;
+    width: 60%;
+    margin-bottom: 0;
+  }
+  #pgp-verified {
+    float: right;
+    width: 35%;
+    margin-bottom: 0;
+  }
+
+  #download::after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+  }
+}
+
+#pgp-verified>a {
+  display: block;
+  margin: 0 0 1em;
+  background-color: #f0edf7;
+  font-size: 30px;
+  text-align: center;
+  padding: 8px 0;
+  text-decoration: none;
+  color: #6A237C;
+}
+
+h2, h3 {
+  color: #6A237C;
 }
 
 p {
   color: #6A237C;
-  margin: 0px;
 }
 
 hr {
   max-width: 400px;
   border: 0px;
-  border-bottom: solid 1px #EDB2DB;
 }
 
 p#title {
@@ -191,33 +249,11 @@ p > a {
   text-decoration: none;
 }
 
-div#note {
-  padding-top: 10px;
-  margin-top: 1em;
-  width: 100%;
-  text-align: center;
-  background-color: #FDE5EF;
-  color: #783189;
-  padding-bottom: 10px;
-  text-align: left;
-}
-
-div#note > p {
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-div#note > p+p {
-  margin-top: 1em;
-}
-
-p.subtitle {
-  margin-top: 3em;
-  font-size: 25px;
-}
-
 pre {
-  margin-left: 1em;
-  margin-right: 1em;
+  font-size: 16px;
+  text-align: center;
+  padding: 16px 0;
+  background-color: #EFEFEF;
+  border: 1px solid #c4c4c4;
+  overflow-x: auto;
 }
