@@ -966,5 +966,12 @@
       ga('create', 'UA-42127409-1', 'sandstorm.io');
       ga('send', 'pageview');
     </script>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
   </body>
 </html>
