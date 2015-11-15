@@ -1,55 +1,18 @@
 ---
 ---
 
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Open Sans Light"), local("OpenSans-Light"),
-      url(fonts/opensans-light.woff) format('woff'),
-      url(fonts/opensans-light.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: bold;
-  src: local("Open Sans Semibold"), local("OpenSans-Semibold"),
-      url(fonts/opensans-semibold.woff) format('woff'),
-      url(fonts/opensans-semibold.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-style: italic;
-  font-weight: normal;
-  src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"),
-      url(fonts/opensans-lightitalic.woff) format('woff'),
-      url(fonts/opensans-lightitalic.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-style: italic;
-  font-weight: bold;
-  src: local("Open Sans Semibold Italic"), local("OpenSans-SemiboldItalic"),
-      url(fonts/opensans-semibolditalic.woff) format('woff'),
-      url(fonts/opensans-semibolditalic.ttf) format('truetype');
-}
+// TODO: Serve our own copies of the fonts? A lot of people will have it cached.
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,700italic);
 
 html {
   background-color: white;
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   margin: auto;
   background-color: transparent;
   min-width: 1100px;
-}
-
-body.droid {
-  font-family: "Droid Sans";
 }
 
 nav {
