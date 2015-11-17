@@ -1,1 +1,3 @@
 baseurl: /
+gems:
+  - octopress-autoprefixer
