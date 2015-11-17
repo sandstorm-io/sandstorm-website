@@ -4,49 +4,40 @@
 // TODO: Serve our own copies of the fonts? A lot of people will have it cached.
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic);
 
+$font-family-base: "Source Sans Pro", sans-serif;
+
 @import "bootstrap";
 
-// You can create blocks matching specifically desktop or mobile views like:
-//
-//     @media #{$desktop} {
-//     @media #{$mobile} {
-//
-// TODO(cleanup): We don't include "screen" in the query because we assume this whole stylesheet
-//   is intended for screens. For non-screens, an entirely different stylesheet would be desired,
-//   or possibly no stylesheet at all: the HTML is designed to be understandable with no style.
-$mobile: (max-width: 900px);
-$tablet: (min-width: 901px) and (max-width: 1150px);
-$desktop: (min-width: 1151px);
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Source Sans Pro", sans-serif;
-  background-color: white;
-}
-
 nav {
-  width: 1100px;
-  margin: 0 auto;
-  overflow: hidden;
-  text-align: right;
+  @extend .container;
 
   height: 48px;
+  text-align: right;
+  font-size: 16px;
 
   >a {
     display: inline-block;
     height: 100%;
-    padding: 8px;
+    padding: 0 16px;
+    line-height: 48px;
 
     color: black;
     text-decoration: none;
 
     &:first-child {
-      position: absolute;
-      left: 0;
-      padding-left: 48px;
+      @extend .pull-left;
     }
+
+    &:hover {
+      color: black;
+      text-decoration: none;
+      background-color: #eee;
+    }
+  }
+}
+
+footer {
+  .item {
+    @extend .col-md-4;
   }
 }
