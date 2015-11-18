@@ -1,3 +1,5 @@
 baseurl: /
+exclude:
+  - Guardfile
 gems:
   - octopress-autoprefixer
