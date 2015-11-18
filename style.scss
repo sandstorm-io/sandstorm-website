@@ -2,24 +2,186 @@
 ---
 
 // TODO: Serve our own copies of the fonts? A lot of people will have it cached.
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600);
 
 @import "bootstrap/normalize";
 
+// =======================================================================================
+// Reusable Mixins
+
+// You can create blocks matching specifically desktop or mobile views like:
+//
+//     @include desktop {
+//     @include mobile {
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+@mixin not-mobile {
+  @media (min-width: 481px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: 481px) and (max-width: 1199px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin not-desktop {
+  @media (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin stripe {
+  // Makes a stripe behind this element extending to both edges of the viewport. You can customize
+  // vertical positioning (top, bottom) and background color, e.g.:
+  //
+  // @include stripe {
+  //   top: 10px;
+  //   background-color: purple;
+  // }
+
+  position: relative;
+  &::after {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    left: calc(50% - 50vw);
+    width: 100vw;
+    z-index: -1;
+
+    @content;
+  }
+}
+
+@mixin stripe-left {
+  // Like "stripe" but only extends to the left of the element.
+
+  @include stripe {
+    left: auto;
+    right: 100%;
+    width: calc(50vw - 50%);  // half viewport width minus half container width
+    @content;
+  }
+}
+
+@mixin stripe-right {
+  // Like "stripe" but only extends to the right of the element.
+
+  @include stripe {
+    left: 100%;
+    width: calc(50vw - 50%);  // half viewport width minus half container width
+    @content;
+  }
+}
+
+// =======================================================================================
+
+* {
+  // Make the box model match what you'd expect: padding and border are counted in "width".
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Source Sans Pro", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+
+  // Some elements have stripes extending out from the edge of their container to the edge of the
+  // screen. We precisely calculate how large these stripes should be based on the viewport width.
+  // Unfortunately the viewport width does not include the vertical scroll bar, if there is one,
+  // and as a result as soon as a vertical scrollbar appears, a horizontal one will appear too,
+  // just so that we can see the damned stripes. So, we explicitly disable horizontal scrolling to
+  // prevent this.
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
-nav, header>*, section>*, footer>* {
+body>* {
+  // 1px top padding prevents margin collapsing. We can't use overflow: hidden because it hides our
+  // stripes.
+  padding: 1px 30px 0;
   margin: 0 auto;
-  width: 1140px;
+  width: auto;
+  max-width: 1200px;
 }
 
-nav {
+// =======================================================================================
+// _layout/page.html
+
+body>header {
+  height: 400px;
+  color: white;
+  position: relative;
+
+  @include stripe {
+    background-color: #003;
+  }
+
+  >h1 {
+    text-align: center;
+    padding-left: 25%;
+    padding-top: 70px;
+    font-size: 40px;
+    font-weight: 300;
+  }
+
+  >p {
+    margin-top: 40px;
+    padding-left: 25%;
+    text-align: center;
+
+    >a {
+      color: white;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    >a.sign-in {
+      display: block;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 150px;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #338;
+
+      &:hover {
+        background-color: #338;
+      }
+    }
+
+    >a.get, >a.demo {
+      display: inline-block;
+      font-weight: normal;
+      width: 40%;
+      margin: 8px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 30px;
+      background-color: #338;
+      border-radius: 4px;
+    }
+  }
+}
+
+body>nav {
   height: 48px;
   text-align: right;
   font-size: 16px;
@@ -40,17 +202,20 @@ nav {
     &:hover {
       background-color: #eee;
     }
-  }
-}
 
-#what {
-  >ul {
-    >li {
+    @media (max-width: 900px) {
+      // TODO: Put nav links in a drop-down menu.
+      display: none;
+      &:nth-of-type(1) {
+        display: inline-block;
+      }
     }
   }
 }
 
-footer {
+body>footer {
+  padding-bottom: 1px;  // prevent margin-collapse
+
   >ul {
     display: flex;
     flex-flow: row;
@@ -59,8 +224,353 @@ footer {
       display: block;
       flex: 1 1 33%;
 
-      @media (max-width: 700px) {
+      @media (max-width: 800px) {
+        flex: 1 1 50%;
+      }
+      @media (max-width: 550px) {
         flex: 1 1 100%;
+      }
+
+      >ul {
+        padding: 0;
+        >li {
+          display: block;
+          >a {
+            text-decoration: none;
+            color: inherit;
+          }
+        }
+      }
+    }
+  }
+
+  >p {
+    text-align: center;
+    font-style: italic;
+  }
+
+  @include stripe {
+    background-color: #d0d0e8;
+  }
+}
+
+// =======================================================================================
+// index.html
+
+body>section {
+  >h2 {
+    margin: 50px 0;
+    text-align: center;
+    font-size: 40px;
+  }
+}
+
+body>#what {
+  >ul {
+    padding: 0;
+    margin: 0;
+
+    >li {
+      display: block;
+
+      >h3 {
+        font-size: 32px;
+        margin: 0;
+        padding: 32px 0 0;
+      }
+
+      >p {
+        line-height: 200%;
+      }
+
+      position: relative;
+
+      // We hijack ::before to become the screenshot.
+      &::before {
+        display: block;
+        content: " ";
+        position: absolute;
+        background: center/contain no-repeat;
+      }
+      &.create::before      { background-image: url("screenshots/ethercalc.png"); }
+      &.collaborate::before { background-image: url("screenshots/wekan.png"); }
+      &.communicate::before { background-image: url("screenshots/rocketchat.png"); }
+
+      @media (min-width: 750px) {
+        height: 250px;
+        &::before {
+          width: 40%;
+          height: 90%;
+          top: 5%;
+        }
+
+        &:nth-of-type(odd) {
+          // Screenshot goes on the right.
+          padding-right: 45%;
+          &::before { right: 0; }
+
+          background: linear-gradient(to right, white, #e0d8e8);
+          @include stripe-right { background-color: #e0d8e8; }
+        }
+
+        &:nth-of-type(even) {
+          // Screenshot goes on the left.
+          padding-left: 45%;
+          &::before { left: 0; }
+        }
+      }
+
+      @media (max-width: 749px) {
+        // Screenshot goes on top.
+        padding-top: 150px;
+        &::before {
+          width: 100%;
+          height: 150px;
+          top: 0;
+        }
+      }
+    }
+  }
+
+  .try-apps {
+    text-align: center;
+    font-size: 32px;
+    padding: 50px 0 25px;
+
+    @include stripe {
+      background-color: #e0d8f0;
+    }
+
+    >a {
+      border: 2px solid #888;
+      padding: 16px 32px;
+      border-radius: 6px;
+      display: inline-block;
+      text-decoration: none;
+      background-color: white;
+    }
+  }
+}
+
+body>#how {
+  >h2 {
+    margin-bottom: 0;
+  }
+
+  >section {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+
+    border-top: 1px solid #ddd;
+    padding: 30px 0;
+
+    >header {
+      // The section heading, which looks like:
+      //     Title | Subheading
+      //     Some sentence about this.
+      //
+      // This gets hacky because we want the first line to be centered, and we want the second
+      // line to have its start aligned with the start of the first line. We don't want the
+      // second line to wrap unless it goes off the edge of the screen. We accomplish this by
+      // making the second line "position: absolute" without specifying a position; this causes
+      // its upper-left corner to be where we want it but lets it flow off to the edge of the
+      // screen.
+
+      flex: 0 1 100%;
+
+      >div {
+        display: table;
+        margin: 0 auto;
+        padding-top: 50px;
+        font-size: 30px;
+
+        >h3 {
+          margin: 0;
+          >.subheading {
+            color: #444;
+            font-weight: 300;
+          }
+
+          // We hijack ::before to become the icon. We have to attach this to the <h3> rather than
+          // the parent <div> because in order to absolutely-position the ::before, its direct
+          // parent has to be "position: relative", but if the <div> were "position: relative" it
+          // would ruin our hack that lets the second line flow off to the right.
+          position: relative;
+          &::before {
+            display: block;
+            content: " ";
+            position: absolute;
+            background: center/contain no-repeat;
+          }
+        }
+
+        >p {
+          // Second line of the heading.
+
+          margin: 0;
+          color: #888;
+
+          position: absolute;
+        }
+
+        @media (min-width: 750px) {
+          // Wide: Icon goes to the left.
+          height: 200px;
+          >h3::before {
+            width: 200px;
+            height: 200px;
+            left: -175px;
+            top: -75px;
+          }
+        }
+
+        @media (max-width: 749px) {
+          // Mobile: Icon goes on top.
+          padding-top: 150px;
+          height: 300px;
+          >h3::before {
+            width: 100%;
+            height: 150px;
+            bottom: 100%;
+          }
+        }
+      }
+    }
+
+    &.usability>header>div>h3::before { background-image: url("images/usability.svg"); }
+    &.security >header>div>h3::before { background-image: url("images/security.svg"); }
+    &.freedom  >header>div>h3::before { background-image: url("images/freedom.svg"); }
+
+    >section {
+      // For each section like "usability", we have two sub-sections that can go side-by-side.
+
+      flex: 0 1 50%;
+      padding: 220px 16px 0;
+
+      strong { font-weight: normal; }
+
+      @media (max-width: 800px) {
+        // Mobile: Switch to single column.
+        flex: 0 1 100%;
+        padding-left: 0;
+        padding-right: 0;
+        >* {
+          max-width: 500px;
+          margin: 1em auto;
+        }
+      }
+
+      @include stripe {
+        height: 200px;
+        top: 20px;
+        bottom: auto;
+        background-color: #e0d8f0;
+      }
+
+      // We hijack ::before to become the screenshot / image.
+      &::before {
+        display: block;
+        content: " ";
+        position: absolute;
+        background: center/contain no-repeat;
+        background-image: url("screenshots/wekan.png");
+        width: 100%;
+        height: 220px;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+body>#who {
+  >h2 {
+    border-bottom: 1px solid #ddd;
+  }
+
+  >section {
+    &::before {
+      display: block;
+      content: " ";
+      float: left;
+      background: bottom/contain no-repeat;
+      width: 300px;
+      height: 300px;
+    }
+    &.individual::before { background-image: url("images/individual.svg"); }
+    &.enterprise::before { background-image: url("images/enterprise.svg"); }
+    &.developer::before { background-image: url("images/developer.svg"); }
+
+    >h3 {
+      font-size: 35px;
+      margin-top: 60px;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 800px) {
+      &::before {
+        float: none;
+        margin: 0 auto;
+        height: 200px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      >h3 {
+        margin-top: 10px;
+      }
+    }
+
+    >div {
+      clear: left;
+      padding: 1px 0;  // prevent margin-collapse
+
+      @include stripe {
+        background-color: #eef;
+      }
+
+      >ul {
+        display: flex;
+        flex-flow: row;
+        flex-wrap: wrap;
+        padding: 0;
+
+        >li {
+          margin-top: 1em;
+          display: block;
+          flex: 0 1 50%;
+
+          @media (max-width: 800px) {
+            flex: 1 1 100%;
+          }
+        }
+      }
+
+      >blockquote {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+body>#join-list {
+  >h2 {
+    >form {
+      display: inline;
+
+      >input {
+        border: none;
+        background-color: #eeeef8;
+      }
+
+      >button {
+        border: none;
+        background-color: #aac;
+        color: transparent;
+        overflow: none;
+        white-space: nowrap;
+        width: 80px;
+        // TODO: background checkmark
       }
     }
   }

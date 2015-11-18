@@ -3,7 +3,10 @@ layout: page
 ---
 
 <header>
-  <h1><b>Sandstorm</b> makes it easy to run your own server.</h1>
+  <h1><strong>Sandstorm</strong> is an open source operating system for personal and private clouds.</h1>
+  <p><a class="demo" href="https://demo.sandstorm.io">60-second Demo</a>
+     <a class="get" href="/get">Get Sandstorm</a>
+     <a class="sign-in" href="https://oasis.sandstorm.io">Oasis sign-in</a>
 </header>
 
 <!--===================================================================================-->
@@ -12,24 +15,162 @@ layout: page
   <h2>What can I do with it?</h2>
 
   <ul>
-    <li>
+    <li class="create">
       <h3>Create</h3>
       <p>Create Google-docs-like spreadsheets, documents, forms, etc. with
-        EtherCa0lc, Etherpad, Sandforms, Draw.io, and more.</p>
+        EtherCalc, Etherpad, Sandforms, Draw.io, and more.</p>
     </li>
-    <li>
+    <li class="collaborate">
       <h3>Collaborate</h3>
-      <p>...</p>
+      <p>Share documents, diagrams, and other files with your colleagues and friends, and collaborate in real-time.</p>
     </li>
-    <li>
+    <li class="communicate">
       <h3>Communicate</h3>
-      <p>...</p>
+      <p>Sync up with your colleagues securely with great chat applications like Rocket.Chat.</p>
     </li>
   </ul>
+
+  <div class="try-apps">
+    Want to try our apps? <a href="https://apps.sandstorm.io">Visit the App Market</a>
+  </div>
 </section>
 
 <!--===================================================================================-->
 
-<section id="differences">
+<section id="how">
   <h2>How is it different?</h2>
+
+  <section class="usability">
+    <header>
+      <div>
+        <h3>Usability <span class="subheading">| Designed for Humans</span></h3>
+        <p>Sandstorm is the easiest way there has ever been to run a server.
+      </div>
+    </header>
+
+    <section class="apps">
+      <p><strong>Sandstorm requires no technical expertise to use.</strong>
+      <p>Installing apps on Sandstorm is as easy as installing apps on your phone. No need to read documentation and edit config files -- and no need to wait for IT to do it for you.
+    </section>
+
+    <section class="grains">
+      <p><strong>Sandstorm emphasizes users over apps.</strong>
+      <p>You log into Sandstorm, not into each app separately.
+      <p>All of your data across all apps (documents, chat rooms, whatever) can be found and searched in one place, rather than logging into each one separately.
+      <p>You can share and collaborate on anything -- or keep it private.
+    </section>
+  </section>
+
+  <section class="security">
+    <header>
+      <div>
+        <h3>Security <span class="subheading">| Secure by Default</span></h3>
+        <p>Sandstorm is ridiculously secure.
+      </div>
+    </header>
+
+    <section class="buggy-apps">
+      <p><strong>The biggest challenge to securing any server is buggy apps.</strong> Some app developers are good at security, but some are not, and it's usually impossible to know who is whom without doing a costly security audit.
+
+      <p>Sandstorm, therefore, takes a different approach: break data down into "grains" (for example, individual documents, or chat rooms) and isolate each one in a secure sandbox from which it cannot talk to the world without your express permission. With this approach, no matter how buggy your document editor might be, each document can only possibly be accessed by the people you shared it with. No matter how buggy your chat room, only the people you permitted will ever see the logs.
+
+      <p>Skeptical? Check out <a href="https://docs.sandstorm.io/en/latest/developing/security-practices/">our security docs</a> and <a href="https://github.com/sandstorm-io/sandstorm/wiki/Security-non-issues">list of security non-events</a> to learn more.
+    </section>
+
+    <section class="auditable">
+      <p><strong>Because Sandstorm manages access control on every document,</strong> it can tell you who has accessed your data and allow you to revoke that access at any time. Prove that your sensitive data is secure by reviewing all the systems it is connected to.
+    </section>
+  </section>
+
+  <section class="freedom">
+    <header>
+      <div>
+        <h3>Freedom <span class="subheading">| You're in Control</span></h3>
+        <p>Sandstorm gives you choice.
+      </div>
+    </header>
+
+    <section class="hosting">
+      <p><strong>You choose where your data lives:</strong> You can use Sandstorm in the cloud on a variety of hosting services, or you can install it on your own machines. You can even even move between these options at any time. No matter where you decide to run Sandstorm, the apps are the same.
+    </section>
+
+    <section class="walled-gardens">
+      <p><strong>With Sandstorm, you do not get locked into walled gardens.</strong> You can mix and match apps from multiple developers with ease, and even throw in apps of your own as needed. Many Sandstorm apps are open source, which means you can modify them to suit you needs.
+    </section>
+  </section>
+</section>
+
+<!--===================================================================================-->
+
+<section id="who">
+  <h2>Who is it for?</h2>
+
+  <section class="individual">
+    <h3>Individuals</h3>
+
+    <p>Tired of your data being littered all over the internet, behind dozens of different accounts created on different sites which you must somehow manage?
+
+    <p>Don't like the way your data is owned by megacorps who use it to profile you for the purpose of advertising?
+
+    <p>Annoyed by the way Megacorp A's products don't work well with Megacorp G's products, forcing you to choose one or the other rather than use the best app in each category?
+
+    <div>
+      <p><strong>Want to use more open source, indie, and niche apps, which don't have the funding to run servers for you? But don't want all the hassle normally associated with running your own server?</strong>
+
+      <p>On Sandstorm, you are in control. Choose the apps you want, or even build your own when the available apps don't suit your needs. Be assured that apps cannot spy on you, because they cannot "phone home" without your permission. And unlike running a traditional Linux server, using Sandstorm is just as easy as using apps on Megacorps' servers.
+    </div>
+  </section>
+
+  <section class="enterprise">
+    <h3>Businesses</h3>
+
+    <p>Sandstorm will make your employees more productive and your data more secure.
+
+    <p>Today, your employees are probably putting sensitive company data on other company's servers without you even knowing it. Employees frustrated with slow IT turn-around often resort to "Shadow IT", where they use their company credit cards to purchase SaaS products from random vendors you haven't vetted.
+
+    <div>
+      <p><strong>With Sandstorm, your employees will be able to install the apps they need, when they need it, while keeping data in-house, with strong auditability and access control.</strong>
+      <p>Moreover, by migrating your internal apps to Sandstorm, you will achieve unparalleled security. Companies get hacked because they were running insecure software. Firewalls don't help -- all it takes is one employee getting spear-phished, or a rogue contractor with access to internal systems, to break through. With Sandstorm, every piece of data is independently firewalled, so breaches stay contained.
+    </div>
+  </section>
+
+  <section class="developer">
+    <h3>Developers</h3>
+
+    <p>Why develop apps for Sandstorm?
+    <p>With Sandstorm, lots of stuff is done for you:
+    <div>
+      <ul>
+        <li><strong>You don't have to run servers</strong>
+          <p>No carrying a pager. No worrying about securing user data. Just upload your spk to the app market.
+        <li><strong>You don't have to support a diverse set of on-prem environments.</strong>
+          <p>Sandstorm is the same everywhere.
+        <li><strong>You don't have to deal with user management</strong>
+          <p>Sandstorm authenticates the user before the request even reach your server.
+        <li><strong>You don't have to support multiple "documents"</strong>
+          <p>Sandstorm will start a new instance of your app for each one.
+        <li><strong>You don't have to worry about scaling</strong>
+          <p>Since each instance of your app handles a single document, it need only run on a single machine, and Sandstorm will deal with orchestrating multiple instances.
+        <li><strong>You don't have to worry about backups or encryption</strong>
+          <p>Sandstorm does that for you.
+        <li><strong>You don't have to deal with sharing or access control</strong>
+          <p>Just define the permissions that apply to your app, and Sandstorm will annotate every request with the permissions possessed by the user.
+        <li><strong>You don't have to implement "enterprise" features</strong>
+          <p>Audit logging, organization access control, encryption, LDAP integration, even HIPAA compliance. Sandstorm does all of these for you.
+        <li><strong>You don't have to deal with payments</strong>
+          <p>Sandstorm implements in-app purchases and deposits the proceeds into your bank account.
+      </ul>
+      <blockquote>On Sandstorm, one or two independent developers can easily build an app rivaling big-name SaaS apps and make money doing it.</blockquote>
+    </div>
+  </section>
+</section>
+
+<!--===================================================================================-->
+
+<section id="join-list">
+  <h2>Join our mailing list for updates
+    <form id="mailing-list-signup">
+      <input name="email" type="email" placeholder="E-mail"><button>Sign up</button>
+    </form>
+  </h2>
 </section>
