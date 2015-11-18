@@ -9,36 +9,6 @@
 // =======================================================================================
 // Reusable Mixins
 
-// You can create blocks matching specifically desktop or mobile views like:
-//
-//     @include desktop {
-//     @include mobile {
-@mixin mobile {
-  @media (max-width: 480px) {
-    @content;
-  }
-}
-@mixin not-mobile {
-  @media (min-width: 481px) {
-    @content;
-  }
-}
-@mixin tablet {
-  @media (min-width: 481px) and (max-width: 1199px) {
-    @content;
-  }
-}
-@mixin desktop {
-  @media (min-width: 1200px) {
-    @content;
-  }
-}
-@mixin not-desktop {
-  @media (max-width: 1199px) {
-    @content;
-  }
-}
-
 @mixin stripe {
   // Makes a stripe behind this element extending to both edges of the viewport. You can customize
   // vertical positioning (top, bottom) and background color, e.g.:
