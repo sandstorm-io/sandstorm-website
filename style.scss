@@ -55,6 +55,14 @@
   }
 }
 
+$purple-band: #eee;
+$lightpurple-band: #F9F4FF;
+$default-fontcolor: #311f68;
+$whitebutton-border: #7e74a8;
+$whitebutton-hover: #f1ebff;
+$purplebutton-bg: #6145b7;
+$purplebutton-hover: #7856d6;
+
 // =======================================================================================
 
 * {
@@ -76,8 +84,18 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
+  color: #fff;
+}
+
+h2, h3, h4, h5, h6 {
   font-weight: normal;
+  color: $default-fontcolor;
+}
+
+p {
+  color: $default-fontcolor;
+  line-height: 24px;
 }
 
 body>* {
@@ -91,65 +109,6 @@ body>* {
 
 // =======================================================================================
 // _layout/page.html
-
-body>header {
-  height: 400px;
-  color: white;
-  position: relative;
-
-  @include stripe {
-    background-color: #003;
-  }
-
-  >h1 {
-    text-align: center;
-    padding-left: 25%;
-    padding-top: 70px;
-    font-size: 40px;
-    font-weight: 300;
-  }
-
-  >p {
-    margin-top: 40px;
-    padding-left: 25%;
-    text-align: center;
-
-    >a {
-      color: white;
-      text-decoration: none;
-      text-align: center;
-    }
-
-    >a.sign-in {
-      display: block;
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 150px;
-      font-size: 20px;
-      font-weight: bold;
-      padding: 8px;
-      border-radius: 4px;
-      border: 1px solid #338;
-
-      &:hover {
-        background-color: #338;
-      }
-    }
-
-    >a.get, >a.demo {
-      display: inline-block;
-      font-weight: normal;
-      width: 40%;
-      margin: 8px;
-      height: 50px;
-      line-height: 50px;
-      font-size: 30px;
-      background-color: #338;
-      border-radius: 4px;
-    }
-  }
-}
 
 body>nav {
   height: 48px;
@@ -178,6 +137,35 @@ body>nav {
       display: none;
       &:nth-of-type(1) {
         display: inline-block;
+      }
+    }
+  }
+}
+
+body section {
+  >h2 {
+    margin: 50px 0;
+    text-align: center;
+    font-size: 36px;
+  }
+  >h3 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 300;
+  }
+  >p {
+    >a {
+      text-decoration: none;
+      font-weight: normal;
+    }
+  }
+  >div {
+    >ul {
+      list-style: none;
+      >li {
+        >strong {
+          color: $default-fontcolor;
+        }
       }
     }
   }
@@ -225,14 +213,281 @@ body>footer {
 }
 
 // =======================================================================================
+// community.html
+
+
+body>#community {
+  >header {
+  min-height: 150px;
+  color: white;
+
+  @include stripe {
+    background-color: #1b4460;
+  }
+
+    >h1 {
+    padding-top: 30px;
+    font-size: 40px;
+    font-weight: 300;
+    text-align: center;
+    }
+
+    >p {
+    text-align: center;
+    color: #c5daff;
+    }
+  }
+}
+
+// =======================================================================================
+// how-it-works.html
+
+body>#how-it-works {
+  >header {
+  min-height: 150px;
+  color: white;
+
+  @include stripe {
+    background-color: #4c2036;
+  }
+
+    >h1 {
+    padding-top: 30px;
+    font-size: 40px;
+    font-weight: 300;
+    text-align: center;
+    }
+
+    >p {
+    text-align: center;
+    color: #dba2d3;
+    }
+  }
+}
+
+// =======================================================================================
+// get.html
+
+body>#get {
+  >header {
+  min-height: 150px;
+  color: white;
+
+  @include stripe {
+    background-color: #235887;
+  }
+
+    >h1 {
+    padding-top: 30px;
+    font-size: 40px;
+    font-weight: 300;
+    text-align: center;
+    }
+
+    >nav {
+      height: 48px;
+      text-align: center;
+      font-size: 16px;
+
+      >a {
+        display: inline-block;
+        height: 100%;
+        width: 40%;
+        line-height: 48px;
+        padding: 0 8px;
+        color: $default-fontcolor;
+        text-decoration: none;
+        background-color: #d3e0ed;
+
+        &:hover {
+          background-color: #fff;
+          color: $default-fontcolor;
+        }
+
+        @media (max-width: 900px) {
+          // TODO: Put nav links in a drop-down menu.
+          display: none;
+          &:nth-of-type(1) {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}
+
+// =======================================================================================
+// features.html
+
+body>#features {
+  >header {
+  min-height: 150px;
+  color: white;
+
+  @include stripe {
+    background-color: #5a4e93;
+  }
+
+    >h1 {
+    padding-top: 30px;
+    font-size: 40px;
+    font-weight: 300;
+    text-align: center;
+    }
+
+    >nav {
+      height: 48px;
+      text-align: center;
+      font-size: 16px;
+
+      >a {
+        display: inline-block;
+        height: 100%;
+        width: 24%;
+        line-height: 48px;
+        padding: 0 8px;
+        color: #fff;
+        text-decoration: none;
+        background-color: #6f61b5;
+
+        &:hover {
+          background-color: #eee;
+          color: $default-fontcolor;
+        }
+
+        @media (max-width: 900px) {
+          // TODO: Put nav links in a drop-down menu.
+          display: none;
+          &:nth-of-type(1) {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}
+
+// =======================================================================================
+// about.html
+
+body>#about {
+  >header {
+  min-height: 150px;
+  color: white;
+
+  @include stripe {
+    background-color: #2e2765;
+  }
+
+    >h1 {
+    padding-top: 30px;
+    font-size: 40px;
+    font-weight: 300;
+    text-align: center;
+    }
+
+    >p {
+    text-align: center;
+    color: #c5daff;
+    }
+  }
+}
+
+body>.story {
+  width:90%;
+  padding: 20px 0;
+}
+
+.contact {
+    text-align: center;
+    font-size: 30px;
+    padding: 25px 0;
+    color: $default-fontcolor;
+
+    @include stripe {
+      background-color: #e0d8f0;
+    }
+
+    >a {
+      border: 1.5px solid $whitebutton-border;
+      padding: 14px 0;
+      width: 300px;
+      border-radius: 6px;
+      display: inline-block;
+      text-decoration: none;
+      background-color: white;
+      &:hover {
+        color: #7356cc;
+      }
+    }
+  }
+
+// =======================================================================================
 // index.html
 
-body>section {
-  >h2 {
-    margin: 50px 0;
-    text-align: center;
-    font-size: 40px;
+body>#home {
+  >header {
+  min-height: 400px;
+  color: white;
+
+  @include stripe {
+    background-color: #003;
   }
+
+    >h1 {
+    padding-left: 25%;
+    padding-top: 70px;
+    font-size: 40px;
+    font-weight: 300;
+    text-align: center;
+    }
+
+    >p {
+    margin-top: 40px;
+    padding-left: 25%;
+    text-align: center;
+    color: #c5daff;
+
+    >a {
+      color: white;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    >a.sign-in {
+      display: block;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 150px;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #338;
+
+      &:hover {
+        background-color: #338;
+      }
+    }
+
+    >a.get, >a.demo {
+      display: inline-block;
+      font-weight: normal;
+      width: 35%;
+      margin: 15px;
+      height: 60px;
+      line-height: 60px;
+      font-size: 30px;
+      background-color: $purplebutton-bg;
+      border-radius: 4px;
+
+      &:hover {
+      background-color: $purplebutton-hover;
+      }
+    }
+  }
+}
 }
 
 body>#what {
@@ -303,24 +558,29 @@ body>#what {
   }
 
   .try-apps {
-    text-align: center;
-    font-size: 32px;
-    padding: 50px 0 25px;
+      text-align: center;
+      font-size: 30px;
+      padding: 25px 0;
+      color: $default-fontcolor;
 
-    @include stripe {
-      background-color: #e0d8f0;
-    }
+      @include stripe {
+        background-color: #e0d8f0;
+      }
 
-    >a {
-      border: 2px solid #888;
-      padding: 16px 32px;
-      border-radius: 6px;
-      display: inline-block;
-      text-decoration: none;
-      background-color: white;
+      >a {
+        border: 1.5px solid $whitebutton-border;
+        padding: 14px 0;
+        width: 300px;
+        border-radius: 6px;
+        display: inline-block;
+        text-decoration: none;
+        background-color: white;
+        &:hover {
+          color: #7356cc;
+        }
+      }
     }
   }
-}
 
 body>#how {
   >h2 {
@@ -358,7 +618,6 @@ body>#how {
         >h3 {
           margin: 0;
           >.subheading {
-            color: #444;
             font-weight: 300;
           }
 
@@ -379,6 +638,7 @@ body>#how {
           // Second line of the heading.
 
           margin: 0;
+          padding: 10px 0;
           color: #888;
 
           position: absolute;
@@ -493,10 +753,10 @@ body>#who {
 
     >div {
       clear: left;
-      padding: 1px 0;  // prevent margin-collapse
+      padding: 15px 0;  // prevent margin-collapse
 
       @include stripe {
-        background-color: #eef;
+        background-color: $lightpurple-band;
       }
 
       >ul {
@@ -518,6 +778,8 @@ body>#who {
 
       >blockquote {
         font-size: 30px;
+        color: $default-fontcolor;
+        text-align: center;
       }
     }
   }
