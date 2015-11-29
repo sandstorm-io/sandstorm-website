@@ -84,8 +84,20 @@ body {
   overflow-x: hidden;
 }
 
+body>* {
+  // 1px top padding prevents margin collapsing. We can't use overflow: hidden because it hides our
+  // stripes.
+  padding: 1px 30px 0;
+  margin: 0 auto;
+  width: auto;
+  max-width: 1200px;
+}
+
 h1 {
-  color: #fff;
+  padding-top: 30px;
+  font-size: 40px;
+  font-weight: 300;
+  text-align: center;
 }
 
 h2, h3, h4, h5, h6 {
@@ -98,13 +110,13 @@ p {
   line-height: 24px;
 }
 
-body>* {
-  // 1px top padding prevents margin collapsing. We can't use overflow: hidden because it hides our
-  // stripes.
-  padding: 1px 30px 0;
-  margin: 0 auto;
-  width: auto;
-  max-width: 1200px;
+a {
+  text-decoration: none;
+  color: $default-fontcolor;
+}
+
+strong {
+  color: $default-fontcolor;
 }
 
 // =======================================================================================
@@ -122,7 +134,6 @@ body>nav {
     line-height: 48px;
 
     color: black;
-    text-decoration: none;
 
     &:first-child {
       float: left;
@@ -142,9 +153,19 @@ body>nav {
   }
 }
 
-body section {
+body>header {
+  min-height: 180px;
+  color: white;
+
+  >p {
+    text-align: center;
+    padding: 0 0 20px 0;
+  }
+}
+
+body>section {
   >h2 {
-    margin: 50px 0;
+    margin: 50px 0 20px 0;
     text-align: center;
     font-size: 36px;
   }
@@ -153,32 +174,32 @@ body section {
     font-size: 25px;
     font-weight: 300;
   }
-  >p {
-    >a {
-      text-decoration: none;
-      font-weight: normal;
-    }
-  }
-  >div {
-    >ul {
-      list-style: none;
-      >li {
-        >strong {
+  >ul {
+    list-style: none;
+    >li {
           color: $default-fontcolor;
-        }
-      }
     }
   }
 }
 
 body>footer {
   padding-bottom: 1px;  // prevent margin-collapse
+    
+  @include stripe {
+    background-color: #d0d0e8;
+  }
 
+  >p {
+    text-align: center;
+    font-style: italic;
+  }
+    
   >ul {
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
     >li {
+      color: $default-fontcolor;
       display: block;
       flex: 1 1 33%;
 
@@ -193,264 +214,46 @@ body>footer {
         padding: 0;
         >li {
           display: block;
-          >a {
-            text-decoration: none;
-            color: inherit;
-          }
-        }
-      }
-    }
-  }
-
-  >p {
-    text-align: center;
-    font-style: italic;
-  }
-
-  @include stripe {
-    background-color: #d0d0e8;
-  }
-}
-
-// =======================================================================================
-// community.html
-
-
-body>#community {
-  >header {
-  min-height: 150px;
-  color: white;
-
-  @include stripe {
-    background-color: #1b4460;
-  }
-
-    >h1 {
-    padding-top: 30px;
-    font-size: 40px;
-    font-weight: 300;
-    text-align: center;
-    }
-
-    >p {
-    text-align: center;
-    color: #c5daff;
-    }
-  }
-}
-
-// =======================================================================================
-// how-it-works.html
-
-body>#how-it-works {
-  >header {
-  min-height: 150px;
-  color: white;
-
-  @include stripe {
-    background-color: #4c2036;
-  }
-
-    >h1 {
-    padding-top: 30px;
-    font-size: 40px;
-    font-weight: 300;
-    text-align: center;
-    }
-
-    >p {
-    text-align: center;
-    color: #dba2d3;
-    }
-  }
-}
-
-// =======================================================================================
-// get.html
-
-body>#get {
-  >header {
-  min-height: 150px;
-  color: white;
-
-  @include stripe {
-    background-color: #235887;
-  }
-
-    >h1 {
-    padding-top: 30px;
-    font-size: 40px;
-    font-weight: 300;
-    text-align: center;
-    }
-
-    >nav {
-      height: 48px;
-      text-align: center;
-      font-size: 16px;
-
-      >a {
-        display: inline-block;
-        height: 100%;
-        width: 40%;
-        line-height: 48px;
-        padding: 0 8px;
-        color: $default-fontcolor;
-        text-decoration: none;
-        background-color: #d3e0ed;
-
-        &:hover {
-          background-color: #fff;
-          color: $default-fontcolor;
-        }
-
-        @media (max-width: 900px) {
-          // TODO: Put nav links in a drop-down menu.
-          display: none;
-          &:nth-of-type(1) {
-            display: inline-block;
-          }
         }
       }
     }
   }
 }
-
-// =======================================================================================
-// features.html
-
-body>#features {
-  >header {
-  min-height: 150px;
-  color: white;
-
-  @include stripe {
-    background-color: #5a4e93;
-  }
-
-    >h1 {
-    padding-top: 30px;
-    font-size: 40px;
-    font-weight: 300;
-    text-align: center;
-    }
-
-    >nav {
-      height: 48px;
-      text-align: center;
-      font-size: 16px;
-
-      >a {
-        display: inline-block;
-        height: 100%;
-        width: 24%;
-        line-height: 48px;
-        padding: 0 8px;
-        color: #fff;
-        text-decoration: none;
-        background-color: #6f61b5;
-
-        &:hover {
-          background-color: #eee;
-          color: $default-fontcolor;
-        }
-
-        @media (max-width: 900px) {
-          // TODO: Put nav links in a drop-down menu.
-          display: none;
-          &:nth-of-type(1) {
-            display: inline-block;
-          }
-        }
-      }
-    }
-  }
-}
-
-// =======================================================================================
-// about.html
-
-body>#about {
-  >header {
-  min-height: 150px;
-  color: white;
-
-  @include stripe {
-    background-color: #2e2765;
-  }
-
-    >h1 {
-    padding-top: 30px;
-    font-size: 40px;
-    font-weight: 300;
-    text-align: center;
-    }
-
-    >p {
-    text-align: center;
-    color: #c5daff;
-    }
-  }
-}
-
-body>.story {
-  width:90%;
-  padding: 20px 0;
-}
-
-.contact {
-    text-align: center;
-    font-size: 30px;
-    padding: 25px 0;
-    color: $default-fontcolor;
-
-    @include stripe {
-      background-color: #e0d8f0;
-    }
-
-    >a {
-      border: 1.5px solid $whitebutton-border;
-      padding: 14px 0;
-      width: 300px;
-      border-radius: 6px;
-      display: inline-block;
-      text-decoration: none;
-      background-color: white;
-      &:hover {
-        color: #7356cc;
-      }
-    }
-  }
 
 // =======================================================================================
 // index.html
 
 body>#home {
-  >header {
   min-height: 400px;
-  color: white;
+    
+    &:before {
+    background-image: url(images/sandcat.svg);
+    background-repeat: no-repeat;
+    background-position: left;
+    padding: 0 30px 0 0;
+    }
 
-  @include stripe {
+    @include stripe {
     background-color: #003;
-  }
+    }
 
     >h1 {
-    padding-left: 25%;
-    padding-top: 70px;
-    font-size: 40px;
-    font-weight: 300;
-    text-align: center;
+      padding-left: 25%;
+      padding-top: 70px;
+        
+        strong {
+            color: white;
+        }
     }
 
     >p {
-    margin-top: 40px;
-    padding-left: 25%;
-    text-align: center;
-    color: #c5daff;
+      margin-top: 40px;
+      padding-left: 25%;
+      text-align: center;
+      color: #c5daff;
 
     >a {
       color: white;
-      text-decoration: none;
       text-align: center;
     }
 
@@ -483,11 +286,10 @@ body>#home {
       border-radius: 4px;
 
       &:hover {
-      background-color: $purplebutton-hover;
+        background-color: $purplebutton-hover;
       }
     }
   }
-}
 }
 
 body>#what {
@@ -527,7 +329,7 @@ body>#what {
           width: 40%;
           height: 90%;
           top: 5%;
-        }
+      }
 
         &:nth-of-type(odd) {
           // Screenshot goes on the right.
@@ -552,12 +354,13 @@ body>#what {
           width: 100%;
           height: 150px;
           top: 0;
-        }
       }
     }
   }
+}
+}
 
-  .try-apps {
+.try-apps {
       text-align: center;
       font-size: 30px;
       padding: 25px 0;
@@ -573,19 +376,14 @@ body>#what {
         width: 300px;
         border-radius: 6px;
         display: inline-block;
-        text-decoration: none;
         background-color: white;
         &:hover {
           color: #7356cc;
-        }
       }
     }
-  }
+}
 
 body>#how {
-  >h2 {
-    margin-bottom: 0;
-  }
 
   >section {
     display: flex;
@@ -619,7 +417,7 @@ body>#how {
           margin: 0;
           >.subheading {
             font-weight: 300;
-          }
+        }
 
           // We hijack ::before to become the icon. We have to attach this to the <h3> rather than
           // the parent <div> because in order to absolutely-position the ::before, its direct
@@ -806,4 +604,235 @@ body>#join-list {
       }
     }
   }
+}
+
+// =======================================================================================
+// features.html
+
+body>#features {
+
+  @include stripe {
+    background-color: #5a4e93;
+  }
+
+    >nav {
+      height: 48px;
+      text-align: center;
+      font-size: 16px;
+
+      >a {
+        display: inline-block;
+        height: 100%;
+        width: 24%;
+        line-height: 48px;
+        padding: 0 8px;
+        color: #fff;
+        background-color: #6f61b5;
+
+        &:hover {
+          background-color: #eee;
+          color: $default-fontcolor;
+        }
+
+        @media (max-width: 900px) {
+          // TODO: Put nav links in a drop-down menu.
+          display: none;
+          &:nth-of-type(1) {
+            display: inline-block;
+          }
+        }
+      }
+    }
+}
+
+// =======================================================================================
+// get.html
+
+body>#get {
+
+  @include stripe {
+    background-color: #442672;
+  }
+
+    >nav {
+      height: 48px;
+      text-align: center;
+      font-size: 16px;
+    }
+}
+
+#pricing {
+    text-align: center;
+    
+    li {
+        list-style: none;
+        display: block;
+        padding: 10px 0;
+    }
+
+    p strong {
+        font-size: 35px;
+    }
+    
+    .plan {
+    
+        .planbox {
+            background: white;
+            padding: 0;
+            text-align: center;
+            border: 1px solid #b6b6d8;
+            border-radius: 5px;
+            margin: 0 2% 20px 0;
+            width: 100%;
+
+            .title {
+                background-color: #e0d8f0;
+                padding: 5px 0;
+                border-radius: 5px 5px 0px 0px;
+                strong {
+                    font-size: 30px;
+                }
+            }
+            .price {
+                border-bottom: 1px solid #b6b6d8;
+                strong {
+                    font-size: 40px;
+                }
+            }
+            .storage {
+                border-bottom: 1px solid #b6b6d8;
+                strong {
+                    font-size: 30px;
+                }
+            }
+            .grains {
+                border-bottom: 1px solid #b6b6d8;
+                }
+            .get {
+                background-color: #e0d8f0;
+                border-radius: 0px 0px 5px 5px;
+                padding: 10px 0;
+                }
+
+                a {
+                  color: white;
+                  font-size: 20px;
+                  border-radius: 5px;
+                  display: inline-block;
+                  background-color: #442672;
+                  width: 95%;
+                  padding: 10px 0;
+                  &:hover {
+                    background-color: #6341a5;
+                  }
+                }
+        }
+
+    }
+    
+}
+
+
+// =======================================================================================
+// how-it-works.html
+
+body>#how-it-works {
+
+    text-align: center;
+    
+    @include stripe {
+        background-color: #4c2036;
+    }
+
+    >p {
+      text-align: center;
+      color: #dba2d3;
+    }
+    
+    >img {
+        width: auto;
+        height: 150px;
+    }
+}
+
+#different {
+    padding: 15px 0;
+
+    @include stripe {
+    background-color: #eee9f4;
+    }
+}
+
+// =======================================================================================
+// about.html
+
+body>#about {
+
+  @include stripe {
+    background-color: #2e2765;
+    background-image: url(/images/header-about.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+  }
+
+  >p {
+    color: #c5daff;
+  }
+}
+
+.story {
+  width:90%;
+  padding: 20px 0;
+}
+
+.contact {
+    text-align: center;
+    font-size: 30px;
+    padding: 25px 0;
+    color: $default-fontcolor;
+
+    @include stripe {
+      background-color: #e0d8f0;
+    }
+
+    >a {
+      border: 1.5px solid $whitebutton-border;
+      padding: 14px 0;
+      width: 300px;
+      border-radius: 6px;
+      display: inline-block;
+      background-color: white;
+      &:hover {
+        color: #7356cc;
+    }
+  }
+}
+
+#grains .models {
+    
+    text-align: center;
+    
+    img {
+        height: 250px;
+        width: auto;
+        max-width: 45%;
+    }
+}
+
+// =======================================================================================
+// community.html
+
+body>#community {
+    
+  @include stripe {
+    background-color: #1b4460;
+    background-image: url(/images/header-community.png);
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    }
+
+    >p {
+      text-align: center;
+      color: #97b1db;
+    }
 }

@@ -2,15 +2,44 @@
 layout: page
 ---
 
-<div id="how-it-works">
-<header>
+<header id="how-it-works">
   <h1>How it works</h1>
   <p>Containerize objects, not functions</p>
+    <img src="/images/howitworks-left.png"></img><img src="/images/howitworks-right.png"></img>
 </header>
-</div>
+
+<section id="different">
+    <h3>Sandstorm is drastically different from all other web app intrastructure today.</h3>
+</section>
+
+<section id="intro">
+    <ul>
+        <li><strong><a href="#grains">Grains: Fine-grained object containers</a></strong></li>
+        <li><a href="#platform">The platform manages access controls</a></li>
+        <li><a href="#semantic">Matching the semantic model</a></li>
+        <li><a href="#easier">Easier for developers: less complexity, less boilerplate</a></li>
+        <li><a href="#locality">Data locality improves performance</a></li>
+        <li><a href="#confinement">Confinement and Auditability</a></li>
+        <li><a href="#encryption">Fine-grained Encryption</a></li>
+        <li><a href="#capability"><strong>Capability-based Security</strong></a></li>
+    </ul>
+    <ul>
+        <li>We claim that Sandstorm mitigates most security bugs in apps, by default. We also claim that Sandstorm is the easiest way ever to deploy small-scale (personal, or corporate-internal) web services.
+
+Understandably, people used to the status quo find these claims hard to believe. It sounds like magic.
+
+On this page, we will explain the two main pieces of "magic" that make it all work:
+
+            <li><a href="#grains">* Fine-grained Containerization</a></li>
+            <li><a href="#capability">* Capability-based Security</a></li>
+    </ul>
+</section>
+
 
 <section id="grains">
   <h2>Grains: Fine-grained object containers</h2>
+    <section class="conventional"></section>
+    <section class="sandstorm"></section>
   <p>The term "microservice" has become popular lately, but the idea has been in practice at companies like Google for well over a decade. The idea is simple: take your large web app and split it into small "services" running in separate containers. Services are separated by functionality: you might have an authentication service, a payment service, a search service, and so on.
     Sandstorm takes a wildly different approach: It containerizes _objects_, where an object is primarily defined by _data_. We call each Sandstorm container a **"grain"**, because it is fine-grained.
     <br>
@@ -20,7 +49,8 @@ layout: page
     <br>
     Similarly, when you use Wekan (a kanban board, comparable to Trello) on Sandstorm, each board lives in a separate grain. When you use Gitweb, each git repository lives in a separate grain. When you use Ethercalc, each spreadsheet lives in a separate grain.
   </p>
-  <strong><h3>The platform manages access control</h3></strong>
+  <section id="platform">
+    <strong><h3>The platform manages access control</h3></strong>
   <p>Because grains are split on natural access control boundaries, Sandstorm itself can enforce access control on each grain. By default, a newly-created grain (such as an Etherpad document) is private. Through the Sandstorm UI, you can grant other people access to the grain with varying permission levels, you can inspect who has access, and you can revoke that access.
     <br>
     <br>
@@ -29,6 +59,8 @@ layout: page
     <br>
     This is important because many developers simply aren't very good at security. Most developers consider only what their code will do when given expected inputs. A security engineer considers all possible code paths. But security engineers are a small minority of developers, and it simply isn't practical to have every piece of code reviewed by a security person. Any black hat will tell you that one of the easiest ways to "hack" a company is to scan their IP range for exposed web apps and then find bugs in those apps. With apps running on Sandstorm, such a strategy would get nowhere. Of course, there is a risk that Sandstorm itself is buggy, but Sandstorm is written carefully by security engineers.
   </p>
+</section>
+<section id="semantic">
   <strong><h3>Matching the Semantic Model</h3></strong>
   <p>Traditional horizontal microservices are seemingly designed to match the developer's mental model of their system. Often, services are literally divided by the team who maintains them. This initially seems natural, but in reality there is little technical benefit to such a separation. It's not like your frontend code is so large that you couldn't possibly fit any other code on the same machine -- it's perfectly reasonable for every machine to have a complete copy of all of the code running anywhere in the cluster.
     <br>
@@ -38,6 +70,7 @@ layout: page
     <br>
     With vertical splits, the user can decide when to upgrade to a new version of an application, even updating some grains before others. A user can decide if a change has broken something for them, and roll back their grains to an older version. Users can download backups of the raw storage of their grains or transfer them to other Sandstorm servers. Users can understand and control how their grains are connected to other grains, not just how apps connect to other apps.
   </p>
+</section>
   <strong><h3>Easier for developers: Less complexity, less boilerplate</h3></strong>
   <p>Building a scalable distributed system is hard. But Sandstorm developers don't need to do that. A Sandstorm app developer needs only write an app that runs on a single machine, since a single document is unlikely ever to need more resources than that. Sandstorm will "scale" the app by running separate grains on separate machines as needed. This also simplifies the app code, as a developer need not even write logic or storage schemas to handle more than one document.
     In fact, because Sandstorm has such visibility into the apps' data model, it can implement all kinds of UI in a common way, reducing work for app developers while also making life more consistent for users. For example:
@@ -53,6 +86,7 @@ layout: page
     <li>Sandstorm can offer a common way to back up data and transfer it between Sandstorm hosts.
     <li>Sandstorm can implement privileged UI which knows information that hasn't been revealed to apps. For instance, Sandstorm can implement a UI for users to connect apps to each other, without the apps ever learning about other secret apps the user might have.
   </ul>
+<section id="locality">
   <strong><h3>Data locality improves performance</h3></strong>
   <p>Traditional horizontal microservices are touted as scalable, because many requests can be handled by a shared process. However, horizontal microservices introduce performance penalties as components are split into smaller pieces. If dozens of different services on different machines must be consulted in order to handle each user request, latency will be high. If a typical service is "slow" 5% of the time (say, due to garbage collection pauses), and there are 20 services to consult for each request, then every single request can be expected to be "slow".
     <br>
@@ -77,6 +111,8 @@ layout: page
     <br>
     These features could theoretically apply to horizontal microservices too, but they would be far less useful there due to the lack of granularity. For instance, say you are running Etherpad inside your company without using Sandstorm. Probably, you give all employees access to Etherpad so that they can create their own docs. Probably, Etherpad has full access to its own database. In this environment, the infrastructure cannot tell you anything useful about who has access to what documents -- as far as it can tell, everyone can access everything. Access graphs only make any sense with vertical containers.
   </p>
+</section>
+<section id="encryption">
   <strong><h3>Fine-grained Encryption</h3></strong>
   <p>Traditional horizontal microservices are touted as scalable, because many requests can be handled by a shared process. However, horizontal microservices introduce performance penalties as components are split into smaller pieces. If dozens of different services on different machines must be consulted in order to handle each user request, latency will be high. If a typical service is "slow" 5% of the time (say, due to garbage collection pauses), and there are 20 services to consult for each request, then every single request can be expected to be "slow".
     <br>
@@ -117,4 +153,5 @@ layout: page
     <br>
     Cap'n Proto allows transport and routing layers to be aware of the capabilities being transmitted over it. Thus, Sandstorm is able to track which grains hold object references to which other grains and block messages if needed, such that the user can audit and revoke these connections. If grain X has connections to grains Y and Z, it can in fact introduce them to each other, such that they form a direct connection, and Sandstorm will know about it; there is no way to form a direct connection without Sandstorm knowing, because apps are confined. None of this would be possible using a transport protocol without explicit support for capabilities.
   </p>
+</section>
 </section>
