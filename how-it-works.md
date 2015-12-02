@@ -1,0 +1,147 @@
+---
+layout: page
+id: how-it-works
+---
+
+<header>
+  <h1>How Sandstorm Works</h1>
+  <p>Containerize objects, not functions</p>
+    <img class="left" src="/images/howitworks-left.png"></img><img class="right" src="/images/howitworks-right.png"></img>
+</header>
+
+<section id="different">
+    Sandstorm is drastically different from all other web app infrastructure today.
+</section>
+
+<section id="intro">
+  <ul>
+    <li><strong><a href="#grains">Grains: Fine-grained object containers</a></strong>
+      <ul>
+        <li><a href="#access-control">The platform manages access controls</a></li>
+        <li><a href="#semantic">Matching the semantic model</a></li>
+        <li><a href="#developers">Easier for developers: less complexity, less boilerplate</a></li>
+        <li><a href="#performance">Data locality improves performance</a></li>
+        <li><a href="#confinement">Confinement and Auditability</a></li>
+        <li><a href="#encryption">Fine-grained Encryption</a></li>
+      </ul>
+    </li>
+    <li><a href="#capabilities"><strong>Capability-based Security</strong></a></li>
+  </ul>
+  <div>
+    <p>We claim that Sandstorm mitigates most security bugs in apps, by default. We also claim that Sandstorm is the easiest way ever to deploy small-scale (personal, or corporate-internal) web services.</p>
+    <p>Understandably, people used to the status quo find these claims hard to believe. It sounds like magic.</p>
+    <p>On this page, we will explain the two main pieces of "magic" that make it all work:</p>
+    <ul>
+      <li><a href="#grains">Fine-grained Containerization</a></li>
+      <li><a href="#capability">Capability-based Security</a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="grains" markdown="1">
+## Grains: Fine-grained Object Containers
+
+![](/images/model-conventional.png)![](/images/model-sandstorm.png)
+
+The term "microservice" has become popular lately, but the idea has been in practice at companies like Google for well over a decade. The idea is simple: take your large web app and split it into small "services" running in separate containers. Services are separated by functionality: you might have an authentication service, a payment service, a search service, and so on.
+
+**Sandstorm takes a wildly different approach:** It containerizes _objects_, where an object is primarily defined by _data_. We call each Sandstorm container a **"grain"**, because it is fine-grained.
+
+For example, when using Etherpad -- a document editor app -- on Sandstorm, every document lives in a separate container, isolated from the others. The front-end and database for that document live in the container. The container has a private filesystem for storage. Javascript running in the user's browser can talk only to the document container for which it was loaded, no others. All of this makes up a single "grain".
+
+Similarly, when you use Wekan (a kanban board, comparable to Trello) on Sandstorm, each board lives in a separate grain. When you use Gitweb, each git repository lives in a separate grain. When you use Ethercalc, each spreadsheet lives in a separate grain.
+
+<section id="access-control" markdown="1">
+### The platform manages access control
+
+Because grains are split on natural access control boundaries, Sandstorm itself can enforce access control on each grain. By default, a newly-created grain (such as an Etherpad document) is private. Through the Sandstorm UI, you can grant other people access to the grain with varying permission levels, you can inspect who has access, and you can revoke that access.
+
+Because Sandstorm enforces all of this at the platform level, no bug in Etherpad could possibly allow someone to get access to your document if you did not share it with them.
+
+This is important because many developers simply aren't very good at security. Most developers consider only what their code will do when given expected inputs. A security engineer considers all possible code paths. But security engineers are a small minority of developers, and it simply isn't practical to have every piece of code reviewed by a security person. Any black hat will tell you that one of the easiest ways to "hack" a company is to scan their IP range for exposed web apps and then find bugs in those apps. With apps running on Sandstorm, such a strategy would get nowhere. Of course, there is a risk that Sandstorm itself is buggy, but Sandstorm is written carefully by security engineers.
+</section>
+
+<section id="semantic" markdown="1">
+### Matching the semantic model
+
+Microservices are seemingly designed to match the developer's mental model of their system. Often, services are literally divided by the team who maintains them. This initially seems natural, but in reality there is little technical benefit to such a separation. It's not like your frontend code is so large that you couldn't possibly fit any other code on the same machine -- it's perfectly reasonable for every machine to have a complete copy of all of the code running anywhere in the cluster.
+
+Grains, in contrast, match the *user's* mental model of the system. A user doesn't know the difference between a front-end and a database, but they certainly know the difference between two different documents. When the infrastructure matches the user's mental model, suddenly a lot of friction disappears. Suddenly, the end user is able to reason about infrastructure and take direct control of more things. Suddenly, it becomes reasonably possible to present a user interface to manage a server which is comprehensible to an end user.
+
+With grains, the user can decide when to upgrade to a new version of an application, even updating some grains before others. A user can decide if a change has broken something for them, and roll back their grains to an older version. Users can download backups of the raw storage of their grains or transfer them to other Sandstorm servers. Users can understand and control how their grains are connected to other grains, not just how apps connect to other apps.
+</section>
+
+<section id="developers" markdown="1">
+### Easier for developers: Less complexity, less boilerplate
+
+Building a scalable distributed system is hard. But Sandstorm developers don't need to do that. A Sandstorm app developer needs only write an app that runs on a single machine, since a single document is unlikely ever to need more resources than that. Sandstorm will "scale" the app by running separate grains on separate machines as needed. This also simplifies the app code, as a developer need not even write logic or storage schemas to handle more than one document.
+
+In fact, because Sandstorm has such visibility into the apps' data model, it can implement all kinds of UI in a common way, reducing work for app developers while also making life more consistent for users. For example:
+
+* Users can find all their data in one place in the Sandstorm UI, rather than having to browse to a specific app first.
+* Users can _search_ all their data in one place. The app only needs to tell Sandstorm what content to index.
+* Sandstorm can handle login, so that the user logs in only once to Sandstorm rather than to each app individually.
+* Sandstorm can handle access control (as discussed above), so that the user has a consistent way to share and collaborate on any app.
+* Sandstorm can handle audit logging, allowing the user to see who has access to their document and when they used that access.
+* Sandstorm can offer a common way to back up data and transfer it between Sandstorm hosts.
+* Sandstorm can implement privileged UI which knows information that hasn't been revealed to apps. For instance, Sandstorm can implement a UI for users to connect apps to each other, without the apps ever learning about other secret apps the user might have.
+</section>
+
+<section id="performance" markdown="1">
+### Data locality improves performance
+
+Service-oriented architecture is touted as scalable, because many requests can be handled by a shared process. However, microservices introduce performance penalties as components are split into smaller pieces. If dozens of different services on different machines must be consulted in order to handle each user request, latency will be high. If a typical service is "slow" 5% of the time (say, due to garbage collection pauses), and there are 20 services to consult for each request, then every single request can be expected to be "slow".
+
+Monolithic databases pose another problem to distributed system performance. If every query searches over a world-spanning table, those queries will require highly complex optimizations (indexes, query planning, etc.) to perform well.
+
+In the Sandstorm model, all of the components (from web server to database) needed to handle a particular grain run on the same machine. Communications between them will therefore be incredibly fast. And if the grain contains only a single document or other small piece of data, then its entire content can be loaded into RAM and queried quickly during the time that it is in use.
+
+But does it scale? Obviously, if every grain were running at all times, the Sandstorm model would scale abysmally, requiring an absurd amount of RAM. However, Sandstorm only runs a grain while it is in-use. Since grains are small, they start up quickly -- often in under a second -- which means there's no need to keep them running all the time. Additionally, an app's static assets (code, images, etc.) are mounted into the grain read-only such that they can be shared among all grains running the same app; thus, the per-grain overhead is relatively small. For ahead-of-time-complied apps (e.g. written in Go, Rust, or C++) or apps starting from a copy-on-write checkpoint (e.g. using [snappy-start](https://github.com/google/snappy-start)), per-grain marginal RAM usage can easily be under a megabyte.
+</section>
+
+<section id="confinement" markdown="1">
+### Confinement and Auditability
+
+[diagram: apps sitting on infrastructure, where the infrastructure is under the app while the rest of the world is above the app. Connections between apps and the rest of the world (users, other apps, etc.) are shown as a big scribble cloud]
+
+Most infrastructure is designed to sit "under" the app, managing resources but not communications. Apps are free to talk to the network. They may connect to users and to other apps at will. It is expected that apps will enforce access control on inbound requests, but there are often no controls on outbound requests.
+
+[diagram: sandstorm shown as a block with apps inside it. Some apps are connected to each other by clear, straight lines. Users (outside of Sandstorm) are shown talking to Sandstorm first, and then apps through it.]
+
+In part because of Sandstorm's granular model, it makes sense for Sandstorm to implement full confinement, in which the infrastructure sits on *all sides* of the app. A Sandstorm app's interactions with the outside world are entirely mediated through Sandstorm. Users talk to apps through a proxy which authenticates requests and enforces access control. Apps can only talk to other apps or outside services to which they have explicitly requested permission, and Sandstorm allows the user to audit and revoke these permissions at any time.
+
+In organizations, the administrator can audit access across the whole company and set global access control policies, such as: "No sharing outside the organization." This kind of visibility and control is a CISO's dream come true. Want to pass PCI-DSS or HIPAA compliance inspections easily? Show your Sandstorm access control policies and audit graph. It doesn't even matter what apps you are running, because Sandstorm can enforce the rules uniformly across all apps.
+
+These features could theoretically apply to services too, but they would be far less useful there due to the lack of granularity. For instance, say you are running Etherpad inside your company without using Sandstorm. Probably, you give all employees access to Etherpad so that they can create their own docs. Probably, Etherpad has full access to its own database. In this environment, the infrastructure cannot tell you anything useful about who has access to what documents -- as far as it can tell, everyone can access everything. Access graphs only make any sense with grains, not services.
+</section>
+
+<section id="encryption" markdown="1">
+### Fine-grained Encryption
+
+Encryption of storage at rest is commonly used to protect against threats like hard drive theft. However, it has the potential for so much more. Imagine a system where every piece of data is encrypted using a key that is provably only knowable to the exact users who are supposed to have access to that data. Perhaps the data key is ultimately encrypted to the users' passwords or PGP keys. In such a system, even a system administrator -- empowered to shut down and bring up the system at will -- would be unable to illegitimately access a particular document without launching an active attack.
+
+Of course, if your application-wide database is encrypted using a single key, then you can't provide this. The sys admin obviously needs access to the database key to bring up the system at all. With service-oriented architecture, fine-grained encryption requires cooperation from every single app (and all of their developers, who may or may not understand cryptography).
+
+But with grains, there is hope. Each grain's storage can be encrypted transparently with a different key by Sandstorm. Since Sandstorm is in charge of access control, it can "wrap" the key for each user who is meant to have access. When a grain is granted permission to talk directly to some other grain, it can store a copy of the other grain's key in its own storage, thus creating a key derivation graph mirroring the access control graph. All of this can be completely transparent to the apps.
+</section>
+</section>
+
+<section id="capabilities" markdown="1">
+## Capability-based Security
+
+Service-to-service access control in the Sandstorm model requires a different way of thinking about access control.
+
+Traditional access control is based on ambient identity and access control lists (ACL). Each service might have an ACL that specifies which other services are permitted to access it. As the granularity of services increases, the difficulty of maintaining ACLs grows, especially when users are non-technical. (But meanwhile, with fewer services, ACLs hardly even provide any protection. What services are allowed to access the database that contains everything? Well, all of them, of course!)
+
+Under capability-based security, we take a different approach. Instead of maintaining a list of who is allowed to access what, we think of access permissions as an *object* which you *give* to things. So when you want to tell grain X to talk to grain Y, you *give* grain X a "capability" to grain Y. Grain X then stores that capability, and whenever it wants to talk to grain Y, it explicitly uses that capability. The capability both designates the *identity* of grain Y (e.g. its address) and permission to *access* grain Y.
+
+The magic of the capability-based approach is that it tends to meld nicely with things that had to happen anyway. For example, in order for grain X to talk to grain Y, you probably had to tell grain X *which* grain you want it to talk to (namely, "Y") . Now, instead of giving it a name, you give it a capability. The act of granting a capability can thus be melded directly into whatever picker interface the user was already using to choose what to connect to, so long as that picker is rendered by the system itself (which has the power to create the necessary capability). In Sandstorm, we call this picker UI "the Powerbox".
+
+Critically, capability-based security is not just about security, but about choice and adaptability. Because a capability encapsulates _both_ permission to access an object _and_ the identity of the object to access, any time an app asks for a permission, it is possible for the user to respond with _any_ object that implements the correct protocol. The app may be able to hint what capability the user should choose, but cannot force the choice. This means that the user can choose a "fake" or restricted object when an app demands a capability that the user doesn't want to give it. It also means that apps cannot be choosy about which apps they integrate with. For example, if an app wants to read a user's calendar, it cannot be designed solely to work with Google Calendar -- the user can always redirect it to talk to anything which implements a compatible API.
+
+At a lower level, capability-based programming fits perfectly with object-oriented programming. An object pointer (in a memory-safe language) is like a capability: when you receive a pointer, you can access the object. Without the pointer, you can't. Well-designed object-oriented systems use this property all the time to prove correctness of code. We avoid passing pointers into components that don't need them, to make it easier to reason about them, and we write wrapper classes that restrict how an object can be used. We use abstract interfaces and polymorphism to allow components to be mixed-and-matched. These same patterns can be used to enforce security and adaptability in a capability system.
+
+Sandstorm's language for expressing capability-based security is [Cap'n Proto](https://capnproto.org), whose [RPC system](https://capnproto.org/rpc.html) is a full object-capability protocol whose design is heavily based on CapTP, the protocol underlying the E programming language. A Sandstorm app's only connection to the outside world is literally through a Cap'n Proto socket. Other protocols, like HTTP, can be layered on top -- with restrictions to fit within the capability model. Capabilities exchanged between apps using the Sandstorm Powerbox UI are literally Cap'n Proto object references.
+
+Cap'n Proto allows transport and routing layers to be aware of the capabilities being transmitted over it. Thus, Sandstorm is able to track which grains hold object references to which other grains and block messages if needed, such that the user can audit and revoke these connections. If grain X has connections to grains Y and Z, it can in fact introduce them to each other, such that they form a direct connection, and Sandstorm will know about it; there is no way to form a direct connection without Sandstorm knowing, because apps are confined. None of this would be possible using a transport protocol without explicit support for capabilities.
+</section>
