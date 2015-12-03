@@ -245,7 +245,7 @@ body>footer {
 // =======================================================================================
 // index.html
 
-body>#home {
+#home>header {
   height: 400px;
     
     @media (max-width: 800px) {
@@ -718,7 +718,7 @@ body>#join-list {
 // =======================================================================================
 // features.html
 
-body>#features {
+#features header {
 
   max-width: none;
   padding: 1px 0 0 0;
@@ -761,10 +761,10 @@ body>#features {
           font-size: 13px;
           width: 31%;
         }
-        }
       }
     }
   }
+}
 
 #core-security {
     text-align: center;
@@ -831,7 +831,7 @@ body>#features {
     }
 }
 
-#developers {
+#features #developers {
     text-align: center;
     
     ul {
@@ -1039,52 +1039,129 @@ body>#get {
 // =======================================================================================
 // how-it-works.html
 
-body>#how-it-works {
-    
-    text-align: center;
-    
-    @include stripe {
-        background-color: #2e2765;
+#how-it-works {
+  header {
+      text-align: center;
+
+      @include stripe {
+          background-color: #2e2765;
+      }
+
+      >h1 {
+        font-size: 45px;
+        margin-top: 0;
+      }
+
+      >p {
+        color: #dba2d3;
+        padding-bottom: 0px;
+        font-size: 25px;
+      }
+
+      >img {
+        &.left {
+          width: 50%;
+          height: auto;
+          @media (max-width: 500px) {
+              width: 100%
+          }
+        }
+        &.right {
+          width: 17%;
+          height: auto;
+          padding-left: 50px;
+
+          @media (max-width: 500px) {
+              width: 30%;
+          }
+        }
+      }
+  }
+
+  #intro {
+    display: flex;
+    flex-flow: row;
+    padding: 30px;
+
+    >ul {
+      flex: 0 0 500px;
+      border: 0 solid #aaa6b2;
+      border-right-width: 1px;
+      padding-right: 30px;
+      margin: 0;
+
+      ul>li { margin: 1em 0; }
     }
 
-    >p {
-      color: #dba2d3;
-      padding-bottom: 0px;
-    }
-    
-    .left {
-    width: 50%;
-    height: auto;
-
-        @media (max-width: 500px) {
-            width: 100%
-        }  
+    ul {
+      list-style: none;
     }
 
-    .right {
-    width: 17%;
-    height: auto;
-    padding-left: 50px;
-    
-        @media (max-width: 500px) {
-            width: 30%;
-        }    
+    >div {
+      flex: 1 1 auto;
+      padding-left: 30px;
+      ul {
+        list-style: disc;
+      }
+      >p:first-child { margin-top: 0; }
     }
 
-}
+    @media (max-width: 899px) {
+      flex-flow: column;
+      >ul {
+        flex: 1 1 auto;
+        border-right-width: 0;
+        border-bottom-width: 1px;
+        padding-right: 0;
+        padding-bottom: 30px;
+      }
 
-#different {
-    padding: 15px 0;
+      >div {
+        padding-left: 0;
+        padding-top: 20px;
+      }
+    }
+  }
 
-    @include stripe {
-    background-color: #eee9f4;
+  #grains img {
+      width: 50%;
+
+      @media (max-width: 700px) {
+        width: 100%;
+      }
+  }
+
+  #different {
+      padding: 35px 0;
+
+      @include stripe {
+      background-color: #eee9f4;
+      }
+
+      font-size: 30px;
+      font-weight: 300;
+      text-align: center;
+  }
+
+  section {
+    h2 {
+      @include stripe {
+        background-color: #eee9f4;
+      }
+      font-size: 35px;
+      padding: 25px 0;
+      margin: 0;
     }
     
     h3 {
-       @media (max-width: 450px) {
-           font-size: 20px;
-        }  
+      border-bottom: 1px solid #ddd;
+      font-size: 35px;
+
+      @media (max-width: 450px) {
+        font-size: 20px;
+      }
     }
+  }
 }
 
 #grains .models {
