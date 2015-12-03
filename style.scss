@@ -718,148 +718,150 @@ body>#join-list {
 // =======================================================================================
 // features.html
 
-#features header {
+#features {
+  header {
 
-  max-width: none;
-  padding: 1px 0 0 0;
-    
-  @include stripe {
-    background-color: #2e2765;
-  }
+    max-width: none;
+    padding: 1px 0 0 0;
 
-  >div {
-     background-color: #e6e5ea;
+    @include stripe {
+      background-color: #2e2765;
+    }
 
-    >nav {
-      height: 48px;
-      font-size: 20px;
-      text-align: center;
-      width: 100%;
+    >div {
+       background-color: #e6e5ea;
 
-      >a {
-        display: inline-block;
+      >nav {
+        height: 48px;
+        font-size: 20px;
         text-align: center;
-        font-weight: normal;
-        height: 100%;
-        line-height: 48px;
-        width: 33%;
-        color: $default-fontcolor;
-        background-color: #e6e5ea;
+        width: 100%;
 
-        &:hover {
-          background-color: #f4f4f4;
-        }
-
-        @media (max-width: 810px) {
+        >a {
           display: inline-block;
-          width: 32.5%;
-        }
-        @media (max-width: 450px) {
-          font-size: 18px;
-        }
-        @media (max-width: 400px) {
-          font-size: 13px;
-          width: 31%;
+          text-align: center;
+          font-weight: normal;
+          height: 100%;
+          line-height: 48px;
+          width: 33%;
+          color: $default-fontcolor;
+          background-color: #e6e5ea;
+
+          &:hover {
+            background-color: #f4f4f4;
+          }
+
+          @media (max-width: 810px) {
+            display: inline-block;
+            width: 32.5%;
+          }
+          @media (max-width: 450px) {
+            font-size: 18px;
+          }
+          @media (max-width: 400px) {
+            font-size: 13px;
+            width: 31%;
+          }
         }
       }
     }
   }
-}
 
-#core-security {
-    text-align: center;
-    
-    ul {
-        display: inline-block;
-        list-style: none;
-        
-        li {
-            text-align: left;
+  #core-security {
+      text-align: center;
 
-            &::before {
-                content: " ";
-                display: block;
-                background-repeat: none;
-                height: 224px;
-                background: bottom/contain no-repeat;
-        }
-        &.apps-growing::before { background-image: url("images/core-apps-growing.png"); }
-        &.single-sign-on::before { background-image: url("images/core-single-sign-on.png"); }
-        &.unified-sharing::before { background-image: url("images/core-unified-sharing.png"); }
-        &.powerbox::before { background-image: url("images/core-powerbox.png"); }
-        &.protection::before { background-image: url("images/security-protection.png"); }
-        &.sandboxing::before { background-image: url("images/security-sandboxing.png"); }
-        &.auditable::before { background-image: url("images/security-auditable.png"); }
-        &.tabbed::before { background-image: url("images/more-tabbed.png"); }
-        &.backups::before { background-image: url("images/more-backups.png"); }
-        &.notifications::before { background-image: url("images/more-notifications.png"); }
-        &.mentions::before { background-image: url("images/more-mentions.png"); }
-        &.search::before { background-image: url("images/more-search.png"); }
-        &.connected::before { background-image: url("images/more-connected.png"); }
-    }       
+      ul {
+          display: inline-block;
+          list-style: none;
+
+          li {
+              text-align: left;
+
+              &::before {
+                  content: " ";
+                  display: block;
+                  background-repeat: none;
+                  height: 224px;
+                  background: bottom/contain no-repeat;
+              }
+              &.apps-growing::before { background-image: url("images/core-apps-growing.png"); }
+              &.single-sign-on::before { background-image: url("images/core-single-sign-on.png"); }
+              &.unified-sharing::before { background-image: url("images/core-unified-sharing.png"); }
+              &.powerbox::before { background-image: url("images/core-powerbox.png"); }
+              &.protection::before { background-image: url("images/security-protection.png"); }
+              &.sandboxing::before { background-image: url("images/security-sandboxing.png"); }
+              &.auditable::before { background-image: url("images/security-auditable.png"); }
+              &.tabbed::before { background-image: url("images/more-tabbed.png"); }
+              &.backups::before { background-image: url("images/more-backups.png"); }
+              &.notifications::before { background-image: url("images/more-notifications.png"); }
+              &.mentions::before { background-image: url("images/more-mentions.png"); }
+              &.search::before { background-image: url("images/more-search.png"); }
+              &.connected::before { background-image: url("images/more-connected.png"); }
+          }
+      }
   }
-}
 
-#business-scale {
-    text-align: center;
-    
-    ul {
-        display: inline-block;
-        list-style: none;
-        
-        li {
-            text-align: left;
+  #business-scale {
+      text-align: center;
 
-            &::before {
-                content: " ";
-                display: block;
-                background-repeat: none;
-                height: 224px;
-                background: bottom/contain no-repeat;
-        }
-        &.on-prem::before { background-image: url("images/business-onprem.png"); }
-        &.ldap::before { background-image: url("images/business-ldap.png"); }
-        &.group::before { background-image: url("images/business-group.png"); }
-        &.ldap::before { background-image: url("images/business-ldap.png"); }
-        &.global::before { background-image: url("images/business-global.png"); }
-        &.audit::before { background-image: url("images/business-audit.png"); }
-        &.scale-out::before { background-image: url("images/business-scale-out.png"); }
-        &.failover::before { background-image: url("images/business-failover.png"); }
-        &.encryption::before { background-image: url("images/business-encryption.png"); }
-            
-        }
-    }
-}
+      ul {
+          display: inline-block;
+          list-style: none;
 
-#features #developers {
-    text-align: center;
-    
-    ul {
-        display: inline-block;
-        list-style: none;
-        
-        li {
-            text-align: left;
+          li {
+              text-align: left;
 
-            &::before {
-                content: " ";
-                display: block;
-                background-repeat: none;
-                height: 224px;
-                background: bottom/contain no-repeat;
-        }
-        &.apps-growing::before { background-image: url("images/core-apps-growing.png"); }
-        &.single-sign-on::before { background-image: url("images/core-single-sign-on.png"); }
-        &.unified-sharing::before { background-image: url("images/core-unified-sharing.png"); }
-        &.powerbox::before { background-image: url("images/core-powerbox.png"); }
-        &.linux::before { background-image: url("images/core-linux.png"); }
-        &.runtime::before { background-image: url("images/core-runtime.png"); }
-        &.boilerplate::before { background-image: url("images/core-boilerplate.png"); }
-        &.dev-ops::before { background-image: url("images/core-dev-ops.png"); }
-        &.integration::before { background-image: url("images/core-integration.png"); }
-        &.in-app::before { background-image: url("images/core-in-app.png"); }
-        }
-    }
+              &::before {
+                  content: " ";
+                  display: block;
+                  background-repeat: none;
+                  height: 224px;
+                  background: bottom/contain no-repeat;
+          }
+          &.on-prem::before { background-image: url("images/business-onprem.png"); }
+          &.ldap::before { background-image: url("images/business-ldap.png"); }
+          &.group::before { background-image: url("images/business-group.png"); }
+          &.ldap::before { background-image: url("images/business-ldap.png"); }
+          &.global::before { background-image: url("images/business-global.png"); }
+          &.audit::before { background-image: url("images/business-audit.png"); }
+          &.scale-out::before { background-image: url("images/business-scale-out.png"); }
+          &.failover::before { background-image: url("images/business-failover.png"); }
+          &.encryption::before { background-image: url("images/business-encryption.png"); }
+
+          }
+      }
+  }
+
+  #developers {
+      text-align: center;
+
+      ul {
+          display: inline-block;
+          list-style: none;
+
+          li {
+              text-align: left;
+
+              &::before {
+                  content: " ";
+                  display: block;
+                  background-repeat: none;
+                  height: 224px;
+                  background: bottom/contain no-repeat;
+          }
+          &.apps-growing::before { background-image: url("images/core-apps-growing.png"); }
+          &.single-sign-on::before { background-image: url("images/core-single-sign-on.png"); }
+          &.unified-sharing::before { background-image: url("images/core-unified-sharing.png"); }
+          &.powerbox::before { background-image: url("images/core-powerbox.png"); }
+          &.linux::before { background-image: url("images/core-linux.png"); }
+          &.runtime::before { background-image: url("images/core-runtime.png"); }
+          &.boilerplate::before { background-image: url("images/core-boilerplate.png"); }
+          &.dev-ops::before { background-image: url("images/core-dev-ops.png"); }
+          &.integration::before { background-image: url("images/core-integration.png"); }
+          &.in-app::before { background-image: url("images/core-in-app.png"); }
+          }
+      }
+  }
 }
 
 // =======================================================================================
@@ -871,11 +873,11 @@ body>#get {
     background-color: #2e2765;
   }
 
-    >nav {
-      height: 48px;
-      text-align: center;
-      font-size: 16px;
-    }
+  >nav {
+    height: 48px;
+    text-align: center;
+    font-size: 16px;
+  }
 }
 
 #pricing {
@@ -900,18 +902,18 @@ body>#get {
     }
     
     .plan1 {
-            display: inline-block;
-            background: white;
-            padding: 0;
-            text-align: center;
-            border: 1px solid #8c72b5;
-            border-radius: 5px;
-            margin: 0 2% 20px 0;
-            width: 30%;
-            position: relative;
-            color: #684599;
-        
-            -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        display: inline-block;
+        background: white;
+        padding: 0;
+        text-align: center;
+        border: 1px solid #8c72b5;
+        border-radius: 5px;
+        margin: 0 2% 20px 0;
+        width: 30%;
+        position: relative;
+        color: #684599;
+
+        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
             
         @media (max-width: 750px) {
@@ -926,47 +928,47 @@ body>#get {
             color: #4f3070;
         }
 
-            .title {
-                background-color: #ebe7f7;
-                padding: 15px 0;
-                border-radius: 5px 5px 0px 0px;
-                strong {
-                    font-size: 30px;
-                }
+        .title {
+            background-color: #ebe7f7;
+            padding: 15px 0;
+            border-radius: 5px 5px 0px 0px;
+            strong {
+                font-size: 30px;
             }
-            .price {
-                border-bottom: 1px solid #b6b6d8;
-                strong {
-                    font-size: 40px;
-                }
-            }
-            .storage {
-                border-bottom: 1px solid #b6b6d8;
-                strong {
-                    font-size: 30px;
-                }
-            }
-            .grains {
-                font-size: 20px;
-                }
-            .get {
-                border-radius: 0px 0px 5px 5px;
-                padding: 10px 0;
-                }
-
-                a {
-                  color: white;
-                  font-size: 20px;
-                  border-radius: 5px;
-                  display: inline-block;
-                  background-color: #442672;
-                  width: 95%;
-                  padding: 15px 0;
-                  &:hover {
-                    background-color: #6341a5;
-                  }
-                }
         }
+        .price {
+            border-bottom: 1px solid #b6b6d8;
+            strong {
+                font-size: 40px;
+            }
+        }
+        .storage {
+            border-bottom: 1px solid #b6b6d8;
+            strong {
+                font-size: 30px;
+            }
+        }
+        .grains {
+            font-size: 20px;
+        }
+        .get {
+            border-radius: 0px 0px 5px 5px;
+            padding: 10px 0;
+        }
+
+        a {
+          color: white;
+          font-size: 20px;
+          border-radius: 5px;
+          display: inline-block;
+          background-color: #442672;
+          width: 95%;
+          padding: 15px 0;
+          &:hover {
+            background-color: #6341a5;
+          }
+        }
+    }
     .plan2 {
             display: inline-block;
             background: white;
@@ -1013,24 +1015,24 @@ body>#get {
             }
             .grains {
                 font-size: 20px;
-                }
+            }
             .get {
                 border-radius: 0px 0px 5px 5px;
                 padding: 10px 0;
-                }
+            }
 
-                a {
-                  color: white;
-                  font-size: 20px;
-                  border-radius: 5px;
-                  display: inline-block;
-                  background-color: #442672;
-                  width: 95%;
-                  padding: 15px 0;
-                  &:hover {
-                    background-color: #6341a5;
-                  }
-                }
+            a {
+              color: white;
+              font-size: 20px;
+              border-radius: 5px;
+              display: inline-block;
+              background-color: #442672;
+              width: 95%;
+              padding: 15px 0;
+              &:hover {
+                background-color: #6341a5;
+              }
+            }
         }
 
     }
