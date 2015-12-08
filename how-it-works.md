@@ -25,7 +25,13 @@ id: how-it-works
         <li><a href="#encryption">Fine-grained Encryption</a></li>
       </ul>
     </li>
-    <li><a href="#capabilities"><strong>Capability-based Security</strong></a></li>
+    <li><strong><a href="#capabilities">Capability-based Security</a></strong>
+      <ul>
+        <li><a href="#powerbox">The Powerbox</a></li>
+        <li><a href="#capnproto">Cap'n Proto</a></li>
+        <li><a href="#pseudo-acls">Pseudo-ACLs and Policies</a></li>
+      </ul>
+    </li>
   </ul>
   <div>
     <p>We claim that Sandstorm mitigates most security bugs in apps, by default. We also claim that Sandstorm is the easiest way ever to deploy small-scale (personal, or corporate-internal) web services.</p>
@@ -102,11 +108,11 @@ But does it scale? Obviously, if every grain were running at all times, the Sand
 <section id="confinement" markdown="1">
 ### Confinement and Auditability
 
-[diagram: apps sitting on infrastructure, where the infrastructure is under the app while the rest of the world is above the app. Connections between apps and the rest of the world (users, other apps, etc.) are shown as a big scribble cloud]
+<span style="color:red;">[diagram: apps sitting on infrastructure, where the infrastructure is under the app while the rest of the world is above the app. Connections between apps and the rest of the world (users, other apps, etc.) are shown as a big scribble cloud]</span>
 
 Most infrastructure is designed to sit "under" the app, managing resources but not communications. Apps are free to talk to the network. They may connect to users and to other apps at will. It is expected that apps will enforce access control on inbound requests, but there are often no controls on outbound requests.
 
-[diagram: sandstorm shown as a block with apps inside it. Some apps are connected to each other by clear, straight lines. Users (outside of Sandstorm) are shown talking to Sandstorm first, and then apps through it.]
+<span style="color:red;">[diagram: sandstorm shown as a block with apps inside it. Some apps are connected to each other by clear, straight lines. Users (outside of Sandstorm) are shown talking to Sandstorm first, and then apps through it.]</span>
 
 In part because of Sandstorm's granular model, it makes sense for Sandstorm to implement full confinement, in which the infrastructure sits on *all sides* of the app. A Sandstorm app's interactions with the outside world are entirely mediated through Sandstorm. Users talk to apps through a proxy which authenticates requests and enforces access control. Apps can only talk to other apps or outside services to which they have explicitly requested permission, and Sandstorm allows the user to audit and revoke these permissions at any time.
 
@@ -129,19 +135,55 @@ But with grains, there is hope. Each grain's storage can be encrypted transparen
 <section id="capabilities" markdown="1">
 ## Capability-based Security
 
-Service-to-service access control in the Sandstorm model requires a different way of thinking about access control.
+Service-to-service access control in the Sandstorm model requires a different way of thinking about security.
 
-Traditional access control is based on ambient identity and access control lists (ACL). Each service might have an ACL that specifies which other services are permitted to access it. As the granularity of services increases, the difficulty of maintaining ACLs grows, especially when users are non-technical. (But meanwhile, with fewer services, ACLs hardly even provide any protection. What services are allowed to access the database that contains everything? Well, all of them, of course!)
+Traditional access control is based on ambient identity and access control lists (ACLs). Each service might have an ACL that specifies which other services are permitted to access it. As the granularity of services increases, the difficulty of maintaining ACLs grows, especially when users are non-technical. (But meanwhile, with course-grained services, ACLs hardly even provide any protection. What services are allowed to access the database that contains everything? Well, all of them, of course!)
 
 Under capability-based security, we take a different approach. Instead of maintaining a list of who is allowed to access what, we think of access permissions as an *object* which you *give* to things. So when you want to tell grain X to talk to grain Y, you *give* grain X a "capability" to grain Y. Grain X then stores that capability, and whenever it wants to talk to grain Y, it explicitly uses that capability. The capability both designates the *identity* of grain Y (e.g. its address) and permission to *access* grain Y.
 
-The magic of the capability-based approach is that it tends to meld nicely with things that had to happen anyway. For example, in order for grain X to talk to grain Y, you probably had to tell grain X *which* grain you want it to talk to (namely, "Y") . Now, instead of giving it a name, you give it a capability. The act of granting a capability can thus be melded directly into whatever picker interface the user was already using to choose what to connect to, so long as that picker is rendered by the system itself (which has the power to create the necessary capability). In Sandstorm, we call this picker UI "the Powerbox".
+At a lower level, capability-based programming fits perfectly with object-oriented programming. An object pointer (in a memory-safe language) is like a capability: when you receive a pointer, you can access the object. Without the pointer, you can't. Well-designed object-oriented systems use this property all the time to prove correctness of code. We avoid passing pointers into components that don't need them to make it easier to reason about them, and we write wrapper classes that restrict how an object can be used. We use abstract interfaces and polymorphism to allow components to be mixed-and-matched. These same patterns can be used to enforce security and adaptability in a capability system.
 
 Critically, capability-based security is not just about security, but about choice and adaptability. Because a capability encapsulates _both_ permission to access an object _and_ the identity of the object to access, any time an app asks for a permission, it is possible for the user to respond with _any_ object that implements the correct protocol. The app may be able to hint what capability the user should choose, but cannot force the choice. This means that the user can choose a "fake" or restricted object when an app demands a capability that the user doesn't want to give it. It also means that apps cannot be choosy about which apps they integrate with. For example, if an app wants to read a user's calendar, it cannot be designed solely to work with Google Calendar -- the user can always redirect it to talk to anything which implements a compatible API.
 
-At a lower level, capability-based programming fits perfectly with object-oriented programming. An object pointer (in a memory-safe language) is like a capability: when you receive a pointer, you can access the object. Without the pointer, you can't. Well-designed object-oriented systems use this property all the time to prove correctness of code. We avoid passing pointers into components that don't need them, to make it easier to reason about them, and we write wrapper classes that restrict how an object can be used. We use abstract interfaces and polymorphism to allow components to be mixed-and-matched. These same patterns can be used to enforce security and adaptability in a capability system.
+<section id="powerbox" markdown="1">
+### The Powerbox
 
-Sandstorm's language for expressing capability-based security is [Cap'n Proto](https://capnproto.org), whose [RPC system](https://capnproto.org/rpc.html) is a full object-capability protocol whose design is heavily based on CapTP, the protocol underlying the E programming language. A Sandstorm app's only connection to the outside world is literally through a Cap'n Proto socket. Other protocols, like HTTP, can be layered on top -- with restrictions to fit within the capability model. Capabilities exchanged between apps using the Sandstorm Powerbox UI are literally Cap'n Proto object references.
+The magic of the capability-based approach is that it tends to meld nicely with things that had to happen anyway, such that the user rarely needs to think about security and yet gets it automatically. There is no better example of this than the Sandstorm Powerbox UI.
 
-Cap'n Proto allows transport and routing layers to be aware of the capabilities being transmitted over it. Thus, Sandstorm is able to track which grains hold object references to which other grains and block messages if needed, such that the user can audit and revoke these connections. If grain X has connections to grains Y and Z, it can in fact introduce them to each other, such that they form a direct connection, and Sandstorm will know about it; there is no way to form a direct connection without Sandstorm knowing, because apps are confined. None of this would be possible using a transport protocol without explicit support for capabilities.
+The Powerbox is a general "picker" UI that grains may use to request access to other grains. Each grain publishes to the system a list of APIs that it provides. At some point, while a user is interacting with a grain, the grain says: "I need a capability implementing API Foo." The system then renders a picker interface to the user. Because the system knows about all of the user's grains, the system can populate the picker with all available options, even though the requesting grain knows nothing about them. When the user chooses a grain to fulfill the request, the user is obviously saying that they want to grant the requesting grain permission to access the fulfilling grain. Thus, the system delivers such a capability to the requester.
+
+The Powerbox is actually nothing new. The web platform has long supported the ability to upload files to web pages. A web page cannot simply request any old file on your hard drive -- that would be insecure. Instead, it can request that your browser display a "file open" dialog. Only the file you choose gets uploaded. In this interaction, the "file open" dialog is a kind of powerbox. In Sandstorm, we have generalized this concept to support more than just files.
+
+For example, imagine that a forum app needs the ability to send email notifications to users. In a traditional implementation, the forum app would be configured with the address of an SMTP server and credentials to access that server. Then, each user who visits would type in their e-mail address and perhaps complete some sort of verification step. Of course, if the app is evil (or compromised), it could use its SMTP server to send spam.
+
+Under Sandstorm, the app would not require any upfront configuration. Instead, when a user sets up their forum profile, the app would make a powerbox request for an "EmailRecipient" capability to receive notifications. Sandstorm would display a picker showing the user's email addresses that it already knows about along with the ability to configure additional addresses. Once the user choses an address, the app would receive a capability to email _specifically that address_. The user can revoke this grant later if desired.
+
+Notice how in this example, the application never gains the ability to send spam. And yet, the user experience is no worse and arguably better than before. The user is never prompted with any sort of security questions, yet the app is only able to email them with their consent.
+
+And notice a second property: Any of the user's grains can publish an implementation of the "EmailRecipient" interface. The capbility need not strictly map to a real email address. The user could, for instance, direct the email to a grain which recieves the mesasges and posts them into a chat room, or anything else they can imagine. The sending app does not need to know anything about this. With this power, simple applications can be "composed" into complex workflows, much like a modern version of Unix pipes.
+
+Note that a modal picker dialog is not always the best fit for every UX. To that end, Sandstorm implements other kinds of powerbox flows for different occasions. For example, the "inline powerbox" allows a user to type freeform text naming grains or users in their contacts and have them auto-complete to full capabilities.
+</section>
+
+<section id="capnproto" markdown="1">
+### Cap'n Proto
+
+Sandstorm's language for expressing capability-based security is [Cap'n Proto](https://capnproto.org), whose [RPC system](https://capnproto.org/rpc.html) is a full object-capability protocol. Cap'n Proto's design is heavily based on CapTP, the network protocol used by the [E programming language](http://erights.org/), which pioneered the modern object-capability model. A Sandstorm app's only connection to the outside world is literally through a Cap'n Proto socket. Other protocols, like HTTP, can be layered on top. Capabilities exchanged between apps using the Sandstorm Powerbox UI are literally Cap'n Proto object references.
+
+Cap'n Proto allows transport and routing layers to be aware of the capabilities being transmitted over it. Thus, Sandstorm is able to track capabilities as they move from grain to grain. If grain X has connections to grains Y and Z, X can introduce Y and Z to each other by sending them capabilities to each other, and Y and Z will automatically form a direct connection. When this happens, Sandstorm will know about it; there is no way to form new connections without Sandstorm knowing, because apps are confined. None of this would be possible using a transport protocol without explicit support for capabilities.
+</section>
+
+<section id="pseudo-acls" markdown="1">
+### Pseudo-ACLs and Policies
+
+Traditionally, ACLs do have an advantage over pure capabilities: With an ACL, you can easily answer the question: "Who is everyone who currently has access to this resource?" Additionally, identity-based security is more amenable to expressing global policies, such as: "Members of the finance organization may not share their documents with other organizations." Although capability theory offers ways to solve these problems, simplistic capability systems often fail to address them.
+
+Sandstorm, however, has an advantage: because the system acts as a middleman between users and grains, and because communications occur using a capability-aware protocol (Cap'n Proto), the system knows whenever a capability changes hands. Because of this, the system can construct a "pseudo-ACL" for any object by simply listing all entities which are known to hold capabilities to the object. The user can review this list and revoke particular users and grains.
+
+Moreover, Sandstorm can implement global policies by automatically revoking a capability that violates the policy. So, if a capability to a finance document is observed to be sent to a user outside the organization in violation of policy, Sandstorm can revoke it in-flight.
+
+These measures are applied _in addition to_ the regular capability model, and thus supply defense-in-depth. Because of this, it is acceptable if identities used for peudo-ACL and policy purposes are relatively course-grained.
+
+Sandstorm applications need not concern themselves with pseudo-ACLs. The API used by apps is strictly capability-based.
+</section>
 </section>
