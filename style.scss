@@ -56,12 +56,16 @@
 }
 
 $purple-band: #eee;
-$lightpurple-band: #F9F4FF;
+$lightpurple-band: #F6F2FC;
 $default-fontcolor: #302851;
-$whitebutton-border: #7e74a8;
+$whitebutton-border: #a19cbc;
 $whitebutton-hover: #f1ebff;
-$purplebutton-bg: #6145b7;
-$purplebutton-hover: #7856d6;
+$purplebutton-bg: #442672;
+$purple-link: #5b4f8c;
+$purple-highlight: #7757bc;
+$purplehover-bg: #6341a5;
+$header-bg: #2e2765;
+$lightpurple-text: #c8b5e5;
 
 // =======================================================================================
 
@@ -74,6 +78,7 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 18px;
   font-weight: 300;
+  color: $default-fontcolor;
 
   // Some elements have stripes extending out from the edge of their container to the edge of the
   // screen. We precisely calculate how large these stripes should be based on the viewport width.
@@ -91,6 +96,10 @@ body>* {
   margin: 0 auto;
   width: auto;
   max-width: 1200px;
+  
+  @media (max-width: 800px) {
+    padding: 1px 0 0;  
+  }
 }
 
 h1 {
@@ -102,26 +111,24 @@ h1 {
 
 h2, h3, h4, h5, h6 {
   font-weight: normal;
-  color: $default-fontcolor;
 }
 
 p {
-  color: $default-fontcolor;
   line-height: 24px;
 }
 
 a {
   text-decoration: none;
-  color: #7757bc;
+  color: $purple-link;
   font-weight: normal;
 
-      &:hover {
-        color: #584593;
-      }
+    &:hover {
+      color: $purple-highlight;
+    }
 }
 
 strong {
-  color: $default-fontcolor;
+  
 }
 
 // =======================================================================================
@@ -162,47 +169,89 @@ body>header {
   min-height: 180px;
   color: white;
 
-  >p {
+  p {
     text-align: center;
+    font-size: 22px;
     padding: 0 0 20px 0;
-    color: #c1a5e5;
+    color: $lightpurple-text;
   }
 }
 
 body>section {
-  >h2 {
+  h2 {
     margin: 50px 0 20px 0;
     text-align: center;
     font-size: 36px;
   }
-  >h3 {
+  h3 {
     text-align: center;
     font-size: 25px;
     font-weight: 300;
   }
   >ul {
     list-style: none;
-    >li {
-          color: $default-fontcolor;
-    }
   }
 }
 
 body>footer {
   padding-bottom: 1px;  // prevent margin-collapse
-    
+  
   @include stripe {
     background-color: lavender;
+  }
+  
+  .subscribe-small {
+    width: 85%;
+    height: 35px;
+
+    .placeholder {
+      position: absolute;
+      text-align: left;
+      padding: 5px 0 0 12px;
+      transition: opacity 0.25s ease, transform 0.35s ease;
+      font-size: 1em;
+      color: $purple-link;
+      pointer-events: none;
+    }
+    
+    input[type="text"] {
+      float: left;
+      height: 100%;
+      width: 80%;
+      font-size: 1em;
+      padding-left: 10px;
+      padding-right: 10px;
+      background-color: #F4F3FB;
+      border: 0;
+      outline: 0;
+    }
+
+    button {
+      float: right;
+      width: 20%;
+      height: 100%;
+      background: #2e2765;
+      border: 1px solid $purple-highlight;
+      padding: 0;
+      font-size: 1em;
+      color: #fff;
+      cursor: pointer;
+      outline: none;
+      transition: transform 0.75s ease, background 0.35s ease;
+
+      &:hover {
+        background: $purple-highlight;
+      }
+    }
   }
 
   li a {
     text-decoration: none;
     font-weight: lighter;
-    color: $default-fontcolor;
-      
+    
     &:hover {
-        color: #7757bc;
-      }
+      color: $purple-highlight;
+    }
   }
 
   h3 a {
@@ -220,507 +269,542 @@ body>footer {
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
-    >li {
-      color: $default-fontcolor;
+    
+    >li {  
       display: block;
       flex: 1 1 33%;
 
       @media (max-width: 800px) {
         flex: 1 1 50%;
       }
+      
       @media (max-width: 550px) {
         flex: 1 1 100%;
       }
 
       >ul {
         padding: 0;
+        
         >li {
           display: block;
         }
       }
     }
   }
+}
+
+.action {
+  text-align: center;
+  padding: 40px 0;
+    
+  @include stripe {
+    background-color: #F4F3FB;
+  }
+    li {
+      font-size: 25px;
+      padding: 0 20px;
+      list-style: none;
+      display: inline;
+    }
+
+    >a {
+      border: 1.5px solid $whitebutton-border;
+      font-size: 25px;
+      padding: 8px 20px;
+      width: 300px;
+      border-radius: 6px;
+      background-color: white;
+      color: $purplebutton-bg;
+      &:hover {
+        color: #7356cc;
+      }       
+    }
 }
 
 // =======================================================================================
 // index.html
 
-#home>header {
-  height: 400px;
-    
+#home {
+
+  >header {
+    height: 400px;
+
     @media (max-width: 800px) {
-      height: auto;
+      height: 300px;
     }
-    
+
     &::before {
-        display: block;
-        content: " ";
-        float: left;
-        background-image: url(/images/sandcat.svg);
-        background-repeat: no-repeat;
-        width: 320px;
-        height: 400px;
-        background-position: bottom;
-        
-        @media (max-width: 900px) {
-            width: 38%;
-        }
-        
-        @media (max-width: 750px) {
-            width: 35%;
-        }
+      display: block;
+      content: " ";
+      float: left;
+      background-image: url(/images/sandcat.svg);
+      background-repeat: no-repeat;
+      width: 320px;
+      height: 400px;
+      background-position: bottom;
+
+      @media (max-width: 800px) {
+        width: 240px;
+        height: 300px;
+      }
     }
-    
+
     @include stripe {
-    background-image: -webkit-linear-gradient(top, #2e2765, #211f44);
+      background-image: -webkit-linear-gradient(top, #211f44, #714692);
     }
 
     >h1 {
       padding-left: 30%;
       padding-top: 70px;
-        
-        strong {
-            color: white;
-        }
-        
-        @media (max-width: 900px) {
-            font-size: 36px;
-        }
-        
-        @media (max-width: 750px) {
-            font-size: 25px;
-        }
+
+      strong {
+        color: white;
+      }
+
+      @media (max-width: 950px) {
+        font-size: 38px;
+      }
+
+      @media (max-width: 850px) {
+        font-size: 30px;
+      }
+
+      @media (max-width: 750px) {
+        font-size: 25px;
+      }
     }
 
     >p {
-      margin-top: 40px;
+      margin-top: 35px;
       padding-left: 25%;
       text-align: center;
       color: #c5daff;
-      
-    >a {
-      color: white;
-      text-align: center;
-      display: inline-block;
-      width: 35%;
-      margin: 15px;
-      height: 60px;
-      line-height: 60px;
-      font-size: 28px;
-      border-radius: 4px;
-        
-      @media (max-width: 900px) {
-        font-size: 25px;
-        margin: 12px;
-        height: 45px;
-        line-height: 45px;
-      }
-        
-      @media (max-width: 800px) {
-        font-size: 20px;
-        margin: 10px;
-        height: 40px;
-        line-height: 40px;
-      }
-
-    }
-
-    >a.sign-in {
-      display: block;
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 150px;
-      height: 40px;
-      line-height: 40px;
-      font-size: 20px;
-      border: 1px solid #744ccc;
-
-      &:hover {
-        background-color: #4b3e9b;
-      }
-    }
-
-    >a.get {
-      background-image: -webkit-linear-gradient(top,  #744ccc, #613c91);
-
-      &:hover {
-        background-image: -webkit-linear-gradient(top, #955fcc, #7a3cab);
-      }
-    }
-    
-    >a.demo {
-      background-image: -webkit-linear-gradient(top, #e67cba, #9e4997);
-
-      &:hover {
-        background-image: -webkit-linear-gradient(top, #fd8acf, #9d57b6);  
-      }
-    }
-  }
-}
-
-body>#what {
-  >ul {
-    padding: 0;
-    margin: 0;
-
-    >li {
-      display: block;
-
-      >h3 {
-        font-size: 32px;
-        margin: 0;
-        padding: 32px 0 0;
-      }
-
-      >p {
-        line-height: 200%;
-      }
-
-      position: relative;
-
-      // We hijack ::before to become the screenshot.
-      &::before {
-        display: block;
-        content: " ";
-        position: absolute;
-        background: center/contain no-repeat;
-      }
-      &.create::before      { background-image: url("images/ethercalc.png"); }
-      &.collaborate::before { background-image: url("images/wekan.png"); }
-      &.communicate::before { background-image: url("images/rocketchat.png"); }
-
-      @media (min-width: 750px) {
-        height: 250px;
-        &::before {
-          width: 40%;
-          height: 90%;
-          top: 5%;
-      }
-
-        &:nth-of-type(odd) {
-          // Screenshot goes on the right.
-          padding-right: 45%;
-          &::before { right: 0; }
-
-          background: linear-gradient(to right, white, #e0d8e8);
-          @include stripe-right { background-color: #e0d8e8; }
-        }
-
-        &:nth-of-type(even) {
-          // Screenshot goes on the left.
-          padding-left: 45%;
-          &::before { left: 0; }
-        }
-      }
-
-      @media (max-width: 749px) {
-        // Screenshot goes on top.
-        padding-top: 150px;
-        &::before {
-          width: 100%;
-          height: 150px;
-          top: 0;
-      }
-    }
-  }
-}
-}
-
-.try-apps {
-      text-align: center;
-      font-size: 30px;
-      padding: 25px 0;
-      color: $default-fontcolor;
-
-      @include stripe {
-        background-color: #e0d8f0;
-      }
 
       >a {
-        border: 1.5px solid $whitebutton-border;
-        padding: 14px 0;
-        width: 300px;
-        border-radius: 6px;
+        color: white;
+        text-align: center;
         display: inline-block;
-        background-color: white;
-        &:hover {
-          color: #7356cc;
-      }
-    }
-}
+        width: 31%;
+        margin: 15px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 26px;
+        border-radius: 4px;
 
-body>#how {
-
-  >section {
-    display: flex;
-    flex-flow: row;
-    flex-wrap: wrap;
-
-    border-top: 1px solid #ddd;
-    padding: 30px 0;
-
-    >header {
-      // The section heading, which looks like:
-      //     Title | Subheading
-      //     Some sentence about this.
-      //
-      // This gets hacky because we want the first line to be centered, and we want the second
-      // line to have its start aligned with the start of the first line. We don't want the
-      // second line to wrap unless it goes off the edge of the screen. We accomplish this by
-      // making the second line "position: absolute" without specifying a position; this causes
-      // its upper-left corner to be where we want it but lets it flow off to the edge of the
-      // screen.
-
-      flex: 0 1 100%;
-
-      >div {
-        display: table;
-        margin: 0 auto;
-        padding-top: 50px;
-        font-size: 30px;
-
-        >h3 {
-          margin: 0;
-          >.subheading {
-            font-weight: 300;
+        @media (max-width: 900px) {
+          font-size: 23px;
+          margin: 11px;
+          height: 45px;
+          line-height: 45px;
         }
 
-          // We hijack ::before to become the icon. We have to attach this to the <h3> rather than
-          // the parent <div> because in order to absolutely-position the ::before, its direct
-          // parent has to be "position: relative", but if the <div> were "position: relative" it
-          // would ruin our hack that lets the second line flow off to the right.
-          position: relative;
-          &::before {
-            display: block;
-            content: " ";
-            position: absolute;
-            background: center/contain no-repeat;
-          }
+        @media (max-width: 800px) {
+          font-size: 18px;
+          margin: 8px;
+          height: 40px;
+          line-height: 40px;
+        }
+
+        @media (max-width: 600px) {
+          font-size: 16px;
+        }
+      }
+
+      >a.sign-in {
+        display: block;
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 150px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+        border: 1px solid #744ccc;
+
+        &:hover {
+          background-color: #4b3e9b;
+        }
+
+      }
+
+      >a.get {
+        background-image: -webkit-linear-gradient(top,  #744ccc, #613c91);
+        -webkit-box-shadow: 0 3px 3px rgba(41,25,66,0.6);
+        box-shadow: 0 3px 3px rgba(41,25,66,0.6);
+
+        &:hover {
+          background-image: -webkit-linear-gradient(top, #955fcc, #7a3cab);
+        }
+      }
+
+      >a.demo {
+        background-image: -webkit-linear-gradient(top, #e67cba, #9e4997);
+        -webkit-box-shadow: 0 3px 3px rgba(41,25,66,0.6);
+        box-shadow: 0 3px 3px rgba(41,25,66,0.6);
+
+        &:hover {
+          background-image: -webkit-linear-gradient(top, #fd8acf, #9d57b6);  
+        }
+      }
+    }
+  }
+
+  #what {
+    >ul {
+      padding: 0;
+      margin: 0;
+
+      >li {
+        display: block;
+        position: relative;
+
+        >h3 {
+          font-size: 32px;
+          margin: 0;
+          padding: 32px 0 0;
         }
 
         >p {
-          // Second line of the heading.
-
-          margin: 0;
-          padding: 10px 0;
-          color: #888;
-
-          position: absolute;
+          line-height: 200%;
         }
 
+        // We hijack ::before to become the screenshot.
+        &::before {
+          display: block;
+          content: " ";
+          position: absolute;
+          background: center/contain no-repeat;
+        }
+        &.create::before      { background-image: url("images/ethercalc.png"); }
+        &.collaborate::before { background-image: url("images/wekan.png"); }
+        &.communicate::before { background-image: url("images/rocketchat.png"); }
+
         @media (min-width: 750px) {
-          // Wide: Icon goes to the left.
-          height: 200px;
-          >h3::before {
-            width: 200px;
-            height: 200px;
-            left: -175px;
-            top: -75px;
+          height: 250px;
+          &::before {
+            width: 40%;
+            height: 90%;
+            top: 5%;
+        }
+
+          &:nth-of-type(odd) {
+            // Screenshot goes on the right.
+            padding-right: 45%;
+            &::before { right: 0; }
+
+            background: linear-gradient(to right, white, #e0d8e8);
+            @include stripe-right { background-color: #e0d8e8; }
+          }
+
+          &:nth-of-type(even) {
+            // Screenshot goes on the left.
+            padding-left: 45%;
+            &::before { left: 0; }
           }
         }
 
         @media (max-width: 749px) {
-          // Mobile: Icon goes on top.
+          // Screenshot goes on top.
           padding-top: 150px;
-          height: 300px;
-          >h3::before {
+          &::before {
             width: 100%;
             height: 150px;
-            bottom: 100%;
+            top: 0;
           }
         }
       }
     }
+  }
 
-    &.usability>header>div>h3::before { background-image: url("images/usability.svg"); }
-    &.security >header>div>h3::before { background-image: url("images/security.svg"); }
-    &.freedom  >header>div>h3::before { background-image: url("images/freedom.svg"); }
+  .try-apps {
+    text-align: center;
+    font-size: 30px;
+    padding: 25px 0;
+
+    @include stripe {
+      background-color: $lightpurple-band;
+    }
+
+    >a {
+      border: 1.5px solid $whitebutton-border;
+      padding: 14px 0;
+      width: 300px;
+      border-radius: 6px;
+      display: inline-block;
+      background-color: white;
+      &:hover {
+        color: #7356cc;
+      }
+    }
+  }
+
+  #how {
 
     >section {
-      // For each section like "usability", we have two sub-sections that can go side-by-side.
+      display: flex;
+      flex-flow: row;
+      flex-wrap: wrap;
 
-      flex: 0 1 50%;
-      padding: 220px 16px 0;
+      border-top: 1px solid #ddd;
+      padding: 30px 0;
 
-      strong { font-weight: normal; }
+      >header {
+        // The section heading, which looks like:
+        //     Title | Subheading
+        //     Some sentence about this.
+        //
+        // This gets hacky because we want the first line to be centered, and we want the second
+        // line to have its start aligned with the start of the first line. We don't want the
+        // second line to wrap unless it goes off the edge of the screen. We accomplish this by
+        // making the second line "position: absolute" without specifying a position; this causes
+        // its upper-left corner to be where we want it but lets it flow off to the edge of the
+        // screen.
 
-      @media (max-width: 800px) {
-        // Mobile: Switch to single column.
         flex: 0 1 100%;
-        padding-left: 0;
-        padding-right: 0;
-        >* {
-          max-width: 500px;
-          margin: 1em auto;
+
+        >div {
+          display: table;
+          margin: 0 auto;
+          padding-top: 50px;
+          font-size: 30px;
+
+          >h3 {
+            margin: 0;
+            >.subheading {
+              font-weight: 300;
+          }
+
+            // We hijack ::before to become the icon. We have to attach this to the <h3> rather than
+            // the parent <div> because in order to absolutely-position the ::before, its direct
+            // parent has to be "position: relative", but if the <div> were "position: relative" it
+            // would ruin our hack that lets the second line flow off to the right.
+            position: relative;
+            &::before {
+              display: block;
+              content: " ";
+              position: absolute;
+              background: center/contain no-repeat;
+            }
+          }
+
+          >p {
+            // Second line of the heading.
+
+            margin: 0;
+            padding: 10px 0;
+            color: #888;
+
+            position: absolute;
+          }
+
+          @media (min-width: 750px) {
+            // Wide: Icon goes to the left.
+            height: 200px;
+            >h3::before {
+              width: 200px;
+              height: 200px;
+              left: -175px;
+              top: -75px;
+            }
+          }
+
+          @media (max-width: 749px) {
+            // Mobile: Icon goes on top.
+            padding-top: 150px;
+            height: 300px;
+            >h3::before {
+              width: 100%;
+              height: 150px;
+              bottom: 100%;
+            }
+          }
         }
       }
 
-      @include stripe {
-        height: 200px;
-        top: 20px;
-        bottom: auto;
-        background-color: #e0d8f0;
-      }
+      &.usability>header>div>h3::before { background-image: url("images/usability.svg"); }
+      &.security >header>div>h3::before { background-image: url("images/security.svg"); }
+      &.freedom  >header>div>h3::before { background-image: url("images/freedom.svg"); }
 
-      // We hijack ::before to become the screenshot / image.
+      >section {
+        // For each section like "usability", we have two sub-sections that can go side-by-side.
+
+        flex: 0 1 50%;
+        padding: 220px 16px 0;
+
+        strong { font-weight: normal; }
+
+        @media (max-width: 800px) {
+          // Mobile: Switch to single column.
+          flex: 0 1 100%;
+          padding-left: 0;
+          padding-right: 0;
+          >* {
+            max-width: 500px;
+            margin: 1em auto;
+          }
+        }
+
+        @include stripe {
+          height: 200px;
+          top: 20px;
+          bottom: auto;
+          background-color: $lightpurple-band;
+        }
+
+        // We hijack ::before to become the screenshot / image.
+        &::before {
+          display: block;
+          content: " ";
+          position: absolute;
+          background: center/contain no-repeat;
+          background-image: url("images/wekan.png");
+          width: 100%;
+          height: 220px;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  #who {
+
+    .developer div {
+        padding: 0;
+    }
+
+    >h2 {
+      border-bottom: 1px solid #ddd;
+    }
+
+    >section {
+
       &::before {
         display: block;
         content: " ";
-        position: absolute;
-        background: center/contain no-repeat;
-        background-image: url("images/wekan.png");
-        width: 100%;
-        height: 220px;
-        top: 0;
-        left: 0;
+        float: left;
+        background: bottom/contain no-repeat;
+        width: 350px;
+        height: 260px;
       }
-    }
-  }
-}
-
-body>#who {
-  >h2 {
-    border-bottom: 1px solid #ddd;
-  }
-
-  >section {
-    &::before {
-      display: block;
-      content: " ";
-      float: left;
-      background: bottom/contain no-repeat;
-      width: 300px;
-      height: 300px;
-    }
-    &.individual::before { background-image: url("images/individual.svg"); }
-    &.enterprise::before { background-image: url("images/enterprise.svg"); }
-    &.developer::before { background-image: url("images/developer.svg"); }
-
-    >h3 {
-      font-size: 35px;
-      margin-top: 60px;
-      margin-bottom: 0;
-    }
-
-    @media (max-width: 800px) {
-      &::before {
-        float: none;
-        margin: 0 auto;
-        height: 200px;
-        border-bottom: 1px solid #ddd;
-      }
+      &.individual::before { background-image: url("images/individual.svg"); }
+      &.enterprise::before { background-image: url("images/enterprise.svg"); }
+      &.developer::before { background-image: url("images/developer.svg"); }
 
       >h3 {
-        margin-top: 10px;
-      }
-    }
-
-    >div {
-      clear: left;
-      padding: 15px 0;  // prevent margin-collapse
-
-      @include stripe {
-        background-color: $lightpurple-band;
+        font-size: 35px;
+        margin-top: 60px;
+        margin-bottom: 0;
+        text-align: left;
       }
 
-      >ul {
-        display: flex;
-        flex-flow: row;
-        flex-wrap: wrap;
-        padding: 0;
+      @media (max-width: 800px) {
+        &::before {
+          float: none;
+          margin: 0 auto;
+          height: 200px;
+          border-bottom: 1px solid #ddd;
+        }
 
-        >li {
-          margin-top: 1em;
-          display: block;
-          flex: 0 1 50%;
-
-          @media (max-width: 800px) {
-            flex: 1 1 100%;
-          }
+        >h3 {
+          margin-top: 10px;
         }
       }
 
-      >blockquote {
-        font-size: 30px;
-        color: $default-fontcolor;
+      >div {
+        clear: left;
+        padding: 15px 0;  // prevent margin-collapse
+
+        @include stripe {
+          background-color: $lightpurple-band;
+        }
+
+        >ul {
+          display: flex;
+          flex-flow: row;
+          flex-wrap: wrap;
+          padding: 0;
+
+          >li {
+            margin-top: 1em;
+            display: block;
+            flex: 0 1 50%;
+
+            @media (max-width: 800px) {
+              flex: 1 1 100%;
+            }
+          }
+        }
+
+        >blockquote {
+          font-size: 30px;
+
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  #join-list {
+    padding: 0 0 20px 0;
+
+    @include stripe {
+      background-color: $lightpurple-band;
+    }
+
+    input[type="text"] {
+      background-color: #fff;
+    }
+  }
+
+  .start {
+      background-color: white;
+      border: none;
+      padding: 30px 0 0 0;
+
+      a {
         text-align: center;
+        color: white;
+        padding: 10px 0;
+        width: 200px;
+        border-radius: 5px;
+        display: block;
       }
-    }
+  }
+
+  .individual {
+      a {
+        background-color: #b21b31;
+        &:hover {
+          background-color: #c92333;  
+        }
+      }
+  }   
+
+  .enterprise {
+      a {
+        background-color: #202d70;
+        &:hover {
+          background-color: #274c96;   
+        }
+      }
+  }
+
+  .developer {
+      a {
+        background-color: #e27124;
+        &:hover {
+          background-color: #ed8b2b; 
+        }
+      }
   }
 }
-
-body>#join-list {
-  >h2 {
-    >form {
-      display: inline;
-
-      >input {
-        border: none;
-        background-color: #eeeef8;
-      }
-
-      >button {
-        border: none;
-        background-color: #aac;
-        color: transparent;
-        overflow: none;
-        white-space: nowrap;
-        width: 80px;
-        // TODO: background checkmark
-      }
-    }
-  }
-}
-
-.start {
-    background-color: white;
-    text-align: right;
-    
-    a {
-      text-align: center;
-      color: white;
-      padding: 10px 0;
-      width: 200px;
-      border-radius: 5px;
-      display: inline-block;
-    }
-}
-
-.individual {
-    a {
-      background-color: #b21b31;
-      &:hover {
-        background-color: #c92333;  
-      }
-    }
-}   
-
-.enterprise {
-    a {
-      background-color: #202d70;
-      &:hover {
-        background-color: #274c96;   
-      }
-    }
-}
-
-.developer {
-    a {
-      background-color: #e27124;
-      &:hover {
-        background-color: #ed8b2b; 
-      }
-    }
-}
-
 
 // =======================================================================================
 // features.html
 
 #features {
   header {
-
     max-width: none;
     padding: 1px 0 0 0;
 
@@ -744,7 +828,7 @@ body>#join-list {
           height: 100%;
           line-height: 48px;
           width: 33%;
-          color: $default-fontcolor;
+          
           background-color: #e6e5ea;
 
           &:hover {
@@ -766,277 +850,296 @@ body>#join-list {
       }
     }
   }
+    
+  .current {
+    background-color: #ffffff;
+  }
 
   #core-security {
-      text-align: center;
+    text-align: center;
 
-      ul {
-          display: inline-block;
-          list-style: none;
+    ul {
+      display: inline-block;
+      list-style: none;
 
-          li {
-              text-align: left;
+      li {
+        text-align: left;
 
-              &::before {
-                  content: " ";
-                  display: block;
-                  background-repeat: none;
-                  height: 224px;
-                  background: bottom/contain no-repeat;
-              }
-              &.apps-growing::before { background-image: url("images/core-apps-growing.png"); }
-              &.single-sign-on::before { background-image: url("images/core-single-sign-on.png"); }
-              &.unified-sharing::before { background-image: url("images/core-unified-sharing.png"); }
-              &.powerbox::before { background-image: url("images/core-powerbox.png"); }
-              &.protection::before { background-image: url("images/security-protection.png"); }
-              &.sandboxing::before { background-image: url("images/security-sandboxing.png"); }
-              &.auditable::before { background-image: url("images/security-auditable.png"); }
-              &.tabbed::before { background-image: url("images/more-tabbed.png"); }
-              &.backups::before { background-image: url("images/more-backups.png"); }
-              &.notifications::before { background-image: url("images/more-notifications.png"); }
-              &.mentions::before { background-image: url("images/more-mentions.png"); }
-              &.search::before { background-image: url("images/more-search.png"); }
-              &.connected::before { background-image: url("images/more-connected.png"); }
-          }
+        &::before {
+          content: " ";
+          display: block;
+          background-repeat: none;
+          height: 224px;
+          background: bottom/contain no-repeat;
+        }
+        &.apps-growing::before { background-image: url("images/core-apps-growing.svg"); }
+        &.single-sign-on::before { background-image: url("images/core-single-sign-on.svg"); }
+        &.unified-sharing::before { background-image: url("images/core-unified-sharing.svg"); }
+        &.powerbox::before { background-image: url("images/core-powerbox.svg"); }
+        &.protection::before { background-image: url("images/security-protection.svg"); }
+        &.sandboxing::before { background-image: url("images/security-sandboxing.svg"); }
+        &.auditable::before { background-image: url("images/security-auditable.svg"); }
+        &.tabbed::before { background-image: url("images/more-tabbed.png"); }
+        &.backups::before { background-image: url("images/more-backups.svg"); }
+        &.notifications::before { background-image: url("images/more-notifications.svg"); }
+        &.mentions::before { background-image: url("images/more-mentions.png"); }
+        &.search::before { background-image: url("images/more-search.svg"); }
+        &.connected::before { background-image: url("images/more-connected.svg"); }
       }
+    }
   }
 
   #business-scale {
-      text-align: center;
-
-      ul {
-          display: inline-block;
-          list-style: none;
-
-          li {
-              text-align: left;
-
-              &::before {
-                  content: " ";
-                  display: block;
-                  background-repeat: none;
-                  height: 224px;
-                  background: bottom/contain no-repeat;
-          }
-          &.on-prem::before { background-image: url("images/business-onprem.png"); }
-          &.ldap::before { background-image: url("images/business-ldap.png"); }
-          &.group::before { background-image: url("images/business-group.png"); }
-          &.ldap::before { background-image: url("images/business-ldap.png"); }
-          &.global::before { background-image: url("images/business-global.png"); }
-          &.audit::before { background-image: url("images/business-audit.png"); }
-          &.scale-out::before { background-image: url("images/business-scale-out.png"); }
-          &.failover::before { background-image: url("images/business-failover.png"); }
-          &.encryption::before { background-image: url("images/business-encryption.png"); }
-
-          }
+    text-align: center;
+    
+    .ldap {
+      width: 50%;
+      @media (max-width: 700px) {
+        width: 100%;
       }
+    }
+
+    .group {
+      width: 50%;
+      @media (max-width: 700px) {
+        width: 100%;
+      }
+    }
+
+    ul {
+      width: 100%;
+      float: center;
+        li {
+          display: inline-block;
+          padding: 15px 15px;
+          width: 100%;
+
+            &::before {
+              content: " ";
+              display: block;
+              background-repeat: none;
+              height: 224px;
+              background: bottom/contain no-repeat;
+            }
+            &.on-prem::before {
+              background-image: url("images/business-onprem.svg");
+              background-position: right;
+            }
+            &.ldap::before { background-image: url("images/business-ldap.svg"); }
+            &.group::before { background-image: url("images/business-group.svg"); }
+            &.global::before { background-image: url("images/business-global.svg"); }
+            &.audit::before { 
+              background-image: url("images/business-audit.svg");
+              background-position: right;
+            }
+            &.scale-out::before { background-image: url("images/business-scale-out.svg"); }
+            &.failover::before { background-image: url("images/business-failover.png"); }
+            &.encryption::before { background-image: url("images/business-encryption.svg"); }
+        }
+    }
   }
 
-  #developers {
-      text-align: center;
+  #developer {
+    text-align: center;
 
-      ul {
-          display: inline-block;
-          list-style: none;
+    ul {
+      display: inline-block;
+      list-style: none;
 
-          li {
-              text-align: left;
+      li {
+        text-align: left;
 
-              &::before {
-                  content: " ";
-                  display: block;
-                  background-repeat: none;
-                  height: 224px;
-                  background: bottom/contain no-repeat;
-          }
-          &.apps-growing::before { background-image: url("images/core-apps-growing.png"); }
-          &.single-sign-on::before { background-image: url("images/core-single-sign-on.png"); }
-          &.unified-sharing::before { background-image: url("images/core-unified-sharing.png"); }
-          &.powerbox::before { background-image: url("images/core-powerbox.png"); }
-          &.linux::before { background-image: url("images/core-linux.png"); }
-          &.runtime::before { background-image: url("images/core-runtime.png"); }
-          &.boilerplate::before { background-image: url("images/core-boilerplate.png"); }
-          &.dev-ops::before { background-image: url("images/core-dev-ops.png"); }
-          &.integration::before { background-image: url("images/core-integration.png"); }
-          &.in-app::before { background-image: url("images/core-in-app.png"); }
-          }
+        &::before {
+          content: " ";
+          display: block;
+          background-repeat: none;
+          height: 224px;
+          background: bottom/contain no-repeat;
+        }
+        &.linux::before { background-image: url("images/developer-linux.svg"); }
+        &.runtime::before { background-image: url("images/core-runtime.png"); }
+        &.boilerplate::before { background-image: url("images/core-boilerplate.png"); }
+        &.dev-ops::before { background-image: url("images/core-dev-ops.png"); }
+        &.integration::before { background-image: url("images/core-integration.png"); }
+        &.in-app::before { background-image: url("images/core-in-app.png"); }
       }
+    }
   }
 }
-
 // =======================================================================================
 // get.html
 
-body>#get {
+#get {
+  header {
+    @include stripe {
+      background-color: #2e2765;
+      background-image: url(/images/header-get.svg);
+      background-repeat: no-repeat;
+      background-position: bottom;
+      padding: 0 75% 0 0;
+    }
 
-  @include stripe {
-    background-color: #2e2765;
+    >nav {
+      height: 48px;
+      text-align: center;
+      font-size: 16px;
+    }
   }
 
-  >nav {
-    height: 48px;
+  #pricing {
     text-align: center;
-    font-size: 16px;
+
+    ul {
+      padding: 0;
+
+      li {
+        list-style: none;
+        display: block;
+        padding: 10px 0;
+      }
+    }
+
+  p strong {
+    font-size: 35px;
+  }
+
+  #price-table {
+    padding: 20px 0;
+  }
+
+  .plan1 {
+    display: inline-block;
+    background: white;
+    padding: 0;
+    text-align: center;
+    border: 1px solid #8c72b5;
+    border-radius: 5px;
+    margin: 0 2% 20px 0;
+    width: 30%;
+    position: relative;
+    color: #684599;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+
+    @media (max-width: 750px) {
+      width: 45%;
+    }
+
+    @media (max-width: 500px) {
+      width: 100%;
+    }
+
+    strong {
+      color: #4f3070;
+    }
+
+    .title {
+      background-color: #ebe7f7;
+      padding: 15px 0;
+      border-radius: 5px 5px 0px 0px;
+      strong {
+        font-size: 30px;
+      }
+    }
+    .price {
+      border-bottom: 1px solid #b6b6d8;
+      strong {
+        font-size: 40px;
+      }
+    }
+    .storage {
+      border-bottom: 1px solid #b6b6d8;
+      strong {
+        font-size: 30px;
+      }
+    }
+    .grains {
+      font-size: 20px;
+    }
+    .get {
+      border-radius: 0px 0px 5px 5px;
+      padding: 10px 0;
+    }
+
+    a {
+      color: white;
+      font-size: 20px;
+      border-radius: 5px;
+      display: inline-block;
+      background-color: $purplebutton-bg;
+      width: 95%;
+      padding: 15px 0;
+      &:hover {
+        background-color: $purplehover-bg;
+      }
+    }
+  }
+    
+  .plan2 {
+    display: inline-block;
+    background: white;
+    padding: 0;
+    text-align: center;
+    border: 1px solid #8c72b5;
+    border-radius: 5px;
+    margin: 0 2% 0 2%;
+    width: 45%;
+    position: relative;
+    color: #684599;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+
+    strong {
+      color: #4f3070;
+    }
+
+      .title {
+        background-color: #ebe7f7;
+        padding: 15px 10px;
+        border-radius: 5px 5px 0px 0px;
+        strong {
+            font-size: 30px;
+        }
+      }
+      .price {
+        border-bottom: 1px solid #b6b6d8;
+        strong {
+          font-size: 40px;
+        }
+      }
+      .storage {
+        border-bottom: 1px solid #b6b6d8;
+        strong {
+          font-size: 30px;
+        }
+      }
+      .grains {
+        font-size: 20px;
+      }
+      .get {
+        border-radius: 0px 0px 5px 5px;
+        padding: 10px 0;
+      }
+
+      a {
+        color: white;
+        font-size: 20px;
+        border-radius: 5px;
+        display: inline-block;
+        background-color: $purplebutton-bg;
+        width: 95%;
+        padding: 15px 0;
+        &:hover {
+          background-color: #6341a5;
+        }
+      }
+    }
   }
 }
-
-#pricing {
-    text-align: center;
-    
-    ul {
-        padding: 0;
-    
-        li {
-            list-style: none;
-            display: block;
-            padding: 10px 0;
-        }
-    }
-
-    p strong {
-        font-size: 35px;
-    }
-    
-    #price-table {
-        padding: 20px 0;
-    }
-    
-    .plan1 {
-        display: inline-block;
-        background: white;
-        padding: 0;
-        text-align: center;
-        border: 1px solid #8c72b5;
-        border-radius: 5px;
-        margin: 0 2% 20px 0;
-        width: 30%;
-        position: relative;
-        color: #684599;
-
-        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-            
-        @media (max-width: 750px) {
-            width: 45%;
-        }
-
-        @media (max-width: 500px) {
-            width: 100%;
-        }
-        
-        strong {
-            color: #4f3070;
-        }
-
-        .title {
-            background-color: #ebe7f7;
-            padding: 15px 0;
-            border-radius: 5px 5px 0px 0px;
-            strong {
-                font-size: 30px;
-            }
-        }
-        .price {
-            border-bottom: 1px solid #b6b6d8;
-            strong {
-                font-size: 40px;
-            }
-        }
-        .storage {
-            border-bottom: 1px solid #b6b6d8;
-            strong {
-                font-size: 30px;
-            }
-        }
-        .grains {
-            font-size: 20px;
-        }
-        .get {
-            border-radius: 0px 0px 5px 5px;
-            padding: 10px 0;
-        }
-
-        a {
-          color: white;
-          font-size: 20px;
-          border-radius: 5px;
-          display: inline-block;
-          background-color: #442672;
-          width: 95%;
-          padding: 15px 0;
-          &:hover {
-            background-color: #6341a5;
-          }
-        }
-    }
-    .plan2 {
-            display: inline-block;
-            background: white;
-            padding: 0;
-            text-align: center;
-            border: 1px solid #8c72b5;
-            border-radius: 5px;
-            margin: 0 2% 20px 0;
-            width: 46%;
-            position: relative;
-            color: #684599;
-        
-            -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-
-        @media (max-width: 600px) {
-            width: 100%;
-        }
-        
-        strong {
-            color: #4f3070;
-        }
-
-            .title {
-                background-color: #ebe7f7;
-                padding: 15px 10px;
-                border-radius: 5px 5px 0px 0px;
-                strong {
-                    font-size: 30px;
-                }
-
-            }
-            .price {
-                border-bottom: 1px solid #b6b6d8;
-                strong {
-                    font-size: 40px;
-                }
-            }
-            .storage {
-                border-bottom: 1px solid #b6b6d8;
-                strong {
-                    font-size: 30px;
-                }
-            }
-            .grains {
-                font-size: 20px;
-            }
-            .get {
-                border-radius: 0px 0px 5px 5px;
-                padding: 10px 0;
-            }
-
-            a {
-              color: white;
-              font-size: 20px;
-              border-radius: 5px;
-              display: inline-block;
-              background-color: #442672;
-              width: 95%;
-              padding: 15px 0;
-              &:hover {
-                background-color: #6341a5;
-              }
-            }
-        }
-
-    }
-
 
 // =======================================================================================
 // how-it-works.html
@@ -1046,38 +1149,26 @@ body>#get {
       text-align: center;
 
       @include stripe {
-          background-color: #2e2765;
+        background-color: #2e2765;
+      }
+      
+      p {
+        padding-bottom: 0;
       }
 
-      >h1 {
-        font-size: 45px;
-        margin-top: 0;
-      }
-
-      >p {
-        color: #dba2d3;
-        padding-bottom: 0px;
-        font-size: 25px;
-      }
-
-      >img {
-        &.left {
-          width: 50%;
-          height: auto;
-          @media (max-width: 500px) {
-              width: 100%
-          }
+      .containerize {
+        display: flex;
+        justify-content: space-between;
+        height: 150px;
+        
+        .left {
+          width: 460px;
         }
-        &.right {
-          width: 17%;
-          height: auto;
-          padding-left: 50px;
-
-          @media (max-width: 500px) {
-              width: 30%;
-          }
+        .right {
+          width: 100px;
         }
       }
+    }
   }
 
   #intro {
@@ -1126,57 +1217,77 @@ body>#get {
   }
 
   #grains img {
-      width: 50%;
+    width: 50%;
 
-      @media (max-width: 700px) {
-        width: 100%;
-      }
+    @media (max-width: 700px) {
+      width: 100%;
+    }
   }
 
   #different {
-      padding: 35px 0;
+    padding: 35px 0;
 
-      @include stripe {
-      background-color: #eee9f4;
-      }
 
-      font-size: 30px;
-      font-weight: 300;
-      text-align: center;
+    @include stripe {
+    background-color: #eee9f4;
+    }
+
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
   }
 
-  section {
+  #grains,#capabilities, {
     h2 {
-      @include stripe {
-        background-color: #eee9f4;
-      }
       font-size: 35px;
       padding: 25px 0;
       margin: 0;
+      @include stripe {
+      background-color: #eee9f4;
+      }
     }
-    
     h3 {
       border-bottom: 1px solid #ddd;
       font-size: 35px;
+      text-align: left;
 
       @media (max-width: 450px) {
         font-size: 20px;
       }
     }
   }
-}
 
 #grains .models {
-    
-    text-align: center;
-    
-    img {
-        height: 250px;
-        width: auto;
-        max-width: 45%;
-    }
+  text-align: center;
+
+  img {
+    height: 250px;
+    width: auto;
+    max-width: 45%;    
+  }
 }
 
+// =======================================================================================
+// blog.html
+
+#blog {
+  header {
+    @include stripe {
+    background-image: -webkit-linear-gradient(top, #2e2765, #af7f9f);
+    background-color: $header-bg;
+    }
+  }
+  
+  .sand {
+    min-height: 180px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-image: url(images/header-blog.svg);
+  }
+}
+
+  
 // =======================================================================================
 // about.html
 
@@ -1184,48 +1295,140 @@ body>#about {
 
   @include stripe {
     background-color: #2e2765;
-    background-image: url(/images/header-about.png);
+    background-image: url(/images/header-about.svg);
     background-repeat: no-repeat;
-    background-position: bottom right;
+    background-position: bottom;
   }
 }
 
 .story {
-  width:90%;
-  padding: 20px 0;
+  width: 90%;
+  p {
+    padding: 0 0 40px 0;
+  }
 }
 
-.contact {
-    text-align: center;
-    font-size: 30px;
-    padding: 25px 0;
-    color: $default-fontcolor;
+#team, #advisors, #sponsors {
+    
+  li h3 {
+    border-bottom: 1px solid #ddd;
+    margin: 7px 0 5px 0;
+    text-align: left;
+  }
 
-    @include stripe {
-      background-color: #eeedf9;
-    }
+  h4 {
+    margin: 0;
+  }
 
-    >a {
-      border: 1.5px solid $whitebutton-border;
-      padding: 14px 0;
-      width: 300px;
-      border-radius: 6px;
+  p {
+    font-size: 15px;
+    float: left;
+  }
+
+  h5 {
+    display: block;
+    
+    font-weight: lighter;
+  }
+  >ul {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    float: center;
+    justify-content: space-around;
+      
+    >li {
       display: inline-block;
-      background-color: white;
-      &:hover {
-        color: #7356cc;
+      width: 47%;
+      position: relative;
+      padding: 40px 0 0 0;
+      
+      @media (max-width: 800px) {
+        width: 90%;
+      }
+
+      &::before {
+        display: block;
+        content: " ";
+        float: left;
+        background-repeat: no-repeat;
+        height: 80px;
+        width: 100px;
+        background: bottom/contain no-repeat;
+        background-position: left;
+        background-color: #fff;
+      }
+
+      &.kenton::before { background-image: url("images/people/kenton.png"); }
+      &.jade::before { background-image: url("images/people/jade.png"); }
+      &.jason::before { background-image: url("images/people/jason.png"); }
+      &.david::before { background-image: url("images/people/david.png"); }
+      &.asheesh::before { background-image: url("images/people/asheesh.png"); }
+      &.nena::before { background-image: url("images/people/nena.png"); }
+      &.drew::before { background-image: url("images/people/drew.png"); }
+      &.garply::before { background-image: url("images/people/garply.png"); }
+      &.swetland::before { background-image: url("images/people/swetland.png"); }
+      &.lutomirski::before { background-image: url("images/people/luto.png"); }
+      &.nagra::before { background-image: url("images/people/jasvir.png"); }
+      &.seaborn::before { background-image: url("images/people/seaborn.png"); }
+      &.miller::before { background-image: url("images/people/miller.png"); }
+      &.wagner::before { background-image: url("images/people/wagner.png"); }
+      &.tang::before { background-image: url("images/people/audrey.png"); }
     }
   }
 }
 
-#team {
+#contributors {
     
-    .bio-title {
-        border-bottom: 1px solid #ddd;
+  @include stripe {
+    background-color: $header-bg;
+  }
+
+  ul { 
+    text-align: justify;
+    text-align-last: center;
+    line-height: 32px;
+    padding: 20px 0 100px 0;
+
+    li {
+      display: inline-block;
+      margin: 0 10px;
+      text-align: center;
+      color: $lightpurple-text;
     }
+  }
+}
+
+#corporate {
+  ul {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    float: center;
+  }
+
+  li {
+    display: inline-block;
+    width: 33%;
+    padding: 15px 15px;
+    position: relative;
     
-    .bio-text {
-        font-size: 15px;
+    &::before {
+    content: " ";
+    display: block;
+    background-repeat: no-repeat;
+    height: 200px;
+    background: bottom/contain no-repeat;
+    }
+    &.drawio::before { background-image: url("thirdparty/draw.io-logo.svg"); }
+    &.humanweb::before { background-image: url("thirdparty/humanweb.png"); }
+    &.uniregistry::before { background-image: url("thirdparty/uniregistry.svg"); }
     }
 }
 
@@ -1240,69 +1443,138 @@ body>#community {
     background-repeat: no-repeat;
     background-position: bottom left;
     }
-
-    >p {
-      text-align: center;
-      color: #97b1db;
-    }
 }
 
 #socialmedia {
-        width: 100%;
-        flex-flow: row;
-        flex-wrap: wrap;
-        display: flex;
-        
-        li {
-        display: inline-block;
-        padding: 20px;
-            
-        &::before {
-        content: " ";
-        display: block;
-        }
+  ul {
+    width: 100%;
+  }
+    
+  li {
+    display: inline-block;
+    width: 12.5%;
+    position: relative;
+    font-size: 17px;
+    text-align: center;
+    
+    @media (max-width:800px) {
+      width: 25%;
     }
+    
+    &::before {
+      content: " ";
+      display: block;
+      background-repeat: no-repeat;
+      height: 100px;
+      background: bottom/contain no-repeat;
+      }
+  }
+}
+
+.email {
+  list-style: none;
+  text-align: center;
+  padding: 30px 0;
+  color: #4d4c84;
+
+    li {
+      font-size: 24px;
+      padding: 0 20px;
+      list-style: none;
+      display: inline;
+    }
+}
+
+.subscribe {
+  margin: auto;
+  width: 550px;
+  height: 40px;
+
+  .placeholder {
+    position: absolute;
+    text-align: left;
+    padding: 5px 0 0 12px;
+    transition: opacity 0.25s ease, transform 0.35s ease;
+    font-size: 1.2em;
+    color: $purple-link;
+    pointer-events: none;
+  }
+
+  input[type="text"] {
+    float: left;
+    height: 100%;
+    width: 70%;
+    border: 0;
+    outline: none;
+    font-size: 1.5em;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #F4F3FB;
+  }
+
+  button {
+    float: right;
+    width: 30%;
+    height: 100%;
+    background: #2e2765;
+    border: 1px solid $purple-highlight;
+    padding: 0;
+    font-size: 1.2em;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.75s ease, background 0.35s ease;
+
+    &:hover {
+      background: $purple-highlight;
+    }
+  }
 }
     
 #help {
     
     ul {
-        width: 100%;
-        padding: 0px;
-        margin: 0px;
-        display: flex;
-        flex-flow: row;
-        flex-wrap: wrap;
-        float: center;
+      padding: 0px;
+      display: flex;
+      flex-flow: row;
+      flex-wrap: wrap;
+      float: center;
     }
     
     li {
-        display: inline-block;
-        width: 33%;
-        padding: 15px 15px;
-        position: relative;
+      display: inline-block;
+      width: 33%;
+      padding: 15px 15px;
+      position: relative;
+      
+      @media (max-width: 800px) {
+        width: 48%;
+      }
+      @media (max-width: 500px) {
+        width: 100%;
+      }
         
-        &::before {
-        content: " ";
-        display: block;
-        background-repeat: no-repeat;
-        height: 200px;
-        background: bottom/contain no-repeat;
-        }
-    &.share::before { background-image: url("images/help-share.png"); }
-    &.talk::before { background-image: url("images/help-talk.png"); }
-    &.discuss::before { background-image: url("images/help-discuss.png"); }
-    &.build::before { background-image: url("images/help-build.png"); }
-    &.write::before { background-image: url("images/help-write.png"); }
-    &.package::before { background-image: url("images/help-package.png"); }
-    &.feedback::before { background-image: url("images/help-feedback.png"); }
-    &.design::before { background-image: url("images/help-design.png"); }
-    &.usability::before { background-image: url("images/help-usability.png"); }
-    &.documentation::before { background-image: url("images/help-documentation.png"); }
-    &.core::before { background-image: url("images/help-core.png"); }
+      &::before {
+      content: " ";
+      display: block;
+      background-repeat: no-repeat;
+      height: 200px;
+      background: bottom/contain no-repeat;
+      }
+      &.share::before { background-image: url("images/help-share.svg"); }
+      &.talk::before { background-image: url("images/help-talk.svg"); }
+      &.discuss::before { background-image: url("images/help-discuss.svg"); }
+      &.build::before { background-image: url("images/help-build.svg"); }
+      &.write::before { background-image: url("images/help-write.svg"); }
+      &.package::before { background-image: url("images/help-package.svg"); }
+      &.feedback::before { background-image: url("images/help-feedback.svg"); }
+      &.design::before { background-image: url("images/help-design.svg"); }
+      &.usability::before { background-image: url("images/help-usability.svg"); }
+      &.documentation::before { background-image: url("images/help-documentation.svg"); }
+      &.core::before { background-image: url("images/help-core.svg"); }
     }
     
     p {
-        font-size: 15px;
+        font-size: 16px;
     }
 }
