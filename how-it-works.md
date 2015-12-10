@@ -5,7 +5,7 @@ id: how-it-works
 
 <header>
   <h1>How Sandstorm Works</h1>
-  <p>Containerize objects, not functions</p>
+  <p>Containerize objects, not services</p>
     <img class="left" src="/images/howitworks-left.png"></img><img class="right" src="/images/howitworks-right.png"></img>
 </header>
 
