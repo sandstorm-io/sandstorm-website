@@ -156,11 +156,13 @@ body>nav {
       color: #18003f;
     }
 
+    @media (max-width: 500px) {
+      &[href="/blog"] { display: none; }
+      &[href="/core"] { display: none; }
+    }
     @media (max-width: 800px) {
-      display: none;
-      &:nth-of-type(-n+3) {
-        display: inline-block;
-      }
+      &[href="/get"] { display: none; }
+      &[href="/community"] { display: none; }
     }
   }
 }
