@@ -1424,7 +1424,7 @@ body>#about {
     display: block;
     background-repeat: no-repeat;
     height: 200px;
-    background: bottom/contain no-repeat;
+    background: center/contain no-repeat;
     }
     &.drawio::before { background-image: url("thirdparty/draw.io-logo.svg"); }
     &.humanweb::before { background-image: url("thirdparty/humanweb.png"); }
