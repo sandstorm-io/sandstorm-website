@@ -6,7 +6,7 @@ id: how-it-works
 <header>
   <h1>How Sandstorm Works</h1>
   <p>Containerize objects, not functions</p>
-    <img class="left" src="/images/howitworks-left.png"></img><img class="right" src="/images/howitworks-right.png"></img>
+    <div class="containerize"><img class="left" src="/images/howitworks-left.png"></img><img class="right" src="/images/howitworks-right.png"></img></div>
 </header>
 
 <section id="different">
@@ -134,6 +134,7 @@ But with grains, there is hope. Each grain's storage can be encrypted transparen
 
 <section id="capabilities" markdown="1">
 ## Capability-based Security
+<img src="/images/how-capabilitybased.svg">
 
 Service-to-service access control in the Sandstorm model requires a different way of thinking about security.
 
