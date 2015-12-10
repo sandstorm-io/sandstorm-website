@@ -875,6 +875,11 @@ body>footer {
           height: 224px;
           background: bottom/contain no-repeat;
         }
+        @include stripe {
+          background-color: #edf2f9;
+          height: 224px;
+        }
+
         &.apps-growing::before { background-image: url("images/core-apps-growing.svg"); }
         &.single-sign-on::before { background-image: url("images/core-single-sign-on.svg"); }
         &.unified-sharing::before { background-image: url("images/core-unified-sharing.svg"); }
