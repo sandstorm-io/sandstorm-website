@@ -1292,7 +1292,6 @@ body>footer {
 // about.html
 
 body>#about {
-
   @include stripe {
     background-color: #2e2765;
     background-image: url(/images/header-about.svg);
@@ -1382,6 +1381,7 @@ body>#about {
 }
 
 #contributors {
+  padding-bottom: 1px;  // prevent margin collapse
     
   @include stripe {
     background-color: $header-bg;
