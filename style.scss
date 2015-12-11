@@ -144,6 +144,7 @@ body>nav {
     height: 100%;
     padding: 0 15px;
     line-height: 48px;
+    font-weight: 300;
 
     color: black;
 
@@ -156,14 +157,24 @@ body>nav {
       color: #18003f;
     }
 
+    @media (max-width: 500px) {
+      &[href="/blog"] { display: none; }
+      &[href="/core"] { display: none; }
+    }
     @media (max-width: 800px) {
-      display: none;
-      &:nth-of-type(-n+3) {
-        display: inline-block;
-      }
+      &[href="/get"] { display: none; }
+      &[href="/community"] { display: none; }
     }
   }
 }
+
+body#home>nav>a[href="/"] { font-weight: bold; }
+body#get>nav>a[href="/get"] { font-weight: bold; }
+body#features>nav>a[href="/core"] { font-weight: bold; }
+body#how-it-works>nav>a[href="/how-it-works"] { font-weight: bold; }
+body#blog>nav>a[href="/blog"] { font-weight: bold; }
+body#community>nav>a[href="/community"] { font-weight: bold; }
+body#about>nav>a[href="/about"] { font-weight: bold; }
 
 body>header {
   min-height: 180px;
@@ -296,7 +307,8 @@ body>footer {
 .action {
   text-align: center;
   padding: 40px 0;
-    
+  line-height: 41px;
+
   @include stripe {
     background-color: #F4F3FB;
   }
@@ -317,7 +329,8 @@ body>footer {
       color: $purplebutton-bg;
       &:hover {
         color: #7356cc;
-      }       
+      }
+      white-space: nowrap;
     }
 }
 
@@ -333,20 +346,26 @@ body>footer {
       height: 300px;
     }
 
-    &::before {
-      display: block;
-      content: " ";
-      float: left;
-      background-image: url(/images/sandcat.svg);
-      background-repeat: no-repeat;
-      width: 320px;
-      height: 400px;
-      background-position: bottom;
+    @media (min-width: 600px) {
+      &::before {
+        display: block;
+        content: " ";
+        float: left;
+        background-image: url(/images/sandcat.svg);
+        background-repeat: no-repeat;
+        width: 320px;
+        height: 400px;
+        background-position: bottom;
 
-      @media (max-width: 800px) {
-        width: 240px;
-        height: 300px;
+        @media (max-width: 800px) {
+          width: 240px;
+          height: 300px;
+        }
       }
+    }
+
+    @media (max-width: 400px) {
+      height: 350px;
     }
 
     @include stripe {
@@ -354,7 +373,10 @@ body>footer {
     }
 
     >h1 {
-      padding-left: 30%;
+      @media (min-width: 600px) {
+        // Space for sandcat.
+        padding-left: 30%;
+      }
       padding-top: 70px;
 
       strong {
@@ -376,9 +398,13 @@ body>footer {
 
     >p {
       margin-top: 35px;
-      padding-left: 25%;
       text-align: center;
       color: #c5daff;
+
+      @media (min-width: 600px) {
+        // Space for sandcat.
+        padding-left: 25%;
+      }
 
       >a {
         color: white;
@@ -407,6 +433,10 @@ body>footer {
 
         @media (max-width: 600px) {
           font-size: 16px;
+        }
+
+        @media (max-width: 400px) {
+          width: 200px;
         }
       }
 
@@ -820,9 +850,12 @@ body>footer {
         font-size: 20px;
         text-align: center;
         width: 100%;
+        
+        display: flex;
 
         >a {
-          display: inline-block;
+          display: block;
+          flex: 1 1 33%;
           text-align: center;
           font-weight: normal;
           height: 100%;
@@ -850,6 +883,10 @@ body>footer {
       }
     }
   }
+
+  >section>ul {
+    padding: 0;
+  }
     
   .current {
     background-color: #ffffff;
@@ -872,6 +909,11 @@ body>footer {
           height: 224px;
           background: bottom/contain no-repeat;
         }
+        @include stripe {
+          background-color: #edf2f9;
+          height: 224px;
+        }
+
         &.apps-growing::before { background-image: url("images/core-apps-growing.svg"); }
         &.single-sign-on::before { background-image: url("images/core-single-sign-on.svg"); }
         &.unified-sharing::before { background-image: url("images/core-unified-sharing.svg"); }
@@ -1291,8 +1333,7 @@ body>footer {
 // =======================================================================================
 // about.html
 
-body>#about {
-
+#about>header {
   @include stripe {
     background-color: #2e2765;
     background-image: url(/images/header-about.svg);
@@ -1333,22 +1374,15 @@ body>#about {
   >ul {
     width: 100%;
     padding: 0px;
-    margin: 0px;
+    margin: 0px -16px;
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
-    float: center;
-    justify-content: space-around;
       
     >li {
-      display: inline-block;
-      width: 47%;
+      flex: 0 1 50%;
       position: relative;
-      padding: 40px 0 0 0;
-      
-      @media (max-width: 800px) {
-        width: 90%;
-      }
+      padding: 40px 16px 0;
 
       &::before {
         display: block;
@@ -1378,10 +1412,18 @@ body>#about {
       &.wagner::before { background-image: url("images/people/wagner.png"); }
       &.tang::before { background-image: url("images/people/audrey.png"); }
     }
+
+    @media (max-width: 800px) {
+      margin: 0;
+      >li {
+        flex: 1 1 100%;
+      }
+    }
   }
 }
 
 #contributors {
+  padding-bottom: 1px;  // prevent margin collapse
     
   @include stripe {
     background-color: $header-bg;
@@ -1424,7 +1466,7 @@ body>#about {
     display: block;
     background-repeat: no-repeat;
     height: 200px;
-    background: bottom/contain no-repeat;
+    background: center/contain no-repeat;
     }
     &.drawio::before { background-image: url("thirdparty/draw.io-logo.svg"); }
     &.humanweb::before { background-image: url("thirdparty/humanweb.png"); }
@@ -1435,7 +1477,7 @@ body>#about {
 // =======================================================================================
 // community.html
 
-body>#community {
+#community>header {
     
   @include stripe {
     background-color: #2e2765;
