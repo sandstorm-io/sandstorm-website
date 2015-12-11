@@ -1355,22 +1355,15 @@ body>footer {
   >ul {
     width: 100%;
     padding: 0px;
-    margin: 0px;
+    margin: 0px -16px;
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
-    float: center;
-    justify-content: space-around;
       
     >li {
-      display: inline-block;
-      width: 47%;
+      flex: 0 1 50%;
       position: relative;
-      padding: 40px 0 0 0;
-      
-      @media (max-width: 800px) {
-        width: 90%;
-      }
+      padding: 40px 16px 0;
 
       &::before {
         display: block;
@@ -1399,6 +1392,13 @@ body>footer {
       &.miller::before { background-image: url("images/people/miller.png"); }
       &.wagner::before { background-image: url("images/people/wagner.png"); }
       &.tang::before { background-image: url("images/people/audrey.png"); }
+    }
+
+    @media (max-width: 800px) {
+      margin: 0;
+      >li {
+        flex: 1 1 100%;
+      }
     }
   }
 }
