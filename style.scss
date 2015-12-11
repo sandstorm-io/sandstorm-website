@@ -933,7 +933,7 @@ body>footer {
               background-position: right;
             }
             &.scale-out::before { background-image: url("images/business-scale-out.svg"); }
-            &.failover::before { background-image: url("images/business-failover.png"); }
+            &.failover::before { background-image: url("images/business-failover.svg"); }
             &.encryption::before { background-image: url("images/business-encryption.svg"); }
         }
     }
@@ -957,12 +957,12 @@ body>footer {
           background: bottom/contain no-repeat;
         }
         &.linux::before { background-image: url("images/developer-linux.svg"); }
-        &.runtime::before { background-image: url("images/core-runtime.png"); }
-        &.boilerplate::before { background-image: url("images/core-boilerplate.png"); }
-        &.dev-ops::before { background-image: url("images/core-dev-ops.png"); }
-        &.integration::before { background-image: url("images/core-integration.png"); }
-        &.in-app::before { background-image: url("images/core-in-app.png"); }
-      }
+        &.runtime::before { background-image: url("images/developer-runtime.png"); }
+        &.boilerplate::before { background-image: url("images/developer-boilerplate.svg"); }
+        &.dev-ops::before { background-image: url("images/developer-dev-ops.svg"); }
+        &.integration::before { background-image: url("images/developer-integration.png"); }
+        &.in-app::before { background-image: url("images/coming-soon.svg"); }
+      }		
     }
   }
 }
