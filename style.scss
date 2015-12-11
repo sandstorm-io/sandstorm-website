@@ -144,6 +144,7 @@ body>nav {
     height: 100%;
     padding: 0 15px;
     line-height: 48px;
+    font-weight: 300;
 
     color: black;
 
@@ -166,6 +167,14 @@ body>nav {
     }
   }
 }
+
+body#home>nav>a[href="/"] { font-weight: bold; }
+body#get>nav>a[href="/get"] { font-weight: bold; }
+body#features>nav>a[href="/core"] { font-weight: bold; }
+body#how-it-works>nav>a[href="/how-it-works"] { font-weight: bold; }
+body#blog>nav>a[href="/blog"] { font-weight: bold; }
+body#community>nav>a[href="/community"] { font-weight: bold; }
+body#about>nav>a[href="/about"] { font-weight: bold; }
 
 body>header {
   min-height: 180px;
@@ -1305,7 +1314,7 @@ body>footer {
 // =======================================================================================
 // about.html
 
-body>#about {
+#about>header {
   @include stripe {
     background-color: #2e2765;
     background-image: url(/images/header-about.svg);
@@ -1449,7 +1458,7 @@ body>#about {
 // =======================================================================================
 // community.html
 
-body>#community {
+#community>header {
     
   @include stripe {
     background-color: #2e2765;
