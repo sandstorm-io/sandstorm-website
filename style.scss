@@ -346,20 +346,26 @@ body>footer {
       height: 300px;
     }
 
-    &::before {
-      display: block;
-      content: " ";
-      float: left;
-      background-image: url(/images/sandcat.svg);
-      background-repeat: no-repeat;
-      width: 320px;
-      height: 400px;
-      background-position: bottom;
+    @media (min-width: 600px) {
+      &::before {
+        display: block;
+        content: " ";
+        float: left;
+        background-image: url(/images/sandcat.svg);
+        background-repeat: no-repeat;
+        width: 320px;
+        height: 400px;
+        background-position: bottom;
 
-      @media (max-width: 800px) {
-        width: 240px;
-        height: 300px;
+        @media (max-width: 800px) {
+          width: 240px;
+          height: 300px;
+        }
       }
+    }
+
+    @media (max-width: 400px) {
+      height: 350px;
     }
 
     @include stripe {
@@ -367,7 +373,10 @@ body>footer {
     }
 
     >h1 {
-      padding-left: 30%;
+      @media (min-width: 600px) {
+        // Space for sandcat.
+        padding-left: 30%;
+      }
       padding-top: 70px;
 
       strong {
@@ -389,9 +398,13 @@ body>footer {
 
     >p {
       margin-top: 35px;
-      padding-left: 25%;
       text-align: center;
       color: #c5daff;
+
+      @media (min-width: 600px) {
+        // Space for sandcat.
+        padding-left: 25%;
+      }
 
       >a {
         color: white;
@@ -420,6 +433,10 @@ body>footer {
 
         @media (max-width: 600px) {
           font-size: 16px;
+        }
+
+        @media (max-width: 400px) {
+          width: 200px;
         }
       }
 
