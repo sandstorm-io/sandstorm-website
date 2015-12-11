@@ -307,7 +307,8 @@ body>footer {
 .action {
   text-align: center;
   padding: 40px 0;
-    
+  line-height: 41px;
+
   @include stripe {
     background-color: #F4F3FB;
   }
@@ -328,7 +329,8 @@ body>footer {
       color: $purplebutton-bg;
       &:hover {
         color: #7356cc;
-      }       
+      }
+      white-space: nowrap;
     }
 }
 
