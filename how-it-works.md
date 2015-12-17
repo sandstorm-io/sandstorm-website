@@ -10,7 +10,7 @@ id: how-it-works
 </header>
 
 <section id="different">
-    Sandstorm is drastically different from all other web app infrastructure today.
+    Sandstorm is radically different from all other web app infrastructure today.
 </section>
 
 <section id="intro">
