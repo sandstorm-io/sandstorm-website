@@ -833,7 +833,6 @@ body>footer {
         border-radius: 5px;
         display: block;
 				transition: transform 0.75s ease, background 0.35s ease;
-
       }
   }
 
@@ -915,6 +914,31 @@ body>footer {
             width: 31%;
           }
         }
+      }
+    }
+  }
+  
+  .start {
+    height: 60px;
+    padding-top: 40px;
+    border: none;
+    background-color: white;
+    display: block;
+    width: 100%;
+
+    a {
+      text-align: center;
+      float: right;
+      color: white;
+      padding: 10px 0;
+      width: 240px;
+      border-radius: 5px;
+      display: block;
+      transition: transform 0.75s ease, background 0.35s ease;
+      background-color: #2e2765;
+      
+      &:hover {
+        background-color: $purplehover-bg;
       }
     }
   }
