@@ -6,7 +6,7 @@ id: how-it-works
 <header>
   <h1>How Sandstorm Works</h1>
   <p>Containerize objects, not services</p>
-    <div class="containerize"><img class="left" src="/images/howitworks-left.png"></img><img class="right" src="/images/howitworks-right.png"></img></div>
+    <div class="containerize"><img class="left" src="/images/how-left.svg"><img class="right" src="/images/how-right.svg"></div>
 </header>
 
 <section id="different">
@@ -47,7 +47,7 @@ id: how-it-works
 <section id="grains" markdown="1">
 ## Grains: Fine-grained Object Containers
 
-![](/images/model-conventional.png)![](/images/model-sandstorm.png)
+![](/images/how-conventional.svg)![](/images/how-sandstorm.svg)
 
 The term "microservice" has become popular lately, but the idea has been in practice at companies like Google for well over a decade. The idea is simple: take your large web app and split it into small "services" running in separate containers. Services are separated by functionality: you might have an authentication service, a payment service, a search service, and so on.
 
@@ -161,7 +161,7 @@ Under Sandstorm, the app would not require any upfront configuration. Instead, w
 
 Notice how in this example, the application never gains the ability to send spam. And yet, the user experience is no worse and arguably better than before. The user is never prompted with any sort of security questions, yet the app is only able to email them with their consent.
 
-And notice a second property: Any of the user's grains can publish an implementation of the "EmailRecipient" interface. The capbility need not strictly map to a real email address. The user could, for instance, direct the email to a grain which recieves the mesasges and posts them into a chat room, or anything else they can imagine. The sending app does not need to know anything about this. With this power, simple applications can be "composed" into complex workflows, much like a modern version of Unix pipes.
+And notice a second property: Any of the user's grains can publish an implementation of the "EmailRecipient" interface. The capbility need not strictly map to a real email address. The user could, for instance, direct the email to a grain which recieves the messages and posts them into a chat room, or anything else they can imagine. The sending app does not need to know anything about this. With this power, simple applications can be "composed" into complex workflows, much like a modern version of Unix pipes.
 
 Note that a modal picker dialog is not always the best fit for every UX. To that end, Sandstorm implements other kinds of powerbox flows for different occasions. For example, the "inline powerbox" allows a user to type freeform text naming grains or users in their contacts and have them auto-complete to full capabilities.
 </section>
