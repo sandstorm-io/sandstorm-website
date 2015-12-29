@@ -108,9 +108,13 @@ But does it scale? Obviously, if every grain were running at all times, the Sand
 <section id="confinement" markdown="1">
 ### Confinement and Auditability
 
+<img src="/images/how-confinement1.svg">
+
 <span style="color:red;">[diagram: apps sitting on infrastructure, where the infrastructure is under the app while the rest of the world is above the app. Connections between apps and the rest of the world (users, other apps, etc.) are shown as a big scribble cloud]</span>
 
 Most infrastructure is designed to sit "under" the app, managing resources but not communications. Apps are free to talk to the network. They may connect to users and to other apps at will. It is expected that apps will enforce access control on inbound requests, but there are often no controls on outbound requests.
+
+<img src="/images/how-confinement2.svg">
 
 <span style="color:red;">[diagram: sandstorm shown as a block with apps inside it. Some apps are connected to each other by clear, straight lines. Users (outside of Sandstorm) are shown talking to Sandstorm first, and then apps through it.]</span>
 

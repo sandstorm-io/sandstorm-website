@@ -1,468 +1,384 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 19.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="18 164.3 490 189.3" style="enable-background:new 18 164.3 490 189.3;" xml:space="preserve">
+	 viewBox="0 0 503 195.3" style="enable-background:new 0 0 503 195.3;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#FFFFFF;}
-	.st1{fill:#5A69A0;}
-	.st2{fill:#A8B6DD;}
+	.st1{fill:#8C9EC4;}
+	.st2{fill:#7874A5;}
 	.st3{fill:#4C4277;}
 	.st4{fill:#EDF2F9;}
-	.st5{fill:#8787C6;}
-	.st6{opacity:0.6;fill:#8787C6;}
-	.st7{fill:#BABAE8;}
-	.st8{clip-path:url(#SVGID_10_);fill:#BABAE8;}
+	.st5{opacity:0.6;fill:#7874A5;}
+	.st6{fill:#A3A3CC;}
+	.st7{clip-path:url(#SVGID_2_);fill:#A3A3CC;}
 </style>
-<rect x="378" y="248" class="st0" width="19" height="14"/>
-<rect x="378" y="288" class="st0" width="19" height="11"/>
-<rect x="378" y="331" class="st0" width="20" height="12"/>
-<circle class="st1" cx="363.9" cy="288.2" r="3.6"/>
-<circle class="st1" cx="351.5" cy="288.2" r="3.6"/>
-<circle class="st1" cx="339.1" cy="288.2" r="3.6"/>
-<circle class="st1" cx="327.2" cy="305.8" r="3.6"/>
-<circle class="st1" cx="314.8" cy="305.8" r="3.6"/>
-<circle class="st1" cx="302.5" cy="305.8" r="3.6"/>
-<circle class="st1" cx="287.8" cy="305.8" r="3.6"/>
-<circle class="st1" cx="275.5" cy="305.8" r="3.6"/>
-<circle class="st1" cx="263.1" cy="305.8" r="3.6"/>
-<circle class="st1" cx="249.7" cy="305.8" r="3.6"/>
-<circle class="st1" cx="237.3" cy="305.8" r="3.6"/>
-<circle class="st1" cx="363.9" cy="325.3" r="3.6"/>
-<circle class="st1" cx="351.5" cy="325.3" r="3.6"/>
-<circle class="st1" cx="339.1" cy="325.3" r="3.6"/>
-<circle class="st1" cx="339.1" cy="300.5" r="3.6"/>
-<circle class="st1" cx="339.1" cy="312.9" r="3.6"/>
+<rect x="356.9" y="90" class="st0" width="19" height="14"/>
+<rect x="356.9" y="130" class="st0" width="19" height="11"/>
+<rect x="356.9" y="173" class="st0" width="20" height="12"/>
+<circle class="st1" cx="342.8" cy="130.2" r="3.6"/>
+<circle class="st1" cx="330.4" cy="130.2" r="3.6"/>
+<circle class="st1" cx="318" cy="130.2" r="3.6"/>
+<circle class="st1" cx="306.1" cy="147.8" r="3.6"/>
+<circle class="st1" cx="293.7" cy="147.8" r="3.6"/>
+<circle class="st1" cx="281.4" cy="147.8" r="3.6"/>
+<circle class="st1" cx="266.7" cy="147.8" r="3.6"/>
+<circle class="st1" cx="254.4" cy="147.8" r="3.6"/>
+<circle class="st1" cx="242" cy="147.8" r="3.6"/>
+<circle class="st1" cx="228.6" cy="147.8" r="3.6"/>
+<circle class="st1" cx="216.2" cy="147.8" r="3.6"/>
+<circle class="st1" cx="342.8" cy="167.3" r="3.6"/>
+<circle class="st1" cx="330.4" cy="167.3" r="3.6"/>
+<circle class="st1" cx="318" cy="167.3" r="3.6"/>
+<circle class="st1" cx="318" cy="142.5" r="3.6"/>
+<circle class="st1" cx="318" cy="154.9" r="3.6"/>
 <g>
-	<path class="st2" d="M503,238.1c0-1.7-1.4-3.1-3.1-3.1H376.1c-1.7,0-3.1,1.4-3.1,3.1v28.8c0,1.7,1.4,3.1,3.1,3.1h123.8
-		c1.7,0,3.1-1.4,3.1-3.1V238.1z M394,259.7c0,0.7-0.6,1.3-1.3,1.3h-12.3c-0.7,0-1.3-0.6-1.3-1.3v-4.3c0-0.7,0.6-1.3,1.3-1.3h12.3
-		c0.7,0,1.3,0.6,1.3,1.3V259.7z"/>
-	<path class="st1" d="M503,278.1c0-1.7-1.4-3.1-3.1-3.1H376.1c-1.7,0-3.1,1.4-3.1,3.1v28.8c0,1.7,1.4,3.1,3.1,3.1h123.8
-		c1.7,0,3.1-1.4,3.1-3.1V278.1z M394,299.7c0,0.7-0.6,1.3-1.3,1.3h-12.3c-0.7,0-1.3-0.6-1.3-1.3v-4.3c0-0.7,0.6-1.3,1.3-1.3h12.3
-		c0.7,0,1.3,0.6,1.3,1.3V299.7z"/>
-	<path class="st1" d="M503,316.1c0-1.7-1.4-3.1-3.1-3.1H376.1c-1.7,0-3.1,1.4-3.1,3.1v28.8c0,1.7,1.4,3.1,3.1,3.1h123.8
-		c1.7,0,3.1-1.4,3.1-3.1V316.1z M394,339.7c0,0.7-0.6,1.3-1.3,1.3h-12.3c-0.7,0-1.3-0.6-1.3-1.3v-4.3c0-0.7,0.6-1.3,1.3-1.3h12.3
-		c0.7,0,1.3,0.6,1.3,1.3V339.7z"/>
+	<path class="st2" d="M481.9,80.1c0-1.7-1.4-3.1-3.1-3.1H355c-1.7,0-3.1,1.4-3.1,3.1v28.8c0,1.7,1.4,3.1,3.1,3.1h123.8
+		c1.7,0,3.1-1.4,3.1-3.1L481.9,80.1L481.9,80.1z M372.9,101.7c0,0.7-0.6,1.3-1.3,1.3h-12.3c-0.7,0-1.3-0.6-1.3-1.3v-4.3
+		c0-0.7,0.6-1.3,1.3-1.3h12.3c0.7,0,1.3,0.6,1.3,1.3V101.7z"/>
+	<path class="st3" d="M481.9,120.1c0-1.7-1.4-3.1-3.1-3.1H355c-1.7,0-3.1,1.4-3.1,3.1v28.8c0,1.7,1.4,3.1,3.1,3.1h123.8
+		c1.7,0,3.1-1.4,3.1-3.1L481.9,120.1L481.9,120.1z M372.9,141.7c0,0.7-0.6,1.3-1.3,1.3h-12.3c-0.7,0-1.3-0.6-1.3-1.3v-4.3
+		c0-0.7,0.6-1.3,1.3-1.3h12.3c0.7,0,1.3,0.6,1.3,1.3V141.7z"/>
+	<path class="st3" d="M481.9,158.1c0-1.7-1.4-3.1-3.1-3.1H355c-1.7,0-3.1,1.4-3.1,3.1v28.8c0,1.7,1.4,3.1,3.1,3.1h123.8
+		c1.7,0,3.1-1.4,3.1-3.1L481.9,158.1L481.9,158.1z M372.9,181.7c0,0.7-0.6,1.3-1.3,1.3h-12.3c-0.7,0-1.3-0.6-1.3-1.3v-4.3
+		c0-0.7,0.6-1.3,1.3-1.3h12.3c0.7,0,1.3,0.6,1.3,1.3V181.7z"/>
 </g>
-<ellipse class="st3" cx="98.3" cy="220.9" rx="53.8" ry="55.9"/>
+<ellipse class="st3" cx="88.1" cy="71.7" rx="50.2" ry="52.2"/>
 <g>
-	<path class="st3" d="M175.5,352.3c0-29.2-14.1-76-52.9-76H75.8c-39.3,0-53.7,47.1-53.7,76.8v0.5h153.4V352.3z"/>
+	<path class="st3" d="M160.2,194.4c0-27.3-13.2-70.9-49.4-70.9H67.1c-36.7,0-50.1,44-50.1,71.7v0.5h143.2V194.4z"/>
 </g>
 <g>
-	<path class="st4" d="M125.8,237.1c-2.9,8.3-13.5,14.5-26.1,14.5s-23.2-6.2-26.1-14.5c-1,2-1.6,4.2-1.6,6.5
-		c0,10.9,12.4,19.7,27.7,19.7s27.7-8.8,27.7-19.7C127.4,241.4,126.8,239.2,125.8,237.1z"/>
+	<path class="st4" d="M113.8,86.9c-2.7,7.7-12.6,13.5-24.4,13.5s-21.7-5.8-24.4-13.5c-0.9,1.9-1.5,3.9-1.5,6.1
+		c0,10.2,11.6,18.4,25.9,18.4s25.9-8.2,25.9-18.4C115.3,90.9,114.7,88.8,113.8,86.9z"/>
 </g>
-<ellipse class="st3" cx="99.1" cy="237.9" rx="30.5" ry="13.8"/>
-<rect x="104.1" y="269.2" class="st5" width="120.5" height="84.3"/>
-<rect x="67.2" y="344.2" class="st6" width="83" height="9.3"/>
+<ellipse class="st3" cx="88.9" cy="87.6" rx="28.5" ry="12.9"/>
+<rect x="93.5" y="116.8" class="st2" width="112.5" height="78.7"/>
+<rect x="59.1" y="186.8" class="st5" width="77.5" height="8.7"/>
 <g>
 	<g>
 		<g>
-			<g>
-				<g>
-					<defs>
-						<rect id="SVGID_1_" x="185.5" y="286.7" width="1.9" height="1.3"/>
-					</defs>
-					<clipPath id="SVGID_2_">
-						<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
-					</clipPath>
-				</g>
-			</g>
-			<g>
-				<g>
-					<defs>
-						<rect id="SVGID_3_" x="185.5" y="286.7" width="1.9" height="1.3"/>
-					</defs>
-					<clipPath id="SVGID_4_">
-						<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
-					</clipPath>
-				</g>
-			</g>
-			<g>
-				<g>
-					<defs>
-						<rect id="SVGID_5_" x="185.5" y="286.7" width="1.9" height="1.3"/>
-					</defs>
-					<clipPath id="SVGID_6_">
-						<use xlink:href="#SVGID_5_"  style="overflow:visible;"/>
-					</clipPath>
-				</g>
-			</g>
+			<rect x="133.6" y="140.9" class="st6" width="7.5" height="8.4"/>
 		</g>
-	</g>
-	<g>
 		<g>
-			<rect x="147" y="295" class="st7" width="8" height="9"/>
+			<rect x="133.6" y="148.4" class="st6" width="7.5" height="7.5"/>
 		</g>
 		<g>
-			<rect x="147" y="303" class="st7" width="8" height="8"/>
+			<rect x="133.6" y="155.8" class="st6" width="7.5" height="7.5"/>
 		</g>
 		<g>
-			<rect x="147" y="311" class="st7" width="8" height="8"/>
+			<rect x="133.6" y="162.4" class="st6" width="7.5" height="7.5"/>
 		</g>
 		<g>
-			<rect x="147" y="318" class="st7" width="8" height="8"/>
+			<rect x="142" y="138.1" class="st6" width="1.9" height="2.8"/>
 		</g>
 		<g>
-			<rect x="156" y="292" class="st7" width="2" height="3"/>
+			<rect x="142" y="140" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="156" y="294" class="st7" width="2" height="2"/>
+			<rect x="142" y="141.8" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="156" y="296" class="st7" width="2" height="2"/>
+			<rect x="142" y="143.7" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="156" y="298" class="st7" width="2" height="2"/>
+			<rect x="143.8" y="138.1" class="st6" width="1.9" height="2.8"/>
 		</g>
 		<g>
-			<rect x="158" y="292" class="st7" width="2" height="3"/>
+			<rect x="143.8" y="140" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="158" y="294" class="st7" width="2" height="2"/>
+			<rect x="143.8" y="141.8" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="158" y="296" class="st7" width="2" height="2"/>
+			<rect x="143.8" y="143.7" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="158" y="298" class="st7" width="2" height="2"/>
+			<rect x="146.6" y="137.2" class="st6" width="1.9" height="2.8"/>
 		</g>
 		<g>
-			<rect x="161" y="291" class="st7" width="2" height="3"/>
+			<rect x="145.7" y="140" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="160" y="294" class="st7" width="2" height="2"/>
+			<rect x="145.7" y="141.8" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="160" y="296" class="st7" width="2" height="2"/>
+			<rect x="145.7" y="143.7" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="160" y="298" class="st7" width="2" height="2"/>
+			<rect x="156" y="127.8" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="171" y="281" class="st7" width="2" height="2"/>
+			<rect x="148.5" y="140" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="163" y="294" class="st7" width="2" height="2"/>
+			<rect x="147.6" y="141.8" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="162" y="296" class="st7" width="2" height="2"/>
+			<rect x="147.6" y="143.7" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="162" y="298" class="st7" width="2" height="2"/>
+			<rect x="140.1" y="148.4" class="st6" width="8.4" height="7.5"/>
 		</g>
 		<g>
-			<rect x="154" y="303" class="st7" width="9" height="8"/>
+			<rect x="140.1" y="155.8" class="st6" width="8.4" height="7.5"/>
 		</g>
 		<g>
-			<rect x="154" y="311" class="st7" width="9" height="8"/>
+			<rect x="140.1" y="162.4" class="st6" width="8.4" height="7.5"/>
 		</g>
 		<g>
-			<rect x="154" y="318" class="st7" width="9" height="8"/>
+			<rect x="151.3" y="136.2" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="166" y="290" class="st7" width="2" height="2"/>
+			<rect x="151.3" y="138.1" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="166" y="292" class="st7" width="2" height="2"/>
+			<rect x="151.3" y="140" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="166" y="294" class="st7" width="2" height="2"/>
+			<rect x="151.3" y="141.8" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="166" y="296" class="st7" width="2" height="2"/>
+			<rect x="154.1" y="134.4" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="169" y="288" class="st7" width="2" height="2"/>
+			<rect x="153.2" y="138.1" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="168" y="292" class="st7" width="2" height="2"/>
+			<rect x="153.2" y="140" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="168" y="294" class="st7" width="2" height="2"/>
+			<rect x="153.2" y="141.8" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="168" y="296" class="st7" width="2" height="2"/>
+			<rect x="164.4" y="124.1" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="180" y="277" class="st7" width="2" height="2"/>
+			<rect x="156" y="136.2" class="st6" width="1.9" height="2.8"/>
 		</g>
 		<g>
-			<rect x="171" y="290" class="st7" width="2" height="3"/>
+			<rect x="155" y="140" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="170" y="294" class="st7" width="2" height="2"/>
+			<rect x="155" y="141.8" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="170" y="296" class="st7" width="2" height="2"/>
+			<rect x="171.8" y="124.1" class="st6" width="2.8" height="1.9"/>
 		</g>
 		<g>
-			<rect x="188" y="277" class="st7" width="3" height="2"/>
+			<rect x="168.1" y="127.8" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="184" y="281" class="st7" width="2" height="2"/>
+			<rect x="158.8" y="139" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="174" y="293" class="st7" width="2" height="2"/>
+			<rect x="156.9" y="141.8" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="172" y="296" class="st7" width="2" height="2"/>
+			<rect x="149.4" y="145.6" class="st6" width="1.9" height="2.8"/>
 		</g>
 		<g>
-			<rect x="164" y="300" class="st7" width="2" height="3"/>
+			<rect x="149.4" y="147.4" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="164" y="302" class="st7" width="2" height="2"/>
+			<rect x="149.4" y="149.3" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="164" y="304" class="st7" width="2" height="2"/>
+			<rect x="149.4" y="151.2" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="164" y="306" class="st7" width="2" height="2"/>
+			<rect x="151.3" y="145.6" class="st6" width="1.9" height="2.8"/>
 		</g>
 		<g>
-			<rect x="166" y="300" class="st7" width="2" height="3"/>
+			<rect x="151.3" y="147.4" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="166" y="302" class="st7" width="2" height="2"/>
+			<rect x="151.3" y="149.3" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="166" y="304" class="st7" width="2" height="2"/>
+			<rect x="151.3" y="151.2" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="166" y="306" class="st7" width="2" height="2"/>
+			<rect x="154.1" y="145.6" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="169" y="300" class="st7" width="2" height="2"/>
+			<rect x="153.2" y="147.4" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="168" y="302" class="st7" width="2" height="2"/>
+			<rect x="153.2" y="149.3" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="168" y="304" class="st7" width="2" height="2"/>
+			<rect x="153.2" y="151.2" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="168" y="306" class="st7" width="2" height="2"/>
+			<rect x="164.4" y="136.2" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="180" y="290" class="st7" width="2" height="2"/>
+			<rect x="156" y="147.4" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="171" y="302" class="st7" width="2" height="2"/>
+			<rect x="155" y="149.3" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="170" y="304" class="st7" width="2" height="2"/>
+			<rect x="155" y="151.2" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="170" y="306" class="st7" width="2" height="2"/>
+			<rect x="147.6" y="155.8" class="st6" width="7.5" height="7.5"/>
 		</g>
 		<g>
-			<rect x="162" y="311" class="st7" width="8" height="8"/>
+			<rect x="147.6" y="162.4" class="st6" width="7.5" height="7.5"/>
 		</g>
 		<g>
-			<rect x="162" y="318" class="st7" width="8" height="8"/>
+			<rect x="161.6" y="134.4" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="177" y="288" class="st7" width="2" height="2"/>
+			<rect x="161.6" y="136.2" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="177" y="290" class="st7" width="2" height="2"/>
+			<rect x="161.6" y="138.1" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="177" y="292" class="st7" width="2" height="2"/>
+			<rect x="161.6" y="140" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="177" y="294" class="st7" width="2" height="2"/>
+			<rect x="170.9" y="122.2" class="st6" width="1.9" height="2.8"/>
 		</g>
 		<g>
-			<rect x="187" y="275" class="st7" width="2" height="3"/>
+			<rect x="163.4" y="136.2" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="179" y="290" class="st7" width="2" height="2"/>
+			<rect x="163.4" y="138.1" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="179" y="292" class="st7" width="2" height="2"/>
-		</g>
-		<g>
-			<rect x="179" y="294" class="st7" width="2" height="2"/>
+			<rect x="163.4" y="140" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
 			<g>
 				<g>
-					<defs>
-						<rect id="SVGID_7_" x="185.5" y="286.7" width="1.9" height="1.3"/>
-					</defs>
-					<clipPath id="SVGID_8_">
-						<use xlink:href="#SVGID_7_"  style="overflow:visible;"/>
-					</clipPath>
-				</g>
-			</g>
-			<g>
-				<g>
-					<defs>
-						<rect id="SVGID_9_" x="185.5" y="286.7" width="1.9" height="1.3"/>
-					</defs>
-					<use xlink:href="#SVGID_9_"  style="overflow:visible;fill:#BABAE8;"/>
-					<clipPath id="SVGID_10_">
-						<use xlink:href="#SVGID_9_"  style="overflow:visible;"/>
-					</clipPath>
-					<rect x="185.5" y="286.7" class="st8" width="1.9" height="1.3"/>
-				</g>
-			</g>
-			<g>
-				<g>
-					<defs>
-						<rect id="SVGID_11_" x="185.5" y="286.7" width="1.9" height="1.3"/>
-					</defs>
-					<clipPath id="SVGID_12_">
-						<use xlink:href="#SVGID_11_"  style="overflow:visible;"/>
-					</clipPath>
+					<g>
+						<rect id="SVGID_9_" x="169.5" y="133.2" class="st6" width="1.8" height="1.2"/>
+					</g>
+					<g>
+						<defs>
+							<rect id="SVGID_1_" x="169.5" y="133.2" width="1.8" height="1.2"/>
+						</defs>
+						<use xlink:href="#SVGID_1_"  style="overflow:visible;fill:#A3A3CC;"/>
+						<clipPath id="SVGID_2_">
+							<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+						</clipPath>
+						<rect x="169.5" y="133.2" class="st7" width="1.8" height="1.2"/>
+					</g>
 				</g>
 			</g>
 		</g>
 		<g>
-			<rect x="181" y="292" class="st7" width="2" height="2"/>
+			<rect x="165.3" y="138.1" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="181" y="294" class="st7" width="2" height="2"/>
+			<rect x="165.3" y="140" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="194" y="284" class="st7" width="2" height="2"/>
+			<rect x="177.4" y="130.6" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="183" y="294" class="st7" width="2" height="2"/>
+			<rect x="167.2" y="140" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="175" y="298" class="st7" width="2" height="3"/>
+			<rect x="159.7" y="143.7" class="st6" width="1.9" height="2.8"/>
 		</g>
 		<g>
-			<rect x="175" y="300" class="st7" width="2" height="2"/>
+			<rect x="159.7" y="145.6" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="175" y="302" class="st7" width="2" height="2"/>
+			<rect x="159.7" y="147.4" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="175" y="304" class="st7" width="2" height="2"/>
+			<rect x="159.7" y="149.3" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="178" y="297" class="st7" width="2" height="2"/>
+			<rect x="162.5" y="142.8" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="177" y="300" class="st7" width="2" height="2"/>
+			<rect x="161.6" y="145.6" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="177" y="302" class="st7" width="2" height="2"/>
+			<rect x="161.6" y="147.4" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="177" y="304" class="st7" width="2" height="2"/>
+			<rect x="161.6" y="149.3" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="190" y="287" class="st7" width="2" height="2"/>
+			<rect x="173.7" y="133.4" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="180" y="299" class="st7" width="2" height="2"/>
+			<rect x="164.4" y="144.6" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="179" y="302" class="st7" width="2" height="2"/>
+			<rect x="163.4" y="147.4" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="179" y="304" class="st7" width="2" height="2"/>
+			<rect x="163.4" y="149.3" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="194" y="283" class="st7" width="2" height="2"/>
+			<rect x="177.4" y="129.7" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="191" y="291" class="st7" width="2" height="2"/>
+			<rect x="174.6" y="137.2" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="182" y="301" class="st7" width="2" height="2"/>
+			<rect x="166.2" y="146.5" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="181" y="304" class="st7" width="2" height="2"/>
+			<rect x="165.3" y="149.3" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="172" y="309" class="st7" width="2" height="2"/>
+			<rect x="156.9" y="154" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="172" y="310" class="st7" width="2" height="2"/>
+			<rect x="156.9" y="154.9" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="172" y="312" class="st7" width="2" height="2"/>
+			<rect x="156.9" y="156.8" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="172" y="314" class="st7" width="2" height="2"/>
+			<rect x="156.9" y="158.6" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="174" y="309" class="st7" width="2" height="2"/>
+			<rect x="158.8" y="154" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="174" y="310" class="st7" width="2" height="2"/>
+			<rect x="158.8" y="154.9" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="174" y="312" class="st7" width="2" height="2"/>
+			<rect x="158.8" y="156.8" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="174" y="314" class="st7" width="2" height="2"/>
+			<rect x="158.8" y="158.6" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="177" y="308" class="st7" width="2" height="2"/>
+			<rect x="161.6" y="153" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="176" y="310" class="st7" width="2" height="2"/>
+			<rect x="160.6" y="154.9" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="176" y="312" class="st7" width="2" height="2"/>
+			<rect x="160.6" y="156.8" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="176" y="314" class="st7" width="2" height="2"/>
+			<rect x="160.6" y="158.6" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="190" y="300" class="st7" width="2" height="2"/>
+			<rect x="173.7" y="145.6" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="179" y="310" class="st7" width="2" height="2"/>
+			<rect x="163.4" y="154.9" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="178" y="312" class="st7" width="2" height="2"/>
+			<rect x="162.5" y="156.8" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="178" y="314" class="st7" width="2" height="2"/>
+			<rect x="162.5" y="158.6" class="st6" width="1.9" height="1.9"/>
 		</g>
 		<g>
-			<rect x="171" y="318" class="st7" width="8" height="8"/>
-		</g>
-	</g>
-	<g>
-		<g>
-			<g>
-				<g>
-					<defs>
-						<rect id="SVGID_13_" x="185.5" y="286.7" width="1.9" height="1.3"/>
-					</defs>
-					<clipPath id="SVGID_14_">
-						<use xlink:href="#SVGID_13_"  style="overflow:visible;"/>
-					</clipPath>
-				</g>
-			</g>
-			<g>
-				<g>
-					<defs>
-						<rect id="SVGID_15_" x="185.5" y="286.7" width="1.9" height="1.3"/>
-					</defs>
-					<clipPath id="SVGID_16_">
-						<use xlink:href="#SVGID_15_"  style="overflow:visible;"/>
-					</clipPath>
-				</g>
-			</g>
-			<g>
-				<g>
-					<defs>
-						<rect id="SVGID_17_" x="185.5" y="286.7" width="1.9" height="1.3"/>
-					</defs>
-					<clipPath id="SVGID_18_">
-						<use xlink:href="#SVGID_17_"  style="overflow:visible;"/>
-					</clipPath>
-				</g>
-			</g>
+			<rect x="156" y="162.4" class="st6" width="7.5" height="7.5"/>
 		</g>
 	</g>
 </g>

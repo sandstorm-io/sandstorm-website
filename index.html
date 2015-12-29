@@ -4,10 +4,12 @@ id: home
 ---
 
 <header>
-  <h1><strong>Sandstorm</strong> is an open source operating system for personal and private clouds.</h1>
-  <p><a class="demo" href="https://demo.sandstorm.io">60-second Demo</a>
-     <a class="get" href="/get">Get Sandstorm</a>
-     <a class="sign-in" href="https://oasis.sandstorm.io">Oasis sign-in</a>
+	<div id="banner">
+		<h1><strong>Sandstorm</strong> is an open source operating system for personal and private clouds.</h1>
+		<p><a class="demo" href="https://demo.sandstorm.io">60-second Demo</a>
+			 <a class="get" href="/get">Get Sandstorm</a>
+			 <a class="sign-in" href="https://oasis.sandstorm.io">Oasis sign-in</a>
+		</div>
 </header>
 
 <!--===================================================================================-->
@@ -140,9 +142,10 @@ id: home
   <div class="email">
     <li>Join our mailing list!
   </div>
-  <div class="subscribe">
-    <span class="placeholder">Your email</span>
-    <input type="text" onkeydown="clean()" id="input">
-    <button class ="submit">Sign up</button>
+		<div class="subscribe">
+			<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+			<input type="email" name="EMAIL" placeholder="e-mail" required>
+			<input type="submit" value="Submit">
+		</form>
   </div>
 </section>
