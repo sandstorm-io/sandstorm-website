@@ -1711,25 +1711,29 @@ body >footer {
 		padding-bottom: 20px;  // prevent margin collapse
 
 		ul { 
-			text-align: justify;
-			text-align-last: center;
 			line-height: 32px;
 			padding: 20px 0 100px 0;
 			border: 1px solid $lightpurple-text;
 			background-color: $lightpurple-band;
 			overflow-y: auto;
 			padding: 16px;
-			height: 500px;
+                        height: 500px;
+
+                        display: flex;
+                        flex-flow: row;
+                        flex-wrap: wrap;
 
 			li {
-				display: inline-block;
-				margin: 0 10px;
-				text-align: left;
+                                flex: 0 0 218px;
+                                &.long {
+                                  flex: 0 0 436px;
+                                }
+
+                                margin: 0;
 				text-overflow: ellipsis;
-				white-space: nowrap;
+                                white-space: nowrap;
 				overflow: hidden;
-				width: 180px;
-			}
+                        }
 		}
 	}
 
