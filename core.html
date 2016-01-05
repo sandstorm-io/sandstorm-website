@@ -14,6 +14,26 @@ id: features
   </div>
 </header>
 
+<script type="text/javascript">
+var appCount = "Dozens of";
+
+(function () {
+  // Fetch the app list so that we can display the number of apps currently in the
+  // market. I decided to make this a synchronous request because having the number
+  // flicker in after page load seemed undesirable. Sorry.
+  //
+  // TODO: Maybe update app index to export the count at a separate URL? Note that
+  //   the CORS hack in Sandstorm core would need updating too.
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://app-index.sandstorm.io/apps/index.json", false);
+  xhr.send(null);
+
+  if (xhr.status === 200) {
+    appCount = JSON.parse(xhr.responseText).apps.length;
+  }
+})();
+</script>
+
 <span class="start"><a href="http://docs.sandstorm.io/">Get Sandstorm</a></span>
 
 <section id="core-security">
@@ -35,7 +55,7 @@ id: features
         </p>
 
       <li class="apps-growing">
-        <h3><strong>43 Apps and growing</strong></h3>
+        <h3><strong><script type="text/javascript">document.write(appCount)</script> apps and growing</strong></h3>
         <p>
           New apps are being added to the Sandstorm app market every week covering a wide range of use cases.
           <br>
