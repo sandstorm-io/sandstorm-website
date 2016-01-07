@@ -103,7 +103,7 @@ body>* {
   max-width: 1200px;
   
   @media (max-width: 800px) {
-    padding: 1px 10px 0;  
+    padding: 1px 20px 0;  
   }
 }
 
@@ -338,8 +338,7 @@ body >footer {
 
 .action {
   text-align: center;
-  padding: 40px 0;
-  line-height: 41px;
+  padding: 35px 0;
 
   @include stripe {
     background-color: #F4F3FB;
@@ -349,6 +348,11 @@ body >footer {
       padding: 0 20px;
       list-style: none;
       display: inline;
+      
+      @media (max-width: 800px) {
+        display: block;
+        padding-bottom: 25px;
+      }
     }
 
     >a {
@@ -374,14 +378,11 @@ body >footer {
 
     li {
       display: inline-block;
-      width: 12%;
+      width: 20px;
       position: relative;
       text-align: left;
 			font-size: 16px;
-			
-			@media (max-width:800px) {
-        width: 6%;
-      }
+      margin: 0 10px;
 			
 			a {
 				display: inline-block;
@@ -419,145 +420,152 @@ body >footer {
 
 #home {
 
-  >header #banner {
-    height: 400px;
-		background-image: url(/images/home-banner.svg);
-		background-position: bottom;
-		background-repeat: no-repeat;
+  >header {
+    #banner {
+      height: 400px;
+      background-image: url(/images/home-banner.svg);
+      background-position: bottom;
+      background-repeat: no-repeat;
 
-    @media (max-width: 800px) {
-      height: 300px;
-    }
+      @media (max-width: 800px) {
+        height: 300px;
+      }
 
-    @media (min-width: 600px) {
-      &::before {
-        display: block;
-        content: " ";
-        float: left;
-        background-image: url(/images/sandcat.svg);
-        background-repeat: no-repeat;
-				background-position: bottom;
-        width: 320px;
-        height: 400px;
+      @media (min-width: 600px) {
+        &::before {
+          display: block;
+          content: " ";
+          float: left;
+          background-image: url(/images/sandcat.svg);
+          background-repeat: no-repeat;
+          background-position: bottom;
+          width: 320px;
+          height: 400px;
 
-        @media (max-width: 800px) {
-          width: 240px;
-          height: 300px;
+          @media (max-width: 800px) {
+            width: 240px;
+            height: 300px;
+          }
         }
       }
-    }
 
-    @media (max-width: 400px) {
-      height: 350px;
-    }
-
-    @include stripe {
-      background-image: -webkit-linear-gradient(top, #211f44, #714692);
-    }
-
-    >h1 {
-      @media (min-width: 600px) {
-        // Space for sandcat.
-        padding-left: 30%;
-      }
-      padding-top: 100px;
-			margin-top: 0;
-
-      strong {
-        color: white;
+      @media (max-width: 400px) {
+        height: 350px;
       }
 
-      @media (max-width: 950px) {
-        font-size: 38px;
+      @include stripe {
+        background-image: -webkit-linear-gradient(top, #1b1b3d, #613c82);
+        background-color: #211f44;
       }
 
-      @media (max-width: 850px) {
-        font-size: 30px;
+      >h1 {
+        @media (min-width: 600px) {
+          // Space for sandcat.
+          padding-left: 30%;
+        }
+        padding-top: 100px;
+        margin-top: 0;
+
+        strong {
+          color: white;
+        }
+
+        @media (max-width: 950px) {
+          font-size: 38px;
+        }
+
+        @media (max-width: 850px) {
+          font-size: 30px;
+        }
+
+        @media (max-width: 750px) {
+          font-size: 25px;
+        }
       }
 
-      @media (max-width: 750px) {
-        font-size: 25px;
-      }
-    }
-
-    >p {
-      margin-top: 35px;
-      text-align: center;
-      color: #c5daff;
-
-      @media (min-width: 600px) {
-        // Space for sandcat.
-        padding-left: 25%;
-      }
-
-      >a {
-        color: white;
+      >p {
+        margin-top: 35px;
         text-align: center;
-        display: inline-block;
-        width: 31%;
-        margin: 15px;
-        height: 60px;
-        line-height: 60px;
-        font-size: 26px;
-        border-radius: 4px;
+        color: #c5daff;
 
-        @media (max-width: 900px) {
-          font-size: 23px;
-          margin: 11px;
-          height: 45px;
-          line-height: 45px;
+        @media (min-width: 600px) {
+          // Space for sandcat.
+          padding-left: 25%;
         }
 
-        @media (max-width: 800px) {
-          font-size: 18px;
-          margin: 8px;
+        >a {
+          color: white;
+          text-align: center;
+          display: inline-block;
+          width: 31%;
+          margin: 15px;
+          height: 60px;
+          line-height: 60px;
+          font-size: 26px;
+          border-radius: 4px;
+
+          @media (max-width: 900px) {
+            font-size: 23px;
+            margin: 11px;
+            height: 45px;
+            line-height: 45px;
+          }
+
+          @media (max-width: 800px) {
+            font-size: 18px;
+            margin: 8px;
+            height: 40px;
+            line-height: 40px;
+          }
+
+          @media (max-width: 600px) {
+            font-size: 16px;
+          }
+
+          @media (max-width: 400px) {
+            width: 200px;
+          }
+        }
+
+        >a.sign-in {
+          display: block;
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          width: 150px;
           height: 40px;
           line-height: 40px;
+          font-size: 20px;
+          border: 1px solid #744ccc;
+          transition: background 0.35s ease;
+
+          &:hover {
+            background-color: $purplebutton-bg;
+          }
         }
 
-        @media (max-width: 600px) {
-          font-size: 16px;
+        >a.get {
+          background-image: -webkit-linear-gradient(top,  #744ccc, #613c91);
+          -webkit-box-shadow: 0 3px 3px rgba(41,25,66,0.6);
+          box-shadow: 0 3px 3px rgba(41,25,66,0.6);
+          background-color: #613c91;
+
+          &:hover {
+            background-image: -webkit-linear-gradient(top, #955fcc, #7a3cab);
+            background-color: #744ccc;
+          }
         }
 
-        @media (max-width: 400px) {
-          width: 200px;
-        }
-      }
+        >a.demo {
+          background-image: -webkit-linear-gradient(top, #e67cba, #9e4997);
+          -webkit-box-shadow: 0 3px 3px rgba(41,25,66,0.6);
+          box-shadow: 0 3px 3px rgba(41,25,66,0.6);
+          background-color: #9e4997;
 
-      >a.sign-in {
-        display: block;
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        width: 150px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 20px;
-        border: 1px solid #744ccc;
-				transition: background 0.35s ease;
-
-        &:hover {
-          background-color: $purplebutton-bg;
-        }
-      }
-
-      >a.get {
-        background-image: -webkit-linear-gradient(top,  #744ccc, #613c91);
-        -webkit-box-shadow: 0 3px 3px rgba(41,25,66,0.6);
-        box-shadow: 0 3px 3px rgba(41,25,66,0.6);
-
-        &:hover {
-          background-image: -webkit-linear-gradient(top, #955fcc, #7a3cab);
-        }
-      }
-
-      >a.demo {
-        background-image: -webkit-linear-gradient(top, #e67cba, #9e4997);
-        -webkit-box-shadow: 0 3px 3px rgba(41,25,66,0.6);
-        box-shadow: 0 3px 3px rgba(41,25,66,0.6);
-
-        &:hover {
-          background-image: -webkit-linear-gradient(top, #fd8acf, #9d57b6);  
+          &:hover {
+            background-image: -webkit-linear-gradient(top, #fd8acf, #9d57b6);  
+            background-color: #e67cba;
+          }
         }
       }
     }
@@ -639,6 +647,9 @@ body >footer {
 
     @include stripe {
       background-color: $lightpurple-band;
+      background-image: url(/images/market-tent.svg);
+      background-position: right bottom;
+      background-repeat: no-repeat;
     }
 
     >a {
@@ -1017,11 +1028,11 @@ body >footer {
   p {
     font-size: 16px;
     line-height: 20px;
-    padding: 0 0 50px 0;
   }
   
   .current {
     background-color: #ffffff;
+    &::after { display: none; }
   }
 
   #core, #security, {
@@ -1029,16 +1040,15 @@ body >footer {
     list-style: none;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-flow: row;
     flex-wrap: wrap;
-    
+
     h3 {
       text-align: left;
 
       @media (max-width: 800px) {
         width: 100%;
-        padding: 0 10px;
         text-align: center;
       }
     }
@@ -1046,22 +1056,22 @@ body >footer {
     li {
       text-align: left;
       width: 46%;
+      padding: 0 0 50px 0;
 
       @media (max-width: 800px) {
         width: 100%;
-        padding: 0 10px;
       }
 
       &::before {
         content: " ";
         display: block;
         background-repeat: none;
-        height: 200px;
+        height: 180px;
         background: bottom/contain no-repeat;
       }
       @include stripe {
         background-color: #edf2f9;
-        height: 200px;
+        height: 180px;
       }
 
       &.choose-host::before { background-image: url("images/core-choose-host.svg"); }      
@@ -1075,18 +1085,6 @@ body >footer {
       &.authentic::before { background-image: url("images/security-authentic.png"); }
       &.automatic::before { background-image: url("images/security-automatic.svg"); }
     }
-		.automatic {
-			width: 100%;
-			h3 {
-				text-align: center;
-			}
-		}
-		.powerbox {
-			width: 100%;
-			h3 {
-				text-align: center;
-			}
-		}
 		}
   }
   
@@ -1106,6 +1104,7 @@ body >footer {
     li {
       text-align: left;
       width: 28%;
+      padding: 0 0 50px 0;
 
       @media (max-width: 800px) {
         width: 46%;
@@ -1132,7 +1131,6 @@ body >footer {
       &.connected::before { background-image: url("images/more-connected.svg"); }
     }
   }
-
 
   #business-scale {
     text-align: center;
@@ -1198,34 +1196,35 @@ body >footer {
         li {
           display: inline-block;
           width: 100%;
+          padding: 0 0 50px 0;
 
-            &::before {
-              content: " ";
-              display: block;
-              background-repeat: none;
-              height: 200px;
-              background: bottom/contain no-repeat;
-            }
-            
-            @include stripe {
-              background-color: #edf2f9;
-              height: 200px;
-            }
-          
-            &.on-prem::before { display: none; }
-          
-            &.ldap::before { 
-              background-image: url("images/business-ldap.svg"); 
-            }
-            &.group::before { background-image: url("images/business-group.svg"); }
-            &.global::before { 
-              background-image: url("images/business-global.svg");
-            }
-            &.audit::before { display: none; }
-            &.scale-out::before { background-image: url("images/business-scale-out.svg"); }
-            &.failover::before { background-image: url("images/business-failover.svg"); }
-            &.encryption::before { background-image: url("images/business-encryption.svg"); }
-        }
+					&::before {
+						content: " ";
+						display: block;
+						background-repeat: none;
+						height: 180px;
+						background: bottom/contain no-repeat;
+					}
+
+					@include stripe {
+						background-color: #edf2f9;
+						height: 180px;
+					}
+
+					&.on-prem::before { display: none; }
+
+					&.ldap::before { 
+						background-image: url("images/business-ldap.svg"); 
+					}
+					&.group::before { background-image: url("images/business-group.svg"); }
+					&.global::before { 
+						background-image: url("images/business-global.svg");
+					}
+					&.audit::before { display: none; }
+					&.scale-out::before { background-image: url("images/business-scale-out.svg"); }
+					&.failover::before { background-image: url("images/business-failover.svg"); }
+					&.encryption::before { background-image: url("images/business-encryption.svg"); }
+			}
     }
   }
 
@@ -1253,6 +1252,7 @@ body >footer {
 			text-align: left;
 			width: 46%;
 			position: relative;
+      padding: 0 0 50px 0;
 
 			@media (max-width: 800px) {
 				width: 100%;
@@ -1262,12 +1262,12 @@ body >footer {
 				content: " ";
 				display: block;
 				background-repeat: none;
-				height: 200px;
+				height: 180px;
 				background: bottom/contain no-repeat;
 			}
 			@include stripe {
 				background-color: #edf2f9;
-				height: 200px;
+				height: 180px;
 			}
 			&.linux::before { background-image: url("images/developer-linux.svg"); }
 			&.runtime::before { background-image: url("images/developer-runtime.svg"); }
@@ -1542,7 +1542,7 @@ body >footer {
     width: 50%;
 
     @media (max-width: 700px) {
-      width: 100%;
+      width: 80%;
     }
   }
 
@@ -1578,6 +1578,15 @@ body >footer {
       }
     }
   }
+  
+  #capabilities {
+    p img {
+      width: 70%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 
   #grains .models {
     text-align: center;
@@ -1588,9 +1597,12 @@ body >footer {
       max-width: 45%;    
     }
   }
-	#confinement img {
-		width: 100%;
-	}
+  #confinement {
+    img {
+      width: 50%;
+      border: 0;
+    }
+  }
 }
 
 // =======================================================================================
@@ -1599,7 +1611,7 @@ body >footer {
 #blog {
   header {
     @include stripe {
-    background-image: -webkit-linear-gradient(top, #2e2765, #af7f9f);
+    background-image: -webkit-linear-gradient(top, #531e49, #af7f9f);
     background-color: $header-bg;
     }
   }
@@ -1659,7 +1671,6 @@ body >footer {
 		>ul {
 			width: 100%;
 			padding: 0px;
-			margin: 0px -16px;
 			display: flex;
 			flex-flow: row;
 			flex-wrap: wrap;
@@ -1741,7 +1752,7 @@ body >footer {
 			display: flex;
 			flex-flow: row;
 			flex-wrap: wrap;
-			justify-content: space-around
+			justify-content: space-around;
 		}
 
 		li {
@@ -1839,7 +1850,7 @@ body >footer {
 	}
 	
 
-  #help {
+  #helpothers, #helpproject, {
 
     ul {
       padding: 0px;
