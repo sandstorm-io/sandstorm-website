@@ -15,7 +15,7 @@ Let's take this moment to recap everything that's happened over the campaign so 
 
 **Heading for the playa?** We know a lot of you San Francisco geeks might not have internet for the next week. Don't forget to contribute before you leave, because the campaign will be over when you get back!
 
-**We finally added an RSS feed.** The Sandstorm blog now has [an RSS feed](https://blog.sandstorm.io/feed.xml). Looking for an RSS reader? Try TinyTinyRSS on Sandstorm. :)
+**We finally added an RSS feed.** The Sandstorm blog now has [an RSS feed](/feed.xml). Looking for an RSS reader? Try TinyTinyRSS on Sandstorm. :)
 
 ### Our Core Sponsors
 
@@ -38,7 +38,7 @@ Would you or your company like to become a core sponsor? Consider that your cont
 
 **App ports we released**
 
-* [Apache Wave](https://blog.sandstorm.io/) (real-time discussion engine)
+* [Apache Wave](/news/2014-08-20-apache-wave.html) (real-time discussion engine)
 * [EtherCalc](/news/2014-08-05-ethercalc.html) (collabortaive spreadsheet editor)
 * [ShareLaTeX](/news/2014-07-25-sharelatex.html) (collaborative LaTeX editor)
 * [Ghost](/news/2014-07-22-ghost.html) (blogging platform)
