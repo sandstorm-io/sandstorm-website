@@ -11,16 +11,23 @@
     <meta property="og:url" content="https://sandstorm.io">
     <meta property="og:description"
         content="Take control of your web by running your own personal cloud server with Sandstorm.">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="{{site.baseurl}}feed.xml">
   </head>
 
-  <body id="{{page.id}}">
+{% if layout.id %}
+  {% assign bodyid = layout.id %}
+{% else %}
+  {% assign bodyid = page.id %}
+{% endif %}
+
+  <body id="{{bodyid}}">
     <nav>
       <a href="/">Sandstorm.io</a>
       <a href="/get">Get Sandstorm</a>
       <a href="/features">Features</a>
       <a href="/how-it-works">How it Works</a>
-      <a href="/blog">Blog</a>
+      <a href="/news/">Blog</a>
       <a href="/community">Community</a>
       <a href="/about">About</a>
       <!-- TODO: search -->
