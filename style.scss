@@ -163,7 +163,7 @@ body>nav {
 
     @media (max-width: 500px) {
       &[href="/blog"] { display: none; }
-      &[href="/core"] { display: none; }
+      &[href="/features"] { display: none; }
     }
     @media (max-width: 800px) {
       &[href="/get"] { display: none; }
@@ -187,7 +187,7 @@ body>nav>a[href="/"] {
 }
 
 body#get>nav>a[href="/get"] { font-weight: 500; }
-body#features>nav>a[href="/core"] { font-weight: 500; }
+body#features>nav>a[href="/features"] { font-weight: 500; }
 body#how-it-works>nav>a[href="/how-it-works"] { font-weight: 500; }
 body#blog>nav>a[href="/blog"] { font-weight: 500; }
 body#community>nav>a[href="/community"] { font-weight: 500; }
@@ -1163,38 +1163,54 @@ body >footer {
 
     .on-prem {
       &::after { display: none; }
-    
       .image {
         background-image: url("images/business-onprem.svg");
+        top: 0;
+        right: -20%;
+        width: 80%;
+        
+        @media (max-width: 750px) {
+          width: 100%;
+          display: block;
+        }
       }
     }
     .audit {
-      &::after { display: none; }
-      
-      .image { background-image: url("images/business-audit.svg"); }
+      &::after { display: none; }    
+      .image {
+        background-image: url("images/business-audit.svg");
+        top: 0;
+        right: -20%;
+        width: 80%;
+        
+        @media (max-width: 750px) {
+          width: 100%;
+          display: block;
+        }
+      }
     }
     
-    .ldap {
+    .ldap, .group, {
       width: 50%;
       &::after { display: none; }
       @media (max-width: 700px) {
         width: 100%;
       }
     }
-
-    .group {
+    
+    .failover, .encryption, {
       width: 50%;
-      &::after { display: none; }
-      @media (max-width: 700px) {
-        width: 100%;
-      }
     }
 
     ul {
       width: 100%;
       float: center;
+      display: inline-block;
+      display: flex;
+      flex-flow: row;
+      flex-wrap: wrap;
+      list-style: none;
         li {
-          display: inline-block;
           width: 100%;
           padding: 0 0 50px 0;
 
