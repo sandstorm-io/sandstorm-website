@@ -7,7 +7,7 @@ author2: Asheesh Laroia
 author2Url: https://github.com/paulproteus
 ---
 
-Open source web app developers build great apps. But sometimes, backend-minded developers need a little help, from making it easy for end users to install their apps to making their icons and other graphics visually appealing. To make open source web apps [viable](https://blog.sandstorm.io/news/2014-07-21-open-source-web-apps-require-federated-hosting.html) as an ecosystem, the apps must be easy to install and use, and to get the attention they deserve, they should have good-looking icons that convey the purpose of the app.
+Open source web app developers build great apps. But sometimes, backend-minded developers need a little help, from making it easy for end users to install their apps to making their icons and other graphics visually appealing. To make open source web apps [viable](/news/2014-07-21-open-source-web-apps-require-federated-hosting.html) as an ecosystem, the apps must be easy to install and use, and to get the attention they deserve, they should have good-looking icons that convey the purpose of the app.
 
 ### Graphics for everyone
 

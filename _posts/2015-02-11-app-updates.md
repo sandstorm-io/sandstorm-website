@@ -23,7 +23,7 @@ The
 contains our collected wisdom on making an app work great under Sandstorm,
 including framework-specific advice to streamline the porting process.
 It mentions the tool that Kenton wrote last year --
-[meteor-spk](https://blog.sandstorm.io/news/2014-08-12-meteor-spk.html) --
+[meteor-spk](/news/2014-08-12-meteor-spk.html) --
 that makes porting apps for one framework as easy as running a few commands.
 More recently, David's experience maintaining apps like ShareLaTeX and GitLab
 resulted in a

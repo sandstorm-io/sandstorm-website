@@ -9,7 +9,7 @@ WordPress is the world's [most](http://trends.builtwith.com/cms) [popular](http:
 
 You can try it now in the [demo](https://demo.sandstorm.io) or on your personal Sandstorm server.
 
-Like the existing [HackerCMS](https://blog.sandstorm.io/news/2014-06-04-self-service-web-publishing.html) and [Ghost](https://blog.sandstorm.io/news/2014-07-22-ghost.html) apps, WordPress on Sandstorm lets you publish content to a custom domain. You can use it to create all kinds of web sites, including blogs, magazines, and webcomics. WordPress has an enormous ecosystem of themes and plugins, and our port grants you the power to install any of them and to modify them through the built-in editor.
+Like the existing [HackerCMS](/news/2014-06-04-self-service-web-publishing.html) and [Ghost](/news/2014-07-22-ghost.html) apps, WordPress on Sandstorm lets you publish content to a custom domain. You can use it to create all kinds of web sites, including blogs, magazines, and webcomics. WordPress has an enormous ecosystem of themes and plugins, and our port grants you the power to install any of them and to modify them through the built-in editor.
 
 Moreover, the app's integration with Sandstorm's login system makes it easy to collaborate with multiple authors; you can add new authors simply by sharing a link.
 
@@ -21,4 +21,4 @@ A few features of WordPress require us to make more progress on Sandstorm before
 
 Fortunately, these are things we'd like to add to Sandstorm anyway. And, of course, the more help we get from you in our [crowdfunding campaign](http://igg.me/at/sandstorm), the sooner we will be able to add them.
 
-In any case, we think that among WordPress hosting options, WordPress on Sandstorm offers a uniquely high degree of convenience, freedom, and [security](https://blog.sandstorm.io/news/2014-07-24-tinytinyrss-plus-security-discussion.html).
+In any case, we think that among WordPress hosting options, WordPress on Sandstorm offers a uniquely high degree of convenience, freedom, and [security](/news/2014-07-24-tinytinyrss-plus-security-discussion.html).

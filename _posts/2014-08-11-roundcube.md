@@ -9,7 +9,7 @@ Today we're releasing our port of [Roundcube](http://roundcube.net), another ope
 
 ![Screenshot](https://sandstorm.io/apps/roundcube.png)
 
-To this you might ask: What happened to [Mailpile](https://blog.sandstorm.io/news/2014-07-07-mailpile.html)?
+To this you might ask: What happened to [Mailpile](/news/2014-07-07-mailpile.html)?
 
 Nothing happened. We support both! We like Mailpile, but we also want to give you choices. With Sandstorm, you can mix and match apps from competing developers as you see fit, while still retaining the unified experience of Sandstorm.
 

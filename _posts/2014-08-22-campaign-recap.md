@@ -29,26 +29,26 @@ Would you or your company like to become a core sponsor? Consider that your cont
 
 **Blog posts you should read**
 
-* [Open Source Web Apps Aren't Viable; Let's Fix That](https://blog.sandstorm.io/news/2014-07-21-open-source-web-apps-require-federated-hosting.html)
-* [Why doesn't Sandstorm just run Docker apps?](https://blog.sandstorm.io/news/2014-08-19-why-not-run-docker-apps.html)
-* [Let's end walled gardens](https://blog.sandstorm.io/news/2014-08-11-roundcube.html)
-* [Sandstorm vs. Kernel Exploits](https://blog.sandstorm.io/news/2014-08-13-sandbox-security.html)
-* [Porting Meteor apps to Sandstorm in three minutes](https://blog.sandstorm.io/news/2014-08-12-meteor-spk.html)
-* [What happens if an app has security bugs?](https://blog.sandstorm.io/news/2014-07-24-tinytinyrss-plus-security-discussion.html)
+* [Open Source Web Apps Aren't Viable; Let's Fix That](/news/2014-07-21-open-source-web-apps-require-federated-hosting.html)
+* [Why doesn't Sandstorm just run Docker apps?](/news/2014-08-19-why-not-run-docker-apps.html)
+* [Let's end walled gardens](/news/2014-08-11-roundcube.html)
+* [Sandstorm vs. Kernel Exploits](/news/2014-08-13-sandbox-security.html)
+* [Porting Meteor apps to Sandstorm in three minutes](/news/2014-08-12-meteor-spk.html)
+* [What happens if an app has security bugs?](/news/2014-07-24-tinytinyrss-plus-security-discussion.html)
 
 **App ports we released**
 
 * [Apache Wave](https://blog.sandstorm.io/) (real-time discussion engine)
-* [EtherCalc](https://blog.sandstorm.io/news/2014-08-05-ethercalc.html) (collabortaive spreadsheet editor)
-* [ShareLaTeX](https://blog.sandstorm.io/news/2014-07-25-sharelatex.html) (collaborative LaTeX editor)
-* [Ghost](https://blog.sandstorm.io/news/2014-07-22-ghost.html) (blogging platform)
-* [WordPress](https://blog.sandstorm.io/news/2014-08-18-wordpress.html) (publishing platform)
-* [Mailpile](https://blog.sandstorm.io/news/2014-07-07-mailpile.html) (e-mail)
-* [Roundcube](https://blog.sandstorm.io/news/2014-08-11-roundcube.html) (e-mail)
-* [TinyTinyRSS](https://blog.sandstorm.io/news/2014-07-24-tinytinyrss-plus-security-discussion.html) (feed reader)
-* [MediaGoblin](https://blog.sandstorm.io/news/2014-08-01-mediagoblin.html) (photo/media sharing)
-* [Game of Y](https://blog.sandstorm.io/news/2014-08-12-meteor-spk.html) (game)
-* [Meteor Blocks](https://blog.sandstorm.io/news/2014-08-12-meteor-spk.html) (simple voxel scene editor)
+* [EtherCalc](/news/2014-08-05-ethercalc.html) (collabortaive spreadsheet editor)
+* [ShareLaTeX](/news/2014-07-25-sharelatex.html) (collaborative LaTeX editor)
+* [Ghost](/news/2014-07-22-ghost.html) (blogging platform)
+* [WordPress](/news/2014-08-18-wordpress.html) (publishing platform)
+* [Mailpile](/news/2014-07-07-mailpile.html) (e-mail)
+* [Roundcube](/news/2014-08-11-roundcube.html) (e-mail)
+* [TinyTinyRSS](/news/2014-07-24-tinytinyrss-plus-security-discussion.html) (feed reader)
+* [MediaGoblin](/news/2014-08-01-mediagoblin.html) (photo/media sharing)
+* [Game of Y](/news/2014-08-12-meteor-spk.html) (game)
+* [Meteor Blocks](/news/2014-08-12-meteor-spk.html) (simple voxel scene editor)
 
 **Talks and Interviews**
 

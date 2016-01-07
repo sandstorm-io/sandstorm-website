@@ -91,4 +91,4 @@ Sharing is a new feature and we still have lots of work to do on it, but the ini
 If you want to try sharing but have not yet [set up your own server](https://github.com/sandstorm-io/sandstorm#installing-the-easy-way ), you can [use the demo](https://demo.sandstorm.io ).
 We've already enabled nontrivial permissions on GitWeb, Groove Basin, and Etherpad, and more app updates will be coming.
 Better yet, try [writing an app](https://github.com/sandstorm-io/sandstorm/wiki/Sandstorm-App-Developer-Handbook ) that takes avantage of the new features.
-Enabling apps to easily support sharing is just one more way that Sandstorm makes [open source web apps viable](https://blog.sandstorm.io/news/2014-07-21-open-source-web-apps-require-federated-hosting.html ).
+Enabling apps to easily support sharing is just one more way that Sandstorm makes [open source web apps viable](/news/2014-07-21-open-source-web-apps-require-federated-hosting.html ).

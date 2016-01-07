@@ -13,7 +13,7 @@ Here's the view of the crowd at their Mountain View office.
 
 I gave a talk introducing Sandstorm, inspired by Kenton's blog post explaining
 the [motivation for Sandstorm: making it possible for open source and indie
-developers to build successful web apps](https://blog.sandstorm.io/news/2014-07-21-open-source-web-apps-require-federated-hosting.html).
+developers to build successful web apps](/news/2014-07-21-open-source-web-apps-require-federated-hosting.html).
 
 [Jorge Silva](https://twitter.com/thejsj) followed that with a talk focusing on
 RethinkDB. He explained how

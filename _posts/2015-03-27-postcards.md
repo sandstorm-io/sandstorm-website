@@ -8,7 +8,7 @@ imageUrl: https://sandstorm.io/news/images/boston-nightscout.jpg
 
 
 After visiting Boston (well, Cambridge) for
-[LibrePlanet](https://blog.sandstorm.io/news/2015-03-19-libreplanet.html),
+[LibrePlanet](/news/2015-03-19-libreplanet.html),
 I met up with a few Sandstorm fans and prospsective users, and I snapped
 some photos.
 

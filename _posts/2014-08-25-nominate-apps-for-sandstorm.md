@@ -18,7 +18,7 @@ How it works:
 * You can tweet multiple apps, and ask your friends for retweets.
 * Retweets count as votes.
 * For your vote to be counted, your tweet should begin with a character other than @ and contain @SandstormIO and a link to the [Indiegogo campaign](http://igg.me/at/sandstorm).
-* Hint: Use the "tweet" button on the campaign page to get your personalized referral link so that you can receive [referral bonuses](https://blog.sandstorm.io/news/2014-08-22-campaign-recap.html#referral_program).
+* Hint: Use the "tweet" button on the campaign page to get your personalized referral link so that you can receive [referral bonuses](/news/2014-08-22-campaign-recap.html#referral_program).
 
 We're in the home stretch, 83% of our way there, with just one more week left in the campaign! We need your help to make Sandstorm happen.
 

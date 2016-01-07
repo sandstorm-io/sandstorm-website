@@ -88,4 +88,4 @@ the way, with no additional action needed by end users.  This is software
 authenticity that Just Works, and it's available today for all Sandstorm users
 and packages in the App Market.  Today is a good day to
 [install Sandstorm on your own server](https://sandstorm.io/install/) or sign up
-for our [managed hosting](https://blog.sandstorm.io/news/2015-08-31-oasis-beta-launch.html).
+for our [managed hosting](/news/2015-08-31-oasis-beta-launch.html).

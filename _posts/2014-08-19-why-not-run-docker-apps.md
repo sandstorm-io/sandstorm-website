@@ -29,7 +29,7 @@ This use case calls for a completely different model, just as phones call for a 
 
 * Updating an app must be a one-click (or even automatic) process. This means there must be a clearly-defined separation between the app "image" and its instance data, so that the platform is able to replace the former without harming the latter.
 
-* Users _will_ install malicious apps from time to time, and they must be protected from these. The regular Linux kernel interface is far too wide, and critical exploits are found too often. We must instead present a much narrower interface and force apps to adapt. [See our previous post on this.](https://blog.sandstorm.io/news/2014-08-13-sandbox-security.html)
+* Users _will_ install malicious apps from time to time, and they must be protected from these. The regular Linux kernel interface is far too wide, and critical exploits are found too often. We must instead present a much narrower interface and force apps to adapt. [See our previous post on this.](/news/2014-08-13-sandbox-security.html)
 
 For all these reasons, a Docker app simply would not be able to run under Sandstorm without modification. The modifications needed for typical Linux web apps tend to be light, but they are necessary.
 
