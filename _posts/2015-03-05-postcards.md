@@ -14,11 +14,11 @@ meet up with Sandstorm fans. Here's us!
 
 In Boston, at [Clover Food Lab](http://www.yelp.com/biz/clover-cambridge-5):
 
-<img width="600" src="../boston.jpg">
+<img width="600" src="/news/images/boston.jpg">
 
 In Chicago, at [La Brasa Roja](http://www.yelp.com/biz/la-brasa-roja-chicago):
 
-<img width="600" src="../chicago.jpg">
+<img width="600" src="/news/images/chicago.jpg">
 
 If I'm traveling again, I'll drop a line to
 [sandstorm-dev](https://groups.google.com/forum/#!forum/sandstorm-dev) --

@@ -24,4 +24,4 @@ The cultural effects of widespread and democratized access to personal servers i
 
 Defining "progress" is also left as an exercise for the reader.
 
-<div style="text-align:center"><img src="{{site.baseurl}}keep-calm-and-spread-progress.png" style="width: 50%"></div>
+<div style="text-align:center"><img src="/news/images/keep-calm-and-spread-progress.png" style="width: 50%"></div>

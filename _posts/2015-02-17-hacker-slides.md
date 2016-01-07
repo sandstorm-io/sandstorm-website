@@ -17,7 +17,7 @@ preview your presentation on the right.</p></blockquote>
 Here is what it looks like. Click the image to try it on the Sandstorm demo:
 
 <a href="https://demo.sandstorm.io/appdemo/7qvcjh7gk0rzdx1s3c8gufd288sesf6vvdt297756xcv4q8xxvhh">
-<img width="600" src="/hacker-slides.png">
+<img width="600" src="/news/images/hacker-slides.png">
 </a>
 
 Hacker Slides relies on the Sandstorm APIs, which means Jack never had to write

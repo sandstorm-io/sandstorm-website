@@ -3,7 +3,7 @@ layout: post
 title: "Authenticated app packages on Sandstorm with PGP and Keybase"
 author: Drew Fisher
 authorUrl: https://github.com/zarvox
-imageUrl: https://blog.sandstorm.io/app-authentication-post-preview.png
+imageUrl: https://sandstorm.io/news/images/app-authentication-post-preview.png
 ---
 
 I like to joke that Sandstorm is a security project posing as a
@@ -22,7 +22,7 @@ Sandstorm lets you see that the app was made by the same Audrey Tang that owns
 [au on Keybase](https://keybase.io/au).
 Publisher information is shown front and center:
 
-<img src="https://blog.sandstorm.io/install-ethercalc.png" width="100%" alt="Installing EtherCalc">
+<img src="/news/images/install-ethercalc.png" width="100%" alt="Installing EtherCalc">
 
 To make this all work, there are a few steps involved.
 

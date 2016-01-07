@@ -9,7 +9,7 @@ Last Thursday, [RethinkDB](http://rethinkdb.com/) co-hosted the first
 [Sandstorm meetup in the South Bay](http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223144969/)
 Here's the view of the crowd at their Mountain View office.
 
-<img src="/2015-08-meetup-rethinkdb.jpg" height="356" width="600" alt="Meetup at RethinkDB HQ">
+<img src="/news/images/2015-08-meetup-rethinkdb.jpg" height="356" width="600" alt="Meetup at RethinkDB HQ">
 
 I gave a talk introducing Sandstorm, inspired by Kenton's blog post explaining
 the [motivation for Sandstorm: making it possible for open source and indie

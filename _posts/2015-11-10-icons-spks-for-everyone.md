@@ -16,7 +16,7 @@ Lately, we've been running an experiment -- will app authors be interested in cu
 So I’m excited to announce we'll do this for everyone who packages their app
 for Sandstorm: To support app authors, we are happy to help with graphics. This is on top of the [one-click install](https://apps.sandstorm.io/) for your app that Sandstorm enables, which works just as well [in the cloud](https://oasis.sandstorm.io) as it does for [self-hosters](https://sandstorm.io/install) (see below). For instance, Néna will make an icon for you if you need it. Check out this awesome icon set that Néna made for Wekan (kanban board):
 
-<a href="https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h"><img src="https://blog.sandstorm.io/wekan-icon-gallery.png" width="100%" alt="logos"></a>
+<a href="https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h"><img src="/news/images/wekan-icon-gallery.png" width="100%" alt="logos"></a>
 
 *Wekan (open source Trello alternative) icons in varying contexts. Check out [Wekan on the App Market »](https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h)*
 

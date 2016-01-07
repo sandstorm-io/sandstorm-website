@@ -3,7 +3,7 @@ layout: post
 title: Postcards from Boston
 author: Asheesh Laroia
 authorUrl: https://github.com/paulproteus
-imageUrl: https://blog.sandstorm.io/boston-nightscout.jpg
+imageUrl: https://sandstorm.io/news/images/boston-nightscout.jpg
 ---
 
 
@@ -17,12 +17,12 @@ Three of us met up at
 [NightScout](http://www.nightscout.info/), a free software web app for helping
 people share information about their blood sugar levels with family and friends.
 
-<img width="600" height="400" src="../boston-nightscout.jpg">
+<img width="600" height="400" src="/news/images/boston-nightscout.jpg">
 
 Monday evenings are the regular meeting time for
 [SIPB](http://sipb.mit.edu), MIT's computing club, and some of us researched if
 Sandstorm could be of use to the MIT community.
 
-<img width="600" height="400" src="../boston-sipb.jpg">
+<img width="600" height="400" src="/news/images/boston-sipb.jpg">
 
 I hope to see you in my future travels!

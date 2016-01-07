@@ -11,7 +11,7 @@ You can install it on your Sandstorm server now, or try it on [our demo server](
 
 LaTeX has long been a standard tool in the world of academic publishing, and we think that ShareLaTeX does a great job at making it more accessible and useful.
 
-<p><a href="{{site.baseurl}}sharelatex-screenshot-big.png"><img src="{{site.baseurl}}sharelatex-screenshot.png"></a><br><span class="caption">Using ShareLaTeX in Sandstorm to typeset <a href="http://www.cs.cmu.edu/~rjsimmon/">Rob Simmons</a>'s <a href="https://github.com/robsimmons/thesis">PhD thesis</a>.</span></p>
+<p><a href="/news/images/sharelatex-screenshot-big.png"><img src="/news/images/sharelatex-screenshot.png"></a><br><span class="caption">Using ShareLaTeX in Sandstorm to typeset <a href="http://www.cs.cmu.edu/~rjsimmon/">Rob Simmons</a>'s <a href="https://github.com/robsimmons/thesis">PhD thesis</a>.</span></p>
 
 We also think that, as an open source web app, ShareLaTeX makes a fascinating case study.
 

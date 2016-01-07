@@ -28,16 +28,16 @@ Consider the [GitWeb app](https://demo.sandstorm.io/appdemo/6va4cjamc21j0znf5h5r
 With the new sharing features in place, after Alice creates a new repository
 she can, for example, share read-only access with Bob and share read/write access with Carol.
 
-<img src="{{site.baseurl}}better-sharing-model-1.png" style="width:80%;margin:0 auto;display:block">
+<img src="/news/images/better-sharing-model-1.png" style="width:80%;margin:0 auto;display:block">
 
 Then, in turn, both Bob and Carol can reshare the repo to other users. If they both share their full access to Dave, then Dave gets read/write access.
 
-<img src="{{site.baseurl}}better-sharing-model-2.png" style="width:80%;margin:0 auto;display:block">
+<img src="/news/images/better-sharing-model-2.png" style="width:80%;margin:0 auto;display:block">
 
 If Alice now unshares with Carol, then Carol loses all access and Dave loses write access. Dave continues to hold the read-only access that he received from Bob.
 Carol's share to Dave continues to exist, but it no longer carries any permissions, as Carol herself no longer holds any permissions.
 
-<img src="{{site.baseurl}}better-sharing-model-3.png" style="width:80%;margin:0 auto;display:block">
+<img src="/news/images/better-sharing-model-3.png" style="width:80%;margin:0 auto;display:block">
 
 Throughout this whole interaction, the app itself has no need to keep track of users! It only needs to know how to filter requests based on permissions.
 Teaching GitWeb to do this was easy, requiring only a [few small changes](https://github.com/dwrensha/gitweb-sandstorm/commit/7f510ec82a935a9f94ebcf9651983d0bbadcf82a )

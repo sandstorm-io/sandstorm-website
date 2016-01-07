@@ -5,7 +5,7 @@ author: Kenton Varda
 authorUrl: https://github.com/kentonv
 ---
 
-<a href="https://apps.sandstorm.io"><img src="{{site.baseurl}}newui.png" width="600"></a>
+<a href="https://apps.sandstorm.io"><img src="/news/images/newui.png" width="600"></a>
 
 <a class="linkbutton" href="https://apps.sandstorm.io">Try The App Market Now &#187;</a>
 
@@ -29,7 +29,7 @@ Today's launch includes a HUGE update to our user interface. So much has changed
 
 Along with today's launch, we have deployed our new [App Market](https://apps.sandstorm.io), full of Free and Open Source apps, to replace our old ad-hoc app list. You can now browse apps more easily, complete with ratings and reviews. More importantly, submitting your own apps is now more streamlined: you can upload your package directly from the command-line using the `spk publish` command.
 
-<a href="https://apps.sandstorm.io"><img src="{{site.baseurl}}market.png" width="600"></a>
+<a href="https://apps.sandstorm.io"><img src="/news/images/market.png" width="600"></a>
 
 ## Our Terms and Privacy Policy
 
