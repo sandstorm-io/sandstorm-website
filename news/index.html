@@ -1,0 +1,59 @@
+---
+layout: page
+id: blog
+---
+
+<header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+{% if paginator.previous_page %}
+  <nav class="pagination top">
+    {% if paginator.previous_page %}
+      {% if paginator.previous_page == 1 %}
+        <a class="newer" href="/news/" title="Previous Page">&laquo; Newer posts</a>
+      {% else %}
+        <a class="newer" href="/news/page{{ paginator.previous_page }}/" title="Previous Page">&laquo; Newer posts</a>
+      {% endif %}
+    {% endif %}
+
+    {% if paginator.next_page %}
+      <a class="older" href="/news/page{{ paginator.next_page }}/" title="Next Page">Older posts &raquo;</a>
+    {% endif %}
+    <br clear="both">
+  </nav>
+{% endif %}
+
+{% assign first = true %}
+{% for post in paginator.posts %}
+<section>
+  <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+  <p class="post-details">By <a href="{{post.authorUrl}}">{{ post.author }}</a>
+    {% if post.author2 %}
+      and <a href="{{post.author2Url}}">{{ post.author2 }}</a>
+    {% endif %}
+    - <a href="{{ post.url }}">{{ post.date | date_to_string }}</a>
+  {% if first %}
+  {% assign first = false %}
+  {{ count }}
+  {% endif %}
+  {{ post.content }}
+</section>
+{% endfor %}
+
+<nav class="pagination bottom">
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+      <a class="newer" href="/news/" title="Previous Page">&laquo; Newer posts</a>
+    {% else %}
+      <a class="newer" href="/news/page{{ paginator.previous_page }}/" title="Previous Page">&laquo; Newer posts</a>
+    {% endif %}
+  {% endif %}
+
+  {% if paginator.next_page %}
+    <a class="older" href="/news/page{{ paginator.next_page }}/" title="Next Page">Older posts &raquo;</a>
+  {% endif %}
+  <br clear="both">
+</nav>

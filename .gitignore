@@ -5,4 +5,5 @@ sandstorm.io.files
 sandstorm.io.includes
 .jekyll-metadata
 _site
+_pushsite
 .sass-cache
