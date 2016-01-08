@@ -12,26 +12,7 @@ title: Sandstorm Blog
 
 <div class="post-list">
 
-<div class="sidebar">
-  <ul class="socialmedia">
-    <li><a class="twitter" href="https://twitter.com/SandstormIO">Twitter</a>
-    <li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank">Facebook</a>
-    <li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank">Google</a>
-    <li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank">Github</a>
-  </ul>
-
-  <div class="more">
-    <form id="signup" action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
-      <p>Join our mailing list for updates<br>
-      <input type="email" name="EMAIL" placeholder="e-mail" required><input type="submit" value="&#10003;">
-    </form>
-    <div id="try-demo" href="https://sandstorm.io/">
-      <p>Sandstorm is an open source platform for personal servers.
-      <p><a class="button" href="https://demo.sandstorm.io">Try the demo &#187;</a>
-      <p class="details"><a href="https://sandstorm.io/">Learn More</a></p>
-    </div>
-  </div>
-</div>
+{% include sidebar.html %}
 
 {% if paginator.previous_page %}
   <nav class="pagination top">

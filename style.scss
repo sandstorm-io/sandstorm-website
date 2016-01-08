@@ -1737,6 +1737,10 @@ body >footer {
     >section {  // a single post
       border-bottom: 1px solid #aaa;
 
+      &:last-of-type {
+        border-bottom: none;
+      }
+
       >h2 {
         margin-bottom: 0;
       }
@@ -1834,7 +1838,12 @@ body >footer {
       width: auto;
       padding: 8px 0;
 
+      &.top {
+        border-bottom: 1px solid #aaa;
+      }
+
       &.bottom {
+        border-top: 1px solid #aaa;
         padding-top: 4px;
         margin-bottom: 60px;
       }
@@ -1850,10 +1859,6 @@ body >footer {
       a.older {
         display: block;
         float: right;
-      }
-
-      &.top {
-        border-bottom: 1px solid #aaa;
       }
     }
   }
