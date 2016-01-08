@@ -309,7 +309,7 @@ body >footer {
     
   >ul {
     display: flex;
-    flex-flow: row;
+    flex-direction: row;
     flex-wrap: wrap;
     
     >li {  
@@ -669,7 +669,7 @@ body >footer {
 
     >section {
       display: flex;
-      flex-flow: row;
+      flex-direction: row;
       flex-wrap: wrap;
 
       border-top: 1px solid #ddd;
@@ -755,14 +755,15 @@ body >footer {
       >section {
         // For each section like "usability", we have two sub-sections that can go side-by-side.
 
-        flex: 0 1 50%;
+        flex: 0 1 auto;
+        width: 50%;
         padding: 220px 16px 0;
 
         strong { font-weight: normal; }
 
         @media (max-width: 800px) {
           // Mobile: Switch to single column.
-          flex: 0 1 100%;
+          width: 100%;
           padding-left: 0;
           padding-right: 0;
           >* {
@@ -862,7 +863,7 @@ body >footer {
 
         >ul {
           display: flex;
-          flex-flow: row;
+          flex-direction: row;
           flex-wrap: wrap;
           padding: 0;
 
@@ -1041,7 +1042,7 @@ body >footer {
     width: 100%;
     display: flex;
     justify-content: space-around;
-    flex-flow: row;
+    flex-direction: row;
     flex-wrap: wrap;
 
     h3 {
@@ -1094,7 +1095,7 @@ body >footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    flex-flow: row;
+    flex-direction: row;
     flex-wrap: wrap;
     
     h3 {
@@ -1207,7 +1208,7 @@ body >footer {
       float: center;
       display: inline-block;
       display: flex;
-      flex-flow: row;
+      flex-direction: row;
       flex-wrap: wrap;
       list-style: none;
         li {
@@ -1250,7 +1251,7 @@ body >footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    flex-flow: row;
+    flex-direction: row;
     flex-wrap: wrap;
 		
 		h3 {
@@ -1494,7 +1495,7 @@ body >footer {
 
 		.containerize {
 			display: flex;
-			justify-content: space-between;
+                        justify-content: space-between;
 
 			.left {
 				width: 40%;
@@ -1511,11 +1512,12 @@ body >footer {
   
 	#intro {
 		display: flex;
-		flex-flow: row;
+                flex-direction: row;
 		padding: 30px;
 
     >ul {
-			flex: 0 0 500px;
+                        flex: 0 0 auto;
+                        width: 500px;
 			border: 0 solid #aaa6b2;
 			border-right-width: 1px;
 			padding-right: 30px;
@@ -1538,7 +1540,7 @@ body >footer {
     }
 
     @media (max-width: 899px) {
-      flex-flow: column;
+      flex-direction: column;
       >ul {
         flex: 1 1 auto;
         border-right-width: 0;
@@ -1688,11 +1690,12 @@ body >footer {
 			width: 100%;
 			padding: 0px;
 			display: flex;
-			flex-flow: row;
+                        flex-direction: row;
 			flex-wrap: wrap;
 
 			>li {
-				flex: 0 1 50%;
+                                flex: 0 1 auto;
+                                width: 50%;
 				position: relative;
 				padding: 40px 16px 0;
 
@@ -1747,13 +1750,13 @@ body >footer {
                         height: 500px;
 
                         display: flex;
-                        flex-flow: row;
+                        flex-direction: row;
                         flex-wrap: wrap;
 
 			li {
-                                flex: 0 0 218px;
+                                flex: 0 0 216px;
                                 &.long {
-                                  flex: 0 0 436px;
+                                  flex: 0 0 432px;
                                 }
 
                                 margin: 0;
@@ -1770,7 +1773,7 @@ body >footer {
 			padding: 0px;
 			margin: 0px;
 			display: flex;
-			flex-flow: row;
+                        flex-direction: row;
 			flex-wrap: wrap;
 			justify-content: space-around;
 		}
@@ -1875,7 +1878,7 @@ body >footer {
     ul {
       padding: 0px;
       display: flex;
-      flex-flow: row;
+      flex-direction: row;
       flex-wrap: wrap;
       float: center;
     }
@@ -1940,7 +1943,7 @@ body >footer {
     float: left;
     height: 40px;
     width: 70%;
-    border: 1px lavendar;
+    border: 1px solid #aaa;
     font-size: 1.2em;
     padding-left: 10px;
     padding-right: 10px;
