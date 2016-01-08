@@ -1,6 +1,7 @@
 ---
 layout: page
 id: how-it-works
+title: "How Sandstorm Works: Containerize objects, not services"
 ---
 
 <header>
