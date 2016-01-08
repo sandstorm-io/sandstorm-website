@@ -1963,6 +1963,121 @@ body >footer {
 }
 
 // =======================================================================================
+// install.html
+
+#install {
+  font-size: 22px;
+
+  >header {
+    width: 100%;
+    display: table;
+    min-height: 200px;
+
+    >div {
+      display: table-cell;
+      margin: auto;
+      text-align: center;
+      vertical-align: middle;
+      color: white;
+
+      >h1 {
+        font-size: 52px;
+        padding-top: 48px;
+        margin: 0;
+        font-weight: bold;
+
+        &::before {
+          content: " ";
+          display: inline-block;
+          background-image: url(/images/logo-white.svg);
+          background-repeat: no-repeat;
+          width: 90px;
+          height: 90px;
+          margin-right: -20px;
+        }
+      }
+
+      >p {
+        color: #FFD4EC;
+        font-weight: 300;
+        margin-top: 0.5em;
+        font-size: 30px;
+        margin-bottom: 30px;
+      }
+    }
+
+    @include stripe {
+      background-color: #783189;
+      background: linear-gradient(#281E43, #8964A7);
+    }
+  }
+
+  main>section {
+    margin: 64px auto;
+
+    &.intro {
+      text-align: center;
+      >h2 { font-size: 30px; font-weight: normal; }
+      >p { padding: 0 32px; }
+    }
+
+    &.requirements {
+      background-color: #F0EDF7;
+      padding: calc(32px - 1em) 32px;
+    }
+
+    >.section-content {
+      border: 1px solid #F0EDF7;
+      padding: calc(24px - 1em) 24px;
+      box-sizing: border-box;
+      margin: 1em 0;
+    }
+
+    @media screen and (min-width: 900px) {
+      >.https-verified {
+        float: left;
+        width: 60%;
+        margin-bottom: 0;
+      }
+      >.pgp-verified {
+        float: right;
+        width: 35%;
+        margin-bottom: 0;
+      }
+
+      &::after {
+        content: " ";
+        display: block;
+        height: 0;
+        clear: both;
+      }
+    }
+
+    >.pgp-verified {
+      >a {
+        display: block;
+        margin: 0 0 1em;
+        background-color: #f0edf7;
+        font-size: 30px;
+        text-align: center;
+        padding: 8px 0;
+        text-decoration: none;
+        color: #6A237C;
+      }
+    }
+
+    pre {
+      font-size: 16px;
+      text-align: center;
+      padding: 16px 0;
+      background-color: #EFEFEF;
+      border: 1px solid #c4c4c4;
+      overflow-x: auto;
+    }
+  }
+}
+
+// =======================================================================================
 // subscription styling
 
 .subscribe {

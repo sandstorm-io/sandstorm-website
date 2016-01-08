@@ -1,0 +1,148 @@
+---
+layout: page
+id: install
+title: Install Sandstorm
+---
+
+<!DOCTYPE html>
+
+<header>
+  <div>
+    <h1>Sandstorm.io</h1>
+    <p>INSTALL INSTRUCTIONS</p>
+  </div>
+</header>
+
+<main>
+  <section class="intro">
+    <h2>
+      <b>Sandstorm is <span id="js-replace-appname">open source</a></b> and
+      runs on recent Linux distributions.
+    </h2>
+    <p>
+      If you don't know Sandstorm yet, it lets you install server apps as easily as you install
+      apps on your phone.
+      <span id="js-replace-check-out">Try the</span>
+      <a id="js-replace-homepage-url" href="https://demo.sandstorm.io/">
+        <span id="js-replace-website">60 second demo</span></a>!
+    </p>
+  </section>
+
+  <section class="requirements">
+    <p>
+      To run Sandstorm, you need a 64-bit Linux server connected to the Internet.
+      (Requirements: Linux 3.13 or newer running on x86-64. 1GB+ of RAM; 2GB+ recommended.)
+    </p>
+
+    <p>
+      If you don't already have somewhere to run Sandstorm,
+      consider creating an Ubuntu 14.04 64-bit virtual machine
+      on your favorite cloud provider.
+    </p>
+
+    <p>
+      Alternatively, you can let us run the server for you:
+      <a href="https://oasis.sandstorm.io">Use Sandstorm Oasis</a>
+    </p>
+  </section>
+
+  <section>
+    <h2>1. Download & run the installer</h2>
+
+    <div class="https-verified section-content">
+      <h3>HTTPS-verified install</h3>
+
+      <p>Run this in a terminal:</p>
+      <pre>curl https://install.sandstorm.io | bash</pre>
+
+      <p>Alternatively, you can
+        <a href="https://raw.githubusercontent.com/sandstorm-io/sandstorm/master/install.sh">download the install script from Github</a> or
+        <a href="https://github.com/sandstorm-io/sandstorm">build from source</a>.
+      <p>(Wondering what this script will do? <a href="https://asciinema.org/a/bw9mgfk8m55rfa3ntrfvhvjat?autoplay=1">Here's a 30 second screencast.</a>)
+
+    </div>
+    <div class="pgp-verified section-content">
+      <h3>PGP-verified install</h3>
+      <p>For people as paranoid as we are...</p>
+      <a href="https://docs.sandstorm.io/en/latest/install/#option-3-pgp-verified-install">See the docs »</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Configure login</h2>
+
+    <div class="section-content">
+    <p>The install script prints the URL of your server's admin panel. Follow that link.</p>
+    <p>Your first action with Sandstorm is to use the <em>admin panel</em> to choose Google login,
+      GitHub login, or email login.</p>
+    <p>Once you've configured login, log in! The first user to log in is automatically admin.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Install apps</h2>
+
+    <div class="section-content">
+    <p>Once you've logged in, install some apps!</p>
+
+    <p>Apps in Sandstorm run with a click. You won't need to edit server configuration files or provision databases. Sandstorm manages access control, so apps are private by default.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>4. Stay in touch</h2>
+
+    <div class="section-content">
+    <p>Read about how
+    to <a href="https://github.com/sandstorm-io/sandstorm/wiki/Get-Involved">get
+    involved</a> in the project and become a part of the
+    community.</p>
+
+    <p>For troubleshooting tips and next steps,
+      <a href="https://docs.sandstorm.io/en/latest/administering/">
+        read the documentation.</a>
+    </p>
+    </div>
+  </section>
+</main>
+
+<!-- JS to rewrite the page header in case we came from appDemo. -->
+<script type="text/javascript">
+(function() {
+  // The hash contains any of:
+  //
+  // - Nothing, in which case, we do nothing.
+  //
+  // - The literal string "demo", in which case we know the user came
+  //   from the demo, but we don't know what app they were using.
+  //
+  // - The name of the app they were using, in which case we also know
+  //   that they are coming from the demo.
+
+  var hash = window.location.hash.replace("#", "");
+  if (hash) {
+    // If there is a hash at all, it means they came from the demo. So
+    // there's no point linking the user to the demo.
+    var span;
+    var a;
+
+    span = document.getElementById('js-replace-check-out');
+    span.textContent = "Check out";
+
+    span = document.getElementById('js-replace-website');
+    span.textContent = "the project website";
+
+    a = document.getElementById('js-replace-homepage-url');
+    a.href = 'https://sandstorm.io/';
+
+    if (hash != "demo") {
+      // Then update the app name, too.
+      span = document.getElementById("js-replace-appname");
+      span.textContent = "the easiest way to run " + hash;
+    }
+
+  }
+})();
+</script>
+
+</html>
