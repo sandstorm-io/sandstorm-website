@@ -119,7 +119,7 @@ h2, h3, h4, h5, h6 {
 }
 
 p {
-  line-height: 22px;
+  line-height: 1.3;
 }
 
 a {
@@ -1679,6 +1679,183 @@ body >footer {
     background-repeat: no-repeat;
     background-position: bottom center;
     background-image: url(images/header-blog.svg);
+  }
+
+  h2, h3 {
+    font-weight: bold;
+    text-align: left;
+  }
+
+  >div.post-list {
+    margin-top: 30px;
+    position: relative;
+    padding-right: 270px;  // for sidebar
+    min-height: 800px;    // for sidebar
+
+    >div.sidebar {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 250px;
+      height: 800px;
+
+      >ul.socialmedia {
+        padding: 0;
+        text-align: right;
+
+        >li {
+          font-size: 0;
+          display: inline-block;
+          >a {
+            display: block;
+
+            &::before {
+              font-family: sandstorm;
+              display: block;
+              height: 50px;
+              font-size: 45px;
+            }
+
+            &.twitter::before { content: "\e908"; }
+            &.google::before { content: "\e904"; }
+            &.facebook::before { content: "\e902"; }
+            &.github::before { content: "\e903"; }
+            &.livechat::before { content: "\e905"; }
+            &.inperson::before { content: "\e907"; }
+            &.devgroup::before { content: "\e901"; }
+            &.youtube::before { content: "\e909"; }
+          }
+        }
+      }
+
+      >.more {
+        border: 1px solid #aaa;
+        padding: 8px;
+      }
+    }
+
+    >section {  // a single post
+      border-bottom: 1px solid #aaa;
+
+      >h2 {
+        margin-bottom: 0;
+      }
+
+      p.post-details {
+        margin-top: 0;
+        font-size: 85%;
+      }
+
+      blockquote {
+        font-size: 30px;
+        font-style: italic;
+        margin: auto;
+        line-height: 1.2;
+        font-weight: bold;
+        border-left: 4px solid #f3ebe0;
+        padding-left: 16px;
+      }
+
+      a.crowdfunding {
+        display: block;
+        background-color: #eb1478;
+        text-align: center;
+        margin-top: 32px;
+        padding: 16px;
+        font-size: 24pt;
+        color: white;
+      }
+      a.crowdfunding:hover {
+        text-decoration: underline;
+      }
+
+      iframe.youtube {
+        max-width: 100%;
+        width: 560px;
+        height: 350px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      span.caption {
+        font-size: 85%;
+        font-style: italic;
+        color: #888;
+      }
+
+      pre {
+        color: #222;
+        background-color: #fff;
+
+        font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+        font-size: 14px;
+
+        width: auto;
+        padding: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,.1);
+        overflow: auto;
+        margin: auto;
+
+        border: 1px solid #ccc;
+      }
+
+      a.linkbutton {
+        display: block;
+        max-width: 350px;
+        background-color: #783189;
+        color: #fffbfb;
+        padding: 4px;
+        text-align: center;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: normal;
+        margin: 0 auto;
+        font-size: 20pt;
+      }
+
+      a.big-inline-button {
+        display: inline-block;
+        bottom: 42px;
+        background-color: #783189;
+        color: #fffbfb;
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 1em auto;
+      }
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    >nav.pagination {
+      width: auto;
+      padding: 8px 0;
+
+      &.bottom {
+        padding-top: 4px;
+        margin-bottom: 60px;
+      }
+
+      a {
+        font-weight: normal;
+      }
+
+      a:hover {
+        font-weight: normal;
+      }
+
+      a.older {
+        display: block;
+        float: right;
+      }
+
+      &.top {
+        border-bottom: 1px solid #aaa;
+      }
+    }
   }
 }
 

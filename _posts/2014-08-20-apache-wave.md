@@ -11,7 +11,7 @@ OK, joking aside&#8230;
 
 Put simply, Wave is a collaborative document editor with inline, nestable comment threads. What do you use it for? Well, one thing I think it's great for is design discussions. Your root Wave is your design proposal. People can comment on individual parts, you can reply to those comments, and so on. It's easier to keep threads organized than in an e-mail discussion. For example, here's what a recent design discussion I had with security guru Jas Nagra might have looked like as a Wave:
 
-<img src="https://sandstorm.io/apps/wave-big.png" alt="Wave screenshot" style="width: 800px; height: 597px;">
+<img src="https://sandstorm.io/apps/wave-big.png" alt="Wave screenshot" style="width: 800px;">
 
 As you may recall, Google released Wave back in 2009 to great fanfare only to pull the plug on it just a year later, citing lackluster user growth. Whether that was the fault of the product itself or of a botched rollout and bad messaging is hard to say. In any case, Google was kind enough to release their code, and since then the folks over at Apache have been keeping development going as [Apache Wave](http://incubator.apache.org/wave/).
 
