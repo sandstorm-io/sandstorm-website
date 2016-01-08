@@ -119,7 +119,7 @@ h2, h3, h4, h5, h6 {
 }
 
 p {
-  line-height: 24px;
+  line-height: 22px;
 }
 
 a {
@@ -285,7 +285,6 @@ body >footer {
 		  	color: $default-fontcolor;
 		  	border-radius: 4px;
 		  	display: block;
-		  	position: absolute;
 		  	width: 150px;
 		  	height: 40px;
 		  	line-height: 40px;
@@ -586,10 +585,20 @@ body >footer {
           margin: 0;
           padding: 32px 0 0;
 					text-align: left;
+          
+          @media (max-width: 700px) {
+            text-align: center;
+            padding: 20px 0 0;
+          }
         }
 
         >p {
-          line-height: 200%;
+          line-height: 160%;
+          
+          @media (max-width: 700px) {
+            text-align: center;
+            padding: 0 0 50px 0;
+          }
         }
 
         // We hijack ::before to become the screenshot.
@@ -599,11 +608,11 @@ body >footer {
           position: absolute;
           background: center/contain no-repeat;
         }
-        &.create::before      { background-image: url("images/ethercalc.png"); }
-        &.collaborate::before { background-image: url("images/wekan.png"); }
-        &.communicate::before { background-image: url("images/rocketchat.png"); }
+        &.create::before      { background-image: url("images/ethercalc.jpg"); }
+        &.collaborate::before { background-image: url("images/wekan.jpg"); }
+        &.communicate::before { background-image: url("images/rocketchat.jpg"); }
 
-        @media (min-width: 750px) {
+        @media (min-width: 700px) {
           height: 250px;
           &::before {
             width: 40%;
@@ -627,7 +636,7 @@ body >footer {
           }
         }
 
-        @media (max-width: 749px) {
+        @media (max-width: 700px) {
           // Screenshot goes on top.
           padding-top: 150px;
           &::before {
@@ -644,14 +653,26 @@ body >footer {
     text-align: center;
     font-size: 30px;
     padding: 25px 0;
+    list-style: none;
 
     @include stripe {
       background-color: $lightpurple-band;
       background-image: url(/images/market-tent.svg);
       background-position: right bottom;
       background-repeat: no-repeat;
+      @media (max-width: 700px) {
+        background-image: none;
+      }
     }
 
+    >li {
+      display: inline;
+      @media (max-width: 700px) {
+        display: block;
+        padding: 0 0 20px 0;
+      }
+    }
+    
     >a {
       border: 1.5px solid $whitebutton-border;
       padding: 14px 0;
@@ -958,12 +979,15 @@ body >footer {
        background-color: #e6e5ea;
 
       >nav {
-        height: 48px;
-        font-size: 20px;
+        height: 55px;
+        font-size: 23px;
         text-align: center;
         width: 100%;
-        
         display: flex;
+        
+        @media (max-width: 550px) {
+          font-size: 20px;
+        }
 
         >a {
           display: block;
@@ -971,9 +995,8 @@ body >footer {
           text-align: center;
           font-weight: normal;
           height: 100%;
-          line-height: 48px;
+          line-height: 55px;
           width: 33%;
-          
           background-color: #e6e5ea;
 
           &:hover {
@@ -1015,6 +1038,14 @@ body >footer {
       transition: transform 0.75s ease, background 0.35s ease;
       background-color: #2e2765;
       
+      @media (max-width: 500px) {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+      }
+      
       &:hover {
         background-color: $purplehover-bg;
       }
@@ -1043,6 +1074,7 @@ body >footer {
     justify-content: space-around;
     flex-flow: row;
     flex-wrap: wrap;
+    padding: 0;
 
     h3 {
       text-align: left;
@@ -1144,6 +1176,11 @@ body >footer {
         text-align: left;
         padding-top: 20px;
         
+        @media (max-width: 700px) {
+          width: 100%;
+          height: 500px;
+        }
+        
         h3 {
           text-align: left;
         }
@@ -1162,16 +1199,15 @@ body >footer {
     }
 
     .on-prem {
-      &::after { display: none; }
+        &::after { display: none; }
       .image {
         background-image: url("images/business-onprem.svg");
-        top: 0;
+        bottom: 0;
         right: -20%;
         width: 80%;
         
-        @media (max-width: 750px) {
+        @media (max-width: 700px) {
           width: 100%;
-          display: block;
         }
       }
     }
@@ -1183,9 +1219,8 @@ body >footer {
         right: -20%;
         width: 80%;
         
-        @media (max-width: 750px) {
+        @media (max-width: 700px) {
           width: 100%;
-          display: block;
         }
       }
     }
@@ -1200,6 +1235,9 @@ body >footer {
     
     .failover, .encryption, {
       width: 50%;
+      @media (max-width: 700px) {
+        width: 100%;
+      }
     }
 
     ul {
@@ -1210,6 +1248,7 @@ body >footer {
       flex-flow: row;
       flex-wrap: wrap;
       list-style: none;
+      padding: 0;
         li {
           width: 100%;
           padding: 0 0 50px 0;
