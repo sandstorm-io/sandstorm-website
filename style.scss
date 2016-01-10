@@ -1330,12 +1330,6 @@ body >footer {
 			&.integration::before { background-image: url("images/developer-integration.svg"); }
 			&.in-app::before { background-image: url("images/coming-soon.svg"); }
 			}
-		.integration, .in-app, {
-			width: 100%;
-			h3, p, {
-				text-align: center;
-			}
-		}
 }
 // =======================================================================================
 // get.html
