@@ -544,25 +544,23 @@ body >footer {
         }
 
         >a.get {
-          background-image: -webkit-linear-gradient(top,  #744ccc, #613c91);
-          -webkit-box-shadow: 0 3px 3px rgba(41,25,66,0.6);
+          background-image: linear-gradient(top,  #744ccc, #613c91);
           box-shadow: 0 3px 3px rgba(41,25,66,0.6);
           background-color: #613c91;
 
           &:hover {
-            background-image: -webkit-linear-gradient(top, #955fcc, #7a3cab);
+            background-image: linear-gradient(top, #955fcc, #7a3cab);
             background-color: #744ccc;
           }
         }
 
         >a.demo {
-          background-image: -webkit-linear-gradient(top, #e67cba, #9e4997);
-          -webkit-box-shadow: 0 3px 3px rgba(41,25,66,0.6);
+          background-image: linear-gradient(top, #e67cba, #9e4997);
           box-shadow: 0 3px 3px rgba(41,25,66,0.6);
           background-color: #9e4997;
 
           &:hover {
-            background-image: -webkit-linear-gradient(top, #fd8acf, #9d57b6);  
+            background-image: linear-gradient(top, #fd8acf, #9d57b6);
             background-color: #e67cba;
           }
         }
@@ -1689,14 +1687,14 @@ body >footer {
   >div.post-list {
     margin-top: 30px;
     position: relative;
-    padding-right: 270px;  // for sidebar
+    padding-right: 320px;  // for sidebar
     min-height: 800px;    // for sidebar
 
     >div.sidebar {
       position: absolute;
       right: 0;
       top: 0;
-      width: 250px;
+      width: 300px;
       height: 800px;
 
       >ul.socialmedia {
@@ -1729,8 +1727,63 @@ body >footer {
       }
 
       >.more {
-        border: 1px solid #aaa;
-        padding: 8px;
+        padding: 16px;
+        background-color: #f4f3fb;
+
+        >form {
+          margin-bottom: 1em;
+
+          input[type="email"] {
+            border: 1px solid #aeacb9;
+            height: 28px;
+            width: 70%;
+            padding: 0 4px;
+            &:placeholder-shown, &::-webkit-input-placeholder, &::-moz-placeholder {
+              color: black;
+              opacity: 1;
+            }
+          }
+          input[type="submit"] {
+            color: white;
+            background-color: #2f2250;
+            border: none;
+            height: 28px;
+            width: 30%;
+          }
+        }
+
+        >a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 24px 16px;
+          height: 268px;
+          background: bottom/contain no-repeat url(/images/blog-sidebar-logo.svg);
+          background-color: #2f2250;
+
+          span.signup {
+            display: block;
+            width: 80%;
+            margin: 40px auto 16px;
+            padding: 12px 0;
+            border-radius: 4px;
+            font-size: 24px;
+
+            background-image: linear-gradient(top,  #744ccc, #613c91);
+            box-shadow: 0 3px 3px rgba(41,25,66,0.6);
+            background-color: #613c91;
+
+            &:hover {
+              background-image: linear-gradient(top, #955fcc, #7a3cab);
+              background-color: #744ccc;
+            }
+          }
+
+          span.selfhost {
+            text-decoration: underline;
+            font-size: 22px;
+          }
+        }
       }
     }
 
