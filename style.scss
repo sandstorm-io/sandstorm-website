@@ -1652,12 +1652,37 @@ body >footer {
       max-width: 45%;    
     }
   }
-  #confinement {
-    img {
-      width: 49%;
+  #confinement, #capabilities {
+    >div.figure {
+      float: right;
+      clear: right;
+      width: 50%;
+
+      p.heading {
+        text-align: center;
+        font-weight: bold;
+        font-size: 130%;
+        margin: 0;
+      }
+
+      p.caption {
+        font-size: 85%;
+        font-style: italic;
+        color: #444;
+        margin: 0;
+        text-align: center;
+      }
+
+      &:nth-of-type(2) { margin-top: 16px; }
+
+      img {
+        display: block;
+        width: 100%;
+      }
     }
+
     @media (max-width: 700px) {
-      width: 80%;
+      >div.figure { width: 100%; float: none; }
     }
   }
 }

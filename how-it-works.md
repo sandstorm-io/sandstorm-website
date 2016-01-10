@@ -109,14 +109,11 @@ But does it scale? Obviously, if every grain were running at all times, the Sand
 <section id="confinement" markdown="1">
 ### Confinement and Auditability
 
-<img src="/images/how-confinement1.svg">
-<img src="/images/how-confinement2.svg">
-
-<span style="color:red;">[diagram: apps sitting on infrastructure, where the infrastructure is under the app while the rest of the world is above the app. Connections between apps and the rest of the world (users, other apps, etc.) are shown as a big scribble cloud]</span>
+<div class="figure"><p class="heading">Standard model</p><img src="/images/how-confinement1.svg" alt="diagram of traditional infrastructure"></div>
 
 Most infrastructure is designed to sit "under" the app, managing resources but not communications. Apps are free to talk to the network. They may connect to users and to other apps at will. It is expected that apps will enforce access control on inbound requests, but there are often no controls on outbound requests.
 
-<span style="color:red;">[diagram: sandstorm shown as a block with apps inside it. Some apps are connected to each other by clear, straight lines. Users (outside of Sandstorm) are shown talking to Sandstorm first, and then apps through it.]</span>
+<div class="figure"><p class="heading">Sandstorm model</p><img src="/images/how-confinement2.svg" alt="diagram of Sandstorm model"></div>
 
 In part because of Sandstorm's granular model, it makes sense for Sandstorm to implement full confinement, in which the infrastructure sits on *all sides* of the app. A Sandstorm app's interactions with the outside world are entirely mediated through Sandstorm. Users talk to apps through a proxy which authenticates requests and enforces access control. Apps can only talk to other apps or outside services to which they have explicitly requested permission, and Sandstorm allows the user to audit and revoke these permissions at any time.
 
@@ -138,7 +135,7 @@ But with grains, there is hope. Each grain's storage can be encrypted transparen
 
 <section id="capabilities" markdown="1">
 ## Capability-based Security
-<img src="/images/how-capabilitybased.svg">
+<div class="figure"><img src="/images/how-capabilitybased.svg"><p class="caption">Alice sends Bob a capability to Carol.</p></div>
 
 Service-to-service access control in the Sandstorm model requires a different way of thinking about security.
 
