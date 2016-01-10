@@ -1654,8 +1654,10 @@ body >footer {
   }
   #confinement {
     img {
-      width: 50%;
-      border: 0;
+      width: 49%;
+    }
+    @media (max-width: 700px) {
+      width: 80%;
     }
   }
 }
