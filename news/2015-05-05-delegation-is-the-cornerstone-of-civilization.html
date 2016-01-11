@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Delegation is the Cornerstone of Civilization: Sharing in Sandstorm.io - Sandstorm Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Sandstorm.io">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
+    <meta property="og:url" content="https://sandstorm.io">
+    <meta property="og:description"
+        content="Take control of your web by running your own personal cloud server with Sandstorm.">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
+  </head>
+
+
+
+  <body id="blog">
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a href="/get">Sign Up</a>
+      <a href="/get#self-hosting">Download</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">How it Works</a>
+      <a href="/news/">Blog</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <!-- TODO: search -->
+    </nav>
+
+    <header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+<div class="post-list">
+
+<div class="sidebar">
+  <ul class="socialmedia">
+    <li><a class="twitter" href="https://twitter.com/SandstormIO">Twitter</a>
+    <li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank">Facebook</a>
+    <li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank">Google</a>
+    <li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank">Github</a>
+  </ul>
+
+  <div class="more">
+    <form id="signup" action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+      Join our mailing list for updates<br>
+      <input type="email" name="EMAIL" placeholder="E-mail" required><input type="submit" value="Submit">
+    </form>
+    <a href="/get">
+      Sandstorm is an open source operating system for personal and private clouds.
+      <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
+      <span class="selfhost" href="/install">or host your own</span>
+    </a>
+  </div>
+</div>
+
+
+<nav class="pagination top">
+  <a class="newer" href="/news/" title="All posts">&laquo; All posts</a>
+</nav>
+
+<section>
+  <h2>Delegation is the Cornerstone of Civilization: Sharing in Sandstorm.io</h2>
+  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
+    
+      and <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - 05 May 2015
+  <p>We sometimes describe Sandstorm as: “Like Google Docs, except open source, you can run it on your own server, and you can extend it with apps written by anyone.”</p>
+
+<p>Sandstorm is all about collaboration – we have apps for real-time collaborative document editing, chat rooms, even collaborative music streaming. Collaboration, of course, requires access control. Sometimes you want some people to be able to edit a document while others can only read. Up until now, Sandstorm relied on each app to implement its own access control model, and many simply did not. For example, with Etherpad on Sandstorm before now, you could only share full write access.</p>
+
+<p>Today, we’re introducing Sandstorm’s new built-in sharing model. With it, apps can define a set of “permissions” (like “read” and “write”) which make sense for the app, and then Sandstorm itself will present a user interface by which the user can grant these permissions to other users. Since Sandstorm is designed to support fine-grained app containers (where, for example, each Etherpad document runs as a completely separate instance of the app in its own container), Sandstorm can implement this access control model at the container level, freeing the app of most of the work. The app need not track users itself; Sandstorm will tell it (e.g. through HTTP headers) exactly which permissions the current user has, so all the app needs to do is implement those.</p>
+
+<p>Moreover, Sandstorm implements a radical <em>capability-based</em> sharing model, which emphasizes the importance of <em>delegation</em>. Under our model, if you have access to a document, you can share that access with others, <em>without</em> requiring the document owner to intervene. This is important, because any obstacle to delegation is an obstacle to getting work done. Marc Stiegler said it best:</p>
+
+<blockquote style="font-weight: normal">The truth of the matter is: delegation cannot be prevented. The further truth of the matter is: we do not appreciate how fortunate it is that delegation cannot be prevented.
+Because in fact, <b>delegation is the cornerstone of civilization</b>. - Marc Stiegler</blockquote>
+
+<div style="margin:1em auto"><iframe class="youtube" src="//www.youtube.com/embed/vrbmMPlCp3U?start=3970" frameborder="0" allowfullscreen="true"> </iframe></div>
+
+<p>More on this in a bit, but first let’s look at how it works.</p>
+
+<h3 id="how-it-works">How it works</h3>
+
+<p>Consider the <a href="https://demo.sandstorm.io/appdemo/6va4cjamc21j0znf5h5rrgnv0rpyvh1vaxurkrgknefvj0x63ash">GitWeb app</a>.
+With the new sharing features in place, after Alice creates a new repository
+she can, for example, share read-only access with Bob and share read/write access with Carol.</p>
+
+<p><img src="/news/images/better-sharing-model-1.png" style="width:80%;margin:0 auto;display:block" /></p>
+
+<p>Then, in turn, both Bob and Carol can reshare the repo to other users. If they both share their full access to Dave, then Dave gets read/write access.</p>
+
+<p><img src="/news/images/better-sharing-model-2.png" style="width:80%;margin:0 auto;display:block" /></p>
+
+<p>If Alice now unshares with Carol, then Carol loses all access and Dave loses write access. Dave continues to hold the read-only access that he received from Bob.
+Carol’s share to Dave continues to exist, but it no longer carries any permissions, as Carol herself no longer holds any permissions.</p>
+
+<p><img src="/news/images/better-sharing-model-3.png" style="width:80%;margin:0 auto;display:block" /></p>
+
+<p>Throughout this whole interaction, the app itself has no need to keep track of users! It only needs to know how to filter requests based on permissions.
+Teaching GitWeb to do this was easy, requiring only a <a href="https://github.com/dwrensha/gitweb-sandstorm/commit/7f510ec82a935a9f94ebcf9651983d0bbadcf82a">few small changes</a>
+in configuration files. The app remains dead simple. The only data that it stores is the Git repository that it hosts.
+There is no in-app user database.</p>
+
+<p>Apps have complete control over the meanings of permissions. While “can read” and “can write” permissions will be sufficient in many cases,
+some apps, such as Groove Basin, might support a much wider range of permissions.
+In our <a href="https://demo.sandstorm.io/appdemo/wfg1r0qra2ewyvns05r0rddqttt57qxurz3nz5z95rjnm63et7e0">updated Groove Basin package</a>, sharing carries such diverse permissions
+as “can listen,” “can control the audio stream,” “can upload music,” and “can edit tags and delete music.”</p>
+
+<h3 id="delegation-why-you-want-it">Delegation: Why you want it</h3>
+
+<p>Traditional access control is accomplished using “access control lists” (ACLs), in which a document owner (Alice) maintains an ACL for the document specifying exactly who has access (Bob and Carol). In many systems, Bob and Carol cannot directly add a new person (Dave) to this ACL – they must ask Alice to do it. Usually, this is treated as a security “feature”.</p>
+
+<p><strong>Preventing delegation is not a feature. It provides no security benefit, and it creates obstacles to legitimate work.</strong></p>
+
+<p>For example, say Alice has asked Carol to update the document to add some data that Carol has collected, with a deadline of 6PM. Around 4PM, Carol realizes she won’t have time, so she asks her assistant, Dave, to do the work. Unfortunately, Dave doesn’t have access, and Alice is unavailable because she’s in a meeting. Now what?</p>
+
+<p>Here’s what inevitably happens: Carol copies the whole document into a <em>new</em> document, and then shares that with Dave. Later, when Dave is done, Carol copies the contents of the new document <em>back</em> into the original, overwriting it.</p>
+
+<p>Or, worse, Carol just gives Dave her password.</p>
+
+<p>What just happened? <strong>Carol bypassed the access control that prevented delegation to Dave!</strong> In fact, she did so <em>trivially</em>; no “hacking” required. It is obvious, in fact, that <a href="https://www.youtube.com/watch?v=vrbmMPlCp3U#t=1h5m30s">there is <em>no</em> technology</a> which would prevent Carol from delegating access to Dave, except to cut off all communications between Carol and Dave, which would be silly. So, our security “feature” actually provided no security benefit.</p>
+
+<p>With that said, what Carol did was annoying and error-prone. It took time, and the document could have been damaged, especially if someone else were editing at the same time and had their changes overwritten. It would have been much better if Dave could have simply had direct access to the document.</p>
+
+<p>So, that’s what Sandstorm allows.</p>
+
+<h3 id="policies-and-auditability">Policies and Auditability</h3>
+
+<p>There is an objection to unrestricted delegation which has some merit: preventing delegation can help guard against accidental leaks. For example, I might share a sensitive document with a coworker for review, but I might not trust that my coworker really understands the sensitivity of the document. I trust my coworker not to violate my wishes, but my coworker might not understand that I don’t want them to reshare. I’d feel a lot more comfortable if I can simply prohibit resharing. Yes, they can always go out of their way to get around any barrier I put up, but hopefully it will be obvious to them that they shouldn’t.</p>
+
+<p>This is a valid point, but solving it via the heavy-handed ACL model is overkill. As a user, what I really want is not a draconian security wall, but two things:</p>
+
+<ul>
+  <li>A way to inform people of my wishes with regards to resharing.</li>
+  <li>A way to hold them accountable if they break my wishes.</li>
+</ul>
+
+<p>Sandstorm aims to provide both of these:</p>
+
+<ul>
+  <li>You’ll be able to express “policies” when sharing, such as “please don’t reshare.” When people attempt to anyway, they will be informed that this is against your wishes, and perhaps blocked (at the UI level) from doing so. This is not strictly a security feature, but simply risk management: it helps nudge people in the right direction.</li>
+  <li>Sandstorm tracks not just a list but a full sharing <em>graph</em>. This means it is always possible to tell not just who has access but <em>how</em> they got access. We will be developing visualizations and auditing tools so that when you discover someone has received access that shouldn’t have, you can find out whom to blame. And as mentioned above, if you revoke that person’s access, then <em>everyone</em> they reshared to transitively loses access – unless you decide to restore those connections by sharing with those people directly.</li>
+</ul>
+
+<p>For enterprise users, we will further develop features that allow system administrators to set policies and audit access across an organization.</p>
+
+<p>Many users may never need these features. That’s fine – the basic sharing interface works intuitively without requiring you to understand “sharing graphs” or “policies”. But for those who need it, especially in a business setting, these features will be invaluable.</p>
+
+<h3 id="try-it-now">Try it now!</h3>
+
+<p>Sharing is a new feature and we still have lots of work to do on it, but the initial version is already live.
+If you want to try sharing but have not yet <a href="https://github.com/sandstorm-io/sandstorm#installing-the-easy-way">set up your own server</a>, you can <a href="https://demo.sandstorm.io">use the demo</a>.
+We’ve already enabled nontrivial permissions on GitWeb, Groove Basin, and Etherpad, and more app updates will be coming.
+Better yet, try <a href="https://github.com/sandstorm-io/sandstorm/wiki/Sandstorm-App-Developer-Handbook">writing an app</a> that takes avantage of the new features.
+Enabling apps to easily support sharing is just one more way that Sandstorm makes <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">open source web apps viable</a>.</p>
+
+</section>
+
+</div>
+
+
+    <footer>
+      <ul>
+        <li>
+          <h3><a href="/get">Get Sandstorm</a></h3>
+          <ul>
+            <li><a href="/get">For Individuals</a>
+            <li><a href="/get#self-host">For Organizations</a>
+            <li><a href="/get#self-host">For Self-hosters</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/features">Features</a></h3>
+          <ul>
+            <li><a href="/features">Core</a>
+            <li><a href="/features#security">Security</a>
+            <li><a href="/business">Sandstorm + Business</a>
+            <li><a href="/business#scale">Sandstorm + Scale</a>
+            <li><a href="/developer">Development</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="how-it-works">How it Works</a></h3>
+          <ul>
+            <li><a href="/how-it-works#grains">Fine-grained object containers</a>
+            <li><a href="/how-it-works#capabilities">Capability-based Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a>              </h3>
+          <ul>
+            <li><a href="/community#connect-with">Connect with us</a>
+            <li><a href="/community#helpothers">Help Others</a>
+            <li><a href="/community#helpproject">Help the Project</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/about">About</a></h3>
+          <ul>
+            <li><a href="/about">Sandstorm Story</a>
+            <li><a href="/about#team">Team</a>
+            <li><a href="/about#advisors">Advisors</a>
+            <li><a href="mailto:contact@sandstorm.io">Contact</a>
+          </ul>
+        </li>
+        <li>
+        <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <ul>
+            <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/blog">Blog</a></h3>
+          <ul>
+            <li><a href="/blog">Latest updates on Sandstorm.io</a>
+          </ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+							<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+								<input type="email" name="EMAIL" placeholder="e-mail" required>
+								<input type="submit" value="Submit">
+								</form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
+        </li>
+        <li>
+          <h3>Connect</h3>
+          <ul id="socialmedia-small">
+						<li><a class="twitter" href="https://twitter.com/SandstormIO"></a>
+						<li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank"></a>
+						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
+						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
+  			</ul>
+        </li>
+      </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
+    </footer>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-42127409-1', 'sandstorm.io');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
+  </body>
+</html>

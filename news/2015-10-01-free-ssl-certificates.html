@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Free, automated SSL certificates for Sandstorm self-hosters - Sandstorm Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Sandstorm.io">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
+    <meta property="og:url" content="https://sandstorm.io">
+    <meta property="og:description"
+        content="Take control of your web by running your own personal cloud server with Sandstorm.">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
+  </head>
+
+
+
+  <body id="blog">
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a href="/get">Sign Up</a>
+      <a href="/get#self-hosting">Download</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">How it Works</a>
+      <a href="/news/">Blog</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <!-- TODO: search -->
+    </nav>
+
+    <header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+<div class="post-list">
+
+<div class="sidebar">
+  <ul class="socialmedia">
+    <li><a class="twitter" href="https://twitter.com/SandstormIO">Twitter</a>
+    <li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank">Facebook</a>
+    <li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank">Google</a>
+    <li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank">Github</a>
+  </ul>
+
+  <div class="more">
+    <form id="signup" action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+      Join our mailing list for updates<br>
+      <input type="email" name="EMAIL" placeholder="E-mail" required><input type="submit" value="Submit">
+    </form>
+    <a href="/get">
+      Sandstorm is an open source operating system for personal and private clouds.
+      <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
+      <span class="selfhost" href="/install">or host your own</span>
+    </a>
+  </div>
+</div>
+
+
+<nav class="pagination top">
+  <a class="newer" href="/news/" title="All posts">&laquo; All posts</a>
+</nav>
+
+<section>
+  <h2>Free, automated SSL certificates for Sandstorm self-hosters</h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - 01 Oct 2015
+  <p><em><strong>TL;DR:</strong> If you <a href="https://sandstorm.io/install/">install Sandstorm</a> and choose to use a subdomain of our dynamic DNS service sandcats.io, we’ll automatically set you up with an HTTPS certificate from GlobalSign. The private key never leaves your machine and is automatically rotated every week.</em></p>
+
+<p>People who run their own servers often do it for privacy. Many of them use our open source Sandstorm software to easily run apps like <a href="https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60">document editors</a>, <a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">group chat apps</a>, <a href="https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h">task management</a>, and <a href="https://apps.sandstorm.io">more</a>.</p>
+
+<p>But a private server is not really private if you’re communicating with it in plaintext. So, starting today, if you <a href="https://sandstorm.io/install/">install Sandstorm</a> on your own Linux server, and you choose to host at a subdomain of our free dynamic DNS service sandcats.io, you will have free, automatically-renewing HTTPS certificates by default. That means you get privacy on the network without any hassle.</p>
+
+<p>For companies and individuals who run their own Sandstorm servers, it’s now easy to secure yourself with HTTPS. Here are the steps.</p>
+
+<ol>
+  <li>
+    <p>Download and run the <a href="https://sandstorm.io/install/">Sandstorm install script</a>.</p>
+  </li>
+  <li>
+    <p>Choose a subdomain of <code>sandcats.io</code> you want to register (and tell us how to contact you to recover the domain).</p>
+  </li>
+  <li>
+    <p>Visit your server’s new web dashboard by clicking the URL printed out by the install script.</p>
+  </li>
+</ol>
+
+<p>Sandstorm automatically enables HTTPS as part of step 2. There’s no setting up reverse proxies, no creating certificate signing requests, no waiting on a CA. Your private key is on your machine and never leaves.</p>
+
+<h3 id="why-you-need-https">Why you need HTTPS</h3>
+
+<p>HTTPS (also commonly but incorrectly called “SSL”) is important because the web’s original protocol, HTTP, is insecure – anyone in a coffee shop near you can see what you’re browsing or modify your traffic. This is a real threat; here’s a <a href="https://www.youtube.com/watch?v=my4oZqBU5zE">video of someone stealing HTTP traffic</a> that was made as a school project.</p>
+
+<p>Over the past five years, web companies like <a href="http://googleblog.blogspot.com/2011/10/making-search-more-secure.html">Google</a>, <a href="https://www.facebook.com/notes/facebook-engineering/secure-browsing-by-default/10151590414803920">Facebook</a>, and <a href="https://blog.twitter.com/2012/securing-your-twitter-experience-with-https">Twitter</a> have been switching their sites to require HTTPS. Sandstorm.io and all of its subdomains have always required HTTPS. The Chrome team is planning to <a href="https://www.chromium.org/Home/chromium-security/marking-http-as-non-secure">show a broken padlock</a> for plain HTTP sites. Companies that are responsible for a lot of user data have been making time to secure their sites with HTTPS.</p>
+
+<h3 id="our-search-for-a-certificate-vendor">Our search for a certificate vendor</h3>
+
+<p>Providing automatic HTTPS is more than just a technical problem. To be trusted, the certificates must come from a Certificate Authority that is already trusted by your browser. To deliver certificates to you, we needed to work with such an authority.</p>
+
+<p>So, earlier this year, I began to talk to people at CAs. But there was a complication: Sandstorm <a href="https://docs.sandstorm.io/en/latest/administering/wildcard/">requires a wildcard certificate</a> to achieve some of its security properties. That is, if your server is <code>example.sandcats.io</code>, all subdomains <code>*.example.sandcats.io</code> must be covered as well. Wildcard certificates are usually expensive – an order of magnitude more so than normal certificates. And when I talked to the inspiring folks at <a href="https://letsencrypt.org/">Let’s Encrypt</a>, I discovered that they weren’t ready to issue wildcard certificates.</p>
+
+<p>I was lucky enough to find Michael Trotta at <a href="https://www.globalsign.com/">GlobalSign</a>. He believed in our mission of making servers safe and easy for more people to run. Working together, we were able to set up a deal allowing us to offer free wildcard certificates under sandcats.io. Contracts were signed, and then it was time to write some code.</p>
+
+<h3 id="defending-against-the-next-heartbleed-weekly-key-rotation">Defending against the next Heartbleed: Weekly key rotation</h3>
+
+<p>We want Sandstorm to require as little maintenance as possible, so that there’s no reason not to run your own server. We especially want security problems to be solved with no action on your part.</p>
+
+<p>One of the biggest headaches for server admins in recent memory was <a href="http://heartbleed.com/">Heartbleed</a>, a bug in the popular OpenSSL library which could have revealed people’s private encryption keys to attackers.</p>
+
+<p>Patching the bug is the easy part: If you have automatic updates enabled, your Sandstorm will be updated within 24 hours of any release without any action on your part.</p>
+
+<p>What made Heartbleed so bad, though, was not just that systems had to be updated, but that all HTTPS keys and certificates had to be revoked and regenerated, in case they had already been stolen. This was a huge pain for sysadmins, and a huge pain for the certificate revocation infrastructure, which was not designed for everyone in the world to revoke certificates simultaneously.</p>
+
+<p>To solve this, Sandcats issues certificates valid for only seven days. Your server will automatically generate a new key and receive a new certificate every week. So, any compromise of your private key “fixes itself” over time. Granted, a week is a long time to live with the possibility of an active MITM attack, but realistically it took much longer than that for most revocations to take effect after Heartbleed (if they ever took effect at all).</p>
+
+<h3 id="the-result-every-sandstorm-app-is-secure-for-self-hosters">The result: Every Sandstorm app is secure for self-hosters</h3>
+
+<p>Because Sandstorm handles HTTPS, rather than the app or the system administrator, the <a href="https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60">Etherpad package</a> in Sandstorm doesn’t need to have any kind of special integration, nor does the <a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat package</a>, nor does the <a href="https://apps.sandstorm.io/app/sptx6z162fp1w8rwe92vc8tzm76v0mk0wwc9yafze2vpghjs48j0">Brainstorm package</a>, nor any other.</p>
+
+<p>So take a moment and <a href="https://sandstorm.io/install/">install Sandstorm now</a> to securely enjoy these kinds of apps, or at least <a href="https://demo.sandstorm.io">try the online demo</a>.</p>
+
+<p>And if you already have a Sandcats-enabled install of Sandstorm from before today, check out the <a href="https://docs.sandstorm.io/en/latest/administering/ssl/">documentation</a> to enable HTTPS!</p>
+
+</section>
+
+</div>
+
+
+    <footer>
+      <ul>
+        <li>
+          <h3><a href="/get">Get Sandstorm</a></h3>
+          <ul>
+            <li><a href="/get">For Individuals</a>
+            <li><a href="/get#self-host">For Organizations</a>
+            <li><a href="/get#self-host">For Self-hosters</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/features">Features</a></h3>
+          <ul>
+            <li><a href="/features">Core</a>
+            <li><a href="/features#security">Security</a>
+            <li><a href="/business">Sandstorm + Business</a>
+            <li><a href="/business#scale">Sandstorm + Scale</a>
+            <li><a href="/developer">Development</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="how-it-works">How it Works</a></h3>
+          <ul>
+            <li><a href="/how-it-works#grains">Fine-grained object containers</a>
+            <li><a href="/how-it-works#capabilities">Capability-based Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a>              </h3>
+          <ul>
+            <li><a href="/community#connect-with">Connect with us</a>
+            <li><a href="/community#helpothers">Help Others</a>
+            <li><a href="/community#helpproject">Help the Project</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/about">About</a></h3>
+          <ul>
+            <li><a href="/about">Sandstorm Story</a>
+            <li><a href="/about#team">Team</a>
+            <li><a href="/about#advisors">Advisors</a>
+            <li><a href="mailto:contact@sandstorm.io">Contact</a>
+          </ul>
+        </li>
+        <li>
+        <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <ul>
+            <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/blog">Blog</a></h3>
+          <ul>
+            <li><a href="/blog">Latest updates on Sandstorm.io</a>
+          </ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+							<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+								<input type="email" name="EMAIL" placeholder="e-mail" required>
+								<input type="submit" value="Submit">
+								</form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
+        </li>
+        <li>
+          <h3>Connect</h3>
+          <ul id="socialmedia-small">
+						<li><a class="twitter" href="https://twitter.com/SandstormIO"></a>
+						<li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank"></a>
+						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
+						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
+  			</ul>
+        </li>
+      </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
+    </footer>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-42127409-1', 'sandstorm.io');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Should apps get network access by default? Android vs. Sandstorm - Sandstorm Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Sandstorm.io">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
+    <meta property="og:url" content="https://sandstorm.io">
+    <meta property="og:description"
+        content="Take control of your web by running your own personal cloud server with Sandstorm.">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
+  </head>
+
+
+
+  <body id="blog">
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a href="/get">Sign Up</a>
+      <a href="/get#self-hosting">Download</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">How it Works</a>
+      <a href="/news/">Blog</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <!-- TODO: search -->
+    </nav>
+
+    <header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+<div class="post-list">
+
+<div class="sidebar">
+  <ul class="socialmedia">
+    <li><a class="twitter" href="https://twitter.com/SandstormIO">Twitter</a>
+    <li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank">Facebook</a>
+    <li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank">Google</a>
+    <li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank">Github</a>
+  </ul>
+
+  <div class="more">
+    <form id="signup" action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+      Join our mailing list for updates<br>
+      <input type="email" name="EMAIL" placeholder="E-mail" required><input type="submit" value="Submit">
+    </form>
+    <a href="/get">
+      Sandstorm is an open source operating system for personal and private clouds.
+      <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
+      <span class="selfhost" href="/install">or host your own</span>
+    </a>
+  </div>
+</div>
+
+
+<nav class="pagination top">
+  <a class="newer" href="/news/" title="All posts">&laquo; All posts</a>
+</nav>
+
+<section>
+  <h2>Should apps get network access by default? Android vs. Sandstorm</h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - 10 Jun 2015
+  <p>Google’s Android team has <a href="http://arstechnica.com/gadgets/2015/05/android-m-dev-preview-launches-permission-controls-fingerprint-api-and-more/">announced</a> that in Android M, users will be prompted to grant permissions to apps at the time the permission is used, rather than an the time the app is installed. That’s great! This will make it much easier for users to understand how permissions are being used and allows them to perform a “line-item veto” without uninstalling the whole app. This puts much more power in the hands of users, as it should be.</p>
+
+<p>Unfortunately, permission to access the network is now going to be granted totally automatically. Is this the right thing to do? <a href="http://www.androidpolice.com/2015/06/06/android-m-will-never-ask-users-for-permission-to-use-the-internet-and-thats-probably-okay/">Android Police</a> argues that it’s “probably okay”. But some of the arguments feel unconvincing.</p>
+
+<p>At Sandstorm, we have some strong opinions on this. Sandstorm, like Android, seeks to run apps in an environment that enforces a strong permissions model (but Sandstorm targets servers rather than phones). Part of Sandstorm’s security promise to the user is that apps are “confined”: they have <em>no communication with the outside world</em> unless and until the user grants them permissions. This promise is probably the most controversial part of our <a href="https://github.com/sandstorm-io/sandstorm/wiki/Security-Practices-Overview">security model</a>, but we continue to believe it is the right thing to do. <em>(Note: Sandstorm’s confinement guarantee is not fully enforced at this time, as we have intentionally poked holes in the sandbox during alpha testing in order to work around missing features. But, these will be closed over the next few months.)</em></p>
+
+<p>So, let’s take a look at the arguments the Android team is making for abandoning confinement.</p>
+
+<h3 id="bogus-argument-1-controlling-internet-access-is-redundant-on-top-of-other-permissions">Bogus Argument 1: Controlling internet access is redundant on top of other permissions.</h3>
+
+<p>The Android team apparently argues that being able to disable an app’s network access is not very important as long as all of your sensitive data (say, contacts) is guarded behind other permissions checks. If you don’t want the app to upload your contacts to the developer’s server, they say, don’t give it permission to see your contacts.</p>
+
+<p>This argument, to be frank, makes no sense. What if I <em>want</em> the app to organize my contacts (e.g. because it is a contact manager app), but still do <em>not</em> want it to upload my contacts to the developer’s server? The Android model seems to say that I must treat the app and the developer as one entity, which is unfortunate, but perhaps consistent with the SaaS model that Google is used to. We’d like to do better.</p>
+
+<p>In fact, proper confinement allows us to do something rather magical which the Android team seems to be overlooking: If I can confine an app, then I can safely load sensitive data into the app even if the app is malicious! This in turn makes it much easier to feel comfortable using apps from random developers I don’t know. It also means I don’t need to worry too much about bugs in the app.</p>
+
+<p>Moreover, even if I don’t plan to give the app any other permissions, I may still worry about whether the app might consume my resources in order to participate in a DDoS attack, anonymizing proxy service, or bitcoin mining rig behind my back.</p>
+
+<h3 id="bogus-argument-2-the-app-can-already-leak-data-by-opening-a-web-page-using-an-intent">Bogus Argument 2: The app can already leak data by opening a web page using an intent.</h3>
+
+<p>The Android team argues that an app can always use Android Intents to ask Chrome to open the developer’s web site, encoding my sensitive data as a URL parameter, thereby leaking my data. Because this is possible, they say, trying to provide confinement is pointless.</p>
+
+<p>First, two simple responses:</p>
+
+<ol>
+  <li>I will likely notice if an app opens Chrome with some weird URL, and be suspicious. That’s much better than it happening in secret.</li>
+  <li>The app probably can’t participate in a botnet through browser intents.</li>
+</ol>
+
+<p>More importantly, though, if intents allow trivial data leakage, perhaps that is a problem in intents. Perhaps the user needs to be asked whether or not they really want to open that link.</p>
+
+<p>But would that be annoying? I actually don’t think it would be too bad. People who have installed multiple browsers on Android today are, in fact, already protected: Android prompts the user to choose which browser to use. The user can, at this point, press “back” to avoid the interaction altogether. Perhaps Android Intents should in fact prompt the user to choose an app even when there is only one choice: in fact, there is always a second choice, which is “don’t open this at all”. Meanwhile, this interstitial lets the user know that they are switching apps, which may help them be less confused.</p>
+
+<h3 id="legitimate-argument-ux-is-hard">Legitimate Argument: UX is hard.</h3>
+
+<p>I think that the real reason the Android team doesn’t want to implement internet access as a permission is because getting the UX right is legitimately hard. Pushing an “allow/deny” prompt in the user’s face on the first packet sent is genuinely annoying and not very helpful to the user, and the Android people aren’t feeling particularly excited about trying to develop something better, perhaps because they think that users don’t care (a popular but <a href="http://boingboing.net/2015/06/08/internet-users-care-about-thei.html">incorrect</a> assumption).</p>
+
+<p>I believe there is a better way: Instead of prompting the user to allow or deny internet access as a whole, prompt them for individual <em>capabilities</em> that the app needs, and then merge that prompt with a choice that they were <em>already making</em>. It turns out that most security decisions, if you look carefully enough, are in fact paired with some functionality choice. If you merge the choices together, then one of two things happens:</p>
+
+<ol>
+  <li>The functionality choice is a choice the user already had to make, and by merging the security choice, you’ve avoided forcing the user to answer a separate security question.</li>
+  <li>The functionality choice is a choice the user <em>wasn’t</em> already being offered, but by offering them a choice, you are giving them a real, useful ability that they didn’t have.</li>
+</ol>
+
+<p>Let’s illustrate with some examples:</p>
+
+<ul>
+  <li><strong>Contacts:</strong> Many Android apps want to send “viral” invites to your friends. To accomplish this, the app first asks for permission to your contact list. A <em>legitimate</em> app uses that permission to display a contact picker back to you, from which you can choose the people whom you want to invite, and the app will then only <s>spam</s> invite those people. An <em>illegitimate</em> app will use the permission to spam or harvest your contacts without asking you first. (Sometimes these illegitimate apps are <a href="http://blog.path.com/post/17274932484/we-are-sorry">big names</a>!) So what are the two choices here?
+    <ul>
+      <li><strong>Security choice:</strong> Do you want give the app permission to use your contacts?</li>
+      <li><strong>Functionality choice:</strong> <em>Which</em> contacts do you want to invite?</li>
+    </ul>
+
+    <p>Android actually provides a contact picker UI which can be invoked via an intent. When used, instead of requesting permission to your <em>whole</em> contact list just to show you a picker, the app asks Android to display the picker, and receives permissions <em>only</em> to the contacts you choose. To the user, the UX is exactly the same (they choose whom to invite), but there is <em>no</em> security prompt, and yet illegitimate use is blocked. Hooray!</p>
+
+    <p>Sadly, many apps choose not to use this built-in picker, perhaps because developers think they can draw a prettier picker themselves and that the user doesn’t care about granting the extra permission. In my opinion, the Android-provided picker should be improved and the contacts permission discouraged – or disabled – in order to push developers away from drawing their own pickers.</p>
+  </li>
+  <li><strong>Email app:</strong> An app which wants to access your email (say, though IMAP) needs to know your server address and credentials, and then needs internet connectivity to talk to it. But can we do better?
+    <ul>
+      <li><strong>Security choice:</strong> Do you want to give the app permission to talk to your server?</li>
+      <li><strong>Functionality choice:</strong> What server should the app talk to, and what is the password?</li>
+    </ul>
+
+    <p>What if the platform implemented a “server picker” UI, so that the mail app merely says “I need a server address, username, and password”, the platform displays a form to the user, and then the requesting app not only receives information back, but also receives permission to access <em>specifically that server</em>? The user is, again, only doing something they had to do anyway: choose their server. No security prompt was ever presented, and yet the security ends up correct. (Plus, if you take it a step further by having the app proxy requests through the platform, then the platform could in fact hold on to the user’s mail server password, preventing the app from accidentally leaking it.)</p>
+  </li>
+  <li><strong>Locked-in Cloud API:</strong> Say a scheduling app wants to talk to the Google Calendar cloud API. The app only integrates with Google Calendar and no other service. Here we see an interesting side-effect come into play:
+    <ul>
+      <li><strong>Security choice:</strong> Do you want to give the app permission to access your Calendar account?</li>
+      <li><strong>Functionality choice:</strong> Which account do you want the app to use? (If you have more than one.)</li>
+      <li><strong>Freedom choice:</strong> Which <em>server</em> do you want the app to talk to?</li>
+    </ul>
+
+    <p>In this case, Android actually has an account management system and picker UI which handles the first two choices as one unit, exactly as I’d like. But I am <em>not</em> allowed to choose which server to use – I am locked into Google’s server. What if there is a third-party service – or open source server app – which I would like to use which has implemented a Google-calendar-compatible API? As long as the API is implemented correctly, I ought to be able to make apps use the alternate service, rather than be locked into Google.</p>
+
+    <p>If the security choice is mandatory anyway, and it is done in a <em>fine-grained</em> way (i.e. the request is for a specific server, rather than arbitrary network access), then the freedom choice can naturally be provided at the same time, without the app even knowing about it.</p>
+  </li>
+</ul>
+
+<h3 id="the-powerbox-ui">The Powerbox UI</h3>
+
+<p>All of the examples above will be supported through Sandstorm’s “Powerbox” UI. In general, the Powerbox is an arbitrary picker which can be invoked by any app and extended by any app. Underlying the Powerbox is the <a href="https://capnproto.org/rpc.html">Cap’n Proto RPC protocol</a>, which naturally represents capabilities (as granted by the powerbox) as RPC object references, automatically taking care of permissions and message routing.</p>
+
+<p>We have been laying the groundwork for the Powerbox for some time. The <a href="https://github.com/sandstorm-io/sandstorm/wiki/Security-Practices-Overview#capability-based-usable-security">infrastructure</a> is ready, and we are now working on giving it a UI. This will happen gradually over the next couple months.</p>
+
+<p>Even without the Powerbox, Sandstorm is highly usable today. <a href="https://demo.sandstorm.io">Try the demo</a>, <a href="https://sandstorm.io/install/">install your own (it’s open source)</a>, or <a href="https://sandstorm.io/preorder.html">preorder hosting</a>.</p>
+
+</section>
+
+</div>
+
+
+    <footer>
+      <ul>
+        <li>
+          <h3><a href="/get">Get Sandstorm</a></h3>
+          <ul>
+            <li><a href="/get">For Individuals</a>
+            <li><a href="/get#self-host">For Organizations</a>
+            <li><a href="/get#self-host">For Self-hosters</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/features">Features</a></h3>
+          <ul>
+            <li><a href="/features">Core</a>
+            <li><a href="/features#security">Security</a>
+            <li><a href="/business">Sandstorm + Business</a>
+            <li><a href="/business#scale">Sandstorm + Scale</a>
+            <li><a href="/developer">Development</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="how-it-works">How it Works</a></h3>
+          <ul>
+            <li><a href="/how-it-works#grains">Fine-grained object containers</a>
+            <li><a href="/how-it-works#capabilities">Capability-based Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a>              </h3>
+          <ul>
+            <li><a href="/community#connect-with">Connect with us</a>
+            <li><a href="/community#helpothers">Help Others</a>
+            <li><a href="/community#helpproject">Help the Project</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/about">About</a></h3>
+          <ul>
+            <li><a href="/about">Sandstorm Story</a>
+            <li><a href="/about#team">Team</a>
+            <li><a href="/about#advisors">Advisors</a>
+            <li><a href="mailto:contact@sandstorm.io">Contact</a>
+          </ul>
+        </li>
+        <li>
+        <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <ul>
+            <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/blog">Blog</a></h3>
+          <ul>
+            <li><a href="/blog">Latest updates on Sandstorm.io</a>
+          </ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+							<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+								<input type="email" name="EMAIL" placeholder="e-mail" required>
+								<input type="submit" value="Submit">
+								</form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
+        </li>
+        <li>
+          <h3>Connect</h3>
+          <ul id="socialmedia-small">
+						<li><a class="twitter" href="https://twitter.com/SandstormIO"></a>
+						<li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank"></a>
+						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
+						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
+  			</ul>
+        </li>
+      </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
+    </footer>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-42127409-1', 'sandstorm.io');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
+  </body>
+</html>

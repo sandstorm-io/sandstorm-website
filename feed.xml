@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Sandstorm.io Blog</title>
+		<description>Latest updates on Sandstorm.io</description>		
+		<link>https://sandstorm.io</link>
+		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Upcoming Sandstorm meetups in SF, NY, Boston, Berlin, Zurich</title>
+				<description>&lt;p&gt;Here in the San Francisco Bay Area, since May 2015, we’ve been organizing &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/&quot;&gt;monthly Sandstorm meetups&lt;/a&gt; for community members can share their apps, works in progress, and learn from each other.  Recently, Sandstorm community members have stepped up to organize &lt;a href=&quot;http://sandstorm.meetup.com/&quot;&gt;local Sandstorm meetups&lt;/a&gt; in &lt;a href=&quot;http://www.meetup.com/Sandstorm-NY/&quot;&gt;New York&lt;/a&gt;, &lt;a href=&quot;http://www.meetup.com/Sandstorm-Boston/&quot;&gt;Boston&lt;/a&gt;, &lt;a href=&quot;http://www.meetup.com/Sandstorm-Berlin/&quot;&gt;Berlin&lt;/a&gt;, and &lt;a href=&quot;http://www.meetup.com/Sandstorm-CH/&quot;&gt;Switzerland&lt;/a&gt; as well. Scroll to the bottom for the list of upcoming events:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://sandstorm.meetup.com&quot;&gt;&lt;img src=&quot;/news/images/SandstormMeetups.png&quot; alt=&quot;map of Sandstorm meetups&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;To put your city on the map, drop a line to &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&quot;&gt;&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&lt;/a&gt;, and I’ll get you all set up.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Upcoming Sandstorm events worldwide:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tue Jan 19, 2016 - Boston, USA - &lt;a href=&quot;http://www.meetup.com/Sandstorm-Boston/events/227067134/&quot;&gt;The Future of Sandstorm’s Powerbox UI&lt;/a&gt; (feat. Sandstorm core dev Drew Fisher)&lt;/li&gt;
+  &lt;li&gt;Wed Jan 20, 2016 - New York, USA - &lt;a href=&quot;http://www.meetup.com/Sandstorm-NY/events/227579425/&quot;&gt;January Sandstorm NYC Meetup&lt;/a&gt; (feat. Sandstorm core dev Asheesh Laroia)&lt;/li&gt;
+  &lt;li&gt;Wed Jan 27, 2016 - San Francisco, USA - &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/227595644/&quot;&gt;January Meetup with Lightning Talks&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Wed Jan 27, 2016 - Berlin, Germany - &lt;a href=&quot;http://www.meetup.com/Sandstorm-Berlin/events/227978660/&quot;&gt;First Sandstorm group session Berlin&lt;/a&gt; (feat. Sandstorm core dev Asheesh Laroia, via Skype)&lt;/li&gt;
+  &lt;li&gt;Tue Feb 16, 2016 - Zurich, Switzerland - &lt;a href=&quot;http://www.meetup.com/Sandstorm-CH/events/226863112/&quot;&gt;First Sandstorm Swiss Project Night&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Mon, 11 Jan 2016 00:00:00 -0800</pubDate>
+				<link>https://sandstorm.io/news/2016-01-11-meetups.html</link>
+				<guid isPermaLink="true">https://sandstorm.io/news/2016-01-11-meetups.html</guid>
+			</item>
+		
+			<item>
+				<title>Sharing is referring - up to 30 GB bonus storage</title>
+				<description>&lt;p&gt;The easiest way to enjoy Sandstorm is on our &lt;a href=&quot;https://oasis.sandstorm.io/&quot;&gt;managed hosting&lt;/a&gt;.
+Now, when you invite your friends to the service, you’ll get up to 30 GB
+of bonus storage as our way of saying thanks. When you share a grain with a
+friend, and they make an account and start sharing, that’s a referral.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-it-works&quot;&gt;How it works&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;You share a grain&lt;/strong&gt; with a friend (who isn’t already an Oasis user).&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;margin: auto; max-width: 100%; display: block;&quot; src=&quot;/news/images/share_access.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Friend &lt;strong&gt;signs in.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;margin: auto; max-width: 100%; display: block;&quot; src=&quot;/news/images/referral-2.svg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Friend shares a grain&lt;/strong&gt; with any person (including you), who successfully opens the grain.&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;margin: auto; max-width: 100%; display: block;&quot; src=&quot;/news/images/share_access.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;keeping-track-of-your-bonus&quot;&gt;Keeping track of your bonus&lt;/h3&gt;
+
+&lt;p&gt;To see how you’re progressing, check out the referral program page in the
+top-right drop-down menu.&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;margin: auto; max-width: 100%; display: block;&quot; src=&quot;/news/images/referral-program-menu.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Or you can visit the &lt;a href=&quot;https://oasis.sandstorm.io/referrals&quot;&gt;referrals program page&lt;/a&gt;
+directly. Honestly, you should do that right now just to see
+&lt;a href=&quot;https://github.com/neynah&quot;&gt;Néna Nguyễn’s&lt;/a&gt; design work.&lt;/p&gt;
+
+&lt;p&gt;Paid subscribers can get up to 30 GB of free storage, in addition to the storage
+from their account level, 2 GB per person they refer. Free account holders can
+unlock unlimited grains and 50 MB of free storage per person they refer, up to 2 GB
+total. If you need even more space, you can always upgrade your account.&lt;/p&gt;
+
+&lt;h3 id=&quot;common-question-i-received-referral-bonus-storage-for-someone-i-dont-know-how-does-that-happen&quot;&gt;Common question: I received referral bonus storage for someone I don’t know. How does that happen?&lt;/h3&gt;
+
+&lt;p&gt;Anyone who signs up for an Oasis account after opening up a grain that you shared
+counts as your referral. If you tweeted a link or shared a document on a mailing
+list (e.g., puzzle hunt team, collaborators at work, study group), anyone who
+found Oasis through you and signs up for an account counts as your referral.&lt;/p&gt;
+
+&lt;h3 id=&quot;get-started&quot;&gt;Get started&lt;/h3&gt;
+
+&lt;p&gt;That’s it! To get started, open any grain and click Share Access in the top bar.&lt;/p&gt;
+</description>
+				<pubDate>Fri, 18 Dec 2015 00:00:00 -0800</pubDate>
+				<link>https://sandstorm.io/news/2015-12-18-referral-program.html</link>
+				<guid isPermaLink="true">https://sandstorm.io/news/2015-12-18-referral-program.html</guid>
+			</item>
+		
+			<item>
+				<title>7 community-driven Sandstorm presentations in 2015</title>
+				<description>&lt;p&gt;As 2015 comes to a close, I’d love to give a big shout-out to the members of the Sandstorm community who have spoken about Sandstorm. Here’s a &lt;a href=&quot;https://www.youtube.com/watch?v=i0oZ1J2hrbU&amp;amp;list=PLUYHhtn-w7dMbvD_big0_qrfumPBIQZR6&quot;&gt;YouTube playlist&lt;/a&gt; of the ones that we have videos of:&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/i0oZ1J2hrbU?list=PLUYHhtn-w7dMbvD_big0_qrfumPBIQZR6&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/jacksingleton&quot;&gt;Jack Singleton&lt;/a&gt;, author of &lt;a href=&quot;https://oasis.sandstorm.io/appdemo/7qvcjh7gk0rzdx1s3c8gufd288sesf6vvdt297756xcv4q8xxvhh&quot;&gt;HackerSlides&lt;/a&gt; and lead dev on &lt;a href=&quot;https://oasis.sandstorm.io/appdemo/ztxnreej8a0pqn97ccfhuckswjkrmsaavn85n5sgzk30tv2k4y9h&quot;&gt;SandForms&lt;/a&gt;, spoke at &lt;a href=&quot;https://www.youtube.com/watch?v=bsrDm4SkyWQ&quot;&gt;Chaos Communication Camp&lt;/a&gt;, and organized a Sandstorm booth at the &lt;a href=&quot;https://libraryfreedomproject.org/digital-rights-in-libraries/&quot;&gt;Digital Rights in Libraries Conference&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://pugs.blogs.com/about.html&quot;&gt;Audrey Tang&lt;/a&gt;, author of &lt;a href=&quot;https://oasis.sandstorm.io/appdemo/a0n6hwm32zjsrzes8gnjg734dh6jwt7x83xdgytspe761pe2asw0&quot;&gt;EtherCalc&lt;/a&gt;, gave a lightning talk at &lt;a href=&quot;https://www.youtube.com/watch?v=Pgwrp8fuW1k&quot;&gt;Ignite Open Data&lt;/a&gt; and also created a &lt;a href=&quot;https://docs.google.com/presentation/d/1-ZVGV6qlQ2cug7Rl_qkSduiFkNLdCbSCuqIcLhd3sA4/edit&quot;&gt;Chinese version of the speaker kit&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jon.sprig.gs/blog/&quot;&gt;Jon Spriggs&lt;/a&gt; spoke &lt;a href=&quot;https://www.youtube.com/watch?v=crZt0qmJiTQ&quot;&gt;about Sandstorm at Oggcamp&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/jeffmendoza&quot;&gt;Jeff Mendoza&lt;/a&gt; &lt;a href=&quot;https://youtu.be/MYJngTwH1Qg&quot;&gt;gave a lightning talk at GopherCon&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/geekblogtv&quot;&gt;James Cyrus&lt;/a&gt;, host of &lt;a href=&quot;https://www.youtube.com/channel/UCnt2hS-J7T7Zh-S6tn1I3KA&quot;&gt;GeekblogTV&lt;/a&gt;, produced &lt;a href=&quot;https://www.youtube.com/watch?v=i0oZ1J2hrbU&quot;&gt;this tutorial&lt;/a&gt; on installing Sandstorm on your Digital Ocean droplet&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/ocdtrekkie&quot;&gt;Jake Weisz&lt;/a&gt;, who &lt;a href=&quot;https://apps.sandstorm.io/author/Jacob%2520Weisz&quot;&gt;packaged many apps&lt;/a&gt; and is super helpful in answering community questions on &lt;a href=&quot;https://groups.google.com/forum/#!forum/sandstorm-dev&quot;&gt;sandstorm-dev&lt;/a&gt;, spoke at the &lt;a href=&quot;https://chicagolug.org/tag/jake-weisz.html&quot;&gt;Chicago GNU/Linux Users Group&lt;/a&gt; as well as &lt;a href=&quot;http://www.meetup.com/Chicago-Open-Source-Open-Mic/events/224632294/&quot;&gt;Open Source Open Mic&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://mediagoblin.org/news/deb-nicholson-oscon-award.html&quot;&gt;Deb Nicholson&lt;/a&gt; and &lt;a href=&quot;http://dustycloud.org/&quot;&gt;Chris Webber&lt;/a&gt; (of &lt;a href=&quot;https://apps.sandstorm.io/app/70awyqss6jq2gkz7dwzsnvumzr07256pzdt3hda9acfuxwh6uh7h&quot;&gt;MediaGoblin&lt;/a&gt;) gave a Sandstorm demo during &lt;a href=&quot;http://ftp.osuosl.org/pub/fosdem//2015/devroom-distributions/can_distros_make_the_link%3f_lets_package_the_customizable,_free_software_web_of_the_future!_.mp4&quot;&gt;their FOSDEM talk&lt;/a&gt; (Sandstorm demo starts at 24:57).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I made this list based on &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/wiki/Sandstorm-Talks&quot;&gt;the page on the wiki&lt;/a&gt;. If you also gave a talk about Sandstorm this year and are just now adding yourself to the wiki, drop me a line at &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&quot;&gt;&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&lt;/a&gt;, and I’ll update the post to include you. A huge thanks to everyone who has given a talk, as well as the folks in the brigade who show up everywhere on Hacker News, reddit, and request coverage of Sandstorm on the &lt;a href=&quot;http://www.jupiterbroadcasting.com/90881/thankfully-its-open-source-las-393/&quot;&gt;Linux Action Show&lt;/a&gt;. I heart all of you. If any of you happen to live in or travel through the SF Bay Area, you should share your work at a &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/&quot;&gt;Sandstorm meetup&lt;/a&gt; or at least drop by.&lt;/p&gt;
+
+&lt;p&gt;Here are some ways to get involved in the community:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Start a &lt;a href=&quot;https://sandstorm.meetup.com&quot;&gt;local Sandstorm meetup&lt;/a&gt; and spread the love: drop a line to &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&quot;&gt;&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&lt;/a&gt; and let me know where you are.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Give a Sandstorm talk at a local meetup or hackerspace or your work place: check out &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/wiki/Speaker-Kit-Lightning-Talk&quot;&gt;this speaker kit&lt;/a&gt;, and add your talk to &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/wiki/Sandstorm-Talks&quot;&gt;the list&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Subscribe to the shiny new &lt;a href=&quot;https://www.youtube.com/channel/UC8xKZRW86Fa9W00uAppBXXg&quot;&gt;Sandstorm YouTube channel&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Stay tuned for App Market highlights of 2015!&lt;/p&gt;
+
+</description>
+				<pubDate>Thu, 17 Dec 2015 00:00:00 -0800</pubDate>
+				<link>https://sandstorm.io/news/2015-12-17-community-talks.html</link>
+				<guid isPermaLink="true">https://sandstorm.io/news/2015-12-17-community-talks.html</guid>
+			</item>
+		
+			<item>
+				<title>Authenticated app packages on Sandstorm with PGP and Keybase</title>
+				<description>&lt;p&gt;I like to joke that Sandstorm is a security project posing as a
+usability project.  In actuality, it’s both!  Sandstorm users deserve to be
+confident that the apps they’re running are exactly as
+the packager built them, and have not been backdoored or accidentally modified
+by a malicious ISP, government, or other attacker.  Furthermore, this
+information must be easy to consume and verify.&lt;/p&gt;
+
+&lt;p&gt;To that end, I’ve worked with Kenton to make it possible to provide a cryptographic chain of trust
+that connects the app package you’re installing to the app publisher’s online
+accounts.  When you install the
+&lt;a href=&quot;https://apps.sandstorm.io/app/a0n6hwm32zjsrzes8gnjg734dh6jwt7x83xdgytspe761pe2asw0&quot;&gt;EtherCalc spreadsheet app&lt;/a&gt;,
+Sandstorm lets you see that the app was made by the same Audrey Tang that owns
+&lt;a href=&quot;https://github.com/audreyt&quot;&gt;audreyt on Github&lt;/a&gt; and
+&lt;a href=&quot;https://keybase.io/au&quot;&gt;au on Keybase&lt;/a&gt;.
+Publisher information is shown front and center:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/news/images/install-ethercalc.png&quot; width=&quot;100%&quot; alt=&quot;Installing EtherCalc&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To make this all work, there are a few steps involved.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-app-id-is-a-public-key&quot;&gt;The app ID is a public key&lt;/h3&gt;
+
+&lt;p&gt;Sandstorm has required that apps be signed since its inception, providing
+a first line of defense against package corruption.  The app is signed with an
+app-specific Ed25519 key at package-building time.  Sandstorm uses the public key
+as the app’s ID on the app market and your server.&lt;/p&gt;
+
+&lt;p&gt;This guarantees that app packages cannot be modified by a CDN or the app market
+without using a different app ID.  This also had the nice effect of providing
+trust-on-first-use properties for apps until we were able to bind these
+identities to something more meaningful.  The upshot: when you’ve installed an
+app, only the same app author can provide updates to it.&lt;/p&gt;
+
+&lt;h3 id=&quot;connect-the-app-id-to-a-pgp-key&quot;&gt;Connect the app ID to a PGP key&lt;/h3&gt;
+
+&lt;p&gt;Since the release of the &lt;a href=&quot;https://apps.sandstorm.io/&quot;&gt;app market&lt;/a&gt;,
+app packagers have been PGP-signing statements that they are the author of the
+Sandstorm app with that app ID, and include that statement, their PGP public 
+key, and the email address associated with that key in their package’s metadata.
+Since that metadata is in the Sandstorm package file signed by the Ed25519 key,
+any server running Sandstorm can verify
+that these statements were provided by the person or people who control that
+Ed25519 key.  Additionally, since the statement is signed by the PGP key, there
+is a trust path from the owner of that PGP private key to the app you are
+installing. To defeat this, an attacker would need to convince an app author to
+replace both their signing statement and their PGP key in the package metadata
+with ones produced by the attacker.&lt;/p&gt;
+
+&lt;h3 id=&quot;connect-the-pgp-key-to-social-identities&quot;&gt;Connect the PGP key to social identities&lt;/h3&gt;
+
+&lt;p&gt;The next goal is to connect that PGP fingerprint to meaningful, real-world
+identities.  While a handful of people might be able to rely on the
+web-of-trust to verify PGP fingerprints, most users will need something more
+approachable.  That’s where &lt;a href=&quot;https://keybase.io&quot;&gt;Keybase&lt;/a&gt; comes in.  Keybase
+helps you link PGP keys to social identities, like GitHub or Twitter accounts.
+App authors can create a Keybase account, then create signed proofs-of-ownership
+that they post to their social media pages or websites.  Keybase provides an
+index of these proofs, so given a PGP fingerprint, you can list the accounts for
+which the PGP key’s owner has proven control.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-result-end-to-end-verified-apps&quot;&gt;The result: end-to-end verified apps&lt;/h3&gt;
+
+&lt;p&gt;When you go to install a package, Sandstorm verifies that the package is
+correctly signed by the Ed25519 key.  It looks for a PGP signature in the 
+metadata, and verifies that the PGP-signed assertion is for the correct app ID 
+and the email address specified in the metadata.  It queries the Keybase API to
+see what accounts the packager has proven ownership of, and lists them with 
+their links on the app install page.&lt;/p&gt;
+
+&lt;p&gt;Currently, the implementation of this feature trusts Keybase’s servers to verify
+proofs and return an accurate list of the signer’s identities. However, Keybase
+proofs are designed to be verifiable by third parties without trusting Keybase,
+and we plan to extend Sandstorm to do this, thus eliminating Keybase itself from
+the trust chain.&lt;/p&gt;
+
+&lt;p&gt;So that’s how Sandstorm links app packages to their
+creators’ social identities, with cryptographic verification at each step along
+the way, with no additional action needed by end users.  This is software
+authenticity that Just Works, and it’s available today for all Sandstorm users
+and packages in the App Market.  Today is a good day to
+&lt;a href=&quot;https://sandstorm.io/install/&quot;&gt;install Sandstorm on your own server&lt;/a&gt; or sign up
+for our &lt;a href=&quot;/news/2015-08-31-oasis-beta-launch.html&quot;&gt;managed hosting&lt;/a&gt;.&lt;/p&gt;
+</description>
+				<pubDate>Thu, 12 Nov 2015 00:00:00 -0800</pubDate>
+				<link>https://sandstorm.io/news/2015-11-12-authenticated-app-packages.html</link>
+				<guid isPermaLink="true">https://sandstorm.io/news/2015-11-12-authenticated-app-packages.html</guid>
+			</item>
+		
+			<item>
+				<title>Graphics and one-click installers for everyone</title>
+				<description>&lt;p&gt;Open source web app developers build great apps. But sometimes, backend-minded developers need a little help, from making it easy for end users to install their apps to making their icons and other graphics visually appealing. To make open source web apps &lt;a href=&quot;/news/2014-07-21-open-source-web-apps-require-federated-hosting.html&quot;&gt;viable&lt;/a&gt; as an ecosystem, the apps must be easy to install and use, and to get the attention they deserve, they should have good-looking icons that convey the purpose of the app.&lt;/p&gt;
+
+&lt;h3 id=&quot;graphics-for-everyone&quot;&gt;Graphics for everyone&lt;/h3&gt;
+
+&lt;p&gt;Lately, we’ve been running an experiment – will app authors be interested in custom graphics, designed by Néna Nguyen at Sandstorm? So far, &lt;a href=&quot;https://github.com/audreyt/ethercalc/issues/236&quot;&gt;the&lt;/a&gt; &lt;a href=&quot;https://github.com/cem/dillinger-sandstorm/pull/2&quot;&gt;response&lt;/a&gt; &lt;a href=&quot;https://github.com/cem/nodebb-sandstorm/pull/1&quot;&gt;has&lt;/a&gt; &lt;a href=&quot;https://github.com/jacksingleton/hacker-slides/issues/28&quot;&gt;been&lt;/a&gt; &lt;a href=&quot;https://github.com/strawlab/neuron-catalog/pull/36&quot;&gt;positive&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;So I’m excited to announce we’ll do this for everyone who packages their app
+for Sandstorm: To support app authors, we are happy to help with graphics. This is on top of the &lt;a href=&quot;https://apps.sandstorm.io/&quot;&gt;one-click install&lt;/a&gt; for your app that Sandstorm enables, which works just as well &lt;a href=&quot;https://oasis.sandstorm.io&quot;&gt;in the cloud&lt;/a&gt; as it does for &lt;a href=&quot;https://sandstorm.io/install&quot;&gt;self-hosters&lt;/a&gt; (see below). For instance, Néna will make an icon for you if you need it. Check out this awesome icon set that Néna made for Wekan (kanban board):&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h&quot;&gt;&lt;img src=&quot;/news/images/wekan-icon-gallery.png&quot; width=&quot;100%&quot; alt=&quot;logos&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Wekan (open source Trello alternative) icons in varying contexts. Check out &lt;a href=&quot;https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h&quot;&gt;Wekan on the App Market »&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;one-click-installers-for-everyone&quot;&gt;One-click installers for everyone&lt;/h3&gt;
+
+&lt;p&gt;An app written &lt;strong&gt;using Meteor&lt;/strong&gt; is the easiest to package – there’s a &lt;a href=&quot;https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial-meteor&quot;&gt;special tutorial for Meteor apps&lt;/a&gt;. If you input the URL of your GitHub repo below, we can even do a first-run of the packaging for you and ping you with a live demo featuring your own spk (Sandstorm package):&lt;/p&gt;
+
+&lt;iframe src=&quot;https://docs.google.com/a/corp.sandstorm.io/forms/d/1gj8h2rkeovWxtKP-8nTmouwLLxwEkh5iDNHudlckfE8/viewform?embedded=true&quot; width=&quot;760&quot; height=&quot;356&quot; frameborder=&quot;0&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot;&gt;Loading...&lt;/iframe&gt;
+
+&lt;p&gt;Meteor or not, any web app that runs on Linux can be packaged for Sandstorm. Get started with &lt;a href=&quot;https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial&quot;&gt;this documentation link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial/&quot;&gt;Packaging docs »&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Drop a line to community@sandstorm.io with any questions and we’ll make sure you succeed.&lt;/p&gt;
+</description>
+				<pubDate>Tue, 10 Nov 2015 00:00:00 -0800</pubDate>
+				<link>https://sandstorm.io/news/2015-11-10-icons-spks-for-everyone.html</link>
+				<guid isPermaLink="true">https://sandstorm.io/news/2015-11-10-icons-spks-for-everyone.html</guid>
+			</item>
+		
+			<item>
+				<title>Upcoming Sandstorm meetups in Palo Alto &amp; San Francisco</title>
+				<description>&lt;p&gt;Live in the Bay Area or passing through? Come out and meet other awesome folks working on cool projects on Sandstorm.&lt;/p&gt;
+
+&lt;p&gt;We’ve got two meetups coming up on Weds., 10/28 in Palo Alto and Tuesday, 11/3 in San Francisco.&lt;/p&gt;
+
+&lt;h3 id=&quot;sandstorm-bbq-in-the-park-palo-alto&quot;&gt;Sandstorm BBQ in the Park (Palo Alto)&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/225890352/&quot;&gt;RSVP link&lt;/a&gt;
+Time: 5:30 PM - 9PM-ish
+Date: Wednesday, October 28, 2015 (next Wednesday!)
+Where: &lt;a href=&quot;https://www.google.com/maps?f=q&amp;amp;hl=en&amp;amp;q=390+Fernando+Ave,+Palo+Alto,+CA,+us&quot;&gt;John Boulware Park (street parking available)
+390 Fernando Ave, Palo Alto, CA&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;5:30PM: BBQ in the park&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Dusk: When it gets too dark to eat, we can all head back to Sandstorm HQ (nearby) to hang out and have more unstructured discussions. Personally, I (Jade) want to see &lt;a href=&quot;https://en.wikipedia.org/wiki/Citizenfour&quot;&gt;Citizen Four&lt;/a&gt; because I haven’t seen it yet. Come watch with me.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;hands-on-sandstorm-qa-esp-app-packaging-and-lightning-talks-san-francisco&quot;&gt;Hands-on Sandstorm Q&amp;amp;A (esp. app packaging), and lightning talks (San Francisco)&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/226062960/&quot;&gt;RSVP link&lt;/a&gt;
+Time: 6:00PM - 9:30PM
+Date: Tuesday, November 3, 2015
+Where: &lt;a href=&quot;https://www.google.com/maps?f=q&amp;amp;hl=en&amp;amp;q=814+Mission+St,+5th+Floor,+San+Francisco,+CA,+us&quot;&gt;ThoughtWorks HQ (near Powell St. BART)
+814 Mission St, 5th Floor, San Francisco, CA&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;6 PM: If you want to talk tech details about Sandstorm, show up at six! Core developers, app packagers, self-hosters, and others will be helping each other with app packaging questions, installation issues, and more. We’ll have food!&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;8 PM: Lightning talks. Leave a comment to sign up for one!&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;8:30 PM - 9:30 PM: Socializing and informal Q&amp;amp;A.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Hope you can make it!&lt;/p&gt;
+</description>
+				<pubDate>Thu, 22 Oct 2015 00:00:00 -0700</pubDate>
+				<link>https://sandstorm.io/news/2015-10-22-upcoming-meetups.html</link>
+				<guid isPermaLink="true">https://sandstorm.io/news/2015-10-22-upcoming-meetups.html</guid>
+			</item>
+		
+			<item>
+				<title>Hanselminutes features Sandstorm.io</title>
+				<description>&lt;p&gt;&lt;a href=&quot;http://www.hanselminutes.com/497/your-personal-cloud-platform-with-sandstormio-and-kenton-varda&quot;&gt;&lt;img src=&quot;/news/images/hanselminutes.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Last week, &lt;a href=&quot;http://www.hanselminutes.com/497/your-personal-cloud-platform-with-sandstormio-and-kenton-varda&quot;&gt;Scott Hanselman interviewed Kenton Varda for his Hanselminutes podcast&lt;/a&gt;. Check out the half-hour interview in which they discuss Sandstorm, from big-picture vision (e.g., making the web safe for open source web apps) to how Sandstorm’s security features work.&lt;/p&gt;
+</description>
+				<pubDate>Tue, 20 Oct 2015 00:00:00 -0700</pubDate>
+				<link>https://sandstorm.io/news/2015-10-20-hanselminutes.html</link>
+				<guid isPermaLink="true">https://sandstorm.io/news/2015-10-20-hanselminutes.html</guid>
+			</item>
+		
+			<item>
+				<title>Free, automated SSL certificates for Sandstorm self-hosters</title>
+				<description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt; If you &lt;a href=&quot;https://sandstorm.io/install/&quot;&gt;install Sandstorm&lt;/a&gt; and choose to use a subdomain of our dynamic DNS service sandcats.io, we’ll automatically set you up with an HTTPS certificate from GlobalSign. The private key never leaves your machine and is automatically rotated every week.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;People who run their own servers often do it for privacy. Many of them use our open source Sandstorm software to easily run apps like &lt;a href=&quot;https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60&quot;&gt;document editors&lt;/a&gt;, &lt;a href=&quot;https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0&quot;&gt;group chat apps&lt;/a&gt;, &lt;a href=&quot;https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h&quot;&gt;task management&lt;/a&gt;, and &lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;more&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But a private server is not really private if you’re communicating with it in plaintext. So, starting today, if you &lt;a href=&quot;https://sandstorm.io/install/&quot;&gt;install Sandstorm&lt;/a&gt; on your own Linux server, and you choose to host at a subdomain of our free dynamic DNS service sandcats.io, you will have free, automatically-renewing HTTPS certificates by default. That means you get privacy on the network without any hassle.&lt;/p&gt;
+
+&lt;p&gt;For companies and individuals who run their own Sandstorm servers, it’s now easy to secure yourself with HTTPS. Here are the steps.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Download and run the &lt;a href=&quot;https://sandstorm.io/install/&quot;&gt;Sandstorm install script&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Choose a subdomain of &lt;code&gt;sandcats.io&lt;/code&gt; you want to register (and tell us how to contact you to recover the domain).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Visit your server’s new web dashboard by clicking the URL printed out by the install script.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Sandstorm automatically enables HTTPS as part of step 2. There’s no setting up reverse proxies, no creating certificate signing requests, no waiting on a CA. Your private key is on your machine and never leaves.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-you-need-https&quot;&gt;Why you need HTTPS&lt;/h3&gt;
+
+&lt;p&gt;HTTPS (also commonly but incorrectly called “SSL”) is important because the web’s original protocol, HTTP, is insecure – anyone in a coffee shop near you can see what you’re browsing or modify your traffic. This is a real threat; here’s a &lt;a href=&quot;https://www.youtube.com/watch?v=my4oZqBU5zE&quot;&gt;video of someone stealing HTTP traffic&lt;/a&gt; that was made as a school project.&lt;/p&gt;
+
+&lt;p&gt;Over the past five years, web companies like &lt;a href=&quot;http://googleblog.blogspot.com/2011/10/making-search-more-secure.html&quot;&gt;Google&lt;/a&gt;, &lt;a href=&quot;https://www.facebook.com/notes/facebook-engineering/secure-browsing-by-default/10151590414803920&quot;&gt;Facebook&lt;/a&gt;, and &lt;a href=&quot;https://blog.twitter.com/2012/securing-your-twitter-experience-with-https&quot;&gt;Twitter&lt;/a&gt; have been switching their sites to require HTTPS. Sandstorm.io and all of its subdomains have always required HTTPS. The Chrome team is planning to &lt;a href=&quot;https://www.chromium.org/Home/chromium-security/marking-http-as-non-secure&quot;&gt;show a broken padlock&lt;/a&gt; for plain HTTP sites. Companies that are responsible for a lot of user data have been making time to secure their sites with HTTPS.&lt;/p&gt;
+
+&lt;h3 id=&quot;our-search-for-a-certificate-vendor&quot;&gt;Our search for a certificate vendor&lt;/h3&gt;
+
+&lt;p&gt;Providing automatic HTTPS is more than just a technical problem. To be trusted, the certificates must come from a Certificate Authority that is already trusted by your browser. To deliver certificates to you, we needed to work with such an authority.&lt;/p&gt;
+
+&lt;p&gt;So, earlier this year, I began to talk to people at CAs. But there was a complication: Sandstorm &lt;a href=&quot;https://docs.sandstorm.io/en/latest/administering/wildcard/&quot;&gt;requires a wildcard certificate&lt;/a&gt; to achieve some of its security properties. That is, if your server is &lt;code&gt;example.sandcats.io&lt;/code&gt;, all subdomains &lt;code&gt;*.example.sandcats.io&lt;/code&gt; must be covered as well. Wildcard certificates are usually expensive – an order of magnitude more so than normal certificates. And when I talked to the inspiring folks at &lt;a href=&quot;https://letsencrypt.org/&quot;&gt;Let’s Encrypt&lt;/a&gt;, I discovered that they weren’t ready to issue wildcard certificates.&lt;/p&gt;
+
+&lt;p&gt;I was lucky enough to find Michael Trotta at &lt;a href=&quot;https://www.globalsign.com/&quot;&gt;GlobalSign&lt;/a&gt;. He believed in our mission of making servers safe and easy for more people to run. Working together, we were able to set up a deal allowing us to offer free wildcard certificates under sandcats.io. Contracts were signed, and then it was time to write some code.&lt;/p&gt;
+
+&lt;h3 id=&quot;defending-against-the-next-heartbleed-weekly-key-rotation&quot;&gt;Defending against the next Heartbleed: Weekly key rotation&lt;/h3&gt;
+
+&lt;p&gt;We want Sandstorm to require as little maintenance as possible, so that there’s no reason not to run your own server. We especially want security problems to be solved with no action on your part.&lt;/p&gt;
+
+&lt;p&gt;One of the biggest headaches for server admins in recent memory was &lt;a href=&quot;http://heartbleed.com/&quot;&gt;Heartbleed&lt;/a&gt;, a bug in the popular OpenSSL library which could have revealed people’s private encryption keys to attackers.&lt;/p&gt;
+
+&lt;p&gt;Patching the bug is the easy part: If you have automatic updates enabled, your Sandstorm will be updated within 24 hours of any release without any action on your part.&lt;/p&gt;
+
+&lt;p&gt;What made Heartbleed so bad, though, was not just that systems had to be updated, but that all HTTPS keys and certificates had to be revoked and regenerated, in case they had already been stolen. This was a huge pain for sysadmins, and a huge pain for the certificate revocation infrastructure, which was not designed for everyone in the world to revoke certificates simultaneously.&lt;/p&gt;
+
+&lt;p&gt;To solve this, Sandcats issues certificates valid for only seven days. Your server will automatically generate a new key and receive a new certificate every week. So, any compromise of your private key “fixes itself” over time. Granted, a week is a long time to live with the possibility of an active MITM attack, but realistically it took much longer than that for most revocations to take effect after Heartbleed (if they ever took effect at all).&lt;/p&gt;
+
+&lt;h3 id=&quot;the-result-every-sandstorm-app-is-secure-for-self-hosters&quot;&gt;The result: Every Sandstorm app is secure for self-hosters&lt;/h3&gt;
+
+&lt;p&gt;Because Sandstorm handles HTTPS, rather than the app or the system administrator, the &lt;a href=&quot;https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60&quot;&gt;Etherpad package&lt;/a&gt; in Sandstorm doesn’t need to have any kind of special integration, nor does the &lt;a href=&quot;https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0&quot;&gt;Rocket.Chat package&lt;/a&gt;, nor does the &lt;a href=&quot;https://apps.sandstorm.io/app/sptx6z162fp1w8rwe92vc8tzm76v0mk0wwc9yafze2vpghjs48j0&quot;&gt;Brainstorm package&lt;/a&gt;, nor any other.&lt;/p&gt;
+
+&lt;p&gt;So take a moment and &lt;a href=&quot;https://sandstorm.io/install/&quot;&gt;install Sandstorm now&lt;/a&gt; to securely enjoy these kinds of apps, or at least &lt;a href=&quot;https://demo.sandstorm.io&quot;&gt;try the online demo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;And if you already have a Sandcats-enabled install of Sandstorm from before today, check out the &lt;a href=&quot;https://docs.sandstorm.io/en/latest/administering/ssl/&quot;&gt;documentation&lt;/a&gt; to enable HTTPS!&lt;/p&gt;
+</description>
+				<pubDate>Thu, 01 Oct 2015 00:00:00 -0700</pubDate>
+				<link>https://sandstorm.io/news/2015-10-01-free-ssl-certificates.html</link>
+				<guid isPermaLink="true">https://sandstorm.io/news/2015-10-01-free-ssl-certificates.html</guid>
+			</item>
+		
+			<item>
+				<title>Is curl|bash insecure?</title>
+				<description>&lt;p&gt;Since the early days of Sandstorm, we have offered the following mechanism for installing it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl https://install.sandstorm.io | bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As it turns out, a lot of people object to &lt;code&gt;curl|bash&lt;/code&gt;. In fact, some people object &lt;em&gt;very strongly&lt;/em&gt; to it, going so far as to scoff publicly at how obviously terrible it is and smugly proclaim that they dismissed our entire project when they saw this line. Usually, the loudest objectors claim that &lt;code&gt;curl|bash&lt;/code&gt; is bad for security.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.sandstorm.io/en/latest/developing/security-practices/&quot;&gt;Sandstorm is a security product&lt;/a&gt;, so we want to address that head-on.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-bogus-argument-code-execution&quot;&gt;The Bogus Argument: Code Execution&lt;/h3&gt;
+
+&lt;p&gt;I’ll admit: &lt;code&gt;curl|bash&lt;/code&gt; certainly &lt;em&gt;smells&lt;/em&gt; funny. To anyone with a basic understanding of Unix, the construction makes it really obvious: This command will give the named web site direct access to your system, with the ability to do anything that &lt;em&gt;you&lt;/em&gt; could do. This feels very wrong: We should be able to install software without giving the developers full access to our systems, right?&lt;/p&gt;
+
+&lt;p&gt;We at Sandstorm would obviously be the first to agree that software you install should not be automatically fully trusted – that’s why &lt;a href=&quot;https://docs.sandstorm.io/en/latest/developing/security-practices/#fine-grained-isolation&quot;&gt;Sandstorm itself runs every app in a secure, isolated sandbox by default&lt;/a&gt;. Unfortunately, however, traditional Unix software is always granted the full authority of the user who runs it. When you install software on Linux, no matter what package manager you use, you are giving that software permission to act as you. Most package managers will even execute scripts from the package at install time – as root. So in reality, although &lt;code&gt;curl|bash&lt;/code&gt; &lt;em&gt;looks&lt;/em&gt; scary, it’s really just laying bare the reality that applies to every popular package manager out there: anything you install can pwn you.&lt;/p&gt;
+
+&lt;p&gt;If you wish to install Sandstorm – or any software – without giving it full access to your system, you must install it on a dedicated machine, VM, or (perhaps, with caveats) user account. In fact, we highly encourage you to do so, for defense in depth. But, we know it’s more work than a lot of people want to deal with.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-better-argument-code-signing&quot;&gt;The Better Argument: Code Signing&lt;/h3&gt;
+
+&lt;p&gt;Some of the objectors, though, go a bit further: They claim that &lt;code&gt;curl|bash&lt;/code&gt; is more open to attack that other distribution mechanisms, potentially allowing a third party to replace our Sandstorm downloads with evil ones.&lt;/p&gt;
+
+&lt;p&gt;Of course, all content served by sandstorm.io – from software downloads to our blog – is served strictly over HTTPS (with HSTS).&lt;/p&gt;
+
+&lt;p&gt;Various people argue, though, that this is not good enough, and that we should be signing each release with keys kept offline.&lt;/p&gt;
+
+&lt;p&gt;In fact, I agree: where possible, we like to use two or more independent mechanisms of protecting against a security problem, so that when one breaks it’s not a big deal. So, as of today, it is possible to verify the Sandstorm installer from the PGP keys of various Sandstorm developers by following our “PGP-verified install” instructions.&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;https://docs.sandstorm.io/en/latest/install/#option-3-pgp-verified-install&quot;&gt;Try PGP-verified Install »&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;That said, we do not think this issue quite warrants the visceral anger we’ve seen people express over &lt;code&gt;curl|bash&lt;/code&gt;. Realistically, downloading and installing software while relying on HTTPS for integrity is a widely-used practice. The web sites for Firefox, Rust, Google Chrome, and many others offer an HTTPS download as the primary installation mechanism. It’s even the standard way to install most Linux distros in the first place (by downloading an iso from the web site). Many popular package managers, such as npm, rely only on HTTPS for integrity. &lt;code&gt;curl|bash&lt;/code&gt; over HTTPS is just as “secure” as any of these.&lt;/p&gt;
+
+&lt;h3 id=&quot;verifying-keys-with-keybase&quot;&gt;Verifying Keys with Keybase&lt;/h3&gt;
+
+&lt;p&gt;To get benefit from PGP code signing beyond what you get from HTTPS distribution, you must verify that the software is signed by the specific developer you are expecting – and to do that, you need a way to bootstrap trust in their PGP key. This means you can’t simply fetch the key from the developer’s own server. You can use PGP “Web of Trust”, but sadly few people really understand how to do that.&lt;/p&gt;
+
+&lt;p&gt;Recently, though, a fairly plausible option has emerged: &lt;a href=&quot;https://keybase.io&quot;&gt;Keybase.io&lt;/a&gt;. Keybase has implemented usable tools and techniques to bootstrap trust from a variety of sources, including social networks like Github and Twitter, all &lt;em&gt;without&lt;/em&gt; trusting Keybase. It’s unlikely that an attacker could compromise all of these sources at once. Once you’ve used Keybase to verify our PGP key, then you can verify the signed packages downloaded from our servers, and actually have a higher degree of confidence that the software is authentic than you would get from HTTPS alone.&lt;/p&gt;
+
+&lt;h3 id=&quot;non-security-concerns&quot;&gt;Non-security Concerns&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;curl|bash&lt;/code&gt; is not pretty, and people have raised some legitimate non-security-related concerns about it:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If the connection dies mid-line, bash will execute the incomplete line – however, this can be mitigated by wrapping the whole script in a bash function executed on the last line, as we do. (This is actually arguably a security concern if an attacker can induce a disconnect at a chosen point, but in any case it doesn’t apply to our script.)&lt;/li&gt;
+  &lt;li&gt;Although almost all package managers allow packages to run arbitrary install-time scripts (often as root), it is far more likely that a wholly hand-rolled install script will be sloppy and harm the system. In the case of Sandstorm, we have taken care to avoid interfering with your system in any way – in fact, Sandstorm self-containerizes in its own chroot under /opt/sandstorm, meaning that for the most part it does not touch the rest of your system at all. &lt;a href=&quot;https://install.sandstorm.io&quot;&gt;See comments at the top of the script for more details.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Installing software not managed by the distro’s package manager can be inconvenient for system administrators, especially those who are deeply familiar with the inner workings of their distro.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;On these concerns: We hear you.&lt;/p&gt;
+
+&lt;p&gt;For now, we believe that having our own install scripts allows us to iterate faster, compared to maintaining (and testing) half a dozen package formats for different distros. However, once Sandstorm reaches a stable release, we fully intend to offer more traditional packaging choices as well. We still have lots of work to do!&lt;/p&gt;
+
+&lt;h3 id=&quot;faq&quot;&gt;FAQ&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Does Sandstorm’s auto-updater verify signatures on updates?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;As of this release, yes. (This is in addition to using HTTPS, as it always has.)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What happens if the release-signing private key is compromised?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We can rotate the key at any time. Certificates on the old key expire in about a month. The auto-updater will begin using the new key as soon as it has installed an update that is aware of the new key. We sign updates with all old keys as well so that old Sandstorm installs continue to be able to update even after key rotation.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Are the installer and updater resistant to downgrade attacks?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Yes. The installer will not install a release more than a month old. The updater will never “downgrade” to an older version. We also plan to add an alert to the Sandstorm UI if the Sandstorm build is more than a month old, which could indicate that an attacker is blocking access to the update server.&lt;/p&gt;
+</description>
+				<pubDate>Thu, 24 Sep 2015 00:00:00 -0700</pubDate>
+				<link>https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install.html</link>
+				<guid isPermaLink="true">https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install.html</guid>
+			</item>
+		
+			<item>
+				<title>Sandstorm Oasis hosting open beta and App Market launch</title>
+				<description>&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;&lt;img src=&quot;/news/images/newui.png&quot; width=&quot;600&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;https://apps.sandstorm.io&quot;&gt;Try The App Market Now »&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As you know, Sandstorm’s mission is &lt;a href=&quot;/news/2014-07-21-open-source-web-apps-require-federated-hosting.html&quot;&gt;to bring open source and indie web apps to a wider audience&lt;/a&gt;. To run open source web apps, you need your own server – the developers aren’t a big corporation with resources to run servers for you. And for everyone to run open source web apps, &lt;em&gt;everyone&lt;/em&gt; needs control of their own server. That means that running your own server and installing apps on it needs to be so easy that everyone can do it. Most people do not have the time or expertise to edit config files or use SSH, so we need to eliminate the need. Installing apps on Sandstorm needs to be as easy as installing them on your phone – and it needs to be &lt;a href=&quot;https://docs.sandstorm.io/en/latest/developing/security-practices/&quot;&gt;secure by default&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We’ve made a lot of progress on these fronts – &lt;a href=&quot;https://demo.sandstorm.io&quot;&gt;try our online demo&lt;/a&gt; to see for yourself. However, up until now, to use Sandstorm, you still had to have a Linux machine to install it on. For many people, that’s great – running on your own machine provides the ultimate in privacy. But running a physical machine is still a burden no matter how easy the software may be, and a lot of people don’t want to do it. That falls short of our goal: if we want everyone to be able to use open source apps, we need to give them another option.&lt;/p&gt;
+
+&lt;h2 id=&quot;managed-hosting&quot;&gt;Managed Hosting&lt;/h2&gt;
+
+&lt;p&gt;Sandstorm Oasis is a managed hosting service for Sandstorm. For $6/mo. (but free during the beta), we will give you a web-accessible Sandstorm server on which you can install any apps you want. Choose from the apps on our &lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;app market&lt;/a&gt; or package and upload your own. Or better yet, package your apps and submit them to the app market for everyone to use.&lt;/p&gt;
+
+&lt;p&gt;When paying $6/mo for Oasis, you get a much better experience than you would installing Sandstorm on a $6/mo virtual machine elsewhere. In addition to the ease of use, Oasis knows how to give your apps resources when you are actually using them while not wasting any resources when you aren’t. In contrast, a personal VM will typically reserve a constant amount of RAM for the entire month while sitting idle most of the time. This means that on Oasis, you get the effect of having a server with many times more RAM for the same price.&lt;/p&gt;
+
+&lt;p&gt;Some might ask: Doesn’t managed hosting go against Sandstorm’s goal of decentralization? We don’t think so: the most difficult part of decentralization is separating the developers from the hosts. Once you are using Sandstorm apps, you can easily move your data between managed hosting and your own personal server, because the same apps are available everywhere. Sandstorm will always be available to run on your own machine as open source software, so the choice is yours. Moreover, we expect that some day there will be many competing Sandstorm hosting services located in many countries.&lt;/p&gt;
+
+&lt;h2 id=&quot;updates-for-self-hosters&quot;&gt;Updates for Self-hosters&lt;/h2&gt;
+
+&lt;p&gt;Today’s launch includes a HUGE update to our user interface. So much has changed that it would be futile to try to describe it; you should &lt;a href=&quot;https://demo.sandstorm.io&quot;&gt;just try it&lt;/a&gt;. We have, of course, pushed all these changes to our self-hosted users too. Some of you have even been following our &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm&quot;&gt;Github repo&lt;/a&gt; and IRC and helping us test these features early – thanks! For everyone else, run &lt;code&gt;sudo sandstorm update&lt;/code&gt; to update now, or wait for the auto-update by the end of today. Don’t have a server yet? &lt;a href=&quot;https://sandstorm.io/install&quot;&gt;Install Sandstorm on Linux now »&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;also-new-the-app-market&quot;&gt;Also New: The App Market&lt;/h2&gt;
+
+&lt;p&gt;Along with today’s launch, we have deployed our new &lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;App Market&lt;/a&gt;, full of Free and Open Source apps, to replace our old ad-hoc app list. You can now browse apps more easily, complete with ratings and reviews. More importantly, submitting your own apps is now more streamlined: you can upload your package directly from the command-line using the &lt;code&gt;spk publish&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;&lt;img src=&quot;/news/images/market.png&quot; width=&quot;600&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;our-terms-and-privacy-policy&quot;&gt;Our Terms and Privacy Policy&lt;/h2&gt;
+
+&lt;p&gt;People don’t usually talk about Terms of Service and Privacy Policies. It’s always the same story: a wall of inscrutable legalese that inevitably gives the service provider free reign to do whatever they want, which most users don’t even bother to read.&lt;/p&gt;
+
+&lt;p&gt;We wanted Oasis to be a little different. We wanted our terms to address a number of shortcomings we see in “cloud services” today, in each case protecting you, not us. And we wanted to make sure that normal people can read and understand how our terms protect them.&lt;/p&gt;
+
+&lt;p&gt;In particular:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We prohibit ourselves from looking at your data except under very specific, unusual circumstances (such as court orders).&lt;/li&gt;
+  &lt;li&gt;We promise to notify you if your data is the target of a court order (if we legally can do so).&lt;/li&gt;
+  &lt;li&gt;We think that protecting your data is the most important thing we do, and we will not delete it against your wishes unless we have no choice. In contrast, many cloud services are known for deleting people’s data on a whim when they violate obscure rules they may not have even known about.&lt;/li&gt;
+  &lt;li&gt;We do not tolerate harassment. Luckily, Sandstorm’s sharing model provides an elegant way to deal with it, without deleting your data.&lt;/li&gt;
+  &lt;li&gt;Unlike &lt;a href=&quot;http://arstechnica.com/information-technology/2015/08/oracle-security-chief-to-customers-stop-checking-our-code-for-vulnerabilities/&quot;&gt;some people&lt;/a&gt;, we explicitly permit white hat security research, so long as no one is harmed and bugs are responsibly disclosed.&lt;/li&gt;
+  &lt;li&gt;We have zero interest in “tracking” you to learn your interests and build a personal advertising profile, therefore our privacy policy prohibits us from doing so.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Check out the full &lt;a href=&quot;https://oasis.sandstorm.io/terms&quot;&gt;Terms of Service&lt;/a&gt; and &lt;a href=&quot;https://oasis.sandstorm.io/privacy&quot;&gt;Privacy Policy&lt;/a&gt; for details – and if you see anything wrong, feel free to &lt;a href=&quot;https://github.com/sandstorm-io/tos-pp&quot;&gt;file a bug&lt;/a&gt;!&lt;/p&gt;
+
+&lt;h2 id=&quot;free-during-beta&quot;&gt;Free During Beta&lt;/h2&gt;
+
+&lt;p&gt;Oasis is not done yet – we have lots to do. We anticipate it will remain in “beta” for several months – and during that time, the service is completely free. To get started with Oasis, head over to &lt;a href=&quot;https://oasis.sandstorm.io&quot;&gt;oasis.sandstorm.io&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;ps-the-name&quot;&gt;PS: The Name&lt;/h2&gt;
+
+&lt;p&gt;A couple months back, we asked you on Twitter what our managed hosting service should be called. Nearly everyone who replied – and there were a lot of you – had the same answer: “Oasis”. So, thank you for making the decision easy!&lt;/p&gt;
+</description>
+				<pubDate>Mon, 31 Aug 2015 00:00:00 -0700</pubDate>
+				<link>https://sandstorm.io/news/2015-08-31-oasis-beta-launch.html</link>
+				<guid isPermaLink="true">https://sandstorm.io/news/2015-08-31-oasis-beta-launch.html</guid>
+			</item>
+		
+	</channel>
+</rss>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Why doesn't Sandstorm just run Docker apps? - Sandstorm Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Sandstorm.io">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
+    <meta property="og:url" content="https://sandstorm.io">
+    <meta property="og:description"
+        content="Take control of your web by running your own personal cloud server with Sandstorm.">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
+  </head>
+
+
+
+  <body id="blog">
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a href="/get">Sign Up</a>
+      <a href="/get#self-hosting">Download</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">How it Works</a>
+      <a href="/news/">Blog</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <!-- TODO: search -->
+    </nav>
+
+    <header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+<div class="post-list">
+
+<div class="sidebar">
+  <ul class="socialmedia">
+    <li><a class="twitter" href="https://twitter.com/SandstormIO">Twitter</a>
+    <li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank">Facebook</a>
+    <li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank">Google</a>
+    <li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank">Github</a>
+  </ul>
+
+  <div class="more">
+    <form id="signup" action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+      Join our mailing list for updates<br>
+      <input type="email" name="EMAIL" placeholder="E-mail" required><input type="submit" value="Submit">
+    </form>
+    <a href="/get">
+      Sandstorm is an open source operating system for personal and private clouds.
+      <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
+      <span class="selfhost" href="/install">or host your own</span>
+    </a>
+  </div>
+</div>
+
+
+<nav class="pagination top">
+  <a class="newer" href="/news/" title="All posts">&laquo; All posts</a>
+</nav>
+
+<section>
+  <h2>Why doesn't Sandstorm just run Docker apps?</h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - 19 Aug 2014
+  <p>We get this question a lot. Sandstorm and Docker use the same Linux kernel features for containerization. Docker already has a large ecosystem of apps. Why introduce a new app format? Why not simply position Sandstorm as a UI for Docker? Wouldn’t that save a lot of work? Why reinvent the wheel?</p>
+
+<p>The fact of the matter is, Sandstorm and Docker, despite similar underlying tech, are very different platforms. Asking why Sandstorm doesn’t run Docker apps is a lot like asking why Android doesn’t run Linux desktop apps. If it’s the same Linux kernel under the hood, shouldn’t it be able to run the same apps? Well, a Linux desktop app would have a lot of problems running on Android. Most obviously, a desktop app’s UX would be all wrong on a small touchscreen. Moreover, the app would not fit into Android’s security model. It would not understand Android’s battery-saving lifecycle rules. It would not know how to tap into the unique devices (e.g. accelerometer, GPS) and opportunities (e.g. connecting with nearby devices) commonly available on phones but not on desktop.</p>
+
+<blockquote>Asking why Sandstorm doesn't run Docker apps is a lot like asking why Android doesn't run Linux desktop apps.</blockquote>
+
+<p>Running a Docker app on Sandstorm would be much the same story. Docker is designed to run off-the-shelf server-oriented Linux software and distributions inside containers. Docker’s platform, from the app’s point of view, is just Linux. From the user’s point of view, you use Docker much like you’d use traditional VMs and compute clusters; it’s just a lot more efficient.</p>
+
+<p>Sandstorm, though, is doing something completely different. We are trying to manage personal servers for end users. With Sandstorm, the person deciding what software to deploy is not necessarily a developer or system administrator. They may not know how to use a command line or edit config files. They may not know what a database is, and so aren’t likely to understand why they need to set up MySQL before they can run that app they’re interested in.</p>
+
+<p>This use case calls for a completely different model, just as phones call for a different model from desktops. We need to design a bunch of things differently:</p>
+
+<ul>
+  <li>
+    <p>Every app must have a web interface, and they must expose all configuration options through that interface.</p>
+  </li>
+  <li>
+    <p>Users expect their data to be organized in units of documents or other semantic objects, not in units of databases or relational tables. Apps must set up their own database and encapsulate it appropriately; the user won’t do it for them.</p>
+  </li>
+  <li>
+    <p>Users should not have to log into every app separately, especially when the app instance already belongs specifically to them and Sandstorm is already protecting access. So, apps must integrate with Sandstorm’s unified login system.</p>
+  </li>
+  <li>
+    <p>It would also be nice if users did not have to master a different sharing model for every app. Sandstorm supports fine-grained containers, such that every document can actually be in a separate container. This way, the platform can handle sharing consistently across all apps, by applying sharing to the containers. But, apps have to be designed for this.</p>
+  </li>
+  <li>
+    <p>Permission grants must be expressed in a way that users can understand. A user does not know what it means to allow an app to communicate on port 25, but they do know what it means to allow an app to send and receive e-mail under a particular e-mail address. In order for such permissions to be enforceable, the platform’s security model must actually operate in terms of these semantic permissions, not arbitrary TCP connections.</p>
+  </li>
+  <li>
+    <p>Updating an app must be a one-click (or even automatic) process. This means there must be a clearly-defined separation between the app “image” and its instance data, so that the platform is able to replace the former without harming the latter.</p>
+  </li>
+  <li>
+    <p>Users <em>will</em> install malicious apps from time to time, and they must be protected from these. The regular Linux kernel interface is far too wide, and critical exploits are found too often. We must instead present a much narrower interface and force apps to adapt. <a href="/news/2014-08-13-sandbox-security.html">See our previous post on this.</a></p>
+  </li>
+</ul>
+
+<p>For all these reasons, a Docker app simply would not be able to run under Sandstorm without modification. The modifications needed for typical Linux web apps tend to be light, but they are necessary.</p>
+
+<h3 id="why-not-at-least-use-the-container-tech">Why not at least use the container tech?</h3>
+
+<p>So, we’ve seen that it wouldn’t make sense to run a regular Docker app on Sandstorm. But, why don’t we still use Docker’s tech, and simply define an extra set of rules which Sandstorm apps much follow? Sandstorm would only be able to run the apps explicitly targeted for it, but at least we wouldn’t be reinventing the wheel technically, right?</p>
+
+<p>Well, first of all, we <em>do</em> use a lot of the same tech as Docker. Namely, we use the Linux kernel sandboxing features, such as namespaces and (soon) cgroups. These features do all of the heavy lifting of containerization.</p>
+
+<p>When it comes to userspace tools, it turns out that we just don’t really need anything Docker provides. Docker’s tools are designed to be highly adaptable and configurable in order to accommodate a wide range of Linux software without modification. Sandstorm, however, isn’t trying to run arbitrary Linux software. Apps already have to be adapted to Sandstorm’s environment. So, we are actually better off providing minimal configurability in order to keep the core system simple.</p>
+
+<p>Setting up a Sandstorm sandbox, based on raw Linux system calls, takes only a few hundred lines of code. Using Docker, it would probably be a few hundred lines of configuration instead, while adding a huge new dependency and all the maintenance issues that come with that. We would probably regularly find ourselves needing to push features upstream to Docker which Docker doesn’t otherwise need or want. It’s a lot of burden that wouldn’t buy us anything.</p>
+
+<p>We <em>do</em> often use Docker’s build tools in the process of building Sandstorm packages, simply because they provide a structured and reproducible way to gather an app and its dependencies into a chroot environment, which we can then package up. This is a fine option for app developers that does not affect the runtime system.</p>
+
+<h3 id="to-be-clear-docker-is-awesome">To be clear, Docker is awesome</h3>
+
+<p>We aren’t trying to dis Docker here. For what it’s trying to do – replace VMs with something not as horribly inefficient – Docker is amazing. We are excited to see it replace legacy IaaS solutions, and we will likely be targeting it as a way to run Sandstorm itself.</p>
+
+<p>But despite an initial appearance of similarity, Docker and Sandstorm simply aren’t the same thing, and forced sharing of code for very different purposes would not benefit either project.</p>
+
+<p><em>If you want to see Sandstorm succeed, there are 13 days left to <a href="http://igg.me/at/sandstorm">contribute to the campaign</a>.</em></p>
+
+</section>
+
+</div>
+
+
+    <footer>
+      <ul>
+        <li>
+          <h3><a href="/get">Get Sandstorm</a></h3>
+          <ul>
+            <li><a href="/get">For Individuals</a>
+            <li><a href="/get#self-host">For Organizations</a>
+            <li><a href="/get#self-host">For Self-hosters</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/features">Features</a></h3>
+          <ul>
+            <li><a href="/features">Core</a>
+            <li><a href="/features#security">Security</a>
+            <li><a href="/business">Sandstorm + Business</a>
+            <li><a href="/business#scale">Sandstorm + Scale</a>
+            <li><a href="/developer">Development</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="how-it-works">How it Works</a></h3>
+          <ul>
+            <li><a href="/how-it-works#grains">Fine-grained object containers</a>
+            <li><a href="/how-it-works#capabilities">Capability-based Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a>              </h3>
+          <ul>
+            <li><a href="/community#connect-with">Connect with us</a>
+            <li><a href="/community#helpothers">Help Others</a>
+            <li><a href="/community#helpproject">Help the Project</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/about">About</a></h3>
+          <ul>
+            <li><a href="/about">Sandstorm Story</a>
+            <li><a href="/about#team">Team</a>
+            <li><a href="/about#advisors">Advisors</a>
+            <li><a href="mailto:contact@sandstorm.io">Contact</a>
+          </ul>
+        </li>
+        <li>
+        <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <ul>
+            <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/blog">Blog</a></h3>
+          <ul>
+            <li><a href="/blog">Latest updates on Sandstorm.io</a>
+          </ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+							<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+								<input type="email" name="EMAIL" placeholder="e-mail" required>
+								<input type="submit" value="Submit">
+								</form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
+        </li>
+        <li>
+          <h3>Connect</h3>
+          <ul id="socialmedia-small">
+						<li><a class="twitter" href="https://twitter.com/SandstormIO"></a>
+						<li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank"></a>
+						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
+						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
+  			</ul>
+        </li>
+      </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
+    </footer>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-42127409-1', 'sandstorm.io');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
+  </body>
+</html>

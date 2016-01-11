@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Sandstorm Features</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Sandstorm.io">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
+    <meta property="og:url" content="https://sandstorm.io">
+    <meta property="og:description"
+        content="Take control of your web by running your own personal cloud server with Sandstorm.">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
+  </head>
+
+
+
+  <body id="features">
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a href="/get">Sign Up</a>
+      <a href="/get#self-hosting">Download</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">How it Works</a>
+      <a href="/news/">Blog</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <!-- TODO: search -->
+    </nav>
+
+    <header>
+  <h1>Features</h1>
+  <div>
+      <nav>
+        <a href="/features" class="current">Core &amp; Security</a>
+        <a href="/business">Business</a>
+        <a href="/developer">Developer</a>
+      </nav>
+  </div>
+</header>
+
+<script type="text/javascript">
+var appCount = "Dozens of";
+
+(function () {
+  // Fetch the app list so that we can display the number of apps currently in the
+  // market. I decided to make this a synchronous request because having the number
+  // flicker in after page load seemed undesirable. Sorry.
+  //
+  // TODO: Maybe update app index to export the count at a separate URL? Note that
+  //   the CORS hack in Sandstorm core would need updating too.
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://app-index.sandstorm.io/apps/index.json", false);
+  xhr.send(null);
+
+  if (xhr.status === 200) {
+    appCount = JSON.parse(xhr.responseText).apps.length;
+  }
+})();
+</script>
+
+<span class="start"><a href="/get">Get Sandstorm</a></span>
+
+<section id="core-features">
+  <h2>Core Features</h2>
+  <ul id="core">
+      <li class="choose-host">
+        <h3><strong>Choose your host</strong></h3>
+        <p>You decide where your data lives.
+        <p>Don't want to set up a server? Use ours at Sandstorm Oasis, or try one of our hosting partners located all over the world.
+        <p>Want more control? Run your own Sandstorm server on your own hardware. If you like, we'll set you up with free dynamic DNS and HTTPS certificates on a subdomain of Sandcats.io, or if you prefer you can set up Sandstorm on your own domain.
+        <p>If you change your mind later, you can move your apps and data between hosts at any time.
+
+      <li class="apps-growing">
+        <h3><strong><script type="text/javascript">document.write(appCount)</script> apps and growing</strong></h3>
+        <p>New apps are being added to the Sandstorm app market every week covering a wide range of use cases.
+        <p>We have apps for document editing, chat, task management, file storage, email, music playing, code hosting, forums, games, and more. Check them out on the Sandstorm App Market.
+
+      <li class="single-sign-on">
+        <h3><strong>Single Sign-on</strong></h3>
+        <p>
+          Once you sign into Sandstorm, all your apps know who you are. No need to sign in to each one individually and remember dozens of passwords.
+        </p>
+
+      <li class="unified-sharing">
+        <h3><strong>Unified sharing access control</strong></h3>
+        <p>
+          You can share any Sandstorm "grain" (such as a document or a chat room) with your friends or teammates using one common sharing interface.
+        </p>
+
+      <li class="powerbox">
+        <h3><strong>Connect apps with Powerbox</strong></h3>
+        <p>
+          Create a survey form that feeds into a spreadsheet, attach a document to a chat message, or give a scheduling app access to your calendar. All these interactions are handled through Sandstorm's "Powerbox" UI, which lets apps find each other and lets you grant permissions easily and securely.
+        </p>
+  </ul>
+
+<section id="security-features">
+  <h2>Security Features</h2>
+    <ul id="security">
+        <li class="protection">
+          <h3><strong>Protection against app bugs</strong></h3>
+          <p>
+            Sandstorm implement a wide range of measures designed to protect against security bugs in apps. Most bugs that would be serious security problems on other platforms either don't matter at all on Sandstorm or have drastically reduced impact.
+            <br>
+            <br>
+            <a href="https://docs.sandstorm.io/en/latest/developing/security-practices/" target="_blank">Read our docs to learn how it works.</a>
+          </p>
+
+        <li class="sandboxing">
+          <h3><strong>Sandboxing and confinement</strong></h3>
+          <p>
+            A Sandstorm app cannot talk to the rest of the world unless you give it permission. That means you can put sensitive secrets in any app and be rest-assured that your data is safe. It also means that apps cannot "phone home" to their developers in order to spy on you.
+          </p>
+
+        <li class="auditable">
+          <h3><strong>Auditable access</strong></h3>
+          <p>
+            You can always see who has access to your grains -- including people with whom you shared and other grains to which you connected it -- and you can revoke these connections at any time.
+          </p>
+
+        <li class="authentic">
+          <h3><strong>Authentic apps</strong></h3>
+          <p>
+            When you install an app on Sandstorm, you can see exactly who created the app package, including such details as their verified Twitter and GitHub accounts, verified domain names, and their PGP key fingerprint.
+          </p>
+
+        <li class="automatic">
+          <h3><strong>Automatic, authentic updates</strong></h3>
+          <p>Just like your web browser, it's important to keep Sandstorm up-to-date. Self-hosted Sandstorm updates itself automatically in-place with no action needed by you. All updates are cryptographically signed and verified.</p>
+    </ul>
+  </section>
+
+<section id="more-features">
+  <h2>More</h2>
+  <h3>Here are even more features available in all versions of Sandstorm</h3>
+  <ul id="more">
+
+      <li class="tabbed">
+        <h3><strong>Tabbed UI</strong></h3>
+        <p>Quickly see and switch between your open grains.</p>
+
+      <li class="backups">
+        <h3><strong>Backups</strong></h3>
+        <p>You can download a .zip backup of any grain with one click. You can also automatically backup all your data to the loud, encrypted.</p>
+
+      <li class="notifications">
+        <h3><strong>Notifications</strong></h3>
+        <p>Notifications from all apps are collected in one place, much like on your phone.</p>
+
+      <li class="mentions">
+        <h3><strong>Mentions</strong></h3>
+        <p>Many apps, such as Wekan and Rocket.Chat, allow you to @-mention other users like you would on Twitter or GitHub. @-mentioning optionally notifies the target and shares with them.</p>
+
+      <li class="search">
+        <h3><strong>Search</strong></h3>
+        <p>Search across all your data from all apps in one place.</p>
+
+      <li class="connected">
+        <h3><strong>Connected Identities</strong></h3>
+        <p>Connect your Sandstorm account to multiple external identities, such as Twitter or GitHub accounts, so that people can share with you using the identity they already know you by.</p>
+
+  </ul>
+</section>
+
+  <div class="action">
+    <li>See our features in action</li><a href="/get">Get Sandstorm</a>
+  </div>
+
+</section>
+
+
+    <footer>
+      <ul>
+        <li>
+          <h3><a href="/get">Get Sandstorm</a></h3>
+          <ul>
+            <li><a href="/get">For Individuals</a>
+            <li><a href="/get#self-host">For Organizations</a>
+            <li><a href="/get#self-host">For Self-hosters</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/features">Features</a></h3>
+          <ul>
+            <li><a href="/features">Core</a>
+            <li><a href="/features#security">Security</a>
+            <li><a href="/business">Sandstorm + Business</a>
+            <li><a href="/business#scale">Sandstorm + Scale</a>
+            <li><a href="/developer">Development</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="how-it-works">How it Works</a></h3>
+          <ul>
+            <li><a href="/how-it-works#grains">Fine-grained object containers</a>
+            <li><a href="/how-it-works#capabilities">Capability-based Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a>              </h3>
+          <ul>
+            <li><a href="/community#connect-with">Connect with us</a>
+            <li><a href="/community#helpothers">Help Others</a>
+            <li><a href="/community#helpproject">Help the Project</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/about">About</a></h3>
+          <ul>
+            <li><a href="/about">Sandstorm Story</a>
+            <li><a href="/about#team">Team</a>
+            <li><a href="/about#advisors">Advisors</a>
+            <li><a href="mailto:contact@sandstorm.io">Contact</a>
+          </ul>
+        </li>
+        <li>
+        <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <ul>
+            <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/blog">Blog</a></h3>
+          <ul>
+            <li><a href="/blog">Latest updates on Sandstorm.io</a>
+          </ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+							<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+								<input type="email" name="EMAIL" placeholder="e-mail" required>
+								<input type="submit" value="Submit">
+								</form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
+        </li>
+        <li>
+          <h3>Connect</h3>
+          <ul id="socialmedia-small">
+						<li><a class="twitter" href="https://twitter.com/SandstormIO"></a>
+						<li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank"></a>
+						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
+						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
+  			</ul>
+        </li>
+      </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
+    </footer>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-42127409-1', 'sandstorm.io');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
+  </body>
+</html>
