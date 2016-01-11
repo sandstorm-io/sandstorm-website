@@ -99,13 +99,13 @@ a:hover { color: #7757bc; }
 
 strong { font-weight: 500; }
 
-body > nav { height: 48px; text-align: right; font-size: 16px; }
+body > nav { height: 48px; text-align: right; font-size: 16px; overflow: hidden; }
 body > nav > a { display: inline-block; height: 100%; padding: 0 15px; line-height: 48px; font-weight: 300; color: #302851; }
 body > nav > a:first-child { float: left; }
 body > nav > a:hover { background-color: #f8f8ff; color: #18003f; }
-@media (max-width: 500px) { body > nav > a[href="/blog"] { display: none; }
+@media (max-width: 550px) { body > nav > a[href^="/news"] { display: none; }
   body > nav > a[href="/features"] { display: none; } }
-@media (max-width: 800px) { body > nav > a[href="/get"] { display: none; }
+@media (max-width: 900px) { body > nav > a[href^="/get"] { display: none; }
   body > nav > a[href="/community"] { display: none; } }
 
 body#home > nav > a[href="/"] { font-weight: 500; }
@@ -173,7 +173,7 @@ body > footer > ul > li > ul > li { display: block; }
 @media (min-width: 600px) { #home > header #banner::before { display: block; content: " "; float: left; background-image: url(/images/sandcat.svg); background-repeat: no-repeat; background-position: bottom; width: 320px; height: 400px; } }
 @media (min-width: 600px) and (max-width: 800px) { #home > header #banner::before { width: 240px; height: 300px; } }
 
-@media (max-width: 400px) { #home > header #banner { height: 350px; } }
+@media (max-width: 430px) { #home > header #banner { height: 350px; } }
 #home > header #banner::after { display: block; content: " "; position: absolute; top: 0; bottom: 0; left: calc(50% - 50vw); width: 100vw; z-index: -1; background-image: -webkit-linear-gradient(top, #1b1b3d, #613c82); background-color: #211f44; }
 #home > header #banner > h1 { padding-top: 100px; margin-top: 0; }
 @media (min-width: 600px) { #home > header #banner > h1 { padding-left: 30%; } }
@@ -187,7 +187,7 @@ body > footer > ul > li > ul > li { display: block; }
 @media (max-width: 900px) { #home > header #banner > p > a { font-size: 23px; margin: 11px; height: 45px; line-height: 45px; } }
 @media (max-width: 800px) { #home > header #banner > p > a { font-size: 18px; margin: 8px; height: 40px; line-height: 40px; } }
 @media (max-width: 600px) { #home > header #banner > p > a { font-size: 16px; } }
-@media (max-width: 400px) { #home > header #banner > p > a { width: 200px; } }
+@media (max-width: 430px) { #home > header #banner > p > a { width: 200px; } }
 #home > header #banner > p > a.sign-in { display: block; position: absolute; top: 16px; right: 16px; width: 150px; height: 40px; line-height: 40px; font-size: 20px; border: 1px solid #744ccc; transition: background 0.35s ease; }
 #home > header #banner > p > a.sign-in:hover { background-color: #442672; }
 #home > header #banner > p > a.get { background-image: linear-gradient(top, #744ccc, #613c91); box-shadow: 0 3px 3px rgba(41, 25, 66, 0.6); background-color: #613c91; }
