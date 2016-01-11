@@ -41,7 +41,7 @@ echo
 
 if [ "x$YESNO" == "xy" ]; then
   echo "Pushing..."
-  tar cz --xform='s,_pushsite/,,' _pushsite/* | gce-ss ssh fe --command "cd /var/www/$HOST && tar xz"
+  tar cJ --xform='s,_pushsite/,,' _pushsite/* | gce-ss ssh fe --command "cd /var/www/$HOST && tar xJ"
 else
   echo "Push CANCELED"
 fi
