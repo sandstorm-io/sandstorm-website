@@ -14,22 +14,22 @@ friend, and they make an account and start sharing, that's a referral.
 
 **You share a grain** with a friend (who isn't already an Oasis user).
 
-<img style="margin: auto; max-width: 100%; display: block;" src="https://qwmom5jpucct3t9xvu5i.oasis.sandstorm.io/share_access.png">
+<img style="margin: auto; max-width: 100%; display: block;" src="/news/images/share_access.png">
 
 Friend **signs in.**
 
-<img style="margin: auto; max-width: 100%; display: block;" src="https://oasis.sandstorm.io/referral-graphics/referral-2.svg">
+<img style="margin: auto; max-width: 100%; display: block;" src="/news/images/referral-2.svg">
 
 **Friend shares a grain** with any person (including you), who successfully opens the grain.
 
-<img style="margin: auto; max-width: 100%; display: block;" src="https://qwmom5jpucct3t9xvu5i.oasis.sandstorm.io/share_access.png">
+<img style="margin: auto; max-width: 100%; display: block;" src="/news/images/share_access.png">
 
 ### Keeping track of your bonus
 
 To see how you're progressing, check out the referral program page in the
 top-right drop-down menu.
 
-<img style="margin: auto; max-width: 100%; display: block;" src="https://qwmom5jpucct3t9xvu5i.oasis.sandstorm.io/referral-program-menu.png">
+<img style="margin: auto; max-width: 100%; display: block;" src="/news/images/referral-program-menu.png">
 
 Or you can visit the <a href="https://oasis.sandstorm.io/referrals">referrals program page</a>
 directly. Honestly, you should do that right now just to see
