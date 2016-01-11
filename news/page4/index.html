@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Sandstorm Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Sandstorm.io">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
+    <meta property="og:url" content="https://sandstorm.io">
+    <meta property="og:description"
+        content="Take control of your web by running your own personal cloud server with Sandstorm.">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
+  </head>
+
+
+
+  <body id="blog">
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a href="/get">Sign Up</a>
+      <a href="/get#self-hosting">Download</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">How it Works</a>
+      <a href="/news/">Blog</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <!-- TODO: search -->
+    </nav>
+
+    <header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+<div class="post-list">
+
+<div class="sidebar">
+  <ul class="socialmedia">
+    <li><a class="twitter" href="https://twitter.com/SandstormIO">Twitter</a>
+    <li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank">Facebook</a>
+    <li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank">Google</a>
+    <li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank">Github</a>
+  </ul>
+
+  <div class="more">
+    <form id="signup" action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+      Join our mailing list for updates<br>
+      <input type="email" name="EMAIL" placeholder="E-mail" required><input type="submit" value="Submit">
+    </form>
+    <a href="/get">
+      Sandstorm is an open source operating system for personal and private clouds.
+      <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
+      <span class="selfhost" href="/install">or host your own</span>
+    </a>
+  </div>
+</div>
+
+
+
+  <nav class="pagination top">
+    
+      
+        <a class="newer" href="/news/page3/" title="Previous Page">&laquo; Newer posts</a>
+      
+    
+
+    
+      <a class="older" href="/news/page5/" title="Next Page">Older posts &raquo;</a>
+    
+    <br clear="both">
+  </nav>
+
+
+
+
+<section>
+  <h2><a href="/news/2015-05-18-sandcats.html">Sandcats.io: free dynamic DNS for Sandstorm users</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2015-05-18-sandcats.html">18 May 2015</a>
+  
+  
+  
+  
+  <p>Sandstorm is open source server software that makes it easy to install web apps
+like <a href="https://ethercalc.org/">Ethercalc</a> or
+<a href="http://sdelements.github.io/lets-chat/">Let’s Chat</a>. But that’s not much use
+if your server doesn’t have
+a name, and setting up DNS correctly for Sandstorm has until now been a complicated,
+fiddly process.</p>
+
+<p>That’s why today I’m announcing <em>sandcats.io</em>, a free dynamic DNS service
+for Sandstorm users. It now takes 120 seconds to go from an empty
+Linux virtual machine to a working personal server, DNS and all.</p>
+
+<p>The Sandstorm install script asks you what subdomain you want; if you type <em>alice</em>, then
+your server is online at <em>alice.sandcats.io</em>.</p>
+
+<p>It’s as simple as that. Check out this 30 second ASCII screencast.</p>
+
+<p><a href="https://asciinema.org/a/bw9mgfk8m55rfa3ntrfvhvjat?autoplay=1">
+<img src="https://asciinema.org/a/bw9mgfk8m55rfa3ntrfvhvjat.png" width="600" />
+</a></p>
+
+<h3 id="solving-dns-for-sandstorm-users">Solving DNS for Sandstorm users</h3>
+
+<p>I say it <em>solves</em> DNS for Sandstorm users because the <em>sandcats.io</em> service
+handles all the following complications:</p>
+
+<ul>
+  <li>
+    <p><strong>Domain provisioning.</strong> You type the name you want for your server while
+running the install script.</p>
+  </li>
+  <li>
+    <p><strong>Wildcard DNS.</strong> Sandstorm needs wildcard DNS because, with its security model,
+each session of each app runs on a unique unguessable subdomain. This protects against
+most cross-site request forgery attacks, for example. Sandcats.io provides wildcard
+DNS; this also means that any time a user
+runs a new app on your personal Sandstorm server, DNS is already configured.</p>
+  </li>
+  <li>
+    <p><strong>Automatic updates.</strong> Every 60 seconds, your Sandstorm server sends a small
+UDP message to the Sandcats.io service. If your IP address has changed, the
+service replies with another short message. Upon receipt of that, your server
+sends an authenticated message, and <em>sandcats.io</em> updates its records.
+Our DNS records have a 60 second
+TTL, so if your IP address changes, it will propagate out within two minutes,
+and you never had to lift a finger.</p>
+  </li>
+  <li>
+    <p><strong>Domain recovery.</strong> If you lose your authentication keys, you can recover
+the domain by typing <code>help</code> into the Sandstorm installer.</p>
+  </li>
+</ul>
+
+<p>I’d love to hear your feedback; I’m asheesh@sandstorm.io.</p>
+
+<p>The code is open souce, and you can read more in the
+<a href="https://github.com/sandstorm-io/sandstorm/wiki/Sandcats-dynamic-DNS">technical documentation</a>,
+but what I really recommend you do is try it out.</p>
+
+<h3 id="switch-to-your-own-domain-whenever-you-want">Switch to your own domain whenever you want</h3>
+
+<p>The Sandcats service is optional. If you already have a domain of your own, you
+can join the many other people actively running Sandstorm on their own
+domain.</p>
+
+<p>If you know you want to go it alone, the install script allows you to opt out
+and configure DNS yourself.</p>
+
+<p>Moreover, if you start out with a
+<em>sandcats.io</em> sudomain, and you decide you want a little more personality to
+your server, you can reconfigure it at any time. Look for your server’s
+<code>sandstorm.conf</code> file.</p>
+
+<h3 id="install-sandstorm-now-to-try-it-out">Install Sandstorm now to try it out</h3>
+
+<p>Sandstorm exists to make it easy to run web apps like Etherpad, HackerSlides,
+Let’s Chat, and others as easily as you install apps on your phone. If that’s
+something you want
+on a server for you or your organization, I hope you install Sandstorm right now.</p>
+
+<p><strong><a href="https://sandstorm.io/install/">Install Sandstorm with our easy install instructions!</a></strong></p>
+
+
+</section>
+
+<section>
+  <h2><a href="/news/2015-05-14-sf-meetup.html">First San Francisco Meetup</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2015-05-14-sf-meetup.html">14 May 2015</a>
+  
+  <p>Last Thursday, May 7, I helped organize the first event of the new
+<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/">Sandstorm SF Bay Area meetup group</a>.
+The event was a Project Night, modeled after
+the
+<a href="http://www.meetup.com/bostonpython/events/221084961/">Boston Python Project Nights</a>
+that Jessica McKellar, Ned Batchelder, and I helped start a few years ago.</p>
+
+<blockquote>
+  <p>Project nights are <strong>unstructured chances for Sandstorm developers &amp; users to work together</strong>, mentor each other, connect socially, teach, learn, <strong>or do whatever else</strong> it is Sandstorm users &amp; developers want to do together.</p>
+</blockquote>
+
+<p>I started with a brief introduction to Sandstorm, to ensure new people had
+some context.</p>
+
+<p>After that, we laptopped and chatted. Here are some highlights from
+<a href="https://www.flickr.com/photos/paulproteus/sets/72157652481307461">photo album</a>.</p>
+
+<p><img src="/news/images/sfmeetup-17431775982_e230fade0b_k_d.jpg" width="100%" /></p>
+
+<p><img src="/news/images/sfmeetup-highres_437398276.jpeg" width="100%" /></p>
+
+<p><img src="/news/images/sfmeetup-highres_437398044.jpeg" width="100%" /></p>
+
+<p>Thanks to Jack Singleton and Thoughtworks for hosting the event, and to
+Ti Zhao for the wide panoramic shot.</p>
+
+<p>If you’re near the San Francisco Bay, get notified of the next event and
+<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/">join the Meetup group!</a></p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization.html">Delegation is the Cornerstone of Civilization: Sharing in Sandstorm.io</a></h2>
+  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
+    
+      and <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization.html">05 May 2015</a>
+  
+  <p>We sometimes describe Sandstorm as: “Like Google Docs, except open source, you can run it on your own server, and you can extend it with apps written by anyone.”</p>
+
+<p>Sandstorm is all about collaboration – we have apps for real-time collaborative document editing, chat rooms, even collaborative music streaming. Collaboration, of course, requires access control. Sometimes you want some people to be able to edit a document while others can only read. Up until now, Sandstorm relied on each app to implement its own access control model, and many simply did not. For example, with Etherpad on Sandstorm before now, you could only share full write access.</p>
+
+<p>Today, we’re introducing Sandstorm’s new built-in sharing model. With it, apps can define a set of “permissions” (like “read” and “write”) which make sense for the app, and then Sandstorm itself will present a user interface by which the user can grant these permissions to other users. Since Sandstorm is designed to support fine-grained app containers (where, for example, each Etherpad document runs as a completely separate instance of the app in its own container), Sandstorm can implement this access control model at the container level, freeing the app of most of the work. The app need not track users itself; Sandstorm will tell it (e.g. through HTTP headers) exactly which permissions the current user has, so all the app needs to do is implement those.</p>
+
+<p>Moreover, Sandstorm implements a radical <em>capability-based</em> sharing model, which emphasizes the importance of <em>delegation</em>. Under our model, if you have access to a document, you can share that access with others, <em>without</em> requiring the document owner to intervene. This is important, because any obstacle to delegation is an obstacle to getting work done. Marc Stiegler said it best:</p>
+
+<blockquote style="font-weight: normal">The truth of the matter is: delegation cannot be prevented. The further truth of the matter is: we do not appreciate how fortunate it is that delegation cannot be prevented.
+Because in fact, <b>delegation is the cornerstone of civilization</b>. - Marc Stiegler</blockquote>
+
+<div style="margin:1em auto"><iframe class="youtube" src="//www.youtube.com/embed/vrbmMPlCp3U?start=3970" frameborder="0" allowfullscreen="true"> </iframe></div>
+
+<p>More on this in a bit, but first let’s look at how it works.</p>
+
+<h3 id="how-it-works">How it works</h3>
+
+<p>Consider the <a href="https://demo.sandstorm.io/appdemo/6va4cjamc21j0znf5h5rrgnv0rpyvh1vaxurkrgknefvj0x63ash">GitWeb app</a>.
+With the new sharing features in place, after Alice creates a new repository
+she can, for example, share read-only access with Bob and share read/write access with Carol.</p>
+
+<p><img src="/news/images/better-sharing-model-1.png" style="width:80%;margin:0 auto;display:block" /></p>
+
+<p>Then, in turn, both Bob and Carol can reshare the repo to other users. If they both share their full access to Dave, then Dave gets read/write access.</p>
+
+<p><img src="/news/images/better-sharing-model-2.png" style="width:80%;margin:0 auto;display:block" /></p>
+
+<p>If Alice now unshares with Carol, then Carol loses all access and Dave loses write access. Dave continues to hold the read-only access that he received from Bob.
+Carol’s share to Dave continues to exist, but it no longer carries any permissions, as Carol herself no longer holds any permissions.</p>
+
+<p><img src="/news/images/better-sharing-model-3.png" style="width:80%;margin:0 auto;display:block" /></p>
+
+<p>Throughout this whole interaction, the app itself has no need to keep track of users! It only needs to know how to filter requests based on permissions.
+Teaching GitWeb to do this was easy, requiring only a <a href="https://github.com/dwrensha/gitweb-sandstorm/commit/7f510ec82a935a9f94ebcf9651983d0bbadcf82a">few small changes</a>
+in configuration files. The app remains dead simple. The only data that it stores is the Git repository that it hosts.
+There is no in-app user database.</p>
+
+<p>Apps have complete control over the meanings of permissions. While “can read” and “can write” permissions will be sufficient in many cases,
+some apps, such as Groove Basin, might support a much wider range of permissions.
+In our <a href="https://demo.sandstorm.io/appdemo/wfg1r0qra2ewyvns05r0rddqttt57qxurz3nz5z95rjnm63et7e0">updated Groove Basin package</a>, sharing carries such diverse permissions
+as “can listen,” “can control the audio stream,” “can upload music,” and “can edit tags and delete music.”</p>
+
+<h3 id="delegation-why-you-want-it">Delegation: Why you want it</h3>
+
+<p>Traditional access control is accomplished using “access control lists” (ACLs), in which a document owner (Alice) maintains an ACL for the document specifying exactly who has access (Bob and Carol). In many systems, Bob and Carol cannot directly add a new person (Dave) to this ACL – they must ask Alice to do it. Usually, this is treated as a security “feature”.</p>
+
+<p><strong>Preventing delegation is not a feature. It provides no security benefit, and it creates obstacles to legitimate work.</strong></p>
+
+<p>For example, say Alice has asked Carol to update the document to add some data that Carol has collected, with a deadline of 6PM. Around 4PM, Carol realizes she won’t have time, so she asks her assistant, Dave, to do the work. Unfortunately, Dave doesn’t have access, and Alice is unavailable because she’s in a meeting. Now what?</p>
+
+<p>Here’s what inevitably happens: Carol copies the whole document into a <em>new</em> document, and then shares that with Dave. Later, when Dave is done, Carol copies the contents of the new document <em>back</em> into the original, overwriting it.</p>
+
+<p>Or, worse, Carol just gives Dave her password.</p>
+
+<p>What just happened? <strong>Carol bypassed the access control that prevented delegation to Dave!</strong> In fact, she did so <em>trivially</em>; no “hacking” required. It is obvious, in fact, that <a href="https://www.youtube.com/watch?v=vrbmMPlCp3U#t=1h5m30s">there is <em>no</em> technology</a> which would prevent Carol from delegating access to Dave, except to cut off all communications between Carol and Dave, which would be silly. So, our security “feature” actually provided no security benefit.</p>
+
+<p>With that said, what Carol did was annoying and error-prone. It took time, and the document could have been damaged, especially if someone else were editing at the same time and had their changes overwritten. It would have been much better if Dave could have simply had direct access to the document.</p>
+
+<p>So, that’s what Sandstorm allows.</p>
+
+<h3 id="policies-and-auditability">Policies and Auditability</h3>
+
+<p>There is an objection to unrestricted delegation which has some merit: preventing delegation can help guard against accidental leaks. For example, I might share a sensitive document with a coworker for review, but I might not trust that my coworker really understands the sensitivity of the document. I trust my coworker not to violate my wishes, but my coworker might not understand that I don’t want them to reshare. I’d feel a lot more comfortable if I can simply prohibit resharing. Yes, they can always go out of their way to get around any barrier I put up, but hopefully it will be obvious to them that they shouldn’t.</p>
+
+<p>This is a valid point, but solving it via the heavy-handed ACL model is overkill. As a user, what I really want is not a draconian security wall, but two things:</p>
+
+<ul>
+  <li>A way to inform people of my wishes with regards to resharing.</li>
+  <li>A way to hold them accountable if they break my wishes.</li>
+</ul>
+
+<p>Sandstorm aims to provide both of these:</p>
+
+<ul>
+  <li>You’ll be able to express “policies” when sharing, such as “please don’t reshare.” When people attempt to anyway, they will be informed that this is against your wishes, and perhaps blocked (at the UI level) from doing so. This is not strictly a security feature, but simply risk management: it helps nudge people in the right direction.</li>
+  <li>Sandstorm tracks not just a list but a full sharing <em>graph</em>. This means it is always possible to tell not just who has access but <em>how</em> they got access. We will be developing visualizations and auditing tools so that when you discover someone has received access that shouldn’t have, you can find out whom to blame. And as mentioned above, if you revoke that person’s access, then <em>everyone</em> they reshared to transitively loses access – unless you decide to restore those connections by sharing with those people directly.</li>
+</ul>
+
+<p>For enterprise users, we will further develop features that allow system administrators to set policies and audit access across an organization.</p>
+
+<p>Many users may never need these features. That’s fine – the basic sharing interface works intuitively without requiring you to understand “sharing graphs” or “policies”. But for those who need it, especially in a business setting, these features will be invaluable.</p>
+
+<h3 id="try-it-now">Try it now!</h3>
+
+<p>Sharing is a new feature and we still have lots of work to do on it, but the initial version is already live.
+If you want to try sharing but have not yet <a href="https://github.com/sandstorm-io/sandstorm#installing-the-easy-way">set up your own server</a>, you can <a href="https://demo.sandstorm.io">use the demo</a>.
+We’ve already enabled nontrivial permissions on GitWeb, Groove Basin, and Etherpad, and more app updates will be coming.
+Better yet, try <a href="https://github.com/sandstorm-io/sandstorm/wiki/Sandstorm-App-Developer-Handbook">writing an app</a> that takes avantage of the new features.
+Enabling apps to easily support sharing is just one more way that Sandstorm makes <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">open source web apps viable</a>.</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2015-05-04-introducing-drew-and-sf-meetup.html">Introducing Drew and SF Meetup</a></h2>
+  <p class="post-details">By <a href="https://github.com/zarvox">Drew Fisher</a>
+    
+    - <a href="/news/2015-05-04-introducing-drew-and-sf-meetup.html">04 May 2015</a>
+  
+  <p>Hi!  I’m Drew Fisher, and I’m thrilled to announce that I’m the newest sandcat
+on the block!  I’ll be working on various parts of Sandstorm’s software
+platform, developer tools, and user experience.</p>
+
+<p>A little bit about me:</p>
+
+<ul>
+  <li>I’ve done triage for <a href="https://www.kde.org/">KDE</a>, maintained Free Software
+reverse-engineered drivers for the
+<a href="https://github.com/OpenKinect/libfreenect">Kinect depth camera</a> and
+<a href="https://github.com/zarvox/libtouchmouse">Microsoft Touch Mouse</a>, and
+given a <a href="https://www.youtube.com/watch?v=jMf55KVDPaE">talk</a>
+at the 28th Chaos Communication Congress.</li>
+  <li>While at Texas A&amp;M University, I led the Texas A&amp;M University 
+<a href="http://www.nationalccdc.org/">Collegiate Cyber Defense Competition</a> team
+to nationals, ran a campus mirror of a number several Linux distribution
+archives, and was active in the local Linux Users Group.</li>
+  <li>At UC Berkeley, I earned my MS in computer science studying security and
+human-computer interaction under <a href="http://www.cs.berkeley.edu/~daw/">Dave Wagner</a>.</li>
+  <li>I’ve built secure, private, and user-friendly collaboration tools at
+<a href="https://www.aerofs.com/">AeroFS</a>.</li>
+  <li>In my free time, I <a href="http://web.mit.edu/puzzle/www/">play</a> and
+<a href="http://puzzle.berkeley.edu">write puzzlehunts</a>, fiddle with servers, bike,
+play board games, and enjoy eating delicious foods!</li>
+</ul>
+
+<p>One of the reasons that I find Sandstorm so compelling is that I care deeply
+about security and privacy, but also about making delightful user experiences.
+These goals are frequently in conflict with each other, but
+Sandstorm is remarkable in that its design enables us to provide <strong>real</strong>
+security – isolation between orthogonal concerns, sandboxing, protections
+against whole classes of attacks – while also making that security useful and
+meaningful to users, by staying out of the way of user workflows, minimizing
+cognitive load, and capturing user intent instead of asking tons of questions.</p>
+
+<h3 id="meetup-on-may-7">Meetup on May 7</h3>
+
+<p>I’ll be at the first <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/222166097/">Sandstorm Meetup</a>
+this Thursday, May 7, in San Francisco, so if you’re in the area, come visit the
+Thoughtworks office at 315 Montgomery from 6pm - 9pm!
+I look forward to meeting some new faces!</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2015-05-01-is-that-ascii-or-protobuf.html">Is that ASCII or is it Protobuf? The importance of types in cryptographic signatures.</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2015-05-01-is-that-ascii-or-protobuf.html">01 May 2015</a>
+  
+  <p>So here’s a fun problem. Let’s say that a web site wants to implement authentication based on public-key cryptography. That is, to log into your account, you need to prove that you possess a particular public/private key pair associated with the account. You can use the same key pair for several such sites, because none of the sites ever see the private key and therefore cannot impersonate you to each other. Way better than passwords!</p>
+
+<h3 id="background-asymmetric-cryptography">Background: Asymmetric Cryptography</h3>
+
+<p>Asymmetric encryption algorithms (ones with public/private key pairs) generally offer one or more of the following low-level operations:</p>
+
+<ul>
+  <li>Encryption: Someone who has your public key can encrypt a message that can only be decrypted using your private key (i.e. by you). RSA implements this. Also, asymmetric encryption can be built on key agreement algorithms.</li>
+  <li>Signing: Using your private key, you can “sign” a message, and other people can verify the signature using your public key. RSA, DSA, Ed25519, and others implement this.</li>
+  <li>Key Agreement: Using your private key and someone else’s public key, you can derive a new unique key. The other person can derive the <em>same</em> key using their private key and your public, but no one who doesn’t possess at least one of your private keys can derive the key. Thus, you can use this key as a symmetric key to encrypt messages between you. This is called “Diffie-Hellman key exchange” and algorithms include the original Diffie-Hellman algorithm and ECDH (e.g. Curve25519).</li>
+</ul>
+
+<h3 id="asymmetric-key-authentication">Asymmetric Key Authentication</h3>
+
+<p>Let’s say your keys are RSA (probably the most common case today). To log in, you need to prove to the site that you have possession of your private key. How might we use the available operations (encrypt and sign) to do this? Keeping in mind that we must make sure someone snooping on a previous login cannot simply reply those past messages to log in again, we might propose:</p>
+
+<ul>
+  <li>Encrypt: The web site generates a random unguessable value, encrypts it with your public key, then sends the encrypted message to you. You decrypt the value and send it back, proving to the site that you possess the private key.</li>
+  <li>Sign: The web site generates a random unguessable value and sends it to you. You sign the value with your private key and send it back. The site can verify this signature with your public key.</li>
+</ul>
+
+<p>Both basic approaches are commonly used for authentication. SSH, for example, used the encryption approach in v1, then switched to the signature approach in v2, in order to accommodate non-RSA key types. But the protocols used in practice are more complicated that described above, because…</p>
+
+<h3 id="the-obvious-problem">The Obvious Problem</h3>
+
+<p>There is huge problem with both approaches! In both cases, the web site controls the “random value” that is signed or the message to be decrypted. You’ve effectively given the web site complete access to your key:</p>
+
+<ul>
+  <li>Encrypt: Instead of encrypting a newly-generated value, the site could send a message created by <em>someone else</em> that was encrypted for you. If you decrypt it and send it back without looking, the site gets access to this encrypted content which it wasn’t supposed to be able to read.</li>
+  <li>Sign: Instead of a random message, the site could send you a specially-crafted message that has meaning to third parties. For example, the site could send you the digital equivalent of a bank check. If you sign it without looking, the site could go ahead and extract money from your account, or other bad things.</li>
+</ul>
+
+<p>(Of course, both of these problems can trivially be exploited to allow an evil web site operator to secretly log into some other web site as you, by relaying the login challenge from that other site.)</p>
+
+<p>So what do we do about this?</p>
+
+<h3 id="be-more-careful">Be more careful?</h3>
+
+<p>Let’s focus on the signature case. Naively, you might say: We need to restrict the format of the message the site presents for signature, so that it cannot be misinterpreted to mean anything else. The message will need a random component, of course, in order to prevent replays, but we can delimit that randomness in ASCII text which states the purpose. (In particular, it’s important that the text specify exactly what web site we’re trying to log into.) So, now we have:</p>
+
+<pre><code>z.example.com login challenge:1Z5ns8ectRGTMNYz3NHdB 699a674d30fc3bd42ec3619cfab13deb
+</code></pre>
+
+<p>Here is a message that could not reasonably be interpreted as anything except “I want to log in to z.example.com”, right? It’s safe to sign, right?</p>
+
+<h3 id="the-subtle-problem">The Subtle Problem</h3>
+
+<p>I’m sorry to say, but there is still a problem. It turns out that message isn’t the ASCII text it appears to be:</p>
+
+<pre><code>$ echo -n 'z.example.com login challenge:1Z5ns8ectRGTMNYz3NHdB 699a674d30fc3bd42ec3619cfab13deb' \
+    | protoc --decode=Check check.proto 
+toAccount: "699a674d30fc3bd42ec3619cfab13deb"
+amount: 100
+memo: "example.com login challenge:1Z5ns8ectRGTMNYz3N"
+</code></pre>
+
+<p>Oops, it appears you just signed a bank check after all – and you were trying so hard not to! The check was encoded in Google’s binary encoding format <a href="https://developers.google.com/protocol-buffers/">Protocol Buffers</a> – we were able to decode it using the <code>protoc</code> tool. Here is the Protobuf schema (the file <code>check.proto</code> that we passed to <code>protoc</code>):</p>
+
+<pre><code>message Check {
+  required string toAccount = 8;
+  // 32-byte hex account number
+
+  required uint32 amount = 9;
+  // Dollar amount to pay.     
+
+  optional string memo = 15;
+  // Just a comment, not important.
+}
+</code></pre>
+
+<p>Thanks for your $100. Hope you have fun on <code>z.example.com</code>.</p>
+
+<p>The trick here is that, using my knowledge of Protobuf encoding, I was able to carefully craft an ASCII message that happened to be a valid Protobuf message. I chose Protobufs because of <a href="https://github.com/google/protobuf/blob/master/CONTRIBUTORS.txt">my familiarity with them</a>, but many binary encodings could have worked here. In particular, most binary formats include ways to insert bytes which will be ignored, giving us an opening to insert some human-readable ASCII text. Here I pulled the text into the <code>memo</code> field, but had I not defined that field, Protobuf would have ignored the text altogether with no error.</p>
+
+<p>Is this attack realistic? If the person designing the <code>Check</code> protocol intended to make the attack possible, then absolutely! No one would ever notice that the field numbers had been carefully chosen to encode nicely as ASCII, especially if plausible-looking optional fields were defined to fill in the gaps between them. (Of course, a real attacker would have omitted the <code>memo</code> field.)</p>
+
+<p>Even if the other format were not designed maliciously, it’s entirely possible for two protocols to assign different meanings to the same data by accident – such as an IRC server accepting input from an HTTP client. This kind of problem is known as <a href="https://en.wikipedia.org/wiki/Inter-protocol_exploitation">inter-protocol exploitation</a>. We’ve simply extended it to signatures.</p>
+
+<h3 id="now-what">Now what?</h3>
+
+<p>Here’s the thing: When you create a key pair for signing, you need to decide exactly what <em>format</em> of data you plan to sign with it. Then, don’t allow signatures made with that key to be accepted for any other purpose.</p>
+
+<p>So, if you have a key used for logging into web sites, it can only be used for logging into web sites – and all those web sites must use exactly the same format for authentication challenges.</p>
+
+<p>Note that the key “format” can very well be “natural language messages encoded in UTF-8 to be read by humans”, and then you can use the key to sign or encrypt email and such. But, then the key cannot be used for any automated purpose (like login) unless the protocol specifies an unambiguous natural-language “envelope” for its payload. Most such protocols (such as SSH authentication) do no such thing. (This is why, even though SSH and PGP both typically use RSA, you should NOT convert your PGP key into an SSH key nor vice versa.)</p>
+
+<p>Another valid way to allow one key to be used for multiple purposes is to make sure all signed messages begin with a “context string”, for example as <a href="http://www.ietf.org/mail-archive/web/tls/current/msg14734.html">recommended by Adam Langley for TLS</a>. However, in this case, <em>all</em> applications which use the key for signing <em>must</em> include such a context string, and context strings must be chosen to avoid conflicts.</p>
+
+<p>But probably better than either of the above is to use a different key for each purpose. So, your PGP master key should not be used for anything except signing subkeys. Unfortunately, PGP subkeys do not allow you to express much about the purpose of subkeys – you can only specify “encryption”, “signing”, “certification”, or “authentication”. This does not seem good enough – e.g. an “authentication” key still cannot safely be used for SSH login because a malicious SSH server could still trick you into signing an SSH login request that happens to be a valid authentication request for a completely different service in a different format. (Admittedly, this possibility seems unlikely, but tricking an HTTP client into talking to a server expecting a completely different protocol also seems unlikely, yet it works e.g. with IRC. We can’t really prove that no other protocol is designed exactly wrong such that it interprets <a href="https://tools.ietf.org/html/rfc4252#page-10">SSH’s authentication signatures</a> as something else.) Alas, in practice, SSH is exactly what the “authentication” subkey type is used for! So, perhaps SSH should be considered the de facto standard format for PGP’s “authentication” keys, and if you implement an authentication system that accepts PGP keys designated for authentication, you should be sure to exactly match SSH’s authentication signature format.</p>
+
+<p>Similarly, X.509 certificates have the “extended key usage” extension to specify a key’s designated purpose, but the options here are <a href="https://www.openssl.org/docs/apps/x509v3_config.html#Extended-Key-Usage">similarly limited</a>.</p>
+
+<p>Another line of thought says simply: “Don’t use signatures for anything except signing certificates.” Indeed, signing email is arguably a bad idea: it means that not only can the recipient verify that it came from you, but the recipient can prove to <em>other people</em> that you wrote the message, which is perhaps not what you really wanted. Similarly, when you log into a server, you probably don’t want that server to be able to prove to the rest of the world that you logged in (as SSH servers currently can do!). What you probably really wanted is a zero-knowledge authentication system where only the recipient can know for sure that the message came from you (which can be built on, for example, key agreement protocols).</p>
+
+<p>In any case, when Sandstorm implements <a href="https://github.com/sandstorm-io/sandstorm/issues/220">authentication based on public keys</a>, it will probably not be based on signatures. But, we still have more research to do here.</p>
+
+<p><em>Thanks to Ryan Sleevi, Tony Arcieri, and Glenn Willen for providing <a href="https://plus.google.com/+KentonVarda/posts/J3vcacmUUc1">pointers and insights</a> that went into writing this article. However, any misunderstandings of cryptography are strictly my own.</em></p>
+
+
+</section>
+
+
+<nav class="pagination bottom">
+  
+    
+      <a class="newer" href="/news/page3/" title="Previous Page">&laquo; Newer posts</a>
+    
+  
+
+  
+    <a class="older" href="/news/page5/" title="Next Page">Older posts &raquo;</a>
+  
+  <br clear="both">
+</nav>
+
+</div>
+
+
+    <footer>
+      <ul>
+        <li>
+          <h3><a href="/get">Get Sandstorm</a></h3>
+          <ul>
+            <li><a href="/get">For Individuals</a>
+            <li><a href="/get#self-host">For Organizations</a>
+            <li><a href="/get#self-host">For Self-hosters</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/features">Features</a></h3>
+          <ul>
+            <li><a href="/features">Core</a>
+            <li><a href="/features#security">Security</a>
+            <li><a href="/business">Sandstorm + Business</a>
+            <li><a href="/business#scale">Sandstorm + Scale</a>
+            <li><a href="/developer">Development</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="how-it-works">How it Works</a></h3>
+          <ul>
+            <li><a href="/how-it-works#grains">Fine-grained object containers</a>
+            <li><a href="/how-it-works#capabilities">Capability-based Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a>              </h3>
+          <ul>
+            <li><a href="/community#connect-with">Connect with us</a>
+            <li><a href="/community#helpothers">Help Others</a>
+            <li><a href="/community#helpproject">Help the Project</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/about">About</a></h3>
+          <ul>
+            <li><a href="/about">Sandstorm Story</a>
+            <li><a href="/about#team">Team</a>
+            <li><a href="/about#advisors">Advisors</a>
+            <li><a href="mailto:contact@sandstorm.io">Contact</a>
+          </ul>
+        </li>
+        <li>
+        <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <ul>
+            <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/blog">Blog</a></h3>
+          <ul>
+            <li><a href="/blog">Latest updates on Sandstorm.io</a>
+          </ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+							<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+								<input type="email" name="EMAIL" placeholder="e-mail" required>
+								<input type="submit" value="Submit">
+								</form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
+        </li>
+        <li>
+          <h3>Connect</h3>
+          <ul id="socialmedia-small">
+						<li><a class="twitter" href="https://twitter.com/SandstormIO"></a>
+						<li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank"></a>
+						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
+						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
+  			</ul>
+        </li>
+      </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
+    </footer>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-42127409-1', 'sandstorm.io');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
+  </body>
+</html>

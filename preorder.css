@@ -96,6 +96,7 @@ header {
   display: table;
   min-height: 200px;
   background-color: #783189;
+  background: -webkit-linear-gradient(#281E43, #8964A7);
   background: linear-gradient(#281E43, #8964A7);
   margin: 0px;
 }
