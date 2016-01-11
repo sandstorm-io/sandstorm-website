@@ -1,0 +1,31 @@
+---
+layout: page
+id: blog
+title: Sandstorm Blog
+---
+
+<header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+<div class="post-list">
+
+{% include sidebar.html %}
+
+<nav class="pagination top">
+  <a class="newer" href="/news/" title="All posts">&laquo; All posts</a>
+</nav>
+
+<section>
+  <h2>{{ page.title }}</h2>
+  <p class="post-details">By <a href="{{page.authorUrl}}">{{ page.author }}</a>
+    {% if page.author2 %}
+      and <a href="{{page.author2Url}}">{{ page.author2 }}</a>
+    {% endif %}
+    - {{ page.date | date_to_string }}
+  {{ content }}
+</section>
+
+</div>
