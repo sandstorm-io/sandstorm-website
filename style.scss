@@ -143,6 +143,7 @@ body>nav {
   height: 48px;
   text-align: right;
   font-size: 16px;
+  overflow: hidden;
 
   >a {
     display: inline-block;
@@ -161,12 +162,12 @@ body>nav {
       color: #18003f;
     }
 
-    @media (max-width: 500px) {
-      &[href="/blog"] { display: none; }
+    @media (max-width: 550px) {
+      &[href^="/news"] { display: none; }
       &[href="/features"] { display: none; }
     }
-    @media (max-width: 800px) {
-      &[href="/get"] { display: none; }
+    @media (max-width: 900px) {
+      &[href^="/get"] { display: none; }
       &[href="/community"] { display: none; }
     }
   }
@@ -448,7 +449,7 @@ body >footer {
         }
       }
 
-      @media (max-width: 400px) {
+      @media (max-width: 430px) {
         height: 350px;
       }
 
@@ -521,7 +522,7 @@ body >footer {
             font-size: 16px;
           }
 
-          @media (max-width: 400px) {
+          @media (max-width: 430px) {
             width: 200px;
           }
         }
