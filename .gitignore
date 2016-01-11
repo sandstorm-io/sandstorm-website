@@ -6,4 +6,5 @@ sandstorm.io.includes
 .jekyll-metadata
 _site
 _pushsite
+_published
 .sass-cache
