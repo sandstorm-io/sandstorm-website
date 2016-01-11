@@ -516,6 +516,7 @@ body > footer {
     width: 100vw;
     z-index: -1;
     background-image: -webkit-linear-gradient(top, #1b1b3d, #613c82);
+    background-image: linear-gradient(top, #1b1b3d, #613c82);
     background-color: #211f44; }
   #home > header #banner > h1 {
     padding-top: 100px;
@@ -1701,6 +1702,7 @@ body > footer {
     width: 100vw;
     z-index: -1;
     background-image: -webkit-linear-gradient(top, #531e49, #af7f9f);
+    background-image: linear-gradient(top, #531e49, #af7f9f);
     background-color: #2e2765; }
 #blog .sand {
   min-height: 180px;
