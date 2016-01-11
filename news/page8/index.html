@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Sandstorm Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Sandstorm.io">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
+    <meta property="og:url" content="https://sandstorm.io">
+    <meta property="og:description"
+        content="Take control of your web by running your own personal cloud server with Sandstorm.">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
+  </head>
+
+
+
+  <body id="blog">
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a href="/get">Sign Up</a>
+      <a href="/get#self-hosting">Download</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">How it Works</a>
+      <a href="/news/">Blog</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <!-- TODO: search -->
+    </nav>
+
+    <header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+<div class="post-list">
+
+<div class="sidebar">
+  <ul class="socialmedia">
+    <li><a class="twitter" href="https://twitter.com/SandstormIO">Twitter</a>
+    <li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank">Facebook</a>
+    <li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank">Google</a>
+    <li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank">Github</a>
+  </ul>
+
+  <div class="more">
+    <form id="signup" action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+      Join our mailing list for updates<br>
+      <input type="email" name="EMAIL" placeholder="E-mail" required><input type="submit" value="Submit">
+    </form>
+    <a href="/get">
+      Sandstorm is an open source operating system for personal and private clouds.
+      <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
+      <span class="selfhost" href="/install">or host your own</span>
+    </a>
+  </div>
+</div>
+
+
+
+  <nav class="pagination top">
+    
+      
+        <a class="newer" href="/news/page7/" title="Previous Page">&laquo; Newer posts</a>
+      
+    
+
+    
+      <a class="older" href="/news/page9/" title="Next Page">Older posts &raquo;</a>
+    
+    <br clear="both">
+  </nav>
+
+
+
+
+<section>
+  <h2><a href="/news/2015-01-22-wiki-and-get-involved.html">Wiki permissions and community docs</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2015-01-22-wiki-and-get-involved.html">22 Jan 2015</a>
+  
+  
+  
+  
+  <p>The <a href="https://github.com/sandstorm-io/sandstorm/wiki">Sandstorm wiki</a> is now
+world-writable, and I made a new page to help people
+<a href="https://github.com/sandstorm-io/sandstorm/wiki/Get-Involved">get involved</a>.</p>
+
+<p>I realized the wiki should be world-writable when
+<a href="http://www.philipjohnjames.com/">phildini</a> remarked on IRC that the
+<a href="https://github.com/sandstorm-io/sandstorm/wiki/Porting-Guide">porting guide</a>
+could give better advice for Mac OS users. What I really wanted to do was ask
+him to update the page himself, but I discovered I would first need to grant him
+access. So I made it writable by anyone logged into GitHub, and I configured a
+<a href="https://github.com/paulproteus/github-wiki-diffs">script</a> to email a
+<a href="https://groups.google.com/forum/#!forum/sandstorm-auto-wiki">mailing list</a>
+whenever it gets changed. Within forty-eight hours, I saw a new person
+contribute to the wiki!</p>
+
+<p>The wiki is one of the things I mention on the new
+<a href="https://github.com/sandstorm-io/sandstorm/wiki/Get-Involved">Get Involved</a> page.
+In writing it, I took a lot of inspiration from <a href="https://www.meteor.com/get-involved">Meteor’s</a>
+– it’s a
+<a href="https://twitter.com/asheeshlaroia/status/555747565493563392">particularly great one</a>.
+My goals are to showcase all the ways to contribute to Sandstorm across diverse
+skill sets and to have a contextualized listing of all the places that project
+members communicate. I’m excited to watch the community build great things on
+Sandstorm, and extraordinarily grateful to people who share the platform with
+friends. I think the most important thing Sandstorm needs right now is more
+people knowing about the project.</p>
+
+<p>So please give it a read and
+<a href="https://github.com/sandstorm-io/sandstorm/wiki/Get-Involved">get involved</a>!</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2015-01-21-gitweb-and-gitlab.html">Gitweb and Gitlab</a></h2>
+  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
+    
+    - <a href="/news/2015-01-21-gitweb-and-gitlab.html">21 Jan 2015</a>
+  
+  <p>When I write software, <a href="http://git-scm.com">Git</a> is usually at the core of my workflow. Therefore I’m particularly excited to announce today that we are releasing not one but <em>two</em> Git apps for Sandstorm.</p>
+
+<p>With either of these apps, you can host a Git repository on a Sandstorm server, connect to it with a Git client, and browse it through a web interface. Furthermore, both apps make it easy to share access to a repository without any need to manage SSH keys.</p>
+
+<p>The first app is a simple wrapper around <a href="http://git-scm.com/docs/gitweb">GitWeb</a>, the minimalist Perl CGI script that comes bundled with Git.</p>
+
+<p><a href="https://sandstorm.io/gitweb.png"><img src="https://sandstorm.io/gitweb-small.png" alt="Gitweb" /></a></p>
+
+<p>The second is a port of <a href="https://about.gitlab.com">GitLab</a>, a sophisticated Ruby on Rails app whose features include an issue tracker, a wiki, and an editor that allows you to compose and submit commits entirely from a web interface.</p>
+
+<p><a href="https://sandstorm.io/gitlab.png"><img src="https://sandstorm.io/gitlab-small.png" alt="Gitlab" /></a></p>
+
+<p>Both apps can now be found on the Sandstorm app list. If you don’t have your own server already, <a href="https://demo.sandstorm.io">try the demo</a>.</p>
+
+<h3 id="the-rise-of-modular-frontends">The Rise of Modular Frontends</h3>
+
+<p>These two apps bring into focus some distinguishing characteristics of the Sandstorm platform.</p>
+
+<p>Web software today tends to consist of monolithic, centralized services – at least when viewed from a user’s perspective. As the number of users grow, the demand for scalability and easy deployability can drive developers to put a lot of effort into modularizing <em>backends</em>. So the software often gets split into reconfigurable components like databases, caches, webservers, and message queues, and we see lots of clever ways to organize and orchestrate all of these things. However, as far as the user can tell, the only benefit is that, well, the service still works.</p>
+
+<p>Sandstorm enables a more fundamental kind of modularization. Because it is decentralized and carefully designed to take full advantage of <a href="https://capnproto.org/">Cap’n Proto</a>’s object-capabilities, Sandstorm allows web software to be split into fine-grained components along <em>user-facing</em> concerns. The components can be so finely grained, in fact, that scalability ceases to be a major concern. When each app instance (a “grain” in Sandstorm jargon) contains only a single document, app developers can instead focus on user-facing functionality, and can start thinking seriously about cooperation between apps.</p>
+
+<p>And that’s why we’ve set up the GitWeb and GitLab apps to provide only a single repository per grain. This setup means that sharing a Git repository with another user through these apps works just like sharing anything else in Sandstorm. Although it does imply that some GitLab features, like forks and merge requests, are not supported within our port, it also means that once we’ve fully implemented Sandstorm’s Powerbox interface for sharing capabilities between grains, “fork” and “merge request” can be actions that are allowed to take place between instances of <em>any</em> Git app.</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2015-01-15-sandstorm-1-3m-seed-round-pay-it-forward.html">Sandstorm raises $1.3M seed; paying forward crowdfunds</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2015-01-15-sandstorm-1-3m-seed-round-pay-it-forward.html">15 Jan 2015</a>
+  
+  <p>Lately, some of you may have noticed that Sandstorm’s <a href="https://groups.google.com/group/sandstorm-dev">daily meeting notes</a> have often contained the ill-defined bullet point “business crap”. Today we’re finally able to share what that meant: we have secured $1.3M in seed funding from a great group of venture capitalists and angel investors, led by <a href="http://questvp.com">Quest Venture Partners</a>.</p>
+
+<p>When we decided to raise VC money, we insisted on doing it in a way that keeps us aligned with our original grassroots goals. We needed a business plan that allowed us to make money by protecting our users’ privacy, not by violating it. We’re happy to say that we found one.</p>
+
+<p>As it turns out, every problem individuals have with increasing centralization of “the cloud”, businesses have ten-fold. Businesses, too, worry about things like privacy, security, being able to customize their software to their needs, and being able to smoothly integrate software from multiple vendors. In fact, businesses worry about these things far more than the average user. As a result, many businesses – especially the largest enterprises – maintain massive in-house compute infrastructure, at heavy cost. Securing this infrastructure has proven difficult, as attacks on Target, Sony Pictures, and so many other large companies have proven. We and our investors believe that the technology we are building in Sandstorm can solve these problems – and any time you solve a problem for big businesses, money is not far away.</p>
+
+<p>We like this objective because it keeps us totally aligned with our users. In fact, we are now arguably more aligned with the community than before. Whereas previously there had been a lot of pressure on us to focus on our subscription-based managed hosting option as a way to get revenue, our immediate goal now is just to develop and prove the platform. That means that self-hosted users are just as important to us as paying subscribers. To that end, the first thing we have done with our new money is <a href="/news/2015-01-07-asheesh-and-irc.html">to hire Asheesh Laroia</a>, a long-time self-hosting and Free Software enthusiast, whose main focus will be improving Sandstorm’s self-hosting experience. To be clear, everything you need to run your own Sandstorm server will always be free and open source, still developed in the open.</p>
+
+<p>To fund Sandstorm’s development, we will be also starting a separate project – codenamed “Blackrock” – aimed specifically at building tools to maintain large Sandstorm clusters integrated with common enterprise-oriented infrastructure (such as Active Directory). Some of this may not be open source, but if it turns out that a feature of Blackrock is of interest to the community at large, we will look to move that code into Sandstorm proper. I personally hate the idea that some of my code may not be open – I have been releasing all of my personal code under open source licenses since high school – but I am happy that it means we can fund heavy development of the open source Sandstorm platform, without the need for advertising or data mining.</p>
+
+<h3 id="paying-it-forward-indiegogo-backers">Paying it Forward: Indiegogo Backers</h3>
+
+<p>Back in August, the <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform">community gave us $58,929 to make Sandstorm happen</a>. We could not have gotten to this point without the help of our Indiegogo backers, and we are deeply grateful for your support both during the campaign and since. You helped us prove that a decentralized internet is something people want. Now that we’ve raised VC money, we want to pay forward your investment in us.</p>
+
+<p>First, all of our Indiegogo perks will of course be honored. T-shirts and stickers have been sent out already (if you didn’t get yours, please <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;">let us know</a>), the App Committee has been actively meeting, and our managed hosting option will open later this year.</p>
+
+<p>We would also like our backers’ help in growing a marketplace that makes open source web applications <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">viable</a>. With this new funding, we are able to build a marketplace in which open source Sandstorm apps will be sold on a “pay what you want” basis, with all proceeds going to the developer. To honor our backers, we will be providing credit in our marketplace equal to backers’ contribution on Indiegogo. Use this credit to fund any open source web application that matters to you. Yes, you can choose your own project – even if it contains only one line of code – but we hope you’ll spread the love and choose a project that is advancing the decentralized web.</p>
+
+<h3 id="stretch-goals">Stretch Goals</h3>
+
+<p>With our new funding, we will be able to implement all of the “stretch goals” listed in our Indiegogo campaign. We don’t have a timeline for these yet, but they are coming! Here they are, for those that don’t remember:</p>
+
+<ul>
+  <li><strong>Indie App Market:</strong> We will develop and run an app marketplace, allowing other indie and open source developers to sell their apps on a “pay what you want” model. This will encourage development of more apps, making Sandstorm itself more useful. Users will have the option to filter for only open source apps, and the app market implementation itself will be open source.</li>
+  <li><strong>Powerbox:</strong> We will develop rich sharing, federation, and service discovery through the use of Cap’n Proto and capability-based security. Users will be able to connect apps to each other through a Powerbox interface, allowing apps to establish secure links without worrying about any of the details of authentication or access control, even when they are not owned by the same user.</li>
+  <li><strong>GPG login:</strong> We will implement GPG-based cryptographic login. Forget passwords! Create an account based on your public key.</li>
+  <li><strong>Per-document encryption:</strong> We will implement encrypted storage, with each document having a separate encryption key that can only be accessed by the people with whom it is shared. If all those people use GPG login, we’ll make sure that it’s impossible for us to decrypt the document except when a legitimate user is online and accessing the doc.</li>
+  <li><strong>End-to-end encryption:</strong> We’ll build a browser extension (or build on an existing extension) that allows Sandstorm apps to use end-to-end encryption without encryption keys ever reaching the server.</li>
+</ul>
+
+<h3 id="pre-order-managed-hosting">Pre-order Managed Hosting</h3>
+
+<p>While Sandstorm is getting easier to run on your own Linux machine, many people don’t want the hassle of maintaining a physical server. Thus, we are planning to provide subscription-based managed hosting option as well.</p>
+
+<p>For those who missed the Indiegogo campaign, <a href="https://sandstorm.io/preorder.html">we are now accepting pre-orders for this service</a>. Pre-ordering now will get you free access to our beta (when it is ready); you will not actually be charged until the beta is over.</p>
+
+<h3 id="get-involved">Get Involved</h3>
+
+<p>We regularly post internal meeting notes and answer questions on <a href="https://groups.google.com/group/sandstorm-dev">the sandstorm-dev mailing list</a>, and we are usually available to chat on <a href="https://kiwiirc.com/client/irc.freenode.net/?channel=#sandstorm">IRC (#sandstorm on freenode)</a>. Feel free to come talk to us in either place!</p>
+
+<p>Want to write a Sandstorm app, or port an existing app to Sandstorm? Check out the <a href="https://github.com/sandstorm-io/sandstorm/wiki/Porting-Guide">Porting Guide</a> and drop us a line in <a href="https://groups.google.com/group/sandstorm-dev">sandstorm-dev</a> if you get stuck.</p>
+
+<h3 id="faq">FAQ</h3>
+
+<p><strong>Who controls Sandstorm?</strong></p>
+
+<p>Sandstorm and Cap’n Proto are properties of Sandstorm Development Group, Inc., a company founded by Kenton Varda and Jade Wang. Kenton is the CEO. Jade is the President. The Board of Directors is Kenton and Jade. The company is majority-owned by Kenton and Jade, with room for additional financing rounds without losing that majority.</p>
+
+<p><strong>When will managed hosting be available?</strong></p>
+
+<p>Software project time estimates are always autorectumatic, but we anticipate the beta will open in Summer of this year. Once the service is stable, secure, and backed up, it will come out of beta and we will start charging for it. To get a spot in the beta, pre-order now (we won’t actually charge you until after the beta is over).</p>
+
+<h3 id="thank-you">Thank You</h3>
+
+</section>
+
+<section>
+  <h2><a href="/news/2015-01-14-preorders-open.html">Pre-orders now available for Sandstorm managed hosting</a></h2>
+  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Q Wang</a>
+    
+    - <a href="/news/2015-01-14-preorders-open.html">14 Jan 2015</a>
+  
+  <p>I’m excited to announce that starting today, pre-orders for Sandstorm managed hosting are now open.</p>
+
+<div style="text-align: center"><a class="big-inline-button" href="https://sandstorm.io/preorder.html">Pre-order Managed Hosting &#187;</a></div>
+
+<p>All pre-order customers will enjoy free access to the beta once it’s ready, and beta invites will be distributed first-come-first-serve as capacity ramps up. Backers who pre-ordered Sandstorm hosting on Indiegogo will get beta access first, followed by the new pre-orders. Oh, and I’ll also send you <a href="http://www.stickermule.com/user/1070634039/stickers">some sand cat stickers</a> in thanks!</p>
+
+<div><div style="text-align: center; width: 100%;"><img src="/news/images/sandcat_stickers_row.png" width="670" /><br /><div style="font-style: italic; font-size: 80%;">Sand cat stickers by N&eacute;na Nguy&#7877;n</div></div></div>
+
+<p>Of course, you don’t need to use our managed hosting. You can always run Sandstorm on your own Linux box, using only <a href="https://github.com/sandstorm-io/sandstorm">open source code</a>. We provide managed hosting so that those who don’t know how to run their own server – or just don’t have the time – have a way to run Sandstorm.</p>
+
+<p>Whether or not you have any questions or feedback, come hang out with everybody in #sandstorm on freenode IRC!</p>
+
+<p>Missed out on other perks during the Indiegogo campaign? Come get a shirt and some stickers at an upcoming meetup!</p>
+
+<h3 id="upcoming-meetups">Upcoming Meetups</h3>
+
+<ul>
+  <li>
+    <p>Thursday, January 15, 2015. (tomorrow) Pittsburgh, PA: David Renshaw will be speaking about Cap’n Proto and Sandstorm at ShowClix offices for the Engibeer.in meetup. Free local craft beer tasting and other tech talks too! <a href="https://twitter.com/dwrensha/status/552880765424238592">RSVP</a></p>
+  </li>
+  <li>
+    <p>Tuesday, January 20, 2015. Cambridge, MA: Asheesh Laroia will be at Clover Harvard Square, along with other folks interested in web app self-hosting. First drink on Sandstorm! <a href="https://www.eventbrite.com/e/self-hosted-servers-sandstorm-meet-up-tickets-15273451304">RSVP</a></p>
+  </li>
+</ul>
+
+</section>
+
+<section>
+  <h2><a href="/news/2015-01-14-compute-units.html">What are Compute Units?</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2015-01-14-compute-units.html">14 Jan 2015</a>
+  
+  <p>When using Sandstorm’s upcoming managed hosting service, your resource usage will be limited in two important ways:</p>
+
+<ul>
+  <li>Storage space, measured in gigabytes.</li>
+  <li>Compute time, measured in “compute units”, or “CU” for short.</li>
+</ul>
+
+<p>So, what exactly are compute units? Technically speaking, a CU can also be described as a “gigabyte-RAM-hour”: using a gigabyte of RAM for one hour consumes one CU. Or, alternatively, using 100 MB of RAM for 10 hours, or using 10GB of RAM for six minutes, is also one CU.</p>
+
+<p>Practically speaking, think of your CU quota like the battery on your phone. Some apps, when they are running, use more CU than others. Sandstorm aggressively shuts down apps when they are not in-use, so apps will only consume CU when you are actively using them (e.g. when you have them open in your browser). As a rule of thumb, we find that many apps use about 1 CU for every 5-10 hours of active use. Some apps – especially ones with servers written in ahead-of-time compiled languages like C++, Rust, or Go – may use far less, while particularly inefficient apps may use a bit more. You will be able to check your CU level and see which apps are using it by clicking the CU indicator in the top bar.</p>
+
+<p>Note that when you use an app to publish a web site to a separate domain – such as Ghost or WordPress – Sandstorm caches the page content and serves it statically. Therefore, the app does not start up and does not consume CU when a guest merely visits your site; CU is only used if the visitor does something that changes the site (like leaving a comment) or when you open the app’s administrative interface.</p>
+
+<p>For our managed hosting service, you will receive a monthly CU allowance. Those who sign up for the “standard” plan (currently slated for $6 / month) will receive 200CU per month. That equates to 1000-2000 hours of using a typical app, which is more time than a month actually has! We expect that most users will never come anywhere near hitting their CU quota.</p>
+
+<p>But what happens if you do hit your quota? We said your CU is like a battery, but it’s like a battery that is always charging. When you first create your account, your CU battery starts out full. When it is not full, it recharges at a rate such that over the course of a month it will recharge equal to your monthly limit. So if you run out of CU, go take a walk, and when you get back you’ll have some more. And if you run out often, consider upgrading to a larger plan. :)</p>
+
+</section>
+
+
+<nav class="pagination bottom">
+  
+    
+      <a class="newer" href="/news/page7/" title="Previous Page">&laquo; Newer posts</a>
+    
+  
+
+  
+    <a class="older" href="/news/page9/" title="Next Page">Older posts &raquo;</a>
+  
+  <br clear="both">
+</nav>
+
+</div>
+
+
+    <footer>
+      <ul>
+        <li>
+          <h3><a href="/get">Get Sandstorm</a></h3>
+          <ul>
+            <li><a href="/get">For Individuals</a>
+            <li><a href="/get#self-host">For Organizations</a>
+            <li><a href="/get#self-host">For Self-hosters</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/features">Features</a></h3>
+          <ul>
+            <li><a href="/features">Core</a>
+            <li><a href="/features#security">Security</a>
+            <li><a href="/business">Sandstorm + Business</a>
+            <li><a href="/business#scale">Sandstorm + Scale</a>
+            <li><a href="/developer">Development</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="how-it-works">How it Works</a></h3>
+          <ul>
+            <li><a href="/how-it-works#grains">Fine-grained object containers</a>
+            <li><a href="/how-it-works#capabilities">Capability-based Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a>              </h3>
+          <ul>
+            <li><a href="/community#connect-with">Connect with us</a>
+            <li><a href="/community#helpothers">Help Others</a>
+            <li><a href="/community#helpproject">Help the Project</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/about">About</a></h3>
+          <ul>
+            <li><a href="/about">Sandstorm Story</a>
+            <li><a href="/about#team">Team</a>
+            <li><a href="/about#advisors">Advisors</a>
+            <li><a href="mailto:contact@sandstorm.io">Contact</a>
+          </ul>
+        </li>
+        <li>
+        <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <ul>
+            <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/blog">Blog</a></h3>
+          <ul>
+            <li><a href="/blog">Latest updates on Sandstorm.io</a>
+          </ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+							<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+								<input type="email" name="EMAIL" placeholder="e-mail" required>
+								<input type="submit" value="Submit">
+								</form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
+        </li>
+        <li>
+          <h3>Connect</h3>
+          <ul id="socialmedia-small">
+						<li><a class="twitter" href="https://twitter.com/SandstormIO"></a>
+						<li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank"></a>
+						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
+						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
+  			</ul>
+        </li>
+      </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
+    </footer>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-42127409-1', 'sandstorm.io');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
+  </body>
+</html>

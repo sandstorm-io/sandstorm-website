@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Sandstorm Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Sandstorm.io">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
+    <meta property="og:url" content="https://sandstorm.io">
+    <meta property="og:description"
+        content="Take control of your web by running your own personal cloud server with Sandstorm.">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
+  </head>
+
+
+
+  <body id="blog">
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a href="/get">Sign Up</a>
+      <a href="/get#self-hosting">Download</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">How it Works</a>
+      <a href="/news/">Blog</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <!-- TODO: search -->
+    </nav>
+
+    <header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+<div class="post-list">
+
+<div class="sidebar">
+  <ul class="socialmedia">
+    <li><a class="twitter" href="https://twitter.com/SandstormIO">Twitter</a>
+    <li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank">Facebook</a>
+    <li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank">Google</a>
+    <li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank">Github</a>
+  </ul>
+
+  <div class="more">
+    <form id="signup" action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+      Join our mailing list for updates<br>
+      <input type="email" name="EMAIL" placeholder="E-mail" required><input type="submit" value="Submit">
+    </form>
+    <a href="/get">
+      Sandstorm is an open source operating system for personal and private clouds.
+      <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
+      <span class="selfhost" href="/install">or host your own</span>
+    </a>
+  </div>
+</div>
+
+
+
+  <nav class="pagination top">
+    
+      
+        <a class="newer" href="/news/page2/" title="Previous Page">&laquo; Newer posts</a>
+      
+    
+
+    
+      <a class="older" href="/news/page4/" title="Next Page">Older posts &raquo;</a>
+    
+    <br clear="both">
+  </nav>
+
+
+
+
+<section>
+  <h2><a href="/news/2015-08-11-meetup-recap.html">Recap of our August meetup</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2015-08-11-meetup-recap.html">11 Aug 2015</a>
+  
+  
+  
+  
+  <p>Last Thursday, <a href="http://rethinkdb.com/">RethinkDB</a> co-hosted the first
+<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223144969/">Sandstorm meetup in the South Bay</a>
+Here’s the view of the crowd at their Mountain View office.</p>
+
+<p><img src="/news/images/2015-08-meetup-rethinkdb.jpg" height="356" width="600" alt="Meetup at RethinkDB HQ" /></p>
+
+<p>I gave a talk introducing Sandstorm, inspired by Kenton’s blog post explaining
+the <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">motivation for Sandstorm: making it possible for open source and indie
+developers to build successful web apps</a>.</p>
+
+<p><a href="https://twitter.com/thejsj">Jorge Silva</a> followed that with a talk focusing on
+RethinkDB. He explained how
+the open source RethinkDB database makes real-time apps easy to build, and showed
+how to package RethinkDB apps for Sandstorm. He used the new Sandstorm packaging
+tool called <a href="https://docs.sandstorm.io/en/latest/developing/">vagrant-spk</a>.</p>
+
+<p>We then heard four lightning talks.</p>
+
+<ul>
+  <li><a href="https://github.com/pelzlpj">Paul Pelzl</a> explained how and why he wrote an
+implementation of <a href="https://pelzlpj.github.io/capnp-ocaml/">Cap’n Proto in OCaml</a>.</li>
+  <li><a href="https://github.com/wtogami">Warren Togami</a> talked about the importance of
+security in enterprise chat.</li>
+  <li><a href="https://github.com/amluto">Andy Lutomirski</a> discussed recent Linux security
+vulnerabilities, the history of Linux’s surprisingly large attack surface, and
+his excitement that Sandstorm will bring <a href="http://erights.org/elib/capability/ode/ode-capabilities.html">object-capability security</a>
+to the world.</li>
+  <li><a href="https://github.com/zombiezen">Ross Light</a> showed us the simple file
+uploading and sharing app he is building using <a href="https://golang.org/">Go</a>. The app
+looks sharp and he expects it’s almost ready for release. He remarked that it
+has a 3MB package file, and that could shrink further as he works on implementing
+replacing <a href="https://github.com/sandstorm-io/sandstorm/blob/master/src/sandstorm/sandstorm-http-bridge.c%2B%2B">sandstorm-http-bridge</a>
+with new code using his support for <a href="https://github.com/zombiezen/go-capnproto">Cap’n Proto RPC in Go</a>.</li>
+</ul>
+
+<p>My personal thanks go out to
+<a href="https://twitter.com/christinakeelan">Christina Keelan</a> for handling the
+logistics and planning that made the event a success.</p>
+
+<p>I plan to organize September’s event in San Francisco and return to the South
+Bay in October. If you want to hear about those events,
+<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/">join the Sandstorm Meetup group</a>!</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2015-07-22-south-bay.html">Thu Aug 6: First Sandstorm meetup in the South Bay</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2015-07-22-south-bay.html">22 Jul 2015</a>
+  
+  <p><img src="/news/images/2015-meetup-photo.jpg" width="600" height="400" /></p>
+
+<p>On Thursday, August 6, the
+<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/">Sandstorm meetup group</a>
+has its first
+event in the South Bay.
+<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223144969/">RSVP here!</a></p>
+
+<p><a href="http://rethinkdb.com/">RethinkDB</a> is graciously offering space and helping
+provide food and drink. They’ll also be participating by
+showing off their open-source database
+for the realtime web and how to use it in a Sandstorm app.</p>
+
+<p>RethinkDB is based in Mountain View, which means easy travel if you’re based
+in Silicon Valley. After this event, I aim to switch monthly between organizing
+events in San Francisco and the South Bay.</p>
+
+<ul>
+  <li>Date &amp; time: Thursday, August 6, 6:30-9:30</li>
+  <li>Food &amp; drink: provided, with thanks to RethinkDB</li>
+  <li>Location: RethinkDB, 156 E Dana St, Mountain View, CA</li>
+  <li>Sign up: <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223144969/">On the Meetup.com event</a></li>
+</ul>
+
+<p>One more thing: You should give a <strong>lightning talk</strong>, where
+you talk for five minutes about a success story, a challenge or unresolved
+issue you’ve run into, or whatever else about Sandstorm strikes your fancy.
+It’ll be easy, and we’re a friendly bunch.
+<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223144969/">Leave a comment on the Meetup event</a>
+with your idea for a talk!</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2015-07-01-roundcube-next.html">Sandstorm community raises $10,644 for Roundcube Next</a></h2>
+  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
+    
+    - <a href="/news/2015-07-01-roundcube-next.html">01 Jul 2015</a>
+  
+  <p><img src="http://res.cloudinary.com/indiegogo-media-prod-cld/image/upload/c_limit,w_620/v1434704886/wesm5hnffdl1clv26k2f.jpg" alt="" /></p>
+
+<p>Last week we asked the Sandstorm.io community to come together to support the <a href="https://www.indiegogo.com/projects/roundcube-next--2">Indiegogo campaign of Roundcube Next</a> using their Sandstorm app store credit. Today we’re happy to announce that we’ve raised:</p>
+
+<p style="font-weight: bold; font-size: 200%; text-align: center;">$10,644</p>
+
+<p>We’ve contributed the total to Roundcube Next as a lump sum, making the Sandstorm community the single largest contributor!</p>
+
+<p>Roundcube is an open source email app that you can run on Sandstorm today (<a href="https://demo.sandstorm.io/appdemo/0qhha1v9ne1p42s5jw7r6qq6rt5tcx80zpg1f5ptsg7ryr4hws1h">demo</a>). They are running a crowdfunding campaign on Indiegogo to modernize their user interface and bring Roundcube to mobile. Although <a href="http://venturebeat.com/2015/06/24/massive-open-source-email-collaboration-platform-roundcube-beats-indiegogo-funding-goal/">the campaign has reached its funding goal</a>, they’ve got some great stretch goals and you can still contribute until it ends tomorrow.</p>
+
+<p>Almost a year ago, <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform">Sandstorm raised approximately $60K on Indiegogo</a> to fundamentally change the way we use and host web applications. When we raised our $1.3M seed round last January, we <a href="/news/2015-01-15-sandstorm-1.3M-seed-round-pay-it-forward.html">made a promise</a> to the community to pay-it-forward – to forward the crowdfunds to support other open source projects (such as Roundcube) in the ecosystem through the App Market. Since the Roundcube Next crowdfunding campaign launched before the App Market launched, we rallied the original Sandstorm contributors to dedicate a portion of their App Market credit to forward to Roundcube Next as a bloc.</p>
+
+<p>Roundcube <a href="https://plus.google.com/u/0/b/107599969974415778560/+AaronSeigo/posts/B1Vnkq5MNmo">has promised</a> that they will directly support Sandstorm as a target platform for Roundcube Next, meaning the app will get timely updates and integrate with Sandstorm-specific features. For example, we want to make it easy to attach Sandstorm documents to email for sharing.</p>
+
+<p>Let’s take a moment to thank all the Sandstorm contributors who have chosen to forward part or all of their App Market credit to Roundcube:</p>
+
+<p>Erik Swanson, Tommy Hodgins, Mark Bradley, Ondřej Böhm, August Lilleaas, Paul Gaspardo, Oluf Lorenzen, Eddie Jesinsky, Charles Lehner, Francois O Baldassari, Florin Godard, Lachlan Musicman, Patrick Ohly, Praveen Moorthy, Corey Ford, Toby Matejovsky, Giorgos Logiotatidis, Maxime Quandalle, Alexander Kulbartsch, Colin Maudry, Francesco ‘makevoid’ Canessa, Ben Cordero, Sebastian Kippe, Shawn Becker, shazow, Michael Manley, Pascal Gellert, Dan Bornstein, Wong Ho Wang, Petr Viktorin, Christopher Toledo, Thomas Hansen, Noah O’Donoghue, Matthew Steffen, Baruch Even, Pascal de Vink, Tim Davies, Alex Dempsey, Fred Schättgen, Bruno ARLIGUY, Maria, David Turner, David Meyer, Noel Yap, Hugo Artur Weber Schmitt, Joel Roller, Keith Hall, C. Moreno, Abdullah Khalid, Vincent Malley, James Graves, JollyOrc, Shane Gould, Matt Johnston, Alec, Alan Karp, JT Olds, Daniel Ring, Wes Felter, Sage Ross, Joseph Lee, Asheesh Laroia, Jason Hsu, Yuriy @html5cat Dybskiy, Amir Chaudhry, Pedro Ângelo, nFec, getify, Dan Morrill, Daniel DeSousa, Collin Jackson, Daniel Yokomizo, Aaron Vaneps, Glen Skinner, Tobias Ammann, Dinyar Rabady, Will Norris, Tim Butram, Nathan Henderson, Colin Dean, Jeff Cressman, Vincent Lim, Adam Berkan, Audrey Tang, Justin Fox, Jan Jambor, Fahrstuhl, Greg Perkins, Zellyn Hunter, Tim Lossen, David Alfonso, Michael Bright, Jamiel Almeida, Ali Gunduz, Jonathan Wheaton, Nathan Greene, Mitchell Barry, Matt Campbell, the paul, Svemir Brkic, Paul-Robert Archibald, Tiago Freitas, Eli Willaert, Daniel Schulze Hagen, Tobias, Jeremy Coté, Matthew Baggott, Jason Glass, Thomas Myers, Scott Pritchett, Mike Linksvayer, Fred Eisele, @noahsilas, Fred Smith, Jochen Bartl, Suvi-Tuuli Allan, Mark S. Miller, Rick Richardson, Rebecca Wise, George Ellenburg, Andrew Thibeault, Andrew Jennings, Rahim Nathwani, Aren Olson, Richard Bairwell, Heri Sim, Erik Andersson, Matt Siegel, Phil Dutson, Siegfried Kettlitz, William Zajac, Nick Richards, Kamil Páral, Garance A Drosehn, Guido Hoermann, Robert Konigsberg, Jasvir Nagra &lt;img src=x onerror=alert()&gt;, Joshua Warner, Ana Ulin, Walter Ebert, Brooke Schreier Ganz, Kevin Wallace, Ingo Blechschmidt, Beni Paskin-Cherniavsky, Cole Mickens, Andy Gayton, Scott Nesbitt, Strick Yak, Andrew Chilton, Matthias Dallmeier, Geoffrey Thomas, Matthias Liertzer, Brit Butler, Dan Nuffer, Ry4an Brase, Dawn Luoma, Chhi’mèd Künzang, Duncan J, Vivek Gani, Gaelen Hadlett, TJ Rothwell, Lucas Dohmen, Derek Waters, Igor Cananea, Colin Barrow, Kevin Baker, Richard Thompson, whitequark, Michael Fitzpatrick-Ruth, Jonathan Castello, Michael Powell, Ryan Kelly, J. Ryan Stinnett, William Kilmer, Kenny Rachuonyo, Lionel Debroux, Bastian Allgeier, John M Cooper, Tako Marks, Børge A. Roum, Alex Morega, Bruno Orcha García, mike nonemacher, Andy Burnett, Phil Kates, Lucian Carata, Gregg Cooke, Kevin C., Séamus O’Connor, Tim Kiekhafer, Derrick Southerland, Simon Clausen, queria, Simeon Farwell-Miller, Shyam Paryani, Sascha Zelzer, Jared Sohn, Daniel Dornhardt, Maftoc, Jake Rayson, Brandon Peters, Joshua Wise, Randall Leeds, Kit Stubbs, Ph.D., James Warner, Ben Rog-Wilhelm, Andreas Rohlfs, Konrad Scorciapino, Arne Neumann, Ben Cohen, James Synge, Johannes Krampf, Bryan Luoma, Martin Krafft, Jim Garrison, Kingdon Barrett</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2015-06-17-events.html">Upcoming events in San Francisco & Portland</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2015-06-17-events.html">17 Jun 2015</a>
+  
+  <p>David, Jade, and Asheesh will be speaking at events in Portland, OR, and
+San Francisco.</p>
+
+<h3 id="san-francisco-meetup-june-18">San Francisco meetup, June 18</h3>
+
+<p>At our
+<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223113702/">second SF meetup</a>,
+we’ll have a brief intro by core dev David Renshaw about the new sharing features of Sandstorm.
+We’re lucky to have
+David in town, as he’s normally in Pittsburgh.</p>
+
+<p>Co-founder Jade Wang will showcase how to package a Meteor app for Sandstorm, which
+is a preview of her jQuerySF talk.</p>
+
+<p>That’ll be at ThoughtWorks (thanks to them for hosting!) in San Francisco, 6 PM
+Thu 6/18. <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223113702/">RSVP here!</a></p>
+
+<h3 id="jquerysf-june-22-23">jQuerySF, June 22-23</h3>
+
+<p>At the upcoming <a href="http://jquerysf.com/">jQuerySF</a> conference, Jade will give
+a talk entitled “Sandstorm.io: one-click, deploy anywhere.” It’s
+at 11:10am on Monday, June 22.</p>
+
+<p>If you haven’t bought a ticket yet, use our Friends &amp; Family
+of Sandstorm discount code to register for just $20, saving a
+a huge amount off the ticket price. Register at
+<a href="https://ti.to/jquerysf/2015">the registration page</a> and use the code
+<code>sandstorm-ftw</code>!</p>
+
+<h3 id="open-source-bridge-portland-or-week-of-june-22">Open Source Bridge, Portland, OR, week of June 22</h3>
+
+<p>I’m giving two talks at Open Source Bridge, and would love to see
+Sandstorm-minded people there.</p>
+
+<ul>
+  <li><a href="http://opensourcebridge.org/sessions/1528">Economics of Volunteer Labor: Three stories from Debian</a>, Tue Jun 23, 10am</li>
+  <li><a href="http://opensourcebridge.org/sessions/1527">Five years, 1000 students: The story of Open Source Comes to Campus</a>, Thu Jun 25, 10am</li>
+</ul>
+
+<p>I hope to see you in SF or Portland! Feel free
+to drop me a line; I’m asheesh at sandstorm.io.</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2015-06-10-network-access-permission-android-vs-sandstorm.html">Should apps get network access by default? Android vs. Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2015-06-10-network-access-permission-android-vs-sandstorm.html">10 Jun 2015</a>
+  
+  <p>Google’s Android team has <a href="http://arstechnica.com/gadgets/2015/05/android-m-dev-preview-launches-permission-controls-fingerprint-api-and-more/">announced</a> that in Android M, users will be prompted to grant permissions to apps at the time the permission is used, rather than an the time the app is installed. That’s great! This will make it much easier for users to understand how permissions are being used and allows them to perform a “line-item veto” without uninstalling the whole app. This puts much more power in the hands of users, as it should be.</p>
+
+<p>Unfortunately, permission to access the network is now going to be granted totally automatically. Is this the right thing to do? <a href="http://www.androidpolice.com/2015/06/06/android-m-will-never-ask-users-for-permission-to-use-the-internet-and-thats-probably-okay/">Android Police</a> argues that it’s “probably okay”. But some of the arguments feel unconvincing.</p>
+
+<p>At Sandstorm, we have some strong opinions on this. Sandstorm, like Android, seeks to run apps in an environment that enforces a strong permissions model (but Sandstorm targets servers rather than phones). Part of Sandstorm’s security promise to the user is that apps are “confined”: they have <em>no communication with the outside world</em> unless and until the user grants them permissions. This promise is probably the most controversial part of our <a href="https://github.com/sandstorm-io/sandstorm/wiki/Security-Practices-Overview">security model</a>, but we continue to believe it is the right thing to do. <em>(Note: Sandstorm’s confinement guarantee is not fully enforced at this time, as we have intentionally poked holes in the sandbox during alpha testing in order to work around missing features. But, these will be closed over the next few months.)</em></p>
+
+<p>So, let’s take a look at the arguments the Android team is making for abandoning confinement.</p>
+
+<h3 id="bogus-argument-1-controlling-internet-access-is-redundant-on-top-of-other-permissions">Bogus Argument 1: Controlling internet access is redundant on top of other permissions.</h3>
+
+<p>The Android team apparently argues that being able to disable an app’s network access is not very important as long as all of your sensitive data (say, contacts) is guarded behind other permissions checks. If you don’t want the app to upload your contacts to the developer’s server, they say, don’t give it permission to see your contacts.</p>
+
+<p>This argument, to be frank, makes no sense. What if I <em>want</em> the app to organize my contacts (e.g. because it is a contact manager app), but still do <em>not</em> want it to upload my contacts to the developer’s server? The Android model seems to say that I must treat the app and the developer as one entity, which is unfortunate, but perhaps consistent with the SaaS model that Google is used to. We’d like to do better.</p>
+
+<p>In fact, proper confinement allows us to do something rather magical which the Android team seems to be overlooking: If I can confine an app, then I can safely load sensitive data into the app even if the app is malicious! This in turn makes it much easier to feel comfortable using apps from random developers I don’t know. It also means I don’t need to worry too much about bugs in the app.</p>
+
+<p>Moreover, even if I don’t plan to give the app any other permissions, I may still worry about whether the app might consume my resources in order to participate in a DDoS attack, anonymizing proxy service, or bitcoin mining rig behind my back.</p>
+
+<h3 id="bogus-argument-2-the-app-can-already-leak-data-by-opening-a-web-page-using-an-intent">Bogus Argument 2: The app can already leak data by opening a web page using an intent.</h3>
+
+<p>The Android team argues that an app can always use Android Intents to ask Chrome to open the developer’s web site, encoding my sensitive data as a URL parameter, thereby leaking my data. Because this is possible, they say, trying to provide confinement is pointless.</p>
+
+<p>First, two simple responses:</p>
+
+<ol>
+  <li>I will likely notice if an app opens Chrome with some weird URL, and be suspicious. That’s much better than it happening in secret.</li>
+  <li>The app probably can’t participate in a botnet through browser intents.</li>
+</ol>
+
+<p>More importantly, though, if intents allow trivial data leakage, perhaps that is a problem in intents. Perhaps the user needs to be asked whether or not they really want to open that link.</p>
+
+<p>But would that be annoying? I actually don’t think it would be too bad. People who have installed multiple browsers on Android today are, in fact, already protected: Android prompts the user to choose which browser to use. The user can, at this point, press “back” to avoid the interaction altogether. Perhaps Android Intents should in fact prompt the user to choose an app even when there is only one choice: in fact, there is always a second choice, which is “don’t open this at all”. Meanwhile, this interstitial lets the user know that they are switching apps, which may help them be less confused.</p>
+
+<h3 id="legitimate-argument-ux-is-hard">Legitimate Argument: UX is hard.</h3>
+
+<p>I think that the real reason the Android team doesn’t want to implement internet access as a permission is because getting the UX right is legitimately hard. Pushing an “allow/deny” prompt in the user’s face on the first packet sent is genuinely annoying and not very helpful to the user, and the Android people aren’t feeling particularly excited about trying to develop something better, perhaps because they think that users don’t care (a popular but <a href="http://boingboing.net/2015/06/08/internet-users-care-about-thei.html">incorrect</a> assumption).</p>
+
+<p>I believe there is a better way: Instead of prompting the user to allow or deny internet access as a whole, prompt them for individual <em>capabilities</em> that the app needs, and then merge that prompt with a choice that they were <em>already making</em>. It turns out that most security decisions, if you look carefully enough, are in fact paired with some functionality choice. If you merge the choices together, then one of two things happens:</p>
+
+<ol>
+  <li>The functionality choice is a choice the user already had to make, and by merging the security choice, you’ve avoided forcing the user to answer a separate security question.</li>
+  <li>The functionality choice is a choice the user <em>wasn’t</em> already being offered, but by offering them a choice, you are giving them a real, useful ability that they didn’t have.</li>
+</ol>
+
+<p>Let’s illustrate with some examples:</p>
+
+<ul>
+  <li><strong>Contacts:</strong> Many Android apps want to send “viral” invites to your friends. To accomplish this, the app first asks for permission to your contact list. A <em>legitimate</em> app uses that permission to display a contact picker back to you, from which you can choose the people whom you want to invite, and the app will then only <s>spam</s> invite those people. An <em>illegitimate</em> app will use the permission to spam or harvest your contacts without asking you first. (Sometimes these illegitimate apps are <a href="http://blog.path.com/post/17274932484/we-are-sorry">big names</a>!) So what are the two choices here?
+    <ul>
+      <li><strong>Security choice:</strong> Do you want give the app permission to use your contacts?</li>
+      <li><strong>Functionality choice:</strong> <em>Which</em> contacts do you want to invite?</li>
+    </ul>
+
+    <p>Android actually provides a contact picker UI which can be invoked via an intent. When used, instead of requesting permission to your <em>whole</em> contact list just to show you a picker, the app asks Android to display the picker, and receives permissions <em>only</em> to the contacts you choose. To the user, the UX is exactly the same (they choose whom to invite), but there is <em>no</em> security prompt, and yet illegitimate use is blocked. Hooray!</p>
+
+    <p>Sadly, many apps choose not to use this built-in picker, perhaps because developers think they can draw a prettier picker themselves and that the user doesn’t care about granting the extra permission. In my opinion, the Android-provided picker should be improved and the contacts permission discouraged – or disabled – in order to push developers away from drawing their own pickers.</p>
+  </li>
+  <li><strong>Email app:</strong> An app which wants to access your email (say, though IMAP) needs to know your server address and credentials, and then needs internet connectivity to talk to it. But can we do better?
+    <ul>
+      <li><strong>Security choice:</strong> Do you want to give the app permission to talk to your server?</li>
+      <li><strong>Functionality choice:</strong> What server should the app talk to, and what is the password?</li>
+    </ul>
+
+    <p>What if the platform implemented a “server picker” UI, so that the mail app merely says “I need a server address, username, and password”, the platform displays a form to the user, and then the requesting app not only receives information back, but also receives permission to access <em>specifically that server</em>? The user is, again, only doing something they had to do anyway: choose their server. No security prompt was ever presented, and yet the security ends up correct. (Plus, if you take it a step further by having the app proxy requests through the platform, then the platform could in fact hold on to the user’s mail server password, preventing the app from accidentally leaking it.)</p>
+  </li>
+  <li><strong>Locked-in Cloud API:</strong> Say a scheduling app wants to talk to the Google Calendar cloud API. The app only integrates with Google Calendar and no other service. Here we see an interesting side-effect come into play:
+    <ul>
+      <li><strong>Security choice:</strong> Do you want to give the app permission to access your Calendar account?</li>
+      <li><strong>Functionality choice:</strong> Which account do you want the app to use? (If you have more than one.)</li>
+      <li><strong>Freedom choice:</strong> Which <em>server</em> do you want the app to talk to?</li>
+    </ul>
+
+    <p>In this case, Android actually has an account management system and picker UI which handles the first two choices as one unit, exactly as I’d like. But I am <em>not</em> allowed to choose which server to use – I am locked into Google’s server. What if there is a third-party service – or open source server app – which I would like to use which has implemented a Google-calendar-compatible API? As long as the API is implemented correctly, I ought to be able to make apps use the alternate service, rather than be locked into Google.</p>
+
+    <p>If the security choice is mandatory anyway, and it is done in a <em>fine-grained</em> way (i.e. the request is for a specific server, rather than arbitrary network access), then the freedom choice can naturally be provided at the same time, without the app even knowing about it.</p>
+  </li>
+</ul>
+
+<h3 id="the-powerbox-ui">The Powerbox UI</h3>
+
+<p>All of the examples above will be supported through Sandstorm’s “Powerbox” UI. In general, the Powerbox is an arbitrary picker which can be invoked by any app and extended by any app. Underlying the Powerbox is the <a href="https://capnproto.org/rpc.html">Cap’n Proto RPC protocol</a>, which naturally represents capabilities (as granted by the powerbox) as RPC object references, automatically taking care of permissions and message routing.</p>
+
+<p>We have been laying the groundwork for the Powerbox for some time. The <a href="https://github.com/sandstorm-io/sandstorm/wiki/Security-Practices-Overview#capability-based-usable-security">infrastructure</a> is ready, and we are now working on giving it a UI. This will happen gradually over the next couple months.</p>
+
+<p>Even without the Powerbox, Sandstorm is highly usable today. <a href="https://demo.sandstorm.io">Try the demo</a>, <a href="https://sandstorm.io/install/">install your own (it’s open source)</a>, or <a href="https://sandstorm.io/preorder.html">preorder hosting</a>.</p>
+
+</section>
+
+
+<nav class="pagination bottom">
+  
+    
+      <a class="newer" href="/news/page2/" title="Previous Page">&laquo; Newer posts</a>
+    
+  
+
+  
+    <a class="older" href="/news/page4/" title="Next Page">Older posts &raquo;</a>
+  
+  <br clear="both">
+</nav>
+
+</div>
+
+
+    <footer>
+      <ul>
+        <li>
+          <h3><a href="/get">Get Sandstorm</a></h3>
+          <ul>
+            <li><a href="/get">For Individuals</a>
+            <li><a href="/get#self-host">For Organizations</a>
+            <li><a href="/get#self-host">For Self-hosters</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/features">Features</a></h3>
+          <ul>
+            <li><a href="/features">Core</a>
+            <li><a href="/features#security">Security</a>
+            <li><a href="/business">Sandstorm + Business</a>
+            <li><a href="/business#scale">Sandstorm + Scale</a>
+            <li><a href="/developer">Development</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="how-it-works">How it Works</a></h3>
+          <ul>
+            <li><a href="/how-it-works#grains">Fine-grained object containers</a>
+            <li><a href="/how-it-works#capabilities">Capability-based Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a>              </h3>
+          <ul>
+            <li><a href="/community#connect-with">Connect with us</a>
+            <li><a href="/community#helpothers">Help Others</a>
+            <li><a href="/community#helpproject">Help the Project</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/about">About</a></h3>
+          <ul>
+            <li><a href="/about">Sandstorm Story</a>
+            <li><a href="/about#team">Team</a>
+            <li><a href="/about#advisors">Advisors</a>
+            <li><a href="mailto:contact@sandstorm.io">Contact</a>
+          </ul>
+        </li>
+        <li>
+        <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <ul>
+            <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/blog">Blog</a></h3>
+          <ul>
+            <li><a href="/blog">Latest updates on Sandstorm.io</a>
+          </ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+							<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+								<input type="email" name="EMAIL" placeholder="e-mail" required>
+								<input type="submit" value="Submit">
+								</form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
+        </li>
+        <li>
+          <h3>Connect</h3>
+          <ul id="socialmedia-small">
+						<li><a class="twitter" href="https://twitter.com/SandstormIO"></a>
+						<li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank"></a>
+						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
+						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
+  			</ul>
+        </li>
+      </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
+    </footer>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-42127409-1', 'sandstorm.io');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
+  </body>
+</html>

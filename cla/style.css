@@ -45,7 +45,8 @@ h1, h2, h3, h4, b {
 
 #esignature td input, #esignature textarea {
   width: 340px;
-  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
   font-size: inherit;
   font-family: inherit;
   margin: 2px;
@@ -79,6 +80,7 @@ h1, h2, h3, h4, b {
 
   font-family: inherit;
   background-color: #428bca;
+  background-image: -webkit-linear-gradient(top, #428bca 0, #2d6ca2 100%);
   background-image: linear-gradient(to bottom,#428bca 0,#2d6ca2 100%);
   background-repeat: repeat-x;
 

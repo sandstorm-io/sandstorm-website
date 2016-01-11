@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Sandstorm Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Sandstorm.io">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
+    <meta property="og:url" content="https://sandstorm.io">
+    <meta property="og:description"
+        content="Take control of your web by running your own personal cloud server with Sandstorm.">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
+  </head>
+
+
+
+  <body id="blog">
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a href="/get">Sign Up</a>
+      <a href="/get#self-hosting">Download</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">How it Works</a>
+      <a href="/news/">Blog</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <!-- TODO: search -->
+    </nav>
+
+    <header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+<div class="post-list">
+
+<div class="sidebar">
+  <ul class="socialmedia">
+    <li><a class="twitter" href="https://twitter.com/SandstormIO">Twitter</a>
+    <li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank">Facebook</a>
+    <li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank">Google</a>
+    <li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank">Github</a>
+  </ul>
+
+  <div class="more">
+    <form id="signup" action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+      Join our mailing list for updates<br>
+      <input type="email" name="EMAIL" placeholder="E-mail" required><input type="submit" value="Submit">
+    </form>
+    <a href="/get">
+      Sandstorm is an open source operating system for personal and private clouds.
+      <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
+      <span class="selfhost" href="/install">or host your own</span>
+    </a>
+  </div>
+</div>
+
+
+
+  <nav class="pagination top">
+    
+      
+        <a class="newer" href="/news/page13/" title="Previous Page">&laquo; Newer posts</a>
+      
+    
+
+    
+      <a class="older" href="/news/page15/" title="Next Page">Older posts &raquo;</a>
+    
+    <br clear="both">
+  </nav>
+
+
+
+
+<section>
+  <h2><a href="/news/2014-07-11-demo-and-app-updates.html">Demo box; App updates</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-07-11-demo-and-app-updates.html">11 Jul 2014</a>
+  
+  
+  
+  
+  <p>A few quick updates today.</p>
+
+<h3 id="new-demo-server">New Demo server</h3>
+
+<p>It’s now possible to try out Sandstorm without an invite, and without installing
+it locally. Just go to <a href="https://demo.sandstorm.io/demo">demo.sandstorm.io</a>.</p>
+
+<p>On the demo server, anyone can create a one-hour trial account. We hope that
+this will make it much easier for people to understand what Sandstorm does,
+before they install it or wait in line for an invite. If a picture
+is worth a thousand words, a demo is worth ten thousand.</p>
+
+<h3 id="app-updates">App updates</h3>
+
+<p>We’ve posted updates to several apps with bug fixes and other improvements.
+Currently, in order to update an app, you must re-install it from the
+<a href="https://sandstorm.io/apps">app list</a>. (Push updates for apps are on our
+todo list.) So, if you’ve installed any of the following, install them again.</p>
+
+<ul>
+  <li><strong>Mailpile:</strong> Fixed bug where sent mail sometimes wasn’t saved.</li>
+  <li><strong>IPython Notebook:</strong> Added numpy and plotting packages, so you can now plot graphs.</li>
+  <li><strong>Etherpad:</strong> Minor UI tweaks.</li>
+</ul>
+
+<h3 id="new-features-and-fixes">New features and fixes</h3>
+
+<ul>
+  <li>We’ve added a “reset” button to the top bar, which lets you restart an app
+if it somehow gets wedged. This is rare, but otherwise really annoying when
+it happens.</li>
+  <li>Apps now receive the user’s display name and a unique stable identifier,
+which are useful for collaborative apps meant to be used by more than one
+user.</li>
+  <li>We fixed a crash that happened when updating a Sandstorm instance that runs
+as non-root, and tightened some security knobs in this mode.</li>
+</ul>
+
+<h3 id="license-is-now-apache-20">License is now Apache 2.0</h3>
+
+<p>Several people told us they were not comfortable contributing to Sandstorm
+when licensed under the GNU AGPL, or that their employers were hesitant to
+allow them to contribute. We think this is entirely understandable. We have
+always intended to switch to Apache 2.0 after gaining some momentum (which is
+why we have asked contributors to sign a CLA allowing us to make this change).
+So, we’ve gone ahead and made the switch now.</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2014-07-07-mailpile.html">Mailpile on Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/jparyani">Jason Paryani</a>
+    
+    - <a href="/news/2014-07-07-mailpile.html">07 Jul 2014</a>
+  
+  <p>Hello, I’m Jason, a new member of the Sandstorm team. Today I’m excited to
+announce that I’ve extended Sandstorm to support e-mail, and ported
+<a href="https://www.mailpile.is/">Mailpile Alpha II</a> to demonstrate. Mailpile is
+available on the <a href="https://sandstorm.io/apps/">Sandstorm app list</a> right now, so
+go ahead and try it out.</p>
+
+<p>You may know Mailpile from
+<a href="https://www.indiegogo.com/projects/mailpile-taking-e-mail-back">their successful Indiegogo campaign</a>
+last year. They’ve been working hard to create a web mail app that is designed
+to be self-hosted, which makes it a perfect fit for Sandstorm. It’s worth noting
+that Mailpile itself is, like Sandstorm, still in alpha. It is still somewhat
+rough around the edges, and may not quite be ready to replace your regular
+e-mail client yet. We will be updating our port as Mailpile matures, and we’re
+also looking at porting some other web mail apps so that you can choose the one
+that’s right for you.</p>
+
+<h3 id="how-sandstorm-does-e-mail">How Sandstorm does e-mail</h3>
+
+<p>We know that switching people over to using Sandstorm for e-mail will take time.
+So, we are starting with a design that makes it safe and easy to try out
+Sandstorm without committing.</p>
+
+<p>When you launch an e-mail application on Sandstorm, it is assigned a random
+e-mail address at your server, like “JBuaKxjkwiJq7oksS@alpha.sandstorm.io”. Any
+e-mail sent to that address is delivered to the app. The idea is not that you’d
+actually use this address publicly, but rather that you should set up e-mail
+forwarding from your real address to this address. For example, GMail allows
+you to set up such forwarding while still keeping a copy in your GMail inbox,
+and even lets you do the forwarding conditionally based on a filter.
+Additionally, most domain registrars have the ability to set up basic e-mail
+forwarding, so if you have your own domain, it’s easy to set up an address that
+redirects to a Sandstorm app.</p>
+
+<p>When you send e-mail from a Sandstorm app, we allow you to set the “From”
+header either to your app’s random address or to your verified Sandstorm login
+address. In the future, we’d like to add the ability to attach additional
+verified addresses to your account. Either way, the message’s envelope return
+address is always the app’s address. As a result, the mail recipient may see
+that the message was sent “via” your server.</p>
+
+<p>For more details on how to write an app that uses e-mail, and how to set up
+your Sandstorm server to support e-mail, check out the docs:
+* <a href="https://github.com/sandstorm-io/sandstorm/wiki/Configuring-your-server-for-email">Configuring your server for e-mail.</a>
+* <a href="https://github.com/sandstorm-io/sandstorm/wiki/Using-Email-From-Your-Sandstorm-App">Writing an app to use e-mail.</a></p>
+
+<h3 id="a-note-on-encryption">A note on encryption</h3>
+
+<p>A key feature of Mailpile is its support for PGP / GPG encryption and
+signatures. Unfortunately, this is not yet supported by our Sandstorm port, as
+we need to do more work to get crypto right.</p>
+
+<p>The simplest way we could support crypto would be to have you upload your
+private key into the app, to be stored on the server. This is not a good idea!
+In an ideal world, your private key would live only on a physical token or
+smart card and never even touch the storage of a real computer. Barring that,
+you should at least keep your key only on systems you own. If you run your own
+Sandstorm server, then uploading your key might be OK, but for anyone using a
+shared server, it’s not a good idea. We want a solution that works for everyone.</p>
+
+<p>Therefore we are looking into how we can make crypto available to Sandstorm
+apps without sending your key to the server. We are hopeful that the nascent
+<a href="http://www.w3.org/TR/WebCryptoAPI/">WebCrypto API</a> might solve this problem,
+but at present the standard is still under development and there is apparently
+some controversy over its design. In the meantime, browser-extension-based
+approaches like <a href="https://code.google.com/p/end-to-end/">Google’s End-To-End</a>
+provide an intriguing alternative, although Chrome’s decision to kill off NPAPI
+may make it impossible to access hardware tokens or your local GPG agent in
+this way.</p>
+
+<p>In any case, this is something we’ll be investigating further in the future.</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2014-07-03-team-update.html">New team members; security improvements; backup/restore</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-07-03-team-update.html">03 Jul 2014</a>
+  
+  <p>We have a bunch of updates for you today.</p>
+
+<h3 id="lots-of-apps-coming">Lots of apps coming!</h3>
+
+<p>We’ve ported a number of interesting apps to Sandstorm and will begin releasing
+them within the next few days. First up will be
+<a href="https://www.mailpile.is">Mailpile</a> – yes, e-mail in Sandstorm!
+Expect a full announcement on Monday, and other app announcements over the
+following days and weeks.</p>
+
+<h3 id="team-updates">Team updates</h3>
+
+<p>The Sandstorm team is no longer just me. I’d like to introduce all the new
+faces that you now see on our front page:</p>
+
+<ul>
+  <li><a href="https://github.com/jparyani"><strong>Jason Paryani</strong></a>, the author of Cap’n Proto’s
+<a href="https://github.com/jparyani/pycapnp">Python port</a>, has been working
+on features like backup/restore, e-mail, improved sharing/permissions, and
+porting a number of exciting apps.</li>
+  <li><a href="https://github.com/dwrensha"><strong>David Renshaw</strong></a>, the author of the
+<a href="https://github.com/dwrensha/capnproto-rust">Rust</a>
+and <a href="https://github.com/dwrensha/capnproto-java">Java</a> ports of Cap’n Proto, is
+now joining the team as well. He’s written a couple games that you can find on
+the app list (Duolodo and Acronymy) and is working on ports of
+<a href="https://www.sharelatex.com/">ShareLaTeX</a> and other apps.</li>
+  <li><a href="https://github.com/jadeqwang"><strong>Jade Wang</strong></a> has been working part-time on
+developer outreach and operations. She organized our recent app hackathon
+and other things you’ll be hearing about soon.</li>
+</ul>
+
+<p>We also have a couple of key advisors. These guys are contributing advice, resouces,
+and the occasional patch in their spare time; Sandstorm is not affiliated with
+their respective employers.</p>
+
+<ul>
+  <li><a href="https://github.com/amluto"><strong>Andy Lutomirski</strong></a> is a Linux kernel developer
+and has been helping us take better advantage of the kernel’s sandboxing features.</li>
+  <li><a href="https://github.com/swetland"><strong>Brian Swetland</strong></a> spent nine years as
+Android’s Systems Engineering lead and has been advising us on platform design.</li>
+</ul>
+
+<h3 id="backup--restore-functionality">Backup / Restore functionality</h3>
+
+<p>Jason has implemented the ability to back up
+and restore grains (app instances) from you Sandstorm server. Just click the
+new download icon on the top bar when viewing a grain. You will get a zip file
+containing the grain’s storage, which you can re-upload to the server (or to a
+different server) later on.</p>
+
+<h3 id="security-no-need-for-root">Security: No need for root</h3>
+
+<p>Sandstorm can now be installed and run without root privileges or setuid
+binaries. To accomplish this, we use Linux’s “UID namespaces” feature, which
+essentially allows other sandboxing features to be accessed by an unprivileged user.</p>
+
+<p>Unfortunately, if you are developing Sandstorm apps, it is still necessary to
+install Sandstorm with root privileges because the dev tools rely on FUSE and
+FUSE filesystems cannot currently be mounted inside UID namespaces. We hope the
+Linux kernel will eventually add this feature.</p>
+
+<p>Due to the use of UID namespaces, Sandstorm now requires Linux kernel version
+3.13 or better. The installer will verify that you are ready to run Sandstorm.</p>
+
+<p>Thanks to Andy for contributing much of the work on this.</p>
+
+<h3 id="seccomp-bpf-sandboxing">Seccomp-BPF Sandboxing</h3>
+
+<p>We’ve now enabled a basic seccomp filter to disable some dangerous system calls.
+Seccomp is a Linux feature that makes sandboxing more secure by disabling system
+calls (OS features) that apps don’t need. A typical web server uses only a tiny
+fraction of Linux’s system calls. By disabling the rest, we make sure that if a
+kernel exploit is found in one of them, it won’t allow an app to escape its
+sandbox.</p>
+
+<p>For now, we’ve disabled a few calls that provide complicated functionality that
+has been the subjects of vulnerabilities in the past, and that no web server
+rightly needs. We plan to expand on this in the future, eventually implementing
+a small whitelist and probably moving many system calls to userspace. All of
+this will be totally transparent to apps.</p>
+
+<p>Again, thanks to Andy for getting this started.</p>
+
+<h3 id="lwn-coverage">LWN Coverage</h3>
+
+<p>Linux Weekly News <a href="http://lwn.net/Articles/603485/">wrote about Sandstorm</a> last week!</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2014-06-04-self-service-web-publishing.html">Host Your Web Site</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-06-04-self-service-web-publishing.html">04 Jun 2014</a>
+  
+  <p>Sandstorm now supports apps that publish content to your personal web domain,
+such as blogging apps and content management systems.</p>
+
+<p>While we already had an app that claimed to do this (the “Hacker CMS” app), it
+previously required manual configuration of nginx to actually serve the content.
+Users of alpha.sandstorm.io actually had to ask me to manually set things up.
+But as of build 0.20, you can host your site in a completely self-service way.</p>
+
+<p>To try it out, install the latest version of Hacker CMS from the
+<a href="https://sandstorm.io/apps">app list</a> and click the “Setup DNS” button. (If you
+already have the app installed, install it again to get the latest version;
+we’re still working on automatic updates.)</p>
+
+<p>Hacker CMS is still mostly a tech demo, and we’d like to replace it with ports
+of some better-known blogging platforms. That said, our own blog at
+blog.sandstorm.io is actually hosted using Hacker CMS.</p>
+
+<p>Want to write your own app that does web publishing? Check out
+<a href="https://github.com/kentonv/sandstorm/wiki/Publishing-to-the-user's-domain">the wiki page</a>
+to see how.</p>
+
+<h3 id="tool-improvements">Tool Improvements</h3>
+
+<p>We’ve been hard at work improving Sandstorm’s developer experience. Some
+highlights include:</p>
+
+<ul>
+  <li>Your app’s stdout/stderr output is now accessible via the web UI. Just click
+the wrench icon.</li>
+  <li>A file size indicator is now shown in the top bar, so you can see if your app
+is using unreasonable disk space (<em>cough</em> MongoDB <em>cough</em>).</li>
+  <li><a href="https://github.com/jparyani">Jason Paryani</a> has built preliminary support
+for e-mail, which he’ll talk more about in a future update (once an app is ready).</li>
+  <li>Many other small tweaks have been made to the <code>spk</code> tool.</li>
+</ul>
+
+<h3 id="all-invites-sent">All Invites Sent</h3>
+
+<p>Everyone who was on the <a href="https://sandstorm.io/#signup-form">mailing list</a>
+as of yesterday should have received an invite to alpha.sandstorm.io by now. Please
+let me know if you are on the list but didn’t receive one. Sorry it took so long!
+We will continue sending invites to new sign-ups as long as we can handle the
+server load.</p>
+
+<h3 id="follow-sandstorm-on-twitter-and-google">Follow Sandstorm on Twitter and Google+!</h3>
+
+<p>We are <a href="http://twitter.com/SandstormIO">@SandstormIO on Twitter</a>
+and <a href="https://plus.google.com/u/0/107599969974415778560/posts">Sandstorm.io on Google+</a>.
+We want to keep the mailing list non-spammy, so follow us there for more frequent updates!</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2014-05-12-easy-port.html">Easy-Port</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-05-12-easy-port.html">12 May 2014</a>
+  
+  <h3 id="port-your-app-to-sandstorm-in-five-minutes">Port your app to Sandstorm in five minutes!</h3>
+
+<p>Sandstorm employs a native-code sandbox. App servers may be written using any
+technology stack that runs on Linux. The app provides all of its own libraries;
+all Sandstorm provides is a filesystem and HTTP routing.</p>
+
+<p>Up until now, porting apps to Sandstorm was a rather tedious process involving
+carefully figuring out dependencies and building a chroot environment. But now,
+we’ve written a tool that automates the process. It’s so easy that if you have
+a traditional web app server already running on your Linux machine, you can
+probably turn it into a Sandstorm app package in five minutes or less.</p>
+
+<p>The trick is actually quite simple: we run your app in a special version of
+the Sandstorm sandbox running on top of a FUSE filesystem that detects exactly
+what files your app tries to open, satisfies those dependencies just-in-time,
+and then makes a list so that you can build a package later. By default, the
+tool just pulls binaries and libraries from your local system. Just make sure
+to test all of your app’s features in dev mode, and you should have a complete
+package.</p>
+
+<p><a href="https://github.com/kentonv/sandstorm/wiki/Porting-Guide">Check out the porting guide for details.</a></p>
+
+<h3 id="wait-what-about-reproducible-builds">Wait, what about reproducible builds?</h3>
+
+<p>Glad you asked. Obviously, pulling whatever happens to be installed on your own
+machine into a package is a huge hack. A serious project will probably want to
+do something more hermetic and reproducible. Sandstorm supports that just fine.
+You can configure excatly where the dev tool looks for dependencies; it doesn’t
+have to be your own root directory. So, set up a chroot environment in whatever
+way suits you, and point it at that.</p>
+
+<p>You could, for example, use <a href="https://docker.io">Docker</a>. Once you’ve set up an
+appropriate Docker container for your app, point the Sandstorm dev tool at it
+and build a package. But it’s also possible to use the package management
+systems of various Linux distros directly. We didn’t want to constrain you to
+any one toolchain, because we know everyone has different tastes.</p>
+
+<h3 id="speaking-of-docker">Speaking of Docker</h3>
+
+<p>Many people have asked how Sandstorm is different from Docker. The answer is in
+the user interface. Docker is essentially a set of command-line tools for
+building chroot environments and deploying them. It is meant to be used by
+developers and sysadmins, to deploy software that might have any arbitrary
+number of users or, indeed, not be user-oriented at all. Docker is awesome at
+what it does, but what it does is actually not at all the same thing as what
+Sandstorm does.</p>
+
+<p>In contrast, Sandstorm is a user interface for a personal cloud server. It is
+perfectly possible for a non-technical end user to install new apps to their
+Sandstorm instance and use them. Moreover, Sandstorm provides and integrated
+login and sharing model, so that individual apps do not have to implement this
+themselves. The Sandstorm platform sits between the user and the app, so when
+an HTTP request arrives at the app, it is already annotated with information about the
+user’s identity and permissions as authenticated by the platform. Eventually, Sandstorm aims to provide a user
+interface that allows end users to connect their apps to each other and to
+other users’ app securely through an intuitive UI – think OAuth, except
+streamlined because all the apps already share an authentication system.
+Meanwhile, until two app instances have been connected by the user, they are
+completely isolated from each other, so that you need not worry that one
+insecure app might compromise your whole server.</p>
+
+</section>
+
+
+<nav class="pagination bottom">
+  
+    
+      <a class="newer" href="/news/page13/" title="Previous Page">&laquo; Newer posts</a>
+    
+  
+
+  
+    <a class="older" href="/news/page15/" title="Next Page">Older posts &raquo;</a>
+  
+  <br clear="both">
+</nav>
+
+</div>
+
+
+    <footer>
+      <ul>
+        <li>
+          <h3><a href="/get">Get Sandstorm</a></h3>
+          <ul>
+            <li><a href="/get">For Individuals</a>
+            <li><a href="/get#self-host">For Organizations</a>
+            <li><a href="/get#self-host">For Self-hosters</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/features">Features</a></h3>
+          <ul>
+            <li><a href="/features">Core</a>
+            <li><a href="/features#security">Security</a>
+            <li><a href="/business">Sandstorm + Business</a>
+            <li><a href="/business#scale">Sandstorm + Scale</a>
+            <li><a href="/developer">Development</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="how-it-works">How it Works</a></h3>
+          <ul>
+            <li><a href="/how-it-works#grains">Fine-grained object containers</a>
+            <li><a href="/how-it-works#capabilities">Capability-based Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a>              </h3>
+          <ul>
+            <li><a href="/community#connect-with">Connect with us</a>
+            <li><a href="/community#helpothers">Help Others</a>
+            <li><a href="/community#helpproject">Help the Project</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/about">About</a></h3>
+          <ul>
+            <li><a href="/about">Sandstorm Story</a>
+            <li><a href="/about#team">Team</a>
+            <li><a href="/about#advisors">Advisors</a>
+            <li><a href="mailto:contact@sandstorm.io">Contact</a>
+          </ul>
+        </li>
+        <li>
+        <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <ul>
+            <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/blog">Blog</a></h3>
+          <ul>
+            <li><a href="/blog">Latest updates on Sandstorm.io</a>
+          </ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+							<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+								<input type="email" name="EMAIL" placeholder="e-mail" required>
+								<input type="submit" value="Submit">
+								</form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
+        </li>
+        <li>
+          <h3>Connect</h3>
+          <ul id="socialmedia-small">
+						<li><a class="twitter" href="https://twitter.com/SandstormIO"></a>
+						<li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank"></a>
+						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
+						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
+  			</ul>
+        </li>
+      </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
+    </footer>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-42127409-1', 'sandstorm.io');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
+  </body>
+</html>
