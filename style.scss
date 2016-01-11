@@ -1716,7 +1716,6 @@ body >footer {
       right: 0;
       top: 0;
       width: 300px;
-      height: 800px;
 
       >ul.socialmedia {
         padding: 0;
@@ -1778,7 +1777,7 @@ body >footer {
           color: white;
           text-align: center;
           padding: 24px 16px;
-          height: 268px;
+          min-height: 268px;
           background: bottom/contain no-repeat url(/images/blog-sidebar-logo.svg);
           background-color: #2f2250;
 
@@ -1804,6 +1803,21 @@ body >footer {
             text-decoration: underline;
             font-size: 22px;
           }
+        }
+      }
+    }
+
+    @media (max-width: 800px) {
+      display: flex;
+      flex-direction: column;
+      padding: 1px 30px;
+
+      >div.sidebar {
+        position: static;
+        margin: 16px auto;
+        order: 10;
+        >ul.socialmedia {
+          text-align: center;
         }
       }
     }
