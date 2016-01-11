@@ -3,7 +3,7 @@
 set -eu
 shopt -s extglob
 
-if (git grep 'localhost:4000' | grep -v README); then
+if (git grep 'localhost:4000' | egrep -v "(README|push-site)"); then
   echo "ERROR: Your content has links to localhost:4000!" >&2
   exit 1
 fi
