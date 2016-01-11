@@ -54,7 +54,7 @@ echo
 
 if [ "x$YESNO" == "xy" ]; then
   (cd _published && git push)
-  echo git push -u origin "$BRANCH:$BRANCH"
+  git push -u origin "$BRANCH:$BRANCH"
 else
   echo "Push CANCELED"
 fi
