@@ -34,7 +34,7 @@ esac
 echo "Regenerating site..."
 
 rm -rf _pushsite
-jekyll build --safe -d _pushsite
+jekyll build -d _pushsite
 
 rm -rf _published
 mkdir _published
