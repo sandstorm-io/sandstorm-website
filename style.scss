@@ -1328,7 +1328,7 @@ body >footer {
 			&.boilerplate::before { background-image: url("images/developer-boilerplate.svg"); }
 			&.dev-ops::before { background-image: url("images/developer-dev-ops.svg"); }
 			&.integration::before { background-image: url("images/developer-integration.svg"); }
-			&.in-app::before { background-image: url("images/coming-soon.svg"); }
+			&.in-app::before { background-image: url("images/developer-in-app.svg"); }
 			}
 }
 // =======================================================================================
@@ -1336,20 +1336,69 @@ body >footer {
 
 #get {
   header {
+    padding: 1px 0 0 0;
+    max-width: none;
+		
+		p {
+			padding: 0 0 5px 0;
+		}
+		
+		.current {
+			background-color: #ffffff;
+			&::after { display: none; }
+		}
+    
     @include stripe {
       background-color: #2e2765;
       background-image: url(/images/header-get.svg);
       background-repeat: no-repeat;
       background-position: bottom;
       padding: 0 75% 0 0;
+      min-height: 180px;
     }
+		
+		div {
+			background-color: #e6e5ea;
+		
+    nav {
+        height: 55px;
+        font-size: 23px;
+        text-align: center;
+        width: 100%;
+        display: flex;
+        
+        @media (max-width: 550px) {
+          font-size: 20px;
+        }
 
-    >nav {
-      height: 48px;
-      text-align: center;
-      font-size: 16px;
+        a {
+          display: block;
+          flex: 1 1 33%;
+          text-align: center;
+          font-weight: normal;
+          height: 100%;
+          line-height: 55px;
+          width: 33%;
+
+          &:hover {
+            background-color: #f4f4f4;
+          }
+
+          @media (max-width: 810px) {
+            display: inline-block;
+            width: 32.5%;
+          }
+          @media (max-width: 450px) {
+            font-size: 18px;
+          }
+          @media (max-width: 400px) {
+            font-size: 13px;
+            width: 31%;
+          }
+        }
+      }
     }
-  }
+	}
 
   #pricing {
     text-align: center;
@@ -1361,6 +1410,15 @@ body >footer {
         list-style: none;
         display: block;
       }
+			
+			.free, .power, #organizations, #self-host, {
+			  border: 1px solid #8c72b5;
+        border-radius: 5px;
+			}
+			.standard {
+				border: 1px solid #4d2886;
+        border-radius: 5px;
+			}
     }
 
   p strong {
@@ -1373,7 +1431,6 @@ body >footer {
 		
 	.plans {
 		padding: 30px 0 0 0;
-		display: flex;
 	}
 
   .plan1, .plan2, {
@@ -1381,14 +1438,13 @@ body >footer {
     background: white;
     padding: 0;
     text-align: center;
-    border: 1px solid #8c72b5;
-    border-radius: 5px;
     margin: 0 2% 20px 0;
     width: 30%;
     position: relative;
     color: #684599;
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+		border-radius: 5px;
 
     @media (max-width: 750px) {
       width: 45%;
@@ -1436,28 +1492,29 @@ body >footer {
     .get {
       border-radius: 0px 0px 5px 5px;
       padding: 10px 0;
-    }
-
-    a {
-      color: white;
-      font-size: 20px;
-      border-radius: 5px;
-      display: inline-block;
-      background-color: $purplebutton-bg;
-      width: 95%;
-      padding: 12px 0;
-      &:hover {
-        background-color: $purplehover-bg;
-      }
+			a {
+				color: white;
+				font-size: 20px;
+				border-radius: 5px;
+				display: inline-block;
+				background-color: $purplebutton-bg;
+				width: 95%;
+				padding: 12px 0;
+				&:hover {
+					background-color: $purplehover-bg;
+				}
+			}
     }
   }
     
   .plan2 {
-    margin: 0 2% 0 2%;
+    margin: 0 2% 50px 2%;
     width: 45%;
     position: relative;
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+		display: inline-block;
+ 		position: relative;
 		
 		@media (max-width: 700px) {
       width: 100%;
@@ -1493,7 +1550,7 @@ body >footer {
 		.grains {
 			color: #202d70;
 		}
-    a {
+    .get a {
       color: white;
       font-size: 20px;
       border-radius: 5px;
