@@ -25,8 +25,8 @@
 &lt;/ul&gt;
 </description>
 				<pubDate>Mon, 11 Jan 2016 00:00:00 -0800</pubDate>
-				<link>https://sandstorm.io/news/2016-01-11-meetups.html</link>
-				<guid isPermaLink="true">https://sandstorm.io/news/2016-01-11-meetups.html</guid>
+                                <link>https://sandstorm.io/news/2016-01-11-meetups</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-01-11-meetups</guid>
 			</item>
 		
 			<item>
@@ -78,8 +78,8 @@ found Oasis through you and signs up for an account counts as your referral.&lt;
 &lt;p&gt;That’s it! To get started, open any grain and click Share Access in the top bar.&lt;/p&gt;
 </description>
 				<pubDate>Fri, 18 Dec 2015 00:00:00 -0800</pubDate>
-				<link>https://sandstorm.io/news/2015-12-18-referral-program.html</link>
-				<guid isPermaLink="true">https://sandstorm.io/news/2015-12-18-referral-program.html</guid>
+                                <link>https://sandstorm.io/news/2015-12-18-referral-program</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2015-12-18-referral-program</guid>
 			</item>
 		
 			<item>
@@ -118,8 +118,8 @@ found Oasis through you and signs up for an account counts as your referral.&lt;
 
 </description>
 				<pubDate>Thu, 17 Dec 2015 00:00:00 -0800</pubDate>
-				<link>https://sandstorm.io/news/2015-12-17-community-talks.html</link>
-				<guid isPermaLink="true">https://sandstorm.io/news/2015-12-17-community-talks.html</guid>
+                                <link>https://sandstorm.io/news/2015-12-17-community-talks</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2015-12-17-community-talks</guid>
 			</item>
 		
 			<item>
@@ -208,8 +208,8 @@ and packages in the App Market.  Today is a good day to
 for our &lt;a href=&quot;/news/2015-08-31-oasis-beta-launch.html&quot;&gt;managed hosting&lt;/a&gt;.&lt;/p&gt;
 </description>
 				<pubDate>Thu, 12 Nov 2015 00:00:00 -0800</pubDate>
-				<link>https://sandstorm.io/news/2015-11-12-authenticated-app-packages.html</link>
-				<guid isPermaLink="true">https://sandstorm.io/news/2015-11-12-authenticated-app-packages.html</guid>
+                                <link>https://sandstorm.io/news/2015-11-12-authenticated-app-packages</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2015-11-12-authenticated-app-packages</guid>
 			</item>
 		
 			<item>
@@ -240,8 +240,8 @@ for Sandstorm: To support app authors, we are happy to help with graphics. This 
 &lt;p&gt;Drop a line to community@sandstorm.io with any questions and we’ll make sure you succeed.&lt;/p&gt;
 </description>
 				<pubDate>Tue, 10 Nov 2015 00:00:00 -0800</pubDate>
-				<link>https://sandstorm.io/news/2015-11-10-icons-spks-for-everyone.html</link>
-				<guid isPermaLink="true">https://sandstorm.io/news/2015-11-10-icons-spks-for-everyone.html</guid>
+                                <link>https://sandstorm.io/news/2015-11-10-icons-spks-for-everyone</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2015-11-10-icons-spks-for-everyone</guid>
 			</item>
 		
 			<item>
@@ -290,8 +290,8 @@ Where: &lt;a href=&quot;https://www.google.com/maps?f=q&amp;amp;hl=en&amp;amp;q=
 &lt;p&gt;Hope you can make it!&lt;/p&gt;
 </description>
 				<pubDate>Thu, 22 Oct 2015 00:00:00 -0700</pubDate>
-				<link>https://sandstorm.io/news/2015-10-22-upcoming-meetups.html</link>
-				<guid isPermaLink="true">https://sandstorm.io/news/2015-10-22-upcoming-meetups.html</guid>
+                                <link>https://sandstorm.io/news/2015-10-22-upcoming-meetups</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2015-10-22-upcoming-meetups</guid>
 			</item>
 		
 			<item>
@@ -301,8 +301,8 @@ Where: &lt;a href=&quot;https://www.google.com/maps?f=q&amp;amp;hl=en&amp;amp;q=
 &lt;p&gt;Last week, &lt;a href=&quot;http://www.hanselminutes.com/497/your-personal-cloud-platform-with-sandstormio-and-kenton-varda&quot;&gt;Scott Hanselman interviewed Kenton Varda for his Hanselminutes podcast&lt;/a&gt;. Check out the half-hour interview in which they discuss Sandstorm, from big-picture vision (e.g., making the web safe for open source web apps) to how Sandstorm’s security features work.&lt;/p&gt;
 </description>
 				<pubDate>Tue, 20 Oct 2015 00:00:00 -0700</pubDate>
-				<link>https://sandstorm.io/news/2015-10-20-hanselminutes.html</link>
-				<guid isPermaLink="true">https://sandstorm.io/news/2015-10-20-hanselminutes.html</guid>
+                                <link>https://sandstorm.io/news/2015-10-20-hanselminutes</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2015-10-20-hanselminutes</guid>
 			</item>
 		
 			<item>
@@ -364,8 +364,8 @@ Where: &lt;a href=&quot;https://www.google.com/maps?f=q&amp;amp;hl=en&amp;amp;q=
 &lt;p&gt;And if you already have a Sandcats-enabled install of Sandstorm from before today, check out the &lt;a href=&quot;https://docs.sandstorm.io/en/latest/administering/ssl/&quot;&gt;documentation&lt;/a&gt; to enable HTTPS!&lt;/p&gt;
 </description>
 				<pubDate>Thu, 01 Oct 2015 00:00:00 -0700</pubDate>
-				<link>https://sandstorm.io/news/2015-10-01-free-ssl-certificates.html</link>
-				<guid isPermaLink="true">https://sandstorm.io/news/2015-10-01-free-ssl-certificates.html</guid>
+                                <link>https://sandstorm.io/news/2015-10-01-free-ssl-certificates</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2015-10-01-free-ssl-certificates</guid>
 			</item>
 		
 			<item>
@@ -436,8 +436,8 @@ Where: &lt;a href=&quot;https://www.google.com/maps?f=q&amp;amp;hl=en&amp;amp;q=
 &lt;p&gt;Yes. The installer will not install a release more than a month old. The updater will never “downgrade” to an older version. We also plan to add an alert to the Sandstorm UI if the Sandstorm build is more than a month old, which could indicate that an attacker is blocking access to the update server.&lt;/p&gt;
 </description>
 				<pubDate>Thu, 24 Sep 2015 00:00:00 -0700</pubDate>
-				<link>https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install.html</link>
-				<guid isPermaLink="true">https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install.html</guid>
+                                <link>https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install</guid>
 			</item>
 		
 			<item>
@@ -496,8 +496,8 @@ Where: &lt;a href=&quot;https://www.google.com/maps?f=q&amp;amp;hl=en&amp;amp;q=
 &lt;p&gt;A couple months back, we asked you on Twitter what our managed hosting service should be called. Nearly everyone who replied – and there were a lot of you – had the same answer: “Oasis”. So, thank you for making the decision easy!&lt;/p&gt;
 </description>
 				<pubDate>Mon, 31 Aug 2015 00:00:00 -0700</pubDate>
-				<link>https://sandstorm.io/news/2015-08-31-oasis-beta-launch.html</link>
-				<guid isPermaLink="true">https://sandstorm.io/news/2015-08-31-oasis-beta-launch.html</guid>
+                                <link>https://sandstorm.io/news/2015-08-31-oasis-beta-launch</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2015-08-31-oasis-beta-launch</guid>
 			</item>
 		
 	</channel>
