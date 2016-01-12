@@ -191,7 +191,7 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 17px;
   font-weight: 300;
-  color: #302851;
+  color: black;
   overflow-x: hidden; }
 
 body > * {
@@ -236,7 +236,7 @@ body > nav {
     padding: 0 15px;
     line-height: 48px;
     font-weight: 300;
-    color: #302851; }
+    color: black; }
     body > nav > a:first-child {
       float: left; }
     body > nav > a:hover {
@@ -305,6 +305,7 @@ body > section > ul {
 
 body > footer {
   padding-bottom: 1px;
+  color: #302851;
   position: relative; }
   body > footer::after {
     display: block;
@@ -353,7 +354,7 @@ body > footer {
       color: #7757bc; }
   body > footer ul .sign-in-footer a {
     text-align: center;
-    color: #302851;
+    color: black;
     border-radius: 4px;
     display: block;
     width: 150px;
@@ -676,6 +677,7 @@ body > footer {
   font-size: 30px;
   padding: 25px 0;
   list-style: none;
+  color: #302851;
   position: relative; }
   #home .try-apps::after {
     display: block;
@@ -1387,7 +1389,7 @@ body > footer {
     text-align: center;
     font-size: 32px;
     padding: 24px 0;
-    color: #302851; }
+    color: black; }
     #get #where > a:first-of-type {
       background: 50% 70px/175px no-repeat url("/images/hosted-service.svg"); }
       @media (max-width: 600px) {
@@ -1636,6 +1638,7 @@ body > footer {
   font-size: 35px;
   padding: 25px 0;
   margin: 0;
+  color: #302851;
   position: relative; }
   #how-it-works #grains h2::after, #how-it-works #capabilities h2::after {
     display: block;
@@ -1716,7 +1719,7 @@ body > footer {
   font-weight: bold;
   text-align: left; }
   #blog h2 a, #blog h3 a {
-    color: #302851; }
+    color: black; }
 #blog > div.post-list {
   margin-top: 30px;
   position: relative;
@@ -2027,6 +2030,7 @@ body > footer {
     padding: 20px 0 100px 0;
     border: 1px solid #c8b5e5;
     background-color: #F6F2FC;
+    color: #302851;
     overflow-y: auto;
     padding: 16px;
     height: 500px;
