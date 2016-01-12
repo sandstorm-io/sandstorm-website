@@ -54,7 +54,7 @@ The term "microservice" has become popular lately, but the idea has been in prac
 
 **Sandstorm takes a wildly different approach:** It containerizes _objects_, where an object is primarily defined by _data_. We call each Sandstorm container a **"grain"**, because it is fine-grained.
 
-For example, when using Etherpad -- a document editor app -- on Sandstorm, every document lives in a separate container, isolated from the others. The front-end and database for that document live in the container. The container has a private filesystem for storage. Javascript running in the user's browser can talk only to the document container for which it was loaded, no others. All of this makes up a single "grain".
+For example, when using Etherpad -- a document editor app -- on Sandstorm, every document lives in a separate container, isolated from the others. The front-end and database for that document live in the container. The container has a private filesystem for storage. JavaScript running in the user's browser can talk only to the document container for which it was loaded, no others. All of this makes up a single "grain".
 
 Similarly, when you use Wekan (a kanban board, comparable to Trello) on Sandstorm, each board lives in a separate grain. When you use GitWeb, each git repository lives in a separate grain. When you use EtherCalc, each spreadsheet lives in a separate grain.
 
