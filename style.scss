@@ -454,7 +454,7 @@ body >footer {
       }
 
       @include stripe {
-        background-image: linear-gradient(top, #1b1b3d, #613c82);
+        background-image: linear-gradient(to bottom, #1b1b3d, #613c82);
         background-color: #211f44;
       }
 
@@ -545,23 +545,23 @@ body >footer {
         }
 
         >a.get {
-          background-image: linear-gradient(top,  #744ccc, #613c91);
+          background-image: linear-gradient(to bottom,  #744ccc, #613c91);
           box-shadow: 0 3px 3px rgba(41,25,66,0.6);
           background-color: #613c91;
 
           &:hover {
-            background-image: linear-gradient(top, #955fcc, #7a3cab);
+            background-image: linear-gradient(to bottom, #955fcc, #7a3cab);
             background-color: #744ccc;
           }
         }
 
         >a.demo {
-          background-image: linear-gradient(top, #e67cba, #9e4997);
+          background-image: linear-gradient(to bottom, #e67cba, #9e4997);
           box-shadow: 0 3px 3px rgba(41,25,66,0.6);
           background-color: #9e4997;
 
           &:hover {
-            background-image: linear-gradient(top, #fd8acf, #9d57b6);
+            background-image: linear-gradient(to bottom, #fd8acf, #9d57b6);
             background-color: #e67cba;
           }
         }
@@ -1732,7 +1732,7 @@ body >footer {
 #blog {
   header {
     @include stripe {
-    background-image: linear-gradient(top, #531e49, #af7f9f);
+    background-image: linear-gradient(to bottom, #531e49, #af7f9f);
     background-color: $header-bg;
     }
   }
@@ -1834,12 +1834,12 @@ body >footer {
             border-radius: 4px;
             font-size: 24px;
 
-            background-image: linear-gradient(top,  #744ccc, #613c91);
+            background-image: linear-gradient(to bottom,  #744ccc, #613c91);
             box-shadow: 0 3px 3px rgba(41,25,66,0.6);
             background-color: #613c91;
 
             &:hover {
-              background-image: linear-gradient(top, #955fcc, #7a3cab);
+              background-image: linear-gradient(to bottom, #955fcc, #7a3cab);
               background-color: #744ccc;
             }
           }
