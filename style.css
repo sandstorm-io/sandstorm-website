@@ -1701,8 +1701,8 @@ body > footer {
     left: calc(50% - 50vw);
     width: 100vw;
     z-index: -1;
-    background-image: -webkit-linear-gradient(top, #531e49, #af7f9f);
-    background-image: linear-gradient(to bottom, #531e49, #af7f9f);
+    background-image: -webkit-linear-gradient(top, #531e49, #efd0ce);
+    background-image: linear-gradient(to bottom, #531e49, #efd0ce);
     background-color: #2e2765; }
 #blog .sand {
   min-height: 180px;
@@ -1710,9 +1710,13 @@ body > footer {
   background-repeat: no-repeat;
   background-position: bottom center;
   background-image: url(images/header-blog.svg); }
+#blog h2 {
+  font-size: 35px; }
 #blog h2, #blog h3 {
   font-weight: bold;
   text-align: left; }
+  #blog h2 a, #blog h3 a {
+    color: #302851; }
 #blog > div.post-list {
   margin-top: 30px;
   position: relative;
@@ -1734,8 +1738,8 @@ body > footer {
           #blog > div.post-list > div.sidebar > ul.socialmedia > li > a::before {
             font-family: sandstorm;
             display: block;
-            height: 50px;
-            font-size: 45px; }
+            width: 40px;
+            font-size: 30px; }
           #blog > div.post-list > div.sidebar > ul.socialmedia > li > a.twitter::before {
             content: "\e908"; }
           #blog > div.post-list > div.sidebar > ul.socialmedia > li > a.google::before {
@@ -1770,7 +1774,12 @@ body > footer {
           background-color: #2f2250;
           border: none;
           height: 28px;
-          width: 30%; }
+          width: 30%;
+          margin: 10px 0 0 0;
+          -webkit-transition: -webkit-transform 0.75s ease, background 0.35s ease;
+                  transition: transform 0.75s ease, background 0.35s ease; }
+          #blog > div.post-list > div.sidebar > .more > form input[type="submit"]:hover {
+            background: #7757bc; }
       #blog > div.post-list > div.sidebar > .more > a {
         display: block;
         color: white;
@@ -1819,14 +1828,16 @@ body > footer {
         #blog > div.post-list > div.sidebar > ul.socialmedia {
           text-align: center; } }
   #blog > div.post-list > section {
-    border-bottom: 1px solid #aaa; }
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 50px; }
     #blog > div.post-list > section:last-of-type {
       border-bottom: none; }
     #blog > div.post-list > section > h2 {
       margin-bottom: 0; }
     #blog > div.post-list > section p.post-details {
       margin-top: 0;
-      font-size: 85%; }
+      font-size: 85%;
+      padding: 10px 0 20px 0; }
     #blog > div.post-list > section blockquote {
       font-size: 30px;
       font-style: italic;
