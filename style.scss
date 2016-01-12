@@ -1732,7 +1732,7 @@ body >footer {
 #blog {
   header {
     @include stripe {
-    background-image: linear-gradient(to bottom, #531e49, #af7f9f);
+    background-image: linear-gradient(to bottom, #531e49, #efd0ce);
     background-color: $header-bg;
     }
   }
@@ -1744,10 +1744,15 @@ body >footer {
     background-position: bottom center;
     background-image: url(images/header-blog.svg);
   }
+  
+  h2 {
+    font-size: 35px;
+  }
 
   h2, h3 {
     font-weight: bold;
     text-align: left;
+    a { color: $default-fontcolor; }
   }
 
   >div.post-list {
@@ -1775,8 +1780,8 @@ body >footer {
             &::before {
               font-family: sandstorm;
               display: block;
-              height: 50px;
-              font-size: 45px;
+              width: 40px;
+              font-size: 30px;
             }
 
             &.twitter::before { content: "\e908"; }
@@ -1814,6 +1819,12 @@ body >footer {
             border: none;
             height: 28px;
             width: 30%;
+            margin: 10px 0 0 0;
+            transition: transform 0.75s ease, background 0.35s ease;
+
+            &:hover {
+              background: $purple-highlight;
+            }
           }
         }
 
@@ -1869,6 +1880,7 @@ body >footer {
 
     >section {  // a single post
       border-bottom: 1px solid #aaa;
+      padding-bottom: 50px;
 
       &:last-of-type {
         border-bottom: none;
@@ -1881,6 +1893,7 @@ body >footer {
       p.post-details {
         margin-top: 0;
         font-size: 85%;
+        padding: 10px 0 20px 0;
       }
 
       blockquote {
