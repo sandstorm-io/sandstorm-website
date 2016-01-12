@@ -454,7 +454,7 @@ body >footer {
       }
 
       @include stripe {
-        background-image: -webkit-linear-gradient(top, #1b1b3d, #613c82);
+        background-image: linear-gradient(to bottom, #1b1b3d, #613c82);
         background-color: #211f44;
       }
 
@@ -545,23 +545,23 @@ body >footer {
         }
 
         >a.get {
-          background-image: linear-gradient(top,  #744ccc, #613c91);
+          background-image: linear-gradient(to bottom,  #744ccc, #613c91);
           box-shadow: 0 3px 3px rgba(41,25,66,0.6);
           background-color: #613c91;
 
           &:hover {
-            background-image: linear-gradient(top, #955fcc, #7a3cab);
+            background-image: linear-gradient(to bottom, #955fcc, #7a3cab);
             background-color: #744ccc;
           }
         }
 
         >a.demo {
-          background-image: linear-gradient(top, #e67cba, #9e4997);
+          background-image: linear-gradient(to bottom, #e67cba, #9e4997);
           box-shadow: 0 3px 3px rgba(41,25,66,0.6);
           background-color: #9e4997;
 
           &:hover {
-            background-image: linear-gradient(top, #fd8acf, #9d57b6);
+            background-image: linear-gradient(to bottom, #fd8acf, #9d57b6);
             background-color: #e67cba;
           }
         }
@@ -1416,7 +1416,6 @@ body >footer {
         width: 30%;
         position: relative;
         color: #684599;
-        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 
         ul {
@@ -1496,7 +1495,6 @@ body >footer {
           margin: 0 2% 0 2%;
           width: 45%;
           position: relative;
-          -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
           box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 
            @media (max-width: 700px) {
@@ -1734,7 +1732,11 @@ body >footer {
 #blog {
   header {
     @include stripe {
-    background-image: -webkit-linear-gradient(top, #531e49, #af7f9f);
+<<<<<<< HEAD
+    background-image: linear-gradient(to bottom, #531e49, #efd0ce);
+=======
+    background-image: linear-gradient(to bottom, #531e49, #af7f9f);
+>>>>>>> 79a7d225f61209906dc57a7ebdde2498e1ccb70c
     background-color: $header-bg;
     }
   }
@@ -1746,10 +1748,15 @@ body >footer {
     background-position: bottom center;
     background-image: url(images/header-blog.svg);
   }
+	
+  h2 {
+    font-size: 35px;
+  } 
 
   h2, h3 {
     font-weight: bold;
     text-align: left;
+    a { color: $default-fontcolor; }
   }
 
   >div.post-list {
@@ -1777,8 +1784,8 @@ body >footer {
             &::before {
               font-family: sandstorm;
               display: block;
-              height: 50px;
-              font-size: 45px;
+														width: 40px;
+              font-size: 30px;
             }
 
             &.twitter::before { content: "\e908"; }
@@ -1816,6 +1823,12 @@ body >footer {
             border: none;
             height: 28px;
             width: 30%;
+            margin: 10px 0 0 0;
+            transition: transform 0.75s ease, background 0.35s ease;
+											
+            &:hover {
+              background: $purple-highlight;
+            }
           }
         }
 
@@ -1836,12 +1849,12 @@ body >footer {
             border-radius: 4px;
             font-size: 24px;
 
-            background-image: linear-gradient(top,  #744ccc, #613c91);
+            background-image: linear-gradient(to bottom,  #744ccc, #613c91);
             box-shadow: 0 3px 3px rgba(41,25,66,0.6);
             background-color: #613c91;
 
             &:hover {
-              background-image: linear-gradient(top, #955fcc, #7a3cab);
+              background-image: linear-gradient(to bottom, #955fcc, #7a3cab);
               background-color: #744ccc;
             }
           }
@@ -1871,6 +1884,7 @@ body >footer {
 
     >section {  // a single post
       border-bottom: 1px solid #aaa;
+      padding-bottom: 50px;
 
       &:last-of-type {
         border-bottom: none;
@@ -1883,6 +1897,7 @@ body >footer {
       p.post-details {
         margin-top: 0;
         font-size: 85%;
+        padding: 10px 0 20px 0;
       }
 
       blockquote {
