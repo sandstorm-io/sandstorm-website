@@ -78,13 +78,107 @@
 
 
 <section>
+  <h2><a href="/news/2015-06-10-network-access-permission-android-vs-sandstorm">Should apps get network access by default? Android vs. Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2015-06-10-network-access-permission-android-vs-sandstorm">10 Jun 2015</a>
+  
+  
+  
+  
+  <p>Google’s Android team has <a href="http://arstechnica.com/gadgets/2015/05/android-m-dev-preview-launches-permission-controls-fingerprint-api-and-more/">announced</a> that in Android M, users will be prompted to grant permissions to apps at the time the permission is used, rather than an the time the app is installed. That’s great! This will make it much easier for users to understand how permissions are being used and allows them to perform a “line-item veto” without uninstalling the whole app. This puts much more power in the hands of users, as it should be.</p>
+
+<p>Unfortunately, permission to access the network is now going to be granted totally automatically. Is this the right thing to do? <a href="http://www.androidpolice.com/2015/06/06/android-m-will-never-ask-users-for-permission-to-use-the-internet-and-thats-probably-okay/">Android Police</a> argues that it’s “probably okay”. But some of the arguments feel unconvincing.</p>
+
+<p>At Sandstorm, we have some strong opinions on this. Sandstorm, like Android, seeks to run apps in an environment that enforces a strong permissions model (but Sandstorm targets servers rather than phones). Part of Sandstorm’s security promise to the user is that apps are “confined”: they have <em>no communication with the outside world</em> unless and until the user grants them permissions. This promise is probably the most controversial part of our <a href="https://github.com/sandstorm-io/sandstorm/wiki/Security-Practices-Overview">security model</a>, but we continue to believe it is the right thing to do. <em>(Note: Sandstorm’s confinement guarantee is not fully enforced at this time, as we have intentionally poked holes in the sandbox during alpha testing in order to work around missing features. But, these will be closed over the next few months.)</em></p>
+
+<p>So, let’s take a look at the arguments the Android team is making for abandoning confinement.</p>
+
+<h3 id="bogus-argument-1-controlling-internet-access-is-redundant-on-top-of-other-permissions">Bogus Argument 1: Controlling internet access is redundant on top of other permissions.</h3>
+
+<p>The Android team apparently argues that being able to disable an app’s network access is not very important as long as all of your sensitive data (say, contacts) is guarded behind other permissions checks. If you don’t want the app to upload your contacts to the developer’s server, they say, don’t give it permission to see your contacts.</p>
+
+<p>This argument, to be frank, makes no sense. What if I <em>want</em> the app to organize my contacts (e.g. because it is a contact manager app), but still do <em>not</em> want it to upload my contacts to the developer’s server? The Android model seems to say that I must treat the app and the developer as one entity, which is unfortunate, but perhaps consistent with the SaaS model that Google is used to. We’d like to do better.</p>
+
+<p>In fact, proper confinement allows us to do something rather magical which the Android team seems to be overlooking: If I can confine an app, then I can safely load sensitive data into the app even if the app is malicious! This in turn makes it much easier to feel comfortable using apps from random developers I don’t know. It also means I don’t need to worry too much about bugs in the app.</p>
+
+<p>Moreover, even if I don’t plan to give the app any other permissions, I may still worry about whether the app might consume my resources in order to participate in a DDoS attack, anonymizing proxy service, or bitcoin mining rig behind my back.</p>
+
+<h3 id="bogus-argument-2-the-app-can-already-leak-data-by-opening-a-web-page-using-an-intent">Bogus Argument 2: The app can already leak data by opening a web page using an intent.</h3>
+
+<p>The Android team argues that an app can always use Android Intents to ask Chrome to open the developer’s web site, encoding my sensitive data as a URL parameter, thereby leaking my data. Because this is possible, they say, trying to provide confinement is pointless.</p>
+
+<p>First, two simple responses:</p>
+
+<ol>
+  <li>I will likely notice if an app opens Chrome with some weird URL, and be suspicious. That’s much better than it happening in secret.</li>
+  <li>The app probably can’t participate in a botnet through browser intents.</li>
+</ol>
+
+<p>More importantly, though, if intents allow trivial data leakage, perhaps that is a problem in intents. Perhaps the user needs to be asked whether or not they really want to open that link.</p>
+
+<p>But would that be annoying? I actually don’t think it would be too bad. People who have installed multiple browsers on Android today are, in fact, already protected: Android prompts the user to choose which browser to use. The user can, at this point, press “back” to avoid the interaction altogether. Perhaps Android Intents should in fact prompt the user to choose an app even when there is only one choice: in fact, there is always a second choice, which is “don’t open this at all”. Meanwhile, this interstitial lets the user know that they are switching apps, which may help them be less confused.</p>
+
+<h3 id="legitimate-argument-ux-is-hard">Legitimate Argument: UX is hard.</h3>
+
+<p>I think that the real reason the Android team doesn’t want to implement internet access as a permission is because getting the UX right is legitimately hard. Pushing an “allow/deny” prompt in the user’s face on the first packet sent is genuinely annoying and not very helpful to the user, and the Android people aren’t feeling particularly excited about trying to develop something better, perhaps because they think that users don’t care (a popular but <a href="http://boingboing.net/2015/06/08/internet-users-care-about-thei.html">incorrect</a> assumption).</p>
+
+<p>I believe there is a better way: Instead of prompting the user to allow or deny internet access as a whole, prompt them for individual <em>capabilities</em> that the app needs, and then merge that prompt with a choice that they were <em>already making</em>. It turns out that most security decisions, if you look carefully enough, are in fact paired with some functionality choice. If you merge the choices together, then one of two things happens:</p>
+
+<ol>
+  <li>The functionality choice is a choice the user already had to make, and by merging the security choice, you’ve avoided forcing the user to answer a separate security question.</li>
+  <li>The functionality choice is a choice the user <em>wasn’t</em> already being offered, but by offering them a choice, you are giving them a real, useful ability that they didn’t have.</li>
+</ol>
+
+<p>Let’s illustrate with some examples:</p>
+
+<ul>
+  <li><strong>Contacts:</strong> Many Android apps want to send “viral” invites to your friends. To accomplish this, the app first asks for permission to your contact list. A <em>legitimate</em> app uses that permission to display a contact picker back to you, from which you can choose the people whom you want to invite, and the app will then only <s>spam</s> invite those people. An <em>illegitimate</em> app will use the permission to spam or harvest your contacts without asking you first. (Sometimes these illegitimate apps are <a href="http://blog.path.com/post/17274932484/we-are-sorry">big names</a>!) So what are the two choices here?
+    <ul>
+      <li><strong>Security choice:</strong> Do you want give the app permission to use your contacts?</li>
+      <li><strong>Functionality choice:</strong> <em>Which</em> contacts do you want to invite?</li>
+    </ul>
+
+    <p>Android actually provides a contact picker UI which can be invoked via an intent. When used, instead of requesting permission to your <em>whole</em> contact list just to show you a picker, the app asks Android to display the picker, and receives permissions <em>only</em> to the contacts you choose. To the user, the UX is exactly the same (they choose whom to invite), but there is <em>no</em> security prompt, and yet illegitimate use is blocked. Hooray!</p>
+
+    <p>Sadly, many apps choose not to use this built-in picker, perhaps because developers think they can draw a prettier picker themselves and that the user doesn’t care about granting the extra permission. In my opinion, the Android-provided picker should be improved and the contacts permission discouraged – or disabled – in order to push developers away from drawing their own pickers.</p>
+  </li>
+  <li><strong>Email app:</strong> An app which wants to access your email (say, though IMAP) needs to know your server address and credentials, and then needs internet connectivity to talk to it. But can we do better?
+    <ul>
+      <li><strong>Security choice:</strong> Do you want to give the app permission to talk to your server?</li>
+      <li><strong>Functionality choice:</strong> What server should the app talk to, and what is the password?</li>
+    </ul>
+
+    <p>What if the platform implemented a “server picker” UI, so that the mail app merely says “I need a server address, username, and password”, the platform displays a form to the user, and then the requesting app not only receives information back, but also receives permission to access <em>specifically that server</em>? The user is, again, only doing something they had to do anyway: choose their server. No security prompt was ever presented, and yet the security ends up correct. (Plus, if you take it a step further by having the app proxy requests through the platform, then the platform could in fact hold on to the user’s mail server password, preventing the app from accidentally leaking it.)</p>
+  </li>
+  <li><strong>Locked-in Cloud API:</strong> Say a scheduling app wants to talk to the Google Calendar cloud API. The app only integrates with Google Calendar and no other service. Here we see an interesting side-effect come into play:
+    <ul>
+      <li><strong>Security choice:</strong> Do you want to give the app permission to access your Calendar account?</li>
+      <li><strong>Functionality choice:</strong> Which account do you want the app to use? (If you have more than one.)</li>
+      <li><strong>Freedom choice:</strong> Which <em>server</em> do you want the app to talk to?</li>
+    </ul>
+
+    <p>In this case, Android actually has an account management system and picker UI which handles the first two choices as one unit, exactly as I’d like. But I am <em>not</em> allowed to choose which server to use – I am locked into Google’s server. What if there is a third-party service – or open source server app – which I would like to use which has implemented a Google-calendar-compatible API? As long as the API is implemented correctly, I ought to be able to make apps use the alternate service, rather than be locked into Google.</p>
+
+    <p>If the security choice is mandatory anyway, and it is done in a <em>fine-grained</em> way (i.e. the request is for a specific server, rather than arbitrary network access), then the freedom choice can naturally be provided at the same time, without the app even knowing about it.</p>
+  </li>
+</ul>
+
+<h3 id="the-powerbox-ui">The Powerbox UI</h3>
+
+<p>All of the examples above will be supported through Sandstorm’s “Powerbox” UI. In general, the Powerbox is an arbitrary picker which can be invoked by any app and extended by any app. Underlying the Powerbox is the <a href="https://capnproto.org/rpc.html">Cap’n Proto RPC protocol</a>, which naturally represents capabilities (as granted by the powerbox) as RPC object references, automatically taking care of permissions and message routing.</p>
+
+<p>We have been laying the groundwork for the Powerbox for some time. The <a href="https://github.com/sandstorm-io/sandstorm/wiki/Security-Practices-Overview#capability-based-usable-security">infrastructure</a> is ready, and we are now working on giving it a UI. This will happen gradually over the next couple months.</p>
+
+<p>Even without the Powerbox, Sandstorm is highly usable today. <a href="https://demo.sandstorm.io">Try the demo</a>, <a href="https://sandstorm.io/install/">install your own (it’s open source)</a>, or <a href="https://sandstorm.io/preorder.html">preorder hosting</a>.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-05-18-sandcats">Sandcats.io: free dynamic DNS for Sandstorm users</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2015-05-18-sandcats">18 May 2015</a>
-  
-  
-  
   
   <p>Sandstorm is open source server software that makes it easy to install web apps
 like <a href="https://ethercalc.org/">Ethercalc</a> or
@@ -354,113 +448,6 @@ cognitive load, and capturing user intent instead of asking tons of questions.</
 this Thursday, May 7, in San Francisco, so if you’re in the area, come visit the
 Thoughtworks office at 315 Montgomery from 6pm - 9pm!
 I look forward to meeting some new faces!</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-05-01-is-that-ascii-or-protobuf">Is that ASCII or is it Protobuf? The importance of types in cryptographic signatures.</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2015-05-01-is-that-ascii-or-protobuf">01 May 2015</a>
-  
-  <p>So here’s a fun problem. Let’s say that a web site wants to implement authentication based on public-key cryptography. That is, to log into your account, you need to prove that you possess a particular public/private key pair associated with the account. You can use the same key pair for several such sites, because none of the sites ever see the private key and therefore cannot impersonate you to each other. Way better than passwords!</p>
-
-<h3 id="background-asymmetric-cryptography">Background: Asymmetric Cryptography</h3>
-
-<p>Asymmetric encryption algorithms (ones with public/private key pairs) generally offer one or more of the following low-level operations:</p>
-
-<ul>
-  <li>Encryption: Someone who has your public key can encrypt a message that can only be decrypted using your private key (i.e. by you). RSA implements this. Also, asymmetric encryption can be built on key agreement algorithms.</li>
-  <li>Signing: Using your private key, you can “sign” a message, and other people can verify the signature using your public key. RSA, DSA, Ed25519, and others implement this.</li>
-  <li>Key Agreement: Using your private key and someone else’s public key, you can derive a new unique key. The other person can derive the <em>same</em> key using their private key and your public, but no one who doesn’t possess at least one of your private keys can derive the key. Thus, you can use this key as a symmetric key to encrypt messages between you. This is called “Diffie-Hellman key exchange” and algorithms include the original Diffie-Hellman algorithm and ECDH (e.g. Curve25519).</li>
-</ul>
-
-<h3 id="asymmetric-key-authentication">Asymmetric Key Authentication</h3>
-
-<p>Let’s say your keys are RSA (probably the most common case today). To log in, you need to prove to the site that you have possession of your private key. How might we use the available operations (encrypt and sign) to do this? Keeping in mind that we must make sure someone snooping on a previous login cannot simply reply those past messages to log in again, we might propose:</p>
-
-<ul>
-  <li>Encrypt: The web site generates a random unguessable value, encrypts it with your public key, then sends the encrypted message to you. You decrypt the value and send it back, proving to the site that you possess the private key.</li>
-  <li>Sign: The web site generates a random unguessable value and sends it to you. You sign the value with your private key and send it back. The site can verify this signature with your public key.</li>
-</ul>
-
-<p>Both basic approaches are commonly used for authentication. SSH, for example, used the encryption approach in v1, then switched to the signature approach in v2, in order to accommodate non-RSA key types. But the protocols used in practice are more complicated that described above, because…</p>
-
-<h3 id="the-obvious-problem">The Obvious Problem</h3>
-
-<p>There is huge problem with both approaches! In both cases, the web site controls the “random value” that is signed or the message to be decrypted. You’ve effectively given the web site complete access to your key:</p>
-
-<ul>
-  <li>Encrypt: Instead of encrypting a newly-generated value, the site could send a message created by <em>someone else</em> that was encrypted for you. If you decrypt it and send it back without looking, the site gets access to this encrypted content which it wasn’t supposed to be able to read.</li>
-  <li>Sign: Instead of a random message, the site could send you a specially-crafted message that has meaning to third parties. For example, the site could send you the digital equivalent of a bank check. If you sign it without looking, the site could go ahead and extract money from your account, or other bad things.</li>
-</ul>
-
-<p>(Of course, both of these problems can trivially be exploited to allow an evil web site operator to secretly log into some other web site as you, by relaying the login challenge from that other site.)</p>
-
-<p>So what do we do about this?</p>
-
-<h3 id="be-more-careful">Be more careful?</h3>
-
-<p>Let’s focus on the signature case. Naively, you might say: We need to restrict the format of the message the site presents for signature, so that it cannot be misinterpreted to mean anything else. The message will need a random component, of course, in order to prevent replays, but we can delimit that randomness in ASCII text which states the purpose. (In particular, it’s important that the text specify exactly what web site we’re trying to log into.) So, now we have:</p>
-
-<pre><code>z.example.com login challenge:1Z5ns8ectRGTMNYz3NHdB 699a674d30fc3bd42ec3619cfab13deb
-</code></pre>
-
-<p>Here is a message that could not reasonably be interpreted as anything except “I want to log in to z.example.com”, right? It’s safe to sign, right?</p>
-
-<h3 id="the-subtle-problem">The Subtle Problem</h3>
-
-<p>I’m sorry to say, but there is still a problem. It turns out that message isn’t the ASCII text it appears to be:</p>
-
-<pre><code>$ echo -n 'z.example.com login challenge:1Z5ns8ectRGTMNYz3NHdB 699a674d30fc3bd42ec3619cfab13deb' \
-    | protoc --decode=Check check.proto 
-toAccount: "699a674d30fc3bd42ec3619cfab13deb"
-amount: 100
-memo: "example.com login challenge:1Z5ns8ectRGTMNYz3N"
-</code></pre>
-
-<p>Oops, it appears you just signed a bank check after all – and you were trying so hard not to! The check was encoded in Google’s binary encoding format <a href="https://developers.google.com/protocol-buffers/">Protocol Buffers</a> – we were able to decode it using the <code>protoc</code> tool. Here is the Protobuf schema (the file <code>check.proto</code> that we passed to <code>protoc</code>):</p>
-
-<pre><code>message Check {
-  required string toAccount = 8;
-  // 32-byte hex account number
-
-  required uint32 amount = 9;
-  // Dollar amount to pay.     
-
-  optional string memo = 15;
-  // Just a comment, not important.
-}
-</code></pre>
-
-<p>Thanks for your $100. Hope you have fun on <code>z.example.com</code>.</p>
-
-<p>The trick here is that, using my knowledge of Protobuf encoding, I was able to carefully craft an ASCII message that happened to be a valid Protobuf message. I chose Protobufs because of <a href="https://github.com/google/protobuf/blob/master/CONTRIBUTORS.txt">my familiarity with them</a>, but many binary encodings could have worked here. In particular, most binary formats include ways to insert bytes which will be ignored, giving us an opening to insert some human-readable ASCII text. Here I pulled the text into the <code>memo</code> field, but had I not defined that field, Protobuf would have ignored the text altogether with no error.</p>
-
-<p>Is this attack realistic? If the person designing the <code>Check</code> protocol intended to make the attack possible, then absolutely! No one would ever notice that the field numbers had been carefully chosen to encode nicely as ASCII, especially if plausible-looking optional fields were defined to fill in the gaps between them. (Of course, a real attacker would have omitted the <code>memo</code> field.)</p>
-
-<p>Even if the other format were not designed maliciously, it’s entirely possible for two protocols to assign different meanings to the same data by accident – such as an IRC server accepting input from an HTTP client. This kind of problem is known as <a href="https://en.wikipedia.org/wiki/Inter-protocol_exploitation">inter-protocol exploitation</a>. We’ve simply extended it to signatures.</p>
-
-<h3 id="now-what">Now what?</h3>
-
-<p>Here’s the thing: When you create a key pair for signing, you need to decide exactly what <em>format</em> of data you plan to sign with it. Then, don’t allow signatures made with that key to be accepted for any other purpose.</p>
-
-<p>So, if you have a key used for logging into web sites, it can only be used for logging into web sites – and all those web sites must use exactly the same format for authentication challenges.</p>
-
-<p>Note that the key “format” can very well be “natural language messages encoded in UTF-8 to be read by humans”, and then you can use the key to sign or encrypt email and such. But, then the key cannot be used for any automated purpose (like login) unless the protocol specifies an unambiguous natural-language “envelope” for its payload. Most such protocols (such as SSH authentication) do no such thing. (This is why, even though SSH and PGP both typically use RSA, you should NOT convert your PGP key into an SSH key nor vice versa.)</p>
-
-<p>Another valid way to allow one key to be used for multiple purposes is to make sure all signed messages begin with a “context string”, for example as <a href="http://www.ietf.org/mail-archive/web/tls/current/msg14734.html">recommended by Adam Langley for TLS</a>. However, in this case, <em>all</em> applications which use the key for signing <em>must</em> include such a context string, and context strings must be chosen to avoid conflicts.</p>
-
-<p>But probably better than either of the above is to use a different key for each purpose. So, your PGP master key should not be used for anything except signing subkeys. Unfortunately, PGP subkeys do not allow you to express much about the purpose of subkeys – you can only specify “encryption”, “signing”, “certification”, or “authentication”. This does not seem good enough – e.g. an “authentication” key still cannot safely be used for SSH login because a malicious SSH server could still trick you into signing an SSH login request that happens to be a valid authentication request for a completely different service in a different format. (Admittedly, this possibility seems unlikely, but tricking an HTTP client into talking to a server expecting a completely different protocol also seems unlikely, yet it works e.g. with IRC. We can’t really prove that no other protocol is designed exactly wrong such that it interprets <a href="https://tools.ietf.org/html/rfc4252#page-10">SSH’s authentication signatures</a> as something else.) Alas, in practice, SSH is exactly what the “authentication” subkey type is used for! So, perhaps SSH should be considered the de facto standard format for PGP’s “authentication” keys, and if you implement an authentication system that accepts PGP keys designated for authentication, you should be sure to exactly match SSH’s authentication signature format.</p>
-
-<p>Similarly, X.509 certificates have the “extended key usage” extension to specify a key’s designated purpose, but the options here are <a href="https://www.openssl.org/docs/apps/x509v3_config.html#Extended-Key-Usage">similarly limited</a>.</p>
-
-<p>Another line of thought says simply: “Don’t use signatures for anything except signing certificates.” Indeed, signing email is arguably a bad idea: it means that not only can the recipient verify that it came from you, but the recipient can prove to <em>other people</em> that you wrote the message, which is perhaps not what you really wanted. Similarly, when you log into a server, you probably don’t want that server to be able to prove to the rest of the world that you logged in (as SSH servers currently can do!). What you probably really wanted is a zero-knowledge authentication system where only the recipient can know for sure that the message came from you (which can be built on, for example, key agreement protocols).</p>
-
-<p>In any case, when Sandstorm implements <a href="https://github.com/sandstorm-io/sandstorm/issues/220">authentication based on public keys</a>, it will probably not be based on signatures. But, we still have more research to do here.</p>
-
-<p><em>Thanks to Ryan Sleevi, Tony Arcieri, and Glenn Willen for providing <a href="https://plus.google.com/+KentonVarda/posts/J3vcacmUUc1">pointers and insights</a> that went into writing this article. However, any misunderstandings of cryptography are strictly my own.</em></p>
-
 
 </section>
 

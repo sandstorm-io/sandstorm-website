@@ -78,13 +78,74 @@
 
 
 <section>
+  <h2><a href="/news/2015-08-31-oasis-beta-launch">Sandstorm Oasis hosting open beta and App Market launch</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2015-08-31-oasis-beta-launch">31 Aug 2015</a>
+  
+  
+  
+  
+  <p><a href="https://apps.sandstorm.io"><img src="/news/images/newui.png" width="600" /></a></p>
+
+<p><a class="linkbutton" href="https://apps.sandstorm.io">Try The App Market Now »</a></p>
+
+<p>As you know, Sandstorm’s mission is <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">to bring open source and indie web apps to a wider audience</a>. To run open source web apps, you need your own server – the developers aren’t a big corporation with resources to run servers for you. And for everyone to run open source web apps, <em>everyone</em> needs control of their own server. That means that running your own server and installing apps on it needs to be so easy that everyone can do it. Most people do not have the time or expertise to edit config files or use SSH, so we need to eliminate the need. Installing apps on Sandstorm needs to be as easy as installing them on your phone – and it needs to be <a href="https://docs.sandstorm.io/en/latest/developing/security-practices/">secure by default</a>.</p>
+
+<p>We’ve made a lot of progress on these fronts – <a href="https://demo.sandstorm.io">try our online demo</a> to see for yourself. However, up until now, to use Sandstorm, you still had to have a Linux machine to install it on. For many people, that’s great – running on your own machine provides the ultimate in privacy. But running a physical machine is still a burden no matter how easy the software may be, and a lot of people don’t want to do it. That falls short of our goal: if we want everyone to be able to use open source apps, we need to give them another option.</p>
+
+<h2 id="managed-hosting">Managed Hosting</h2>
+
+<p>Sandstorm Oasis is a managed hosting service for Sandstorm. For $6/mo. (but free during the beta), we will give you a web-accessible Sandstorm server on which you can install any apps you want. Choose from the apps on our <a href="https://apps.sandstorm.io">app market</a> or package and upload your own. Or better yet, package your apps and submit them to the app market for everyone to use.</p>
+
+<p>When paying $6/mo for Oasis, you get a much better experience than you would installing Sandstorm on a $6/mo virtual machine elsewhere. In addition to the ease of use, Oasis knows how to give your apps resources when you are actually using them while not wasting any resources when you aren’t. In contrast, a personal VM will typically reserve a constant amount of RAM for the entire month while sitting idle most of the time. This means that on Oasis, you get the effect of having a server with many times more RAM for the same price.</p>
+
+<p>Some might ask: Doesn’t managed hosting go against Sandstorm’s goal of decentralization? We don’t think so: the most difficult part of decentralization is separating the developers from the hosts. Once you are using Sandstorm apps, you can easily move your data between managed hosting and your own personal server, because the same apps are available everywhere. Sandstorm will always be available to run on your own machine as open source software, so the choice is yours. Moreover, we expect that some day there will be many competing Sandstorm hosting services located in many countries.</p>
+
+<h2 id="updates-for-self-hosters">Updates for Self-hosters</h2>
+
+<p>Today’s launch includes a HUGE update to our user interface. So much has changed that it would be futile to try to describe it; you should <a href="https://demo.sandstorm.io">just try it</a>. We have, of course, pushed all these changes to our self-hosted users too. Some of you have even been following our <a href="https://github.com/sandstorm-io/sandstorm">Github repo</a> and IRC and helping us test these features early – thanks! For everyone else, run <code>sudo sandstorm update</code> to update now, or wait for the auto-update by the end of today. Don’t have a server yet? <a href="https://sandstorm.io/install">Install Sandstorm on Linux now »</a></p>
+
+<h2 id="also-new-the-app-market">Also New: The App Market</h2>
+
+<p>Along with today’s launch, we have deployed our new <a href="https://apps.sandstorm.io">App Market</a>, full of Free and Open Source apps, to replace our old ad-hoc app list. You can now browse apps more easily, complete with ratings and reviews. More importantly, submitting your own apps is now more streamlined: you can upload your package directly from the command-line using the <code>spk publish</code> command.</p>
+
+<p><a href="https://apps.sandstorm.io"><img src="/news/images/market.png" width="600" /></a></p>
+
+<h2 id="our-terms-and-privacy-policy">Our Terms and Privacy Policy</h2>
+
+<p>People don’t usually talk about Terms of Service and Privacy Policies. It’s always the same story: a wall of inscrutable legalese that inevitably gives the service provider free reign to do whatever they want, which most users don’t even bother to read.</p>
+
+<p>We wanted Oasis to be a little different. We wanted our terms to address a number of shortcomings we see in “cloud services” today, in each case protecting you, not us. And we wanted to make sure that normal people can read and understand how our terms protect them.</p>
+
+<p>In particular:</p>
+
+<ul>
+  <li>We prohibit ourselves from looking at your data except under very specific, unusual circumstances (such as court orders).</li>
+  <li>We promise to notify you if your data is the target of a court order (if we legally can do so).</li>
+  <li>We think that protecting your data is the most important thing we do, and we will not delete it against your wishes unless we have no choice. In contrast, many cloud services are known for deleting people’s data on a whim when they violate obscure rules they may not have even known about.</li>
+  <li>We do not tolerate harassment. Luckily, Sandstorm’s sharing model provides an elegant way to deal with it, without deleting your data.</li>
+  <li>Unlike <a href="http://arstechnica.com/information-technology/2015/08/oracle-security-chief-to-customers-stop-checking-our-code-for-vulnerabilities/">some people</a>, we explicitly permit white hat security research, so long as no one is harmed and bugs are responsibly disclosed.</li>
+  <li>We have zero interest in “tracking” you to learn your interests and build a personal advertising profile, therefore our privacy policy prohibits us from doing so.</li>
+</ul>
+
+<p>Check out the full <a href="https://oasis.sandstorm.io/terms">Terms of Service</a> and <a href="https://oasis.sandstorm.io/privacy">Privacy Policy</a> for details – and if you see anything wrong, feel free to <a href="https://github.com/sandstorm-io/tos-pp">file a bug</a>!</p>
+
+<h2 id="free-during-beta">Free During Beta</h2>
+
+<p>Oasis is not done yet – we have lots to do. We anticipate it will remain in “beta” for several months – and during that time, the service is completely free. To get started with Oasis, head over to <a href="https://oasis.sandstorm.io">oasis.sandstorm.io</a>.</p>
+
+<h2 id="ps-the-name">PS: The Name</h2>
+
+<p>A couple months back, we asked you on Twitter what our managed hosting service should be called. Nearly everyone who replied – and there were a lot of you – had the same answer: “Oasis”. So, thank you for making the decision easy!</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-08-11-meetup-recap">Recap of our August meetup</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2015-08-11-meetup-recap">11 Aug 2015</a>
-  
-  
-  
   
   <p>Last Thursday, <a href="http://rethinkdb.com/">RethinkDB</a> co-hosted the first
 <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223144969/">Sandstorm meetup in the South Bay</a>
@@ -243,100 +304,6 @@ Sandstorm-minded people there.</p>
 
 <p>I hope to see you in SF or Portland! Feel free
 to drop me a line; I’m asheesh at sandstorm.io.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-06-10-network-access-permission-android-vs-sandstorm">Should apps get network access by default? Android vs. Sandstorm</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2015-06-10-network-access-permission-android-vs-sandstorm">10 Jun 2015</a>
-  
-  <p>Google’s Android team has <a href="http://arstechnica.com/gadgets/2015/05/android-m-dev-preview-launches-permission-controls-fingerprint-api-and-more/">announced</a> that in Android M, users will be prompted to grant permissions to apps at the time the permission is used, rather than an the time the app is installed. That’s great! This will make it much easier for users to understand how permissions are being used and allows them to perform a “line-item veto” without uninstalling the whole app. This puts much more power in the hands of users, as it should be.</p>
-
-<p>Unfortunately, permission to access the network is now going to be granted totally automatically. Is this the right thing to do? <a href="http://www.androidpolice.com/2015/06/06/android-m-will-never-ask-users-for-permission-to-use-the-internet-and-thats-probably-okay/">Android Police</a> argues that it’s “probably okay”. But some of the arguments feel unconvincing.</p>
-
-<p>At Sandstorm, we have some strong opinions on this. Sandstorm, like Android, seeks to run apps in an environment that enforces a strong permissions model (but Sandstorm targets servers rather than phones). Part of Sandstorm’s security promise to the user is that apps are “confined”: they have <em>no communication with the outside world</em> unless and until the user grants them permissions. This promise is probably the most controversial part of our <a href="https://github.com/sandstorm-io/sandstorm/wiki/Security-Practices-Overview">security model</a>, but we continue to believe it is the right thing to do. <em>(Note: Sandstorm’s confinement guarantee is not fully enforced at this time, as we have intentionally poked holes in the sandbox during alpha testing in order to work around missing features. But, these will be closed over the next few months.)</em></p>
-
-<p>So, let’s take a look at the arguments the Android team is making for abandoning confinement.</p>
-
-<h3 id="bogus-argument-1-controlling-internet-access-is-redundant-on-top-of-other-permissions">Bogus Argument 1: Controlling internet access is redundant on top of other permissions.</h3>
-
-<p>The Android team apparently argues that being able to disable an app’s network access is not very important as long as all of your sensitive data (say, contacts) is guarded behind other permissions checks. If you don’t want the app to upload your contacts to the developer’s server, they say, don’t give it permission to see your contacts.</p>
-
-<p>This argument, to be frank, makes no sense. What if I <em>want</em> the app to organize my contacts (e.g. because it is a contact manager app), but still do <em>not</em> want it to upload my contacts to the developer’s server? The Android model seems to say that I must treat the app and the developer as one entity, which is unfortunate, but perhaps consistent with the SaaS model that Google is used to. We’d like to do better.</p>
-
-<p>In fact, proper confinement allows us to do something rather magical which the Android team seems to be overlooking: If I can confine an app, then I can safely load sensitive data into the app even if the app is malicious! This in turn makes it much easier to feel comfortable using apps from random developers I don’t know. It also means I don’t need to worry too much about bugs in the app.</p>
-
-<p>Moreover, even if I don’t plan to give the app any other permissions, I may still worry about whether the app might consume my resources in order to participate in a DDoS attack, anonymizing proxy service, or bitcoin mining rig behind my back.</p>
-
-<h3 id="bogus-argument-2-the-app-can-already-leak-data-by-opening-a-web-page-using-an-intent">Bogus Argument 2: The app can already leak data by opening a web page using an intent.</h3>
-
-<p>The Android team argues that an app can always use Android Intents to ask Chrome to open the developer’s web site, encoding my sensitive data as a URL parameter, thereby leaking my data. Because this is possible, they say, trying to provide confinement is pointless.</p>
-
-<p>First, two simple responses:</p>
-
-<ol>
-  <li>I will likely notice if an app opens Chrome with some weird URL, and be suspicious. That’s much better than it happening in secret.</li>
-  <li>The app probably can’t participate in a botnet through browser intents.</li>
-</ol>
-
-<p>More importantly, though, if intents allow trivial data leakage, perhaps that is a problem in intents. Perhaps the user needs to be asked whether or not they really want to open that link.</p>
-
-<p>But would that be annoying? I actually don’t think it would be too bad. People who have installed multiple browsers on Android today are, in fact, already protected: Android prompts the user to choose which browser to use. The user can, at this point, press “back” to avoid the interaction altogether. Perhaps Android Intents should in fact prompt the user to choose an app even when there is only one choice: in fact, there is always a second choice, which is “don’t open this at all”. Meanwhile, this interstitial lets the user know that they are switching apps, which may help them be less confused.</p>
-
-<h3 id="legitimate-argument-ux-is-hard">Legitimate Argument: UX is hard.</h3>
-
-<p>I think that the real reason the Android team doesn’t want to implement internet access as a permission is because getting the UX right is legitimately hard. Pushing an “allow/deny” prompt in the user’s face on the first packet sent is genuinely annoying and not very helpful to the user, and the Android people aren’t feeling particularly excited about trying to develop something better, perhaps because they think that users don’t care (a popular but <a href="http://boingboing.net/2015/06/08/internet-users-care-about-thei.html">incorrect</a> assumption).</p>
-
-<p>I believe there is a better way: Instead of prompting the user to allow or deny internet access as a whole, prompt them for individual <em>capabilities</em> that the app needs, and then merge that prompt with a choice that they were <em>already making</em>. It turns out that most security decisions, if you look carefully enough, are in fact paired with some functionality choice. If you merge the choices together, then one of two things happens:</p>
-
-<ol>
-  <li>The functionality choice is a choice the user already had to make, and by merging the security choice, you’ve avoided forcing the user to answer a separate security question.</li>
-  <li>The functionality choice is a choice the user <em>wasn’t</em> already being offered, but by offering them a choice, you are giving them a real, useful ability that they didn’t have.</li>
-</ol>
-
-<p>Let’s illustrate with some examples:</p>
-
-<ul>
-  <li><strong>Contacts:</strong> Many Android apps want to send “viral” invites to your friends. To accomplish this, the app first asks for permission to your contact list. A <em>legitimate</em> app uses that permission to display a contact picker back to you, from which you can choose the people whom you want to invite, and the app will then only <s>spam</s> invite those people. An <em>illegitimate</em> app will use the permission to spam or harvest your contacts without asking you first. (Sometimes these illegitimate apps are <a href="http://blog.path.com/post/17274932484/we-are-sorry">big names</a>!) So what are the two choices here?
-    <ul>
-      <li><strong>Security choice:</strong> Do you want give the app permission to use your contacts?</li>
-      <li><strong>Functionality choice:</strong> <em>Which</em> contacts do you want to invite?</li>
-    </ul>
-
-    <p>Android actually provides a contact picker UI which can be invoked via an intent. When used, instead of requesting permission to your <em>whole</em> contact list just to show you a picker, the app asks Android to display the picker, and receives permissions <em>only</em> to the contacts you choose. To the user, the UX is exactly the same (they choose whom to invite), but there is <em>no</em> security prompt, and yet illegitimate use is blocked. Hooray!</p>
-
-    <p>Sadly, many apps choose not to use this built-in picker, perhaps because developers think they can draw a prettier picker themselves and that the user doesn’t care about granting the extra permission. In my opinion, the Android-provided picker should be improved and the contacts permission discouraged – or disabled – in order to push developers away from drawing their own pickers.</p>
-  </li>
-  <li><strong>Email app:</strong> An app which wants to access your email (say, though IMAP) needs to know your server address and credentials, and then needs internet connectivity to talk to it. But can we do better?
-    <ul>
-      <li><strong>Security choice:</strong> Do you want to give the app permission to talk to your server?</li>
-      <li><strong>Functionality choice:</strong> What server should the app talk to, and what is the password?</li>
-    </ul>
-
-    <p>What if the platform implemented a “server picker” UI, so that the mail app merely says “I need a server address, username, and password”, the platform displays a form to the user, and then the requesting app not only receives information back, but also receives permission to access <em>specifically that server</em>? The user is, again, only doing something they had to do anyway: choose their server. No security prompt was ever presented, and yet the security ends up correct. (Plus, if you take it a step further by having the app proxy requests through the platform, then the platform could in fact hold on to the user’s mail server password, preventing the app from accidentally leaking it.)</p>
-  </li>
-  <li><strong>Locked-in Cloud API:</strong> Say a scheduling app wants to talk to the Google Calendar cloud API. The app only integrates with Google Calendar and no other service. Here we see an interesting side-effect come into play:
-    <ul>
-      <li><strong>Security choice:</strong> Do you want to give the app permission to access your Calendar account?</li>
-      <li><strong>Functionality choice:</strong> Which account do you want the app to use? (If you have more than one.)</li>
-      <li><strong>Freedom choice:</strong> Which <em>server</em> do you want the app to talk to?</li>
-    </ul>
-
-    <p>In this case, Android actually has an account management system and picker UI which handles the first two choices as one unit, exactly as I’d like. But I am <em>not</em> allowed to choose which server to use – I am locked into Google’s server. What if there is a third-party service – or open source server app – which I would like to use which has implemented a Google-calendar-compatible API? As long as the API is implemented correctly, I ought to be able to make apps use the alternate service, rather than be locked into Google.</p>
-
-    <p>If the security choice is mandatory anyway, and it is done in a <em>fine-grained</em> way (i.e. the request is for a specific server, rather than arbitrary network access), then the freedom choice can naturally be provided at the same time, without the app even knowing about it.</p>
-  </li>
-</ul>
-
-<h3 id="the-powerbox-ui">The Powerbox UI</h3>
-
-<p>All of the examples above will be supported through Sandstorm’s “Powerbox” UI. In general, the Powerbox is an arbitrary picker which can be invoked by any app and extended by any app. Underlying the Powerbox is the <a href="https://capnproto.org/rpc.html">Cap’n Proto RPC protocol</a>, which naturally represents capabilities (as granted by the powerbox) as RPC object references, automatically taking care of permissions and message routing.</p>
-
-<p>We have been laying the groundwork for the Powerbox for some time. The <a href="https://github.com/sandstorm-io/sandstorm/wiki/Security-Practices-Overview#capability-based-usable-security">infrastructure</a> is ready, and we are now working on giving it a UI. This will happen gradually over the next couple months.</p>
-
-<p>Even without the Powerbox, Sandstorm is highly usable today. <a href="https://demo.sandstorm.io">Try the demo</a>, <a href="https://sandstorm.io/install/">install your own (it’s open source)</a>, or <a href="https://sandstorm.io/preorder.html">preorder hosting</a>.</p>
 
 </section>
 

@@ -7,6 +7,43 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>The new Sandstorm.io website</title>
+				<description>&lt;p&gt;If you take a look at &lt;a href=&quot;https://sandstorm.io/&quot;&gt;https://sandstorm.io/&lt;/a&gt;, you’ll see our new website, created by Néna Nguyen with assistance from Kenton Varda. They took feedback from many staff members over the course of building it, and we’re going to keep adjusting it over time. If you have feedback, please share it with the community in the &lt;a href=&quot;https://groups.google.com/forum/#!forum/sandstorm-dev&quot;&gt;sandstorm-dev mailing list&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I wanted to highlight a few important things the new website does better when compared to the old website, &lt;a href=&quot;https://web.archive.org/web/20151213145657/https://sandstorm.io/&quot;&gt;available at the Internet Archive&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Responsive design.&lt;/strong&gt; If you view the new website on a phone, you’ll get something reasonable. This wasn’t true a year ago, and it required some thinking. If you’re new to responsive web design, start by reading &lt;a href=&quot;http://alistapart.com/article/responsive-web-design&quot;&gt;Ethan Marcotte’s article at A List Apart&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Flexbox.&lt;/strong&gt; We use the new &lt;code&gt;display: flex;&lt;/code&gt; layout mode so that we can express columns very naturally in CSS. So far we’re very happy with it. You can read up about it at &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes&quot;&gt;MDN&lt;/a&gt; or by playing &lt;a href=&quot;http://flexboxfroggy.com/&quot;&gt;Flexbox Froggy&lt;/a&gt;, an interactive learning game. You can also read our CSS on the &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm-website&quot;&gt;GitHub repository for the website&lt;/a&gt; to find out how we use it.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;SCSS/SASS.&lt;/strong&gt; We now use a CSS extension language called &lt;a href=&quot;http://sass-lang.com/&quot;&gt;SCSS&lt;/a&gt;. This lets us use features like variables and nesting. You can see how we use it in the &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm-website&quot;&gt;sandstorm-website GitHub repository&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Multiple pages.&lt;/strong&gt; The older Sandstorm.io website had just one page: index.html. The new site goes into more depth about &lt;a href=&quot;https://sandstorm.io/how-it-works&quot;&gt;how Sandstorm works&lt;/a&gt;, how to &lt;a href=&quot;https://sandstorm.io/community&quot;&gt;get involved in the community&lt;/a&gt;. how &lt;a href=&quot;https://next.sandstorm.io/business&quot;&gt;businesses can make the best use of Sandstorm&lt;/a&gt;, and more. It was time to have more than one page. A side note: if you hear us talking about how the “front page redesign” is finally done, this is because we’re used to the entire website being one page.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;A button to sign in to Oasis, our hosting service.&lt;/strong&gt; Sandstorm is open source software that anyone can install; since not everyone wants to install it, &lt;a href=&quot;https://oasis.sandstorm.io/&quot;&gt;oasis.sandstorm.io&lt;/a&gt; is our hosting service where you can run Sandstorm apps without your own server. People who use Oasis sometimes forget its name, and visit the Sandstorm website, wondering how to sign into their Sandstorm service. Now &lt;a href=&quot;https://sandstorm.io/&quot;&gt;sandstorm.io&lt;/a&gt; answers their question with a clear “sign-in” link above the fold.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;One repository for the blog and the website.&lt;/strong&gt; Until now, we maintained the Sandstorm blog separately, with its own templates and no version control. Kenton built the &lt;a href=&quot;https://apps.sandstorm.io/app/nqmcqs9spcdpmqyuxemf0tsgwn8awfvswc58wgk375g4u25xv6yh&quot;&gt;Hacker CMS&lt;/a&gt; app for this purpose. Now that the main website uses Jekyll, we’ve integrated our old blog posts into the main &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm-website&quot;&gt;sandstorm-website&lt;/a&gt; git repository.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;A simpler top banner.&lt;/strong&gt; In the previous website, the banner at the top of the site would allow you to subscribe to our Facebook page, or try a demo, or download Sandstorm, or sign up now for the Oasis hosting service. We’ve limited the number of options to help people learn more faster.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Those are the most essential changes. You’ll find a lot of subtle changes as you click around &lt;a href=&quot;https://sandstorm.io/&quot;&gt;the new site&lt;/a&gt; and compare it to &lt;a href=&quot;https://web.archive.org/web/20151213145657/https://sandstorm.io/&quot;&gt;the old one!&lt;/a&gt; If you have comments, consider &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm-website/issues&quot;&gt;filing a bug&lt;/a&gt; or emailing &lt;a href=&quot;https://groups.google.com/forum/#!forum/sandstorm-dev&quot;&gt;sandstorm-dev&lt;/a&gt;. Kudos to Néna Nguyen and Kenton Varda for getting these changes ready in record time.&lt;/p&gt;
+</description>
+				<pubDate>Mon, 11 Jan 2016 00:00:00 -0800</pubDate>
+                                <link>https://sandstorm.io/news/2016-01-11-website</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-01-11-website</guid>
+			</item>
+		
+			<item>
 				<title>Upcoming Sandstorm meetups in SF, NY, Boston, Berlin, Zurich</title>
 				<description>&lt;p&gt;Here in the San Francisco Bay Area, since May 2015, we’ve been organizing &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/&quot;&gt;monthly Sandstorm meetups&lt;/a&gt; for community members can share their apps, works in progress, and learn from each other.  Recently, Sandstorm community members have stepped up to organize &lt;a href=&quot;http://sandstorm.meetup.com/&quot;&gt;local Sandstorm meetups&lt;/a&gt; in &lt;a href=&quot;http://www.meetup.com/Sandstorm-NY/&quot;&gt;New York&lt;/a&gt;, &lt;a href=&quot;http://www.meetup.com/Sandstorm-Boston/&quot;&gt;Boston&lt;/a&gt;, &lt;a href=&quot;http://www.meetup.com/Sandstorm-Berlin/&quot;&gt;Berlin&lt;/a&gt;, and &lt;a href=&quot;http://www.meetup.com/Sandstorm-CH/&quot;&gt;Switzerland&lt;/a&gt; as well. Scroll to the bottom for the list of upcoming events:&lt;/p&gt;
 
@@ -438,66 +475,6 @@ Where: &lt;a href=&quot;https://www.google.com/maps?f=q&amp;amp;hl=en&amp;amp;q=
 				<pubDate>Thu, 24 Sep 2015 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install</guid>
-			</item>
-		
-			<item>
-				<title>Sandstorm Oasis hosting open beta and App Market launch</title>
-				<description>&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;&lt;img src=&quot;/news/images/newui.png&quot; width=&quot;600&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;https://apps.sandstorm.io&quot;&gt;Try The App Market Now »&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;As you know, Sandstorm’s mission is &lt;a href=&quot;/news/2014-07-21-open-source-web-apps-require-federated-hosting.html&quot;&gt;to bring open source and indie web apps to a wider audience&lt;/a&gt;. To run open source web apps, you need your own server – the developers aren’t a big corporation with resources to run servers for you. And for everyone to run open source web apps, &lt;em&gt;everyone&lt;/em&gt; needs control of their own server. That means that running your own server and installing apps on it needs to be so easy that everyone can do it. Most people do not have the time or expertise to edit config files or use SSH, so we need to eliminate the need. Installing apps on Sandstorm needs to be as easy as installing them on your phone – and it needs to be &lt;a href=&quot;https://docs.sandstorm.io/en/latest/developing/security-practices/&quot;&gt;secure by default&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;We’ve made a lot of progress on these fronts – &lt;a href=&quot;https://demo.sandstorm.io&quot;&gt;try our online demo&lt;/a&gt; to see for yourself. However, up until now, to use Sandstorm, you still had to have a Linux machine to install it on. For many people, that’s great – running on your own machine provides the ultimate in privacy. But running a physical machine is still a burden no matter how easy the software may be, and a lot of people don’t want to do it. That falls short of our goal: if we want everyone to be able to use open source apps, we need to give them another option.&lt;/p&gt;
-
-&lt;h2 id=&quot;managed-hosting&quot;&gt;Managed Hosting&lt;/h2&gt;
-
-&lt;p&gt;Sandstorm Oasis is a managed hosting service for Sandstorm. For $6/mo. (but free during the beta), we will give you a web-accessible Sandstorm server on which you can install any apps you want. Choose from the apps on our &lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;app market&lt;/a&gt; or package and upload your own. Or better yet, package your apps and submit them to the app market for everyone to use.&lt;/p&gt;
-
-&lt;p&gt;When paying $6/mo for Oasis, you get a much better experience than you would installing Sandstorm on a $6/mo virtual machine elsewhere. In addition to the ease of use, Oasis knows how to give your apps resources when you are actually using them while not wasting any resources when you aren’t. In contrast, a personal VM will typically reserve a constant amount of RAM for the entire month while sitting idle most of the time. This means that on Oasis, you get the effect of having a server with many times more RAM for the same price.&lt;/p&gt;
-
-&lt;p&gt;Some might ask: Doesn’t managed hosting go against Sandstorm’s goal of decentralization? We don’t think so: the most difficult part of decentralization is separating the developers from the hosts. Once you are using Sandstorm apps, you can easily move your data between managed hosting and your own personal server, because the same apps are available everywhere. Sandstorm will always be available to run on your own machine as open source software, so the choice is yours. Moreover, we expect that some day there will be many competing Sandstorm hosting services located in many countries.&lt;/p&gt;
-
-&lt;h2 id=&quot;updates-for-self-hosters&quot;&gt;Updates for Self-hosters&lt;/h2&gt;
-
-&lt;p&gt;Today’s launch includes a HUGE update to our user interface. So much has changed that it would be futile to try to describe it; you should &lt;a href=&quot;https://demo.sandstorm.io&quot;&gt;just try it&lt;/a&gt;. We have, of course, pushed all these changes to our self-hosted users too. Some of you have even been following our &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm&quot;&gt;Github repo&lt;/a&gt; and IRC and helping us test these features early – thanks! For everyone else, run &lt;code&gt;sudo sandstorm update&lt;/code&gt; to update now, or wait for the auto-update by the end of today. Don’t have a server yet? &lt;a href=&quot;https://sandstorm.io/install&quot;&gt;Install Sandstorm on Linux now »&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;also-new-the-app-market&quot;&gt;Also New: The App Market&lt;/h2&gt;
-
-&lt;p&gt;Along with today’s launch, we have deployed our new &lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;App Market&lt;/a&gt;, full of Free and Open Source apps, to replace our old ad-hoc app list. You can now browse apps more easily, complete with ratings and reviews. More importantly, submitting your own apps is now more streamlined: you can upload your package directly from the command-line using the &lt;code&gt;spk publish&lt;/code&gt; command.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;&lt;img src=&quot;/news/images/market.png&quot; width=&quot;600&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;our-terms-and-privacy-policy&quot;&gt;Our Terms and Privacy Policy&lt;/h2&gt;
-
-&lt;p&gt;People don’t usually talk about Terms of Service and Privacy Policies. It’s always the same story: a wall of inscrutable legalese that inevitably gives the service provider free reign to do whatever they want, which most users don’t even bother to read.&lt;/p&gt;
-
-&lt;p&gt;We wanted Oasis to be a little different. We wanted our terms to address a number of shortcomings we see in “cloud services” today, in each case protecting you, not us. And we wanted to make sure that normal people can read and understand how our terms protect them.&lt;/p&gt;
-
-&lt;p&gt;In particular:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;We prohibit ourselves from looking at your data except under very specific, unusual circumstances (such as court orders).&lt;/li&gt;
-  &lt;li&gt;We promise to notify you if your data is the target of a court order (if we legally can do so).&lt;/li&gt;
-  &lt;li&gt;We think that protecting your data is the most important thing we do, and we will not delete it against your wishes unless we have no choice. In contrast, many cloud services are known for deleting people’s data on a whim when they violate obscure rules they may not have even known about.&lt;/li&gt;
-  &lt;li&gt;We do not tolerate harassment. Luckily, Sandstorm’s sharing model provides an elegant way to deal with it, without deleting your data.&lt;/li&gt;
-  &lt;li&gt;Unlike &lt;a href=&quot;http://arstechnica.com/information-technology/2015/08/oracle-security-chief-to-customers-stop-checking-our-code-for-vulnerabilities/&quot;&gt;some people&lt;/a&gt;, we explicitly permit white hat security research, so long as no one is harmed and bugs are responsibly disclosed.&lt;/li&gt;
-  &lt;li&gt;We have zero interest in “tracking” you to learn your interests and build a personal advertising profile, therefore our privacy policy prohibits us from doing so.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Check out the full &lt;a href=&quot;https://oasis.sandstorm.io/terms&quot;&gt;Terms of Service&lt;/a&gt; and &lt;a href=&quot;https://oasis.sandstorm.io/privacy&quot;&gt;Privacy Policy&lt;/a&gt; for details – and if you see anything wrong, feel free to &lt;a href=&quot;https://github.com/sandstorm-io/tos-pp&quot;&gt;file a bug&lt;/a&gt;!&lt;/p&gt;
-
-&lt;h2 id=&quot;free-during-beta&quot;&gt;Free During Beta&lt;/h2&gt;
-
-&lt;p&gt;Oasis is not done yet – we have lots to do. We anticipate it will remain in “beta” for several months – and during that time, the service is completely free. To get started with Oasis, head over to &lt;a href=&quot;https://oasis.sandstorm.io&quot;&gt;oasis.sandstorm.io&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;ps-the-name&quot;&gt;PS: The Name&lt;/h2&gt;
-
-&lt;p&gt;A couple months back, we asked you on Twitter what our managed hosting service should be called. Nearly everyone who replied – and there were a lot of you – had the same answer: “Oasis”. So, thank you for making the decision easy!&lt;/p&gt;
-</description>
-				<pubDate>Mon, 31 Aug 2015 00:00:00 -0700</pubDate>
-                                <link>https://sandstorm.io/news/2015-08-31-oasis-beta-launch</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2015-08-31-oasis-beta-launch</guid>
 			</item>
 		
 	</channel>
