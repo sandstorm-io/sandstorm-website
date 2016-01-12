@@ -80,7 +80,7 @@
 
   <p><strong>Sandstorm takes a wildly different approach:</strong> It containerizes <em>objects</em>, where an object is primarily defined by <em>data</em>. We call each Sandstorm container a <strong>“grain”</strong>, because it is fine-grained.</p>
 
-  <p>For example, when using Etherpad – a document editor app – on Sandstorm, every document lives in a separate container, isolated from the others. The front-end and database for that document live in the container. The container has a private filesystem for storage. Javascript running in the user’s browser can talk only to the document container for which it was loaded, no others. All of this makes up a single “grain”.</p>
+  <p>For example, when using Etherpad – a document editor app – on Sandstorm, every document lives in a separate container, isolated from the others. The front-end and database for that document live in the container. The container has a private filesystem for storage. JavaScript running in the user’s browser can talk only to the document container for which it was loaded, no others. All of this makes up a single “grain”.</p>
 
   <p>Similarly, when you use Wekan (a kanban board, comparable to Trello) on Sandstorm, each board lives in a separate grain. When you use GitWeb, each git repository lives in a separate grain. When you use EtherCalc, each spreadsheet lives in a separate grain.</p>
 
