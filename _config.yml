@@ -2,6 +2,8 @@ baseurl: /
 permalink: /news/:year-:month-:day-:title.html
 paginate: 5
 paginate_path: "/news/page:num"
+kramdown:
+  syntax_highlighter: none
 exclude:
   - Guardfile
   - "sandstorm.io.*"
