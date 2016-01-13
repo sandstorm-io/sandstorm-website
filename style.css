@@ -89,8 +89,7 @@ figure {
   margin: 1em 40px; }
 
 hr {
-  -moz-box-sizing: content-box;
-       box-sizing: content-box;
+  box-sizing: content-box;
   height: 0; }
 
 pre {
@@ -140,8 +139,7 @@ input {
 
 input[type="checkbox"],
 input[type="radio"] {
-  -moz-box-sizing: border-box;
-       box-sizing: border-box;
+  box-sizing: border-box;
   padding: 0; }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -150,8 +148,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="search"] {
   -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-       box-sizing: content-box; }
+  box-sizing: content-box; }
 
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
@@ -184,8 +181,7 @@ th {
   font-family: sandstorm;
   src: url(/fonts/sandstorm.woff); }
 * {
-  -moz-box-sizing: border-box;
-       box-sizing: border-box; }
+  box-sizing: border-box; }
 
 body {
   font-family: "Source Sans Pro", sans-serif;
@@ -340,8 +336,10 @@ body > footer {
       color: #fff;
       cursor: pointer;
       outline: none;
-      -webkit-transition: -webkit-transform 0.75s ease, background 0.35s ease;
-              transition: transform 0.75s ease, background 0.35s ease; }
+      -webkit-transition: background 0.35s ease, -webkit-transform 0.75s ease;
+      transition: background 0.35s ease, -webkit-transform 0.75s ease;
+      transition: transform 0.75s ease, background 0.35s ease;
+      transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease; }
       body > footer .subscribe-small input[type="submit"]:hover {
         background: #7757bc; }
   body > footer ul h3, body > footer ul h3 a {
@@ -363,8 +361,10 @@ body > footer {
     font-size: 20px;
     border: 1px solid #5b4f8c;
     background-color: #F6F6FF;
-    -webkit-transition: -webkit-transform 0.75s ease, background 0.35s ease;
-            transition: transform 0.75s ease, background 0.35s ease; }
+    -webkit-transition: background 0.35s ease, -webkit-transform 0.75s ease;
+    transition: background 0.35s ease, -webkit-transform 0.75s ease;
+    transition: transform 0.75s ease, background 0.35s ease;
+    transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease; }
     body > footer ul .sign-in-footer a:hover {
       color: #7757bc;
       background-color: #fff; }
@@ -582,7 +582,7 @@ body > footer {
       font-size: 20px;
       border: 1px solid #744ccc;
       -webkit-transition: background 0.35s ease;
-              transition: background 0.35s ease; }
+      transition: background 0.35s ease; }
       #home > header #banner > p > a.sign-in:hover {
         background-color: #442672; }
     #home > header #banner > p > a.get {
@@ -938,8 +938,10 @@ body > footer {
     width: 200px;
     border-radius: 5px;
     display: block;
-    -webkit-transition: -webkit-transform 0.75s ease, background 0.35s ease;
-            transition: transform 0.75s ease, background 0.35s ease; }
+    -webkit-transition: background 0.35s ease, -webkit-transform 0.75s ease;
+    transition: background 0.35s ease, -webkit-transform 0.75s ease;
+    transition: transform 0.75s ease, background 0.35s ease;
+    transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease; }
 #home .individual a {
   background-color: #b21b31; }
   #home .individual a:hover {
@@ -1021,8 +1023,10 @@ body > footer {
     width: 240px;
     border-radius: 5px;
     display: block;
-    -webkit-transition: -webkit-transform 0.75s ease, background 0.35s ease;
-            transition: transform 0.75s ease, background 0.35s ease;
+    -webkit-transition: background 0.35s ease, -webkit-transform 0.75s ease;
+    transition: background 0.35s ease, -webkit-transform 0.75s ease;
+    transition: transform 0.75s ease, background 0.35s ease;
+    transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease;
     background-color: #2e2765; }
     @media (max-width: 500px) {
       #features .start a {
@@ -1779,8 +1783,10 @@ body > footer {
           height: 28px;
           width: 30%;
           margin: 10px 0 0 0;
-          -webkit-transition: -webkit-transform 0.75s ease, background 0.35s ease;
-                  transition: transform 0.75s ease, background 0.35s ease; }
+          -webkit-transition: background 0.35s ease, -webkit-transform 0.75s ease;
+          transition: background 0.35s ease, -webkit-transform 0.75s ease;
+          transition: transform 0.75s ease, background 0.35s ease;
+          transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease; }
           #blog > div.post-list > div.sidebar > .more > form input[type="submit"]:hover {
             background: #7757bc; }
       #blog > div.post-list > div.sidebar > .more > a {
@@ -2282,8 +2288,7 @@ body > footer {
     #install main > section > .section-content {
       border: 1px solid #F0EDF7;
       padding: calc(24px - 1em) 24px;
-      -moz-box-sizing: border-box;
-           box-sizing: border-box;
+      box-sizing: border-box;
       margin: 1em 0; }
     @media screen and (min-width: 900px) {
       #install main > section > .https-verified {
@@ -2346,8 +2351,10 @@ body > footer {
     color: #fff;
     cursor: pointer;
     outline: none;
-    -webkit-transition: -webkit-transform 0.75s ease, background 0.35s ease;
-            transition: transform 0.75s ease, background 0.35s ease; }
+    -webkit-transition: background 0.35s ease, -webkit-transform 0.75s ease;
+    transition: background 0.35s ease, -webkit-transform 0.75s ease;
+    transition: transform 0.75s ease, background 0.35s ease;
+    transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease; }
     .subscribe input[type="submit"]:hover {
       background: #7757bc; }
 
