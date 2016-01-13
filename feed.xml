@@ -14,8 +14,8 @@ layout: none
 				<title>{{ post.title | xml_escape }}</title>
 				<description>{{ post.content | xml_escape }}</description>
 				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-                                <link>https://sandstorm.io{{ post.url|remove:'.html' }}</link>
-                                <guid isPermaLink="true">https://sandstorm.io{{ post.url|remove:'.html' }}</guid>
+                                <link>https://sandstorm.io{{ post.url }}</link>
+                                <guid isPermaLink="true">https://sandstorm.io{{ post.url }}</guid>
 			</item>
 		{% endfor %}
 	</channel>

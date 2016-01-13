@@ -34,12 +34,12 @@ title: Sandstorm Blog
 {% assign first = true %}
 {% for post in paginator.posts %}
 <section>
-  <h2><a href="{{ post.url|remove:'.html' }}">{{ post.title }}</a></h2>
+  <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
   <p class="post-details">By <a href="{{post.authorUrl}}">{{ post.author }}</a>
     {% if post.author2 %}
       and <a href="{{post.author2Url}}">{{ post.author2 }}</a>
     {% endif %}
-    - <a href="{{ post.url|remove:'.html' }}">{{ post.date | date_to_string }}</a>
+    - <a href="{{ post.url }}">{{ post.date | date_to_string }}</a>
   {% if first %}
   {% assign first = false %}
   {{ count }}
