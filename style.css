@@ -413,7 +413,7 @@ body > footer {
 
 .action {
   text-align: center;
-  padding: 35px 0;
+  padding: 30px 0;
   position: relative; }
   .action::after {
     display: block;
@@ -433,7 +433,8 @@ body > footer {
     @media (max-width: 800px) {
       .action li {
         display: block;
-        padding-bottom: 25px; } }
+        line-height: 30px;
+        padding: 10px 0; } }
   .action > a {
     border: 1.5px solid #a19cbc;
     font-size: 25px;
@@ -445,6 +446,12 @@ body > footer {
     white-space: nowrap; }
     .action > a:hover {
       color: #7356cc; }
+    @media (max-width: 800px) {
+      .action > a {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 40px; } }
 
 #socialmedia-small ul {
   width: 100%; }
@@ -1114,7 +1121,7 @@ body > footer {
     #features #core li.auditable::before, #features #security li.auditable::before {
       background-image: url("images/security-auditable.svg"); }
     #features #core li.authentic::before, #features #security li.authentic::before {
-      background-image: url("images/security-authentic.png"); }
+      background-image: url("images/security-authentic.jpg"); }
     #features #core li.automatic::before, #features #security li.automatic::before {
       background-image: url("images/security-automatic.svg"); }
 
@@ -1371,6 +1378,9 @@ body > footer {
     font-size: 16px; }
   #get header p {
     margin-bottom: 0; }
+#get section h2 {
+  padding-top: 20px;
+  font-weight: 300; }
 #get #where {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1490,7 +1500,7 @@ body > footer {
         #get #managed-hosting > ul > li .get > a:hover, #get #self-hosting > ul > li .get > a:hover {
           background-color: #6341a5; }
       #get #managed-hosting > ul > li.plan2, #get #self-hosting > ul > li.plan2 {
-        margin: 0 2% 0 2%;
+        margin: 0 2% 20px 2%;
         width: 45%;
         position: relative;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
