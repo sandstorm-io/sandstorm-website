@@ -41,7 +41,7 @@ imageUrl: https://sandstorm.io/images/how-it-works.png
     <p>On this page, we will explain the two main pieces of "magic" that make it all work:</p>
     <ul>
       <li><a href="#grains">Fine-grained Containerization</a></li>
-      <li><a href="#capability">Capability-based Security</a></li>
+      <li><a href="#capabilities">Capability-based Security</a></li>
     </ul>
   </div>
 </section>
