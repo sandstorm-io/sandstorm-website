@@ -1,13 +1,13 @@
 ---
 layout: page
 id: how-it-works
-title: "How Sandstorm Works: Containerize objects, not services"
+title: "How Sandstorm Works: Containerize data, not services"
 imageUrl: https://sandstorm.io/images/how-it-works.png
 ---
 
 <header>
   <h1>How Sandstorm Works</h1>
-  <p>Containerize objects, not services</p>
+  <p>Containerize data, not services</p>
     <div class="containerize"><img class="left" src="/images/how-left.svg"><img class="right" src="/images/how-right.svg"></div>
 </header>
 
