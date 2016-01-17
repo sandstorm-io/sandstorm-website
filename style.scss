@@ -876,11 +876,9 @@ body >footer {
           margin-top: 10px;
           text-align: center;
         }
-        
-        .start {
-          width: 100%;
-          display: flex;
-          justify-content: center;
+
+        p:last-of-type {
+          text-align: center;
         }
       }
 
@@ -930,24 +928,21 @@ body >footer {
     }
   }
 
-  .start {
-		background-color: white;
-		border: none;
-		padding: 30px 0 0 0;
+  a.start {
+    background-color: white;
+    margin-top: 13px;
 
-      a {
-        text-align: center;
-        color: white;
-        padding: 10px 0;
-        width: 200px;
-        border-radius: 5px;
-        display: block;
-				transition: transform 0.75s ease, background 0.35s ease;
-      }
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+    width: 200px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: transform 0.75s ease, background 0.35s ease;
   }
 
   .individual {
-      a {
+      a.start {
         background-color: #b21b31;
         &:hover {
           background-color: #c92333;  
@@ -956,7 +951,7 @@ body >footer {
   }   
 
   .enterprise {
-      a {
+      a.start {
         background-color: #202d70;
         &:hover {
           background-color: #274c96;   
@@ -965,7 +960,7 @@ body >footer {
   }
 
   .developer {
-      a {
+      a.start {
         background-color: #e27124;
         &:hover {
           background-color: #ed8b2b; 
