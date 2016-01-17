@@ -865,16 +865,8 @@ body > footer {
     #home #who > section > h3 {
       margin-top: 10px;
       text-align: center; }
-    #home #who > section .start {
-      width: 100%;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-          -ms-flex-pack: center;
-              justify-content: center; } }
+    #home #who > section p:last-of-type {
+      text-align: center; } }
   #home #who > section > div {
     clear: left;
     padding: 15px 0;
@@ -934,32 +926,30 @@ body > footer {
     background-color: #F6F2FC; }
   #home #join-list input[type="text"] {
     background-color: #fff; }
-#home .start {
+#home a.start {
   background-color: white;
-  border: none;
-  padding: 30px 0 0 0; }
-  #home .start a {
-    text-align: center;
-    color: white;
-    padding: 10px 0;
-    width: 200px;
-    border-radius: 5px;
-    display: block;
-    -webkit-transition: background 0.35s ease, -webkit-transform 0.75s ease;
-    transition: background 0.35s ease, -webkit-transform 0.75s ease;
-    transition: transform 0.75s ease, background 0.35s ease;
-    transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease; }
-#home .individual a {
+  margin-top: 13px;
+  text-align: center;
+  color: white;
+  padding: 10px 0;
+  width: 200px;
+  border-radius: 5px;
+  display: inline-block;
+  -webkit-transition: background 0.35s ease, -webkit-transform 0.75s ease;
+  transition: background 0.35s ease, -webkit-transform 0.75s ease;
+  transition: transform 0.75s ease, background 0.35s ease;
+  transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease; }
+#home .individual a.start {
   background-color: #b21b31; }
-  #home .individual a:hover {
+  #home .individual a.start:hover {
     background-color: #c92333; }
-#home .enterprise a {
+#home .enterprise a.start {
   background-color: #202d70; }
-  #home .enterprise a:hover {
+  #home .enterprise a.start:hover {
     background-color: #274c96; }
-#home .developer a {
+#home .developer a.start {
   background-color: #e27124; }
-  #home .developer a:hover {
+  #home .developer a.start:hover {
     background-color: #ed8b2b; }
 
 #features header {
