@@ -104,7 +104,7 @@ Monolithic databases pose another problem to distributed system performance. If 
 
 In the Sandstorm model, all of the components (from web server to database) needed to handle a particular grain run on the same machine. Communications between them will therefore be incredibly fast. And if the grain contains only a single document or other small piece of data, then its entire content can be loaded into RAM and queried quickly during the time that it is in use.
 
-But does it scale? Obviously, if every grain were running at all times, the Sandstorm model would scale abysmally, requiring an absurd amount of RAM. However, Sandstorm only runs a grain while it is in-use. Since grains are small, they start up quickly -- often in under a second -- which means there's no need to keep them running all the time. Additionally, an app's static assets (code, images, etc.) are mounted into the grain read-only such that they can be shared among all grains running the same app; thus, the per-grain overhead is relatively small. For ahead-of-time-complied apps (e.g. written in Go, Rust, or C++) or apps starting from a copy-on-write checkpoint (e.g. using [snappy-start](https://github.com/google/snappy-start)), per-grain marginal RAM usage can easily be under a megabyte.
+But does it scale? Obviously, if every grain were running at all times, the Sandstorm model would scale abysmally, requiring an absurd amount of RAM. However, Sandstorm only runs a grain while it is in-use. Since grains are small, they start up quickly -- often in under a second -- which means there's no need to keep them running all the time. Additionally, an app's static assets (code, images, etc.) are mounted into the grain read-only such that they can be shared among all grains running the same app; thus, the per-grain overhead is relatively small. For ahead-of-time-compiled apps (e.g. written in Go, Rust, or C++) or apps starting from a copy-on-write checkpoint (e.g. using [snappy-start](https://github.com/google/snappy-start)), per-grain marginal RAM usage can easily be under a megabyte.
 </section>
 
 <section id="confinement" markdown="1">
@@ -140,7 +140,7 @@ But with grains, there is hope. Each grain's storage can be encrypted transparen
 
 Service-to-service access control in the Sandstorm model requires a different way of thinking about security.
 
-Traditional access control is based on ambient identity and access control lists (ACLs). Each service might have an ACL that specifies which other services are permitted to access it. As the granularity of services increases, the difficulty of maintaining ACLs grows, especially when users are non-technical. (But meanwhile, with course-grained services, ACLs hardly even provide any protection. What services are allowed to access the database that contains everything? Well, all of them, of course!)
+Traditional access control is based on ambient identity and access control lists (ACLs). Each service might have an ACL that specifies which other services are permitted to access it. As the granularity of services increases, the difficulty of maintaining ACLs grows, especially when users are non-technical. (But meanwhile, with coarse-grained services, ACLs hardly even provide any protection. What services are allowed to access the database that contains everything? Well, all of them, of course!)
 
 Under capability-based security, we take a different approach. Instead of maintaining a list of who is allowed to access what, we think of access permissions as an *object* which you *give* to things. So when you want to tell grain X to talk to grain Y, you *give* grain X a "capability" to grain Y. Grain X then stores that capability, and whenever it wants to talk to grain Y, it explicitly uses that capability. The capability both designates the *identity* of grain Y (e.g. its address) and *permission to access* grain Y.
 
@@ -163,7 +163,7 @@ Under Sandstorm, the app would not require any upfront configuration. Instead, w
 
 Notice how in this example, the application never gains the ability to send spam. And yet, the user experience is no worse and arguably better than before. The user is never prompted with any sort of security questions, yet the app is only able to email them with their consent.
 
-And notice a second property: Any of the user's grains can publish an implementation of the "EmailRecipient" interface. The capbility need not strictly map to a real email address. The user could, for instance, direct the email to a grain which recieves the messages and posts them into a chat room, or anything else they can imagine. The sending app does not need to know anything about this. With this power, simple applications can be "composed" into complex workflows, much like a modern version of Unix pipes.
+And notice a second property: Any of the user's grains can publish an implementation of the "EmailRecipient" interface. The capability need not strictly map to a real email address. The user could, for instance, direct the email to a grain which receives the messages and posts them into a chat room, or anything else they can imagine. The sending app does not need to know anything about this. With this power, simple applications can be "composed" into complex workflows, much like a modern version of Unix pipes.
 
 Note that a modal picker dialog is not always the best fit for every UX. To that end, Sandstorm implements other kinds of powerbox flows for different occasions. For example, the "inline powerbox" allows a user to type freeform text naming grains or users in their contacts and have them auto-complete to full capabilities.
 </section>
@@ -185,7 +185,7 @@ Sandstorm, however, has an advantage: because the system acts as a middleman bet
 
 Moreover, Sandstorm can implement global policies by automatically revoking a capability that violates the policy. So, if a capability to a finance document is observed to be sent to a user outside the organization in violation of policy, Sandstorm can revoke it in-flight.
 
-These measures are applied _in addition to_ the regular capability model, and thus supply defense-in-depth. Because of this, it is acceptable if identities used for peudo-ACL and policy purposes are relatively course-grained.
+These measures are applied _in addition to_ the regular capability model, and thus supply defense-in-depth. Because of this, it is acceptable if identities used for peudo-ACL and policy purposes are relatively coarse-grained.
 
 Sandstorm applications need not concern themselves with pseudo-ACLs. The API used by apps is strictly capability-based.
 </section>
