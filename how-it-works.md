@@ -185,7 +185,7 @@ Sandstorm, however, has an advantage: because the system acts as a middleman bet
 
 Moreover, Sandstorm can implement global policies by automatically revoking a capability that violates the policy. So, if a capability to a finance document is observed to be sent to a user outside the organization in violation of policy, Sandstorm can revoke it in-flight.
 
-These measures are applied _in addition to_ the regular capability model, and thus supply defense-in-depth. Because of this, it is acceptable if identities used for peudo-ACL and policy purposes are relatively coarse-grained.
+These measures are applied _in addition to_ the regular capability model, and thus supply defense-in-depth. Because of this, it is acceptable if identities used for pseudo-ACL and policy purposes are relatively coarse-grained.
 
 Sandstorm applications need not concern themselves with pseudo-ACLs. The API used by apps is strictly capability-based.
 </section>
