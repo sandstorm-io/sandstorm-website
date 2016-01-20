@@ -2,6 +2,8 @@
 # any time a source file is changed.
 
 ignore /\.autosave$/
+ignore "_pushsite"
+ignore "_published"
 
 guard 'livereload' do
   watch(%r{^_site/})
