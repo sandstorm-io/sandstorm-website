@@ -6,6 +6,8 @@ kramdown:
   syntax_highlighter: none
 exclude:
   - Guardfile
+  - Gemfile
+  - Gemfile.lock
   - "sandstorm.io.*"
   - README.md
   - "*.sh"
