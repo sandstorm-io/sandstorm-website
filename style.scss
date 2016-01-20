@@ -170,6 +170,7 @@ body>nav {
     @media (max-width: 900px) {
       &[href^="/get"] { display: none; }
       &[href="/community"] { display: none; }
+      &[href^="https://docs.sandstorm.io"] { display: none; }
     }
   }
 }
