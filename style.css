@@ -247,6 +247,8 @@ body > nav {
       body > nav > a[href^="/get"] {
         display: none; }
       body > nav > a[href="/community"] {
+        display: none; }
+      body > nav > a[href^="https://docs.sandstorm.io"] {
         display: none; } }
 
 body#home > nav > a[href="/"] {
@@ -1675,7 +1677,8 @@ body > footer {
 #how-it-works #confinement > div.figure, #how-it-works #capabilities > div.figure {
   float: right;
   clear: right;
-  width: 50%; }
+  width: 50%;
+  margin-bottom: 16px; }
   #how-it-works #confinement > div.figure p.heading, #how-it-works #capabilities > div.figure p.heading {
     text-align: center;
     font-weight: bold;
@@ -1687,8 +1690,6 @@ body > footer {
     color: #444;
     margin: 0;
     text-align: center; }
-  #how-it-works #confinement > div.figure:nth-of-type(2), #how-it-works #capabilities > div.figure:nth-of-type(2) {
-    margin-top: 16px; }
   #how-it-works #confinement > div.figure img, #how-it-works #capabilities > div.figure img {
     display: block;
     width: 100%; }
@@ -1888,10 +1889,10 @@ body > footer {
       border: 1px solid #ccc; }
     #blog > div.post-list > section a.linkbutton {
       display: block;
-      max-width: 350px;
+      max-width: 370px;
       background-color: #783189;
       color: #fffbfb;
-      padding: 4px;
+      padding: 8px;
       text-align: center;
       border-radius: 4px;
       text-decoration: none;
