@@ -7,6 +7,6 @@ guard 'livereload' do
   watch(%r{^_site/})
 end
 
-guard 'jekyll-plus', :serve => true, :host => '0.0.0.0' do
+guard 'jekyll-plus', :future => true, :serve => true, :host => '0.0.0.0' do
   watch(%r{^(?!_site/)})
 end
