@@ -7,6 +7,21 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>How Sandstorm Works: Containerize Data, not Services</title>
+				<description>&lt;p style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;/how-it-works&quot;&gt;&lt;img src=&quot;/images/how-it-works.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Last week &lt;a href=&quot;/news/2016-01-11-website&quot;&gt;we announced the launch of our new web site&lt;/a&gt;. Everything has changed!&lt;/p&gt;
+
+&lt;p&gt;Today, I want to call your attention to one page that I’m particularly excited to have written: &lt;a href=&quot;/how-it-works&quot;&gt;The “How it works” page&lt;/a&gt;. Sandstorm is radically different from all other web infrastructure you might be familiar with, in that we containerize not just “microservices” but individual documents. As it turns out, this has all kinds of huge advantages, especially in terms of security but also in the ability to compose apps into larger workflows. Read all about it here:&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;/how-it-works&quot; class=&quot;linkbutton&quot;&gt;Learn How Sandstorm Works &amp;raquo;&lt;/a&gt;&lt;/p&gt;
+</description>
+				<pubDate>Wed, 20 Jan 2016 00:00:00 -0800</pubDate>
+                                <link>https://sandstorm.io/news/2016-01-20-how-it-works</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-01-20-how-it-works</guid>
+			</item>
+		
+			<item>
 				<title>The new Sandstorm.io website</title>
 				<description>&lt;p&gt;If you take a look at &lt;a href=&quot;https://sandstorm.io/&quot;&gt;https://sandstorm.io/&lt;/a&gt;, you’ll see our new website, created by Néna Nguyen with assistance from Kenton Varda. They took feedback from many users and the core dev team over the course of building it, and we’re all going to keep adjusting it over time. If you have feedback, please share it with the community in the &lt;a href=&quot;https://groups.google.com/forum/#!forum/sandstorm-dev&quot;&gt;sandstorm-dev mailing list&lt;/a&gt;.&lt;/p&gt;
 
@@ -403,78 +418,6 @@ Where: &lt;a href=&quot;https://www.google.com/maps?f=q&amp;amp;hl=en&amp;amp;q=
 				<pubDate>Thu, 01 Oct 2015 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2015-10-01-free-ssl-certificates</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2015-10-01-free-ssl-certificates</guid>
-			</item>
-		
-			<item>
-				<title>Is curl|bash insecure?</title>
-				<description>&lt;p&gt;Since the early days of Sandstorm, we have offered the following mechanism for installing it:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl https://install.sandstorm.io | bash
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As it turns out, a lot of people object to &lt;code&gt;curl|bash&lt;/code&gt;. In fact, some people object &lt;em&gt;very strongly&lt;/em&gt; to it, going so far as to scoff publicly at how obviously terrible it is and smugly proclaim that they dismissed our entire project when they saw this line. Usually, the loudest objectors claim that &lt;code&gt;curl|bash&lt;/code&gt; is bad for security.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.sandstorm.io/en/latest/developing/security-practices/&quot;&gt;Sandstorm is a security product&lt;/a&gt;, so we want to address that head-on.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-bogus-argument-code-execution&quot;&gt;The Bogus Argument: Code Execution&lt;/h3&gt;
-
-&lt;p&gt;I’ll admit: &lt;code&gt;curl|bash&lt;/code&gt; certainly &lt;em&gt;smells&lt;/em&gt; funny. To anyone with a basic understanding of Unix, the construction makes it really obvious: This command will give the named web site direct access to your system, with the ability to do anything that &lt;em&gt;you&lt;/em&gt; could do. This feels very wrong: We should be able to install software without giving the developers full access to our systems, right?&lt;/p&gt;
-
-&lt;p&gt;We at Sandstorm would obviously be the first to agree that software you install should not be automatically fully trusted – that’s why &lt;a href=&quot;https://docs.sandstorm.io/en/latest/developing/security-practices/#fine-grained-isolation&quot;&gt;Sandstorm itself runs every app in a secure, isolated sandbox by default&lt;/a&gt;. Unfortunately, however, traditional Unix software is always granted the full authority of the user who runs it. When you install software on Linux, no matter what package manager you use, you are giving that software permission to act as you. Most package managers will even execute scripts from the package at install time – as root. So in reality, although &lt;code&gt;curl|bash&lt;/code&gt; &lt;em&gt;looks&lt;/em&gt; scary, it’s really just laying bare the reality that applies to every popular package manager out there: anything you install can pwn you.&lt;/p&gt;
-
-&lt;p&gt;If you wish to install Sandstorm – or any software – without giving it full access to your system, you must install it on a dedicated machine, VM, or (perhaps, with caveats) user account. In fact, we highly encourage you to do so, for defense in depth. But, we know it’s more work than a lot of people want to deal with.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-better-argument-code-signing&quot;&gt;The Better Argument: Code Signing&lt;/h3&gt;
-
-&lt;p&gt;Some of the objectors, though, go a bit further: They claim that &lt;code&gt;curl|bash&lt;/code&gt; is more open to attack that other distribution mechanisms, potentially allowing a third party to replace our Sandstorm downloads with evil ones.&lt;/p&gt;
-
-&lt;p&gt;Of course, all content served by sandstorm.io – from software downloads to our blog – is served strictly over HTTPS (with HSTS).&lt;/p&gt;
-
-&lt;p&gt;Various people argue, though, that this is not good enough, and that we should be signing each release with keys kept offline.&lt;/p&gt;
-
-&lt;p&gt;In fact, I agree: where possible, we like to use two or more independent mechanisms of protecting against a security problem, so that when one breaks it’s not a big deal. So, as of today, it is possible to verify the Sandstorm installer from the PGP keys of various Sandstorm developers by following our “PGP-verified install” instructions.&lt;/p&gt;
-
-&lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;https://docs.sandstorm.io/en/latest/install/#option-3-pgp-verified-install&quot;&gt;Try PGP-verified Install »&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;That said, we do not think this issue quite warrants the visceral anger we’ve seen people express over &lt;code&gt;curl|bash&lt;/code&gt;. Realistically, downloading and installing software while relying on HTTPS for integrity is a widely-used practice. The web sites for Firefox, Rust, Google Chrome, and many others offer an HTTPS download as the primary installation mechanism. It’s even the standard way to install most Linux distros in the first place (by downloading an iso from the web site). Many popular package managers, such as npm, rely only on HTTPS for integrity. &lt;code&gt;curl|bash&lt;/code&gt; over HTTPS is just as “secure” as any of these.&lt;/p&gt;
-
-&lt;h3 id=&quot;verifying-keys-with-keybase&quot;&gt;Verifying Keys with Keybase&lt;/h3&gt;
-
-&lt;p&gt;To get benefit from PGP code signing beyond what you get from HTTPS distribution, you must verify that the software is signed by the specific developer you are expecting – and to do that, you need a way to bootstrap trust in their PGP key. This means you can’t simply fetch the key from the developer’s own server. You can use PGP “Web of Trust”, but sadly few people really understand how to do that.&lt;/p&gt;
-
-&lt;p&gt;Recently, though, a fairly plausible option has emerged: &lt;a href=&quot;https://keybase.io&quot;&gt;Keybase.io&lt;/a&gt;. Keybase has implemented usable tools and techniques to bootstrap trust from a variety of sources, including social networks like Github and Twitter, all &lt;em&gt;without&lt;/em&gt; trusting Keybase. It’s unlikely that an attacker could compromise all of these sources at once. Once you’ve used Keybase to verify our PGP key, then you can verify the signed packages downloaded from our servers, and actually have a higher degree of confidence that the software is authentic than you would get from HTTPS alone.&lt;/p&gt;
-
-&lt;h3 id=&quot;non-security-concerns&quot;&gt;Non-security Concerns&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;curl|bash&lt;/code&gt; is not pretty, and people have raised some legitimate non-security-related concerns about it:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;If the connection dies mid-line, bash will execute the incomplete line – however, this can be mitigated by wrapping the whole script in a bash function executed on the last line, as we do. (This is actually arguably a security concern if an attacker can induce a disconnect at a chosen point, but in any case it doesn’t apply to our script.)&lt;/li&gt;
-  &lt;li&gt;Although almost all package managers allow packages to run arbitrary install-time scripts (often as root), it is far more likely that a wholly hand-rolled install script will be sloppy and harm the system. In the case of Sandstorm, we have taken care to avoid interfering with your system in any way – in fact, Sandstorm self-containerizes in its own chroot under /opt/sandstorm, meaning that for the most part it does not touch the rest of your system at all. &lt;a href=&quot;https://install.sandstorm.io&quot;&gt;See comments at the top of the script for more details.&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Installing software not managed by the distro’s package manager can be inconvenient for system administrators, especially those who are deeply familiar with the inner workings of their distro.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;On these concerns: We hear you.&lt;/p&gt;
-
-&lt;p&gt;For now, we believe that having our own install scripts allows us to iterate faster, compared to maintaining (and testing) half a dozen package formats for different distros. However, once Sandstorm reaches a stable release, we fully intend to offer more traditional packaging choices as well. We still have lots of work to do!&lt;/p&gt;
-
-&lt;h3 id=&quot;faq&quot;&gt;FAQ&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Does Sandstorm’s auto-updater verify signatures on updates?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;As of this release, yes. (This is in addition to using HTTPS, as it always has.)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;What happens if the release-signing private key is compromised?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;We can rotate the key at any time. Certificates on the old key expire in about a month. The auto-updater will begin using the new key as soon as it has installed an update that is aware of the new key. We sign updates with all old keys as well so that old Sandstorm installs continue to be able to update even after key rotation.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Are the installer and updater resistant to downgrade attacks?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Yes. The installer will not install a release more than a month old. The updater will never “downgrade” to an older version. We also plan to add an alert to the Sandstorm UI if the Sandstorm build is more than a month old, which could indicate that an attacker is blocking access to the update server.&lt;/p&gt;
-</description>
-				<pubDate>Thu, 24 Sep 2015 00:00:00 -0700</pubDate>
-                                <link>https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install</guid>
 			</item>
 		
 	</channel>

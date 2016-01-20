@@ -78,13 +78,48 @@
 
 
 <section>
+  <h2><a href="/news/2015-03-11-testing">Testing Sandstorm apps</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2015-03-11-testing">11 Mar 2015</a>
+  
+  
+  
+  
+  <p>Have you ever wanted to try out new apps for Sandstorm before they make their
+way to the app list? Apps always need testing, and you can help.</p>
+
+<p>Historically, the packaging process has been somewhat
+opaque – the App Committee would
+<a href="https://sandstorm.io/vote">vote</a> on apps, and new apps would magically appear
+in the <a href="https://sandstorm.io/apps/">app list</a>. If an app’s author packages
+their own project, it seems to arrive all at once app list.</p>
+
+<p>The truth is, someone tests these apps to make sure
+they work properly. App packagers have been emailing people privately to find testers.</p>
+
+<p>I’m opening that testing up to the community with some
+new
+<a href="https://github.com/sandstorm-io/sandstorm/wiki/Testing">documentation</a>.</p>
+
+<blockquote>
+  <p>Anyone who uses Sandstorm can test out new Sandstorm apps and features!
+Consider it our open beta program.</p>
+</blockquote>
+
+<p>Check out the
+<a href="https://github.com/sandstorm-io/sandstorm/wiki/Testing">new testing doc</a>,
+and subscribe to
+<a href="https://groups.google.com/forum/#!forum/sandstorm-dev">sandstorm-dev</a>
+so you can hear about cool apps that are almost ready!</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-03-05-postcards">Postcards from Boston & Chicago</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2015-03-05-postcards">05 Mar 2015</a>
-  
-  
-  
   
   <p>I was recently traveling to Boston for the
 <a href="http://www.mit.edu/~puzzle/">MIT Mystery Hunt</a> and to Chicago
@@ -333,54 +368,6 @@ Hooked up the “New User Default Role” option so that it works as it should
 with Sandstorm sharing. Added per-startup session secrets.</p>
   </li>
 </ul>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-02-06-app-demo">One click to try an open source web application</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2015-02-06-app-demo">06 Feb 2015</a>
-  
-  <p>Give your potential users an instant demo of your app, easily!</p>
-
-<p>If your app has a Sandstorm port, you can now use it to power a “Try this app”
-link on your app’s homepage. If you don’t have a Sandstorm port yet, now’s a good
-time to make one.</p>
-
-<p>I wrote this new Sandstorm feature to help GNU MediaGoblin users try it before
-installing. Everyone who clicks “try a demo right now” from the <a href="http://mediagoblin.org/">MediaGoblin
-homepage</a> gets a totally fresh instance to play with;
-it lasts an hour, like everything else on demo.sandstorm.io, then vanishes into
-the ether. Once you click, here’s the top of what you see:</p>
-
-<p><img style="box-shadow: 10px 10px 5px 0px rgba(64,64,64,0.75);" src="/news/images/mediagoblin-demo.png" /></p>
-
-<p>To use this feature for any app in the <a href="https://sandstorm.io/apps/">app list</a>,
-make a link to <code>https://demo.sandstorm.io/appdemo/appId</code>, where <code>appId</code> is the
-public key of the app in question, and then ask people to click that link. The
-link goes to a page explaining the one-hour lifetime
-of the demo, and then one click later, a fresh instance of the app.
-To learn more, check out the wiki page on
-<a href="https://github.com/sandstorm-io/sandstorm/wiki/Demo-mode">demo mode</a>.</p>
-
-<p>Huge thanks to Chris Webber of MediaGoblin and Maxime Quandalle of
-Libreboard for testing out the feature.
-Libreboard and Groovebasin picked up the app demo link for
-<a href="http://libreboard.com/">their</a> <a href="http://groovebasin.com/">sites</a>, too.</p>
-
-<p>If you want to make a public demo of your own app and it doesn’t have a
-Sandstorm port yet, it’s simple to get started. Sandstorm supports any app
-framework that runs on Linux: Rails, Django, node, Perl CGI, you name it.
-Follow the
-<a href="https://github.com/sandstorm-io/sandstorm/wiki/Porting-Guide">porting guide</a>
-and you’ll see how Sandstorm auto-detects the app’s dependencies and helps
-package them up. Once you’re done, let us know and we’ll add you to the
-Sandstorm app list. That list powers the demo as well as provides apps to
-people’s personal Sandstorm servers, so you’ll also be strengthening the
-ecosystem of self-hosting.  If you’re excited about that but don’t know where
-to start, <a href="https://github.com/sandstorm-io/sandstorm/wiki/Get-Involved">
-get in touch</a>!</p>
 
 </section>
 

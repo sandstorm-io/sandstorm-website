@@ -78,13 +78,65 @@
 
 
 <section>
+  <h2><a href="/news/2014-11-05-mobile-strategy">How Sandstorm works on mobile; plus app updates</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-11-05-mobile-strategy">05 Nov 2014</a>
+  
+  
+  
+  
+  <p>Today we have a few announcements regarding Sandstorm and mobile.</p>
+
+<p>First, we’ve updated Sandstorm’s web interface to be mobile-friendly. Whereas
+before the UI was mostly unusable on mobile, now you should be able to get
+around reasonably well. Not all of our apps are optimized for mobile, but at
+least now that the Sandstorm shell works well, apps can follow.</p>
+
+<div style="background-color: #ddd; padding: 10px;"><img src="https://sandstorm.io/mobile1.png" style="width: 48%" />&nbsp;<img src="https://sandstorm.io/mobile2.png" style="width: 48%; float:right;" /></div>
+
+<p>Second, we’ve implement the ability for applications to export HTTP-based APIs,
+which among other things can be used to allow a mobile client application to
+access a Sandstorm-based server. To learn how to make your own application
+export an API, check out <a href="https://github.com/sandstorm-io/sandstorm/wiki/Exporting-HTTP-APIs">the documentation</a>.</p>
+
+<h3 id="tinytinyrss-android-app">TinyTinyRSS Android app</h3>
+
+<p>As an example of the new functionality, we’ve updated our port of TinyTinyRSS
+to support an Android client. Install the latest version of the TinyTinyRSS app
+and check out the preferences to learn more!</p>
+
+<h3 id="telescope">Telescope</h3>
+
+<p>We’ve ported <a href="http://telesc.pe">Telescope</a> – a Reddit / Hacker News clone –
+to Sandstorm; find it in the Sandstorm app list now. Being a Meteor app,
+Telescope was, of course, easy to port using
+<a href="https://github.com/sandstorm-io/meteor-spk">meteor-spk</a>.</p>
+
+<p>We are using Telescope to power the Sandstorm app committee voting app, where
+those people who purchased seats on the app committee during our Indiegogo
+campaign have been voting on the next apps for us to port. So far, they have
+chosen Gitlab and Diaspora.</p>
+
+<p><img src="https://sandstorm.io/gitlab-diaspora.png" style="width: 100%" /></p>
+
+<p>Want to follow the action? Visit the
+<a href="https://groups.google.com/group/sandstorm-app-committee">app committee group</a>.</p>
+
+<h3 id="groovebasin-update">Groovebasin Update</h3>
+
+<p>We’ve updated the Groovebasin app to allow batch uploads of multiple songs.
+(This was previously disabled due to a limitation in Sandstorm, which we’ve
+now fixed.) Re-install Groovebasin from the Sandstorm app list to get the
+update. Now you can upload your whole music library more easily!</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2014-10-09-app-updates">App updates and more</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2014-10-09-app-updates">09 Oct 2014</a>
-  
-  
-  
   
   <p>It’s been a while since our last post, but we’ve been doing a ton of stuff. It’s been a mad scramble here at Sandstorm HQ to get things organized after our <a href="http://igg.me/at/sandstorm">successful crowdfunding campaign</a>. Let me fill you in on some of the things we’ve been doing!</p>
 
@@ -194,24 +246,6 @@
 <p>The Sand Cat’s story will begin to unfold over the coming weeks, but we wanted to give you a sneak peek so that we could let you know that we’ll be adding Sand Cat stickers to every sticker pack sold as part of <a href="http://igg.me/at/sandstorm">our Indiegogo campaign</a>. So, if you haven’t had a chance yet, grab <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=8&amp;perk_id=2166937">a sticker pack for $8</a> or <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=32&amp;perk_id=2166959">a t-shirt plus sticker pack for $32</a>.</p>
 
 <p style="text-align: center"><a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=8&amp;perk_id=2166937"><img src="https://sandstorm.io/sandcat1.png" alt="Sand cat illustration #1" /> <img src="https://sandstorm.io/sandcat3.png" alt="Sand cat illustration #3" /></a></p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2014-08-26-groove-basin">Streaming Music with Groove Basin</a></h2>
-  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
-    
-    - <a href="/news/2014-08-26-groove-basin">26 Aug 2014</a>
-  
-  <p>Today we are releasing our port of <a href="http://groovebasin.com/">Groove Basin</a>, the ongoing product of <a href="http://andrewkelley.me/">Andrew Kelley</a>’s three year quest to <a href="http://andrewkelley.me/post/quest-build-ultimate-music-player.html">build the ultimate music player</a>.</p>
-
-<p><a href="https://sandstorm.io/apps/groovebasin-big.png"><img alt="Groove Basin Screenshot" src="https://sandstorm.io/apps/groovebasin.png" /></a></p>
-
-<p>With the Groove Basin app, you can upload music to a Sandstorm grain and listen to it from anywhere. Groove Basin provides loudness compensation, gapless playback, and support for a wide range of codecs, including all of the common ones like mp3, flac, ogg, m4a, aif, wav, and wma.</p>
-
-<p>As befits a Sandstorm app, Groove Basin also has some interesting sharing features. You can connect one client to speakers and let other clients act as remote controls, with the ability to control playback and upload new music. Alternatively, you can set up a long distance listening party, where geographically dispersed listeners share a playback stream. We’ve integrated Groove Basin’s permissions system with Sandstorm’s, so only the instance owner is allowed to perform destructive actions like deleting tracks or editing tags.</p>
-
-<p>I highly recommend that you give it a spin, either on your personal Sandstorm server or on the <a href="https://demo.sandstorm.io">demo</a>.</p>
 
 </section>
 
