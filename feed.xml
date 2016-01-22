@@ -7,6 +7,77 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>App update: 8 New open source self-hostable apps</title>
+				<description>&lt;p&gt;Have an &lt;a href=&quot;http://oasis.sandstorm.io&quot;&gt;Oasis account&lt;/a&gt; already? If not, you can &lt;a href=&quot;https://sandstorm.io/get&quot;&gt;sign up for one right now&lt;/a&gt; and start using it to install any of the 48 apps in the &lt;a href=&quot;http://apps.sandstorm.io&quot;&gt;Sandstorm App Market&lt;/a&gt;. (You can also &lt;a href=&quot;https://sandstorm.io/get#self-hosting&quot;&gt;use your own Linux box&lt;/a&gt;, of course.)&lt;/p&gt;
+
+&lt;p&gt;App authors in the &lt;a href=&quot;https://sandstorm.io/community&quot;&gt;Sandstorm community&lt;/a&gt; have been exceptionally productive lately, packaging their favorite apps and writing original apps as well. I wanted to share some of my recent favorites with you. Here are some brand new apps you should install on your Sandstorm server today:&lt;/p&gt;
+
+&lt;h2 id=&quot;davros-file-sync&quot;&gt;Davros (file-sync)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h&quot;&gt;&lt;img src=&quot;/news/images/davros-screenshot.jpg&quot; alt=&quot;Davros screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h&quot;&gt;Davros&lt;/a&gt; is an open source alternative to Dropbox that works with the &lt;a href=&quot;https://owncloud.org/install/#install-clients&quot;&gt;ownCloud client&lt;/a&gt; installed on your local machine. It’s an original app by Michael Nutt (one of the founders of &lt;a href=&quot;https://movableink.com/&quot;&gt;Movable Ink&lt;/a&gt;) who also hosts the &lt;a href=&quot;http://www.meetup.com/Sandstorm-NY/&quot;&gt;Sandstorm NY meetup&lt;/a&gt;. He also wrote &lt;a href=&quot;https://apps.sandstorm.io/app/4mfserfc04wtcevvgn0jw27hvwfntmt8j468y3ma55kj8d5tj9kh&quot;&gt;Hummingbird&lt;/a&gt; (see below).&lt;/p&gt;
+
+&lt;h2 id=&quot;sandforms-forms&quot;&gt;SandForms (forms)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/ztxnreej8a0pqn97ccfhuckswjkrmsaavn85n5sgzk30tv2k4y9h&quot;&gt;&lt;img src=&quot;/news/images/sandforms.png&quot; alt=&quot;SandForms screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/ztxnreej8a0pqn97ccfhuckswjkrmsaavn85n5sgzk30tv2k4y9h&quot;&gt;Sandforms&lt;/a&gt; is a slick open source forms app (alternative to Google Forms), by a team at &lt;a href=&quot;https://www.thoughtworks.com/&quot;&gt;ThoughtWorks&lt;/a&gt;, led by Jack Singleton, who is also author of &lt;a href=&quot;https://apps.sandstorm.io/app/7qvcjh7gk0rzdx1s3c8gufd288sesf6vvdt297756xcv4q8xxvhh&quot;&gt;HackerSlides&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;rocketchat-slack-alternative&quot;&gt;Rocket.Chat (Slack alternative)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0&quot;&gt;&lt;img src=&quot;/images/rocketchat.jpg&quot; alt=&quot;Rocket.Chat screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0&quot;&gt;Rocket.Chat&lt;/a&gt; is &lt;a href=&quot;https://blog.okturtles.com/2015/11/five-open-source-slack-alternatives/&quot;&gt;a full-featured open source Slack alternative&lt;/a&gt; that has taken the world by storm (by Gabriel Engel and the &lt;a href=&quot;http://rocket.chat&quot;&gt;Rocket.Chat&lt;/a&gt; team).&lt;/p&gt;
+
+&lt;h2 id=&quot;hummingbird-real-time-web-tracker&quot;&gt;Hummingbird (real-time web tracker)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/4mfserfc04wtcevvgn0jw27hvwfntmt8j468y3ma55kj8d5tj9kh&quot;&gt;&lt;img src=&quot;/news/images/06980a0d551bed7ef4eb3991ae1cb92f.jpg&quot; alt=&quot;screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/4mfserfc04wtcevvgn0jw27hvwfntmt8j468y3ma55kj8d5tj9kh&quot;&gt;Hummingbird&lt;/a&gt; gives you real-time web statistics on your website, much like the real-time feature in Google Analytics. It’s also by Michael Nutt (author of &lt;a href=&quot;https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h&quot;&gt;Davros&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&quot;gogs-git-server--interface&quot;&gt;Gogs (git server &amp;amp; interface)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/d9ygf47xrtnw12j92cyt6cu8ut75esx01u4q3kcrn8415w9qzzgh&quot;&gt;&lt;img src=&quot;/news/images/gogs_screenshot.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/d9ygf47xrtnw12j92cyt6cu8ut75esx01u4q3kcrn8415w9qzzgh&quot;&gt;Gogs&lt;/a&gt; is an advanced yet lightweight git server that also ships with an issue tracker. It was packaged by Cem Kocagil, who also packaged a bunch of apps I’ll talk about below. (Gog upstream authors: &lt;a href=&quot;https://gogs.io/&quot;&gt;Gogs team&lt;/a&gt;)&lt;/p&gt;
+
+&lt;h2 id=&quot;dillinger-markdown-editor&quot;&gt;Dillinger (markdown editor)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/fq057t4ek3yt96xsfje6c1wv61pkjkqm9hs1539x4jqxjwzdp7fh&quot;&gt;&lt;img src=&quot;/news/images/dillinger_screenshot.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/fq057t4ek3yt96xsfje6c1wv61pkjkqm9hs1539x4jqxjwzdp7fh&quot;&gt;Dillinger&lt;/a&gt; is a markdown editor with side-by-side panels, much like desktop markdown editor LightPaper, where the left side is for editing, and the right side is for previews. It was also packaged by Cem Kocagil. (Upstream author: Joe McCann).&lt;/p&gt;
+
+&lt;h2 id=&quot;nodebb-bulletin-board&quot;&gt;NodeBB (bulletin board)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/zt4j87mc54jkgaehgfqyq2a0qeytm15pcskazvxfkh10yqg4rsrh&quot;&gt;&lt;img src=&quot;/news/images/5f71ba0fe62cc3d437db933495a7c121.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/zt4j87mc54jkgaehgfqyq2a0qeytm15pcskazvxfkh10yqg4rsrh&quot;&gt;NodeBB&lt;/a&gt; is a real-time forum app, featuring a modern user interface, tags, voting, and real-time chat. Like &lt;a href=&quot;https://apps.sandstorm.io/app/d9ygf47xrtnw12j92cyt6cu8ut75esx01u4q3kcrn8415w9qzzgh&quot;&gt;Gogs&lt;/a&gt; and &lt;a href=&quot;https://apps.sandstorm.io/app/fq057t4ek3yt96xsfje6c1wv61pkjkqm9hs1539x4jqxjwzdp7fh&quot;&gt;Dillinger&lt;/a&gt;, it was also packaged by Cem Kocagil. (Upstream author: &lt;a href=&quot;https://nodebb.org/&quot;&gt;NodeBB&lt;/a&gt;, Inc.)&lt;/p&gt;
+
+&lt;h2 id=&quot;dokuwiki-wiki&quot;&gt;DokuWiki (wiki)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/nx3dqcmz2sjjz939vkg4847vvxrzqsatqfjrt3ea50z3jac5kv7h&quot;&gt;&lt;img src=&quot;/news/images/DokuWiki_screenshot.jpg&quot; alt=&quot;screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;DokuWiki is a simple yet versatile classic-style wiki. It was packaged by Nolan Darilek, who also packaged lightweight accounting app &lt;a href=&quot;https://apps.sandstorm.io/app/8x12h6p0x0nrzk73hfq6zh2jxtgyzzcty7qsatkg7jfg2mzw5n90&quot;&gt;HLedger Web&lt;/a&gt;. (Upstream author: &lt;a href=&quot;https://www.dokuwiki.org&quot;&gt;DokuWiki Team&lt;/a&gt;)&lt;/p&gt;
+
+&lt;h2 id=&quot;and-more&quot;&gt;And more…&lt;/h2&gt;
+
+&lt;p&gt;I also wanted to share with you an article I wrote for OpenSource.com, highlighting the &lt;a href=&quot;https://opensource.com/life/15/12/5-open-source-web-apps-self-hosted&quot;&gt;open source apps on Sandstorm that replace Google Drive&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Check out these apps and more in the &lt;a href=&quot;http://apps.sandstorm.io&quot;&gt;Sandstorm App Market&lt;/a&gt;. Or write your own round-up blog post of your own favorite apps and drop a line to &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&quot;&gt;&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&lt;/a&gt; to let me know.&lt;/p&gt;
+
+&lt;h2 id=&quot;spread-the-love&quot;&gt;Spread the love&lt;/h2&gt;
+
+&lt;p&gt;Did you know that you can get bonus storage on Oasis through the &lt;a href=&quot;https://oasis.sandstorm.io/referrals&quot;&gt;referral program&lt;/a&gt;?&lt;/p&gt;
+
+&lt;p&gt;Unlock up to 30GB if you’re a paid user, or up to 2GB bonus storage (+ unlimited grains) for free tier users. (Technically, all plans are free right now while we’re in beta, so catch that while you can.)  That bonus storage will come in handy when you switch over to &lt;a href=&quot;https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h&quot;&gt;Davros&lt;/a&gt; like me.&lt;/p&gt;
+</description>
+				<pubDate>Fri, 22 Jan 2016 00:00:00 -0800</pubDate>
+                                <link>https://sandstorm.io/news/2016-01-22-8-new-open-source-apps</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-01-22-8-new-open-source-apps</guid>
+			</item>
+		
+			<item>
 				<title>How Sandstorm Works: Containerize Data, not Services</title>
 				<description>&lt;p style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;/how-it-works&quot;&gt;&lt;img src=&quot;/images/how-it-works.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -355,69 +426,6 @@ Where: &lt;a href=&quot;https://www.google.com/maps?f=q&amp;amp;hl=en&amp;amp;q=
 				<pubDate>Tue, 20 Oct 2015 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2015-10-20-hanselminutes</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2015-10-20-hanselminutes</guid>
-			</item>
-		
-			<item>
-				<title>Free, automated SSL certificates for Sandstorm self-hosters</title>
-				<description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt; If you &lt;a href=&quot;https://sandstorm.io/install/&quot;&gt;install Sandstorm&lt;/a&gt; and choose to use a subdomain of our dynamic DNS service sandcats.io, we’ll automatically set you up with an HTTPS certificate from GlobalSign. The private key never leaves your machine and is automatically rotated every week.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;People who run their own servers often do it for privacy. Many of them use our open source Sandstorm software to easily run apps like &lt;a href=&quot;https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60&quot;&gt;document editors&lt;/a&gt;, &lt;a href=&quot;https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0&quot;&gt;group chat apps&lt;/a&gt;, &lt;a href=&quot;https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h&quot;&gt;task management&lt;/a&gt;, and &lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;more&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;But a private server is not really private if you’re communicating with it in plaintext. So, starting today, if you &lt;a href=&quot;https://sandstorm.io/install/&quot;&gt;install Sandstorm&lt;/a&gt; on your own Linux server, and you choose to host at a subdomain of our free dynamic DNS service sandcats.io, you will have free, automatically-renewing HTTPS certificates by default. That means you get privacy on the network without any hassle.&lt;/p&gt;
-
-&lt;p&gt;For companies and individuals who run their own Sandstorm servers, it’s now easy to secure yourself with HTTPS. Here are the steps.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Download and run the &lt;a href=&quot;https://sandstorm.io/install/&quot;&gt;Sandstorm install script&lt;/a&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Choose a subdomain of &lt;code&gt;sandcats.io&lt;/code&gt; you want to register (and tell us how to contact you to recover the domain).&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Visit your server’s new web dashboard by clicking the URL printed out by the install script.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Sandstorm automatically enables HTTPS as part of step 2. There’s no setting up reverse proxies, no creating certificate signing requests, no waiting on a CA. Your private key is on your machine and never leaves.&lt;/p&gt;
-
-&lt;h3 id=&quot;why-you-need-https&quot;&gt;Why you need HTTPS&lt;/h3&gt;
-
-&lt;p&gt;HTTPS (also commonly but incorrectly called “SSL”) is important because the web’s original protocol, HTTP, is insecure – anyone in a coffee shop near you can see what you’re browsing or modify your traffic. This is a real threat; here’s a &lt;a href=&quot;https://www.youtube.com/watch?v=my4oZqBU5zE&quot;&gt;video of someone stealing HTTP traffic&lt;/a&gt; that was made as a school project.&lt;/p&gt;
-
-&lt;p&gt;Over the past five years, web companies like &lt;a href=&quot;http://googleblog.blogspot.com/2011/10/making-search-more-secure.html&quot;&gt;Google&lt;/a&gt;, &lt;a href=&quot;https://www.facebook.com/notes/facebook-engineering/secure-browsing-by-default/10151590414803920&quot;&gt;Facebook&lt;/a&gt;, and &lt;a href=&quot;https://blog.twitter.com/2012/securing-your-twitter-experience-with-https&quot;&gt;Twitter&lt;/a&gt; have been switching their sites to require HTTPS. Sandstorm.io and all of its subdomains have always required HTTPS. The Chrome team is planning to &lt;a href=&quot;https://www.chromium.org/Home/chromium-security/marking-http-as-non-secure&quot;&gt;show a broken padlock&lt;/a&gt; for plain HTTP sites. Companies that are responsible for a lot of user data have been making time to secure their sites with HTTPS.&lt;/p&gt;
-
-&lt;h3 id=&quot;our-search-for-a-certificate-vendor&quot;&gt;Our search for a certificate vendor&lt;/h3&gt;
-
-&lt;p&gt;Providing automatic HTTPS is more than just a technical problem. To be trusted, the certificates must come from a Certificate Authority that is already trusted by your browser. To deliver certificates to you, we needed to work with such an authority.&lt;/p&gt;
-
-&lt;p&gt;So, earlier this year, I began to talk to people at CAs. But there was a complication: Sandstorm &lt;a href=&quot;https://docs.sandstorm.io/en/latest/administering/wildcard/&quot;&gt;requires a wildcard certificate&lt;/a&gt; to achieve some of its security properties. That is, if your server is &lt;code&gt;example.sandcats.io&lt;/code&gt;, all subdomains &lt;code&gt;*.example.sandcats.io&lt;/code&gt; must be covered as well. Wildcard certificates are usually expensive – an order of magnitude more so than normal certificates. And when I talked to the inspiring folks at &lt;a href=&quot;https://letsencrypt.org/&quot;&gt;Let’s Encrypt&lt;/a&gt;, I discovered that they weren’t ready to issue wildcard certificates.&lt;/p&gt;
-
-&lt;p&gt;I was lucky enough to find Michael Trotta at &lt;a href=&quot;https://www.globalsign.com/&quot;&gt;GlobalSign&lt;/a&gt;. He believed in our mission of making servers safe and easy for more people to run. Working together, we were able to set up a deal allowing us to offer free wildcard certificates under sandcats.io. Contracts were signed, and then it was time to write some code.&lt;/p&gt;
-
-&lt;h3 id=&quot;defending-against-the-next-heartbleed-weekly-key-rotation&quot;&gt;Defending against the next Heartbleed: Weekly key rotation&lt;/h3&gt;
-
-&lt;p&gt;We want Sandstorm to require as little maintenance as possible, so that there’s no reason not to run your own server. We especially want security problems to be solved with no action on your part.&lt;/p&gt;
-
-&lt;p&gt;One of the biggest headaches for server admins in recent memory was &lt;a href=&quot;http://heartbleed.com/&quot;&gt;Heartbleed&lt;/a&gt;, a bug in the popular OpenSSL library which could have revealed people’s private encryption keys to attackers.&lt;/p&gt;
-
-&lt;p&gt;Patching the bug is the easy part: If you have automatic updates enabled, your Sandstorm will be updated within 24 hours of any release without any action on your part.&lt;/p&gt;
-
-&lt;p&gt;What made Heartbleed so bad, though, was not just that systems had to be updated, but that all HTTPS keys and certificates had to be revoked and regenerated, in case they had already been stolen. This was a huge pain for sysadmins, and a huge pain for the certificate revocation infrastructure, which was not designed for everyone in the world to revoke certificates simultaneously.&lt;/p&gt;
-
-&lt;p&gt;To solve this, Sandcats issues certificates valid for only seven days. Your server will automatically generate a new key and receive a new certificate every week. So, any compromise of your private key “fixes itself” over time. Granted, a week is a long time to live with the possibility of an active MITM attack, but realistically it took much longer than that for most revocations to take effect after Heartbleed (if they ever took effect at all).&lt;/p&gt;
-
-&lt;h3 id=&quot;the-result-every-sandstorm-app-is-secure-for-self-hosters&quot;&gt;The result: Every Sandstorm app is secure for self-hosters&lt;/h3&gt;
-
-&lt;p&gt;Because Sandstorm handles HTTPS, rather than the app or the system administrator, the &lt;a href=&quot;https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60&quot;&gt;Etherpad package&lt;/a&gt; in Sandstorm doesn’t need to have any kind of special integration, nor does the &lt;a href=&quot;https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0&quot;&gt;Rocket.Chat package&lt;/a&gt;, nor does the &lt;a href=&quot;https://apps.sandstorm.io/app/sptx6z162fp1w8rwe92vc8tzm76v0mk0wwc9yafze2vpghjs48j0&quot;&gt;Brainstorm package&lt;/a&gt;, nor any other.&lt;/p&gt;
-
-&lt;p&gt;So take a moment and &lt;a href=&quot;https://sandstorm.io/install/&quot;&gt;install Sandstorm now&lt;/a&gt; to securely enjoy these kinds of apps, or at least &lt;a href=&quot;https://demo.sandstorm.io&quot;&gt;try the online demo&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;And if you already have a Sandcats-enabled install of Sandstorm from before today, check out the &lt;a href=&quot;https://docs.sandstorm.io/en/latest/administering/ssl/&quot;&gt;documentation&lt;/a&gt; to enable HTTPS!&lt;/p&gt;
-</description>
-				<pubDate>Thu, 01 Oct 2015 00:00:00 -0700</pubDate>
-                                <link>https://sandstorm.io/news/2015-10-01-free-ssl-certificates</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2015-10-01-free-ssl-certificates</guid>
 			</item>
 		
 	</channel>

@@ -78,13 +78,79 @@
 
 
 <section>
+  <h2><a href="/news/2014-08-19-why-not-run-docker-apps">Why doesn't Sandstorm just run Docker apps?</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-08-19-why-not-run-docker-apps">19 Aug 2014</a>
+  
+  
+  
+  
+  <p>We get this question a lot. Sandstorm and Docker use the same Linux kernel features for containerization. Docker already has a large ecosystem of apps. Why introduce a new app format? Why not simply position Sandstorm as a UI for Docker? Wouldn’t that save a lot of work? Why reinvent the wheel?</p>
+
+<p>The fact of the matter is, Sandstorm and Docker, despite similar underlying tech, are very different platforms. Asking why Sandstorm doesn’t run Docker apps is a lot like asking why Android doesn’t run Linux desktop apps. If it’s the same Linux kernel under the hood, shouldn’t it be able to run the same apps? Well, a Linux desktop app would have a lot of problems running on Android. Most obviously, a desktop app’s UX would be all wrong on a small touchscreen. Moreover, the app would not fit into Android’s security model. It would not understand Android’s battery-saving lifecycle rules. It would not know how to tap into the unique devices (e.g. accelerometer, GPS) and opportunities (e.g. connecting with nearby devices) commonly available on phones but not on desktop.</p>
+
+<blockquote>Asking why Sandstorm doesn't run Docker apps is a lot like asking why Android doesn't run Linux desktop apps.</blockquote>
+
+<p>Running a Docker app on Sandstorm would be much the same story. Docker is designed to run off-the-shelf server-oriented Linux software and distributions inside containers. Docker’s platform, from the app’s point of view, is just Linux. From the user’s point of view, you use Docker much like you’d use traditional VMs and compute clusters; it’s just a lot more efficient.</p>
+
+<p>Sandstorm, though, is doing something completely different. We are trying to manage personal servers for end users. With Sandstorm, the person deciding what software to deploy is not necessarily a developer or system administrator. They may not know how to use a command line or edit config files. They may not know what a database is, and so aren’t likely to understand why they need to set up MySQL before they can run that app they’re interested in.</p>
+
+<p>This use case calls for a completely different model, just as phones call for a different model from desktops. We need to design a bunch of things differently:</p>
+
+<ul>
+  <li>
+    <p>Every app must have a web interface, and they must expose all configuration options through that interface.</p>
+  </li>
+  <li>
+    <p>Users expect their data to be organized in units of documents or other semantic objects, not in units of databases or relational tables. Apps must set up their own database and encapsulate it appropriately; the user won’t do it for them.</p>
+  </li>
+  <li>
+    <p>Users should not have to log into every app separately, especially when the app instance already belongs specifically to them and Sandstorm is already protecting access. So, apps must integrate with Sandstorm’s unified login system.</p>
+  </li>
+  <li>
+    <p>It would also be nice if users did not have to master a different sharing model for every app. Sandstorm supports fine-grained containers, such that every document can actually be in a separate container. This way, the platform can handle sharing consistently across all apps, by applying sharing to the containers. But, apps have to be designed for this.</p>
+  </li>
+  <li>
+    <p>Permission grants must be expressed in a way that users can understand. A user does not know what it means to allow an app to communicate on port 25, but they do know what it means to allow an app to send and receive e-mail under a particular e-mail address. In order for such permissions to be enforceable, the platform’s security model must actually operate in terms of these semantic permissions, not arbitrary TCP connections.</p>
+  </li>
+  <li>
+    <p>Updating an app must be a one-click (or even automatic) process. This means there must be a clearly-defined separation between the app “image” and its instance data, so that the platform is able to replace the former without harming the latter.</p>
+  </li>
+  <li>
+    <p>Users <em>will</em> install malicious apps from time to time, and they must be protected from these. The regular Linux kernel interface is far too wide, and critical exploits are found too often. We must instead present a much narrower interface and force apps to adapt. <a href="/news/2014-08-13-sandbox-security.html">See our previous post on this.</a></p>
+  </li>
+</ul>
+
+<p>For all these reasons, a Docker app simply would not be able to run under Sandstorm without modification. The modifications needed for typical Linux web apps tend to be light, but they are necessary.</p>
+
+<h3 id="why-not-at-least-use-the-container-tech">Why not at least use the container tech?</h3>
+
+<p>So, we’ve seen that it wouldn’t make sense to run a regular Docker app on Sandstorm. But, why don’t we still use Docker’s tech, and simply define an extra set of rules which Sandstorm apps much follow? Sandstorm would only be able to run the apps explicitly targeted for it, but at least we wouldn’t be reinventing the wheel technically, right?</p>
+
+<p>Well, first of all, we <em>do</em> use a lot of the same tech as Docker. Namely, we use the Linux kernel sandboxing features, such as namespaces and (soon) cgroups. These features do all of the heavy lifting of containerization.</p>
+
+<p>When it comes to userspace tools, it turns out that we just don’t really need anything Docker provides. Docker’s tools are designed to be highly adaptable and configurable in order to accommodate a wide range of Linux software without modification. Sandstorm, however, isn’t trying to run arbitrary Linux software. Apps already have to be adapted to Sandstorm’s environment. So, we are actually better off providing minimal configurability in order to keep the core system simple.</p>
+
+<p>Setting up a Sandstorm sandbox, based on raw Linux system calls, takes only a few hundred lines of code. Using Docker, it would probably be a few hundred lines of configuration instead, while adding a huge new dependency and all the maintenance issues that come with that. We would probably regularly find ourselves needing to push features upstream to Docker which Docker doesn’t otherwise need or want. It’s a lot of burden that wouldn’t buy us anything.</p>
+
+<p>We <em>do</em> often use Docker’s build tools in the process of building Sandstorm packages, simply because they provide a structured and reproducible way to gather an app and its dependencies into a chroot environment, which we can then package up. This is a fine option for app developers that does not affect the runtime system.</p>
+
+<h3 id="to-be-clear-docker-is-awesome">To be clear, Docker is awesome</h3>
+
+<p>We aren’t trying to dis Docker here. For what it’s trying to do – replace VMs with something not as horribly inefficient – Docker is amazing. We are excited to see it replace legacy IaaS solutions, and we will likely be targeting it as a way to run Sandstorm itself.</p>
+
+<p>But despite an initial appearance of similarity, Docker and Sandstorm simply aren’t the same thing, and forced sharing of code for very different purposes would not benefit either project.</p>
+
+<p><em>If you want to see Sandstorm succeed, there are 13 days left to <a href="http://igg.me/at/sandstorm">contribute to the campaign</a>.</em></p>
+
+</section>
+
+<section>
   <h2><a href="/news/2014-08-18-wordpress">WordPress on Sandstorm</a></h2>
   <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
     
     - <a href="/news/2014-08-18-wordpress">18 Aug 2014</a>
-  
-  
-  
   
   <p>WordPress is the world’s <a href="http://trends.builtwith.com/cms">most</a> <a href="http://w3techs.com/technologies/overview/content_management/all/">popular</a> web publishing platform, and we are excited to announce today that we’ve ported it to Sandstorm.</p>
 
@@ -225,47 +291,6 @@ meteor-spk pack myapp.spk
 <p>We hope to see tools like this developed for other frameworks in the future. <code>meteor-spk</code> is just a simple bash script wrapping Sandstorm’s <code>spk</code> tool and providing a dependency bundle to merge into the package. If you’d like to contribute a similar script for your own favorite framework, <a href="https://groups.google.com/group/sandstorm-dev">let us know</a>!</p>
 
 <p><em>Disclosure: Jade Wang, a member of the Sandstorm project, also works for Meteor, but Sandstorm and Meteor are not affiliated.</em></p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2014-08-11-roundcube">Roundcube; and avoiding walled gardens</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2014-08-11-roundcube">11 Aug 2014</a>
-  
-  <p>Today we’re releasing our port of <a href="http://roundcube.net">Roundcube</a>, another open source e-mail web app. You can go install it from the app list now, either on your own Sandstorm server or <a href="https://demo.sandstorm.io">on our demo</a>.</p>
-
-<p><img src="https://sandstorm.io/apps/roundcube.png" alt="Screenshot" /></p>
-
-<p>To this you might ask: What happened to <a href="/news/2014-07-07-mailpile.html">Mailpile</a>?</p>
-
-<p>Nothing happened. We support both! We like Mailpile, but we also want to give you choices. With Sandstorm, you can mix and match apps from competing developers as you see fit, while still retaining the unified experience of Sandstorm.</p>
-
-<h3 id="lets-end-walled-gardens">Let’s end walled gardens</h3>
-
-<p>Usually, when you sign up for a company’s suite of “cloud apps”, you have two choices:</p>
-
-<ol>
-  <li>Restrict yourself only to the apps that company provides and no others. This way you get a nicely integrated experience, but if one or more apps in the suite aren’t to your liking, you are stuck with them.</li>
-  <li>Also use apps from other developers. But you probably have to log into those apps separately, and they won’t integrate well with the first company’s suite. You end up with a fragmented experience in which you must remember multiple passwords and re-enter the same data into each service.</li>
-</ol>
-
-<p>We call this the “walled garden” problem. Big SaaS (Software-as-a-Service) providers tend to build walled gardens of apps that only integrate with other apps from the same developer.</p>
-
-<p>It would be easy and convenient for us to say that these companies are Evil and just want to lock you in, but that’s not true. The reality is that integration across security realms is hard. When each company has their own notion of users that can’t easily be mapped to each other, and understandably no company is willing to trust other companies with their security, how can you integrate apps containing private data? The answer in practice is OAuth, but OAuth permissions requests are clunky and disruptive to the UX. Some users are scared off by it – while others aren’t scared enough and just click “OK”.</p>
-
-<p>But developers within a company are perfectly willing to trust other developers in the same company to get security right, and so the entire OAuth dance can be skipped in these cases. This makes first-party integrations easy. Now imagine what would happen if a single company’s own apps had to OAuth to each other before integration. Imagine, for example, if Google Docs had to ask you for permission to fetch your contact list from GMail before enabling auto-complete of contact names in the share dialog. Probably, Google Docs wouldn’t bother, and there would be no autocomplete. Or imagine if the Facebook profile page had to ask for permision to connect to your Facebook photos before you could set your profile photo. This would be a huge pain! And even then, it wouldn’t necessarily end the walled garden: with OAuth, an app says “I need permission to talk to GMail,” not “I need permission to talk to an e-mail app.” There’s still no opportunity for you to substitute a third-party app in its place.</p>
-
-<p>With Sandstorm, we’re solving a lot of these problems:</p>
-
-<ul>
-  <li>All your apps run under the same roof, whether they are from the same developer or competing developers. You can use a diverse set of apps without having to remember a separate password for each one.</li>
-  <li>In place of OAuth, we’re building the Powerbox. This UI integrates better into the app’s UX by simultaneously acting as a picker and permissions granter. Apps usually need to present a picker anyway, so this is less disruptive. For example, if an app wants you to choose some contacts to which to send invitations, instead of first asking for permission to <em>all</em> your contacts just to display a picker UI back to you, the app will ask Sandstorm to display a Powerbox picker for contacts. Only the contacts you choose will be passed to the app. So, the UX is exactly the same, except without the separate permissions check, and yet it is more secure. The same idea would apply to choosing photos, or choosing anything else.</li>
-  <li>When using the Powerbox UI, the requesting app does not name an exact receiving app it wants to access, but instead specifies a protocol. So instead of saying “I need access to Mailpile,” the app would say “I need access to an e-mail app,” and you could potentially choose Mailpile, Roundcube, or any other e-mail app. Apps do have to implement compatible protocols, which can be difficult, but this approach at least leaves open the possibility of a newcomer app emulating the protocols already used by other apps in the space, thereby breaking down the network effect that would otherwise prevent a new app from gaining a foothold.</li>
-</ul>
-
-<p>We hope these design choices mean you get a unified experience no matter which apps you choose to use, and new players can break into the market more quickly, leading to faster innovation.</p>
 
 </section>
 
