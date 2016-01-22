@@ -20,7 +20,7 @@ App authors in the [Sandstorm community](https://sandstorm.io/community) have be
 
 [![SandForms screenshot](/news/images/sandforms.png)](https://apps.sandstorm.io/app/ztxnreej8a0pqn97ccfhuckswjkrmsaavn85n5sgzk30tv2k4y9h)
 
-[Sandforms](https://apps.sandstorm.io/app/ztxnreej8a0pqn97ccfhuckswjkrmsaavn85n5sgzk30tv2k4y9h) is a slick open source forms app (alternative to Google Forms), by a team at [ThoughtWorks](https://www.thoughtworks.com/), led by Jack Singleton, who is also author of [HackerSlides](https://apps.sandstorm.io/app/7qvcjh7gk0rzdx1s3c8gufd288sesf6vvdt297756xcv4q8xxvhh).
+[SandForms](https://apps.sandstorm.io/app/ztxnreej8a0pqn97ccfhuckswjkrmsaavn85n5sgzk30tv2k4y9h) is a slick open source forms app (alternative to Google Forms), by a team at [ThoughtWorks](https://www.thoughtworks.com/), led by Jack Singleton, who is also author of [Hacker Slides](https://apps.sandstorm.io/app/7qvcjh7gk0rzdx1s3c8gufd288sesf6vvdt297756xcv4q8xxvhh).
 
 ##Rocket.Chat (Slack alternative)
 
