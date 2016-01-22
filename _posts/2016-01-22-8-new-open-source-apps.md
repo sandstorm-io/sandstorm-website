@@ -11,7 +11,7 @@ App authors in the [Sandstorm community](https://sandstorm.io/community) have be
 
 ##Davros (file-sync)
 
-[![Davros screenshot](/news/images/davros-screenshot.png)](https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h)
+[![Davros screenshot](/news/images/davros-screenshot.jpg)](https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h)
 
 [Davros](https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h) is an open source alternative to Dropbox that works with the [ownCloud client](https://owncloud.org/install/#install-clients) installed on your local machine. It's an original app by Michael Nutt (one of the founders of [Movable Ink](https://movableink.com/)) who also hosts the [Sandstorm NY meetup](http://www.meetup.com/Sandstorm-NY/). He also wrote [Hummingbird](https://apps.sandstorm.io/app/4mfserfc04wtcevvgn0jw27hvwfntmt8j468y3ma55kj8d5tj9kh) (see below).
 
@@ -30,7 +30,7 @@ App authors in the [Sandstorm community](https://sandstorm.io/community) have be
 
 ##Hummingbird (real-time web tracker)
 
-[![screenshot](/news/images/06980a0d551bed7ef4eb3991ae1cb92f.png)](https://apps.sandstorm.io/app/4mfserfc04wtcevvgn0jw27hvwfntmt8j468y3ma55kj8d5tj9kh)
+[![screenshot](/news/images/06980a0d551bed7ef4eb3991ae1cb92f.jpg)](https://apps.sandstorm.io/app/4mfserfc04wtcevvgn0jw27hvwfntmt8j468y3ma55kj8d5tj9kh)
 
 [Hummingbird](https://apps.sandstorm.io/app/4mfserfc04wtcevvgn0jw27hvwfntmt8j468y3ma55kj8d5tj9kh) gives you real-time web statistics on your website, much like the real-time feature in Google Analytics. It's also by Michael Nutt (author of [Davros](https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h)).
 
@@ -54,7 +54,7 @@ App authors in the [Sandstorm community](https://sandstorm.io/community) have be
 
 ##DokuWiki (wiki)
 
-[![screenshot](/news/images/DokuWiki_screenshot.png)](https://apps.sandstorm.io/app/nx3dqcmz2sjjz939vkg4847vvxrzqsatqfjrt3ea50z3jac5kv7h)
+[![screenshot](/news/images/DokuWiki_screenshot.jpg)](https://apps.sandstorm.io/app/nx3dqcmz2sjjz939vkg4847vvxrzqsatqfjrt3ea50z3jac5kv7h)
 
 DokuWiki is a simple yet versatile classic-style wiki. It was packaged by Nolan Darilek, who also packaged lightweight accounting app [HLedger Web](https://apps.sandstorm.io/app/8x12h6p0x0nrzk73hfq6zh2jxtgyzzcty7qsatkg7jfg2mzw5n90). (Upstream author: [DokuWiki Team](https://www.dokuwiki.org))
 
