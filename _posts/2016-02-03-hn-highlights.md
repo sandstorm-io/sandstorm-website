@@ -5,7 +5,7 @@ author: Jade Wang
 authorUrl: https://github.com/jadeqwang
 ---
 
-While [my previous blog post](https://sandstorm.io/news/2016-01-22-8-new-open-source-apps) frontpaged on Hacker News yesterday, *andybak* asked to "hear from people that are using Sandstorm day to day." [Reading the replies](https://news.ycombinator.com/item?id=11023300) really made me appreciate the warmth of the [Sandstorm community](https://sandstorm.io/community), and I just wanted to share a few excerpts.
+While [my previous blog post](https://sandstorm.io/news/2016-01-22-8-new-open-source-apps) was discussed on Hacker News yesterday, *andybak* asked to "hear from people that are using Sandstorm day to day." [Reading the replies](https://news.ycombinator.com/item?id=11023300) really made me appreciate the warmth of the [Sandstorm community](https://sandstorm.io/community), and I just wanted to share a few excerpts.
 
 Nolan Darilek writes:
 
