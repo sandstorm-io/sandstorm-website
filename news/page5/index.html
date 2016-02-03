@@ -98,15 +98,52 @@
 
 
 <section>
+  <h2><a href="/news/2015-05-14-sf-meetup">First San Francisco Meetup</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2015-05-14-sf-meetup">14 May 2015</a>
+  
+  
+  
+  
+  <p>Last Thursday, May 7, I helped organize the first event of the new
+<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/">Sandstorm SF Bay Area meetup group</a>.
+The event was a Project Night, modeled after
+the
+<a href="http://www.meetup.com/bostonpython/events/221084961/">Boston Python Project Nights</a>
+that Jessica McKellar, Ned Batchelder, and I helped start a few years ago.</p>
+
+<blockquote>
+  <p>Project nights are <strong>unstructured chances for Sandstorm developers &amp; users to work together</strong>, mentor each other, connect socially, teach, learn, <strong>or do whatever else</strong> it is Sandstorm users &amp; developers want to do together.</p>
+</blockquote>
+
+<p>I started with a brief introduction to Sandstorm, to ensure new people had
+some context.</p>
+
+<p>After that, we laptopped and chatted. Here are some highlights from
+<a href="https://www.flickr.com/photos/paulproteus/sets/72157652481307461">photo album</a>.</p>
+
+<p><img src="/news/images/sfmeetup-17431775982_e230fade0b_k_d.jpg" width="100%" /></p>
+
+<p><img src="/news/images/sfmeetup-highres_437398276.jpeg" width="100%" /></p>
+
+<p><img src="/news/images/sfmeetup-highres_437398044.jpeg" width="100%" /></p>
+
+<p>Thanks to Jack Singleton and Thoughtworks for hosting the event, and to
+Ti Zhao for the wide panoramic shot.</p>
+
+<p>If you’re near the San Francisco Bay, get notified of the next event and
+<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/">join the Meetup group!</a></p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization">Delegation is the Cornerstone of Civilization: Sharing in Sandstorm.io</a></h2>
   <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
     
       and <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization">05 May 2015</a>
-  
-  
-  
   
   <p>We sometimes describe Sandstorm as: “Like Google Docs, except open source, you can run it on your own server, and you can extend it with apps written by anyone.”</p>
 
@@ -385,28 +422,6 @@ memo: "example.com login challenge:1Z5ns8ectRGTMNYz3N"
 <p>Defining “progress” is also left as an exercise for the reader.</p>
 
 <div style="text-align:center"><img src="/news/images/keep-calm-and-spread-progress.png" style="width: 50%" /></div>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-04-13-lets-chat">Let's Chat</a></h2>
-  <p class="post-details">By <a href="https://github.com/jparyani">Jason Paryani</a>
-    
-    - <a href="/news/2015-04-13-lets-chat">13 Apr 2015</a>
-  
-  <p><img src="/news/images/letschat.png" style="width: 100%" /></p>
-
-<p>Last week, I packaged Let’s Chat, an open source team chat app, similar to Slack. You can try it on the Sandstorm demo <a href="https://demo.sandstorm.io/appdemo/qkgkaxfqhgsff8zgx2f4nf1a8xvmpte6wa19egmfkk06mzt7e8dh">right now</a>, or install it from the <a href="https://sandstorm.io/apps/">app list</a>.</p>
-
-<p>As described by its developers:</p>
-
-<blockquote>
-  <p>Let’s Chat is a persistent messaging application that runs on Node.js and MongoDB. It’s designed to be easily deployable and fits well with small, intimate teams.</p>
-</blockquote>
-
-<p>A few notes on the packaging process: This package doesn’t use the normal MongoDB, but instead <a href="https://github.com/kentonv/mongo/tree/niscu">Kenton’s fork</a>. This allows the app to only use ~300KB of storage when each instance is created instead of the normal minimum of a few hundred MB for Mongo. Otherwise, the packaging process went very smoothly except for dealing with passport, a Node.js authentication library. I ended up forking <a href="https://github.com/leepowellcouk/passport-token">passport-token</a> to look at HTTP headers only (by default it will look at POST data as well, which would make it insecure inside Sandstorm). You can see the forked code <a href="https://github.com/jparyani/lets-chat/tree/sandstorm/node_modules/passport-token">here</a>, and if there’s some interest, I can work to get it published on NPM.</p>
-
-<p>You can see the full package source <a href="https://github.com/jparyani/lets-chat">here</a>, and if you want to use <a href="https://demo.sandstorm.io/appdemo/qkgkaxfqhgsff8zgx2f4nf1a8xvmpte6wa19egmfkk06mzt7e8dh">Let’s Chat</a>, check it out on the <a href="https://sandstorm.io/apps/">app list</a>. Feel free to let me know what you think on <a href="https://groups.google.com/group/sandstorm-dev">sandstorm-dev</a>.</p>
 
 </section>
 
