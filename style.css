@@ -1730,7 +1730,7 @@ body > footer {
   margin-top: 30px;
   position: relative;
   padding-right: 320px;
-  min-height: 800px; }
+  min-height: 1300px; }
   #blog > div.post-list > div.sidebar {
     position: absolute;
     right: 0;
@@ -1768,6 +1768,12 @@ body > footer {
     #blog > div.post-list > div.sidebar > .more {
       padding: 16px;
       background-color: #f4f3fb; }
+      #blog > div.post-list > div.sidebar > .more ul {
+        list-style: none;
+        font-size: 15px;
+        padding: 0; }
+        #blog > div.post-list > div.sidebar > .more ul li {
+          padding-bottom: 25px; }
       #blog > div.post-list > div.sidebar > .more > form {
         margin-bottom: 1em; }
         #blog > div.post-list > div.sidebar > .more > form input[type="email"] {
