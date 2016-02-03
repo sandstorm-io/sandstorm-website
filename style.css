@@ -1863,6 +1863,9 @@ body > footer {
       font-weight: bold;
       border-left: 4px solid #f3ebe0;
       padding-left: 16px; }
+      #blog > div.post-list > section blockquote.notbig {
+        font-size: inherit;
+        font-weight: inherit; }
     #blog > div.post-list > section a.crowdfunding {
       display: block;
       background-color: #eb1478;
