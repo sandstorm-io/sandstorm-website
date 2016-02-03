@@ -1927,6 +1927,11 @@ body >footer {
         font-weight: bold;
         border-left: 4px solid #f3ebe0;
         padding-left: 16px;
+
+        &.notbig {
+          font-size: inherit;
+          font-weight: inherit;
+        }
       }
 
       a.crowdfunding {
