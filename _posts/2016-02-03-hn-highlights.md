@@ -7,7 +7,7 @@ authorUrl: https://github.com/jadeqwang
 
 While [my previous blog post](https://sandstorm.io/news/2016-01-22-8-new-open-source-apps) frontpaged on Hacker News yesterday, *andybak* asked to "hear from people that are using Sandstorm day to day." [Reading the replies](https://news.ycombinator.com/item?id=11023300) really made me appreciate the warmth of the [Sandstorm community](https://sandstorm.io/community), and I just wanted to share a few excerpts.
 
-Nolan Darelik writes:
+Nolan Darilek writes:
 
 > I use Sandstorm daily. Private/company projects are run in [Gitlab](https://apps.sandstorm.io/app/zx9d3pt0fjh4uqrprjftgpqfwgzp6y2ena6098ug3ctv37uv6kfh) instances, though I may switch to [Gitweb](https://apps.sandstorm.io/app/6va4cjamc21j0znf5h5rrgnv0rpyvh1vaxurkrgknefvj0x63ash) if a minor cosmetic issue is resolved  (Gitweb in Sandstorm can only host one repo by design but you still have to click through to it when viewing the instance, which is mildly annoying when all other apps come up ready to use.)
 > 
@@ -15,7 +15,7 @@ Nolan Darelik writes:
 > 
 > Sandstorm is a great platform, and the community comprises some of the nicest, most dedicated folks I know. When my cofounder messed up our install a bit, Kenton talked us through fixing it on a weekend no less, right down to giving us database queries to run and then patching Sandstorm to handle our edge case the next week. Awesome people.
 
-Jake Weiss writes:
+Jacob Weisz writes:
 
 > I use Sandstorm daily. Effectively it [replaces Google Drive/Docs](https://opensource.com/life/15/12/5-open-source-web-apps-self-hosted) for me. I use [Etherpad](https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60), [EtherCalc](https://apps.sandstorm.io/app/a0n6hwm32zjsrzes8gnjg734dh6jwt7x83xdgytspe761pe2asw0), and [Text Editor](https://apps.sandstorm.io/app/n4n49dkfyskmhcmg5h0mfzk4kjvce2jcs8ravr7y7uw9xs2pzghh) a lot on it. And I use [Davros](https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h) for storing arbitrary files I want to share. My blog is hosted on Sandstorm, but I've posted to it like four times so it doesn't really count.
 
