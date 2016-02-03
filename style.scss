@@ -1812,6 +1812,16 @@ body >footer {
       >.more {
         padding: 16px;
         background-color: #f4f3fb;
+        
+        ul {
+          list-style: none;
+          font-size: 15px;
+          padding: 0;
+          
+          li {
+            padding-bottom: 25px;
+          }
+        }
 
         >form {
           margin-bottom: 1em;
