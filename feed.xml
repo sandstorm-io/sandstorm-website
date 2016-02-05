@@ -7,6 +7,82 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Free publicity for your indie web app, and free Oasis service for you</title>
+				<description>&lt;p&gt;Every useful web app deserves users and publicity. Every author deserves an easy way to see their app the way their users see it on Sandstorm.&lt;/p&gt;
+
+&lt;p&gt;So here’s the deal: If you write an open source web app, and you package it for Sandstorm, I’ll help people discover your app and use it. You’ll also get credit toward one year of &lt;a href=&quot;https://oasis.sandstorm.io&quot;&gt;&lt;strong&gt;Oasis managed hosting&lt;/strong&gt;&lt;/a&gt; so you can test your app on Sandstorm. The offer applies to anyone who successfully submits an app to the &lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;Sandstorm App Market&lt;/a&gt;, whether or not you’re the original author. It doesn’t have to be open source, though we do love open source. The Oasis hosting can be used for anything you like.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-sandstorm-package-allows-people-to-use-your-app-even-if-you-dont-maintain-a-public-service&quot;&gt;A Sandstorm package allows people to use your app even if you don’t maintain a public service&lt;/h3&gt;
+
+&lt;p&gt;When I asked &lt;a href=&quot;http://simon.vansintjan.net/&quot;&gt;Simon Vansintjan&lt;/a&gt; why he made a Sandstorm package of his &lt;a href=&quot;https://apps.sandstorm.io/app/wupmzqk4872vgsye9t9x5dmrdw17mad97dk21jvcm2ph4jataze0&quot;&gt;Quick Survey&lt;/a&gt; app, he told me, “I have no interest in running a SaaS of every small app that I think would be a benefit [to other people].”&lt;/p&gt;
+
+&lt;p&gt;Simon wants to publish code, not commit to maintaining a service. Simon wrote Quick Survey so he could run one particular survey, as well as for the joy of learning Meteor.&lt;/p&gt;
+
+&lt;p&gt;By packaging his app for Sandstorm, he got multiple document support without writing any code. Simon said, “Once I understood that [multi-document] translated really well to how Sandstorm views apps / grains, I figured it made a lot of sense to port it to Sandstorm. I’m happy I ended up trying to port it, because it opened up how easy it would be to get other apps up and running with it.”&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/wupmzqk4872vgsye9t9x5dmrdw17mad97dk21jvcm2ph4jataze0&quot;&gt;&lt;img src=&quot;/news/images/2016-02-05-app-author-publicity-oasis/cbd94e8d81ed9bccaf19eb0228dbf451.png&quot; style=&quot;max-width: 50%;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can &lt;a href=&quot;https://apps.sandstorm.io/app/wupmzqk4872vgsye9t9x5dmrdw17mad97dk21jvcm2ph4jataze0&quot;&gt;try out Quick Survey with a click.&lt;/a&gt; Your app could be that easy to spin up.&lt;/p&gt;
+
+&lt;p&gt;Quick Survey is a web app that isn’t a business, and Sandstorm is perfect for apps like that. For example, &lt;a href=&quot;https://twitter.com/frigginglorious&quot;&gt;Daniel Kraft&lt;/a&gt; is nearly done packaging up his personal D&amp;amp;D dice rolling app. What hobby apps have you made that others might enjoy?&lt;/p&gt;
+
+&lt;h3 id=&quot;publicity-graphics-app-demo-outreach-and-more&quot;&gt;Publicity: Graphics, app demo, outreach, and more&lt;/h3&gt;
+
+&lt;p&gt;When your app is on the Sandstorm app market, it’s naturally in front of people who use Sandstorm every day. Universities, corporations, non-profits, and self-hosting enthusiasts alike spend huge amounts of time in apps on Sandstorm.&lt;/p&gt;
+
+&lt;p&gt;Beyond that, every Sandstorm app is supported by the Sandstorm.io community team — Néna, Jade, and me.&lt;/p&gt;
+
+&lt;p&gt;Néna supports open source web app developers by &lt;a href=&quot;https://sandstorm.io/news/2015-11-10-icons-spks-for-everyone#graphics-for-everyone&quot;&gt;providing graphics&lt;/a&gt; for any app with a Sandstorm package. Here are some of the graphics she’s put together:&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/news/images/2016-02-05-app-author-publicity-oasis/10-appdesigns.png&quot; style=&quot;max-width: 50%;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;All three of us spend every day thinking about how to get more people using the apps in the Sandstorm ecosystem. The apps are what what make Sandstorm interesting. So we do things like:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Give every app a free, live demo service. This one goes to Hacker Slides. It could go to your app. &lt;a href=&quot;https://demo.sandstorm.io/appdemo/7qvcjh7gk0rzdx1s3c8gufd288sesf6vvdt297756xcv4q8xxvhh&quot;&gt;&lt;img alt=&quot;Try Hacker Slides on Sandstorm&quot; src=&quot;/news/images/2016-02-05-app-author-publicity-oasis/try-live%20demo-783189.svg&quot; style=&quot;max-width: 92;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://opensource.com/life/14/8/sandstorm-open-source-web-apps&quot;&gt;Write&lt;/a&gt; &lt;a href=&quot;https://opensource.com/life/16/1/8-ways-contribute-open-source-without-writing-code&quot;&gt;articles&lt;/a&gt; &lt;a href=&quot;https://opensource.com/life/15/12/5-open-source-web-apps-self-hosted&quot;&gt;for&lt;/a&gt; outlets like opensource.com, reaching many thousands of readers.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Write about new apps in our &lt;a href=&quot;https://sandstorm.io/#join-list&quot;&gt;monthly newsletter&lt;/a&gt;, seen by thousands of subscribers.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Encourage Sandstorm community members to &lt;a href=&quot;https://sandstorm.io/news/2015-12-17-community-talks&quot;&gt;give talks&lt;/a&gt; about their favorite apps and &lt;a href=&quot;http://www.meetup.com/topics/sandstorm/&quot;&gt;organize meetups.&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Write &lt;a href=&quot;https://sandstorm.io/news/2016-01-22-8-new-open-source-apps&quot;&gt;blog posts about new apps&lt;/a&gt;, frequently seen on &lt;a href=&quot;https://news.ycombinator.com/item?id=11022993&quot;&gt;Hacker News&lt;/a&gt; (thanks to Andy for submitting the most recent one!).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Find organizations that care about specific apps, and explain to them in person how the community’s apps plus self-hosting it would help the organization achieve its mission.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The Sandstorm &lt;a href=&quot;https://sandstorm.io/community&quot;&gt;community&lt;/a&gt; as a whole will give you feedback on your app if you email the &lt;a href=&quot;https://groups.google.com/forum/#!forum/sandstorm-dev&quot;&gt;sandstorm-dev group&lt;/a&gt;. Check out these &lt;a href=&quot;https://groups.google.com/forum/#!topic/sandstorm-dev/YNiAzlqON40&quot;&gt;recent&lt;/a&gt; &lt;a href=&quot;https://groups.google.com/forum/#!topic/sandstorm-dev/nVu9VBNFNUM&quot;&gt;threads&lt;/a&gt; to see how it works.&lt;/p&gt;
+
+&lt;p&gt;I want self-hosting to be a meaningful alternative to software as a service. You can be part of that movement by packaging your app for Sandstorm. If your app is written using Meteor, I’ll even create the &lt;a href=&quot;one-click-installers-for-everyone&quot;&gt;initial packaging&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;see-what-users-see-with-a-free-power-user-account-on-oasis&quot;&gt;See what users see, with a free Power User account on Oasis&lt;/h3&gt;
+
+&lt;p&gt;Your users probably don’t know how to deploy your app, which is why they need Sandstorm. I want you to be able to see what your users see, so I’ll give you &lt;a href=&quot;https://sandstorm.io/get&quot;&gt;&lt;strong&gt;a free year of Power User level on Oasis&lt;/strong&gt;&lt;/a&gt; managed hosting if you write or package an app for Sandstorm.&lt;/p&gt;
+
+&lt;p&gt;While you’re on Oasis, feel free to enjoy it for anything else within the usual terms and conditions. Take advantage of private git repositories with &lt;a href=&quot;https://apps.sandstorm.io/app/d9ygf47xrtnw12j92cyt6cu8ut75esx01u4q3kcrn8415w9qzzgh&quot;&gt;gogs&lt;/a&gt;, project task tracking with &lt;a href=&quot;https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h&quot;&gt;Wekan&lt;/a&gt;, or privacy-preserving web analytics with &lt;a href=&quot;https://apps.sandstorm.io/app/xuajusd5d4a9v4js71ru0cwj9wn984q1x8kny10htsp8f5dcfep0&quot;&gt;Piwik&lt;/a&gt;. I’ll also give you an invite to &lt;a href=&quot;https://keybase.io&quot;&gt;Keybase&lt;/a&gt; so when people install your apps, they can verify your identity via the world’s most usable interface to PGP.&lt;/p&gt;
+
+&lt;h3 id=&quot;to-get-started-read-the-docs-or-email-me&quot;&gt;To get started, read the docs, or email me&lt;/h3&gt;
+
+&lt;p&gt;Every good web app deserves users and publicity. I’m here to help you with that.&lt;/p&gt;
+
+&lt;p&gt;You can dive right in by reading the &lt;a href=&quot;https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial/&quot;&gt;packaging tutorial&lt;/a&gt;. Sandstorm supports any language/stack that runs on Linux, and has special &lt;a href=&quot;https://docs.sandstorm.io/en/latest/vagrant-spk/platform-stacks/&quot;&gt;tooling&lt;/a&gt; for nodejs, PHP/MySQL, Meteor, and Python.&lt;/p&gt;
+
+&lt;p&gt;If you’re unsure, or you just want to chat, or you’re waiting on us to publish your app, it’d be my honor to hear from you. Send me an email at &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&quot;&gt;&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&lt;/a&gt;!&lt;/p&gt;
+</description>
+				<pubDate>Fri, 05 Feb 2016 00:00:00 -0800</pubDate>
+                                <link>https://sandstorm.io/news/2016-02-05-app-author-publicity-oasis</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-02-05-app-author-publicity-oasis</guid>
+			</item>
+		
+			<item>
 				<title>Sandstorm user stories from Hacker News</title>
 				<description>&lt;p&gt;While &lt;a href=&quot;https://sandstorm.io/news/2016-01-22-8-new-open-source-apps&quot;&gt;my previous blog post&lt;/a&gt; was discussed on Hacker News yesterday, &lt;em&gt;andybak&lt;/em&gt; asked to “hear from people that are using Sandstorm day to day.” &lt;a href=&quot;https://news.ycombinator.com/item?id=11023300&quot;&gt;Reading the replies&lt;/a&gt; really made me appreciate the warmth of the &lt;a href=&quot;https://sandstorm.io/community&quot;&gt;Sandstorm community&lt;/a&gt;, and I just wanted to share a few excerpts.&lt;/p&gt;
 
@@ -404,56 +480,6 @@ for Sandstorm: To support app authors, we are happy to help with graphics. This 
 				<pubDate>Tue, 10 Nov 2015 00:00:00 -0800</pubDate>
                                 <link>https://sandstorm.io/news/2015-11-10-icons-spks-for-everyone</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2015-11-10-icons-spks-for-everyone</guid>
-			</item>
-		
-			<item>
-				<title>Upcoming Sandstorm meetups in Palo Alto &amp; San Francisco</title>
-				<description>&lt;p&gt;Live in the Bay Area or passing through? Come out and meet other awesome folks working on cool projects on Sandstorm.&lt;/p&gt;
-
-&lt;p&gt;We’ve got two meetups coming up on Weds., 10/28 in Palo Alto and Tuesday, 11/3 in San Francisco.&lt;/p&gt;
-
-&lt;h3 id=&quot;sandstorm-bbq-in-the-park-palo-alto&quot;&gt;Sandstorm BBQ in the Park (Palo Alto)&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/225890352/&quot;&gt;RSVP link&lt;/a&gt;
-Time: 5:30 PM - 9PM-ish
-Date: Wednesday, October 28, 2015 (next Wednesday!)
-Where: &lt;a href=&quot;https://www.google.com/maps?f=q&amp;amp;hl=en&amp;amp;q=390+Fernando+Ave,+Palo+Alto,+CA,+us&quot;&gt;John Boulware Park (street parking available)
-390 Fernando Ave, Palo Alto, CA&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;5:30PM: BBQ in the park&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Dusk: When it gets too dark to eat, we can all head back to Sandstorm HQ (nearby) to hang out and have more unstructured discussions. Personally, I (Jade) want to see &lt;a href=&quot;https://en.wikipedia.org/wiki/Citizenfour&quot;&gt;Citizen Four&lt;/a&gt; because I haven’t seen it yet. Come watch with me.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;hands-on-sandstorm-qa-esp-app-packaging-and-lightning-talks-san-francisco&quot;&gt;Hands-on Sandstorm Q&amp;amp;A (esp. app packaging), and lightning talks (San Francisco)&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/226062960/&quot;&gt;RSVP link&lt;/a&gt;
-Time: 6:00PM - 9:30PM
-Date: Tuesday, November 3, 2015
-Where: &lt;a href=&quot;https://www.google.com/maps?f=q&amp;amp;hl=en&amp;amp;q=814+Mission+St,+5th+Floor,+San+Francisco,+CA,+us&quot;&gt;ThoughtWorks HQ (near Powell St. BART)
-814 Mission St, 5th Floor, San Francisco, CA&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;6 PM: If you want to talk tech details about Sandstorm, show up at six! Core developers, app packagers, self-hosters, and others will be helping each other with app packaging questions, installation issues, and more. We’ll have food!&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;8 PM: Lightning talks. Leave a comment to sign up for one!&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;8:30 PM - 9:30 PM: Socializing and informal Q&amp;amp;A.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Hope you can make it!&lt;/p&gt;
-</description>
-				<pubDate>Thu, 22 Oct 2015 00:00:00 -0700</pubDate>
-                                <link>https://sandstorm.io/news/2015-10-22-upcoming-meetups</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2015-10-22-upcoming-meetups</guid>
 			</item>
 		
 	</channel>
