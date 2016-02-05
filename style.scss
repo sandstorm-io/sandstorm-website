@@ -63,7 +63,7 @@
 $purple-band: #eee;
 $lightpurple-band: #F6F2FC;
 $default-fontcolor: black;
-$puplebg-fontcolor: #302851;
+$purplebg-fontcolor: #302851;
 $whitebutton-border: #a19cbc;
 $whitebutton-hover: #f1ebff;
 $purplebutton-bg: #442672;
@@ -226,7 +226,7 @@ body>section {
 
 body >footer {
   padding-bottom: 1px;  // prevent margin-collapse
-  color: $puplebg-fontcolor;
+  color: $purplebg-fontcolor;
   
   @include stripe {
     background-color: lavender;
@@ -271,7 +271,7 @@ body >footer {
 		h3, h3 a {
 			text-decoration: none;
 			font-weight: normal;
-                        color: $puplebg-fontcolor;
+                        color: $purplebg-fontcolor;
 		}
 			
     li a {
@@ -665,7 +665,7 @@ body >footer {
     font-size: 30px;
     padding: 25px 0;
     list-style: none;
-    color: $puplebg-fontcolor;
+    color: $purplebg-fontcolor;
 
     @include stripe {
       background-color: $lightpurple-band;
@@ -1671,7 +1671,7 @@ body >footer {
       font-size: 35px;
       padding: 25px 0;
       margin: 0;
-      color: $puplebg-fontcolor;
+      color: $purplebg-fontcolor;
       @include stripe {
         background-color: #eee9f4;
       }
@@ -1762,7 +1762,7 @@ body >footer {
     font-size: 35px;
   }
 
-  h2, h3 {
+  h2, p h3 {
     font-weight: bold;
     text-align: left;
     a { color: $default-fontcolor; }
@@ -2125,7 +2125,7 @@ body >footer {
 			padding: 20px 0 100px 0;
 			border: 1px solid $lightpurple-text;
 			background-color: $lightpurple-band;
-                        color: $puplebg-fontcolor;
+                        color: $purplebg-fontcolor;
 			overflow-y: auto;
 			padding: 16px;
                         height: 500px;
@@ -2476,5 +2476,305 @@ body >footer {
     padding: 0 20px;
     list-style: none;
     display: inline;
+  }
+}
+
+// =======================================================================================
+// security.html
+
+#security {
+  header {
+    text-align: center;
+    padding: 20px 0;
+    
+    @include stripe {
+      background-color: #2e2765;
+      background-image: url(/images/getsecurity-banner.svg);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+    }
+    
+    h1 {
+      width: 85%;
+      paggin-top: 10px;
+      margin: 0 auto;
+      
+      @media (max-width: 850px) {
+        font-size: 35px;
+      }
+      
+      @media (max-width: 750px) {
+        font-size: 30px;
+        
+        br { display: none; }
+      }
+      
+      @media (max-width: 500px) {
+        font-size: 25px;
+      }
+    }
+      
+    p {
+      padding-bottom: 0px;
+      width: 90%;
+      margin: 20px auto;
+      
+      @media (max-width: 700px) {
+        font-size: 18px;
+      }
+      
+      @media (max-width: 500px) {
+        font-size: 16px;
+      }
+    }
+    
+    >a {
+      color: white;
+      text-align: center;
+      display: inline-block;
+      width: 38%;
+      margin: 15px;
+      height: 60px;
+      line-height: 60px;
+      font-size: 26px;
+      border-radius: 4px;
+
+      @media (max-width: 900px) {
+        font-size: 22px;
+        margin: 11px;
+        height: 45px;
+        line-height: 45px;
+        width: 42%;
+      }
+
+      @media (max-width: 800px) {
+        font-size: 17px;
+        margin: 8px;
+        line-height: 40px;
+      }
+
+      @media (max-width: 600px) {
+        font-size: 15px;
+      }
+
+      @media (max-width: 430px) {
+        width: 200px;
+      }
+    }
+
+    >a.get {
+      background-image: linear-gradient(to bottom, #884cea, #6a42b8);
+      box-shadow: 0 3px 3px rgba(41,25,66,0.6);
+      background-color: #613c91;
+
+      &:hover {
+        background-image: linear-gradient(to bottom, #925bef, #794cc2);
+        background-color: #794cc2;
+      }
+    }
+
+    >a.demo {
+      background-image: linear-gradient(to bottom, #f46b8b, #d13f6c);
+      box-shadow: 0 3px 3px rgba(41,25,66,0.6);
+      background-color: #d13f6c;
+
+      &:hover {
+        background-image: linear-gradient(to bottom, #fb839f, #d54f79);
+        background-color: #d54f79;
+      }
+    }
+  }
+  
+  section h3 {
+    @media (max-width: 850px) {
+      font-size: 20px;
+    }
+  }
+  
+  li h3 {
+    font-weight: 400;
+  }
+  
+  .highlight {
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  #why-sandstorm {
+
+    ul {
+      padding: 0;
+      
+      li {
+        padding-right: 2%;
+        padding-left: 33%;
+        height: 250px;
+        display: inline-block;
+        position: relative;
+        padding-bottom: 40px;
+        
+        @media (max-width: 450px) {
+          padding-left: 0;
+        }
+      
+        &::before {
+          content: " ";
+          display: block;
+          position: absolute;
+          background: center/contain no-repeat;
+          left: 0;
+          width: 35%;
+          height: 90%;
+          
+          @media (max-width: 450px) {
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+          }
+        }
+
+          &.why-onprem::before { background-image: url(images/why-onprem.svg); } 
+          &.why-finegrained::before { background-image: url(images/why-finegrained.svg); }
+      }
+    
+      h3 {
+        text-align: left;
+        padding-top: 10px;
+        
+        @media (max-width: 450px) {
+          text-align: center;
+          padding-top: 0;
+        }
+      }
+    }
+  }
+  #web-apps {
+    padding-bottom: 30px;
+    ul {
+      display: table-row;
+      align-content: space-between;
+      list-style: none;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+
+      li {
+        text-align: left;
+        display: inline-block;
+        width: 33%;
+        padding: 0 2%;
+        vertical-align: top;
+
+        @media (max-width: 700px) {
+          width: 50%;
+        }
+
+        @media (max-width: 500px) {
+          width: 100%;
+          padding-top: 30px;
+        }
+
+          &::before {
+            content: " ";
+            display: block;
+            background-repeat: none;
+            height: 200px;
+            background: bottom/contain no-repeat;
+
+            @media (max-width: 800px) {
+              height: 180px;
+            }
+
+            @media (max-width: 600px) {
+              height: 150px;
+            }
+            
+            @media (max-width: 450px) {
+              height: 200px;
+            }
+          }
+
+          &.slack-rocketchat::before { background-image: url("images/slack-rocketchat.png"); } 
+          &.trello-wekan::before { background-image: url("images/trello-wekan.png"); }  
+          &.dropbox-davros::before { background-image: url("images/dropbox-davros.png"); }
+      }
+      
+      p {
+        height: 5rem;
+        @media (min-width: 700px) and (max-width: 900px) {
+          height: 8rem;
+        }
+        @media (max-width: 700px) {
+          height: 6rem;
+        }
+        @media (max-width: 500px) {
+          height: 4.5rem;
+        }
+      }
+      
+      .start {
+        height: 60px;
+        padding-top: 25px;
+        border: none;
+        background-color: white;
+        display: block;
+        width: 100%;
+
+        a {
+          text-align: center;
+          padding: 10px 0;
+          margin: 0 auto;
+          width: 100%;
+          border-radius: 5px;
+          display: block;
+          transition: transform 0.75s ease, background 0.35s ease;
+          background-color: lavender;
+
+          @media (max-width: 500px) {
+            float: none;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+          }
+
+          &:hover {
+            background-color: #d1d1f5;
+          }
+        }
+      }
+    }
+  }
+  .action {
+    padding-bottom: 50px;
+    color: #fff;
+    @include stripe {
+      background-color: #2e2765;
+    }
+    a {
+      display: block;
+      margin: 0 auto;
+    }
+    
+    p {
+      color: #d7c4f4;
+      font-size: 23px;
+    }
+    
+    h3 {
+      font-size: 25px;
+    }
+  }
+  
+  #join-list {
+    padding-bottom: 25px;
+    
+    @include stripe {
+      background-color: #F4F3FB;
+    }
+    .email {
+      padding: 25px 0 20px 0;
+    }
+    
   }
 }
