@@ -18,7 +18,7 @@ Simon wants to publish code, not commit to maintaining a service. Simon wrote Qu
 
 By packaging his app for Sandstorm, he got multiple document support without writing any code. Simon said, "Once I understood that [multi-document] translated really well to how Sandstorm views apps / grains, I figured it made a lot of sense to port it to Sandstorm. I'm happy I ended up trying to port it, because it opened up how easy it would be to get other apps up and running with it."
 
-<p style="text-align: center;"><a href="https://apps.sandstorm.io/app/wupmzqk4872vgsye9t9x5dmrdw17mad97dk21jvcm2ph4jataze0"><img src="https://app-index.sandstorm.io/images/cbd94e8d81ed9bccaf19eb0228dbf451.png" style="max-width: 50%;"></a></p>
+<p style="text-align: center;"><a href="https://apps.sandstorm.io/app/wupmzqk4872vgsye9t9x5dmrdw17mad97dk21jvcm2ph4jataze0"><img src="/news/images/2016-02-05-app-author-publicity-oasis/cbd94e8d81ed9bccaf19eb0228dbf451.png" style="max-width: 50%;"></a></p>
 
 You can <a href="https://apps.sandstorm.io/app/wupmzqk4872vgsye9t9x5dmrdw17mad97dk21jvcm2ph4jataze0">try out Quick Survey with a click.</a> Your app could be that easy to spin up.
 
@@ -32,11 +32,11 @@ Beyond that, every Sandstorm app is supported by the Sandstorm.io community team
 
 Néna supports open source web app developers by [providing graphics](https://sandstorm.io/news/2015-11-10-icons-spks-for-everyone#graphics-for-everyone) for any app with a Sandstorm package. Here are some of the graphics she's put together:
 
-<p style="text-align: center;"><img src="https://opensource.com/sites/default/files/10-appdesigns.png" style="max-width: 50%;"></p>
+<p style="text-align: center;"><img src="/news/images/2016-02-05-app-author-publicity-oasis/10-appdesigns.png" style="max-width: 50%;"></p>
 
 All three of us spend every day thinking about how to get more people using the apps in the Sandstorm ecosystem. The apps are what what make Sandstorm interesting. So we do things like:
 
-- Give every app a free, live demo service. This one goes to Hacker Slides. It could go to your app. <a href="https://demo.sandstorm.io/appdemo/7qvcjh7gk0rzdx1s3c8gufd288sesf6vvdt297756xcv4q8xxvhh"><img alt="Try Hacker Slides on Sandstorm" src="https://img.shields.io/badge/try-live%20demo-783189.svg" style="max-width: 92;"></a>
+- Give every app a free, live demo service. This one goes to Hacker Slides. It could go to your app. <a href="https://demo.sandstorm.io/appdemo/7qvcjh7gk0rzdx1s3c8gufd288sesf6vvdt297756xcv4q8xxvhh"><img alt="Try Hacker Slides on Sandstorm" src="/news/images/2016-02-05-app-author-publicity-oasis/try-live%20demo-783189.svg" style="max-width: 92;"></a>
 
 - [Write](https://opensource.com/life/14/8/sandstorm-open-source-web-apps) [articles](https://opensource.com/life/16/1/8-ways-contribute-open-source-without-writing-code) [for](https://opensource.com/life/15/12/5-open-source-web-apps-self-hosted) outlets like opensource.com, reaching many thousands of readers.
 
