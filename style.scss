@@ -2595,9 +2595,16 @@ body >footer {
     font-weight: 400;
   }
   
-  .highlight {
-    text-align: center;
-    padding: 20px 0;
+  p {
+    &.highlight {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    &.copyright {
+      text-align: center;
+      font-size: 14px;
+    }
   }
   
   #why-sandstorm {
@@ -2662,7 +2669,7 @@ body >footer {
         text-align: left;
         display: inline-block;
         width: 33%;
-        padding: 0 2%;
+        padding: 0 2% 20px 2%;
         vertical-align: top;
 
         @media (max-width: 700px) {
