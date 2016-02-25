@@ -7,6 +7,23 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Andrew Wansley shares his story of Giftr</title>
+				<description>&lt;p&gt;Giftr is one of the newest additions to our &lt;a href=&quot;https://apps.sandstorm.io/&quot;&gt;App Market&lt;/a&gt;; it helps make coordinating gift exchanges less painful for you and other gifters involved. At our &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/227595644/&quot;&gt;Sandstorm San Francisco meetup&lt;/a&gt; in January, app author Andrew Wansley shared his story of how his decision to create &amp;amp; package his &lt;a href=&quot;https://apps.sandstorm.io/app/tr3w5p7ajsf61nf2e6dkfv8tdjes0qsm5w6ew0frd4qwnacwur90&quot;&gt;Giftr&lt;/a&gt; app all started from a simple family tradition.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/tr3w5p7ajsf61nf2e6dkfv8tdjes0qsm5w6ew0frd4qwnacwur90&quot;&gt;
+&lt;img width=&quot;90%&quot; src=&quot;/news/images/giftr.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;watch-andrews-talk-here&quot;&gt;Watch Andrew’s talk here:&lt;/h3&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/-qIqNXVw4v0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
+
+&lt;p&gt;Try &lt;a href=&quot;https://apps.sandstorm.io/app/tr3w5p7ajsf61nf2e6dkfv8tdjes0qsm5w6ew0frd4qwnacwur90&quot;&gt;Giftr&lt;/a&gt; &amp;amp; remember to review it on the App Market!&lt;/p&gt;
+</description>
+				<pubDate>Thu, 25 Feb 2016 00:00:00 -0800</pubDate>
+                                <link>https://sandstorm.io/news/2016-02-25-giftr</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-02-25-giftr</guid>
+			</item>
+		
+			<item>
 				<title>Free publicity for your indie web app, and free Oasis service for you</title>
 				<description>&lt;p&gt;Every useful web app deserves users and publicity. Every author deserves an easy way to see their app the way their users see it on Sandstorm.&lt;/p&gt;
 
@@ -448,38 +465,6 @@ for our &lt;a href=&quot;/news/2015-08-31-oasis-beta-launch.html&quot;&gt;manage
 				<pubDate>Thu, 12 Nov 2015 00:00:00 -0800</pubDate>
                                 <link>https://sandstorm.io/news/2015-11-12-authenticated-app-packages</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2015-11-12-authenticated-app-packages</guid>
-			</item>
-		
-			<item>
-				<title>Graphics and one-click installers for everyone</title>
-				<description>&lt;p&gt;Open source web app developers build great apps. But sometimes, backend-minded developers need a little help, from making it easy for end users to install their apps to making their icons and other graphics visually appealing. To make open source web apps &lt;a href=&quot;/news/2014-07-21-open-source-web-apps-require-federated-hosting.html&quot;&gt;viable&lt;/a&gt; as an ecosystem, the apps must be easy to install and use, and to get the attention they deserve, they should have good-looking icons that convey the purpose of the app.&lt;/p&gt;
-
-&lt;h3 id=&quot;graphics-for-everyone&quot;&gt;Graphics for everyone&lt;/h3&gt;
-
-&lt;p&gt;Lately, we’ve been running an experiment – will app authors be interested in custom graphics, designed by Néna Nguyen at Sandstorm? So far, &lt;a href=&quot;https://github.com/audreyt/ethercalc/issues/236&quot;&gt;the&lt;/a&gt; &lt;a href=&quot;https://github.com/cem/dillinger-sandstorm/pull/2&quot;&gt;response&lt;/a&gt; &lt;a href=&quot;https://github.com/cem/nodebb-sandstorm/pull/1&quot;&gt;has&lt;/a&gt; &lt;a href=&quot;https://github.com/jacksingleton/hacker-slides/issues/28&quot;&gt;been&lt;/a&gt; &lt;a href=&quot;https://github.com/strawlab/neuron-catalog/pull/36&quot;&gt;positive&lt;/a&gt;!&lt;/p&gt;
-
-&lt;p&gt;So I’m excited to announce we’ll do this for everyone who packages their app
-for Sandstorm: To support app authors, we are happy to help with graphics. This is on top of the &lt;a href=&quot;https://apps.sandstorm.io/&quot;&gt;one-click install&lt;/a&gt; for your app that Sandstorm enables, which works just as well &lt;a href=&quot;https://oasis.sandstorm.io&quot;&gt;in the cloud&lt;/a&gt; as it does for &lt;a href=&quot;https://sandstorm.io/install&quot;&gt;self-hosters&lt;/a&gt; (see below). For instance, Néna will make an icon for you if you need it. Check out this awesome icon set that Néna made for Wekan (kanban board):&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h&quot;&gt;&lt;img src=&quot;/news/images/wekan-icon-gallery.png&quot; width=&quot;100%&quot; alt=&quot;logos&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Wekan (open source Trello alternative) icons in varying contexts. Check out &lt;a href=&quot;https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h&quot;&gt;Wekan on the App Market »&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;one-click-installers-for-everyone&quot;&gt;One-click installers for everyone&lt;/h3&gt;
-
-&lt;p&gt;An app written &lt;strong&gt;using Meteor&lt;/strong&gt; is the easiest to package – there’s a &lt;a href=&quot;https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial-meteor&quot;&gt;special tutorial for Meteor apps&lt;/a&gt;. If you input the URL of your GitHub repo below, we can even do a first-run of the packaging for you and ping you with a live demo featuring your own spk (Sandstorm package):&lt;/p&gt;
-
-&lt;iframe src=&quot;https://docs.google.com/a/corp.sandstorm.io/forms/d/1gj8h2rkeovWxtKP-8nTmouwLLxwEkh5iDNHudlckfE8/viewform?embedded=true&quot; width=&quot;760&quot; height=&quot;356&quot; frameborder=&quot;0&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot;&gt;Loading...&lt;/iframe&gt;
-
-&lt;p&gt;Meteor or not, any web app that runs on Linux can be packaged for Sandstorm. Get started with &lt;a href=&quot;https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial&quot;&gt;this documentation link&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial/&quot;&gt;Packaging docs »&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Drop a line to community@sandstorm.io with any questions and we’ll make sure you succeed.&lt;/p&gt;
-</description>
-				<pubDate>Tue, 10 Nov 2015 00:00:00 -0800</pubDate>
-                                <link>https://sandstorm.io/news/2015-11-10-icons-spks-for-everyone</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2015-11-10-icons-spks-for-everyone</guid>
 			</item>
 		
 	</channel>

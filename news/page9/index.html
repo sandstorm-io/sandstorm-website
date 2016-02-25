@@ -98,13 +98,39 @@
 
 
 <section>
+  <h2><a href="/news/2015-02-03-draw.io">draw.io: Advanced Diagram Editor on Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2015-02-03-draw.io">03 Feb 2015</a>
+  
+  
+  
+  
+  <p>Today we are releasing draw.io, an advanced diagramming editor developed by the folks at <a href="https://www.jgraph.com/">JGraph</a>. You can install it on your Sandstorm server from the app list. Or, <a href="https://demo.sandstorm.io/appdemo/nfqhx83vvzm80edpgkpax8mhqp176qj2vwg67rgq5e3kjc5r4cyh">try it on our demo server now »</a></p>
+
+<div><div style="text-align: center; width: 100%;"><a href="https://sandstorm.io/apps/drawio-big.png"><img src="https://sandstorm.io/apps/drawio.png" /></a></div></div>
+
+<p>As you may recall, draw.io was one of the “Corporate Sponsors” of our Indiegogo campaign, chipping in $4096. Now, they’ve given us an app.</p>
+
+<p>I’m excited about this for three reasons:</p>
+
+<p>First, draw.io is an app I really want to use. I often need to create system design diagrams or UI mockups, and in the past I’ve struggled to find a good tool for these jobs. Local apps are a pain to manage (hard to share, need to make backups, etc.) but the cloud offerings I’ve used in the past were mostly unsophisticated (like Google Drive’s) or required keeping my data on the servers of a company I knew nothing about. With draw.io on Sandstorm, I know where my data lives, I can share it securely, I know the app cannot disappear on me, and I know the app is not secretly mining my data. And as far as functionality goes, it’s more powerful than anything else I’ve used.</p>
+
+<p>Second, draw.io’s Sandstorm port uses the Sandstorm APIs natively, and that makes it start faster and use far fewer resources than other apps. Although Sandstorm apps are web-based, Sandstorm does not actually speak HTTP directly to apps. Instead, it converts incoming requests into <a href="https://capnproto.org">Cap’n Proto</a> requests according to the <a href="https://github.com/sandstorm-io/sandstorm/blob/master/src/sandstorm/web-session.capnp">WebSession API</a>. This brings significant security benefits. However, most apps are built on existing HTTP frameworks, and therefore most Sandstorm apps use <code>sandstorm-http-bridge</code>, a small program that runs inside the sandbox and converts incoming WebSession calls back into loopback HTTP requests. This allows these apps to run in Sandstorm with minimal code changes, but it’s a bit inefficient.</p>
+
+<p>draw.io on Sandstorm does not use <code>sandstorm-http-bridge</code>; instead, it implements the Cap’n Proto interfaces directly, avoiding a step. Moreover, this makes the code much simpler – draw.io does not need to include an HTTP server framework at all. The whole server is actually implemented in one C++ file, based closely on our <a href="https://github.com/sandstorm-io/sandstorm-rawapi-example">Raw API Sample App</a>. As a C++ program, draw.io’s server also uses only a couple megabytes of RAM, whereas most apps written in dynamic languages use on the order of 100MB – this means that on our upcoming managed hosting service, draw.io will use almost no <a href="/news/2015-01-14-compute-units.html">compute units</a>.</p>
+
+<p>Third, draw.io is our third app whose Sandstorm port is maintained directly by the upstream authors, joining LibreBoard and EtherCalc. Ports maintained by upstream authors tend to be higher-quality and get more timely updates, since it’s tough for us to closely track our 20+ app ports while working on Sandstorm itself. (Speaking of which, this week is App Update Week: we’ll be refreshing most of our app ports to their latest versions. Today we published updates to GitLab, GitWeb, MediaWiki, Groove Basin, and Telescope. We’ll talk more about this in another blog post later this week.)</p>
+
+<p>It’s worth noting that draw.io is our first proprietary app. It’s “free as in beer”, but the code is not open. For many people, as long as they have control of the server, whatever gets the job done is fine. But, we know some of you would prefer to use only Free / Open Source Software. To that end, we’ve implemented a new filtering feature on our app list which allows you to choose to see only open source apps.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-01-22-wiki-and-get-involved">Wiki permissions and community docs</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2015-01-22-wiki-and-get-involved">22 Jan 2015</a>
-  
-  
-  
   
   <p>The <a href="https://github.com/sandstorm-io/sandstorm/wiki">Sandstorm wiki</a> is now
 world-writable, and I made a new page to help people
@@ -262,31 +288,6 @@ people knowing about the project.</p>
     <p>Tuesday, January 20, 2015. Cambridge, MA: Asheesh Laroia will be at Clover Harvard Square, along with other folks interested in web app self-hosting. First drink on Sandstorm! <a href="https://www.eventbrite.com/e/self-hosted-servers-sandstorm-meet-up-tickets-15273451304">RSVP</a></p>
   </li>
 </ul>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-01-14-compute-units">What are Compute Units?</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2015-01-14-compute-units">14 Jan 2015</a>
-  
-  <p>When using Sandstorm’s upcoming managed hosting service, your resource usage will be limited in two important ways:</p>
-
-<ul>
-  <li>Storage space, measured in gigabytes.</li>
-  <li>Compute time, measured in “compute units”, or “CU” for short.</li>
-</ul>
-
-<p>So, what exactly are compute units? Technically speaking, a CU can also be described as a “gigabyte-RAM-hour”: using a gigabyte of RAM for one hour consumes one CU. Or, alternatively, using 100 MB of RAM for 10 hours, or using 10GB of RAM for six minutes, is also one CU.</p>
-
-<p>Practically speaking, think of your CU quota like the battery on your phone. Some apps, when they are running, use more CU than others. Sandstorm aggressively shuts down apps when they are not in-use, so apps will only consume CU when you are actively using them (e.g. when you have them open in your browser). As a rule of thumb, we find that many apps use about 1 CU for every 5-10 hours of active use. Some apps – especially ones with servers written in ahead-of-time compiled languages like C++, Rust, or Go – may use far less, while particularly inefficient apps may use a bit more. You will be able to check your CU level and see which apps are using it by clicking the CU indicator in the top bar.</p>
-
-<p>Note that when you use an app to publish a web site to a separate domain – such as Ghost or WordPress – Sandstorm caches the page content and serves it statically. Therefore, the app does not start up and does not consume CU when a guest merely visits your site; CU is only used if the visitor does something that changes the site (like leaving a comment) or when you open the app’s administrative interface.</p>
-
-<p>For our managed hosting service, you will receive a monthly CU allowance. Those who sign up for the “standard” plan (currently slated for $6 / month) will receive 200CU per month. That equates to 1000-2000 hours of using a typical app, which is more time than a month actually has! We expect that most users will never come anywhere near hitting their CU quota.</p>
-
-<p>But what happens if you do hit your quota? We said your CU is like a battery, but it’s like a battery that is always charging. When you first create your account, your CU battery starts out full. When it is not full, it recharges at a rate such that over the course of a month it will recharge equal to your monthly limit. So if you run out of CU, go take a walk, and when you get back you’ll have some more. And if you run out often, consider upgrading to a larger plan. :)</p>
 
 </section>
 
