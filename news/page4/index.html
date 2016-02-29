@@ -98,13 +98,86 @@
 
 
 <section>
+  <h2><a href="/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install">Is curl|bash insecure?</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install">24 Sep 2015</a>
+  
+  
+  
+  
+  <p>Since the early days of Sandstorm, we have offered the following mechanism for installing it:</p>
+
+<pre><code>curl https://install.sandstorm.io | bash
+</code></pre>
+
+<p>As it turns out, a lot of people object to <code>curl|bash</code>. In fact, some people object <em>very strongly</em> to it, going so far as to scoff publicly at how obviously terrible it is and smugly proclaim that they dismissed our entire project when they saw this line. Usually, the loudest objectors claim that <code>curl|bash</code> is bad for security.</p>
+
+<p><a href="https://docs.sandstorm.io/en/latest/developing/security-practices/">Sandstorm is a security product</a>, so we want to address that head-on.</p>
+
+<h3 id="the-bogus-argument-code-execution">The Bogus Argument: Code Execution</h3>
+
+<p>I’ll admit: <code>curl|bash</code> certainly <em>smells</em> funny. To anyone with a basic understanding of Unix, the construction makes it really obvious: This command will give the named web site direct access to your system, with the ability to do anything that <em>you</em> could do. This feels very wrong: We should be able to install software without giving the developers full access to our systems, right?</p>
+
+<p>We at Sandstorm would obviously be the first to agree that software you install should not be automatically fully trusted – that’s why <a href="https://docs.sandstorm.io/en/latest/developing/security-practices/#fine-grained-isolation">Sandstorm itself runs every app in a secure, isolated sandbox by default</a>. Unfortunately, however, traditional Unix software is always granted the full authority of the user who runs it. When you install software on Linux, no matter what package manager you use, you are giving that software permission to act as you. Most package managers will even execute scripts from the package at install time – as root. So in reality, although <code>curl|bash</code> <em>looks</em> scary, it’s really just laying bare the reality that applies to every popular package manager out there: anything you install can pwn you.</p>
+
+<p>If you wish to install Sandstorm – or any software – without giving it full access to your system, you must install it on a dedicated machine, VM, or (perhaps, with caveats) user account. In fact, we highly encourage you to do so, for defense in depth. But, we know it’s more work than a lot of people want to deal with.</p>
+
+<h3 id="the-better-argument-code-signing">The Better Argument: Code Signing</h3>
+
+<p>Some of the objectors, though, go a bit further: They claim that <code>curl|bash</code> is more open to attack that other distribution mechanisms, potentially allowing a third party to replace our Sandstorm downloads with evil ones.</p>
+
+<p>Of course, all content served by sandstorm.io – from software downloads to our blog – is served strictly over HTTPS (with HSTS).</p>
+
+<p>Various people argue, though, that this is not good enough, and that we should be signing each release with keys kept offline.</p>
+
+<p>In fact, I agree: where possible, we like to use two or more independent mechanisms of protecting against a security problem, so that when one breaks it’s not a big deal. So, as of today, it is possible to verify the Sandstorm installer from the PGP keys of various Sandstorm developers by following our “PGP-verified install” instructions.</p>
+
+<p><a class="linkbutton" href="https://docs.sandstorm.io/en/latest/install/#option-3-pgp-verified-install">Try PGP-verified Install »</a></p>
+
+<p>That said, we do not think this issue quite warrants the visceral anger we’ve seen people express over <code>curl|bash</code>. Realistically, downloading and installing software while relying on HTTPS for integrity is a widely-used practice. The web sites for Firefox, Rust, Google Chrome, and many others offer an HTTPS download as the primary installation mechanism. It’s even the standard way to install most Linux distros in the first place (by downloading an iso from the web site). Many popular package managers, such as npm, rely only on HTTPS for integrity. <code>curl|bash</code> over HTTPS is just as “secure” as any of these.</p>
+
+<h3 id="verifying-keys-with-keybase">Verifying Keys with Keybase</h3>
+
+<p>To get benefit from PGP code signing beyond what you get from HTTPS distribution, you must verify that the software is signed by the specific developer you are expecting – and to do that, you need a way to bootstrap trust in their PGP key. This means you can’t simply fetch the key from the developer’s own server. You can use PGP “Web of Trust”, but sadly few people really understand how to do that.</p>
+
+<p>Recently, though, a fairly plausible option has emerged: <a href="https://keybase.io">Keybase.io</a>. Keybase has implemented usable tools and techniques to bootstrap trust from a variety of sources, including social networks like Github and Twitter, all <em>without</em> trusting Keybase. It’s unlikely that an attacker could compromise all of these sources at once. Once you’ve used Keybase to verify our PGP key, then you can verify the signed packages downloaded from our servers, and actually have a higher degree of confidence that the software is authentic than you would get from HTTPS alone.</p>
+
+<h3 id="non-security-concerns">Non-security Concerns</h3>
+
+<p><code>curl|bash</code> is not pretty, and people have raised some legitimate non-security-related concerns about it:</p>
+
+<ul>
+  <li>If the connection dies mid-line, bash will execute the incomplete line – however, this can be mitigated by wrapping the whole script in a bash function executed on the last line, as we do. (This is actually arguably a security concern if an attacker can induce a disconnect at a chosen point, but in any case it doesn’t apply to our script.)</li>
+  <li>Although almost all package managers allow packages to run arbitrary install-time scripts (often as root), it is far more likely that a wholly hand-rolled install script will be sloppy and harm the system. In the case of Sandstorm, we have taken care to avoid interfering with your system in any way – in fact, Sandstorm self-containerizes in its own chroot under /opt/sandstorm, meaning that for the most part it does not touch the rest of your system at all. <a href="https://install.sandstorm.io">See comments at the top of the script for more details.</a></li>
+  <li>Installing software not managed by the distro’s package manager can be inconvenient for system administrators, especially those who are deeply familiar with the inner workings of their distro.</li>
+</ul>
+
+<p>On these concerns: We hear you.</p>
+
+<p>For now, we believe that having our own install scripts allows us to iterate faster, compared to maintaining (and testing) half a dozen package formats for different distros. However, once Sandstorm reaches a stable release, we fully intend to offer more traditional packaging choices as well. We still have lots of work to do!</p>
+
+<h3 id="faq">FAQ</h3>
+
+<p><strong>Does Sandstorm’s auto-updater verify signatures on updates?</strong></p>
+
+<p>As of this release, yes. (This is in addition to using HTTPS, as it always has.)</p>
+
+<p><strong>What happens if the release-signing private key is compromised?</strong></p>
+
+<p>We can rotate the key at any time. Certificates on the old key expire in about a month. The auto-updater will begin using the new key as soon as it has installed an update that is aware of the new key. We sign updates with all old keys as well so that old Sandstorm installs continue to be able to update even after key rotation.</p>
+
+<p><strong>Are the installer and updater resistant to downgrade attacks?</strong></p>
+
+<p>Yes. The installer will not install a release more than a month old. The updater will never “downgrade” to an older version. We also plan to add an alert to the Sandstorm UI if the Sandstorm build is more than a month old, which could indicate that an attacker is blocking access to the update server.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-08-31-oasis-beta-launch">Sandstorm Oasis hosting open beta and App Market launch</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2015-08-31-oasis-beta-launch">31 Aug 2015</a>
-  
-  
-  
   
   <p><a href="https://apps.sandstorm.io"><img src="/news/images/newui.png" width="600" /></a></p>
 
@@ -274,56 +347,6 @@ with your idea for a talk!</p>
 <p>Let’s take a moment to thank all the Sandstorm contributors who have chosen to forward part or all of their App Market credit to Roundcube:</p>
 
 <p>Erik Swanson, Tommy Hodgins, Mark Bradley, Ondřej Böhm, August Lilleaas, Paul Gaspardo, Oluf Lorenzen, Eddie Jesinsky, Charles Lehner, Francois O Baldassari, Florin Godard, Lachlan Musicman, Patrick Ohly, Praveen Moorthy, Corey Ford, Toby Matejovsky, Giorgos Logiotatidis, Maxime Quandalle, Alexander Kulbartsch, Colin Maudry, Francesco ‘makevoid’ Canessa, Ben Cordero, Sebastian Kippe, Shawn Becker, shazow, Michael Manley, Pascal Gellert, Dan Bornstein, Wong Ho Wang, Petr Viktorin, Christopher Toledo, Thomas Hansen, Noah O’Donoghue, Matthew Steffen, Baruch Even, Pascal de Vink, Tim Davies, Alex Dempsey, Fred Schättgen, Bruno ARLIGUY, Maria, David Turner, David Meyer, Noel Yap, Hugo Artur Weber Schmitt, Joel Roller, Keith Hall, C. Moreno, Abdullah Khalid, Vincent Malley, James Graves, JollyOrc, Shane Gould, Matt Johnston, Alec, Alan Karp, JT Olds, Daniel Ring, Wes Felter, Sage Ross, Joseph Lee, Asheesh Laroia, Jason Hsu, Yuriy @html5cat Dybskiy, Amir Chaudhry, Pedro Ângelo, nFec, getify, Dan Morrill, Daniel DeSousa, Collin Jackson, Daniel Yokomizo, Aaron Vaneps, Glen Skinner, Tobias Ammann, Dinyar Rabady, Will Norris, Tim Butram, Nathan Henderson, Colin Dean, Jeff Cressman, Vincent Lim, Adam Berkan, Audrey Tang, Justin Fox, Jan Jambor, Fahrstuhl, Greg Perkins, Zellyn Hunter, Tim Lossen, David Alfonso, Michael Bright, Jamiel Almeida, Ali Gunduz, Jonathan Wheaton, Nathan Greene, Mitchell Barry, Matt Campbell, the paul, Svemir Brkic, Paul-Robert Archibald, Tiago Freitas, Eli Willaert, Daniel Schulze Hagen, Tobias, Jeremy Coté, Matthew Baggott, Jason Glass, Thomas Myers, Scott Pritchett, Mike Linksvayer, Fred Eisele, @noahsilas, Fred Smith, Jochen Bartl, Suvi-Tuuli Allan, Mark S. Miller, Rick Richardson, Rebecca Wise, George Ellenburg, Andrew Thibeault, Andrew Jennings, Rahim Nathwani, Aren Olson, Richard Bairwell, Heri Sim, Erik Andersson, Matt Siegel, Phil Dutson, Siegfried Kettlitz, William Zajac, Nick Richards, Kamil Páral, Garance A Drosehn, Guido Hoermann, Robert Konigsberg, Jasvir Nagra &lt;img src=x onerror=alert()&gt;, Joshua Warner, Ana Ulin, Walter Ebert, Brooke Schreier Ganz, Kevin Wallace, Ingo Blechschmidt, Beni Paskin-Cherniavsky, Cole Mickens, Andy Gayton, Scott Nesbitt, Strick Yak, Andrew Chilton, Matthias Dallmeier, Geoffrey Thomas, Matthias Liertzer, Brit Butler, Dan Nuffer, Ry4an Brase, Dawn Luoma, Chhi’mèd Künzang, Duncan J, Vivek Gani, Gaelen Hadlett, TJ Rothwell, Lucas Dohmen, Derek Waters, Igor Cananea, Colin Barrow, Kevin Baker, Richard Thompson, whitequark, Michael Fitzpatrick-Ruth, Jonathan Castello, Michael Powell, Ryan Kelly, J. Ryan Stinnett, William Kilmer, Kenny Rachuonyo, Lionel Debroux, Bastian Allgeier, John M Cooper, Tako Marks, Børge A. Roum, Alex Morega, Bruno Orcha García, mike nonemacher, Andy Burnett, Phil Kates, Lucian Carata, Gregg Cooke, Kevin C., Séamus O’Connor, Tim Kiekhafer, Derrick Southerland, Simon Clausen, queria, Simeon Farwell-Miller, Shyam Paryani, Sascha Zelzer, Jared Sohn, Daniel Dornhardt, Maftoc, Jake Rayson, Brandon Peters, Joshua Wise, Randall Leeds, Kit Stubbs, Ph.D., James Warner, Ben Rog-Wilhelm, Andreas Rohlfs, Konrad Scorciapino, Arne Neumann, Ben Cohen, James Synge, Johannes Krampf, Bryan Luoma, Martin Krafft, Jim Garrison, Kingdon Barrett</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-06-17-events">Upcoming events in San Francisco & Portland</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2015-06-17-events">17 Jun 2015</a>
-  
-  <p>David, Jade, and Asheesh will be speaking at events in Portland, OR, and
-San Francisco.</p>
-
-<h3 id="san-francisco-meetup-june-18">San Francisco meetup, June 18</h3>
-
-<p>At our
-<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223113702/">second SF meetup</a>,
-we’ll have a brief intro by core dev David Renshaw about the new sharing features of Sandstorm.
-We’re lucky to have
-David in town, as he’s normally in Pittsburgh.</p>
-
-<p>Co-founder Jade Wang will showcase how to package a Meteor app for Sandstorm, which
-is a preview of her jQuerySF talk.</p>
-
-<p>That’ll be at ThoughtWorks (thanks to them for hosting!) in San Francisco, 6 PM
-Thu 6/18. <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223113702/">RSVP here!</a></p>
-
-<h3 id="jquerysf-june-22-23">jQuerySF, June 22-23</h3>
-
-<p>At the upcoming <a href="http://jquerysf.com/">jQuerySF</a> conference, Jade will give
-a talk entitled “Sandstorm.io: one-click, deploy anywhere.” It’s
-at 11:10am on Monday, June 22.</p>
-
-<p>If you haven’t bought a ticket yet, use our Friends &amp; Family
-of Sandstorm discount code to register for just $20, saving a
-a huge amount off the ticket price. Register at
-<a href="https://ti.to/jquerysf/2015">the registration page</a> and use the code
-<code>sandstorm-ftw</code>!</p>
-
-<h3 id="open-source-bridge-portland-or-week-of-june-22">Open Source Bridge, Portland, OR, week of June 22</h3>
-
-<p>I’m giving two talks at Open Source Bridge, and would love to see
-Sandstorm-minded people there.</p>
-
-<ul>
-  <li><a href="http://opensourcebridge.org/sessions/1528">Economics of Volunteer Labor: Three stories from Debian</a>, Tue Jun 23, 10am</li>
-  <li><a href="http://opensourcebridge.org/sessions/1527">Five years, 1000 students: The story of Open Source Comes to Campus</a>, Thu Jun 25, 10am</li>
-</ul>
-
-<p>I hope to see you in SF or Portland! Feel free
-to drop me a line; I’m asheesh at sandstorm.io.</p>
 
 </section>
 

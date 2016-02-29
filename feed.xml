@@ -7,6 +7,83 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Sandstorm&#39;s security track record, and what it means for self-hosting</title>
+				<description>&lt;p&gt;Today I want to share the results of our own &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/&quot;&gt;analysis of security issues of web apps available on
+the Sandstorm app market&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;of-security-issues-automatically-mitigated-before-they-were-discovered&quot;&gt;95% of security issues automatically mitigated, before they were discovered&lt;/h3&gt;
+
+&lt;p&gt;Sandstorm automatically protects users from a huge fraction of the publicly disclosed security
+vulnerabilities discovered in apps on the Sandstorm app market, before the vulnerabilities were even
+disclosed. Of the issues we examined, 95% were wholly or partly mitigated. You can read the &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/&quot;&gt;full
+report here in our
+documentation&lt;/a&gt;. The analysis covers
+publicly-disclosed vulnerabilities in Etherpad, WordPress, Roundcube, ShareLaTeX, and Tiny Tiny
+RSS. In WordPress, we limited our analysis to security issues of severity score 6 or higher, due to
+the large number of issues. We also mitigated 21 CVEs in the Linux kernel to prevent sandbox
+breakout.&lt;/p&gt;
+
+&lt;p&gt;We built Sandstorm to create a &lt;a href=&quot;https://sandstorm.io/news/2014-07-21-open-source-web-apps-require-federated-hosting&quot;&gt;viable ecosystem for indie and open source web
+apps&lt;/a&gt;. When
+server apps are as safe to run as apps on a phone, people will feel free to choose whatever software
+they like. Consider that some Sandstorm apps, like
+&lt;a href=&quot;https://sandstorm.io/news/2016-02-25-giftr&quot;&gt;Giftr&lt;/a&gt;, are small and don’t have as many people
+checking the code for bugs. Sandstorm protects you when you use those apps, too.&lt;/p&gt;
+
+&lt;p&gt;We know that security is risk-management, not binary. No software, Sandstorm included, will ever
+protect all user data from all bugs in all programs. However, raising barriers to a successful
+attack means fewer successful attacks will occur.&lt;/p&gt;
+
+&lt;h3 id=&quot;self-hosted-apps-can-be-as-secure-as-a-centralized-web-app&quot;&gt;Self-hosted apps can be as secure as a centralized web app&lt;/h3&gt;
+
+&lt;p&gt;With Sandstorm, you get an experience as easy to use as software-as-a-service, and you retain the
+privacy benefits of self-hosting. One of our key security strategies is to isolate each grain
+(typically, one document) separately, so that a buggy or malicious app has a hard time ruining your
+day. That degree of isolation is enabled by our various &lt;a href=&quot;https://sandstorm.io/how-it-works&quot;&gt;security
+practices&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I hope you’ll &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-practices/&quot;&gt;read the full
+analysis&lt;/a&gt;, prepared by myself and
+Kenton Varda. &lt;a href=&quot;https://groups.google.com/forum/#!forum/sandstorm-dev&quot;&gt;Let us know&lt;/a&gt; what
+you think!&lt;/p&gt;
+
+&lt;h3 id=&quot;when-self-hosting-is-secure-users-are-free-to-choose&quot;&gt;When self-hosting is secure, users are free to choose&lt;/h3&gt;
+
+&lt;p&gt;Security enables freedom of choice. If you use a Sandstorm server, you can choose productivity tools
+that fit your needs, even if the server is maintained by someone else.&lt;/p&gt;
+
+&lt;p&gt;Want to chat with colleagues? Install
+&lt;a href=&quot;https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0&quot;&gt;Rocket.Chat&lt;/a&gt; or
+&lt;a href=&quot;https://apps.sandstorm.io/app/qkgkaxfqhgsff8zgx2f4nf1a8xvmpte6wa19egmfkk06mzt7e8dh&quot;&gt;Let’s
+Chat&lt;/a&gt;. Want to
+track tasks and stay organized? Install
+&lt;a href=&quot;https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h&quot;&gt;WeKan&lt;/a&gt; or
+&lt;a href=&quot;https://apps.sandstorm.io/app/0dp7n6ehj8r5ttfc0fj0au6gxkuy1nhw2kx70wussfa1mqj8tf80&quot;&gt;Simple
+Todos&lt;/a&gt;. Want to
+organize a gift exchange? Install
+&lt;a href=&quot;https://apps.sandstorm.io/app/tr3w5p7ajsf61nf2e6dkfv8tdjes0qsm5w6ew0frd4qwnacwur90&quot;&gt;Giftr&lt;/a&gt;. Want to
+share files quickly with friends? Install
+&lt;a href=&quot;https://apps.sandstorm.io/app/nn7axgy3y8kvd0m1mtk3cwca34t916p5d7m4j1j2e874nuz3t8y0&quot;&gt;FileDrop&lt;/a&gt; or
+&lt;a href=&quot;https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h&quot;&gt;Davros&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you prefer managed hosting, you can &lt;a href=&quot;https://oasis.sandstorm.io/&quot;&gt;make an account on Oasis&lt;/a&gt; and
+enjoy any of these apps or upload your own.&lt;/p&gt;
+
+&lt;p&gt;Or you can run your own Sandstorm install. Over the past six months, we’ve integrated &lt;a href=&quot;https://sandstorm.io/news/2015-10-01-free-ssl-certificates&quot;&gt;free SSL
+certificates&lt;/a&gt; and
+&lt;a href=&quot;https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install&quot;&gt;cryptographically-verified automatic
+updates&lt;/a&gt; into
+self-hosted Sandstorm. As soon as someone installs Sandstorm for an organization, they can safely
+allow colleagues to choose their own tools. If you install Sandstorm for yourself, you can use the
+best indie web apps and let the platform handle security for you.  Get started on the &lt;a href=&quot;https://sandstorm.io/install&quot;&gt;Sandstorm
+install page&lt;/a&gt;.&lt;/p&gt;
+</description>
+				<pubDate>Mon, 29 Feb 2016 00:00:00 -0800</pubDate>
+                                <link>https://sandstorm.io/news/2016-02-29-security-track-record</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-02-29-security-track-record</guid>
+			</item>
+		
+			<item>
 				<title>Andrew Wansley shares his story of Giftr</title>
 				<description>&lt;p&gt;Giftr is one of the newest additions to our &lt;a href=&quot;https://apps.sandstorm.io/&quot;&gt;App Market&lt;/a&gt;; it helps make coordinating gift exchanges less painful for you and other gifters involved. At our &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/227595644/&quot;&gt;Sandstorm San Francisco meetup&lt;/a&gt; in January, app author Andrew Wansley shared his story of how his decision to create &amp;amp; package his &lt;a href=&quot;https://apps.sandstorm.io/app/tr3w5p7ajsf61nf2e6dkfv8tdjes0qsm5w6ew0frd4qwnacwur90&quot;&gt;Giftr&lt;/a&gt; app all started from a simple family tradition.&lt;/p&gt;
 
@@ -375,96 +452,6 @@ found Oasis through you and signs up for an account counts as your referral.&lt;
 				<pubDate>Thu, 17 Dec 2015 00:00:00 -0800</pubDate>
                                 <link>https://sandstorm.io/news/2015-12-17-community-talks</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2015-12-17-community-talks</guid>
-			</item>
-		
-			<item>
-				<title>Authenticated app packages on Sandstorm with PGP and Keybase</title>
-				<description>&lt;p&gt;I like to joke that Sandstorm is a security project posing as a
-usability project.  In actuality, it’s both!  Sandstorm users deserve to be
-confident that the apps they’re running are exactly as
-the packager built them, and have not been backdoored or accidentally modified
-by a malicious ISP, government, or other attacker.  Furthermore, this
-information must be easy to consume and verify.&lt;/p&gt;
-
-&lt;p&gt;To that end, I’ve worked with Kenton to make it possible to provide a cryptographic chain of trust
-that connects the app package you’re installing to the app publisher’s online
-accounts.  When you install the
-&lt;a href=&quot;https://apps.sandstorm.io/app/a0n6hwm32zjsrzes8gnjg734dh6jwt7x83xdgytspe761pe2asw0&quot;&gt;EtherCalc spreadsheet app&lt;/a&gt;,
-Sandstorm lets you see that the app was made by the same Audrey Tang that owns
-&lt;a href=&quot;https://github.com/audreyt&quot;&gt;audreyt on Github&lt;/a&gt; and
-&lt;a href=&quot;https://keybase.io/au&quot;&gt;au on Keybase&lt;/a&gt;.
-Publisher information is shown front and center:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/news/images/install-ethercalc.png&quot; width=&quot;100%&quot; alt=&quot;Installing EtherCalc&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;To make this all work, there are a few steps involved.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-app-id-is-a-public-key&quot;&gt;The app ID is a public key&lt;/h3&gt;
-
-&lt;p&gt;Sandstorm has required that apps be signed since its inception, providing
-a first line of defense against package corruption.  The app is signed with an
-app-specific Ed25519 key at package-building time.  Sandstorm uses the public key
-as the app’s ID on the app market and your server.&lt;/p&gt;
-
-&lt;p&gt;This guarantees that app packages cannot be modified by a CDN or the app market
-without using a different app ID.  This also had the nice effect of providing
-trust-on-first-use properties for apps until we were able to bind these
-identities to something more meaningful.  The upshot: when you’ve installed an
-app, only the same app author can provide updates to it.&lt;/p&gt;
-
-&lt;h3 id=&quot;connect-the-app-id-to-a-pgp-key&quot;&gt;Connect the app ID to a PGP key&lt;/h3&gt;
-
-&lt;p&gt;Since the release of the &lt;a href=&quot;https://apps.sandstorm.io/&quot;&gt;app market&lt;/a&gt;,
-app packagers have been PGP-signing statements that they are the author of the
-Sandstorm app with that app ID, and include that statement, their PGP public 
-key, and the email address associated with that key in their package’s metadata.
-Since that metadata is in the Sandstorm package file signed by the Ed25519 key,
-any server running Sandstorm can verify
-that these statements were provided by the person or people who control that
-Ed25519 key.  Additionally, since the statement is signed by the PGP key, there
-is a trust path from the owner of that PGP private key to the app you are
-installing. To defeat this, an attacker would need to convince an app author to
-replace both their signing statement and their PGP key in the package metadata
-with ones produced by the attacker.&lt;/p&gt;
-
-&lt;h3 id=&quot;connect-the-pgp-key-to-social-identities&quot;&gt;Connect the PGP key to social identities&lt;/h3&gt;
-
-&lt;p&gt;The next goal is to connect that PGP fingerprint to meaningful, real-world
-identities.  While a handful of people might be able to rely on the
-web-of-trust to verify PGP fingerprints, most users will need something more
-approachable.  That’s where &lt;a href=&quot;https://keybase.io&quot;&gt;Keybase&lt;/a&gt; comes in.  Keybase
-helps you link PGP keys to social identities, like GitHub or Twitter accounts.
-App authors can create a Keybase account, then create signed proofs-of-ownership
-that they post to their social media pages or websites.  Keybase provides an
-index of these proofs, so given a PGP fingerprint, you can list the accounts for
-which the PGP key’s owner has proven control.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-result-end-to-end-verified-apps&quot;&gt;The result: end-to-end verified apps&lt;/h3&gt;
-
-&lt;p&gt;When you go to install a package, Sandstorm verifies that the package is
-correctly signed by the Ed25519 key.  It looks for a PGP signature in the 
-metadata, and verifies that the PGP-signed assertion is for the correct app ID 
-and the email address specified in the metadata.  It queries the Keybase API to
-see what accounts the packager has proven ownership of, and lists them with 
-their links on the app install page.&lt;/p&gt;
-
-&lt;p&gt;Currently, the implementation of this feature trusts Keybase’s servers to verify
-proofs and return an accurate list of the signer’s identities. However, Keybase
-proofs are designed to be verifiable by third parties without trusting Keybase,
-and we plan to extend Sandstorm to do this, thus eliminating Keybase itself from
-the trust chain.&lt;/p&gt;
-
-&lt;p&gt;So that’s how Sandstorm links app packages to their
-creators’ social identities, with cryptographic verification at each step along
-the way, with no additional action needed by end users.  This is software
-authenticity that Just Works, and it’s available today for all Sandstorm users
-and packages in the App Market.  Today is a good day to
-&lt;a href=&quot;https://sandstorm.io/install/&quot;&gt;install Sandstorm on your own server&lt;/a&gt; or sign up
-for our &lt;a href=&quot;/news/2015-08-31-oasis-beta-launch.html&quot;&gt;managed hosting&lt;/a&gt;.&lt;/p&gt;
-</description>
-				<pubDate>Thu, 12 Nov 2015 00:00:00 -0800</pubDate>
-                                <link>https://sandstorm.io/news/2015-11-12-authenticated-app-packages</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2015-11-12-authenticated-app-packages</guid>
 			</item>
 		
 	</channel>

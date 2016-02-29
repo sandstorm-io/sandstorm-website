@@ -98,13 +98,87 @@
 
 
 <section>
+  <h2><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">Open Source Web Apps Aren't Viable; Let's Fix That</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">21 Jul 2014</a>
+  
+  
+  
+  
+  <h3 id="the-motivation-for-sandstorm">The Motivation for Sandstorm</h3>
+
+<p>We talk a lot about the need for privacy, security, and control of your cloud data. Let me let you in on a secret: These aren’t the reason for Sandstorm. They are pleasant side effects.</p>
+
+<p>The real motivation for Sandstorm is, and always has been, making it possible for open source and indie developers to build successful web apps.</p>
+
+<p>In today’s popular software-as-a-service model, indie development simply is not viable. People <a href="http://indiewebcamp.com/">do it anyway</a>, but their software is not accessible to the masses. In order for low-budget software to succeed, and in order for open source to make any sense at all, users must be able to run their own instances of the software, at no cost to the developer. We’ve always had that on desktop and mobile. When it comes to server-side apps, <strong>hosting must be decentralized</strong>.</p>
+
+<p>But today, personal hosting is only accessible to those with the time, money, and expertise necessary to maintain a server. Even most techies don’t bother, because it’s a pain. Sandstorm exists to fix that, making personal hosting easily accessible to everyone.</p>
+
+<blockquote>"The only solution is to make sure everyone has a server where they can install any software they want."</blockquote>
+
+<h3 id="open-source-has-worked-on-the-desktop-and-mobile">Open Source has worked on the desktop and mobile.</h3>
+
+<p>On my desktop, I run Debian Linux. My system is composed of several thousand packages. I have browsers, text editors, IDEs, chat clients, office suites, development tools, photo editors, and media players. Remarkably, every single one of these is open source. Even more remarkably, I can’t remember the last time I felt any need to use a non-open-source desktop app.</p>
+
+<p>I’m no zealot. I don’t impose open source on myself, nor would I do so on others. I’ll use proprietary software when it gets the job done, and I have spent plenty of time as a Windows user and as a Mac user in my past, but these days I’m simply happiest on a Linux system. That’s my personal preference and it’s not for everyone, but the fact that this choice is available to me and that I can run an all-open-source desktop without pain is pretty amazing considering how things looked fifteen years ago.</p>
+
+<p>Even Windows and Mac users these days use lots of open source software. By some measures, a majority of people now use an open source browser. VLC, BitTorrent, and other “indie” open source desktop apps are widely used even among non-technical people. Mobile seems even more full of open source and low-budget indie apps, as the various mobile app stores make it extremely easy for small developers to reach large audiences.</p>
+
+<p>Yet, somehow, the web today is nearly completely devoid of open source software. Every day I use apps like GMail, Facebook, Twitter, Feedly, and others. None of these are open source. Granted, these apps often run on open source <em>infrastructure</em>, but that’s different. Most proprietary desktop apps use open source components and tools as well. But web <em>apps</em>, as the users see them, are almost invariably proprietary.</p>
+
+<h3 id="why-are-all-my-web-apps-proprietary">Why are all my web apps proprietary?</h3>
+
+<p>Open source web apps exist. For example, webmail apps like SquirrelMail and RoundCube have been around for a while. If you look hard enough, you can find open source online document editors, RSS readers, and even a few social networks. But even among techies, hardly anyone seems to use these, probably because they all require running your own server, and few people have the time, patience, and expertise for that.</p>
+
+<p>There are a few success stories. Wordpress is open source and widely-used for blogging. But this seems to be the exception rather than the rule. And it’s questionable at that: most people who use Wordpress are not actually able to edit the code, because they are using it through a Wordpress hosting service and can only use the version of Wordpress that that host provides. Naturally, all hosts will likely only use the “official” version. So in practice, it’s almost not really “open source” but “visible source” – you can see the code and request changes, but you only get to use your changes if they’re officially adopted.</p>
+
+<h3 id="why-does-no-one-use-indie-web-apps">Why does no one use “indie” web apps?</h3>
+
+<p>Even on Windows, people commonly install little open source apps to get things done. Need to tag some mp3s? Want to connect to multiple chat networks with one client? Need to unpack a weird archive format? You’ll probably use an open source app. Sometimes it’s hard to build a business case around a niche purpose, yet little apps written by random people in their spare time are abundant. But on the web, it doesn’t seem to work this way. Any significant service with a server-side component can really only be run by a funded corporation.</p>
+
+<p>Let me describe a case in point: I know a certain prolific coder by the name of <a href="http://en.wikipedia.org/wiki/Brad_Fitzpatrick">Brad Fitzpatrick</a>. You may know him as the author of LiveJournal, Camlistore, memcache, OpenID, and other things. But I want to talk about a project of his you probably haven’t heard of.</p>
+
+<p><a href="https://github.com/bradfitz/scanningcabinet">scanningcabinet</a> is a little web app that helps you organize your paper mail. You drop your mail into your scanner, and the app scans it and uploads it to “the cloud”, where you can access, label, and search it later. Brad wrote this on a weekend several years ago and threw the code up on github.</p>
+
+<p>This app could be useful to just about anyone. But sadly, no one can really use it. To set it up, you have to configure a server (App Engine, in this case) and deploy the code to it. Even for someone like me, who knows how to do that, it’s not something I really want to do.</p>
+
+<p>By today’s model, if Brad wanted to make this app accessible to the masses, he’d have to run it as a service. He’d have to build in multi-user support, make sure it’s secure, deploy it, and monitor it. Worse, he’d have to pay for it, which means he’d have to monetize it, which probably means he’d have to start analyzing people’s mail to build advertising profiles, or set up billing. Brad obviously doesn’t want to do any of that.</p>
+
+<p>And even if he did, who would use it? Do you want to upload your paper mail to servers run by some guy on the internet? I’m certainly not going to trust my personal data to any service that isn’t at least backed by an identifiable organization with something to lose if it screws up.</p>
+
+<h3 id="the-problem-is-hosting">The problem is hosting.</h3>
+
+<p>By this point the problem is becoming clear: for open source software to make sense, the user has to be running their own instance. Software-as-a-Service and open source just don’t make sense together. It’s not really open source if you can’t run modified code, and the high barrier to entry shuts out hobby projects or anything unwilling to be monetized.</p>
+
+<p>The only solution is to make sure everyone has a server where they can install any software they want. They don’t necessarily have to <em>administer</em> that server – it could be run by a friend, or a service – but each user <em>must</em> be able to install arbitrary software. And that software must be securely sandboxed to prevent buggy or malicious software from harming the rest of the server.</p>
+
+<p>Today, this doesn’t exist in any practical form. Servers require time and technical expertise to set up, while turnkey hosting services only allow you to run a fixed set of software.</p>
+
+<p><strong>There is no place for open source web apps to run.</strong></p>
+
+<h3 id="were-making-decentralized-hosting-viable">We’re making decentralized hosting viable</h3>
+
+<p>Sandstorm is a web app hosting platform that enables non-technical end users to install and run arbitrary software. Apps may be downloaded from an app store and installed with one click, like installing apps on your phone. Each app server runs in a secure sandbox, where it cannot interfere with other apps without permission.</p>
+
+<p>We talk a lot about privacy, security, and control, but to me these have always been pleasant side-effects of Sandstorm’s model. My main motivation for starting this project has always been to enable open source software, hobby projects, niche applications, and indie developers. Even if each individual app in this category ultimately has a small impact compared to GMail or Facebook, the collective value lost by not giving these apps a platform is enormous. We need open source software to fill the niches that big companies aren’t interested in, and to push the boundaries they find too risky. We need software that can be tweaked without permission to try new things without starting from scratch. It honestly seems absurd to me that we don’t really have this on the web today.</p>
+
+<h3 id="help-us-get-there">Help us get there</h3>
+
+<p>We’ve already come a long way. <a href="https://demo.sandstorm.io/demo">We have a demo</a> that does most of what we’re talking about already. But we’re coming up on the limits of what we can self-fund. We can get Sandstorm into production, but we need your help.</p>
+
+<p>Please check out our campaign on Indiegogo, and spread the word.</p>
+
+<p><a class="crowdfunding" href="http://igg.me/at/sandstorm">Fund us on Indiegogo »</a></p>
+
+</section>
+
+<section>
   <h2><a href="/news/2014-07-17-crowdfunding">We're Crowdfunding!</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2014-07-17-crowdfunding">17 Jul 2014</a>
-  
-  
-  
   
   <div><iframe class="youtube" src="//www.youtube.com/embed/LMpj9HAyyHs?rel=0" frameborder="0" allowfullscreen="true"> </iframe></div>
 
@@ -340,64 +414,6 @@ this will be totally transparent to apps.</p>
 <h3 id="lwn-coverage">LWN Coverage</h3>
 
 <p>Linux Weekly News <a href="http://lwn.net/Articles/603485/">wrote about Sandstorm</a> last week!</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2014-06-04-self-service-web-publishing">Host Your Web Site</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2014-06-04-self-service-web-publishing">04 Jun 2014</a>
-  
-  <p>Sandstorm now supports apps that publish content to your personal web domain,
-such as blogging apps and content management systems.</p>
-
-<p>While we already had an app that claimed to do this (the “Hacker CMS” app), it
-previously required manual configuration of nginx to actually serve the content.
-Users of alpha.sandstorm.io actually had to ask me to manually set things up.
-But as of build 0.20, you can host your site in a completely self-service way.</p>
-
-<p>To try it out, install the latest version of Hacker CMS from the
-<a href="https://sandstorm.io/apps">app list</a> and click the “Setup DNS” button. (If you
-already have the app installed, install it again to get the latest version;
-we’re still working on automatic updates.)</p>
-
-<p>Hacker CMS is still mostly a tech demo, and we’d like to replace it with ports
-of some better-known blogging platforms. That said, our own blog at
-blog.sandstorm.io is actually hosted using Hacker CMS.</p>
-
-<p>Want to write your own app that does web publishing? Check out
-<a href="https://github.com/kentonv/sandstorm/wiki/Publishing-to-the-user's-domain">the wiki page</a>
-to see how.</p>
-
-<h3 id="tool-improvements">Tool Improvements</h3>
-
-<p>We’ve been hard at work improving Sandstorm’s developer experience. Some
-highlights include:</p>
-
-<ul>
-  <li>Your app’s stdout/stderr output is now accessible via the web UI. Just click
-the wrench icon.</li>
-  <li>A file size indicator is now shown in the top bar, so you can see if your app
-is using unreasonable disk space (<em>cough</em> MongoDB <em>cough</em>).</li>
-  <li><a href="https://github.com/jparyani">Jason Paryani</a> has built preliminary support
-for e-mail, which he’ll talk more about in a future update (once an app is ready).</li>
-  <li>Many other small tweaks have been made to the <code>spk</code> tool.</li>
-</ul>
-
-<h3 id="all-invites-sent">All Invites Sent</h3>
-
-<p>Everyone who was on the <a href="https://sandstorm.io/#signup-form">mailing list</a>
-as of yesterday should have received an invite to alpha.sandstorm.io by now. Please
-let me know if you are on the list but didn’t receive one. Sorry it took so long!
-We will continue sending invites to new sign-ups as long as we can handle the
-server load.</p>
-
-<h3 id="follow-sandstorm-on-twitter-and-google">Follow Sandstorm on Twitter and Google+!</h3>
-
-<p>We are <a href="http://twitter.com/SandstormIO">@SandstormIO on Twitter</a>
-and <a href="https://plus.google.com/u/0/107599969974415778560/posts">Sandstorm.io on Google+</a>.
-We want to keep the mailing list non-spammy, so follow us there for more frequent updates!</p>
 
 </section>
 

@@ -98,13 +98,29 @@
 
 
 <section>
+  <h2><a href="/news/2016-01-20-how-it-works">How Sandstorm Works: Containerize Data, not Services</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2016-01-20-how-it-works">20 Jan 2016</a>
+  
+  
+  
+  
+  <p style="text-align: center"><a href="/how-it-works"><img src="/images/how-it-works.png" /></a></p>
+
+<p>Last week <a href="/news/2016-01-11-website">we announced the launch of our new web site</a>. Everything has changed!</p>
+
+<p>Today, I want to call your attention to one page that I’m particularly excited to have written: <a href="/how-it-works">The “How it works” page</a>. Sandstorm is radically different from all other web infrastructure you might be familiar with, in that we containerize not just “microservices” but individual documents. As it turns out, this has all kinds of huge advantages, especially in terms of security but also in the ability to compose apps into larger workflows. Read all about it here:</p>
+
+<p style="text-align: center"><a href="/how-it-works" class="linkbutton">Learn How Sandstorm Works &raquo;</a></p>
+
+</section>
+
+<section>
   <h2><a href="/news/2016-01-11-website">The new Sandstorm.io website</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2016-01-11-website">11 Jan 2016</a>
-  
-  
-  
   
   <p>If you take a look at <a href="https://sandstorm.io/">https://sandstorm.io/</a>, you’ll see our new website, created by Néna Nguyen with assistance from Kenton Varda. They took feedback from many users and the core dev team over the course of building it, and we’re all going to keep adjusting it over time. If you have feedback, please share it with the community in the <a href="https://groups.google.com/forum/#!forum/sandstorm-dev">sandstorm-dev mailing list</a>.</p>
 
@@ -254,97 +270,6 @@ found Oasis through you and signs up for an account counts as your referral.</p>
 
 <p>Stay tuned for App Market highlights of 2015!</p>
 
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-11-12-authenticated-app-packages">Authenticated app packages on Sandstorm with PGP and Keybase</a></h2>
-  <p class="post-details">By <a href="https://github.com/zarvox">Drew Fisher</a>
-    
-    - <a href="/news/2015-11-12-authenticated-app-packages">12 Nov 2015</a>
-  
-  <p>I like to joke that Sandstorm is a security project posing as a
-usability project.  In actuality, it’s both!  Sandstorm users deserve to be
-confident that the apps they’re running are exactly as
-the packager built them, and have not been backdoored or accidentally modified
-by a malicious ISP, government, or other attacker.  Furthermore, this
-information must be easy to consume and verify.</p>
-
-<p>To that end, I’ve worked with Kenton to make it possible to provide a cryptographic chain of trust
-that connects the app package you’re installing to the app publisher’s online
-accounts.  When you install the
-<a href="https://apps.sandstorm.io/app/a0n6hwm32zjsrzes8gnjg734dh6jwt7x83xdgytspe761pe2asw0">EtherCalc spreadsheet app</a>,
-Sandstorm lets you see that the app was made by the same Audrey Tang that owns
-<a href="https://github.com/audreyt">audreyt on Github</a> and
-<a href="https://keybase.io/au">au on Keybase</a>.
-Publisher information is shown front and center:</p>
-
-<p><img src="/news/images/install-ethercalc.png" width="100%" alt="Installing EtherCalc" /></p>
-
-<p>To make this all work, there are a few steps involved.</p>
-
-<h3 id="the-app-id-is-a-public-key">The app ID is a public key</h3>
-
-<p>Sandstorm has required that apps be signed since its inception, providing
-a first line of defense against package corruption.  The app is signed with an
-app-specific Ed25519 key at package-building time.  Sandstorm uses the public key
-as the app’s ID on the app market and your server.</p>
-
-<p>This guarantees that app packages cannot be modified by a CDN or the app market
-without using a different app ID.  This also had the nice effect of providing
-trust-on-first-use properties for apps until we were able to bind these
-identities to something more meaningful.  The upshot: when you’ve installed an
-app, only the same app author can provide updates to it.</p>
-
-<h3 id="connect-the-app-id-to-a-pgp-key">Connect the app ID to a PGP key</h3>
-
-<p>Since the release of the <a href="https://apps.sandstorm.io/">app market</a>,
-app packagers have been PGP-signing statements that they are the author of the
-Sandstorm app with that app ID, and include that statement, their PGP public 
-key, and the email address associated with that key in their package’s metadata.
-Since that metadata is in the Sandstorm package file signed by the Ed25519 key,
-any server running Sandstorm can verify
-that these statements were provided by the person or people who control that
-Ed25519 key.  Additionally, since the statement is signed by the PGP key, there
-is a trust path from the owner of that PGP private key to the app you are
-installing. To defeat this, an attacker would need to convince an app author to
-replace both their signing statement and their PGP key in the package metadata
-with ones produced by the attacker.</p>
-
-<h3 id="connect-the-pgp-key-to-social-identities">Connect the PGP key to social identities</h3>
-
-<p>The next goal is to connect that PGP fingerprint to meaningful, real-world
-identities.  While a handful of people might be able to rely on the
-web-of-trust to verify PGP fingerprints, most users will need something more
-approachable.  That’s where <a href="https://keybase.io">Keybase</a> comes in.  Keybase
-helps you link PGP keys to social identities, like GitHub or Twitter accounts.
-App authors can create a Keybase account, then create signed proofs-of-ownership
-that they post to their social media pages or websites.  Keybase provides an
-index of these proofs, so given a PGP fingerprint, you can list the accounts for
-which the PGP key’s owner has proven control.</p>
-
-<h3 id="the-result-end-to-end-verified-apps">The result: end-to-end verified apps</h3>
-
-<p>When you go to install a package, Sandstorm verifies that the package is
-correctly signed by the Ed25519 key.  It looks for a PGP signature in the 
-metadata, and verifies that the PGP-signed assertion is for the correct app ID 
-and the email address specified in the metadata.  It queries the Keybase API to
-see what accounts the packager has proven ownership of, and lists them with 
-their links on the app install page.</p>
-
-<p>Currently, the implementation of this feature trusts Keybase’s servers to verify
-proofs and return an accurate list of the signer’s identities. However, Keybase
-proofs are designed to be verifiable by third parties without trusting Keybase,
-and we plan to extend Sandstorm to do this, thus eliminating Keybase itself from
-the trust chain.</p>
-
-<p>So that’s how Sandstorm links app packages to their
-creators’ social identities, with cryptographic verification at each step along
-the way, with no additional action needed by end users.  This is software
-authenticity that Just Works, and it’s available today for all Sandstorm users
-and packages in the App Market.  Today is a good day to
-<a href="https://sandstorm.io/install/">install Sandstorm on your own server</a> or sign up
-for our <a href="/news/2015-08-31-oasis-beta-launch.html">managed hosting</a>.</p>
 
 </section>
 
