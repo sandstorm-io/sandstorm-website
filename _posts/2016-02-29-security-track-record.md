@@ -44,7 +44,7 @@ analysis](https://docs.sandstorm.io/en/latest/using/security-practices/), prepar
 Kenton Varda. <a href="https://groups.google.com/forum/#!forum/sandstorm-dev">Let us know</a> what
 you think!
 
-### With self-hosting, users pick the apps
+### When self-hosting is secure, users are free to choose
 
 Security enables freedom of choice. If you use a Sandstorm server, you can choose productivity tools
 that fit your needs, even if the server is maintained by someone else.
@@ -71,6 +71,6 @@ certificates](https://sandstorm.io/news/2015-10-01-free-ssl-certificates) and
 [cryptographically-verified automatic
 updates](https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install) into
 self-hosted Sandstorm. As soon as someone installs Sandstorm for an organization, they can safely
-allow colleagues this freedom of choice. If you install Sandstorm for yourself, you can use the best
-indie web apps and let the platform handle security for you.  Get started on the [Sandstorm install
-page](https://sandstorm.io/install).
+allow colleagues to choose their own tools. If you install Sandstorm for yourself, you can use the
+best indie web apps and let the platform handle security for you.  Get started on the [Sandstorm
+install page](https://sandstorm.io/install).
