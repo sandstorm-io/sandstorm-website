@@ -1721,10 +1721,10 @@ body > footer {
   background-image: url(images/header-blog.svg); }
 #blog h2 {
   font-size: 35px; }
-#blog h2, #blog h3 {
+#blog h2, #blog p h3 {
   font-weight: bold;
   text-align: left; }
-  #blog h2 a, #blog h3 a {
+  #blog h2 a, #blog p h3 a {
     color: black; }
 #blog > div.post-list {
   margin-top: 30px;
@@ -2379,3 +2379,260 @@ body > footer {
     padding: 0 20px;
     list-style: none;
     display: inline; }
+
+#security header {
+  text-align: center;
+  padding: 20px 0;
+  position: relative; }
+  #security header::after {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 50vw);
+    width: 100vw;
+    z-index: -1;
+    background-color: #2e2765;
+    background-image: url(/images/getsecurity-banner.svg);
+    background-repeat: no-repeat;
+    background-position: bottom right; }
+  #security header h1 {
+    width: 85%;
+    paggin-top: 10px;
+    margin: 0 auto; }
+    @media (max-width: 850px) {
+      #security header h1 {
+        font-size: 35px; } }
+    @media (max-width: 750px) {
+      #security header h1 {
+        font-size: 30px; }
+        #security header h1 br {
+          display: none; } }
+    @media (max-width: 500px) {
+      #security header h1 {
+        font-size: 25px; } }
+  #security header p {
+    padding-bottom: 0px;
+    width: 90%;
+    margin: 20px auto; }
+    @media (max-width: 700px) {
+      #security header p {
+        font-size: 18px; } }
+    @media (max-width: 500px) {
+      #security header p {
+        font-size: 16px; } }
+  #security header > a {
+    color: white;
+    text-align: center;
+    display: inline-block;
+    width: 38%;
+    margin: 15px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 26px;
+    border-radius: 4px; }
+    @media (max-width: 900px) {
+      #security header > a {
+        font-size: 22px;
+        margin: 11px;
+        height: 45px;
+        line-height: 45px;
+        width: 42%; } }
+    @media (max-width: 800px) {
+      #security header > a {
+        font-size: 17px;
+        margin: 8px;
+        line-height: 40px; } }
+    @media (max-width: 600px) {
+      #security header > a {
+        font-size: 15px; } }
+    @media (max-width: 430px) {
+      #security header > a {
+        width: 200px; } }
+  #security header > a.get {
+    background-image: -webkit-linear-gradient(top, #884cea, #6a42b8);
+    background-image: linear-gradient(to bottom, #884cea, #6a42b8);
+    box-shadow: 0 3px 3px rgba(41, 25, 66, 0.6);
+    background-color: #613c91; }
+    #security header > a.get:hover {
+      background-image: -webkit-linear-gradient(top, #925bef, #794cc2);
+      background-image: linear-gradient(to bottom, #925bef, #794cc2);
+      background-color: #794cc2; }
+  #security header > a.demo {
+    background-image: -webkit-linear-gradient(top, #f46b8b, #d13f6c);
+    background-image: linear-gradient(to bottom, #f46b8b, #d13f6c);
+    box-shadow: 0 3px 3px rgba(41, 25, 66, 0.6);
+    background-color: #d13f6c; }
+    #security header > a.demo:hover {
+      background-image: -webkit-linear-gradient(top, #fb839f, #d54f79);
+      background-image: linear-gradient(to bottom, #fb839f, #d54f79);
+      background-color: #d54f79; }
+@media (max-width: 850px) {
+  #security section h3 {
+    font-size: 20px; } }
+#security li h3 {
+  font-weight: 400; }
+#security p.highlight {
+  text-align: center;
+  padding-bottom: 20px; }
+#security p.copyright {
+  text-align: center;
+  font-size: 14px; }
+#security #why-sandstorm ul {
+  padding: 0; }
+  #security #why-sandstorm ul li {
+    padding-right: 2%;
+    padding-left: 33%;
+    height: 250px;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 40px; }
+    @media (max-width: 450px) {
+      #security #why-sandstorm ul li {
+        padding-left: 0; } }
+    #security #why-sandstorm ul li::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      background: center/contain no-repeat;
+      left: 0;
+      width: 35%;
+      height: 90%; }
+      @media (max-width: 450px) {
+        #security #why-sandstorm ul li::before {
+          position: relative;
+          width: 80%;
+          margin: 0 auto; } }
+    #security #why-sandstorm ul li.why-onprem::before {
+      background-image: url(images/why-onprem.svg); }
+    #security #why-sandstorm ul li.why-finegrained::before {
+      background-image: url(images/why-finegrained.svg); }
+  #security #why-sandstorm ul h3 {
+    text-align: left;
+    padding-top: 10px; }
+    @media (max-width: 450px) {
+      #security #why-sandstorm ul h3 {
+        text-align: center;
+        padding-top: 0; } }
+#security #web-apps {
+  padding-bottom: 30px; }
+  #security #web-apps ul {
+    display: table-row;
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    text-align: center; }
+    #security #web-apps ul li {
+      text-align: left;
+      display: inline-block;
+      width: 33%;
+      padding: 0 2% 20px 2%;
+      vertical-align: top; }
+      @media (max-width: 700px) {
+        #security #web-apps ul li {
+          width: 50%; } }
+      @media (max-width: 500px) {
+        #security #web-apps ul li {
+          width: 100%;
+          padding-top: 30px; } }
+      #security #web-apps ul li::before {
+        content: " ";
+        display: block;
+        background-repeat: none;
+        height: 200px;
+        background: bottom/contain no-repeat; }
+        @media (max-width: 800px) {
+          #security #web-apps ul li::before {
+            height: 180px; } }
+        @media (max-width: 600px) {
+          #security #web-apps ul li::before {
+            height: 150px; } }
+        @media (max-width: 450px) {
+          #security #web-apps ul li::before {
+            height: 200px; } }
+      #security #web-apps ul li.slack-rocketchat::before {
+        background-image: url("images/slack-rocketchat.png"); }
+      #security #web-apps ul li.trello-wekan::before {
+        background-image: url("images/trello-wekan.png"); }
+      #security #web-apps ul li.dropbox-davros::before {
+        background-image: url("images/dropbox-davros.png"); }
+    #security #web-apps ul p {
+      height: 5rem; }
+      @media (min-width: 700px) and (max-width: 900px) {
+        #security #web-apps ul p {
+          height: 8rem; } }
+      @media (max-width: 700px) {
+        #security #web-apps ul p {
+          height: 6rem; } }
+      @media (max-width: 500px) {
+        #security #web-apps ul p {
+          height: 4.5rem; } }
+    #security #web-apps ul .start {
+      height: 60px;
+      padding-top: 25px;
+      border: none;
+      background-color: white;
+      display: block;
+      width: 100%; }
+      #security #web-apps ul .start a {
+        text-align: center;
+        padding: 10px 0;
+        margin: 0 auto;
+        width: 100%;
+        border-radius: 5px;
+        display: block;
+        -webkit-transition: background 0.35s ease, -webkit-transform 0.75s ease;
+        transition: background 0.35s ease, -webkit-transform 0.75s ease;
+        transition: transform 0.75s ease, background 0.35s ease;
+        transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease;
+        background-color: lavender; }
+        @media (max-width: 500px) {
+          #security #web-apps ul .start a {
+            float: none;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%; } }
+        #security #web-apps ul .start a:hover {
+          background-color: #d1d1f5; }
+#security .action {
+  padding-bottom: 50px;
+  color: #fff;
+  position: relative; }
+  #security .action::after {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 50vw);
+    width: 100vw;
+    z-index: -1;
+    background-color: #2e2765; }
+  #security .action a {
+    display: block;
+    margin: 0 auto; }
+  #security .action p {
+    color: #d7c4f4;
+    font-size: 23px; }
+  #security .action h3 {
+    font-size: 25px; }
+#security #join-list {
+  padding-bottom: 25px;
+  position: relative; }
+  #security #join-list::after {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 50vw);
+    width: 100vw;
+    z-index: -1;
+    background-color: #F4F3FB; }
+  #security #join-list .email {
+    padding: 25px 0 20px 0; }
