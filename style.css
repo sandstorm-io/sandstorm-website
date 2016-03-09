@@ -2479,6 +2479,9 @@ body > footer {
 #security p.copyright {
   text-align: center;
   font-size: 14px; }
+#security #why-sandstorm > h3 {
+  max-width: 940px;
+  margin: 1em auto; }
 #security #why-sandstorm ul {
   padding: 0; }
   #security #why-sandstorm ul li {
@@ -2515,8 +2518,37 @@ body > footer {
       #security #why-sandstorm ul h3 {
         text-align: center;
         padding-top: 0; } }
+#security #inhouse > h3 {
+  background: 32px 100%/136px 136px no-repeat url("/images/blackhat.svg");
+  position: relative;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 40px 0 32px 200px;
+  color: #302851;
+  text-align: left; }
+  #security #inhouse > h3::after {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 50vw);
+    width: 100vw;
+    z-index: -1;
+    background-color: #eee9f4;
+    top: 8px; }
+  @media (max-width: 500px) {
+    #security #inhouse > h3 {
+      background: 50% 100%/136px 136px no-repeat url("/images/blackhat.svg");
+      padding: 1em 16px 150px; } }
+#security #inhouse > p {
+  max-width: 950px;
+  margin: 1em auto; }
 #security #web-apps {
   padding-bottom: 30px; }
+  #security #web-apps > h3 {
+    max-width: 940px;
+    margin: 1em auto; }
   #security #web-apps ul {
     display: table-row;
     -webkit-align-content: space-between;
