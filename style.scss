@@ -2623,6 +2623,10 @@ body >footer {
   }
   
   #why-sandstorm {
+    >h3 {
+      max-width: 940px;
+      margin: 1em auto;
+    }
 
     ul {
       padding: 0;
@@ -2670,7 +2674,38 @@ body >footer {
       }
     }
   }
+
+  #inhouse {
+    >h3 {
+      background: 32px 100%/136px 136px no-repeat url("/images/blackhat.svg");
+      @include stripe {
+        background-color: #eee9f4;
+        top: 8px;
+      }
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 40px 0 32px 200px;
+      color: $purplebg-fontcolor;
+      text-align: left;
+
+      @media (max-width: 500px) {
+        background: 50% 100%/136px 136px no-repeat url("/images/blackhat.svg");
+        padding: 1em 16px 150px;
+      }
+    }
+
+    >p {
+      max-width: 950px;
+      margin: 1em auto;
+    }
+  }
+
   #web-apps {
+    >h3 {
+      max-width: 940px;
+      margin: 1em auto;
+    }
+
     padding-bottom: 30px;
     ul {
       display: table-row;
