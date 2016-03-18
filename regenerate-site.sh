@@ -57,4 +57,5 @@ if [ "x$YESNO" == "xy" ]; then
   git push -u origin "$BRANCH:$BRANCH"
 else
   echo "Push CANCELED"
+  exit 1
 fi
