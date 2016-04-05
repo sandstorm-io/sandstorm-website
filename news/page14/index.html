@@ -5,10 +5,10 @@
     <title>Sandstorm Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Sandstorm.io">
+    <meta property="og:title" content="Sandstorm Blog">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
-    <meta property="og:url" content="https://sandstorm.io">
+    <meta property="og:image" content="https://sandstorm.io/images/sandcat.png">
+    <meta property="og:url" content="https://sandstorm.io/news/page14/">
     <meta property="og:description"
         content="Take control of your web by running your own personal cloud server with Sandstorm.">
     <link rel="stylesheet" type="text/css" href="/style.css">
@@ -20,11 +20,11 @@
   <body id="blog">
     <nav>
       <a href="/">Sandstorm.io</a>
-      <a href="/get">Sign Up</a>
-      <a href="/get#self-hosting">Download</a>
+      <a href="/get">Get Sandstorm</a>
       <a href="/features">Features</a>
       <a href="/how-it-works">How it Works</a>
       <a href="/news/">Blog</a>
+      <a href="https://docs.sandstorm.io">Docs</a>
       <a href="/community">Community</a>
       <a href="/about">About</a>
       <!-- TODO: search -->
@@ -56,6 +56,26 @@
       <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
       <span class="selfhost" href="/install">or host your own</span>
     </a>
+    
+    <h3>Recommended Posts</h3>
+    <ul>
+      <li><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">Open Source Web Apps Aren't Viable; Let's Fix That</a></li>
+      <li><a href="/news/2015-10-01-free-ssl-certificates.html">Free, automated SSL certificates for Sandstorm self-hosters</a></li>
+      <li><a href="/news/2014-08-19-why-not-run-docker-apps.html">Why doesn't Sandstorm just run Docker apps?</a></li>
+      <li><a href="/news/2015-08-31-oasis-beta-launch.html">Sandstorm Oasis hosting open beta and App Market launch</a></li>
+      <li><a href="/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install.html">Is curl|bash insecure?</a></li>
+      <li><a href="/news/2015-04-08-osx-security-bug">Remotely send Chrome and Node.js into infinite loops via this one weird OSX kernel bug</a></li>
+      <li><a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization.html">Delegation is the Cornerstone of Civilization: Sharing in Sandstorm.io</a></li>
+      <li><a href="/news/2016-01-22-8-new-open-source-apps.html">8 New open source self-hostable apps</a></li>
+      <li><a href="/news/2015-11-10-icons-spks-for-everyone.html">Graphics and one-click installers for everyone</a></li>
+    </ul>
+    
+    <h3>Further Reading</h3>
+      <ul>
+        <li><a href="/how-it-works">How Sandstorm Works</a></li>
+        <li><a href="http://docs.sandstorm.io">Sandstorm Documentation</a></li>
+        <li><a href="/install">How to install Sandstorm</a></li>
+      </ul>
   </div>
 </div>
 
@@ -78,361 +98,223 @@
 
 
 <section>
-  <h2><a href="/news/2014-07-11-demo-and-app-updates.html">Demo box; App updates</a></h2>
+  <h2><a href="/news/2014-08-05-ethercalc">EtherCalc: Online spreadsheets</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
-    - <a href="/news/2014-07-11-demo-and-app-updates.html">11 Jul 2014</a>
+    - <a href="/news/2014-08-05-ethercalc">05 Aug 2014</a>
   
   
   
   
-  <p>A few quick updates today.</p>
+  <p>Today’s release is a pleasant surprise even to us. Last week, a Sandstorm
+fan, <a href="https://plus.google.com/+JakeWeisz">Jake Weisz</a>, e-mailed me out of the
+blue to tell me he had ported <a href="http://ethercalc.net">EtherCalc</a>, an online
+collaborative spreadsheet editor, to Sandstorm.</p>
 
-<h3 id="new-demo-server">New Demo server</h3>
+<p>I hadn’t heard of EtherCalc before, but Jake included a link to a spreadsheet
+running on our own alpha server, so I was able to try it out immediately, and
+I was impressed. Sure enough, it’s a spreadsheet editor, it does the things
+you expect spreadsheets to do, it supports real-time collaboration, and it’s
+Free Software.</p>
 
-<p>It’s now possible to try out Sandstorm without an invite, and without installing
-it locally. Just go to <a href="https://demo.sandstorm.io/demo">demo.sandstorm.io</a>.</p>
+<p><img src="https://sandstorm.io/apps/ethercalc.png" alt="screenshot" /></p>
 
-<p>On the demo server, anyone can create a one-hour trial account. We hope that
-this will make it much easier for people to understand what Sandstorm does,
-before they install it or wait in line for an invite. If a picture
-is worth a thousand words, a demo is worth ten thousand.</p>
+<p>Jake professes to have had no idea what he was doing. “I have never even seen
+Node.js before, I don’t even know JavaScript, and I have only a passing
+familiarity with using Linux.” Yet, by just following the
+<a href="https://github.com/sandstorm-io/sandstorm/wiki/Porting-Guide">porting guide</a>,
+he managed to port an app. Jake attributes this to EtherCalc’s simple and
+elegant design: “The way it was already designed, it was incredibly easy to
+port to Sandstorm. I think I changed three or four lines of code tops to
+get it working.”</p>
 
-<h3 id="app-updates">App updates</h3>
+<p>Speaking of EtherCalc’s design, developer <a href="http://en.wikipedia.org/wiki/Audrey_Tang">Audrey Tang</a>
+has written a long and fascinating history of EtherCalc (and its previous
+iterations, WikiCalc and SocialCalc) for the book series
+<a href="http://aosabook.org/"><em>The Architecture of Open Source Applications</em></a>. These
+chapters have also been reproduced on <a href="http://ethercalc.net/">EtherCalc’s web site</a>.
+Check it out!</p>
 
-<p>We’ve posted updates to several apps with bug fixes and other improvements.
-Currently, in order to update an app, you must re-install it from the
-<a href="https://sandstorm.io/apps">app list</a>. (Push updates for apps are on our
-todo list.) So, if you’ve installed any of the following, install them again.</p>
-
-<ul>
-  <li><strong>Mailpile:</strong> Fixed bug where sent mail sometimes wasn’t saved.</li>
-  <li><strong>IPython Notebook:</strong> Added numpy and plotting packages, so you can now plot graphs.</li>
-  <li><strong>Etherpad:</strong> Minor UI tweaks.</li>
-</ul>
-
-<h3 id="new-features-and-fixes">New features and fixes</h3>
-
-<ul>
-  <li>We’ve added a “reset” button to the top bar, which lets you restart an app
-if it somehow gets wedged. This is rare, but otherwise really annoying when
-it happens.</li>
-  <li>Apps now receive the user’s display name and a unique stable identifier,
-which are useful for collaborative apps meant to be used by more than one
-user.</li>
-  <li>We fixed a crash that happened when updating a Sandstorm instance that runs
-as non-root, and tightened some security knobs in this mode.</li>
-</ul>
-
-<h3 id="license-is-now-apache-20">License is now Apache 2.0</h3>
-
-<p>Several people told us they were not comfortable contributing to Sandstorm
-when licensed under the GNU AGPL, or that their employers were hesitant to
-allow them to contribute. We think this is entirely understandable. We have
-always intended to switch to Apache 2.0 after gaining some momentum (which is
-why we have asked contributors to sign a CLA allowing us to make this change).
-So, we’ve gone ahead and made the switch now.</p>
+<p>Meanwhile, Jake’s port is on the Sandstorm app list now. As always, you can
+install it on your Sansdtorm server, or <a href="https://demo.sandstorm.io">try the demo</a>.</p>
 
 </section>
 
 <section>
-  <h2><a href="/news/2014-07-07-mailpile.html">Mailpile on Sandstorm</a></h2>
-  <p class="post-details">By <a href="https://github.com/jparyani">Jason Paryani</a>
+  <h2><a href="/news/2014-08-01-mediagoblin">MediaGoblin: Photo sharing and more</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
-    - <a href="/news/2014-07-07-mailpile.html">07 Jul 2014</a>
+    - <a href="/news/2014-08-01-mediagoblin">01 Aug 2014</a>
   
-  <p>Hello, I’m Jason, a new member of the Sandstorm team. Today I’m excited to
-announce that I’ve extended Sandstorm to support e-mail, and ported
-<a href="https://www.mailpile.is/">Mailpile Alpha II</a> to demonstrate. Mailpile is
-available on the <a href="https://sandstorm.io/apps/">Sandstorm app list</a> right now, so
-go ahead and try it out.</p>
+  <p>Today we’re releasing a port of yet another crowd-funded open source web app,
+<a href="http://mediagoblin.org">MediaGoblin</a>. You can think of MediaGoblin as a
+Free Software alternative to Flickr, SoundCloud, YouTube, and others.</p>
 
-<p>You may know Mailpile from
-<a href="https://www.indiegogo.com/projects/mailpile-taking-e-mail-back">their successful Indiegogo campaign</a>
-last year. They’ve been working hard to create a web mail app that is designed
-to be self-hosted, which makes it a perfect fit for Sandstorm. It’s worth noting
-that Mailpile itself is, like Sandstorm, still in alpha. It is still somewhat
-rough around the edges, and may not quite be ready to replace your regular
-e-mail client yet. We will be updating our port as Mailpile matures, and we’re
-also looking at porting some other web mail apps so that you can choose the one
-that’s right for you.</p>
+<p><img src="https://sandstorm.io/apps/mediagoblin.png" alt="screenshot" /></p>
 
-<h3 id="how-sandstorm-does-e-mail">How Sandstorm does e-mail</h3>
+<p>The app is on the app list now – try it on the
+<a href="https://demo.sandstorm.io">demo server</a>.</p>
 
-<p>We know that switching people over to using Sandstorm for e-mail will take time.
-So, we are starting with a design that makes it safe and easy to try out
-Sandstorm without committing.</p>
+<p>MediaGoblin is our first app to take full advantage of Sandstorm’s new user
+identification features. Whenever a request comes in from a user, Sandstorm’s
+front-end proxy adds a few headers related to authentication and authorization:</p>
 
-<p>When you launch an e-mail application on Sandstorm, it is assigned a random
-e-mail address at your server, like “JBuaKxjkwiJq7oksS@alpha.sandstorm.io”. Any
-e-mail sent to that address is delivered to the app. The idea is not that you’d
-actually use this address publicly, but rather that you should set up e-mail
-forwarding from your real address to this address. For example, GMail allows
-you to set up such forwarding while still keeping a copy in your GMail inbox,
-and even lets you do the forwarding conditionally based on a filter.
-Additionally, most domain registrars have the ability to set up basic e-mail
-forwarding, so if you have your own domain, it’s easy to set up an address that
-redirects to a Sandstorm app.</p>
+<ul>
+  <li><strong><code>X-Sandstorm-Username</code></strong>: Specifies the user’s display name, e.g.
+“Kenton Varda”. This name is not unique nor stable; it is meant only for
+displaying to other users.</li>
+  <li><strong><code>X-Sandstorm-User-Id</code></strong>: A hex string identifying the user. This ID is both
+unique and stable, so it can be used to identify when the same user returns
+multiple times.</li>
+  <li><strong><code>X-Sandstorm-Permissions</code></strong>: A list of permissions that have been shared with
+this user via the Sandstorm sharing interface. An app can define what
+permissions are available to share in its package config. However, note that
+we have not yet implemented the full sharing UI, so for now the creator of
+the app instance is granted all permissions and everyone else is granted
+none. It’s up to the app to actually implement this permissions, so for
+now you can simply use it to distinguish between the owner and non-owners.</li>
+</ul>
 
-<p>When you send e-mail from a Sandstorm app, we allow you to set the “From”
-header either to your app’s random address or to your verified Sandstorm login
-address. In the future, we’d like to add the ability to attach additional
-verified addresses to your account. Either way, the message’s envelope return
-address is always the app’s address. As a result, the mail recipient may see
-that the message was sent “via” your server.</p>
+<p>Our MediaGoblin port uses these headers to automatically populate MediaGoblin’s
+internal user list. This way you get MediaGoblin’s commenting and other
+multi-user features without the need to separately log into it.</p>
 
-<p>For more details on how to write an app that uses e-mail, and how to set up
-your Sandstorm server to support e-mail, check out the docs:
-* <a href="https://github.com/sandstorm-io/sandstorm/wiki/Configuring-your-server-for-email">Configuring your server for e-mail.</a>
-* <a href="https://github.com/sandstorm-io/sandstorm/wiki/Using-Email-From-Your-Sandstorm-App">Writing an app to use e-mail.</a></p>
+<p>Note that there are a few things missing from this port, which we plan to fix
+in the future:</p>
 
-<h3 id="a-note-on-encryption">A note on encryption</h3>
+<ul>
+  <li>Currently, under the hood, apps are exposed only at ephemeral
+hostnames; the hostname may change every time you use the app. This is
+<a href="/news/2014-07-24-tinytinyrss-plus-security-discussion.html">great for security</a>
+but means that apps cannot expose APIs, since API clients want
+a persistent URL to talk to. Atom feeds are a kind of API. So, for now, we
+have disabled Atom feeds in our port. This is unfortunate, as it changes
+MediaGoblin from “federated” to “isolated”. That said, enabling APIs is high
+on our wish list of features, so expect this to return in the future.</li>
+  <li>Related to the above, it’s currently not possible to deep-link into an app,
+since it runs in an iframe. So, sending someone an individual photo with
+MediaGoblin is hard. We can fix this by automatically passing through any
+additional path added to the outer app URL, and creating a
+<code>postMessage()</code>-based API for apps to tell the Sandstorm shell what the
+current path should be.</li>
+  <li>Due to a limitation in our proxy implementation, we currently do not support
+very large file uploads. As a result, we had to disable video uploads for now.
+We plan to fix this soon.</li>
+  <li>Currently, if you wish to share your MediaGoblin content, you must share
+the app instance by copy/pasting the URL. When another user visits that URL,
+your MediaGoblin server starts up to handle the request. This differs from
+Ghost and Hacker CMS which are able to publish web content in such a way that
+the server does not need to start up for every visitor, only for the editor.
+Unfortunately, this means that a widely-shared MediaGoblin instance may be
+expensive as it may have to run frequently; Sandstorm normally tries to cut
+costs by only running servers a small fraction of the time. We’d like to
+change the app to take advantage of Sandstorm’s web publishing features like
+Ghost and Hacker CMS do, so that the server only needs to run when a visitor
+posts a comment, uploads media, or otherwise makes a change. However, this
+may require some invasive changes to MediaGoblin, so we’ll need to discuss
+them with MediaGoblin’s developers.</li>
+  <li>MediaGoblin implements a number of permissions which can be granted to users,
+such as permissions to comment, upload media, etc.
+We eventually want permissions to be set using Sandstorm’s unified sharing
+model, but as described above it is not yet complete. So, for the time being,
+you have to set users’ permissions inside the MediaGoblin user management
+interface.</li>
+</ul>
 
-<p>A key feature of Mailpile is its support for PGP / GPG encryption and
-signatures. Unfortunately, this is not yet supported by our Sandstorm port, as
-we need to do more work to get crypto right.</p>
+<p>All that said, despite some missing features, Sandstorm is by far the quickest
+way to get MediaGoblin up and running. We hope our port allows this great
+piece of Free Software to reach a wider audience than it could before.</p>
 
-<p>The simplest way we could support crypto would be to have you upload your
-private key into the app, to be stored on the server. This is not a good idea!
-In an ideal world, your private key would live only on a physical token or
-smart card and never even touch the storage of a real computer. Barring that,
-you should at least keep your key only on systems you own. If you run your own
-Sandstorm server, then uploading your key might be OK, but for anyone using a
-shared server, it’s not a good idea. We want a solution that works for everyone.</p>
-
-<p>Therefore we are looking into how we can make crypto available to Sandstorm
-apps without sending your key to the server. We are hopeful that the nascent
-<a href="http://www.w3.org/TR/WebCryptoAPI/">WebCrypto API</a> might solve this problem,
-but at present the standard is still under development and there is apparently
-some controversy over its design. In the meantime, browser-extension-based
-approaches like <a href="https://code.google.com/p/end-to-end/">Google’s End-To-End</a>
-provide an intriguing alternative, although Chrome’s decision to kill off NPAPI
-may make it impossible to access hardware tokens or your local GPG agent in
-this way.</p>
-
-<p>In any case, this is something we’ll be investigating further in the future.</p>
+<p>And if you’d like to see the missing features fixed in the future, be sure
+to <a href="http://igg.me/at/sandstorm">fund our Indiegogo campaign</a>. :)</p>
 
 </section>
 
 <section>
-  <h2><a href="/news/2014-07-03-team-update.html">New team members; security improvements; backup/restore</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+  <h2><a href="/news/2014-07-25-sharelatex">ShareLaTeX: Collaborative scientific typesetting</a></h2>
+  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
     
-    - <a href="/news/2014-07-03-team-update.html">03 Jul 2014</a>
+    - <a href="/news/2014-07-25-sharelatex">25 Jul 2014</a>
   
-  <p>We have a bunch of updates for you today.</p>
+  <p>Today we are releasing our port of <a href="http://www.sharelatex.com">ShareLaTeX</a>, a real-time collaborative editor for typesetting scientific documents.</p>
 
-<h3 id="lots-of-apps-coming">Lots of apps coming!</h3>
+<p>You can install it on your Sandstorm server now, or try it on <a href="https://demo.sandstorm.io">our demo server</a>.</p>
 
-<p>We’ve ported a number of interesting apps to Sandstorm and will begin releasing
-them within the next few days. First up will be
-<a href="https://www.mailpile.is">Mailpile</a> – yes, e-mail in Sandstorm!
-Expect a full announcement on Monday, and other app announcements over the
-following days and weeks.</p>
+<p>LaTeX has long been a standard tool in the world of academic publishing, and we think that ShareLaTeX does a great job at making it more accessible and useful.</p>
 
-<h3 id="team-updates">Team updates</h3>
+<p><a href="/news/images/sharelatex-screenshot-big.png"><img src="/news/images/sharelatex-screenshot.png" /></a><br /><span class="caption">Using ShareLaTeX in Sandstorm to typeset <a href="http://www.cs.cmu.edu/~rjsimmon/">Rob Simmons</a>'s <a href="https://github.com/robsimmons/thesis">PhD thesis</a>.</span></p>
 
-<p>The Sandstorm team is no longer just me. I’d like to introduce all the new
-faces that you now see on our front page:</p>
+<p>We also think that, as an open source web app, ShareLaTeX makes a fascinating case study.</p>
 
-<ul>
-  <li><a href="https://github.com/jparyani"><strong>Jason Paryani</strong></a>, the author of Cap’n Proto’s
-<a href="https://github.com/jparyani/pycapnp">Python port</a>, has been working
-on features like backup/restore, e-mail, improved sharing/permissions, and
-porting a number of exciting apps.</li>
-  <li><a href="https://github.com/dwrensha"><strong>David Renshaw</strong></a>, the author of the
-<a href="https://github.com/dwrensha/capnproto-rust">Rust</a>
-and <a href="https://github.com/dwrensha/capnproto-java">Java</a> ports of Cap’n Proto, is
-now joining the team as well. He’s written a couple games that you can find on
-the app list (Duolodo and Acronymy) and is working on ports of
-<a href="https://www.sharelatex.com/">ShareLaTeX</a> and other apps.</li>
-  <li><a href="https://github.com/jadeqwang"><strong>Jade Wang</strong></a> has been working part-time on
-developer outreach and operations. She organized our recent app hackathon
-and other things you’ll be hearing about soon.</li>
-</ul>
+<p>On the one hand, it’s hard to imagine any of the giant internet corporations ever offering anything like it, as its potential user base is probably not large enough to merit their attention. On the other hand, within its niche ShareLaTeX addresses a very real need – a need that’s certainly large enough to merit the attention of small teams of indie developers.</p>
 
-<p>We also have a couple of key advisors. These guys are contributing advice, resouces,
-and the occasional patch in their spare time; Sandstorm is not affiliated with
-their respective employers.</p>
+<p>ShareLaTeX illustrates some of the barriers faced by such developers. Its core functionality consists of an in-browser editor and a server-side compiler, but to be a viable product it has had to do a fair bit more than that. ShareLaTeX also implements a secure login system, an interface for managing multiple projects, and a sharing model. Moreover, there is the question of hosting.</p>
 
-<ul>
-  <li><a href="https://github.com/amluto"><strong>Andy Lutomirski</strong></a> is a Linux kernel developer
-and has been helping us take better advantage of the kernel’s sandboxing features.</li>
-  <li><a href="https://github.com/swetland"><strong>Brian Swetland</strong></a> spent nine years as
-Android’s Systems Engineering lead and has been advising us on platform design.</li>
-</ul>
+<p>The striking thing about our port of ShareLaTeX is that it simply bypasses this non-core functionality. Sandstorm already handles login, already has a file selection and organization interface for managing multiple projects, and already implements sharing. The main changes we made to the ShareLaTeX code – and we did not in fact change very much at all –  were to remove these features and delegate their responsibilities to Sandstorm instead.</p>
 
-<h3 id="backup--restore-functionality">Backup / Restore functionality</h3>
+<p>Sandstorm, of course, also resolves the hosting question, making it easy for users to deploy ShareLaTeX to servers they control.</p>
 
-<p>Jason has implemented the ability to back up
-and restore grains (app instances) from you Sandstorm server. Just click the
-new download icon on the top bar when viewing a grain. You will get a zip file
-containing the grain’s storage, which you can re-upload to the server (or to a
-different server) later on.</p>
-
-<h3 id="security-no-need-for-root">Security: No need for root</h3>
-
-<p>Sandstorm can now be installed and run without root privileges or setuid
-binaries. To accomplish this, we use Linux’s “UID namespaces” feature, which
-essentially allows other sandboxing features to be accessed by an unprivileged user.</p>
-
-<p>Unfortunately, if you are developing Sandstorm apps, it is still necessary to
-install Sandstorm with root privileges because the dev tools rely on FUSE and
-FUSE filesystems cannot currently be mounted inside UID namespaces. We hope the
-Linux kernel will eventually add this feature.</p>
-
-<p>Due to the use of UID namespaces, Sandstorm now requires Linux kernel version
-3.13 or better. The installer will verify that you are ready to run Sandstorm.</p>
-
-<p>Thanks to Andy for contributing much of the work on this.</p>
-
-<h3 id="seccomp-bpf-sandboxing">Seccomp-BPF Sandboxing</h3>
-
-<p>We’ve now enabled a basic seccomp filter to disable some dangerous system calls.
-Seccomp is a Linux feature that makes sandboxing more secure by disabling system
-calls (OS features) that apps don’t need. A typical web server uses only a tiny
-fraction of Linux’s system calls. By disabling the rest, we make sure that if a
-kernel exploit is found in one of them, it won’t allow an app to escape its
-sandbox.</p>
-
-<p>For now, we’ve disabled a few calls that provide complicated functionality that
-has been the subjects of vulnerabilities in the past, and that no web server
-rightly needs. We plan to expand on this in the future, eventually implementing
-a small whitelist and probably moving many system calls to userspace. All of
-this will be totally transparent to apps.</p>
-
-<p>Again, thanks to Andy for getting this started.</p>
-
-<h3 id="lwn-coverage">LWN Coverage</h3>
-
-<p>Linux Weekly News <a href="http://lwn.net/Articles/603485/">wrote about Sandstorm</a> last week!</p>
+<p>We take all of this as evidence that Sandstorm can eliminate many of the less-interesting and potentially costly parts of developing web apps. We hope that Sandstorm will enable developers to create many more apps like ShareLaTeX, catering to audiences of all sizes.</p>
 
 </section>
 
 <section>
-  <h2><a href="/news/2014-06-04-self-service-web-publishing.html">Host Your Web Site</a></h2>
+  <h2><a href="/news/2014-07-24-tinytinyrss-plus-security-discussion">We now have an RSS reader; plus let's talk about security</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
-    - <a href="/news/2014-06-04-self-service-web-publishing.html">04 Jun 2014</a>
+    - <a href="/news/2014-07-24-tinytinyrss-plus-security-discussion">24 Jul 2014</a>
   
-  <p>Sandstorm now supports apps that publish content to your personal web domain,
-such as blogging apps and content management systems.</p>
+  <p>Have you ever wished for an RSS reader that won’t simply <a href="http://reader.google.com">disappear</a> if the developers get tired of it?</p>
 
-<p>While we already had an app that claimed to do this (the “Hacker CMS” app), it
-previously required manual configuration of nginx to actually serve the content.
-Users of alpha.sandstorm.io actually had to ask me to manually set things up.
-But as of build 0.20, you can host your site in a completely self-service way.</p>
+<p>Today, we’re releasing our port of <a href="http://tt-rss.org/">TinyTinyRSS</a> to Sandstorm. Go install it on your Sandstorm server now, or <a href="https://demo.sandstorm.io">try the Sandstorm demo</a>.</p>
 
-<p>To try it out, install the latest version of Hacker CMS from the
-<a href="https://sandstorm.io/apps">app list</a> and click the “Setup DNS” button. (If you
-already have the app installed, install it again to get the latest version;
-we’re still working on automatic updates.)</p>
+<p>Unlike traditional web apps, Sandstorm apps can never “disappear”, because they run on <em>your</em> server rather than on the developer’s. Even if the developer stops supporting the app, you still have a copy that will keep working.</p>
 
-<p>Hacker CMS is still mostly a tech demo, and we’d like to replace it with ports
-of some better-known blogging platforms. That said, our own blog at
-blog.sandstorm.io is actually hosted using Hacker CMS.</p>
+<p>You might say: “But what about security updates?” Good question! Let’s talk about security.</p>
 
-<p>Want to write your own app that does web publishing? Check out
-<a href="https://github.com/kentonv/sandstorm/wiki/Publishing-to-the-user's-domain">the wiki page</a>
-to see how.</p>
+<h3 id="what-happens-if-an-app-has-security-bugs">What happens if an app has security bugs?</h3>
 
-<h3 id="tool-improvements">Tool Improvements</h3>
+<p>It turns out Sandstorm apps are automatically much more secure than on traditional servers. Much of your security is handled by the platform, without the app’s involvement. In many cases, even an app that has known security flaws is perfectly safe to run in Sandstorm.</p>
 
-<p>We’ve been hard at work improving Sandstorm’s developer experience. Some
-highlights include:</p>
+<p>For starters, Sandstorm handles login and authentication, so automatically one of the biggest potential vulnerabilities is gone. There is no way someone can exploit a vulnerability in the app to “log in” to your account, and the app never has access to your password or session keys and therefore cannot leak them.</p>
 
-<ul>
-  <li>Your app’s stdout/stderr output is now accessible via the web UI. Just click
-the wrench icon.</li>
-  <li>A file size indicator is now shown in the top bar, so you can see if your app
-is using unreasonable disk space (<em>cough</em> MongoDB <em>cough</em>).</li>
-  <li><a href="https://github.com/jparyani">Jason Paryani</a> has built preliminary support
-for e-mail, which he’ll talk more about in a future update (once an app is ready).</li>
-  <li>Many other small tweaks have been made to the <code>spk</code> tool.</li>
-</ul>
+<p>Moreover, attacks in which the attacker “tricks” your browser into performing some action on an app (with your credentials) are largely mitigated as well, because the attacker has no way to know your app’s address. Sandstorm assigns apps to hostnames on a temporary, per-session basis. When you don’t have your app open, it doesn’t even have a hostname. These hostnames are not displayed to the user, and we’re working on a change to make them cryptographically unguessable. If the attacker does not know your app’s hostname, they cannot launch CSRF attacks and many kinds of XSS attacks are thwarted as well.</p>
 
-<h3 id="all-invites-sent">All Invites Sent</h3>
+<p>The only remaining way to attack your app is by getting data into it by some other means. What this means depends on the app.</p>
 
-<p>Everyone who was on the <a href="https://sandstorm.io/#signup-form">mailing list</a>
-as of yesterday should have received an invite to alpha.sandstorm.io by now. Please
-let me know if you are on the list but didn’t receive one. Sorry it took so long!
-We will continue sending invites to new sign-ups as long as we can handle the
-server load.</p>
+<p>Imagine a document editor like Etherpad. This app never talks to the outside world at all. The only way an attacker can even talk to it (the first step in exploiting it) is by convincing you to explicitly share the document with them.</p>
 
-<h3 id="follow-sandstorm-on-twitter-and-google">Follow Sandstorm on Twitter and Google+!</h3>
+<p>For an app like TinyTinyRSS, there’s another opening: the app requests RSS feeds from the internet and parses them. Hypothetically, a bug in the feed parser or in the way feeds are rendered in the UI could make the app vulnerable. In order to exploit such a vulnerability, an attacker would have to trick you into signing up for their malicious RSS feed.</p>
 
-<p>We are <a href="http://twitter.com/SandstormIO">@SandstormIO on Twitter</a>
-and <a href="https://plus.google.com/u/0/107599969974415778560/posts">Sandstorm.io on Google+</a>.
-We want to keep the mailing list non-spammy, so follow us there for more frequent updates!</p>
+<p>But even in the worst case in these two examples, the damage is small, because Sandstorm itself isolates each app in a separate sandbox. Even if an app is exploited, the attacker only gets access to that app – and only the particular <em>instance</em> of that app.</p>
+
+<p>In the case of Etherpad, we create a separate sandbox for every document. So, if an attacker exploits a document, they only get access to that document. And as mentioned above, there’s no way for an attacker to exploit Etherpad without first receiving a share from the document owner. And if the document has already been shared with the attacker, they already have the whole contents, so what’s left to exploit? They can’t use that exploit to get access to any <em>other</em> document, because each document is in its own sandbox.</p>
+
+<p>In the case of TinyTinyRSS, if an attacker exploited an RSS parsing bug, they might get access to the TinyTinyRSS instance. This means they’d be able to see your other feeds, and could perhaps change your subscriptions. That’s it. For most people this is probably not a big deal. It’s a problem, but it’s nothing like having your password stolen or e-mail erased. And if you actually have a super-secret feed that you want no one to know about, you can protect yourself by having two separate TinyTinyRSS instances: one for your common feeds and one for the sensitive-but-trusted ones. If you accidentally sign up for an evil feed, you’ll probably put it in the first instance, and thus the sensitive instance is still protected. (Again, this is all hypothetical; we know of no such vulnerability.)</p>
+
+<p>This is what we call the “principle of least authority”: Each app only has the “authority” to do its job, and thus a vulnerability in one app can only do as much damage as the app’s authority allows. On traditional desktop systems with no sandboxing, a security bug in one app could completely expose your entire system to hackers. On the web today, a security vulnerability in one app might expose your password, thus giving attackers access to any other app where you use that password. On Sandstorm, a security bug in one app only harms that app and things to which it is connected.</p>
+
+<p>Of course, the above discussion is about apps. A bug in Sandstorm itself could be much more devastating. But that’s a smaller attack surface, and we have multiple security experts working with us. Security bugs are always possible in any code, but the less code you rely on not to have bugs, the less likely it is that one will harm you.</p>
 
 </section>
 
 <section>
-  <h2><a href="/news/2014-05-12-easy-port.html">Easy-Port</a></h2>
+  <h2><a href="/news/2014-07-22-ghost">Ghost Blogging Platform on Sandstorm</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
-    - <a href="/news/2014-05-12-easy-port.html">12 May 2014</a>
+    - <a href="/news/2014-07-22-ghost">22 Jul 2014</a>
   
-  <h3 id="port-your-app-to-sandstorm-in-five-minutes">Port your app to Sandstorm in five minutes!</h3>
+  <p>Today we’re releasing a major new app on Sandstorm: Ghost.</p>
 
-<p>Sandstorm employs a native-code sandbox. App servers may be written using any
-technology stack that runs on Linux. The app provides all of its own libraries;
-all Sandstorm provides is a filesystem and HTTP routing.</p>
+<p><a href="http://ghost.org">Ghost</a> is a blogging platform featuring beautiful design, and which was funded by <a href="https://www.kickstarter.com/projects/johnonolan/ghost-just-a-blogging-platform">its own crowdfunding campaign</a> last year. We’re extremely excited to bring it into the Sandstorm fold, in particular because we’ve been wanting to use it ourselves!</p>
 
-<p>Up until now, porting apps to Sandstorm was a rather tedious process involving
-carefully figuring out dependencies and building a chroot environment. But now,
-we’ve written a tool that automates the process. It’s so easy that if you have
-a traditional web app server already running on your Linux machine, you can
-probably turn it into a Sandstorm app package in five minutes or less.</p>
+<p>You can use Ghost on Sandstorm to publish a blog to an arbitrary domain. It uses Sandstorm’s <a href="/news/2014-06-04-self-service-web-publishing.html">web publishing features</a>.</p>
 
-<p>The trick is actually quite simple: we run your app in a special version of
-the Sandstorm sandbox running on top of a FUSE filesystem that detects exactly
-what files your app tries to open, satisfies those dependencies just-in-time,
-and then makes a list so that you can build a package later. By default, the
-tool just pulls binaries and libraries from your local system. Just make sure
-to test all of your app’s features in dev mode, and you should have a complete
-package.</p>
+<p>If you have a Sandstorm server, go install Ghost from the app list now. Don’t have one? <a href="https://demo.sandstorm.io/demo">Try our demo server.</a></p>
 
-<p><a href="https://github.com/kentonv/sandstorm/wiki/Porting-Guide">Check out the porting guide for details.</a></p>
+<p><img src="https://sandstorm.io/apps/ghost.png" alt="Ghost editor screenshot." /></p>
 
-<h3 id="wait-what-about-reproducible-builds">Wait, what about reproducible builds?</h3>
-
-<p>Glad you asked. Obviously, pulling whatever happens to be installed on your own
-machine into a package is a huge hack. A serious project will probably want to
-do something more hermetic and reproducible. Sandstorm supports that just fine.
-You can configure excatly where the dev tool looks for dependencies; it doesn’t
-have to be your own root directory. So, set up a chroot environment in whatever
-way suits you, and point it at that.</p>
-
-<p>You could, for example, use <a href="https://docker.io">Docker</a>. Once you’ve set up an
-appropriate Docker container for your app, point the Sandstorm dev tool at it
-and build a package. But it’s also possible to use the package management
-systems of various Linux distros directly. We didn’t want to constrain you to
-any one toolchain, because we know everyone has different tastes.</p>
-
-<h3 id="speaking-of-docker">Speaking of Docker</h3>
-
-<p>Many people have asked how Sandstorm is different from Docker. The answer is in
-the user interface. Docker is essentially a set of command-line tools for
-building chroot environments and deploying them. It is meant to be used by
-developers and sysadmins, to deploy software that might have any arbitrary
-number of users or, indeed, not be user-oriented at all. Docker is awesome at
-what it does, but what it does is actually not at all the same thing as what
-Sandstorm does.</p>
-
-<p>In contrast, Sandstorm is a user interface for a personal cloud server. It is
-perfectly possible for a non-technical end user to install new apps to their
-Sandstorm instance and use them. Moreover, Sandstorm provides and integrated
-login and sharing model, so that individual apps do not have to implement this
-themselves. The Sandstorm platform sits between the user and the app, so when
-an HTTP request arrives at the app, it is already annotated with information about the
-user’s identity and permissions as authenticated by the platform. Eventually, Sandstorm aims to provide a user
-interface that allows end users to connect their apps to each other and to
-other users’ app securely through an intuitive UI – think OAuth, except
-streamlined because all the apps already share an authentication system.
-Meanwhile, until two app instances have been connected by the user, they are
-completely isolated from each other, so that you need not worry that one
-insecure app might compromise your whole server.</p>
+<p><img src="https://sandstorm.io/apps/ghost2.png" alt="Ghost published screenshot." /></p>
 
 </section>
 
@@ -458,9 +340,9 @@ insecure app might compromise your whole server.</p>
         <li>
           <h3><a href="/get">Get Sandstorm</a></h3>
           <ul>
-            <li><a href="/get">For Individuals</a>
+            <li><a href="/get#managed-hosting">Hosting</a>
+            <li><a href="/get#self-host">Download</a>
             <li><a href="/get#self-host">For Organizations</a>
-            <li><a href="/get#self-host">For Self-hosters</a>
           </ul>
         </li>
         <li>
@@ -468,21 +350,31 @@ insecure app might compromise your whole server.</p>
           <ul>
             <li><a href="/features">Core</a>
             <li><a href="/features#security">Security</a>
-            <li><a href="/business">Sandstorm + Business</a>
-            <li><a href="/business#scale">Sandstorm + Scale</a>
+            <li><a href="/business">Sandstorm for Work</a>
+            <li><a href="/business#scale">Sandstorm for Enterprise</a>
             <li><a href="/developer">Development</a>
           </ul>
         </li>
         <li>
-          <h3><a href="how-it-works">How it Works</a></h3>
+          <h3><a href="/how-it-works">How it Works</a></h3>
           <ul>
             <li><a href="/how-it-works#grains">Fine-grained object containers</a>
             <li><a href="/how-it-works#capabilities">Capability-based Security</a>
           </ul>
         </li>
         <li>
-          <h3><a href="/community">Community</a>              </h3>
+          <h3><a href="https://docs.sandstorm.io">Documentation</a></h3>
           <ul>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/">Using</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/developing/">Developing</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/administering/">Administrating</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/security-practices/">Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a></h3>
+          <ul>
+            <li><a href="/news">Sandstorm Blog</a>
             <li><a href="/community#connect-with">Connect with us</a>
             <li><a href="/community#helpothers">Help Others</a>
             <li><a href="/community#helpproject">Help the Project</a>
@@ -498,27 +390,9 @@ insecure app might compromise your whole server.</p>
           </ul>
         </li>
         <li>
-        <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
           <ul>
             <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
-          </ul>
-        </li>
-        <li>
-          <h3><a href="/blog">Blog</a></h3>
-          <ul>
-            <li><a href="/blog">Latest updates on Sandstorm.io</a>
-          </ul>
-        </li>
-        <li>
-          <h3>Join our mailing list!</h3>
-            <div class="subscribe-small">
-							<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
-								<input type="email" name="EMAIL" placeholder="e-mail" required>
-								<input type="submit" value="Submit">
-								</form>
-            </div>
-          <ul>
-            <li><a href=""></a>
           </ul>
         </li>
         <li>
@@ -529,6 +403,18 @@ insecure app might compromise your whole server.</p>
 						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
 						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
   			</ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+                                                        <form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+                                                                <input type="email" name="EMAIL" placeholder="e-mail" required>
+                                                                <input type="submit" value="Submit">
+                                                                </form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
         </li>
       </ul>
       <p>This page was hand-crafted using only the finest web technologies.

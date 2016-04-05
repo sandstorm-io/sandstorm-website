@@ -5,10 +5,10 @@
     <title>Sandstorm Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Sandstorm.io">
+    <meta property="og:title" content="Sandstorm Blog">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
-    <meta property="og:url" content="https://sandstorm.io">
+    <meta property="og:image" content="https://sandstorm.io/images/sandcat.png">
+    <meta property="og:url" content="https://sandstorm.io/news/page3/">
     <meta property="og:description"
         content="Take control of your web by running your own personal cloud server with Sandstorm.">
     <link rel="stylesheet" type="text/css" href="/style.css">
@@ -20,11 +20,11 @@
   <body id="blog">
     <nav>
       <a href="/">Sandstorm.io</a>
-      <a href="/get">Sign Up</a>
-      <a href="/get#self-hosting">Download</a>
+      <a href="/get">Get Sandstorm</a>
       <a href="/features">Features</a>
       <a href="/how-it-works">How it Works</a>
       <a href="/news/">Blog</a>
+      <a href="https://docs.sandstorm.io">Docs</a>
       <a href="/community">Community</a>
       <a href="/about">About</a>
       <!-- TODO: search -->
@@ -56,6 +56,26 @@
       <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
       <span class="selfhost" href="/install">or host your own</span>
     </a>
+    
+    <h3>Recommended Posts</h3>
+    <ul>
+      <li><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">Open Source Web Apps Aren't Viable; Let's Fix That</a></li>
+      <li><a href="/news/2015-10-01-free-ssl-certificates.html">Free, automated SSL certificates for Sandstorm self-hosters</a></li>
+      <li><a href="/news/2014-08-19-why-not-run-docker-apps.html">Why doesn't Sandstorm just run Docker apps?</a></li>
+      <li><a href="/news/2015-08-31-oasis-beta-launch.html">Sandstorm Oasis hosting open beta and App Market launch</a></li>
+      <li><a href="/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install.html">Is curl|bash insecure?</a></li>
+      <li><a href="/news/2015-04-08-osx-security-bug">Remotely send Chrome and Node.js into infinite loops via this one weird OSX kernel bug</a></li>
+      <li><a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization.html">Delegation is the Cornerstone of Civilization: Sharing in Sandstorm.io</a></li>
+      <li><a href="/news/2016-01-22-8-new-open-source-apps.html">8 New open source self-hostable apps</a></li>
+      <li><a href="/news/2015-11-10-icons-spks-for-everyone.html">Graphics and one-click installers for everyone</a></li>
+    </ul>
+    
+    <h3>Further Reading</h3>
+      <ul>
+        <li><a href="/how-it-works">How Sandstorm Works</a></li>
+        <li><a href="http://docs.sandstorm.io">Sandstorm Documentation</a></li>
+        <li><a href="/install">How to install Sandstorm</a></li>
+      </ul>
   </div>
 </div>
 
@@ -78,265 +98,258 @@
 
 
 <section>
-  <h2><a href="/news/2015-08-11-meetup-recap.html">Recap of our August meetup</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+  <h2><a href="/news/2015-11-12-authenticated-app-packages">Authenticated app packages on Sandstorm with PGP and Keybase</a></h2>
+  <p class="post-details">By <a href="https://github.com/zarvox">Drew Fisher</a>
     
-    - <a href="/news/2015-08-11-meetup-recap.html">11 Aug 2015</a>
+    - <a href="/news/2015-11-12-authenticated-app-packages">12 Nov 2015</a>
   
   
   
   
-  <p>Last Thursday, <a href="http://rethinkdb.com/">RethinkDB</a> co-hosted the first
-<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223144969/">Sandstorm meetup in the South Bay</a>
-Here’s the view of the crowd at their Mountain View office.</p>
+  <p>I like to joke that Sandstorm is a security project posing as a
+usability project.  In actuality, it’s both!  Sandstorm users deserve to be
+confident that the apps they’re running are exactly as
+the packager built them, and have not been backdoored or accidentally modified
+by a malicious ISP, government, or other attacker.  Furthermore, this
+information must be easy to consume and verify.</p>
 
-<p><img src="/news/images/2015-08-meetup-rethinkdb.jpg" height="356" width="600" alt="Meetup at RethinkDB HQ" /></p>
+<p>To that end, I’ve worked with Kenton to make it possible to provide a cryptographic chain of trust
+that connects the app package you’re installing to the app publisher’s online
+accounts.  When you install the
+<a href="https://apps.sandstorm.io/app/a0n6hwm32zjsrzes8gnjg734dh6jwt7x83xdgytspe761pe2asw0">EtherCalc spreadsheet app</a>,
+Sandstorm lets you see that the app was made by the same Audrey Tang that owns
+<a href="https://github.com/audreyt">audreyt on Github</a> and
+<a href="https://keybase.io/au">au on Keybase</a>.
+Publisher information is shown front and center:</p>
 
-<p>I gave a talk introducing Sandstorm, inspired by Kenton’s blog post explaining
-the <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">motivation for Sandstorm: making it possible for open source and indie
-developers to build successful web apps</a>.</p>
+<p><img src="/news/images/install-ethercalc.png" width="100%" alt="Installing EtherCalc" /></p>
 
-<p><a href="https://twitter.com/thejsj">Jorge Silva</a> followed that with a talk focusing on
-RethinkDB. He explained how
-the open source RethinkDB database makes real-time apps easy to build, and showed
-how to package RethinkDB apps for Sandstorm. He used the new Sandstorm packaging
-tool called <a href="https://docs.sandstorm.io/en/latest/developing/">vagrant-spk</a>.</p>
+<p>To make this all work, there are a few steps involved.</p>
 
-<p>We then heard four lightning talks.</p>
+<h3 id="the-app-id-is-a-public-key">The app ID is a public key</h3>
 
-<ul>
-  <li><a href="https://github.com/pelzlpj">Paul Pelzl</a> explained how and why he wrote an
-implementation of <a href="https://pelzlpj.github.io/capnp-ocaml/">Cap’n Proto in OCaml</a>.</li>
-  <li><a href="https://github.com/wtogami">Warren Togami</a> talked about the importance of
-security in enterprise chat.</li>
-  <li><a href="https://github.com/amluto">Andy Lutomirski</a> discussed recent Linux security
-vulnerabilities, the history of Linux’s surprisingly large attack surface, and
-his excitement that Sandstorm will bring <a href="http://erights.org/elib/capability/ode/ode-capabilities.html">object-capability security</a>
-to the world.</li>
-  <li><a href="https://github.com/zombiezen">Ross Light</a> showed us the simple file
-uploading and sharing app he is building using <a href="https://golang.org/">Go</a>. The app
-looks sharp and he expects it’s almost ready for release. He remarked that it
-has a 3MB package file, and that could shrink further as he works on implementing
-replacing <a href="https://github.com/sandstorm-io/sandstorm/blob/master/src/sandstorm/sandstorm-http-bridge.c%2B%2B">sandstorm-http-bridge</a>
-with new code using his support for <a href="https://github.com/zombiezen/go-capnproto">Cap’n Proto RPC in Go</a>.</li>
-</ul>
+<p>Sandstorm has required that apps be signed since its inception, providing
+a first line of defense against package corruption.  The app is signed with an
+app-specific Ed25519 key at package-building time.  Sandstorm uses the public key
+as the app’s ID on the app market and your server.</p>
 
-<p>My personal thanks go out to
-<a href="https://twitter.com/christinakeelan">Christina Keelan</a> for handling the
-logistics and planning that made the event a success.</p>
+<p>This guarantees that app packages cannot be modified by a CDN or the app market
+without using a different app ID.  This also had the nice effect of providing
+trust-on-first-use properties for apps until we were able to bind these
+identities to something more meaningful.  The upshot: when you’ve installed an
+app, only the same app author can provide updates to it.</p>
 
-<p>I plan to organize September’s event in San Francisco and return to the South
-Bay in October. If you want to hear about those events,
-<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/">join the Sandstorm Meetup group</a>!</p>
+<h3 id="connect-the-app-id-to-a-pgp-key">Connect the app ID to a PGP key</h3>
+
+<p>Since the release of the <a href="https://apps.sandstorm.io/">app market</a>,
+app packagers have been PGP-signing statements that they are the author of the
+Sandstorm app with that app ID, and include that statement, their PGP public 
+key, and the email address associated with that key in their package’s metadata.
+Since that metadata is in the Sandstorm package file signed by the Ed25519 key,
+any server running Sandstorm can verify
+that these statements were provided by the person or people who control that
+Ed25519 key.  Additionally, since the statement is signed by the PGP key, there
+is a trust path from the owner of that PGP private key to the app you are
+installing. To defeat this, an attacker would need to convince an app author to
+replace both their signing statement and their PGP key in the package metadata
+with ones produced by the attacker.</p>
+
+<h3 id="connect-the-pgp-key-to-social-identities">Connect the PGP key to social identities</h3>
+
+<p>The next goal is to connect that PGP fingerprint to meaningful, real-world
+identities.  While a handful of people might be able to rely on the
+web-of-trust to verify PGP fingerprints, most users will need something more
+approachable.  That’s where <a href="https://keybase.io">Keybase</a> comes in.  Keybase
+helps you link PGP keys to social identities, like GitHub or Twitter accounts.
+App authors can create a Keybase account, then create signed proofs-of-ownership
+that they post to their social media pages or websites.  Keybase provides an
+index of these proofs, so given a PGP fingerprint, you can list the accounts for
+which the PGP key’s owner has proven control.</p>
+
+<h3 id="the-result-end-to-end-verified-apps">The result: end-to-end verified apps</h3>
+
+<p>When you go to install a package, Sandstorm verifies that the package is
+correctly signed by the Ed25519 key.  It looks for a PGP signature in the 
+metadata, and verifies that the PGP-signed assertion is for the correct app ID 
+and the email address specified in the metadata.  It queries the Keybase API to
+see what accounts the packager has proven ownership of, and lists them with 
+their links on the app install page.</p>
+
+<p>Currently, the implementation of this feature trusts Keybase’s servers to verify
+proofs and return an accurate list of the signer’s identities. However, Keybase
+proofs are designed to be verifiable by third parties without trusting Keybase,
+and we plan to extend Sandstorm to do this, thus eliminating Keybase itself from
+the trust chain.</p>
+
+<p>So that’s how Sandstorm links app packages to their
+creators’ social identities, with cryptographic verification at each step along
+the way, with no additional action needed by end users.  This is software
+authenticity that Just Works, and it’s available today for all Sandstorm users
+and packages in the App Market.  Today is a good day to
+<a href="https://sandstorm.io/install/">install Sandstorm on your own server</a> or sign up
+for our <a href="/news/2015-08-31-oasis-beta-launch.html">managed hosting</a>.</p>
 
 </section>
 
 <section>
-  <h2><a href="/news/2015-07-22-south-bay.html">Thu Aug 6: First Sandstorm meetup in the South Bay</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2015-07-22-south-bay.html">22 Jul 2015</a>
-  
-  <p><img src="/news/images/2015-meetup-photo.jpg" width="600" height="400" /></p>
-
-<p>On Thursday, August 6, the
-<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/">Sandstorm meetup group</a>
-has its first
-event in the South Bay.
-<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223144969/">RSVP here!</a></p>
-
-<p><a href="http://rethinkdb.com/">RethinkDB</a> is graciously offering space and helping
-provide food and drink. They’ll also be participating by
-showing off their open-source database
-for the realtime web and how to use it in a Sandstorm app.</p>
-
-<p>RethinkDB is based in Mountain View, which means easy travel if you’re based
-in Silicon Valley. After this event, I aim to switch monthly between organizing
-events in San Francisco and the South Bay.</p>
-
-<ul>
-  <li>Date &amp; time: Thursday, August 6, 6:30-9:30</li>
-  <li>Food &amp; drink: provided, with thanks to RethinkDB</li>
-  <li>Location: RethinkDB, 156 E Dana St, Mountain View, CA</li>
-  <li>Sign up: <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223144969/">On the Meetup.com event</a></li>
-</ul>
-
-<p>One more thing: You should give a <strong>lightning talk</strong>, where
-you talk for five minutes about a success story, a challenge or unresolved
-issue you’ve run into, or whatever else about Sandstorm strikes your fancy.
-It’ll be easy, and we’re a friendly bunch.
-<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223144969/">Leave a comment on the Meetup event</a>
-with your idea for a talk!</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-07-01-roundcube-next.html">Sandstorm community raises $10,644 for Roundcube Next</a></h2>
+  <h2><a href="/news/2015-11-10-icons-spks-for-everyone">Graphics and one-click installers for everyone</a></h2>
   <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
     
-    - <a href="/news/2015-07-01-roundcube-next.html">01 Jul 2015</a>
+      and <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2015-11-10-icons-spks-for-everyone">10 Nov 2015</a>
   
-  <p><img src="http://res.cloudinary.com/indiegogo-media-prod-cld/image/upload/c_limit,w_620/v1434704886/wesm5hnffdl1clv26k2f.jpg" alt="" /></p>
+  <p>Open source web app developers build great apps. But sometimes, backend-minded developers need a little help, from making it easy for end users to install their apps to making their icons and other graphics visually appealing. To make open source web apps <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">viable</a> as an ecosystem, the apps must be easy to install and use, and to get the attention they deserve, they should have good-looking icons that convey the purpose of the app.</p>
 
-<p>Last week we asked the Sandstorm.io community to come together to support the <a href="https://www.indiegogo.com/projects/roundcube-next--2">Indiegogo campaign of Roundcube Next</a> using their Sandstorm app store credit. Today we’re happy to announce that we’ve raised:</p>
+<h3 id="graphics-for-everyone">Graphics for everyone</h3>
 
-<p style="font-weight: bold; font-size: 200%; text-align: center;">$10,644</p>
+<p>Lately, we’ve been running an experiment – will app authors be interested in custom graphics, designed by Néna Nguyen at Sandstorm? So far, <a href="https://github.com/audreyt/ethercalc/issues/236">the</a> <a href="https://github.com/cem/dillinger-sandstorm/pull/2">response</a> <a href="https://github.com/cem/nodebb-sandstorm/pull/1">has</a> <a href="https://github.com/jacksingleton/hacker-slides/issues/28">been</a> <a href="https://github.com/strawlab/neuron-catalog/pull/36">positive</a>!</p>
 
-<p>We’ve contributed the total to Roundcube Next as a lump sum, making the Sandstorm community the single largest contributor!</p>
+<p>So I’m excited to announce we’ll do this for everyone who packages their app
+for Sandstorm: To support app authors, we are happy to help with graphics. This is on top of the <a href="https://apps.sandstorm.io/">one-click install</a> for your app that Sandstorm enables, which works just as well <a href="https://oasis.sandstorm.io">in the cloud</a> as it does for <a href="https://sandstorm.io/install">self-hosters</a> (see below). For instance, Néna will make an icon for you if you need it. Check out this awesome icon set that Néna made for Wekan (kanban board):</p>
 
-<p>Roundcube is an open source email app that you can run on Sandstorm today (<a href="https://demo.sandstorm.io/appdemo/0qhha1v9ne1p42s5jw7r6qq6rt5tcx80zpg1f5ptsg7ryr4hws1h">demo</a>). They are running a crowdfunding campaign on Indiegogo to modernize their user interface and bring Roundcube to mobile. Although <a href="http://venturebeat.com/2015/06/24/massive-open-source-email-collaboration-platform-roundcube-beats-indiegogo-funding-goal/">the campaign has reached its funding goal</a>, they’ve got some great stretch goals and you can still contribute until it ends tomorrow.</p>
+<p><a href="https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h"><img src="/news/images/wekan-icon-gallery.png" width="100%" alt="logos" /></a></p>
 
-<p>Almost a year ago, <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform">Sandstorm raised approximately $60K on Indiegogo</a> to fundamentally change the way we use and host web applications. When we raised our $1.3M seed round last January, we <a href="/news/2015-01-15-sandstorm-1.3M-seed-round-pay-it-forward.html">made a promise</a> to the community to pay-it-forward – to forward the crowdfunds to support other open source projects (such as Roundcube) in the ecosystem through the App Market. Since the Roundcube Next crowdfunding campaign launched before the App Market launched, we rallied the original Sandstorm contributors to dedicate a portion of their App Market credit to forward to Roundcube Next as a bloc.</p>
+<p><em>Wekan (open source Trello alternative) icons in varying contexts. Check out <a href="https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h">Wekan on the App Market »</a></em></p>
 
-<p>Roundcube <a href="https://plus.google.com/u/0/b/107599969974415778560/+AaronSeigo/posts/B1Vnkq5MNmo">has promised</a> that they will directly support Sandstorm as a target platform for Roundcube Next, meaning the app will get timely updates and integrate with Sandstorm-specific features. For example, we want to make it easy to attach Sandstorm documents to email for sharing.</p>
+<h3 id="one-click-installers-for-everyone">One-click installers for everyone</h3>
 
-<p>Let’s take a moment to thank all the Sandstorm contributors who have chosen to forward part or all of their App Market credit to Roundcube:</p>
+<p>An app written <strong>using Meteor</strong> is the easiest to package – there’s a <a href="https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial-meteor">special tutorial for Meteor apps</a>. If you input the URL of your GitHub repo below, we can even do a first-run of the packaging for you and ping you with a live demo featuring your own spk (Sandstorm package):</p>
 
-<p>Erik Swanson, Tommy Hodgins, Mark Bradley, Ondřej Böhm, August Lilleaas, Paul Gaspardo, Oluf Lorenzen, Eddie Jesinsky, Charles Lehner, Francois O Baldassari, Florin Godard, Lachlan Musicman, Patrick Ohly, Praveen Moorthy, Corey Ford, Toby Matejovsky, Giorgos Logiotatidis, Maxime Quandalle, Alexander Kulbartsch, Colin Maudry, Francesco ‘makevoid’ Canessa, Ben Cordero, Sebastian Kippe, Shawn Becker, shazow, Michael Manley, Pascal Gellert, Dan Bornstein, Wong Ho Wang, Petr Viktorin, Christopher Toledo, Thomas Hansen, Noah O’Donoghue, Matthew Steffen, Baruch Even, Pascal de Vink, Tim Davies, Alex Dempsey, Fred Schättgen, Bruno ARLIGUY, Maria, David Turner, David Meyer, Noel Yap, Hugo Artur Weber Schmitt, Joel Roller, Keith Hall, C. Moreno, Abdullah Khalid, Vincent Malley, James Graves, JollyOrc, Shane Gould, Matt Johnston, Alec, Alan Karp, JT Olds, Daniel Ring, Wes Felter, Sage Ross, Joseph Lee, Asheesh Laroia, Jason Hsu, Yuriy @html5cat Dybskiy, Amir Chaudhry, Pedro Ângelo, nFec, getify, Dan Morrill, Daniel DeSousa, Collin Jackson, Daniel Yokomizo, Aaron Vaneps, Glen Skinner, Tobias Ammann, Dinyar Rabady, Will Norris, Tim Butram, Nathan Henderson, Colin Dean, Jeff Cressman, Vincent Lim, Adam Berkan, Audrey Tang, Justin Fox, Jan Jambor, Fahrstuhl, Greg Perkins, Zellyn Hunter, Tim Lossen, David Alfonso, Michael Bright, Jamiel Almeida, Ali Gunduz, Jonathan Wheaton, Nathan Greene, Mitchell Barry, Matt Campbell, the paul, Svemir Brkic, Paul-Robert Archibald, Tiago Freitas, Eli Willaert, Daniel Schulze Hagen, Tobias, Jeremy Coté, Matthew Baggott, Jason Glass, Thomas Myers, Scott Pritchett, Mike Linksvayer, Fred Eisele, @noahsilas, Fred Smith, Jochen Bartl, Suvi-Tuuli Allan, Mark S. Miller, Rick Richardson, Rebecca Wise, George Ellenburg, Andrew Thibeault, Andrew Jennings, Rahim Nathwani, Aren Olson, Richard Bairwell, Heri Sim, Erik Andersson, Matt Siegel, Phil Dutson, Siegfried Kettlitz, William Zajac, Nick Richards, Kamil Páral, Garance A Drosehn, Guido Hoermann, Robert Konigsberg, Jasvir Nagra &lt;img src=x onerror=alert()&gt;, Joshua Warner, Ana Ulin, Walter Ebert, Brooke Schreier Ganz, Kevin Wallace, Ingo Blechschmidt, Beni Paskin-Cherniavsky, Cole Mickens, Andy Gayton, Scott Nesbitt, Strick Yak, Andrew Chilton, Matthias Dallmeier, Geoffrey Thomas, Matthias Liertzer, Brit Butler, Dan Nuffer, Ry4an Brase, Dawn Luoma, Chhi’mèd Künzang, Duncan J, Vivek Gani, Gaelen Hadlett, TJ Rothwell, Lucas Dohmen, Derek Waters, Igor Cananea, Colin Barrow, Kevin Baker, Richard Thompson, whitequark, Michael Fitzpatrick-Ruth, Jonathan Castello, Michael Powell, Ryan Kelly, J. Ryan Stinnett, William Kilmer, Kenny Rachuonyo, Lionel Debroux, Bastian Allgeier, John M Cooper, Tako Marks, Børge A. Roum, Alex Morega, Bruno Orcha García, mike nonemacher, Andy Burnett, Phil Kates, Lucian Carata, Gregg Cooke, Kevin C., Séamus O’Connor, Tim Kiekhafer, Derrick Southerland, Simon Clausen, queria, Simeon Farwell-Miller, Shyam Paryani, Sascha Zelzer, Jared Sohn, Daniel Dornhardt, Maftoc, Jake Rayson, Brandon Peters, Joshua Wise, Randall Leeds, Kit Stubbs, Ph.D., James Warner, Ben Rog-Wilhelm, Andreas Rohlfs, Konrad Scorciapino, Arne Neumann, Ben Cohen, James Synge, Johannes Krampf, Bryan Luoma, Martin Krafft, Jim Garrison, Kingdon Barrett</p>
+<iframe src="https://docs.google.com/a/corp.sandstorm.io/forms/d/1gj8h2rkeovWxtKP-8nTmouwLLxwEkh5iDNHudlckfE8/viewform?embedded=true" width="760" height="356" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+<p>Meteor or not, any web app that runs on Linux can be packaged for Sandstorm. Get started with <a href="https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial">this documentation link</a>.</p>
+
+<p><a class="linkbutton" href="https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial/">Packaging docs »</a></p>
+
+<p>Drop a line to community@sandstorm.io with any questions and we’ll make sure you succeed.</p>
 
 </section>
 
 <section>
-  <h2><a href="/news/2015-06-17-events.html">Upcoming events in San Francisco & Portland</a></h2>
+  <h2><a href="/news/2015-10-22-upcoming-meetups">Upcoming Sandstorm meetups in Palo Alto & San Francisco</a></h2>
+  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
+    
+    - <a href="/news/2015-10-22-upcoming-meetups">22 Oct 2015</a>
+  
+  <p>Live in the Bay Area or passing through? Come out and meet other awesome folks working on cool projects on Sandstorm.</p>
+
+<p>We’ve got two meetups coming up on Weds., 10/28 in Palo Alto and Tuesday, 11/3 in San Francisco.</p>
+
+<h3 id="sandstorm-bbq-in-the-park-palo-alto">Sandstorm BBQ in the Park (Palo Alto)</h3>
+
+<p><a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/225890352/">RSVP link</a>
+Time: 5:30 PM - 9PM-ish
+Date: Wednesday, October 28, 2015 (next Wednesday!)
+Where: <a href="https://www.google.com/maps?f=q&amp;hl=en&amp;q=390+Fernando+Ave,+Palo+Alto,+CA,+us">John Boulware Park (street parking available)
+390 Fernando Ave, Palo Alto, CA</a></p>
+
+<ul>
+  <li>
+    <p>5:30PM: BBQ in the park</p>
+  </li>
+  <li>
+    <p>Dusk: When it gets too dark to eat, we can all head back to Sandstorm HQ (nearby) to hang out and have more unstructured discussions. Personally, I (Jade) want to see <a href="https://en.wikipedia.org/wiki/Citizenfour">Citizen Four</a> because I haven’t seen it yet. Come watch with me.</p>
+  </li>
+</ul>
+
+<h3 id="hands-on-sandstorm-qa-esp-app-packaging-and-lightning-talks-san-francisco">Hands-on Sandstorm Q&amp;A (esp. app packaging), and lightning talks (San Francisco)</h3>
+
+<p><a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/226062960/">RSVP link</a>
+Time: 6:00PM - 9:30PM
+Date: Tuesday, November 3, 2015
+Where: <a href="https://www.google.com/maps?f=q&amp;hl=en&amp;q=814+Mission+St,+5th+Floor,+San+Francisco,+CA,+us">ThoughtWorks HQ (near Powell St. BART)
+814 Mission St, 5th Floor, San Francisco, CA</a></p>
+
+<ul>
+  <li>
+    <p>6 PM: If you want to talk tech details about Sandstorm, show up at six! Core developers, app packagers, self-hosters, and others will be helping each other with app packaging questions, installation issues, and more. We’ll have food!</p>
+  </li>
+  <li>
+    <p>8 PM: Lightning talks. Leave a comment to sign up for one!</p>
+  </li>
+  <li>
+    <p>8:30 PM - 9:30 PM: Socializing and informal Q&amp;A.</p>
+  </li>
+</ul>
+
+<p>Hope you can make it!</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2015-10-20-hanselminutes">Hanselminutes features Sandstorm.io</a></h2>
+  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
+    
+    - <a href="/news/2015-10-20-hanselminutes">20 Oct 2015</a>
+  
+  <p><a href="http://www.hanselminutes.com/497/your-personal-cloud-platform-with-sandstormio-and-kenton-varda"><img src="/news/images/hanselminutes.jpg" /></a></p>
+
+<p>Last week, <a href="http://www.hanselminutes.com/497/your-personal-cloud-platform-with-sandstormio-and-kenton-varda">Scott Hanselman interviewed Kenton Varda for his Hanselminutes podcast</a>. Check out the half-hour interview in which they discuss Sandstorm, from big-picture vision (e.g., making the web safe for open source web apps) to how Sandstorm’s security features work.</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2015-10-01-free-ssl-certificates">Free, automated SSL certificates for Sandstorm self-hosters</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
-    - <a href="/news/2015-06-17-events.html">17 Jun 2015</a>
+    - <a href="/news/2015-10-01-free-ssl-certificates">01 Oct 2015</a>
   
-  <p>David, Jade, and Asheesh will be speaking at events in Portland, OR, and
-San Francisco.</p>
+  <p><em><strong>TL;DR:</strong> If you <a href="https://sandstorm.io/install/">install Sandstorm</a> and choose to use a subdomain of our dynamic DNS service sandcats.io, we’ll automatically set you up with an HTTPS certificate from GlobalSign. The private key never leaves your machine and is automatically rotated every week.</em></p>
 
-<h3 id="san-francisco-meetup-june-18">San Francisco meetup, June 18</h3>
+<p>People who run their own servers often do it for privacy. Many of them use our open source Sandstorm software to easily run apps like <a href="https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60">document editors</a>, <a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">group chat apps</a>, <a href="https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h">task management</a>, and <a href="https://apps.sandstorm.io">more</a>.</p>
 
-<p>At our
-<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223113702/">second SF meetup</a>,
-we’ll have a brief intro by core dev David Renshaw about the new sharing features of Sandstorm.
-We’re lucky to have
-David in town, as he’s normally in Pittsburgh.</p>
+<p>But a private server is not really private if you’re communicating with it in plaintext. So, starting today, if you <a href="https://sandstorm.io/install/">install Sandstorm</a> on your own Linux server, and you choose to host at a subdomain of our free dynamic DNS service sandcats.io, you will have free, automatically-renewing HTTPS certificates by default. That means you get privacy on the network without any hassle.</p>
 
-<p>Co-founder Jade Wang will showcase how to package a Meteor app for Sandstorm, which
-is a preview of her jQuerySF talk.</p>
-
-<p>That’ll be at ThoughtWorks (thanks to them for hosting!) in San Francisco, 6 PM
-Thu 6/18. <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223113702/">RSVP here!</a></p>
-
-<h3 id="jquerysf-june-22-23">jQuerySF, June 22-23</h3>
-
-<p>At the upcoming <a href="http://jquerysf.com/">jQuerySF</a> conference, Jade will give
-a talk entitled “Sandstorm.io: one-click, deploy anywhere.” It’s
-at 11:10am on Monday, June 22.</p>
-
-<p>If you haven’t bought a ticket yet, use our Friends &amp; Family
-of Sandstorm discount code to register for just $20, saving a
-a huge amount off the ticket price. Register at
-<a href="https://ti.to/jquerysf/2015">the registration page</a> and use the code
-<code>sandstorm-ftw</code>!</p>
-
-<h3 id="open-source-bridge-portland-or-week-of-june-22">Open Source Bridge, Portland, OR, week of June 22</h3>
-
-<p>I’m giving two talks at Open Source Bridge, and would love to see
-Sandstorm-minded people there.</p>
-
-<ul>
-  <li><a href="http://opensourcebridge.org/sessions/1528">Economics of Volunteer Labor: Three stories from Debian</a>, Tue Jun 23, 10am</li>
-  <li><a href="http://opensourcebridge.org/sessions/1527">Five years, 1000 students: The story of Open Source Comes to Campus</a>, Thu Jun 25, 10am</li>
-</ul>
-
-<p>I hope to see you in SF or Portland! Feel free
-to drop me a line; I’m asheesh at sandstorm.io.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-06-10-network-access-permission-android-vs-sandstorm.html">Should apps get network access by default? Android vs. Sandstorm</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2015-06-10-network-access-permission-android-vs-sandstorm.html">10 Jun 2015</a>
-  
-  <p>Google’s Android team has <a href="http://arstechnica.com/gadgets/2015/05/android-m-dev-preview-launches-permission-controls-fingerprint-api-and-more/">announced</a> that in Android M, users will be prompted to grant permissions to apps at the time the permission is used, rather than an the time the app is installed. That’s great! This will make it much easier for users to understand how permissions are being used and allows them to perform a “line-item veto” without uninstalling the whole app. This puts much more power in the hands of users, as it should be.</p>
-
-<p>Unfortunately, permission to access the network is now going to be granted totally automatically. Is this the right thing to do? <a href="http://www.androidpolice.com/2015/06/06/android-m-will-never-ask-users-for-permission-to-use-the-internet-and-thats-probably-okay/">Android Police</a> argues that it’s “probably okay”. But some of the arguments feel unconvincing.</p>
-
-<p>At Sandstorm, we have some strong opinions on this. Sandstorm, like Android, seeks to run apps in an environment that enforces a strong permissions model (but Sandstorm targets servers rather than phones). Part of Sandstorm’s security promise to the user is that apps are “confined”: they have <em>no communication with the outside world</em> unless and until the user grants them permissions. This promise is probably the most controversial part of our <a href="https://github.com/sandstorm-io/sandstorm/wiki/Security-Practices-Overview">security model</a>, but we continue to believe it is the right thing to do. <em>(Note: Sandstorm’s confinement guarantee is not fully enforced at this time, as we have intentionally poked holes in the sandbox during alpha testing in order to work around missing features. But, these will be closed over the next few months.)</em></p>
-
-<p>So, let’s take a look at the arguments the Android team is making for abandoning confinement.</p>
-
-<h3 id="bogus-argument-1-controlling-internet-access-is-redundant-on-top-of-other-permissions">Bogus Argument 1: Controlling internet access is redundant on top of other permissions.</h3>
-
-<p>The Android team apparently argues that being able to disable an app’s network access is not very important as long as all of your sensitive data (say, contacts) is guarded behind other permissions checks. If you don’t want the app to upload your contacts to the developer’s server, they say, don’t give it permission to see your contacts.</p>
-
-<p>This argument, to be frank, makes no sense. What if I <em>want</em> the app to organize my contacts (e.g. because it is a contact manager app), but still do <em>not</em> want it to upload my contacts to the developer’s server? The Android model seems to say that I must treat the app and the developer as one entity, which is unfortunate, but perhaps consistent with the SaaS model that Google is used to. We’d like to do better.</p>
-
-<p>In fact, proper confinement allows us to do something rather magical which the Android team seems to be overlooking: If I can confine an app, then I can safely load sensitive data into the app even if the app is malicious! This in turn makes it much easier to feel comfortable using apps from random developers I don’t know. It also means I don’t need to worry too much about bugs in the app.</p>
-
-<p>Moreover, even if I don’t plan to give the app any other permissions, I may still worry about whether the app might consume my resources in order to participate in a DDoS attack, anonymizing proxy service, or bitcoin mining rig behind my back.</p>
-
-<h3 id="bogus-argument-2-the-app-can-already-leak-data-by-opening-a-web-page-using-an-intent">Bogus Argument 2: The app can already leak data by opening a web page using an intent.</h3>
-
-<p>The Android team argues that an app can always use Android Intents to ask Chrome to open the developer’s web site, encoding my sensitive data as a URL parameter, thereby leaking my data. Because this is possible, they say, trying to provide confinement is pointless.</p>
-
-<p>First, two simple responses:</p>
+<p>For companies and individuals who run their own Sandstorm servers, it’s now easy to secure yourself with HTTPS. Here are the steps.</p>
 
 <ol>
-  <li>I will likely notice if an app opens Chrome with some weird URL, and be suspicious. That’s much better than it happening in secret.</li>
-  <li>The app probably can’t participate in a botnet through browser intents.</li>
+  <li>
+    <p>Download and run the <a href="https://sandstorm.io/install/">Sandstorm install script</a>.</p>
+  </li>
+  <li>
+    <p>Choose a subdomain of <code>sandcats.io</code> you want to register (and tell us how to contact you to recover the domain).</p>
+  </li>
+  <li>
+    <p>Visit your server’s new web dashboard by clicking the URL printed out by the install script.</p>
+  </li>
 </ol>
 
-<p>More importantly, though, if intents allow trivial data leakage, perhaps that is a problem in intents. Perhaps the user needs to be asked whether or not they really want to open that link.</p>
+<p>Sandstorm automatically enables HTTPS as part of step 2. There’s no setting up reverse proxies, no creating certificate signing requests, no waiting on a CA. Your private key is on your machine and never leaves.</p>
 
-<p>But would that be annoying? I actually don’t think it would be too bad. People who have installed multiple browsers on Android today are, in fact, already protected: Android prompts the user to choose which browser to use. The user can, at this point, press “back” to avoid the interaction altogether. Perhaps Android Intents should in fact prompt the user to choose an app even when there is only one choice: in fact, there is always a second choice, which is “don’t open this at all”. Meanwhile, this interstitial lets the user know that they are switching apps, which may help them be less confused.</p>
+<h3 id="why-you-need-https">Why you need HTTPS</h3>
 
-<h3 id="legitimate-argument-ux-is-hard">Legitimate Argument: UX is hard.</h3>
+<p>HTTPS (also commonly but incorrectly called “SSL”) is important because the web’s original protocol, HTTP, is insecure – anyone in a coffee shop near you can see what you’re browsing or modify your traffic. This is a real threat; here’s a <a href="https://www.youtube.com/watch?v=my4oZqBU5zE">video of someone stealing HTTP traffic</a> that was made as a school project.</p>
 
-<p>I think that the real reason the Android team doesn’t want to implement internet access as a permission is because getting the UX right is legitimately hard. Pushing an “allow/deny” prompt in the user’s face on the first packet sent is genuinely annoying and not very helpful to the user, and the Android people aren’t feeling particularly excited about trying to develop something better, perhaps because they think that users don’t care (a popular but <a href="http://boingboing.net/2015/06/08/internet-users-care-about-thei.html">incorrect</a> assumption).</p>
+<p>Over the past five years, web companies like <a href="http://googleblog.blogspot.com/2011/10/making-search-more-secure.html">Google</a>, <a href="https://www.facebook.com/notes/facebook-engineering/secure-browsing-by-default/10151590414803920">Facebook</a>, and <a href="https://blog.twitter.com/2012/securing-your-twitter-experience-with-https">Twitter</a> have been switching their sites to require HTTPS. Sandstorm.io and all of its subdomains have always required HTTPS. The Chrome team is planning to <a href="https://www.chromium.org/Home/chromium-security/marking-http-as-non-secure">show a broken padlock</a> for plain HTTP sites. Companies that are responsible for a lot of user data have been making time to secure their sites with HTTPS.</p>
 
-<p>I believe there is a better way: Instead of prompting the user to allow or deny internet access as a whole, prompt them for individual <em>capabilities</em> that the app needs, and then merge that prompt with a choice that they were <em>already making</em>. It turns out that most security decisions, if you look carefully enough, are in fact paired with some functionality choice. If you merge the choices together, then one of two things happens:</p>
+<h3 id="our-search-for-a-certificate-vendor">Our search for a certificate vendor</h3>
 
-<ol>
-  <li>The functionality choice is a choice the user already had to make, and by merging the security choice, you’ve avoided forcing the user to answer a separate security question.</li>
-  <li>The functionality choice is a choice the user <em>wasn’t</em> already being offered, but by offering them a choice, you are giving them a real, useful ability that they didn’t have.</li>
-</ol>
+<p>Providing automatic HTTPS is more than just a technical problem. To be trusted, the certificates must come from a Certificate Authority that is already trusted by your browser. To deliver certificates to you, we needed to work with such an authority.</p>
 
-<p>Let’s illustrate with some examples:</p>
+<p>So, earlier this year, I began to talk to people at CAs. But there was a complication: Sandstorm <a href="https://docs.sandstorm.io/en/latest/administering/wildcard/">requires a wildcard certificate</a> to achieve some of its security properties. That is, if your server is <code>example.sandcats.io</code>, all subdomains <code>*.example.sandcats.io</code> must be covered as well. Wildcard certificates are usually expensive – an order of magnitude more so than normal certificates. And when I talked to the inspiring folks at <a href="https://letsencrypt.org/">Let’s Encrypt</a>, I discovered that they weren’t ready to issue wildcard certificates.</p>
 
-<ul>
-  <li><strong>Contacts:</strong> Many Android apps want to send “viral” invites to your friends. To accomplish this, the app first asks for permission to your contact list. A <em>legitimate</em> app uses that permission to display a contact picker back to you, from which you can choose the people whom you want to invite, and the app will then only <s>spam</s> invite those people. An <em>illegitimate</em> app will use the permission to spam or harvest your contacts without asking you first. (Sometimes these illegitimate apps are <a href="http://blog.path.com/post/17274932484/we-are-sorry">big names</a>!) So what are the two choices here?
-    <ul>
-      <li><strong>Security choice:</strong> Do you want give the app permission to use your contacts?</li>
-      <li><strong>Functionality choice:</strong> <em>Which</em> contacts do you want to invite?</li>
-    </ul>
+<p>I was lucky enough to find Michael Trotta at <a href="https://www.globalsign.com/">GlobalSign</a>. He believed in our mission of making servers safe and easy for more people to run. Working together, we were able to set up a deal allowing us to offer free wildcard certificates under sandcats.io. Contracts were signed, and then it was time to write some code.</p>
 
-    <p>Android actually provides a contact picker UI which can be invoked via an intent. When used, instead of requesting permission to your <em>whole</em> contact list just to show you a picker, the app asks Android to display the picker, and receives permissions <em>only</em> to the contacts you choose. To the user, the UX is exactly the same (they choose whom to invite), but there is <em>no</em> security prompt, and yet illegitimate use is blocked. Hooray!</p>
+<h3 id="defending-against-the-next-heartbleed-weekly-key-rotation">Defending against the next Heartbleed: Weekly key rotation</h3>
 
-    <p>Sadly, many apps choose not to use this built-in picker, perhaps because developers think they can draw a prettier picker themselves and that the user doesn’t care about granting the extra permission. In my opinion, the Android-provided picker should be improved and the contacts permission discouraged – or disabled – in order to push developers away from drawing their own pickers.</p>
-  </li>
-  <li><strong>Email app:</strong> An app which wants to access your email (say, though IMAP) needs to know your server address and credentials, and then needs internet connectivity to talk to it. But can we do better?
-    <ul>
-      <li><strong>Security choice:</strong> Do you want to give the app permission to talk to your server?</li>
-      <li><strong>Functionality choice:</strong> What server should the app talk to, and what is the password?</li>
-    </ul>
+<p>We want Sandstorm to require as little maintenance as possible, so that there’s no reason not to run your own server. We especially want security problems to be solved with no action on your part.</p>
 
-    <p>What if the platform implemented a “server picker” UI, so that the mail app merely says “I need a server address, username, and password”, the platform displays a form to the user, and then the requesting app not only receives information back, but also receives permission to access <em>specifically that server</em>? The user is, again, only doing something they had to do anyway: choose their server. No security prompt was ever presented, and yet the security ends up correct. (Plus, if you take it a step further by having the app proxy requests through the platform, then the platform could in fact hold on to the user’s mail server password, preventing the app from accidentally leaking it.)</p>
-  </li>
-  <li><strong>Locked-in Cloud API:</strong> Say a scheduling app wants to talk to the Google Calendar cloud API. The app only integrates with Google Calendar and no other service. Here we see an interesting side-effect come into play:
-    <ul>
-      <li><strong>Security choice:</strong> Do you want to give the app permission to access your Calendar account?</li>
-      <li><strong>Functionality choice:</strong> Which account do you want the app to use? (If you have more than one.)</li>
-      <li><strong>Freedom choice:</strong> Which <em>server</em> do you want the app to talk to?</li>
-    </ul>
+<p>One of the biggest headaches for server admins in recent memory was <a href="http://heartbleed.com/">Heartbleed</a>, a bug in the popular OpenSSL library which could have revealed people’s private encryption keys to attackers.</p>
 
-    <p>In this case, Android actually has an account management system and picker UI which handles the first two choices as one unit, exactly as I’d like. But I am <em>not</em> allowed to choose which server to use – I am locked into Google’s server. What if there is a third-party service – or open source server app – which I would like to use which has implemented a Google-calendar-compatible API? As long as the API is implemented correctly, I ought to be able to make apps use the alternate service, rather than be locked into Google.</p>
+<p>Patching the bug is the easy part: If you have automatic updates enabled, your Sandstorm will be updated within 24 hours of any release without any action on your part.</p>
 
-    <p>If the security choice is mandatory anyway, and it is done in a <em>fine-grained</em> way (i.e. the request is for a specific server, rather than arbitrary network access), then the freedom choice can naturally be provided at the same time, without the app even knowing about it.</p>
-  </li>
-</ul>
+<p>What made Heartbleed so bad, though, was not just that systems had to be updated, but that all HTTPS keys and certificates had to be revoked and regenerated, in case they had already been stolen. This was a huge pain for sysadmins, and a huge pain for the certificate revocation infrastructure, which was not designed for everyone in the world to revoke certificates simultaneously.</p>
 
-<h3 id="the-powerbox-ui">The Powerbox UI</h3>
+<p>To solve this, Sandcats issues certificates valid for only seven days. Your server will automatically generate a new key and receive a new certificate every week. So, any compromise of your private key “fixes itself” over time. Granted, a week is a long time to live with the possibility of an active MITM attack, but realistically it took much longer than that for most revocations to take effect after Heartbleed (if they ever took effect at all).</p>
 
-<p>All of the examples above will be supported through Sandstorm’s “Powerbox” UI. In general, the Powerbox is an arbitrary picker which can be invoked by any app and extended by any app. Underlying the Powerbox is the <a href="https://capnproto.org/rpc.html">Cap’n Proto RPC protocol</a>, which naturally represents capabilities (as granted by the powerbox) as RPC object references, automatically taking care of permissions and message routing.</p>
+<h3 id="the-result-every-sandstorm-app-is-secure-for-self-hosters">The result: Every Sandstorm app is secure for self-hosters</h3>
 
-<p>We have been laying the groundwork for the Powerbox for some time. The <a href="https://github.com/sandstorm-io/sandstorm/wiki/Security-Practices-Overview#capability-based-usable-security">infrastructure</a> is ready, and we are now working on giving it a UI. This will happen gradually over the next couple months.</p>
+<p>Because Sandstorm handles HTTPS, rather than the app or the system administrator, the <a href="https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60">Etherpad package</a> in Sandstorm doesn’t need to have any kind of special integration, nor does the <a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat package</a>, nor does the <a href="https://apps.sandstorm.io/app/sptx6z162fp1w8rwe92vc8tzm76v0mk0wwc9yafze2vpghjs48j0">Brainstorm package</a>, nor any other.</p>
 
-<p>Even without the Powerbox, Sandstorm is highly usable today. <a href="https://demo.sandstorm.io">Try the demo</a>, <a href="https://sandstorm.io/install/">install your own (it’s open source)</a>, or <a href="https://sandstorm.io/preorder.html">preorder hosting</a>.</p>
+<p>So take a moment and <a href="https://sandstorm.io/install/">install Sandstorm now</a> to securely enjoy these kinds of apps, or at least <a href="https://demo.sandstorm.io">try the online demo</a>.</p>
+
+<p>And if you already have a Sandcats-enabled install of Sandstorm from before today, check out the <a href="https://docs.sandstorm.io/en/latest/administering/ssl/">documentation</a> to enable HTTPS!</p>
 
 </section>
 
@@ -362,9 +375,9 @@ to drop me a line; I’m asheesh at sandstorm.io.</p>
         <li>
           <h3><a href="/get">Get Sandstorm</a></h3>
           <ul>
-            <li><a href="/get">For Individuals</a>
+            <li><a href="/get#managed-hosting">Hosting</a>
+            <li><a href="/get#self-host">Download</a>
             <li><a href="/get#self-host">For Organizations</a>
-            <li><a href="/get#self-host">For Self-hosters</a>
           </ul>
         </li>
         <li>
@@ -372,21 +385,31 @@ to drop me a line; I’m asheesh at sandstorm.io.</p>
           <ul>
             <li><a href="/features">Core</a>
             <li><a href="/features#security">Security</a>
-            <li><a href="/business">Sandstorm + Business</a>
-            <li><a href="/business#scale">Sandstorm + Scale</a>
+            <li><a href="/business">Sandstorm for Work</a>
+            <li><a href="/business#scale">Sandstorm for Enterprise</a>
             <li><a href="/developer">Development</a>
           </ul>
         </li>
         <li>
-          <h3><a href="how-it-works">How it Works</a></h3>
+          <h3><a href="/how-it-works">How it Works</a></h3>
           <ul>
             <li><a href="/how-it-works#grains">Fine-grained object containers</a>
             <li><a href="/how-it-works#capabilities">Capability-based Security</a>
           </ul>
         </li>
         <li>
-          <h3><a href="/community">Community</a>              </h3>
+          <h3><a href="https://docs.sandstorm.io">Documentation</a></h3>
           <ul>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/">Using</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/developing/">Developing</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/administering/">Administrating</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/security-practices/">Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a></h3>
+          <ul>
+            <li><a href="/news">Sandstorm Blog</a>
             <li><a href="/community#connect-with">Connect with us</a>
             <li><a href="/community#helpothers">Help Others</a>
             <li><a href="/community#helpproject">Help the Project</a>
@@ -402,27 +425,9 @@ to drop me a line; I’m asheesh at sandstorm.io.</p>
           </ul>
         </li>
         <li>
-        <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
           <ul>
             <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
-          </ul>
-        </li>
-        <li>
-          <h3><a href="/blog">Blog</a></h3>
-          <ul>
-            <li><a href="/blog">Latest updates on Sandstorm.io</a>
-          </ul>
-        </li>
-        <li>
-          <h3>Join our mailing list!</h3>
-            <div class="subscribe-small">
-							<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
-								<input type="email" name="EMAIL" placeholder="e-mail" required>
-								<input type="submit" value="Submit">
-								</form>
-            </div>
-          <ul>
-            <li><a href=""></a>
           </ul>
         </li>
         <li>
@@ -433,6 +438,18 @@ to drop me a line; I’m asheesh at sandstorm.io.</p>
 						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
 						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
   			</ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+                                                        <form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+                                                                <input type="email" name="EMAIL" placeholder="e-mail" required>
+                                                                <input type="submit" value="Submit">
+                                                                </form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
         </li>
       </ul>
       <p>This page was hand-crafted using only the finest web technologies.

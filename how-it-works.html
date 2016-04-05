@@ -2,13 +2,13 @@
 
 <html lang="en">
   <head>
-    <title>How Sandstorm Works: Containerize objects, not services</title>
+    <title>How Sandstorm Works: Containerize data, not services</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Sandstorm.io">
+    <meta property="og:title" content="How Sandstorm Works: Containerize data, not services">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
-    <meta property="og:url" content="https://sandstorm.io">
+    <meta property="og:image" content="https://sandstorm.io/images/how-it-works.png">
+    <meta property="og:url" content="https://sandstorm.io/how-it-works">
     <meta property="og:description"
         content="Take control of your web by running your own personal cloud server with Sandstorm.">
     <link rel="stylesheet" type="text/css" href="/style.css">
@@ -20,11 +20,11 @@
   <body id="how-it-works">
     <nav>
       <a href="/">Sandstorm.io</a>
-      <a href="/get">Sign Up</a>
-      <a href="/get#self-hosting">Download</a>
+      <a href="/get">Get Sandstorm</a>
       <a href="/features">Features</a>
       <a href="/how-it-works">How it Works</a>
       <a href="/news/">Blog</a>
+      <a href="https://docs.sandstorm.io">Docs</a>
       <a href="/community">Community</a>
       <a href="/about">About</a>
       <!-- TODO: search -->
@@ -32,7 +32,7 @@
 
     <header>
   <h1>How Sandstorm Works</h1>
-  <p>Containerize objects, not services</p>
+  <p>Containerize data, not services</p>
     <div class="containerize"><img class="left" src="/images/how-left.svg" /><img class="right" src="/images/how-right.svg" /></div>
 </header>
 
@@ -66,7 +66,7 @@
     <p>On this page, we will explain the two main pieces of "magic" that make it all work:</p>
     <ul>
       <li><a href="#grains">Fine-grained Containerization</a></li>
-      <li><a href="#capability">Capability-based Security</a></li>
+      <li><a href="#capabilities">Capability-based Security</a></li>
     </ul>
   </div>
 </section>
@@ -80,9 +80,9 @@
 
   <p><strong>Sandstorm takes a wildly different approach:</strong> It containerizes <em>objects</em>, where an object is primarily defined by <em>data</em>. We call each Sandstorm container a <strong>“grain”</strong>, because it is fine-grained.</p>
 
-  <p>For example, when using Etherpad – a document editor app – on Sandstorm, every document lives in a separate container, isolated from the others. The front-end and database for that document live in the container. The container has a private filesystem for storage. Javascript running in the user’s browser can talk only to the document container for which it was loaded, no others. All of this makes up a single “grain”.</p>
+  <p>For example, when using Etherpad – a document editor app – on Sandstorm, every document lives in a separate container, isolated from the others. The front-end and database for that document live in the container. The container has a private filesystem for storage. JavaScript running in the user’s browser can talk only to the document container for which it was loaded, no others. All of this makes up a single “grain”.</p>
 
-  <p>Similarly, when you use Wekan (a kanban board, comparable to Trello) on Sandstorm, each board lives in a separate grain. When you use Gitweb, each git repository lives in a separate grain. When you use Ethercalc, each spreadsheet lives in a separate grain.</p>
+  <p>Similarly, when you use Wekan (a kanban board, comparable to Trello) on Sandstorm, each board lives in a separate grain. When you use GitWeb, each git repository lives in a separate grain. When you use EtherCalc, each spreadsheet lives in a separate grain.</p>
 
   <section id="access-control">
     <h3 id="the-platform-manages-access-control">The platform manages access control</h3>
@@ -131,7 +131,7 @@
 
     <p>In the Sandstorm model, all of the components (from web server to database) needed to handle a particular grain run on the same machine. Communications between them will therefore be incredibly fast. And if the grain contains only a single document or other small piece of data, then its entire content can be loaded into RAM and queried quickly during the time that it is in use.</p>
 
-    <p>But does it scale? Obviously, if every grain were running at all times, the Sandstorm model would scale abysmally, requiring an absurd amount of RAM. However, Sandstorm only runs a grain while it is in-use. Since grains are small, they start up quickly – often in under a second – which means there’s no need to keep them running all the time. Additionally, an app’s static assets (code, images, etc.) are mounted into the grain read-only such that they can be shared among all grains running the same app; thus, the per-grain overhead is relatively small. For ahead-of-time-complied apps (e.g. written in Go, Rust, or C++) or apps starting from a copy-on-write checkpoint (e.g. using <a href="https://github.com/google/snappy-start">snappy-start</a>), per-grain marginal RAM usage can easily be under a megabyte.</p>
+    <p>But does it scale? Obviously, if every grain were running at all times, the Sandstorm model would scale abysmally, requiring an absurd amount of RAM. However, Sandstorm only runs a grain while it is in-use. Since grains are small, they start up quickly – often in under a second – which means there’s no need to keep them running all the time. Additionally, an app’s static assets (code, images, etc.) are mounted into the grain read-only such that they can be shared among all grains running the same app; thus, the per-grain overhead is relatively small. For ahead-of-time-compiled apps (e.g. written in Go, Rust, or C++) or apps starting from a copy-on-write checkpoint (e.g. using <a href="https://github.com/google/snappy-start">snappy-start</a>), per-grain marginal RAM usage can easily be under a megabyte.</p>
   </section>
 
   <section id="confinement">
@@ -143,7 +143,7 @@
 
     <div class="figure"><p class="heading">Sandstorm model</p><img src="/images/how-confinement2.svg" alt="diagram of Sandstorm model" /></div>
 
-    <p>In part because of Sandstorm’s granular model, it makes sense for Sandstorm to implement full confinement, in which the infrastructure sits on <em>all sides</em> of the app. A Sandstorm app’s interactions with the outside world are entirely mediated through Sandstorm. Users talk to apps through a proxy which authenticates requests and enforces access control. Apps can only talk to other apps or outside services to which they have explicitly requested permission, and Sandstorm allows the user to audit and revoke these permissions at any time.</p>
+    <p>In part because of Sandstorm’s granular model, it makes sense for Sandstorm to implement full confinement, in which the infrastructure sits on <em>all sides</em> of the app. A Sandstorm app’s interactions with the outside world are entirely mediated through Sandstorm. Users talk to grains through a proxy which authenticates requests and enforces access control. Grains can only talk to other grains or outside services to which they have explicitly requested permission, and Sandstorm allows the user to audit and revoke these permissions at any time.</p>
 
     <p>In organizations, the administrator can audit access across the whole company and set global access control policies, such as: “No sharing outside the organization.” This kind of visibility and control is a CISO’s dream come true. Want to pass PCI-DSS or HIPAA compliance inspections easily? Show your Sandstorm access control policies and audit graph. It doesn’t even matter what apps you are running, because Sandstorm can enforce the rules uniformly across all apps.</p>
 
@@ -153,7 +153,7 @@
   <section id="encryption">
     <h3 id="fine-grained-encryption">Fine-grained Encryption</h3>
 
-    <p>Encryption of storage at rest is commonly used to protect against threats like hard drive theft. However, it has the potential for so much more. Imagine a system where every piece of data is encrypted using a key that is provably only knowable to the exact users who are supposed to have access to that data. Perhaps the data key is ultimately encrypted to the users’ passwords or PGP keys. In such a system, even a system administrator – empowered to shut down and bring up the system at will – would be unable to illegitimately access a particular document without launching an active attack.</p>
+    <p>Encryption of storage at rest is commonly used to protect against threats like hard drive theft. However, it has the potential for so much more. Imagine a system where every piece of data is encrypted using a key that is provably only derivable by the exact users who are supposed to have access to that data. Perhaps the data key is ultimately encrypted to the users’ passwords or PGP keys. In such a system, even a system administrator – empowered to shut down and bring up the system at will – would be unable to illegitimately access a particular document without launching an active attack.</p>
 
     <p>Of course, if your application-wide database is encrypted using a single key, then you can’t provide this. The sys admin obviously needs access to the database key to bring up the system at all. With service-oriented architecture, fine-grained encryption requires cooperation from every single app (and all of their developers, who may or may not understand cryptography).</p>
 
@@ -167,9 +167,9 @@
 
   <p>Service-to-service access control in the Sandstorm model requires a different way of thinking about security.</p>
 
-  <p>Traditional access control is based on ambient identity and access control lists (ACLs). Each service might have an ACL that specifies which other services are permitted to access it. As the granularity of services increases, the difficulty of maintaining ACLs grows, especially when users are non-technical. (But meanwhile, with course-grained services, ACLs hardly even provide any protection. What services are allowed to access the database that contains everything? Well, all of them, of course!)</p>
+  <p>Traditional access control is based on ambient identity and access control lists (ACLs). Each service might have an ACL that specifies which other services are permitted to access it. As the granularity of services increases, the difficulty of maintaining ACLs grows, especially when users are non-technical. (But meanwhile, with coarse-grained services, ACLs hardly even provide any protection. What services are allowed to access the database that contains everything? Well, all of them, of course!)</p>
 
-  <p>Under capability-based security, we take a different approach. Instead of maintaining a list of who is allowed to access what, we think of access permissions as an <em>object</em> which you <em>give</em> to things. So when you want to tell grain X to talk to grain Y, you <em>give</em> grain X a “capability” to grain Y. Grain X then stores that capability, and whenever it wants to talk to grain Y, it explicitly uses that capability. The capability both designates the <em>identity</em> of grain Y (e.g. its address) and permission to <em>access</em> grain Y.</p>
+  <p>Under capability-based security, we take a different approach. Instead of maintaining a list of who is allowed to access what, we think of access permissions as an <em>object</em> which you <em>give</em> to things. So when you want to tell grain X to talk to grain Y, you <em>give</em> grain X a “capability” to grain Y. Grain X then stores that capability, and whenever it wants to talk to grain Y, it explicitly uses that capability. The capability both designates the <em>identity</em> of grain Y (e.g. its address) and <em>permission to access</em> grain Y.</p>
 
   <p>At a lower level, capability-based programming fits perfectly with object-oriented programming. An object pointer (in a memory-safe language) is like a capability: when you receive a pointer, you can access the object. Without the pointer, you can’t. Well-designed object-oriented systems use this property all the time to prove correctness of code. We avoid passing pointers into components that don’t need them to make it easier to reason about them, and we write wrapper classes that restrict how an object can be used. We use abstract interfaces and polymorphism to allow components to be mixed-and-matched. These same patterns can be used to enforce security and adaptability in a capability system.</p>
 
@@ -190,7 +190,7 @@
 
     <p>Notice how in this example, the application never gains the ability to send spam. And yet, the user experience is no worse and arguably better than before. The user is never prompted with any sort of security questions, yet the app is only able to email them with their consent.</p>
 
-    <p>And notice a second property: Any of the user’s grains can publish an implementation of the “EmailRecipient” interface. The capbility need not strictly map to a real email address. The user could, for instance, direct the email to a grain which recieves the messages and posts them into a chat room, or anything else they can imagine. The sending app does not need to know anything about this. With this power, simple applications can be “composed” into complex workflows, much like a modern version of Unix pipes.</p>
+    <p>And notice a second property: Any of the user’s grains can publish an implementation of the “EmailRecipient” interface. The capability need not strictly map to a real email address. The user could, for instance, direct the email to a grain which receives the messages and posts them into a chat room, or anything else they can imagine. The sending app does not need to know anything about this. With this power, simple applications can be “composed” into complex workflows, much like a modern version of Unix pipes.</p>
 
     <p>Note that a modal picker dialog is not always the best fit for every UX. To that end, Sandstorm implements other kinds of powerbox flows for different occasions. For example, the “inline powerbox” allows a user to type freeform text naming grains or users in their contacts and have them auto-complete to full capabilities.</p>
   </section>
@@ -212,7 +212,7 @@
 
     <p>Moreover, Sandstorm can implement global policies by automatically revoking a capability that violates the policy. So, if a capability to a finance document is observed to be sent to a user outside the organization in violation of policy, Sandstorm can revoke it in-flight.</p>
 
-    <p>These measures are applied <em>in addition to</em> the regular capability model, and thus supply defense-in-depth. Because of this, it is acceptable if identities used for peudo-ACL and policy purposes are relatively course-grained.</p>
+    <p>These measures are applied <em>in addition to</em> the regular capability model, and thus supply defense-in-depth. Because of this, it is acceptable if identities used for pseudo-ACL and policy purposes are relatively coarse-grained.</p>
 
     <p>Sandstorm applications need not concern themselves with pseudo-ACLs. The API used by apps is strictly capability-based.</p>
   </section>
@@ -224,9 +224,9 @@
         <li>
           <h3><a href="/get">Get Sandstorm</a></h3>
           <ul>
-            <li><a href="/get">For Individuals</a>
+            <li><a href="/get#managed-hosting">Hosting</a>
+            <li><a href="/get#self-host">Download</a>
             <li><a href="/get#self-host">For Organizations</a>
-            <li><a href="/get#self-host">For Self-hosters</a>
           </ul>
         </li>
         <li>
@@ -234,21 +234,31 @@
           <ul>
             <li><a href="/features">Core</a>
             <li><a href="/features#security">Security</a>
-            <li><a href="/business">Sandstorm + Business</a>
-            <li><a href="/business#scale">Sandstorm + Scale</a>
+            <li><a href="/business">Sandstorm for Work</a>
+            <li><a href="/business#scale">Sandstorm for Enterprise</a>
             <li><a href="/developer">Development</a>
           </ul>
         </li>
         <li>
-          <h3><a href="how-it-works">How it Works</a></h3>
+          <h3><a href="/how-it-works">How it Works</a></h3>
           <ul>
             <li><a href="/how-it-works#grains">Fine-grained object containers</a>
             <li><a href="/how-it-works#capabilities">Capability-based Security</a>
           </ul>
         </li>
         <li>
-          <h3><a href="/community">Community</a>              </h3>
+          <h3><a href="https://docs.sandstorm.io">Documentation</a></h3>
           <ul>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/">Using</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/developing/">Developing</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/administering/">Administrating</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/security-practices/">Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a></h3>
+          <ul>
+            <li><a href="/news">Sandstorm Blog</a>
             <li><a href="/community#connect-with">Connect with us</a>
             <li><a href="/community#helpothers">Help Others</a>
             <li><a href="/community#helpproject">Help the Project</a>
@@ -264,27 +274,9 @@
           </ul>
         </li>
         <li>
-        <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
           <ul>
             <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
-          </ul>
-        </li>
-        <li>
-          <h3><a href="/blog">Blog</a></h3>
-          <ul>
-            <li><a href="/blog">Latest updates on Sandstorm.io</a>
-          </ul>
-        </li>
-        <li>
-          <h3>Join our mailing list!</h3>
-            <div class="subscribe-small">
-							<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
-								<input type="email" name="EMAIL" placeholder="e-mail" required>
-								<input type="submit" value="Submit">
-								</form>
-            </div>
-          <ul>
-            <li><a href=""></a>
           </ul>
         </li>
         <li>
@@ -295,6 +287,18 @@
 						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
 						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
   			</ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+                                                        <form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+                                                                <input type="email" name="EMAIL" placeholder="e-mail" required>
+                                                                <input type="submit" value="Submit">
+                                                                </form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
         </li>
       </ul>
       <p>This page was hand-crafted using only the finest web technologies.

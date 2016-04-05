@@ -5,10 +5,10 @@
     <title>Sandstorm Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Sandstorm.io">
+    <meta property="og:title" content="Sandstorm Blog">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
-    <meta property="og:url" content="https://sandstorm.io">
+    <meta property="og:image" content="https://sandstorm.io/images/sandcat.png">
+    <meta property="og:url" content="https://sandstorm.io/news/page13/">
     <meta property="og:description"
         content="Take control of your web by running your own personal cloud server with Sandstorm.">
     <link rel="stylesheet" type="text/css" href="/style.css">
@@ -20,11 +20,11 @@
   <body id="blog">
     <nav>
       <a href="/">Sandstorm.io</a>
-      <a href="/get">Sign Up</a>
-      <a href="/get#self-hosting">Download</a>
+      <a href="/get">Get Sandstorm</a>
       <a href="/features">Features</a>
       <a href="/how-it-works">How it Works</a>
       <a href="/news/">Blog</a>
+      <a href="https://docs.sandstorm.io">Docs</a>
       <a href="/community">Community</a>
       <a href="/about">About</a>
       <!-- TODO: search -->
@@ -56,6 +56,26 @@
       <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
       <span class="selfhost" href="/install">or host your own</span>
     </a>
+    
+    <h3>Recommended Posts</h3>
+    <ul>
+      <li><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">Open Source Web Apps Aren't Viable; Let's Fix That</a></li>
+      <li><a href="/news/2015-10-01-free-ssl-certificates.html">Free, automated SSL certificates for Sandstorm self-hosters</a></li>
+      <li><a href="/news/2014-08-19-why-not-run-docker-apps.html">Why doesn't Sandstorm just run Docker apps?</a></li>
+      <li><a href="/news/2015-08-31-oasis-beta-launch.html">Sandstorm Oasis hosting open beta and App Market launch</a></li>
+      <li><a href="/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install.html">Is curl|bash insecure?</a></li>
+      <li><a href="/news/2015-04-08-osx-security-bug">Remotely send Chrome and Node.js into infinite loops via this one weird OSX kernel bug</a></li>
+      <li><a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization.html">Delegation is the Cornerstone of Civilization: Sharing in Sandstorm.io</a></li>
+      <li><a href="/news/2016-01-22-8-new-open-source-apps.html">8 New open source self-hostable apps</a></li>
+      <li><a href="/news/2015-11-10-icons-spks-for-everyone.html">Graphics and one-click installers for everyone</a></li>
+    </ul>
+    
+    <h3>Further Reading</h3>
+      <ul>
+        <li><a href="/how-it-works">How Sandstorm Works</a></li>
+        <li><a href="http://docs.sandstorm.io">Sandstorm Documentation</a></li>
+        <li><a href="/install">How to install Sandstorm</a></li>
+      </ul>
   </div>
 </div>
 
@@ -78,181 +98,194 @@
 
 
 <section>
-  <h2><a href="/news/2014-07-25-sharelatex.html">ShareLaTeX: Collaborative scientific typesetting</a></h2>
+  <h2><a href="/news/2014-08-18-wordpress">WordPress on Sandstorm</a></h2>
   <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
     
-    - <a href="/news/2014-07-25-sharelatex.html">25 Jul 2014</a>
+    - <a href="/news/2014-08-18-wordpress">18 Aug 2014</a>
   
   
   
   
-  <p>Today we are releasing our port of <a href="http://www.sharelatex.com">ShareLaTeX</a>, a real-time collaborative editor for typesetting scientific documents.</p>
+  <p>WordPress is the world’s <a href="http://trends.builtwith.com/cms">most</a> <a href="http://w3techs.com/technologies/overview/content_management/all/">popular</a> web publishing platform, and we are excited to announce today that we’ve ported it to Sandstorm.</p>
 
-<p>You can install it on your Sandstorm server now, or try it on <a href="https://demo.sandstorm.io">our demo server</a>.</p>
+<p>You can try it now in the <a href="https://demo.sandstorm.io">demo</a> or on your personal Sandstorm server.</p>
 
-<p>LaTeX has long been a standard tool in the world of academic publishing, and we think that ShareLaTeX does a great job at making it more accessible and useful.</p>
+<p>Like the existing <a href="/news/2014-06-04-self-service-web-publishing.html">HackerCMS</a> and <a href="/news/2014-07-22-ghost.html">Ghost</a> apps, WordPress on Sandstorm lets you publish content to a custom domain. You can use it to create all kinds of web sites, including blogs, magazines, and webcomics. WordPress has an enormous ecosystem of themes and plugins, and our port grants you the power to install any of them and to modify them through the built-in editor.</p>
 
-<p><a href="/news/images/sharelatex-screenshot-big.png"><img src="/news/images/sharelatex-screenshot.png" /></a><br /><span class="caption">Using ShareLaTeX in Sandstorm to typeset <a href="http://www.cs.cmu.edu/~rjsimmon/">Rob Simmons</a>'s <a href="https://github.com/robsimmons/thesis">PhD thesis</a>.</span></p>
+<p>Moreover, the app’s integration with Sandstorm’s login system makes it easy to collaborate with multiple authors; you can add new authors simply by sharing a link.</p>
 
-<p>We also think that, as an open source web app, ShareLaTeX makes a fascinating case study.</p>
+<p><a href="https://sandstorm.io/apps/wordpress1-big.png"><img alt="WordPress Screenshot" src="https://sandstorm.io/apps/wordpress1.png" /></a></p>
 
-<p>On the one hand, it’s hard to imagine any of the giant internet corporations ever offering anything like it, as its potential user base is probably not large enough to merit their attention. On the other hand, within its niche ShareLaTeX addresses a very real need – a need that’s certainly large enough to merit the attention of small teams of indie developers.</p>
+<p><a href="https://sandstorm.io/apps/wordpress2-big.png"><img alt="WordPress Screenshot" src="https://sandstorm.io/apps/wordpress2.png" /></a></p>
 
-<p>ShareLaTeX illustrates some of the barriers faced by such developers. Its core functionality consists of an in-browser editor and a server-side compiler, but to be a viable product it has had to do a fair bit more than that. ShareLaTeX also implements a secure login system, an interface for managing multiple projects, and a sharing model. Moreover, there is the question of hosting.</p>
+<p>A few features of WordPress require us to make more progress on Sandstorm before we can support them. We would like to allow the app to make remote HTTP requests – a feature that would simplify the process of installing add-ons and importing media content – but we also want to tightly control that capability, so that an evil plugin can’t leak data. This will require the Powerbox. We would also like to integrate WordPress’s comment system with SandStorm’s web publishing, but before that’s possible Sandstorm apps need to be able to export public HTTP APIs.</p>
 
-<p>The striking thing about our port of ShareLaTeX is that it simply bypasses this non-core functionality. Sandstorm already handles login, already has a file selection and organization interface for managing multiple projects, and already implements sharing. The main changes we made to the ShareLaTeX code – and we did not in fact change very much at all –  were to remove these features and delegate their responsibilities to Sandstorm instead.</p>
+<p>Fortunately, these are things we’d like to add to Sandstorm anyway. And, of course, the more help we get from you in our <a href="http://igg.me/at/sandstorm">crowdfunding campaign</a>, the sooner we will be able to add them.</p>
 
-<p>Sandstorm, of course, also resolves the hosting question, making it easy for users to deploy ShareLaTeX to servers they control.</p>
-
-<p>We take all of this as evidence that Sandstorm can eliminate many of the less-interesting and potentially costly parts of developing web apps. We hope that Sandstorm will enable developers to create many more apps like ShareLaTeX, catering to audiences of all sizes.</p>
+<p>In any case, we think that among WordPress hosting options, WordPress on Sandstorm offers a uniquely high degree of convenience, freedom, and <a href="/news/2014-07-24-tinytinyrss-plus-security-discussion.html">security</a>.</p>
 
 </section>
 
 <section>
-  <h2><a href="/news/2014-07-24-tinytinyrss-plus-security-discussion.html">We now have an RSS reader; plus let's talk about security</a></h2>
+  <h2><a href="/news/2014-08-15-fundraising-updates">Fundraising Updates and Corporate Sponsorships</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
-    - <a href="/news/2014-07-24-tinytinyrss-plus-security-discussion.html">24 Jul 2014</a>
+    - <a href="/news/2014-08-15-fundraising-updates">15 Aug 2014</a>
   
-  <p>Have you ever wished for an RSS reader that won’t simply <a href="http://reader.google.com">disappear</a> if the developers get tired of it?</p>
+  <p>We’re now nearly 60% funded with two and a half weeks left in the campaign. Crowdfunding campaigns usually end with a spike, so we will likely exceed our goal. Plus, we have a couple of really exciting announcements lined up for next week.</p>
 
-<p>Today, we’re releasing our port of <a href="http://tt-rss.org/">TinyTinyRSS</a> to Sandstorm. Go install it on your Sandstorm server now, or <a href="https://demo.sandstorm.io">try the Sandstorm demo</a>.</p>
+<p>If you haven’t contributed yet, now is the time to do so! For all you Bay Area hackers heading to Burning Man, don’t forget to contribute before you leave, as the campaign will be over when you get back.</p>
 
-<p>Unlike traditional web apps, Sandstorm apps can never “disappear”, because they run on <em>your</em> server rather than on the developer’s. Even if the developer stops supporting the app, you still have a copy that will keep working.</p>
+<p>If you were hoping to get us to port your favorite open source app, note that there is only one more “Choose an app” slot left. Also, there are only five more LAN party invites available.</p>
 
-<p>You might say: “But what about security updates?” Good question! Let’s talk about security.</p>
+<p>Finally, don’t forget that when you share our campaign with your friends, you should use the special referral link in order to get credit under our referral program. (See details below.)</p>
 
-<h3 id="what-happens-if-an-app-has-security-bugs">What happens if an app has security bugs?</h3>
+<p><a href="http://igg.me/at/sandstorm">Contribute on Indiegogo now »</a></p>
 
-<p>It turns out Sandstorm apps are automatically much more secure than on traditional servers. Much of your security is handled by the platform, without the app’s involvement. In many cases, even an app that has known security flaws is perfectly safe to run in Sandstorm.</p>
+<h3 id="corporate-sponsorships">Corporate Sponsorships</h3>
 
-<p>For starters, Sandstorm handles login and authentication, so automatically one of the biggest potential vulnerabilities is gone. There is no way someone can exploit a vulnerability in the app to “log in” to your account, and the app never has access to your password or session keys and therefore cannot leak them.</p>
+<div><div style="float: right; margin: 32px;"><a href="http://draw.io"><img src="https://sandstorm.io/thirdparty/draw.io-logo.png" alt="draw.io logo" /></a></div></div>
 
-<p>Moreover, attacks in which the attacker “tricks” your browser into performing some action on an app (with your credentials) are largely mitigated as well, because the attacker has no way to know your app’s address. Sandstorm assigns apps to hostnames on a temporary, per-session basis. When you don’t have your app open, it doesn’t even have a hostname. These hostnames are not displayed to the user, and we’re working on a change to make them cryptographically unguessable. If the attacker does not know your app’s hostname, they cannot launch CSRF attacks and many kinds of XSS attacks are thwarted as well.</p>
+<p>We have our first corporate sponsor: <a href="http://draw.io">draw.io</a>.</p>
 
-<p>The only remaining way to attack your app is by getting data into it by some other means. What this means depends on the app.</p>
+<p>draw.io is a powerful web-based diagram editor, and we’re excited that it will be coming to Sandstorm. The developers decided to sponsor us because we are solving a problem they have struggled with: how to allow users – especially enterprises – to run the program “behind the firewall” on their company networks. Anyone who has developed enterprise-oriented web apps is no doubt familiar with this request.</p>
 
-<p>Imagine a document editor like Etherpad. This app never talks to the outside world at all. The only way an attacker can even talk to it (the first step in exploiting it) is by convincing you to explicitly share the document with them.</p>
+<p>Today, supporting “behind the firewall” is a big pain. No small developer wants to deal with getting their code to run in all the diverse environments found on corporate networks. No one wants to talk IT people through setting up their server over and over again. But with Sandstorm, you just give the customer a package. They upload it to their Sandstorm server, and they’re done. Updates are just a matter of installing a new version of the package.</p>
 
-<p>For an app like TinyTinyRSS, there’s another opening: the app requests RSS feeds from the internet and parses them. Hypothetically, a bug in the feed parser or in the way feeds are rendered in the UI could make the app vulnerable. In order to exploit such a vulnerability, an attacker would have to trick you into signing up for their malicious RSS feed.</p>
+<p>Does your company develop a SaaS product for which you’d like to offer an “on-prem” / “behind-the-firewall” version, but don’t have the resources to support such a thing? Consider becoming a corporate sponsor. In addition to displaying your logo in our web site and credits, we will work with you to make sure that your app runs great on Sandstorm, and that Sandstorm meets the needs of your customers. You will also become one of our launch partners for our eventual enterprise release, where we’ll help you sell your app to corporate Sandstorm users that didn’t already know about it.</p>
 
-<p>But even in the worst case in these two examples, the damage is small, because Sandstorm itself isolates each app in a separate sandbox. Even if an app is exploited, the attacker only gets access to that app – and only the particular <em>instance</em> of that app.</p>
+<p>Or, perhaps your company is on the other side of the equation: you’d like to be able to deploy apps internally, and would like this to be much easier and more secure than it is today. Do you find that every time you install an app on your network, you are frightened by the possibility of security bugs providing hackers with a new back door into your company? We can help with that. We are developing a suite of tools that make Sandstorm integrate well with enterprise environments. As a corporate sponsor you will get early access to these tools and dedicated help getting them to integrate with your environment.</p>
 
-<p>In the case of Etherpad, we create a separate sandbox for every document. So, if an attacker exploits a document, they only get access to that document. And as mentioned above, there’s no way for an attacker to exploit Etherpad without first receiving a share from the document owner. And if the document has already been shared with the attacker, they already have the whole contents, so what’s left to exploit? They can’t use that exploit to get access to any <em>other</em> document, because each document is in its own sandbox.</p>
+<p>If you’d like to become a corporate sponsor, choose the “Corporate Sponsorship” perk (the bottom one) on <a href="http://igg.me/at/sandstorm">our Indiegogo campaign</a>. Feel free to <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#107;&#101;&#110;&#116;&#111;&#110;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;">e-mail me</a> (<code>kenton@sandstorm.io</code>) for details, or to work out a custom arrangement.</p>
 
-<p>In the case of TinyTinyRSS, if an attacker exploited an RSS parsing bug, they might get access to the TinyTinyRSS instance. This means they’d be able to see your other feeds, and could perhaps change your subscriptions. That’s it. For most people this is probably not a big deal. It’s a problem, but it’s nothing like having your password stolen or e-mail erased. And if you actually have a super-secret feed that you want no one to know about, you can protect yourself by having two separate TinyTinyRSS instances: one for your common feeds and one for the sensitive-but-trusted ones. If you accidentally sign up for an evil feed, you’ll probably put it in the first instance, and thus the sensitive instance is still protected. (Again, this is all hypothetical; we know of no such vulnerability.)</p>
+<h3 id="referral-program-reminder">Referral program reminder</h3>
 
-<p>This is what we call the “principle of least authority”: Each app only has the “authority” to do its job, and thus a vulnerability in one app can only do as much damage as the app’s authority allows. On traditional desktop systems with no sandboxing, a security bug in one app could completely expose your entire system to hackers. On the web today, a security vulnerability in one app might expose your password, thus giving attackers access to any other app where you use that password. On Sandstorm, a security bug in one app only harms that app and things to which it is connected.</p>
+<p>We mentioned this a few weeks ago, but for those who missed it:</p>
 
-<p>Of course, the above discussion is about apps. A bug in Sandstorm itself could be much more devastating. But that’s a smaller attack surface, and we have multiple security experts working with us. Security bugs are always possible in any code, but the less code you rely on not to have bugs, the less likely it is that one will harm you.</p>
+<p>If you refer someone, and they contribute, we’ll give you your choice of:</p>
+
+<p>a) 1GB bonus storage for every $10 referred (on our managed hosting service, for one year).</p>
+
+<p>b) 10% of your referral total in app store credit. Remember that our app store will support a pay-what-you-want model for open source apps, so this basically means you can donate your credit to the developers of an open source Sandstorm app of your choice.</p>
+
+<p>The top referrer will additionally receive their choice of a LAN party invite (see the $512 perk) or a seat on the app committee (with $256 voting rights).</p>
+
+<p>In order to receive credit for your referrals, be sure that you are logged into Indiegogo, then use the buttons under the video on our campaign page to share. These buttons will generate links that track the fact that they came from you.</p>
+
+<p>Tip: Don’t spam. It’s more effective and less annoying if you speak directly with individuals who are likely to be interested. Think of people you know who love open source, value privacy, or like to tinker with their stuff and void warranties.</p>
 
 </section>
 
 <section>
-  <h2><a href="/news/2014-07-22-ghost.html">Ghost Blogging Platform on Sandstorm</a></h2>
+  <h2><a href="/news/2014-08-13-sandbox-security">Sandstorm vs. Kernel Exploits</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
-    - <a href="/news/2014-07-22-ghost.html">22 Jul 2014</a>
+    - <a href="/news/2014-08-13-sandbox-security">13 Aug 2014</a>
   
-  <p>Today we’re releasing a major new app on Sandstorm: Ghost.</p>
+  <p>A few weeks ago, I discovered a vulnerability in the Linux kernel that may allow sandboxed programs to break out of a container. The same problem can also be exploited in a different way on many typical Linux systems to gain local root privileges. I reported the problem to the kernel’s security team. Yesterday, upon release of a fix for the issue, the vulnerability was <a href="http://www.openwall.com/lists/oss-security/2014/08/12/6">disclosed publicly</a> (<a href="https://www.google.com/search?q=CVE-2014-5206">CVE-2014-5206</a> and <a href="https://www.google.com/search?q=CVE-2014-5207">CVE-2014-5207</a>).</p>
 
-<p><a href="http://ghost.org">Ghost</a> is a blogging platform featuring beautiful design, and which was funded by <a href="https://www.kickstarter.com/projects/johnonolan/ghost-just-a-blogging-platform">its own crowdfunding campaign</a> last year. We’re extremely excited to bring it into the Sandstorm fold, in particular because we’ve been wanting to use it ourselves!</p>
+<p>Docker, in many configurations, is likely vulnerable to this exploit. Sandstorm, however, is not.</p>
 
-<p>You can use Ghost on Sandstorm to publish a blog to an arbitrary domain. It uses Sandstorm’s <a href="/news/2014-06-04-self-service-web-publishing.html">web publishing features</a>.</p>
+<p>To be fair, Docker is not primarily designed to be a sandbox. It is instead designed to run arbitrary off-the-shelf Linux applications and distributions in a clean, hermetic way – and at this, it excels. There are some provisions for security, but the general recommendation is to avoid deploying anything that could be actively malicious.</p>
 
-<p>If you have a Sandstorm server, go install Ghost from the app list now. Don’t have one? <a href="https://demo.sandstorm.io/demo">Try our demo server.</a></p>
+<p>Sandstorm, on the other hand, cares deeply about sandboxing, and is willing trade off compatibility for security. We are happy to hide or disable whole swaths of the Linux platform that most apps don’t need, at the expense of having to develop work-arounds for the few apps that do need them. By doing this, we reduce the “attack surface” of the Linux kernel – any vulnerabilities found in the features we disabled do not affect Sandstorm. Of course, it is exactly these rarely-used obscure features which have received the least scrutiny and thus are the most likely to contain vulnerabilities.</p>
 
-<p><img src="https://sandstorm.io/apps/ghost.png" alt="Ghost editor screenshot." /></p>
+<p>Some examples of features we remove:</p>
 
-<p><img src="https://sandstorm.io/apps/ghost2.png" alt="Ghost published screenshot." /></p>
+<ul>
+  <li>We use seccomp-bpf to disable system calls that are not needed by apps. For example, by disabling the <code>mount(2)</code> system call as well as blocking the creation of new UID namespaces, Sandstorm sidesteps the vulnerability I discovered. (Ironically, Sandstorm itself relies on these very features to set up the sandbox, but apps do not need them.)</li>
+  <li>We do not mount <code>/proc</code> or <code>/sys</code>, which are filesystem-based interfaces exposing myriad kernel features.</li>
+  <li>The only devices we present to apps are <code>/dev/null</code>, <code>/dev/zero</code>, and <code>/dev/urandom</code>.</li>
+  <li>We prohibit sandboxes from using setuid binaries to gain privileges by setting the <code>no_new_privs</code> process flag and other measures.</li>
+</ul>
+
+<p>Many of these things can be enabled in Docker as well, but only by manual configuration.</p>
+
+<p>All of these things potentially break some applications, but when problems do come up, it’s usually easy to work around the issue by tweaking the application code. Sandstorm’s willingness to require such changes is a key design difference from Docker. To be clear, I am not criticizing Docker’s choice – it makes tons of sense for what Docker is trying to accomplish. But Sandstorm is trying to accomplish something different.</p>
+
+<p>In the future, we hope to further improve the Sandstorm sandbox by moving more kernel functionality to userspace. Using seccomp-bpf, we can actually cause some system calls to raise <code>SIGSYS</code>, thus allowing us to “virtualize” the call by implementing it in a signal handler. Through this, we can do anything from mocking out an irrelevant system call to implementing a whole virtual filesystem (by intercepting <code>open(2)</code>).</p>
+
+<p>One thing in particular that we’d like to do is implement <code>exec(2)</code> in userspace. Parsing ELF binaries is non-trivial, and there have been vulnerabilities in the kernel’s ELF parser in the past. But, this work does not actually need to happen in the kernel. The main function of exec which cannot be performed in userspace is granting privileges to setuid binaries – but we actively <em>don’t want</em> that feature anyway.</p>
+
+<p>Two of Sandstorm’s advisors – Andrew Lutomirski (a security-focused kernel developer) and Mark Seaborn (a member of Chrome’s Native Client sandbox team) – are experts on these issues and have been helping us work out the details. Andy actually implemented the <code>no_new_privs</code> kernel feature and contributed Sandstorm’s seccomp filter. He has been keeping us informed as new kernel vulnerabilities arise. Mark has implemented several Linux native code sandboxes before and is helping us design what we hope will be the best yet. (Note: Our advisors contribute in their spare time, not on behalf of their employers.)</p>
+
+<p>Of course, to see any of this happen, we need your help. :) <a href="http://igg.me/at/sandstorm">Please fund our Indiegogo campaign.</a></p>
 
 </section>
 
 <section>
-  <h2><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">Open Source Web Apps Aren't Viable; Let's Fix That</a></h2>
+  <h2><a href="/news/2014-08-12-meteor-spk">Porting Meteor apps to Sandstorm in three minutes</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
-    - <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">21 Jul 2014</a>
+    - <a href="/news/2014-08-12-meteor-spk">12 Aug 2014</a>
   
-  <h3 id="the-motivation-for-sandstorm">The Motivation for Sandstorm</h3>
+  <p>As you know, Sandstorm apps can be written using any tech stack that runs on Linux. We have apps written in PHP, Python, Node.js, C++, Go, and even Rust.</p>
 
-<p>We talk a lot about the need for privacy, security, and control of your cloud data. Let me let you in on a secret: These aren’t the reason for Sandstorm. They are pleasant side effects.</p>
+<p>But if you’re starting from scratch and need to choose, the easiest way to write a Sandstorm app today is using <a href="https://www.meteor.com">Meteor</a>. Meteor is a modern open source web framework that makes it ridiculously easy to build high-quality, low-latency, real-time web apps quickly. Sandstorm’s own front-end is built on Meteor.</p>
 
-<p>The real motivation for Sandstorm is, and always has been, making it possible for open source and indie developers to build successful web apps.</p>
+<p>I recently gave a lightning talk at <a href="https://devshop.meteor.com">Meteor Devshop</a> where I demonstrated porting a Meteor app to Sandstorm. The app I chose was written by independent developers with no intent to target our platform. As you’ll see, it took me under three minutes to port live on stage:</p>
 
-<p>In today’s popular software-as-a-service model, indie development simply is not viable. People <a href="http://indiewebcamp.com/">do it anyway</a>, but their software is not accessible to the masses. In order for low-budget software to succeed, and in order for open source to make any sense at all, users must be able to run their own instances of the software, at no cost to the developer. We’ve always had that on desktop and mobile. When it comes to server-side apps, <strong>hosting must be decentralized</strong>.</p>
+<p><em>Note: The video shows the process for older versions of Meteor, in which packages had to be installed with the separate tool Meteorite (<code>mrt</code>). This blog post has since been updated for Meteor 0.9.x, which has its own built-in package repository.</em></p>
 
-<p>But today, personal hosting is only accessible to those with the time, money, and expertise necessary to maintain a server. Even most techies don’t bother, because it’s a pain. Sandstorm exists to fix that, making personal hosting easily accessible to everyone.</p>
+<div><iframe class="youtube" src="//www.youtube.com/embed/mJpYHhqByUo" frameborder="0" allowfullscreen="true"> </iframe></div>
 
-<blockquote>"The only solution is to make sure everyone has a server where they can install any software they want."</blockquote>
+<p>When it comes to writing a Sandstorm app, Meteor works particularly well as a platform because it tends to produce self-contained apps. Meteor’s tools already know how to construct a “bundle” containing all of the app’s dependencies. From there, we just need to add Node and Mongo, and we have ourselves a Sandstorm package. We don’t even need to use <a href="2014-05-12-easy-port.html">our trick to automatically detect dependencies</a>.</p>
 
-<h3 id="open-source-has-worked-on-the-desktop-and-mobile">Open Source has worked on the desktop and mobile.</h3>
+<p>To make this even easier, we’ve written a tool called <a href="https://sandstorm.io/meteor-spk"><code>meteor-spk</code></a> which automates this. We’ve also published a Meteor package <a href="https://atmospherejs.com/kenton/accounts-sandstorm"><code>kenton:accounts-sandstorm</code></a> which integrates Meteor’s accounts system with Sandstorm’s unified login. Together, these mean that porting a Meteor app to Sandstorm usually involves three commands:</p>
 
-<p>On my desktop, I run Debian Linux. My system is composed of several thousand packages. I have browsers, text editors, IDEs, chat clients, office suites, development tools, photo editors, and media players. Remarkably, every single one of these is open source. Even more remarkably, I can’t remember the last time I felt any need to use a non-open-source desktop app.</p>
+<pre><code>meteor add kenton:accounts-sandstorm
+meteor-spk init
+meteor-spk pack myapp.spk
+</code></pre>
 
-<p>I’m no zealot. I don’t impose open source on myself, nor would I do so on others. I’ll use proprietary software when it gets the job done, and I have spent plenty of time as a Windows user and as a Mac user in my past, but these days I’m simply happiest on a Linux system. That’s my personal preference and it’s not for everyone, but the fact that this choice is available to me and that I can run an all-open-source desktop without pain is pretty amazing considering how things looked fifteen years ago.</p>
+<p>Our intrepid fan <a href="https://plus.google.com/+JakeWeisz">Jake Weisz</a> – who previously <a href="2014-08-05-ethercalc.html">contributed a port of EtherCalc</a> – has used this tool to port <a href="https://github.com/stubailo/meteor-blocks">Meteor Blocks</a>, a simple voxel-based model editor written using Meteor. You can find it on the Sandstorm app list now – <a href="https://demo.sandstorm.io">try the demo</a> if you don’t already have your own server.</p>
 
-<p>Even Windows and Mac users these days use lots of open source software. By some measures, a majority of people now use an open source browser. VLC, BitTorrent, and other “indie” open source desktop apps are widely used even among non-technical people. Mobile seems even more full of open source and low-budget indie apps, as the various mobile app stores make it extremely easy for small developers to reach large audiences.</p>
+<p><img src="https://sandstorm.io/apps/meteor-blocks.png" alt="Meteor-blocks screenshot" /></p>
 
-<p>Yet, somehow, the web today is nearly completely devoid of open source software. Every day I use apps like GMail, Facebook, Twitter, Feedly, and others. None of these are open source. Granted, these apps often run on open source <em>infrastructure</em>, but that’s different. Most proprietary desktop apps use open source components and tools as well. But web <em>apps</em>, as the users see them, are almost invariably proprietary.</p>
+<p>We hope to see tools like this developed for other frameworks in the future. <code>meteor-spk</code> is just a simple bash script wrapping Sandstorm’s <code>spk</code> tool and providing a dependency bundle to merge into the package. If you’d like to contribute a similar script for your own favorite framework, <a href="https://groups.google.com/group/sandstorm-dev">let us know</a>!</p>
 
-<h3 id="why-are-all-my-web-apps-proprietary">Why are all my web apps proprietary?</h3>
-
-<p>Open source web apps exist. For example, webmail apps like SquirrelMail and RoundCube have been around for a while. If you look hard enough, you can find open source online document editors, RSS readers, and even a few social networks. But even among techies, hardly anyone seems to use these, probably because they all require running your own server, and few people have the time, patience, and expertise for that.</p>
-
-<p>There are a few success stories. Wordpress is open source and widely-used for blogging. But this seems to be the exception rather than the rule. And it’s questionable at that: most people who use Wordpress are not actually able to edit the code, because they are using it through a Wordpress hosting service and can only use the version of Wordpress that that host provides. Naturally, all hosts will likely only use the “official” version. So in practice, it’s almost not really “open source” but “visible source” – you can see the code and request changes, but you only get to use your changes if they’re officially adopted.</p>
-
-<h3 id="why-does-no-one-use-indie-web-apps">Why does no one use “indie” web apps?</h3>
-
-<p>Even on Windows, people commonly install little open source apps to get things done. Need to tag some mp3s? Want to connect to multiple chat networks with one client? Need to unpack a weird archive format? You’ll probably use an open source app. Sometimes it’s hard to build a business case around a niche purpose, yet little apps written by random people in their spare time are abundant. But on the web, it doesn’t seem to work this way. Any significant service with a server-side component can really only be run by a funded corporation.</p>
-
-<p>Let me describe a case in point: I know a certain prolific coder by the name of <a href="http://en.wikipedia.org/wiki/Brad_Fitzpatrick">Brad Fitzpatrick</a>. You may know him as the author of LiveJournal, Camlistore, memcache, OpenID, and other things. But I want to talk about a project of his you probably haven’t heard of.</p>
-
-<p><a href="https://github.com/bradfitz/scanningcabinet">scanningcabinet</a> is a little web app that helps you organize your paper mail. You drop your mail into your scanner, and the app scans it and uploads it to “the cloud”, where you can access, label, and search it later. Brad wrote this on a weekend several years ago and threw the code up on github.</p>
-
-<p>This app could be useful to just about anyone. But sadly, no one can really use it. To set it up, you have to configure a server (App Engine, in this case) and deploy the code to it. Even for someone like me, who knows how to do that, it’s not something I really want to do.</p>
-
-<p>By today’s model, if Brad wanted to make this app accessible to the masses, he’d have to run it as a service. He’d have to build in multi-user support, make sure it’s secure, deploy it, and monitor it. Worse, he’d have to pay for it, which means he’d have to monetize it, which probably means he’d have to start analyzing people’s mail to build advertising profiles, or set up billing. Brad obviously doesn’t want to do any of that.</p>
-
-<p>And even if he did, who would use it? Do you want to upload your paper mail to servers run by some guy on the internet? I’m certainly not going to trust my personal data to any service that isn’t at least backed by an identifiable organization with something to lose if it screws up.</p>
-
-<h3 id="the-problem-is-hosting">The problem is hosting.</h3>
-
-<p>By this point the problem is becoming clear: for open source software to make sense, the user has to be running their own instance. Software-as-a-Service and open source just don’t make sense together. It’s not really open source if you can’t run modified code, and the high barrier to entry shuts out hobby projects or anything unwilling to be monetized.</p>
-
-<p>The only solution is to make sure everyone has a server where they can install any software they want. They don’t necessarily have to <em>administer</em> that server – it could be run by a friend, or a service – but each user <em>must</em> be able to install arbitrary software. And that software must be securely sandboxed to prevent buggy or malicious software from harming the rest of the server.</p>
-
-<p>Today, this doesn’t exist in any practical form. Servers require time and technical expertise to set up, while turnkey hosting services only allow you to run a fixed set of software.</p>
-
-<p><strong>There is no place for open source web apps to run.</strong></p>
-
-<h3 id="were-making-decentralized-hosting-viable">We’re making decentralized hosting viable</h3>
-
-<p>Sandstorm is a web app hosting platform that enables non-technical end users to install and run arbitrary software. Apps may be downloaded from an app store and installed with one click, like installing apps on your phone. Each app server runs in a secure sandbox, where it cannot interfere with other apps without permission.</p>
-
-<p>We talk a lot about privacy, security, and control, but to me these have always been pleasant side-effects of Sandstorm’s model. My main motivation for starting this project has always been to enable open source software, hobby projects, niche applications, and indie developers. Even if each individual app in this category ultimately has a small impact compared to GMail or Facebook, the collective value lost by not giving these apps a platform is enormous. We need open source software to fill the niches that big companies aren’t interested in, and to push the boundaries they find too risky. We need software that can be tweaked without permission to try new things without starting from scratch. It honestly seems absurd to me that we don’t really have this on the web today.</p>
-
-<h3 id="help-us-get-there">Help us get there</h3>
-
-<p>We’ve already come a long way. <a href="https://demo.sandstorm.io/demo">We have a demo</a> that does most of what we’re talking about already. But we’re coming up on the limits of what we can self-fund. We can get Sandstorm into production, but we need your help.</p>
-
-<p>Please check out our campaign on Indiegogo, and spread the word.</p>
-
-<p><a class="crowdfunding" href="http://igg.me/at/sandstorm">Fund us on Indiegogo »</a></p>
+<p><em>Disclosure: Jade Wang, a member of the Sandstorm project, also works for Meteor, but Sandstorm and Meteor are not affiliated.</em></p>
 
 </section>
 
 <section>
-  <h2><a href="/news/2014-07-17-crowdfunding.html">We're Crowdfunding!</a></h2>
+  <h2><a href="/news/2014-08-11-roundcube">Roundcube; and avoiding walled gardens</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
-    - <a href="/news/2014-07-17-crowdfunding.html">17 Jul 2014</a>
+    - <a href="/news/2014-08-11-roundcube">11 Aug 2014</a>
   
-  <div><iframe class="youtube" src="//www.youtube.com/embed/LMpj9HAyyHs?rel=0" frameborder="0" allowfullscreen="true"> </iframe></div>
+  <p>Today we’re releasing our port of <a href="http://roundcube.net">Roundcube</a>, another open source e-mail web app. You can go install it from the app list now, either on your own Sandstorm server or <a href="https://demo.sandstorm.io">on our demo</a>.</p>
 
-<p>Sandstorm is already working and useful (this very blog is hosted on it), but to get it the rest of the way to production, we need your help!</p>
+<p><img src="https://sandstorm.io/apps/roundcube.png" alt="Screenshot" /></p>
 
-<h3 id="sandstorm-on-indiegogo-187httpiggmeatsandstorm"><a href="http://igg.me/at/sandstorm">Sandstorm on Indiegogo »</a></h3>
+<p>To this you might ask: What happened to <a href="/news/2014-07-07-mailpile.html">Mailpile</a>?</p>
+
+<p>Nothing happened. We support both! We like Mailpile, but we also want to give you choices. With Sandstorm, you can mix and match apps from competing developers as you see fit, while still retaining the unified experience of Sandstorm.</p>
+
+<h3 id="lets-end-walled-gardens">Let’s end walled gardens</h3>
+
+<p>Usually, when you sign up for a company’s suite of “cloud apps”, you have two choices:</p>
+
+<ol>
+  <li>Restrict yourself only to the apps that company provides and no others. This way you get a nicely integrated experience, but if one or more apps in the suite aren’t to your liking, you are stuck with them.</li>
+  <li>Also use apps from other developers. But you probably have to log into those apps separately, and they won’t integrate well with the first company’s suite. You end up with a fragmented experience in which you must remember multiple passwords and re-enter the same data into each service.</li>
+</ol>
+
+<p>We call this the “walled garden” problem. Big SaaS (Software-as-a-Service) providers tend to build walled gardens of apps that only integrate with other apps from the same developer.</p>
+
+<p>It would be easy and convenient for us to say that these companies are Evil and just want to lock you in, but that’s not true. The reality is that integration across security realms is hard. When each company has their own notion of users that can’t easily be mapped to each other, and understandably no company is willing to trust other companies with their security, how can you integrate apps containing private data? The answer in practice is OAuth, but OAuth permissions requests are clunky and disruptive to the UX. Some users are scared off by it – while others aren’t scared enough and just click “OK”.</p>
+
+<p>But developers within a company are perfectly willing to trust other developers in the same company to get security right, and so the entire OAuth dance can be skipped in these cases. This makes first-party integrations easy. Now imagine what would happen if a single company’s own apps had to OAuth to each other before integration. Imagine, for example, if Google Docs had to ask you for permission to fetch your contact list from GMail before enabling auto-complete of contact names in the share dialog. Probably, Google Docs wouldn’t bother, and there would be no autocomplete. Or imagine if the Facebook profile page had to ask for permision to connect to your Facebook photos before you could set your profile photo. This would be a huge pain! And even then, it wouldn’t necessarily end the walled garden: with OAuth, an app says “I need permission to talk to GMail,” not “I need permission to talk to an e-mail app.” There’s still no opportunity for you to substitute a third-party app in its place.</p>
+
+<p>With Sandstorm, we’re solving a lot of these problems:</p>
+
+<ul>
+  <li>All your apps run under the same roof, whether they are from the same developer or competing developers. You can use a diverse set of apps without having to remember a separate password for each one.</li>
+  <li>In place of OAuth, we’re building the Powerbox. This UI integrates better into the app’s UX by simultaneously acting as a picker and permissions granter. Apps usually need to present a picker anyway, so this is less disruptive. For example, if an app wants you to choose some contacts to which to send invitations, instead of first asking for permission to <em>all</em> your contacts just to display a picker UI back to you, the app will ask Sandstorm to display a Powerbox picker for contacts. Only the contacts you choose will be passed to the app. So, the UX is exactly the same, except without the separate permissions check, and yet it is more secure. The same idea would apply to choosing photos, or choosing anything else.</li>
+  <li>When using the Powerbox UI, the requesting app does not name an exact receiving app it wants to access, but instead specifies a protocol. So instead of saying “I need access to Mailpile,” the app would say “I need access to an e-mail app,” and you could potentially choose Mailpile, Roundcube, or any other e-mail app. Apps do have to implement compatible protocols, which can be difficult, but this approach at least leaves open the possibility of a newcomer app emulating the protocols already used by other apps in the space, thereby breaking down the network effect that would otherwise prevent a new app from gaining a foothold.</li>
+</ul>
+
+<p>We hope these design choices mean you get a unified experience no matter which apps you choose to use, and new players can break into the market more quickly, leading to faster innovation.</p>
 
 </section>
 
@@ -278,9 +311,9 @@
         <li>
           <h3><a href="/get">Get Sandstorm</a></h3>
           <ul>
-            <li><a href="/get">For Individuals</a>
+            <li><a href="/get#managed-hosting">Hosting</a>
+            <li><a href="/get#self-host">Download</a>
             <li><a href="/get#self-host">For Organizations</a>
-            <li><a href="/get#self-host">For Self-hosters</a>
           </ul>
         </li>
         <li>
@@ -288,21 +321,31 @@
           <ul>
             <li><a href="/features">Core</a>
             <li><a href="/features#security">Security</a>
-            <li><a href="/business">Sandstorm + Business</a>
-            <li><a href="/business#scale">Sandstorm + Scale</a>
+            <li><a href="/business">Sandstorm for Work</a>
+            <li><a href="/business#scale">Sandstorm for Enterprise</a>
             <li><a href="/developer">Development</a>
           </ul>
         </li>
         <li>
-          <h3><a href="how-it-works">How it Works</a></h3>
+          <h3><a href="/how-it-works">How it Works</a></h3>
           <ul>
             <li><a href="/how-it-works#grains">Fine-grained object containers</a>
             <li><a href="/how-it-works#capabilities">Capability-based Security</a>
           </ul>
         </li>
         <li>
-          <h3><a href="/community">Community</a>              </h3>
+          <h3><a href="https://docs.sandstorm.io">Documentation</a></h3>
           <ul>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/">Using</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/developing/">Developing</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/administering/">Administrating</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/security-practices/">Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a></h3>
+          <ul>
+            <li><a href="/news">Sandstorm Blog</a>
             <li><a href="/community#connect-with">Connect with us</a>
             <li><a href="/community#helpothers">Help Others</a>
             <li><a href="/community#helpproject">Help the Project</a>
@@ -318,27 +361,9 @@
           </ul>
         </li>
         <li>
-        <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
           <ul>
             <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
-          </ul>
-        </li>
-        <li>
-          <h3><a href="/blog">Blog</a></h3>
-          <ul>
-            <li><a href="/blog">Latest updates on Sandstorm.io</a>
-          </ul>
-        </li>
-        <li>
-          <h3>Join our mailing list!</h3>
-            <div class="subscribe-small">
-							<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
-								<input type="email" name="EMAIL" placeholder="e-mail" required>
-								<input type="submit" value="Submit">
-								</form>
-            </div>
-          <ul>
-            <li><a href=""></a>
           </ul>
         </li>
         <li>
@@ -349,6 +374,18 @@
 						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
 						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
   			</ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+                                                        <form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+                                                                <input type="email" name="EMAIL" placeholder="e-mail" required>
+                                                                <input type="submit" value="Submit">
+                                                                </form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
         </li>
       </ul>
       <p>This page was hand-crafted using only the finest web technologies.

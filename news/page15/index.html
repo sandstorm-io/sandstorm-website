@@ -5,10 +5,10 @@
     <title>Sandstorm Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Sandstorm.io">
+    <meta property="og:title" content="Sandstorm Blog">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
-    <meta property="og:url" content="https://sandstorm.io">
+    <meta property="og:image" content="https://sandstorm.io/images/sandcat.png">
+    <meta property="og:url" content="https://sandstorm.io/news/page15/">
     <meta property="og:description"
         content="Take control of your web by running your own personal cloud server with Sandstorm.">
     <link rel="stylesheet" type="text/css" href="/style.css">
@@ -20,11 +20,11 @@
   <body id="blog">
     <nav>
       <a href="/">Sandstorm.io</a>
-      <a href="/get">Sign Up</a>
-      <a href="/get#self-hosting">Download</a>
+      <a href="/get">Get Sandstorm</a>
       <a href="/features">Features</a>
       <a href="/how-it-works">How it Works</a>
       <a href="/news/">Blog</a>
+      <a href="https://docs.sandstorm.io">Docs</a>
       <a href="/community">Community</a>
       <a href="/about">About</a>
       <!-- TODO: search -->
@@ -56,6 +56,26 @@
       <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
       <span class="selfhost" href="/install">or host your own</span>
     </a>
+    
+    <h3>Recommended Posts</h3>
+    <ul>
+      <li><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">Open Source Web Apps Aren't Viable; Let's Fix That</a></li>
+      <li><a href="/news/2015-10-01-free-ssl-certificates.html">Free, automated SSL certificates for Sandstorm self-hosters</a></li>
+      <li><a href="/news/2014-08-19-why-not-run-docker-apps.html">Why doesn't Sandstorm just run Docker apps?</a></li>
+      <li><a href="/news/2015-08-31-oasis-beta-launch.html">Sandstorm Oasis hosting open beta and App Market launch</a></li>
+      <li><a href="/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install.html">Is curl|bash insecure?</a></li>
+      <li><a href="/news/2015-04-08-osx-security-bug">Remotely send Chrome and Node.js into infinite loops via this one weird OSX kernel bug</a></li>
+      <li><a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization.html">Delegation is the Cornerstone of Civilization: Sharing in Sandstorm.io</a></li>
+      <li><a href="/news/2016-01-22-8-new-open-source-apps.html">8 New open source self-hostable apps</a></li>
+      <li><a href="/news/2015-11-10-icons-spks-for-everyone.html">Graphics and one-click installers for everyone</a></li>
+    </ul>
+    
+    <h3>Further Reading</h3>
+      <ul>
+        <li><a href="/how-it-works">How Sandstorm Works</a></li>
+        <li><a href="http://docs.sandstorm.io">Sandstorm Documentation</a></li>
+        <li><a href="/install">How to install Sandstorm</a></li>
+      </ul>
   </div>
 </div>
 
@@ -69,6 +89,8 @@
     
 
     
+      <a class="older" href="/news/page16/" title="Next Page">Older posts &raquo;</a>
+    
     <br clear="both">
   </nav>
 
@@ -76,103 +98,322 @@
 
 
 <section>
-  <h2><a href="/news/2014-04-22-easy-install.html">Easy Install; New Apps</a></h2>
+  <h2><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">Open Source Web Apps Aren't Viable; Let's Fix That</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
-    - <a href="/news/2014-04-22-easy-install.html">22 Apr 2014</a>
+    - <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">21 Jul 2014</a>
   
   
   
   
-  <p>It’s been nearly a month since Sandstorm launched, and we’ve been busy.  Here’s
-what’s new!</p>
+  <h3 id="the-motivation-for-sandstorm">The Motivation for Sandstorm</h3>
 
-<h3 id="easily-run-your-own-instance">Easily run your own instance</h3>
+<p>We talk a lot about the need for privacy, security, and control of your cloud data. Let me let you in on a secret: These aren’t the reason for Sandstorm. They are pleasant side effects.</p>
 
-<p>When Sandstorm launched, some people thought it odd that our message of freedom
-from other people’s servers was followed by an invitation to use ours.  To
-clear the air a bit, we’ve now made it ridiculously easy to install your own
-Sandstorm server on your very own Linux machine:</p>
+<p>The real motivation for Sandstorm is, and always has been, making it possible for open source and indie developers to build successful web apps.</p>
 
-<pre><code>curl https://install.sandstorm.io | bash
-</code></pre>
+<p>In today’s popular software-as-a-service model, indie development simply is not viable. People <a href="http://indiewebcamp.com/">do it anyway</a>, but their software is not accessible to the masses. In order for low-budget software to succeed, and in order for open source to make any sense at all, users must be able to run their own instances of the software, at no cost to the developer. We’ve always had that on desktop and mobile. When it comes to server-side apps, <strong>hosting must be decentralized</strong>.</p>
 
-<p>Follow the on-screen directions and you’ll be up and running in seconds.  No
-need to build code nor edit config files.  In fact, your Sandstorm installation
-will even (if you choose) automatically keep itself updated, so you never
-have to deal with it again.  (Of course, you can still get the
-<a href="https://github.com/kentonv/sandstorm">full source code on Github</a> if you prefer.)</p>
+<p>But today, personal hosting is only accessible to those with the time, money, and expertise necessary to maintain a server. Even most techies don’t bother, because it’s a pain. Sandstorm exists to fix that, making personal hosting easily accessible to everyone.</p>
 
-<p>Of course, not everybody has a Linux server lying around, or wants their cloud
-apps hosted off their home internet connection, or wants to pay the typical
-$50/mo for a cloud VM instance powerful enough to run Sandstorm well.  That’s
-why we also want to offer managed instances that don’t require any of that.</p>
+<blockquote>"The only solution is to make sure everyone has a server where they can install any software they want."</blockquote>
 
-<p>To be clear: when you use our server, <strong>you are still in control</strong>.  You can
-upload any app you want.  We do not serve ads, and we will not mine your data.
-We let you move your data from our servers to your own at any time.  It’s like
-having your own VM on AWS except without the config files and the updating and
-the security issues.</p>
+<h3 id="open-source-has-worked-on-the-desktop-and-mobile">Open Source has worked on the desktop and mobile.</h3>
 
-<p>Eventually, we plan to charge a small fee for managed instances as a way to
-cover our upstream hosting costs and fund development.  But, for our early
-alpha testers, the service is free.</p>
+<p>On my desktop, I run Debian Linux. My system is composed of several thousand packages. I have browsers, text editors, IDEs, chat clients, office suites, development tools, photo editors, and media players. Remarkably, every single one of these is open source. Even more remarkably, I can’t remember the last time I felt any need to use a non-open-source desktop app.</p>
 
-<h3 id="invites-rolling-out">Invites rolling out</h3>
+<p>I’m no zealot. I don’t impose open source on myself, nor would I do so on others. I’ll use proprietary software when it gets the job done, and I have spent plenty of time as a Windows user and as a Mac user in my past, but these days I’m simply happiest on a Linux system. That’s my personal preference and it’s not for everyone, but the fact that this choice is available to me and that I can run an all-open-source desktop without pain is pretty amazing considering how things looked fifteen years ago.</p>
 
-<p>Speaking of using our servers…</p>
+<p>Even Windows and Mac users these days use lots of open source software. By some measures, a majority of people now use an open source browser. VLC, BitTorrent, and other “indie” open source desktop apps are widely used even among non-technical people. Mobile seems even more full of open source and low-budget indie apps, as the various mobile app stores make it extremely easy for small developers to reach large audiences.</p>
 
-<p>Despite the limited scope of our initial announcement, we ended up with an
-order of magnitude more people on our waiting list than we anticipated.  If you
-signed up and haven’t received an invite – alas, that’s most of you – I
-apologize!</p>
+<p>Yet, somehow, the web today is nearly completely devoid of open source software. Every day I use apps like GMail, Facebook, Twitter, Feedly, and others. None of these are open source. Granted, these apps often run on open source <em>infrastructure</em>, but that’s different. Most proprietary desktop apps use open source components and tools as well. But web <em>apps</em>, as the users see them, are almost invariably proprietary.</p>
 
-<p>We have not yet implemented the ability for Sandstorm to scale to multiple
-machines.  However, we recently increased the capacity of our main machine
-such that we should be able to invite a lot more people, and we’ll get to work
-on multi-machine scaling soon.  Be sure to
-<a href="https://sandstorm.io/#signup-form">get on the mailing list</a> if you want an
-invite – or just want to stay updated.</p>
+<h3 id="why-are-all-my-web-apps-proprietary">Why are all my web apps proprietary?</h3>
 
-<h3 id="new-apps">New Apps</h3>
+<p>Open source web apps exist. For example, webmail apps like SquirrelMail and RoundCube have been around for a while. If you look hard enough, you can find open source online document editors, RSS readers, and even a few social networks. But even among techies, hardly anyone seems to use these, probably because they all require running your own server, and few people have the time, patience, and expertise for that.</p>
 
-<p>Some awesome contributors have written/ported a few new Sandstorm apps:</p>
+<p>There are a few success stories. Wordpress is open source and widely-used for blogging. But this seems to be the exception rather than the rule. And it’s questionable at that: most people who use Wordpress are not actually able to edit the code, because they are using it through a Wordpress hosting service and can only use the version of Wordpress that that host provides. Naturally, all hosts will likely only use the “official” version. So in practice, it’s almost not really “open source” but “visible source” – you can see the code and request changes, but you only get to use your changes if they’re officially adopted.</p>
 
-<ul>
-  <li><a href="https://github.com/jparyani">Jason Paryani</a> ported the
-<a href="http://ipython.org/notebook.html">IPython Notebook</a>, a powerful app that
-lets you execute Python code from your browser, render equations and charts,
-and more.</li>
-  <li><a href="https://github.com/dwrensha">David Renshaw</a> has written a little original
-game called Acronymy. Interestingly, he wrote
-<a href="https://github.com/dwrensha/acronymy">his code</a> in pure
-<a href="http://www.rust-lang.org/">Rust</a>, using Sandstorm’s low-level
-<a href="https://capnproto.org">Cap’n Proto</a>-based
-API directly, thus avoiding the need for an HTTP server.</li>
-  <li><a href="https://github.com/Sing-Li">Sing Li</a> is working on a port of
-<a href="http://ghost.org">Ghost</a>, the beautifully-designed open source blogging
-platform.  It’s not quite ready for public consumption, but the test version
-I tried is looking pretty good.</li>
-</ul>
+<h3 id="why-does-no-one-use-indie-web-apps">Why does no one use “indie” web apps?</h3>
 
-<p>Install these and other apps to your Sandstorm instance from
-<a href="https://sandstorm.io/apps">the app list</a>.</p>
+<p>Even on Windows, people commonly install little open source apps to get things done. Need to tag some mp3s? Want to connect to multiple chat networks with one client? Need to unpack a weird archive format? You’ll probably use an open source app. Sometimes it’s hard to build a business case around a niche purpose, yet little apps written by random people in their spare time are abundant. But on the web, it doesn’t seem to work this way. Any significant service with a server-side component can really only be run by a funded corporation.</p>
 
-<p>Porting apps is still a somewhat weird and ad hoc process. Usually the code
-doesn’t need to change much, but figuring out the app’s dependencies for
-packaging purposes takes some sleuthing. We’re working on better tools which
-will make this process much easier; stay tuned.</p>
+<p>Let me describe a case in point: I know a certain prolific coder by the name of <a href="http://en.wikipedia.org/wiki/Brad_Fitzpatrick">Brad Fitzpatrick</a>. You may know him as the author of LiveJournal, Camlistore, memcache, OpenID, and other things. But I want to talk about a project of his you probably haven’t heard of.</p>
+
+<p><a href="https://github.com/bradfitz/scanningcabinet">scanningcabinet</a> is a little web app that helps you organize your paper mail. You drop your mail into your scanner, and the app scans it and uploads it to “the cloud”, where you can access, label, and search it later. Brad wrote this on a weekend several years ago and threw the code up on github.</p>
+
+<p>This app could be useful to just about anyone. But sadly, no one can really use it. To set it up, you have to configure a server (App Engine, in this case) and deploy the code to it. Even for someone like me, who knows how to do that, it’s not something I really want to do.</p>
+
+<p>By today’s model, if Brad wanted to make this app accessible to the masses, he’d have to run it as a service. He’d have to build in multi-user support, make sure it’s secure, deploy it, and monitor it. Worse, he’d have to pay for it, which means he’d have to monetize it, which probably means he’d have to start analyzing people’s mail to build advertising profiles, or set up billing. Brad obviously doesn’t want to do any of that.</p>
+
+<p>And even if he did, who would use it? Do you want to upload your paper mail to servers run by some guy on the internet? I’m certainly not going to trust my personal data to any service that isn’t at least backed by an identifiable organization with something to lose if it screws up.</p>
+
+<h3 id="the-problem-is-hosting">The problem is hosting.</h3>
+
+<p>By this point the problem is becoming clear: for open source software to make sense, the user has to be running their own instance. Software-as-a-Service and open source just don’t make sense together. It’s not really open source if you can’t run modified code, and the high barrier to entry shuts out hobby projects or anything unwilling to be monetized.</p>
+
+<p>The only solution is to make sure everyone has a server where they can install any software they want. They don’t necessarily have to <em>administer</em> that server – it could be run by a friend, or a service – but each user <em>must</em> be able to install arbitrary software. And that software must be securely sandboxed to prevent buggy or malicious software from harming the rest of the server.</p>
+
+<p>Today, this doesn’t exist in any practical form. Servers require time and technical expertise to set up, while turnkey hosting services only allow you to run a fixed set of software.</p>
+
+<p><strong>There is no place for open source web apps to run.</strong></p>
+
+<h3 id="were-making-decentralized-hosting-viable">We’re making decentralized hosting viable</h3>
+
+<p>Sandstorm is a web app hosting platform that enables non-technical end users to install and run arbitrary software. Apps may be downloaded from an app store and installed with one click, like installing apps on your phone. Each app server runs in a secure sandbox, where it cannot interfere with other apps without permission.</p>
+
+<p>We talk a lot about privacy, security, and control, but to me these have always been pleasant side-effects of Sandstorm’s model. My main motivation for starting this project has always been to enable open source software, hobby projects, niche applications, and indie developers. Even if each individual app in this category ultimately has a small impact compared to GMail or Facebook, the collective value lost by not giving these apps a platform is enormous. We need open source software to fill the niches that big companies aren’t interested in, and to push the boundaries they find too risky. We need software that can be tweaked without permission to try new things without starting from scratch. It honestly seems absurd to me that we don’t really have this on the web today.</p>
+
+<h3 id="help-us-get-there">Help us get there</h3>
+
+<p>We’ve already come a long way. <a href="https://demo.sandstorm.io/demo">We have a demo</a> that does most of what we’re talking about already. But we’re coming up on the limits of what we can self-fund. We can get Sandstorm into production, but we need your help.</p>
+
+<p>Please check out our campaign on Indiegogo, and spread the word.</p>
+
+<p><a class="crowdfunding" href="http://igg.me/at/sandstorm">Fund us on Indiegogo »</a></p>
 
 </section>
 
 <section>
-  <h2><a href="/news/2014-03-24-sandstorm-alpha.html">Sandstorm Alpha Launched!</a></h2>
+  <h2><a href="/news/2014-07-17-crowdfunding">We're Crowdfunding!</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
-    - <a href="/news/2014-03-24-sandstorm-alpha.html">24 Mar 2014</a>
+    - <a href="/news/2014-07-17-crowdfunding">17 Jul 2014</a>
   
-  <p>Today I’m announcing the release and launch of the alpha version of
-Sandstorm.io.  <a href="https://sandstorm.io">See the site for more.</a></p>
+  <div><iframe class="youtube" src="//www.youtube.com/embed/LMpj9HAyyHs?rel=0" frameborder="0" allowfullscreen="true"> </iframe></div>
+
+<p>Sandstorm is already working and useful (this very blog is hosted on it), but to get it the rest of the way to production, we need your help!</p>
+
+<h3 id="sandstorm-on-indiegogo-187httpiggmeatsandstorm"><a href="http://igg.me/at/sandstorm">Sandstorm on Indiegogo »</a></h3>
+
+</section>
+
+<section>
+  <h2><a href="/news/2014-07-11-demo-and-app-updates">Demo box; App updates</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-07-11-demo-and-app-updates">11 Jul 2014</a>
+  
+  <p>A few quick updates today.</p>
+
+<h3 id="new-demo-server">New Demo server</h3>
+
+<p>It’s now possible to try out Sandstorm without an invite, and without installing
+it locally. Just go to <a href="https://demo.sandstorm.io/demo">demo.sandstorm.io</a>.</p>
+
+<p>On the demo server, anyone can create a one-hour trial account. We hope that
+this will make it much easier for people to understand what Sandstorm does,
+before they install it or wait in line for an invite. If a picture
+is worth a thousand words, a demo is worth ten thousand.</p>
+
+<h3 id="app-updates">App updates</h3>
+
+<p>We’ve posted updates to several apps with bug fixes and other improvements.
+Currently, in order to update an app, you must re-install it from the
+<a href="https://sandstorm.io/apps">app list</a>. (Push updates for apps are on our
+todo list.) So, if you’ve installed any of the following, install them again.</p>
+
+<ul>
+  <li><strong>Mailpile:</strong> Fixed bug where sent mail sometimes wasn’t saved.</li>
+  <li><strong>IPython Notebook:</strong> Added numpy and plotting packages, so you can now plot graphs.</li>
+  <li><strong>Etherpad:</strong> Minor UI tweaks.</li>
+</ul>
+
+<h3 id="new-features-and-fixes">New features and fixes</h3>
+
+<ul>
+  <li>We’ve added a “reset” button to the top bar, which lets you restart an app
+if it somehow gets wedged. This is rare, but otherwise really annoying when
+it happens.</li>
+  <li>Apps now receive the user’s display name and a unique stable identifier,
+which are useful for collaborative apps meant to be used by more than one
+user.</li>
+  <li>We fixed a crash that happened when updating a Sandstorm instance that runs
+as non-root, and tightened some security knobs in this mode.</li>
+</ul>
+
+<h3 id="license-is-now-apache-20">License is now Apache 2.0</h3>
+
+<p>Several people told us they were not comfortable contributing to Sandstorm
+when licensed under the GNU AGPL, or that their employers were hesitant to
+allow them to contribute. We think this is entirely understandable. We have
+always intended to switch to Apache 2.0 after gaining some momentum (which is
+why we have asked contributors to sign a CLA allowing us to make this change).
+So, we’ve gone ahead and made the switch now.</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2014-07-07-mailpile">Mailpile on Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/jparyani">Jason Paryani</a>
+    
+    - <a href="/news/2014-07-07-mailpile">07 Jul 2014</a>
+  
+  <p>Hello, I’m Jason, a new member of the Sandstorm team. Today I’m excited to
+announce that I’ve extended Sandstorm to support e-mail, and ported
+<a href="https://www.mailpile.is/">Mailpile Alpha II</a> to demonstrate. Mailpile is
+available on the <a href="https://sandstorm.io/apps/">Sandstorm app list</a> right now, so
+go ahead and try it out.</p>
+
+<p>You may know Mailpile from
+<a href="https://www.indiegogo.com/projects/mailpile-taking-e-mail-back">their successful Indiegogo campaign</a>
+last year. They’ve been working hard to create a web mail app that is designed
+to be self-hosted, which makes it a perfect fit for Sandstorm. It’s worth noting
+that Mailpile itself is, like Sandstorm, still in alpha. It is still somewhat
+rough around the edges, and may not quite be ready to replace your regular
+e-mail client yet. We will be updating our port as Mailpile matures, and we’re
+also looking at porting some other web mail apps so that you can choose the one
+that’s right for you.</p>
+
+<h3 id="how-sandstorm-does-e-mail">How Sandstorm does e-mail</h3>
+
+<p>We know that switching people over to using Sandstorm for e-mail will take time.
+So, we are starting with a design that makes it safe and easy to try out
+Sandstorm without committing.</p>
+
+<p>When you launch an e-mail application on Sandstorm, it is assigned a random
+e-mail address at your server, like “JBuaKxjkwiJq7oksS@alpha.sandstorm.io”. Any
+e-mail sent to that address is delivered to the app. The idea is not that you’d
+actually use this address publicly, but rather that you should set up e-mail
+forwarding from your real address to this address. For example, GMail allows
+you to set up such forwarding while still keeping a copy in your GMail inbox,
+and even lets you do the forwarding conditionally based on a filter.
+Additionally, most domain registrars have the ability to set up basic e-mail
+forwarding, so if you have your own domain, it’s easy to set up an address that
+redirects to a Sandstorm app.</p>
+
+<p>When you send e-mail from a Sandstorm app, we allow you to set the “From”
+header either to your app’s random address or to your verified Sandstorm login
+address. In the future, we’d like to add the ability to attach additional
+verified addresses to your account. Either way, the message’s envelope return
+address is always the app’s address. As a result, the mail recipient may see
+that the message was sent “via” your server.</p>
+
+<p>For more details on how to write an app that uses e-mail, and how to set up
+your Sandstorm server to support e-mail, check out the docs:
+* <a href="https://github.com/sandstorm-io/sandstorm/wiki/Configuring-your-server-for-email">Configuring your server for e-mail.</a>
+* <a href="https://github.com/sandstorm-io/sandstorm/wiki/Using-Email-From-Your-Sandstorm-App">Writing an app to use e-mail.</a></p>
+
+<h3 id="a-note-on-encryption">A note on encryption</h3>
+
+<p>A key feature of Mailpile is its support for PGP / GPG encryption and
+signatures. Unfortunately, this is not yet supported by our Sandstorm port, as
+we need to do more work to get crypto right.</p>
+
+<p>The simplest way we could support crypto would be to have you upload your
+private key into the app, to be stored on the server. This is not a good idea!
+In an ideal world, your private key would live only on a physical token or
+smart card and never even touch the storage of a real computer. Barring that,
+you should at least keep your key only on systems you own. If you run your own
+Sandstorm server, then uploading your key might be OK, but for anyone using a
+shared server, it’s not a good idea. We want a solution that works for everyone.</p>
+
+<p>Therefore we are looking into how we can make crypto available to Sandstorm
+apps without sending your key to the server. We are hopeful that the nascent
+<a href="http://www.w3.org/TR/WebCryptoAPI/">WebCrypto API</a> might solve this problem,
+but at present the standard is still under development and there is apparently
+some controversy over its design. In the meantime, browser-extension-based
+approaches like <a href="https://code.google.com/p/end-to-end/">Google’s End-To-End</a>
+provide an intriguing alternative, although Chrome’s decision to kill off NPAPI
+may make it impossible to access hardware tokens or your local GPG agent in
+this way.</p>
+
+<p>In any case, this is something we’ll be investigating further in the future.</p>
+
+</section>
+
+<section>
+  <h2><a href="/news/2014-07-03-team-update">New team members; security improvements; backup/restore</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-07-03-team-update">03 Jul 2014</a>
+  
+  <p>We have a bunch of updates for you today.</p>
+
+<h3 id="lots-of-apps-coming">Lots of apps coming!</h3>
+
+<p>We’ve ported a number of interesting apps to Sandstorm and will begin releasing
+them within the next few days. First up will be
+<a href="https://www.mailpile.is">Mailpile</a> – yes, e-mail in Sandstorm!
+Expect a full announcement on Monday, and other app announcements over the
+following days and weeks.</p>
+
+<h3 id="team-updates">Team updates</h3>
+
+<p>The Sandstorm team is no longer just me. I’d like to introduce all the new
+faces that you now see on our front page:</p>
+
+<ul>
+  <li><a href="https://github.com/jparyani"><strong>Jason Paryani</strong></a>, the author of Cap’n Proto’s
+<a href="https://github.com/jparyani/pycapnp">Python port</a>, has been working
+on features like backup/restore, e-mail, improved sharing/permissions, and
+porting a number of exciting apps.</li>
+  <li><a href="https://github.com/dwrensha"><strong>David Renshaw</strong></a>, the author of the
+<a href="https://github.com/dwrensha/capnproto-rust">Rust</a>
+and <a href="https://github.com/dwrensha/capnproto-java">Java</a> ports of Cap’n Proto, is
+now joining the team as well. He’s written a couple games that you can find on
+the app list (Duolodo and Acronymy) and is working on ports of
+<a href="https://www.sharelatex.com/">ShareLaTeX</a> and other apps.</li>
+  <li><a href="https://github.com/jadeqwang"><strong>Jade Wang</strong></a> has been working part-time on
+developer outreach and operations. She organized our recent app hackathon
+and other things you’ll be hearing about soon.</li>
+</ul>
+
+<p>We also have a couple of key advisors. These guys are contributing advice, resouces,
+and the occasional patch in their spare time; Sandstorm is not affiliated with
+their respective employers.</p>
+
+<ul>
+  <li><a href="https://github.com/amluto"><strong>Andy Lutomirski</strong></a> is a Linux kernel developer
+and has been helping us take better advantage of the kernel’s sandboxing features.</li>
+  <li><a href="https://github.com/swetland"><strong>Brian Swetland</strong></a> spent nine years as
+Android’s Systems Engineering lead and has been advising us on platform design.</li>
+</ul>
+
+<h3 id="backup--restore-functionality">Backup / Restore functionality</h3>
+
+<p>Jason has implemented the ability to back up
+and restore grains (app instances) from you Sandstorm server. Just click the
+new download icon on the top bar when viewing a grain. You will get a zip file
+containing the grain’s storage, which you can re-upload to the server (or to a
+different server) later on.</p>
+
+<h3 id="security-no-need-for-root">Security: No need for root</h3>
+
+<p>Sandstorm can now be installed and run without root privileges or setuid
+binaries. To accomplish this, we use Linux’s “UID namespaces” feature, which
+essentially allows other sandboxing features to be accessed by an unprivileged user.</p>
+
+<p>Unfortunately, if you are developing Sandstorm apps, it is still necessary to
+install Sandstorm with root privileges because the dev tools rely on FUSE and
+FUSE filesystems cannot currently be mounted inside UID namespaces. We hope the
+Linux kernel will eventually add this feature.</p>
+
+<p>Due to the use of UID namespaces, Sandstorm now requires Linux kernel version
+3.13 or better. The installer will verify that you are ready to run Sandstorm.</p>
+
+<p>Thanks to Andy for contributing much of the work on this.</p>
+
+<h3 id="seccomp-bpf-sandboxing">Seccomp-BPF Sandboxing</h3>
+
+<p>We’ve now enabled a basic seccomp filter to disable some dangerous system calls.
+Seccomp is a Linux feature that makes sandboxing more secure by disabling system
+calls (OS features) that apps don’t need. A typical web server uses only a tiny
+fraction of Linux’s system calls. By disabling the rest, we make sure that if a
+kernel exploit is found in one of them, it won’t allow an app to escape its
+sandbox.</p>
+
+<p>For now, we’ve disabled a few calls that provide complicated functionality that
+has been the subjects of vulnerabilities in the past, and that no web server
+rightly needs. We plan to expand on this in the future, eventually implementing
+a small whitelist and probably moving many system calls to userspace. All of
+this will be totally transparent to apps.</p>
+
+<p>Again, thanks to Andy for getting this started.</p>
+
+<h3 id="lwn-coverage">LWN Coverage</h3>
+
+<p>Linux Weekly News <a href="http://lwn.net/Articles/603485/">wrote about Sandstorm</a> last week!</p>
 
 </section>
 
@@ -185,6 +426,8 @@ Sandstorm.io.  <a href="https://sandstorm.io">See the site for more.</a></p>
   
 
   
+    <a class="older" href="/news/page16/" title="Next Page">Older posts &raquo;</a>
+  
   <br clear="both">
 </nav>
 
@@ -196,9 +439,9 @@ Sandstorm.io.  <a href="https://sandstorm.io">See the site for more.</a></p>
         <li>
           <h3><a href="/get">Get Sandstorm</a></h3>
           <ul>
-            <li><a href="/get">For Individuals</a>
+            <li><a href="/get#managed-hosting">Hosting</a>
+            <li><a href="/get#self-host">Download</a>
             <li><a href="/get#self-host">For Organizations</a>
-            <li><a href="/get#self-host">For Self-hosters</a>
           </ul>
         </li>
         <li>
@@ -206,21 +449,31 @@ Sandstorm.io.  <a href="https://sandstorm.io">See the site for more.</a></p>
           <ul>
             <li><a href="/features">Core</a>
             <li><a href="/features#security">Security</a>
-            <li><a href="/business">Sandstorm + Business</a>
-            <li><a href="/business#scale">Sandstorm + Scale</a>
+            <li><a href="/business">Sandstorm for Work</a>
+            <li><a href="/business#scale">Sandstorm for Enterprise</a>
             <li><a href="/developer">Development</a>
           </ul>
         </li>
         <li>
-          <h3><a href="how-it-works">How it Works</a></h3>
+          <h3><a href="/how-it-works">How it Works</a></h3>
           <ul>
             <li><a href="/how-it-works#grains">Fine-grained object containers</a>
             <li><a href="/how-it-works#capabilities">Capability-based Security</a>
           </ul>
         </li>
         <li>
-          <h3><a href="/community">Community</a>              </h3>
+          <h3><a href="https://docs.sandstorm.io">Documentation</a></h3>
           <ul>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/">Using</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/developing/">Developing</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/administering/">Administrating</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/security-practices/">Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a></h3>
+          <ul>
+            <li><a href="/news">Sandstorm Blog</a>
             <li><a href="/community#connect-with">Connect with us</a>
             <li><a href="/community#helpothers">Help Others</a>
             <li><a href="/community#helpproject">Help the Project</a>
@@ -236,27 +489,9 @@ Sandstorm.io.  <a href="https://sandstorm.io">See the site for more.</a></p>
           </ul>
         </li>
         <li>
-        <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
           <ul>
             <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
-          </ul>
-        </li>
-        <li>
-          <h3><a href="/blog">Blog</a></h3>
-          <ul>
-            <li><a href="/blog">Latest updates on Sandstorm.io</a>
-          </ul>
-        </li>
-        <li>
-          <h3>Join our mailing list!</h3>
-            <div class="subscribe-small">
-							<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
-								<input type="email" name="EMAIL" placeholder="e-mail" required>
-								<input type="submit" value="Submit">
-								</form>
-            </div>
-          <ul>
-            <li><a href=""></a>
           </ul>
         </li>
         <li>
@@ -267,6 +502,18 @@ Sandstorm.io.  <a href="https://sandstorm.io">See the site for more.</a></p>
 						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
 						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
   			</ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+                                                        <form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+                                                                <input type="email" name="EMAIL" placeholder="e-mail" required>
+                                                                <input type="submit" value="Submit">
+                                                                </form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
         </li>
       </ul>
       <p>This page was hand-crafted using only the finest web technologies.

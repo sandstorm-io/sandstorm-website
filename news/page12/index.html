@@ -5,10 +5,10 @@
     <title>Sandstorm Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Sandstorm.io">
+    <meta property="og:title" content="Sandstorm Blog">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://sandstorm.io/logo-bw.png">
-    <meta property="og:url" content="https://sandstorm.io">
+    <meta property="og:image" content="https://sandstorm.io/images/sandcat.png">
+    <meta property="og:url" content="https://sandstorm.io/news/page12/">
     <meta property="og:description"
         content="Take control of your web by running your own personal cloud server with Sandstorm.">
     <link rel="stylesheet" type="text/css" href="/style.css">
@@ -20,11 +20,11 @@
   <body id="blog">
     <nav>
       <a href="/">Sandstorm.io</a>
-      <a href="/get">Sign Up</a>
-      <a href="/get#self-hosting">Download</a>
+      <a href="/get">Get Sandstorm</a>
       <a href="/features">Features</a>
       <a href="/how-it-works">How it Works</a>
       <a href="/news/">Blog</a>
+      <a href="https://docs.sandstorm.io">Docs</a>
       <a href="/community">Community</a>
       <a href="/about">About</a>
       <!-- TODO: search -->
@@ -56,6 +56,26 @@
       <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
       <span class="selfhost" href="/install">or host your own</span>
     </a>
+    
+    <h3>Recommended Posts</h3>
+    <ul>
+      <li><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">Open Source Web Apps Aren't Viable; Let's Fix That</a></li>
+      <li><a href="/news/2015-10-01-free-ssl-certificates.html">Free, automated SSL certificates for Sandstorm self-hosters</a></li>
+      <li><a href="/news/2014-08-19-why-not-run-docker-apps.html">Why doesn't Sandstorm just run Docker apps?</a></li>
+      <li><a href="/news/2015-08-31-oasis-beta-launch.html">Sandstorm Oasis hosting open beta and App Market launch</a></li>
+      <li><a href="/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install.html">Is curl|bash insecure?</a></li>
+      <li><a href="/news/2015-04-08-osx-security-bug">Remotely send Chrome and Node.js into infinite loops via this one weird OSX kernel bug</a></li>
+      <li><a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization.html">Delegation is the Cornerstone of Civilization: Sharing in Sandstorm.io</a></li>
+      <li><a href="/news/2016-01-22-8-new-open-source-apps.html">8 New open source self-hostable apps</a></li>
+      <li><a href="/news/2015-11-10-icons-spks-for-everyone.html">Graphics and one-click installers for everyone</a></li>
+    </ul>
+    
+    <h3>Further Reading</h3>
+      <ul>
+        <li><a href="/how-it-works">How Sandstorm Works</a></li>
+        <li><a href="http://docs.sandstorm.io">Sandstorm Documentation</a></li>
+        <li><a href="/install">How to install Sandstorm</a></li>
+      </ul>
   </div>
 </div>
 
@@ -78,248 +98,235 @@
 
 
 <section>
-  <h2><a href="/news/2014-08-13-sandbox-security.html">Sandstorm vs. Kernel Exploits</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+  <h2><a href="/news/2014-08-26-groove-basin">Streaming Music with Groove Basin</a></h2>
+  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
     
-    - <a href="/news/2014-08-13-sandbox-security.html">13 Aug 2014</a>
+    - <a href="/news/2014-08-26-groove-basin">26 Aug 2014</a>
   
   
   
   
-  <p>A few weeks ago, I discovered a vulnerability in the Linux kernel that may allow sandboxed programs to break out of a container. The same problem can also be exploited in a different way on many typical Linux systems to gain local root privileges. I reported the problem to the kernel’s security team. Yesterday, upon release of a fix for the issue, the vulnerability was <a href="http://www.openwall.com/lists/oss-security/2014/08/12/6">disclosed publicly</a> (<a href="https://www.google.com/search?q=CVE-2014-5206">CVE-2014-5206</a> and <a href="https://www.google.com/search?q=CVE-2014-5207">CVE-2014-5207</a>).</p>
+  <p>Today we are releasing our port of <a href="http://groovebasin.com/">Groove Basin</a>, the ongoing product of <a href="http://andrewkelley.me/">Andrew Kelley</a>’s three year quest to <a href="http://andrewkelley.me/post/quest-build-ultimate-music-player.html">build the ultimate music player</a>.</p>
 
-<p>Docker, in many configurations, is likely vulnerable to this exploit. Sandstorm, however, is not.</p>
+<p><a href="https://sandstorm.io/apps/groovebasin-big.png"><img alt="Groove Basin Screenshot" src="https://sandstorm.io/apps/groovebasin.png" /></a></p>
 
-<p>To be fair, Docker is not primarily designed to be a sandbox. It is instead designed to run arbitrary off-the-shelf Linux applications and distributions in a clean, hermetic way – and at this, it excels. There are some provisions for security, but the general recommendation is to avoid deploying anything that could be actively malicious.</p>
+<p>With the Groove Basin app, you can upload music to a Sandstorm grain and listen to it from anywhere. Groove Basin provides loudness compensation, gapless playback, and support for a wide range of codecs, including all of the common ones like mp3, flac, ogg, m4a, aif, wav, and wma.</p>
 
-<p>Sandstorm, on the other hand, cares deeply about sandboxing, and is willing trade off compatibility for security. We are happy to hide or disable whole swaths of the Linux platform that most apps don’t need, at the expense of having to develop work-arounds for the few apps that do need them. By doing this, we reduce the “attack surface” of the Linux kernel – any vulnerabilities found in the features we disabled do not affect Sandstorm. Of course, it is exactly these rarely-used obscure features which have received the least scrutiny and thus are the most likely to contain vulnerabilities.</p>
+<p>As befits a Sandstorm app, Groove Basin also has some interesting sharing features. You can connect one client to speakers and let other clients act as remote controls, with the ability to control playback and upload new music. Alternatively, you can set up a long distance listening party, where geographically dispersed listeners share a playback stream. We’ve integrated Groove Basin’s permissions system with Sandstorm’s, so only the instance owner is allowed to perform destructive actions like deleting tracks or editing tags.</p>
 
-<p>Some examples of features we remove:</p>
-
-<ul>
-  <li>We use seccomp-bpf to disable system calls that are not needed by apps. For example, by disabling the <code>mount(2)</code> system call as well as blocking the creation of new UID namespaces, Sandstorm sidesteps the vulnerability I discovered. (Ironically, Sandstorm itself relies on these very features to set up the sandbox, but apps do not need them.)</li>
-  <li>We do not mount <code>/proc</code> or <code>/sys</code>, which are filesystem-based interfaces exposing myriad kernel features.</li>
-  <li>The only devices we present to apps are <code>/dev/null</code>, <code>/dev/zero</code>, and <code>/dev/urandom</code>.</li>
-  <li>We prohibit sandboxes from using setuid binaries to gain privileges by setting the <code>no_new_privs</code> process flag and other measures.</li>
-</ul>
-
-<p>Many of these things can be enabled in Docker as well, but only by manual configuration.</p>
-
-<p>All of these things potentially break some applications, but when problems do come up, it’s usually easy to work around the issue by tweaking the application code. Sandstorm’s willingness to require such changes is a key design difference from Docker. To be clear, I am not criticizing Docker’s choice – it makes tons of sense for what Docker is trying to accomplish. But Sandstorm is trying to accomplish something different.</p>
-
-<p>In the future, we hope to further improve the Sandstorm sandbox by moving more kernel functionality to userspace. Using seccomp-bpf, we can actually cause some system calls to raise <code>SIGSYS</code>, thus allowing us to “virtualize” the call by implementing it in a signal handler. Through this, we can do anything from mocking out an irrelevant system call to implementing a whole virtual filesystem (by intercepting <code>open(2)</code>).</p>
-
-<p>One thing in particular that we’d like to do is implement <code>exec(2)</code> in userspace. Parsing ELF binaries is non-trivial, and there have been vulnerabilities in the kernel’s ELF parser in the past. But, this work does not actually need to happen in the kernel. The main function of exec which cannot be performed in userspace is granting privileges to setuid binaries – but we actively <em>don’t want</em> that feature anyway.</p>
-
-<p>Two of Sandstorm’s advisors – Andrew Lutomirski (a security-focused kernel developer) and Mark Seaborn (a member of Chrome’s Native Client sandbox team) – are experts on these issues and have been helping us work out the details. Andy actually implemented the <code>no_new_privs</code> kernel feature and contributed Sandstorm’s seccomp filter. He has been keeping us informed as new kernel vulnerabilities arise. Mark has implemented several Linux native code sandboxes before and is helping us design what we hope will be the best yet. (Note: Our advisors contribute in their spare time, not on behalf of their employers.)</p>
-
-<p>Of course, to see any of this happen, we need your help. :) <a href="http://igg.me/at/sandstorm">Please fund our Indiegogo campaign.</a></p>
+<p>I highly recommend that you give it a spin, either on your personal Sandstorm server or on the <a href="https://demo.sandstorm.io">demo</a>.</p>
 
 </section>
 
 <section>
-  <h2><a href="/news/2014-08-12-meteor-spk.html">Porting Meteor apps to Sandstorm in three minutes</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+  <h2><a href="/news/2014-08-25-nominate-apps-for-sandstorm">Nominate Apps for Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
     
-    - <a href="/news/2014-08-12-meteor-spk.html">12 Aug 2014</a>
+    - <a href="/news/2014-08-25-nominate-apps-for-sandstorm">25 Aug 2014</a>
   
-  <p>As you know, Sandstorm apps can be written using any tech stack that runs on Linux. We have apps written in PHP, Python, Node.js, C++, Go, and even Rust.</p>
+  <p>What app would YOU like to see on Sandstorm?</p>
 
-<p>But if you’re starting from scratch and need to choose, the easiest way to write a Sandstorm app today is using <a href="https://www.meteor.com">Meteor</a>. Meteor is a modern open source web framework that makes it ridiculously easy to build high-quality, low-latency, real-time web apps quickly. Sandstorm’s own front-end is built on Meteor.</p>
+<p>We’d love to hear from you. From now until the end of the campaign, you can tweet in your favorite apps to our app survey. Just nominate them with a tweet, and they’ll make the short-list for the App Committee to consider. For instance: “I’d love to see @joindiaspora on @SandstormIO! http://igg.me/at/sandstorm”</p>
 
-<p>I recently gave a lightning talk at <a href="https://devshop.meteor.com">Meteor Devshop</a> where I demonstrated porting a Meteor app to Sandstorm. The app I chose was written by independent developers with no intent to target our platform. As you’ll see, it took me under three minutes to port live on stage:</p>
+<p><img src="https://sandstorm.io/example-tweet.png" alt="Example tweet screenshot." /></p>
 
-<p><em>Note: The video shows the process for older versions of Meteor, in which packages had to be installed with the separate tool Meteorite (<code>mrt</code>). This blog post has since been updated for Meteor 0.9.x, which has its own built-in package repository.</em></p>
+<p>The apps will be presented in a list to the App Committee with the number of votes (tweets) it received, starting with the most highly requested. The App Committee will then decide what makes sense to work on first.</p>
 
-<div><iframe class="youtube" src="//www.youtube.com/embed/mJpYHhqByUo" frameborder="0" allowfullscreen="true"> </iframe></div>
+<p>How it works:
+* If the app has a twitter handle, please use it (or include a link to the app, if they don’t).
+* You can tweet multiple apps, and ask your friends for retweets.
+* Retweets count as votes.
+* For your vote to be counted, your tweet should begin with a character other than @ and contain @SandstormIO and a link to the <a href="http://igg.me/at/sandstorm">Indiegogo campaign</a>.
+* Hint: Use the “tweet” button on the campaign page to get your personalized referral link so that you can receive <a href="/news/2014-08-22-campaign-recap.html#referral_program">referral bonuses</a>.</p>
 
-<p>When it comes to writing a Sandstorm app, Meteor works particularly well as a platform because it tends to produce self-contained apps. Meteor’s tools already know how to construct a “bundle” containing all of the app’s dependencies. From there, we just need to add Node and Mongo, and we have ourselves a Sandstorm package. We don’t even need to use <a href="2014-05-12-easy-port.html">our trick to automatically detect dependencies</a>.</p>
+<p>We’re in the home stretch, 83% of our way there, with just one more week left in the campaign! We need your help to make Sandstorm happen.</p>
 
-<p>To make this even easier, we’ve written a tool called <a href="https://sandstorm.io/meteor-spk"><code>meteor-spk</code></a> which automates this. We’ve also published a Meteor package <a href="https://atmospherejs.com/kenton/accounts-sandstorm"><code>kenton:accounts-sandstorm</code></a> which integrates Meteor’s accounts system with Sandstorm’s unified login. Together, these mean that porting a Meteor app to Sandstorm usually involves three commands:</p>
-
-<pre><code>meteor add kenton:accounts-sandstorm
-meteor-spk init
-meteor-spk pack myapp.spk
-</code></pre>
-
-<p>Our intrepid fan <a href="https://plus.google.com/+JakeWeisz">Jake Weisz</a> – who previously <a href="2014-08-05-ethercalc.html">contributed a port of EtherCalc</a> – has used this tool to port <a href="https://github.com/stubailo/meteor-blocks">Meteor Blocks</a>, a simple voxel-based model editor written using Meteor. You can find it on the Sandstorm app list now – <a href="https://demo.sandstorm.io">try the demo</a> if you don’t already have your own server.</p>
-
-<p><img src="https://sandstorm.io/apps/meteor-blocks.png" alt="Meteor-blocks screenshot" /></p>
-
-<p>We hope to see tools like this developed for other frameworks in the future. <code>meteor-spk</code> is just a simple bash script wrapping Sandstorm’s <code>spk</code> tool and providing a dependency bundle to merge into the package. If you’d like to contribute a similar script for your own favorite framework, <a href="https://groups.google.com/group/sandstorm-dev">let us know</a>!</p>
-
-<p><em>Disclosure: Jade Wang, a member of the Sandstorm project, also works for Meteor, but Sandstorm and Meteor are not affiliated.</em></p>
+<p>P.S. Of course, you can always port the app yourself rather than wait for us. Please drop us a line if you do. :)</p>
 
 </section>
 
 <section>
-  <h2><a href="/news/2014-08-11-roundcube.html">Roundcube; and avoiding walled gardens</a></h2>
+  <h2><a href="/news/2014-08-22-campaign-recap">Campaign Recap</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
-    - <a href="/news/2014-08-11-roundcube.html">11 Aug 2014</a>
+    - <a href="/news/2014-08-22-campaign-recap">22 Aug 2014</a>
   
-  <p>Today we’re releasing our port of <a href="http://roundcube.net">Roundcube</a>, another open source e-mail web app. You can go install it from the app list now, either on your own Sandstorm server or <a href="https://demo.sandstorm.io">on our demo</a>.</p>
+  <p>There are just under 10 days left in our campaign. As of this writing, we are 78% funded. If you haven’t contributed yet, now is the time! <a href="http://igg.me/at/sandstorm">Go to Ingiegogo »</a></p>
 
-<p><img src="https://sandstorm.io/apps/roundcube.png" alt="Screenshot" /></p>
+<p>Let’s take this moment to recap everything that’s happened over the campaign so far. But first, some brief announcements.</p>
 
-<p>To this you might ask: What happened to <a href="/news/2014-07-07-mailpile.html">Mailpile</a>?</p>
+<h3 id="quick-announcements">Quick Announcements</h3>
 
-<p>Nothing happened. We support both! We like Mailpile, but we also want to give you choices. With Sandstorm, you can mix and match apps from competing developers as you see fit, while still retaining the unified experience of Sandstorm.</p>
+<p><strong>App committee seats are sold out.</strong> We had been doubling the price for every 10 seats sold, but we’re all out of perk slots on Indiegogo, so we’ve stopped at 30. However, you can still get a seat on the committee by becoming a Key Individual Sponsor ($2048 includes-everything perk) or by being our top referrer (see referral program, below).</p>
 
-<h3 id="lets-end-walled-gardens">Let’s end walled gardens</h3>
+<p><strong>Heading for the playa?</strong> We know a lot of you San Francisco geeks might not have internet for the next week. Don’t forget to contribute before you leave, because the campaign will be over when you get back!</p>
 
-<p>Usually, when you sign up for a company’s suite of “cloud apps”, you have two choices:</p>
+<p><strong>We finally added an RSS feed.</strong> The Sandstorm blog now has <a href="/feed.xml">an RSS feed</a>. Looking for an RSS reader? Try TinyTinyRSS on Sandstorm. :)</p>
 
-<ol>
-  <li>Restrict yourself only to the apps that company provides and no others. This way you get a nicely integrated experience, but if one or more apps in the suite aren’t to your liking, you are stuck with them.</li>
-  <li>Also use apps from other developers. But you probably have to log into those apps separately, and they won’t integrate well with the first company’s suite. You end up with a fragmented experience in which you must remember multiple passwords and re-enter the same data into each service.</li>
-</ol>
+<h3 id="our-core-sponsors">Our Core Sponsors</h3>
 
-<p>We call this the “walled garden” problem. Big SaaS (Software-as-a-Service) providers tend to build walled gardens of apps that only integrate with other apps from the same developer.</p>
+<p>Our first <strong>Key Individual Sponsor</strong> ($2048 level) is <strong><a href="http://rogerwagner.com/">Roger Wagner</a></strong>. Roger is known for many things, including having written the first book on Apple II programming and creating HyperStudio. As a sponsor, he’ll be featured along side our own team on our web site and in our credits. Thanks, Roger!</p>
 
-<p>It would be easy and convenient for us to say that these companies are Evil and just want to lock you in, but that’s not true. The reality is that integration across security realms is hard. When each company has their own notion of users that can’t easily be mapped to each other, and understandably no company is willing to trust other companies with their security, how can you integrate apps containing private data? The answer in practice is OAuth, but OAuth permissions requests are clunky and disruptive to the UX. Some users are scared off by it – while others aren’t scared enough and just click “OK”.</p>
+<p>Our first <strong>Corporate Sponsor</strong> ($4096 level) is <strong><a href="http://draw.io">draw.io</a></strong>, a powerful web-based diagramming tool. As a sponsor, their logo will be displayed on our site and in our credits, and we’ll be helping them get draw.io on the Sandstorm app store. Thanks, draw.io!</p>
 
-<p>But developers within a company are perfectly willing to trust other developers in the same company to get security right, and so the entire OAuth dance can be skipped in these cases. This makes first-party integrations easy. Now imagine what would happen if a single company’s own apps had to OAuth to each other before integration. Imagine, for example, if Google Docs had to ask you for permission to fetch your contact list from GMail before enabling auto-complete of contact names in the share dialog. Probably, Google Docs wouldn’t bother, and there would be no autocomplete. Or imagine if the Facebook profile page had to ask for permision to connect to your Facebook photos before you could set your profile photo. This would be a huge pain! And even then, it wouldn’t necessarily end the walled garden: with OAuth, an app says “I need permission to talk to GMail,” not “I need permission to talk to an e-mail app.” There’s still no opportunity for you to substitute a third-party app in its place.</p>
+<p>Would you or your company like to become a core sponsor? Consider that your contribution alone could increase our funding level by four or eight percentage points, and we’ll feature you name and picture/logo on our web site and credits for at least two years. Thinking about it but not quite sure? <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#107;&#101;&#110;&#116;&#111;&#110;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;">E-mail Kenton</a> to discuss terms.</p>
 
-<p>With Sandstorm, we’re solving a lot of these problems:</p>
+<h3 id="campaign-recap">Campaign Recap</h3>
+
+<p><strong>Blog posts you should read</strong></p>
 
 <ul>
-  <li>All your apps run under the same roof, whether they are from the same developer or competing developers. You can use a diverse set of apps without having to remember a separate password for each one.</li>
-  <li>In place of OAuth, we’re building the Powerbox. This UI integrates better into the app’s UX by simultaneously acting as a picker and permissions granter. Apps usually need to present a picker anyway, so this is less disruptive. For example, if an app wants you to choose some contacts to which to send invitations, instead of first asking for permission to <em>all</em> your contacts just to display a picker UI back to you, the app will ask Sandstorm to display a Powerbox picker for contacts. Only the contacts you choose will be passed to the app. So, the UX is exactly the same, except without the separate permissions check, and yet it is more secure. The same idea would apply to choosing photos, or choosing anything else.</li>
-  <li>When using the Powerbox UI, the requesting app does not name an exact receiving app it wants to access, but instead specifies a protocol. So instead of saying “I need access to Mailpile,” the app would say “I need access to an e-mail app,” and you could potentially choose Mailpile, Roundcube, or any other e-mail app. Apps do have to implement compatible protocols, which can be difficult, but this approach at least leaves open the possibility of a newcomer app emulating the protocols already used by other apps in the space, thereby breaking down the network effect that would otherwise prevent a new app from gaining a foothold.</li>
+  <li><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">Open Source Web Apps Aren’t Viable; Let’s Fix That</a></li>
+  <li><a href="/news/2014-08-19-why-not-run-docker-apps.html">Why doesn’t Sandstorm just run Docker apps?</a></li>
+  <li><a href="/news/2014-08-11-roundcube.html">Let’s end walled gardens</a></li>
+  <li><a href="/news/2014-08-13-sandbox-security.html">Sandstorm vs. Kernel Exploits</a></li>
+  <li><a href="/news/2014-08-12-meteor-spk.html">Porting Meteor apps to Sandstorm in three minutes</a></li>
+  <li><a href="/news/2014-07-24-tinytinyrss-plus-security-discussion.html">What happens if an app has security bugs?</a></li>
 </ul>
 
-<p>We hope these design choices mean you get a unified experience no matter which apps you choose to use, and new players can break into the market more quickly, leading to faster innovation.</p>
+<p><strong>App ports we released</strong></p>
+
+<ul>
+  <li><a href="/news/2014-08-20-apache-wave.html">Apache Wave</a> (real-time discussion engine)</li>
+  <li><a href="/news/2014-08-05-ethercalc.html">EtherCalc</a> (collabortaive spreadsheet editor)</li>
+  <li><a href="/news/2014-07-25-sharelatex.html">ShareLaTeX</a> (collaborative LaTeX editor)</li>
+  <li><a href="/news/2014-07-22-ghost.html">Ghost</a> (blogging platform)</li>
+  <li><a href="/news/2014-08-18-wordpress.html">WordPress</a> (publishing platform)</li>
+  <li><a href="/news/2014-07-07-mailpile.html">Mailpile</a> (e-mail)</li>
+  <li><a href="/news/2014-08-11-roundcube.html">Roundcube</a> (e-mail)</li>
+  <li><a href="/news/2014-07-24-tinytinyrss-plus-security-discussion.html">TinyTinyRSS</a> (feed reader)</li>
+  <li><a href="/news/2014-08-01-mediagoblin.html">MediaGoblin</a> (photo/media sharing)</li>
+  <li><a href="/news/2014-08-12-meteor-spk.html">Game of Y</a> (game)</li>
+  <li><a href="/news/2014-08-12-meteor-spk.html">Meteor Blocks</a> (simple voxel scene editor)</li>
+</ul>
+
+<p><strong>Talks and Interviews</strong></p>
+
+<ul>
+  <li><a href="https://sourcegraph.com/blog/sandstorm-by-kenton-varda-talk">Sourcegraph talk</a></li>
+  <li><a href="http://redecentralize.org/interviews/2014/08/20/17-kenton-varda.html">Redecentralize.net interview</a></li>
+  <li><a href="https://www.youtube.com/watch?v=mJpYHhqByUo">Meteor Devshop lightning talk</a></li>
+</ul>
+
+<p><strong>Press</strong></p>
+
+<ul>
+  <li><a href="http://gigaom.com/2014/08/01/sandstorms-decentralized-hosting-platform-could-finally-make-indie-web-apps-viable/">GigaOM: Sandstorm’s decentralized hosting platform could finally make indie web apps viable.</a></li>
+  <li><a href="http://www.wired.com/2014/07/out-in-the-open-sandstorm-makes-it-easy-to-control-your-apps-in-the-cloud/">WIRED: Sandstorm Makes It Easy to Control Your Apps in the Cloud.</a></li>
+  <li><a href="http://techcrunch.com/2014/08/05/sandstorm/">TechCrunch: Sandstorm Wants Web Users To Gain More Control Over The Apps They Use.</a></li>
+  <li><a href="http://lwn.net/Articles/603485/">Linux Weekly News: Sandstorm Personal Cloud Platform</a></li>
+  <li><a href="http://opensource.com/life/14/8/sandstorm-open-source-web-apps">Opensource.com: What owning your personal cloud means for the open source movement</a></li>
+  <li><a href="http://gigaom.com/2014/08/21/remember-googles-wave-thanks-to-sandstorm-its-easy-to-start-using-again/">GigaOM: Remember Google’s Wave? Thanks to Sandstorm, it’s easy to start using again.</a></li>
+  <li><a href="http://twit.tv/show/tech-news-today/1076">Tech News Today: Wave makes a comeback.</a> (seek to 14:32)</li>
+</ul>
+
+<h3 id="referral-program">Referral Program</h3>
+
+<p>Don’t forget about our referral program:</p>
+
+<p>If you refer someone, and they contribute, we’ll give you your choice of:</p>
+
+<p>a) 1GB bonus storage for every $10 referred (on our managed hosting service, for one year).</p>
+
+<p>b) 10% of your referral total in app store credit. Remember that our app store will support a pay-what-you-want model for open source apps, so this basically means you can donate your credit to the developers of an open source Sandstorm app of your choice.</p>
+
+<p>The top referrer will additionally receive their choice of a LAN party invite (see the $512 perk) or a seat on the app committee (with $256 voting rights).</p>
+
+<p>In order to receive credit for your referrals, be sure that you are logged into Indiegogo, then use the buttons under the video on our campaign page to share. These buttons will generate links that track the fact that they came from you.</p>
 
 </section>
 
 <section>
-  <h2><a href="/news/2014-08-05-ethercalc.html">EtherCalc: Online spreadsheets</a></h2>
+  <h2><a href="/news/2014-08-20-apache-wave">Apache Wave on Sandstorm</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
-    - <a href="/news/2014-08-05-ethercalc.html">05 Aug 2014</a>
+    - <a href="/news/2014-08-20-apache-wave">20 Aug 2014</a>
   
-  <p>Today’s release is a pleasant surprise even to us. Last week, a Sandstorm
-fan, <a href="https://plus.google.com/+JakeWeisz">Jake Weisz</a>, e-mailed me out of the
-blue to tell me he had ported <a href="http://ethercalc.net">EtherCalc</a>, an online
-collaborative spreadsheet editor, to Sandstorm.</p>
+  <p>In an unspeakable act of technical necromancy, we’ve revived what was once <a href="http://wave.google.com">Google Wave</a> and placed it on the <a href="https://sandstorm.io/apps/">Sandstorm app list</a>. You can install it now – on your own Sandstorm server, or using <a href="https://demo.sandstorm.io">our demo</a> – and use it to… um… whatever it is that Wave is for. We’re still trying to figure that out too. We’re pretty sure it’s amazing, though!</p>
 
-<p>I hadn’t heard of EtherCalc before, but Jake included a link to a spreadsheet
-running on our own alpha server, so I was able to try it out immediately, and
-I was impressed. Sure enough, it’s a spreadsheet editor, it does the things
-you expect spreadsheets to do, it supports real-time collaboration, and it’s
-Free Software.</p>
+<p>OK, joking aside…</p>
 
-<p><img src="https://sandstorm.io/apps/ethercalc.png" alt="screenshot" /></p>
+<p>Put simply, Wave is a collaborative document editor with inline, nestable comment threads. What do you use it for? Well, one thing I think it’s great for is design discussions. Your root Wave is your design proposal. People can comment on individual parts, you can reply to those comments, and so on. It’s easier to keep threads organized than in an e-mail discussion. For example, here’s what a recent design discussion I had with security guru Jas Nagra might have looked like as a Wave:</p>
 
-<p>Jake professes to have had no idea what he was doing. “I have never even seen
-Node.js before, I don’t even know JavaScript, and I have only a passing
-familiarity with using Linux.” Yet, by just following the
-<a href="https://github.com/sandstorm-io/sandstorm/wiki/Porting-Guide">porting guide</a>,
-he managed to port an app. Jake attributes this to EtherCalc’s simple and
-elegant design: “The way it was already designed, it was incredibly easy to
-port to Sandstorm. I think I changed three or four lines of code tops to
-get it working.”</p>
+<p><img src="https://sandstorm.io/apps/wave-big.png" alt="Wave screenshot" style="width: 800px;" /></p>
 
-<p>Speaking of EtherCalc’s design, developer <a href="http://en.wikipedia.org/wiki/Audrey_Tang">Audrey Tang</a>
-has written a long and fascinating history of EtherCalc (and its previous
-iterations, WikiCalc and SocialCalc) for the book series
-<a href="http://aosabook.org/"><em>The Architecture of Open Source Applications</em></a>. These
-chapters have also been reproduced on <a href="http://ethercalc.net/">EtherCalc’s web site</a>.
-Check it out!</p>
+<p>As you may recall, Google released Wave back in 2009 to great fanfare only to pull the plug on it just a year later, citing lackluster user growth. Whether that was the fault of the product itself or of a botched rollout and bad messaging is hard to say. In any case, Google was kind enough to release their code, and since then the folks over at Apache have been keeping development going as <a href="http://incubator.apache.org/wave/">Apache Wave</a>.</p>
 
-<p>Meanwhile, Jake’s port is on the Sandstorm app list now. As always, you can
-install it on your Sansdtorm server, or <a href="https://demo.sandstorm.io">try the demo</a>.</p>
+<p>Apache has made sure that Wave keeps progressing. But, how exactly does one use Wave today? Well, a few people maintain <a href="http://incubator.apache.org/wave/demo-servers.html">demo servers</a>, but these are not meant for real use and have no reliability guarantees. Instead, if you really want to use Wave, you are supposed to set up your own server.</p>
+
+<p>Now there’s an easier option: Install it on Sandstorm.</p>
+
+<p>Moreover, with our port, it’s easier than ever to actually share a Wave with your friends. Normally with Apache Wave today, you must convince your friends to first create accounts on your Wave server so that you can then share with them. For our Sandstorm port, we’ve adapted Wave to rely on Sandstorm for sharing. What that means right now is that to share a wave with anyone, all you have to do is send them the URL. They don’t even need to have a Sandstorm account. Sandstorm’s sharing model will become more sophisticated in the future, but we consider it critical that sharing with anyone – whether they have an account or not – be as frictionless as possible.</p>
+
+<p>We see companies shutting down useful apps all the time. Often, they offer users the opportunity to download their data as massive zip files full of useless XML. Wouldn’t it be great if these companies could give you not just your data, but also the app, in a format that you could easily keep using? We hope that in the future, developers will decide that it makes more sense to convert their failed SaaS offerings into Sandstorm apps. This way, companies can cut their costs without leaving users out in the cold.</p>
+
+<p><em>If you want to see Sandstorm succeed, there are 12 days left to <a href="http://igg.me/at/sandstorm">contribute to the campaign</a>.</em></p>
 
 </section>
 
 <section>
-  <h2><a href="/news/2014-08-01-mediagoblin.html">MediaGoblin: Photo sharing and more</a></h2>
+  <h2><a href="/news/2014-08-19-why-not-run-docker-apps">Why doesn't Sandstorm just run Docker apps?</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
-    - <a href="/news/2014-08-01-mediagoblin.html">01 Aug 2014</a>
+    - <a href="/news/2014-08-19-why-not-run-docker-apps">19 Aug 2014</a>
   
-  <p>Today we’re releasing a port of yet another crowd-funded open source web app,
-<a href="http://mediagoblin.org">MediaGoblin</a>. You can think of MediaGoblin as a
-Free Software alternative to Flickr, SoundCloud, YouTube, and others.</p>
+  <p>We get this question a lot. Sandstorm and Docker use the same Linux kernel features for containerization. Docker already has a large ecosystem of apps. Why introduce a new app format? Why not simply position Sandstorm as a UI for Docker? Wouldn’t that save a lot of work? Why reinvent the wheel?</p>
 
-<p><img src="https://sandstorm.io/apps/mediagoblin.png" alt="screenshot" /></p>
+<p>The fact of the matter is, Sandstorm and Docker, despite similar underlying tech, are very different platforms. Asking why Sandstorm doesn’t run Docker apps is a lot like asking why Android doesn’t run Linux desktop apps. If it’s the same Linux kernel under the hood, shouldn’t it be able to run the same apps? Well, a Linux desktop app would have a lot of problems running on Android. Most obviously, a desktop app’s UX would be all wrong on a small touchscreen. Moreover, the app would not fit into Android’s security model. It would not understand Android’s battery-saving lifecycle rules. It would not know how to tap into the unique devices (e.g. accelerometer, GPS) and opportunities (e.g. connecting with nearby devices) commonly available on phones but not on desktop.</p>
 
-<p>The app is on the app list now – try it on the
-<a href="https://demo.sandstorm.io">demo server</a>.</p>
+<blockquote>Asking why Sandstorm doesn't run Docker apps is a lot like asking why Android doesn't run Linux desktop apps.</blockquote>
 
-<p>MediaGoblin is our first app to take full advantage of Sandstorm’s new user
-identification features. Whenever a request comes in from a user, Sandstorm’s
-front-end proxy adds a few headers related to authentication and authorization:</p>
+<p>Running a Docker app on Sandstorm would be much the same story. Docker is designed to run off-the-shelf server-oriented Linux software and distributions inside containers. Docker’s platform, from the app’s point of view, is just Linux. From the user’s point of view, you use Docker much like you’d use traditional VMs and compute clusters; it’s just a lot more efficient.</p>
 
-<ul>
-  <li><strong><code>X-Sandstorm-Username</code></strong>: Specifies the user’s display name, e.g.
-“Kenton Varda”. This name is not unique nor stable; it is meant only for
-displaying to other users.</li>
-  <li><strong><code>X-Sandstorm-User-Id</code></strong>: A hex string identifying the user. This ID is both
-unique and stable, so it can be used to identify when the same user returns
-multiple times.</li>
-  <li><strong><code>X-Sandstorm-Permissions</code></strong>: A list of permissions that have been shared with
-this user via the Sandstorm sharing interface. An app can define what
-permissions are available to share in its package config. However, note that
-we have not yet implemented the full sharing UI, so for now the creator of
-the app instance is granted all permissions and everyone else is granted
-none. It’s up to the app to actually implement this permissions, so for
-now you can simply use it to distinguish between the owner and non-owners.</li>
-</ul>
+<p>Sandstorm, though, is doing something completely different. We are trying to manage personal servers for end users. With Sandstorm, the person deciding what software to deploy is not necessarily a developer or system administrator. They may not know how to use a command line or edit config files. They may not know what a database is, and so aren’t likely to understand why they need to set up MySQL before they can run that app they’re interested in.</p>
 
-<p>Our MediaGoblin port uses these headers to automatically populate MediaGoblin’s
-internal user list. This way you get MediaGoblin’s commenting and other
-multi-user features without the need to separately log into it.</p>
-
-<p>Note that there are a few things missing from this port, which we plan to fix
-in the future:</p>
+<p>This use case calls for a completely different model, just as phones call for a different model from desktops. We need to design a bunch of things differently:</p>
 
 <ul>
-  <li>Currently, under the hood, apps are exposed only at ephemeral
-hostnames; the hostname may change every time you use the app. This is
-<a href="/news/2014-07-24-tinytinyrss-plus-security-discussion.html">great for security</a>
-but means that apps cannot expose APIs, since API clients want
-a persistent URL to talk to. Atom feeds are a kind of API. So, for now, we
-have disabled Atom feeds in our port. This is unfortunate, as it changes
-MediaGoblin from “federated” to “isolated”. That said, enabling APIs is high
-on our wish list of features, so expect this to return in the future.</li>
-  <li>Related to the above, it’s currently not possible to deep-link into an app,
-since it runs in an iframe. So, sending someone an individual photo with
-MediaGoblin is hard. We can fix this by automatically passing through any
-additional path added to the outer app URL, and creating a
-<code>postMessage()</code>-based API for apps to tell the Sandstorm shell what the
-current path should be.</li>
-  <li>Due to a limitation in our proxy implementation, we currently do not support
-very large file uploads. As a result, we had to disable video uploads for now.
-We plan to fix this soon.</li>
-  <li>Currently, if you wish to share your MediaGoblin content, you must share
-the app instance by copy/pasting the URL. When another user visits that URL,
-your MediaGoblin server starts up to handle the request. This differs from
-Ghost and Hacker CMS which are able to publish web content in such a way that
-the server does not need to start up for every visitor, only for the editor.
-Unfortunately, this means that a widely-shared MediaGoblin instance may be
-expensive as it may have to run frequently; Sandstorm normally tries to cut
-costs by only running servers a small fraction of the time. We’d like to
-change the app to take advantage of Sandstorm’s web publishing features like
-Ghost and Hacker CMS do, so that the server only needs to run when a visitor
-posts a comment, uploads media, or otherwise makes a change. However, this
-may require some invasive changes to MediaGoblin, so we’ll need to discuss
-them with MediaGoblin’s developers.</li>
-  <li>MediaGoblin implements a number of permissions which can be granted to users,
-such as permissions to comment, upload media, etc.
-We eventually want permissions to be set using Sandstorm’s unified sharing
-model, but as described above it is not yet complete. So, for the time being,
-you have to set users’ permissions inside the MediaGoblin user management
-interface.</li>
+  <li>
+    <p>Every app must have a web interface, and they must expose all configuration options through that interface.</p>
+  </li>
+  <li>
+    <p>Users expect their data to be organized in units of documents or other semantic objects, not in units of databases or relational tables. Apps must set up their own database and encapsulate it appropriately; the user won’t do it for them.</p>
+  </li>
+  <li>
+    <p>Users should not have to log into every app separately, especially when the app instance already belongs specifically to them and Sandstorm is already protecting access. So, apps must integrate with Sandstorm’s unified login system.</p>
+  </li>
+  <li>
+    <p>It would also be nice if users did not have to master a different sharing model for every app. Sandstorm supports fine-grained containers, such that every document can actually be in a separate container. This way, the platform can handle sharing consistently across all apps, by applying sharing to the containers. But, apps have to be designed for this.</p>
+  </li>
+  <li>
+    <p>Permission grants must be expressed in a way that users can understand. A user does not know what it means to allow an app to communicate on port 25, but they do know what it means to allow an app to send and receive e-mail under a particular e-mail address. In order for such permissions to be enforceable, the platform’s security model must actually operate in terms of these semantic permissions, not arbitrary TCP connections.</p>
+  </li>
+  <li>
+    <p>Updating an app must be a one-click (or even automatic) process. This means there must be a clearly-defined separation between the app “image” and its instance data, so that the platform is able to replace the former without harming the latter.</p>
+  </li>
+  <li>
+    <p>Users <em>will</em> install malicious apps from time to time, and they must be protected from these. The regular Linux kernel interface is far too wide, and critical exploits are found too often. We must instead present a much narrower interface and force apps to adapt. <a href="/news/2014-08-13-sandbox-security.html">See our previous post on this.</a></p>
+  </li>
 </ul>
 
-<p>All that said, despite some missing features, Sandstorm is by far the quickest
-way to get MediaGoblin up and running. We hope our port allows this great
-piece of Free Software to reach a wider audience than it could before.</p>
+<p>For all these reasons, a Docker app simply would not be able to run under Sandstorm without modification. The modifications needed for typical Linux web apps tend to be light, but they are necessary.</p>
 
-<p>And if you’d like to see the missing features fixed in the future, be sure
-to <a href="http://igg.me/at/sandstorm">fund our Indiegogo campaign</a>. :)</p>
+<h3 id="why-not-at-least-use-the-container-tech">Why not at least use the container tech?</h3>
+
+<p>So, we’ve seen that it wouldn’t make sense to run a regular Docker app on Sandstorm. But, why don’t we still use Docker’s tech, and simply define an extra set of rules which Sandstorm apps much follow? Sandstorm would only be able to run the apps explicitly targeted for it, but at least we wouldn’t be reinventing the wheel technically, right?</p>
+
+<p>Well, first of all, we <em>do</em> use a lot of the same tech as Docker. Namely, we use the Linux kernel sandboxing features, such as namespaces and (soon) cgroups. These features do all of the heavy lifting of containerization.</p>
+
+<p>When it comes to userspace tools, it turns out that we just don’t really need anything Docker provides. Docker’s tools are designed to be highly adaptable and configurable in order to accommodate a wide range of Linux software without modification. Sandstorm, however, isn’t trying to run arbitrary Linux software. Apps already have to be adapted to Sandstorm’s environment. So, we are actually better off providing minimal configurability in order to keep the core system simple.</p>
+
+<p>Setting up a Sandstorm sandbox, based on raw Linux system calls, takes only a few hundred lines of code. Using Docker, it would probably be a few hundred lines of configuration instead, while adding a huge new dependency and all the maintenance issues that come with that. We would probably regularly find ourselves needing to push features upstream to Docker which Docker doesn’t otherwise need or want. It’s a lot of burden that wouldn’t buy us anything.</p>
+
+<p>We <em>do</em> often use Docker’s build tools in the process of building Sandstorm packages, simply because they provide a structured and reproducible way to gather an app and its dependencies into a chroot environment, which we can then package up. This is a fine option for app developers that does not affect the runtime system.</p>
+
+<h3 id="to-be-clear-docker-is-awesome">To be clear, Docker is awesome</h3>
+
+<p>We aren’t trying to dis Docker here. For what it’s trying to do – replace VMs with something not as horribly inefficient – Docker is amazing. We are excited to see it replace legacy IaaS solutions, and we will likely be targeting it as a way to run Sandstorm itself.</p>
+
+<p>But despite an initial appearance of similarity, Docker and Sandstorm simply aren’t the same thing, and forced sharing of code for very different purposes would not benefit either project.</p>
+
+<p><em>If you want to see Sandstorm succeed, there are 13 days left to <a href="http://igg.me/at/sandstorm">contribute to the campaign</a>.</em></p>
 
 </section>
 
@@ -345,9 +352,9 @@ to <a href="http://igg.me/at/sandstorm">fund our Indiegogo campaign</a>. :)</p>
         <li>
           <h3><a href="/get">Get Sandstorm</a></h3>
           <ul>
-            <li><a href="/get">For Individuals</a>
+            <li><a href="/get#managed-hosting">Hosting</a>
+            <li><a href="/get#self-host">Download</a>
             <li><a href="/get#self-host">For Organizations</a>
-            <li><a href="/get#self-host">For Self-hosters</a>
           </ul>
         </li>
         <li>
@@ -355,21 +362,31 @@ to <a href="http://igg.me/at/sandstorm">fund our Indiegogo campaign</a>. :)</p>
           <ul>
             <li><a href="/features">Core</a>
             <li><a href="/features#security">Security</a>
-            <li><a href="/business">Sandstorm + Business</a>
-            <li><a href="/business#scale">Sandstorm + Scale</a>
+            <li><a href="/business">Sandstorm for Work</a>
+            <li><a href="/business#scale">Sandstorm for Enterprise</a>
             <li><a href="/developer">Development</a>
           </ul>
         </li>
         <li>
-          <h3><a href="how-it-works">How it Works</a></h3>
+          <h3><a href="/how-it-works">How it Works</a></h3>
           <ul>
             <li><a href="/how-it-works#grains">Fine-grained object containers</a>
             <li><a href="/how-it-works#capabilities">Capability-based Security</a>
           </ul>
         </li>
         <li>
-          <h3><a href="/community">Community</a>              </h3>
+          <h3><a href="https://docs.sandstorm.io">Documentation</a></h3>
           <ul>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/">Using</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/developing/">Developing</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/administering/">Administrating</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/security-practices/">Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a></h3>
+          <ul>
+            <li><a href="/news">Sandstorm Blog</a>
             <li><a href="/community#connect-with">Connect with us</a>
             <li><a href="/community#helpothers">Help Others</a>
             <li><a href="/community#helpproject">Help the Project</a>
@@ -385,27 +402,9 @@ to <a href="http://igg.me/at/sandstorm">fund our Indiegogo campaign</a>. :)</p>
           </ul>
         </li>
         <li>
-        <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
           <ul>
             <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
-          </ul>
-        </li>
-        <li>
-          <h3><a href="/blog">Blog</a></h3>
-          <ul>
-            <li><a href="/blog">Latest updates on Sandstorm.io</a>
-          </ul>
-        </li>
-        <li>
-          <h3>Join our mailing list!</h3>
-            <div class="subscribe-small">
-							<form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
-								<input type="email" name="EMAIL" placeholder="e-mail" required>
-								<input type="submit" value="Submit">
-								</form>
-            </div>
-          <ul>
-            <li><a href=""></a>
           </ul>
         </li>
         <li>
@@ -416,6 +415,18 @@ to <a href="http://igg.me/at/sandstorm">fund our Indiegogo campaign</a>. :)</p>
 						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
 						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
   			</ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+                                                        <form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+                                                                <input type="email" name="EMAIL" placeholder="e-mail" required>
+                                                                <input type="submit" value="Submit">
+                                                                </form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
         </li>
       </ul>
       <p>This page was hand-crafted using only the finest web technologies.
