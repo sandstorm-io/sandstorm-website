@@ -10,6 +10,8 @@
 				<title>Sandstorm for Work Beta: LDAP, SAML, organization management</title>
 				<description>&lt;p&gt;Sandstorm is a great way to run open source collaborative productivity apps like document editors, task managers, chat rooms, file sharing, and more (54 apps and growing), all in one place. Lots of people – including us – use Sandstorm every day as part of doing their jobs. For example, right now I am composing this blog post in &lt;a href=&quot;https://apps.sandstorm.io/app/fq057t4ek3yt96xsfje6c1wv61pkjkqm9hs1539x4jqxjwzdp7fh&quot;&gt;Dillinger&lt;/a&gt; running on &lt;a href=&quot;https://oasis.sandstorm.io&quot;&gt;Sandstorm Oasis&lt;/a&gt; (our hosting service), but many people choose to self-host Sandstorm on their own machines.&lt;/p&gt;
 
+&lt;p&gt;&lt;img style=&quot;float: right; width: 283px; height: 221px;&quot; src=&quot;/images/business-ldap.png&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;Sandstorm for Work makes self-hosted Sandstorm easier to integrate into a corporate environment. That means you can:&lt;/p&gt;
 
 &lt;ul&gt;
