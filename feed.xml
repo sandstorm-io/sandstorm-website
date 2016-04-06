@@ -7,6 +7,70 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Sandstorm for Work Beta: LDAP, SAML, organization management</title>
+				<description>&lt;p&gt;Sandstorm is a great way to run open source collaborative productivity apps like document editors, task managers, chat rooms, file sharing, and more (54 apps and growing), all in one place. Lots of people – including us – use Sandstorm every day as part of doing their jobs. For example, right now I am composing this blog post in &lt;a href=&quot;https://apps.sandstorm.io/app/fq057t4ek3yt96xsfje6c1wv61pkjkqm9hs1539x4jqxjwzdp7fh&quot;&gt;Dillinger&lt;/a&gt; running on &lt;a href=&quot;https://oasis.sandstorm.io&quot;&gt;Sandstorm Oasis&lt;/a&gt; (our hosting service), but many people choose to self-host Sandstorm on their own machines.&lt;/p&gt;
+
+&lt;p&gt;Sandstorm for Work makes self-hosted Sandstorm easier to integrate into a corporate environment. That means you can:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Integrate with LDAP (including Active Directory) or SAML for single-sign-on.&lt;/li&gt;
+  &lt;li&gt;Manage user groups and domains as whole units rather than inviting each user individually.&lt;/li&gt;
+  &lt;li&gt;Specify organization-wide access control policies, like “no sharing outside of the organization”.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://sandstorm.io/business&quot;&gt;And more…&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We’re in beta now, so not all features are ready yet, but once you’ve installed Sandstorm you’ll automatically receive updates as they become available.&lt;/p&gt;
+
+&lt;p&gt;To get started now, install Sandstorm and choose “Sandstorm for Work” during setup (or if you already have a server, look for the “for Work” tab in the admin settings). Sandstorm for Work is priced at $15/user/month, and currently we’re offering a 90-day free trial. (It’s still open source! More on that in a bit.)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://sandstorm.io/install&quot; class=&quot;linkbutton&quot;&gt;Install Sandstorm »&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;productivity-apps-large-and-small&quot;&gt;Productivity Apps Large and Small&lt;/h3&gt;
+
+&lt;p&gt;With Sandstorm for Work, you can run apps similar to popular SaaS products, but keep your data in-house. For example, you can run &lt;a href=&quot;https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60&quot;&gt;Etherpad&lt;/a&gt; and &lt;a href=&quot;https://apps.sandstorm.io/app/a0n6hwm32zjsrzes8gnjg734dh6jwt7x83xdgytspe761pe2asw0&quot;&gt;Ethercalc&lt;/a&gt; instead of Google Docs, &lt;a href=&quot;https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h&quot;&gt;Wekan&lt;/a&gt; instead of Trello, &lt;a href=&quot;https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0&quot;&gt;Rocket.Chat&lt;/a&gt; instead of Slack, and &lt;a href=&quot;https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h&quot;&gt;Davros&lt;/a&gt; instead of Dropbox. Once you have Sandstorm running, you can install each new app with a click – no need to create a new account on a new service, and no worry about whether that service is sufficiently private and secure. With Sandstorm, running apps in-house is actually &lt;strong&gt;easier&lt;/strong&gt; than using SaaS.&lt;/p&gt;
+
+&lt;p&gt;But even more interestingly, you can run apps on Sandstorm that aren’t available anywhere else, like Simon Vansintjan’s &lt;a href=&quot;https://apps.sandstorm.io/app/c6zfftftrra9d4pdyuc1psew65ukqrjujvk20fac4zke1uasxv10&quot;&gt;Annotate&lt;/a&gt;. The idea behind Annotate is simple: upload an image, then annotate it with comments. We at Sandstorm use it to discuss UI and illustration mockups. Here’s me using it to comment on a slide deck we’re working on:&lt;/p&gt;
+
+&lt;p style=&quot;max-width: 500px; margin: 1em auto;&quot;&gt;&lt;a href=&quot;/news/images/annotate.png&quot;&gt;&lt;img src=&quot;/news/images/annotate-small.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;What I love about Annotate is its simplicity: Simon wrote the whole thing in a couple weekends. And yet, it’s enough to be useful to design teams anywhere. No matter what Simon decides to do in the future, this app will never disappear, and you don’t have to trust Simon because your data stays on your server.&lt;/p&gt;
+
+&lt;p&gt;Annotate is just one of &lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;54 apps and growing&lt;/a&gt; on our app market. By installing Sandstorm at your workplace, you get access to all of these at once, under a single login, and without giving up control of your data.&lt;/p&gt;
+
+&lt;h3 id=&quot;security-behind-the-firewall&quot;&gt;Security Behind the Firewall&lt;/h3&gt;
+
+&lt;p&gt;&lt;img style=&quot;float: right; width: 236px; height: 188px;&quot; src=&quot;https://sandstorm.io/images/why-finegrained.svg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Of course, if you want to run apps on your own infrastructure, behind your firewall, you need to think about security. A malicious app – or a buggy app that gets hacked – can compromise your whole network.&lt;/p&gt;
+
+&lt;p&gt;Fortunately, Sandstorm protects you. Sandstorm is the only container engine that implements &lt;a href=&quot;https://sandstorm.io/how-it-works&quot;&gt;fine-grained isolation&lt;/a&gt;, locking every document in its own container. By doing so, it prevents any app from compromising the server or network, and indeed &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/&quot;&gt;it renders 95% of app security vulnerabilities moot&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;developing-for-enterprise&quot;&gt;Developing for Enterprise&lt;/h3&gt;
+
+&lt;p&gt;Are you a developer of a web app aimed at enterprise? Do you ever get requests for an on-prem version, but find it hard to fulfill this request given the myriad environments and infrastructure you’d need to support? Perhaps we can help. If you target Sandstorm, then these logistics become our job. If your app works on one Sandstorm server, it will work everywhere. If you are interested in learning more, &lt;a href=&quot;https://sandstorm.io/developer&quot;&gt;check out our developer features&lt;/a&gt; and &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&quot;&gt;e-mail us&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;is-it-open-source&quot;&gt;Is it Open Source?&lt;/h3&gt;
+
+&lt;p&gt;Yes! Sandstorm for Work features are part of the same codebase as the rest of Sandstorm and under the same Apcahe 2.0 license. However, in order to unlock Sandstorm for Work features, we ask that you buy a “feature key” from us.&lt;/p&gt;
+
+&lt;p&gt;So how does that work? Can’t anyone just remove the feature key check? In fact, yes, you can. However, if you did that, you would not be able to take advantage of our automatic updater, which ensures that your server is updated to the latest version within 24 hours of any release with no effort on your part. Automatic updates are important to keep your server secure and to make sure you can always run the latest apps.&lt;/p&gt;
+
+&lt;p&gt;Purchasing a feature key also entitles you to priority support. However, we don’t want to be a company who primarily sells support, because we think that creates a perverse incentive for us to make our product hard to use. Indeed, it is our goal that no one should ever need to contact support at all, but under a support model, we’d be putting ourselves out of business! Under the feature key model, we are selling features, and promising support if there are problems. This way, we are incentivized to make sure there are no problems, because then we don’t have to answer support tickets.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-future&quot;&gt;The Future&lt;/h3&gt;
+
+&lt;p&gt;We like to release features early and often – we push a new release almost every week. What we are announcing today is only the beginning of what we have in store for Sandstorm for Work. Over the coming months, we’ll be adding features like group management (to make it easier to share documents with your team), audit logging (keep track of who has been accessing what, for security and compliance purposes), customizable access control policies, and much more.&lt;/p&gt;
+
+&lt;p&gt;If you install Sandstorm today, &lt;strong&gt;you’ll automatically get these features as they become available&lt;/strong&gt; – your server will automatically update after every weekly release with no action needed on your part. So why not install now and see what you think? Feel free to &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/issues&quot;&gt;file a bug&lt;/a&gt; to tell us what you want to see next.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center&quot;&gt;&lt;a style=&quot;display: inline-block; width: 250px; margin: 4px 0;&quot; href=&quot;https://demo.sandstorm.io&quot; class=&quot;linkbutton&quot;&gt;Try a demo »&lt;/a&gt; &lt;a style=&quot;display: inline-block; width: 250px; margin: 4px 0;&quot; href=&quot;/install&quot; class=&quot;linkbutton&quot;&gt;Install Sandstorm »&lt;/a&gt;&lt;/p&gt;
+</description>
+				<pubDate>Wed, 06 Apr 2016 00:00:00 -0700</pubDate>
+                                <link>https://sandstorm.io/news/2016-04-06-sandstorm-for-work</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-04-06-sandstorm-for-work</guid>
+			</item>
+		
+			<item>
 				<title>Sandstorm&#39;s security track record, and what it means for self-hosting</title>
 				<description>&lt;p&gt;Today I want to share the results of our own &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/&quot;&gt;analysis of security issues of web apps available on
 the Sandstorm app market&lt;/a&gt;.&lt;/p&gt;
@@ -412,46 +476,6 @@ found Oasis through you and signs up for an account counts as your referral.&lt;
 				<pubDate>Fri, 18 Dec 2015 00:00:00 -0800</pubDate>
                                 <link>https://sandstorm.io/news/2015-12-18-referral-program</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2015-12-18-referral-program</guid>
-			</item>
-		
-			<item>
-				<title>7 community-driven Sandstorm presentations in 2015</title>
-				<description>&lt;p&gt;As 2015 comes to a close, I’d love to give a big shout-out to the members of the Sandstorm community who have spoken about Sandstorm. Here’s a &lt;a href=&quot;https://www.youtube.com/watch?v=i0oZ1J2hrbU&amp;amp;list=PLUYHhtn-w7dMbvD_big0_qrfumPBIQZR6&quot;&gt;YouTube playlist&lt;/a&gt; of the ones that we have videos of:&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/i0oZ1J2hrbU?list=PLUYHhtn-w7dMbvD_big0_qrfumPBIQZR6&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/jacksingleton&quot;&gt;Jack Singleton&lt;/a&gt;, author of &lt;a href=&quot;https://oasis.sandstorm.io/appdemo/7qvcjh7gk0rzdx1s3c8gufd288sesf6vvdt297756xcv4q8xxvhh&quot;&gt;HackerSlides&lt;/a&gt; and lead dev on &lt;a href=&quot;https://oasis.sandstorm.io/appdemo/ztxnreej8a0pqn97ccfhuckswjkrmsaavn85n5sgzk30tv2k4y9h&quot;&gt;SandForms&lt;/a&gt;, spoke at &lt;a href=&quot;https://www.youtube.com/watch?v=bsrDm4SkyWQ&quot;&gt;Chaos Communication Camp&lt;/a&gt;, and organized a Sandstorm booth at the &lt;a href=&quot;https://libraryfreedomproject.org/digital-rights-in-libraries/&quot;&gt;Digital Rights in Libraries Conference&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://pugs.blogs.com/about.html&quot;&gt;Audrey Tang&lt;/a&gt;, author of &lt;a href=&quot;https://oasis.sandstorm.io/appdemo/a0n6hwm32zjsrzes8gnjg734dh6jwt7x83xdgytspe761pe2asw0&quot;&gt;EtherCalc&lt;/a&gt;, gave a lightning talk at &lt;a href=&quot;https://www.youtube.com/watch?v=Pgwrp8fuW1k&quot;&gt;Ignite Open Data&lt;/a&gt; and also created a &lt;a href=&quot;https://docs.google.com/presentation/d/1-ZVGV6qlQ2cug7Rl_qkSduiFkNLdCbSCuqIcLhd3sA4/edit&quot;&gt;Chinese version of the speaker kit&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://jon.sprig.gs/blog/&quot;&gt;Jon Spriggs&lt;/a&gt; spoke &lt;a href=&quot;https://www.youtube.com/watch?v=crZt0qmJiTQ&quot;&gt;about Sandstorm at Oggcamp&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/jeffmendoza&quot;&gt;Jeff Mendoza&lt;/a&gt; &lt;a href=&quot;https://youtu.be/MYJngTwH1Qg&quot;&gt;gave a lightning talk at GopherCon&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/geekblogtv&quot;&gt;James Cyrus&lt;/a&gt;, host of &lt;a href=&quot;https://www.youtube.com/channel/UCnt2hS-J7T7Zh-S6tn1I3KA&quot;&gt;GeekblogTV&lt;/a&gt;, produced &lt;a href=&quot;https://www.youtube.com/watch?v=i0oZ1J2hrbU&quot;&gt;this tutorial&lt;/a&gt; on installing Sandstorm on your Digital Ocean droplet&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/ocdtrekkie&quot;&gt;Jake Weisz&lt;/a&gt;, who &lt;a href=&quot;https://apps.sandstorm.io/author/Jacob%2520Weisz&quot;&gt;packaged many apps&lt;/a&gt; and is super helpful in answering community questions on &lt;a href=&quot;https://groups.google.com/forum/#!forum/sandstorm-dev&quot;&gt;sandstorm-dev&lt;/a&gt;, spoke at the &lt;a href=&quot;https://chicagolug.org/tag/jake-weisz.html&quot;&gt;Chicago GNU/Linux Users Group&lt;/a&gt; as well as &lt;a href=&quot;http://www.meetup.com/Chicago-Open-Source-Open-Mic/events/224632294/&quot;&gt;Open Source Open Mic&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://mediagoblin.org/news/deb-nicholson-oscon-award.html&quot;&gt;Deb Nicholson&lt;/a&gt; and &lt;a href=&quot;http://dustycloud.org/&quot;&gt;Chris Webber&lt;/a&gt; (of &lt;a href=&quot;https://apps.sandstorm.io/app/70awyqss6jq2gkz7dwzsnvumzr07256pzdt3hda9acfuxwh6uh7h&quot;&gt;MediaGoblin&lt;/a&gt;) gave a Sandstorm demo during &lt;a href=&quot;http://ftp.osuosl.org/pub/fosdem//2015/devroom-distributions/can_distros_make_the_link%3f_lets_package_the_customizable,_free_software_web_of_the_future!_.mp4&quot;&gt;their FOSDEM talk&lt;/a&gt; (Sandstorm demo starts at 24:57).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I made this list based on &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/wiki/Sandstorm-Talks&quot;&gt;the page on the wiki&lt;/a&gt;. If you also gave a talk about Sandstorm this year and are just now adding yourself to the wiki, drop me a line at &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&quot;&gt;&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&lt;/a&gt;, and I’ll update the post to include you. A huge thanks to everyone who has given a talk, as well as the folks in the brigade who show up everywhere on Hacker News, reddit, and request coverage of Sandstorm on the &lt;a href=&quot;http://www.jupiterbroadcasting.com/90881/thankfully-its-open-source-las-393/&quot;&gt;Linux Action Show&lt;/a&gt;. I heart all of you. If any of you happen to live in or travel through the SF Bay Area, you should share your work at a &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/&quot;&gt;Sandstorm meetup&lt;/a&gt; or at least drop by.&lt;/p&gt;
-
-&lt;p&gt;Here are some ways to get involved in the community:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Start a &lt;a href=&quot;https://sandstorm.meetup.com&quot;&gt;local Sandstorm meetup&lt;/a&gt; and spread the love: drop a line to &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&quot;&gt;&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&lt;/a&gt; and let me know where you are.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Give a Sandstorm talk at a local meetup or hackerspace or your work place: check out &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/wiki/Speaker-Kit-Lightning-Talk&quot;&gt;this speaker kit&lt;/a&gt;, and add your talk to &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/wiki/Sandstorm-Talks&quot;&gt;the list&lt;/a&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Subscribe to the shiny new &lt;a href=&quot;https://www.youtube.com/channel/UC8xKZRW86Fa9W00uAppBXXg&quot;&gt;Sandstorm YouTube channel&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Stay tuned for App Market highlights of 2015!&lt;/p&gt;
-
-</description>
-				<pubDate>Thu, 17 Dec 2015 00:00:00 -0800</pubDate>
-                                <link>https://sandstorm.io/news/2015-12-17-community-talks</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2015-12-17-community-talks</guid>
 			</item>
 		
 	</channel>
