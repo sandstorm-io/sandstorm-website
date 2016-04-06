@@ -49,7 +49,7 @@ Are you a developer of a web app aimed at enterprise? Do you ever get requests f
 
 ### Is it Open Source?
 
-Yes! Sandstorm for Work features are part of the same codebase as the rest of Sandstorm and under the same Apcahe 2.0 license. However, in order to unlock Sandstorm for Work features, we ask that you buy a "feature key" from us.
+Yes! Sandstorm for Work features are part of the same codebase as the rest of Sandstorm and under the same Apache 2.0 license. However, in order to unlock Sandstorm for Work features, we ask that you buy a "feature key" from us.
 
 So how does that work? Can't anyone just remove the feature key check? In fact, yes, you can. However, if you did that, you would not be able to take advantage of our automatic updater, which ensures that your server is updated to the latest version within 24 hours of any release with no effort on your part. Automatic updates are important to keep your server secure and to make sure you can always run the latest apps.
 
