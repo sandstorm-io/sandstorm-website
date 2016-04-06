@@ -10,7 +10,7 @@ Sandstorm is a great way to run open source collaborative productivity apps like
 
 <img style="float: right; width: 283px; height: 221px;" src="/images/business-ldap.png">
 
-Sandstorm for Work makes self-hosted Sandstorm easier to integrate into a corporate environment. That means you can:
+[Sandstorm for Work](https://sandstorm.io/business) makes self-hosted Sandstorm easier to integrate into a corporate environment. That means you can:
 
 * Integrate with LDAP (including Active Directory) or SAML for single-sign-on.
 * Manage user groups and domains as whole units rather than inviting each user individually.
@@ -25,7 +25,7 @@ To get started now, install Sandstorm and choose "Sandstorm for Work" during set
 
 ### Productivity Apps Large and Small
 
-With Sandstorm for Work, you can run apps similar to popular SaaS products, but keep your data in-house. For example, you can run [Etherpad](https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60) and [Ethercalc](https://apps.sandstorm.io/app/a0n6hwm32zjsrzes8gnjg734dh6jwt7x83xdgytspe761pe2asw0) instead of Google Docs, [Wekan](https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h) instead of Trello, [Rocket.Chat](https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0) instead of Slack, and [Davros](https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h) instead of Dropbox. Once you have Sandstorm running, you can install each new app with a click -- no need to create a new account on a new service, and no worry about whether that service is sufficiently private and secure. With Sandstorm, running apps in-house is actually **easier** than using SaaS.
+With Sandstorm for Work, you can run apps similar to popular SaaS products, but keep your data in-house. For example, you can run [Etherpad](https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60) and [EtherCalc](https://apps.sandstorm.io/app/a0n6hwm32zjsrzes8gnjg734dh6jwt7x83xdgytspe761pe2asw0) instead of Google Docs, [Wekan](https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h) instead of Trello, [Rocket.Chat](https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0) instead of Slack, and [Davros](https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h) instead of Dropbox. Once you have Sandstorm running, you can install each new app with a click -- no need to create a new account on a new service, and no worry about whether that service is sufficiently private and secure. With Sandstorm, running apps in-house is actually **easier** than using SaaS.
 
 But even more interestingly, you can run apps on Sandstorm that aren't available anywhere else, like Simon Vansintjan's [Annotate](https://apps.sandstorm.io/app/c6zfftftrra9d4pdyuc1psew65ukqrjujvk20fac4zke1uasxv10). The idea behind Annotate is simple: upload an image, then annotate it with comments. We at Sandstorm use it to discuss UI and illustration mockups. Here's me using it to comment on a slide deck we're working on:
 
@@ -41,7 +41,7 @@ Annotate is just one of [54 apps and growing](https://apps.sandstorm.io) on our 
 
 Of course, if you want to run apps on your own infrastructure, behind your firewall, you need to think about security. A malicious app -- or a buggy app that gets hacked -- can compromise your whole network.
 
-Fortunately, Sandstorm protects you. Sandstorm is the only container engine that implements [fine-grained isolation](https://sandstorm.io/how-it-works), locking every document in its own container. By doing so, it prevents any app from compromising the server or network, and indeed [it renders 95% of app security vulnerabilities moot](https://docs.sandstorm.io/en/latest/using/security-non-events/).
+Fortunately, Sandstorm protects you. Sandstorm is the only container engine that implements [fine-grained isolation](https://sandstorm.io/how-it-works), locking every document in its own container. By doing so, it prevents any app from compromising the server or network, and indeed [it renders 95% of app security vulnerabilities moot before they are even discovered](https://docs.sandstorm.io/en/latest/using/security-non-events/).
 
 ### Developing for Enterprise
 
