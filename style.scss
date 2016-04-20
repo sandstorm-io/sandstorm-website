@@ -2835,3 +2835,399 @@ body >footer {
     
   }
 }
+
+// =======================================================================================
+// education.html
+
+#education {
+  header {
+    text-align: center;
+    padding: 20px 0;
+    
+    @include stripe {
+      background-color: #0D4379;
+//      background-image: url(/images/getsecurity-banner.svg);
+//      background-repeat: no-repeat;
+//      background-position: bottom right;
+    }
+    
+    h1 {
+      width: 85%;
+      paggin-top: 10px;
+      margin: 0 auto;
+      
+      @media (max-width: 850px) {
+        font-size: 35px;
+      }
+      
+      @media (max-width: 750px) {
+        font-size: 30px;
+        
+        br { display: none; }
+      }
+      
+      @media (max-width: 500px) {
+        font-size: 25px;
+      }
+    }
+      
+    p {
+      padding-bottom: 0px;
+      width: 90%;
+      margin: 20px auto;
+      color: #caeaff;
+      
+      @media (max-width: 700px) {
+        font-size: 18px;
+      }
+      
+      @media (max-width: 500px) {
+        font-size: 16px;
+      }
+    }
+    
+    >a {
+      color: white;
+      text-align: center;
+      display: inline-block;
+      width: 38%;
+      margin: 15px;
+      height: 60px;
+      line-height: 60px;
+      font-size: 26px;
+      border-radius: 4px;
+
+      @media (max-width: 900px) {
+        font-size: 22px;
+        margin: 11px;
+        height: 45px;
+        line-height: 45px;
+        width: 42%;
+      }
+
+      @media (max-width: 800px) {
+        font-size: 17px;
+        margin: 8px;
+        line-height: 40px;
+      }
+
+      @media (max-width: 600px) {
+        font-size: 15px;
+      }
+
+      @media (max-width: 430px) {
+        width: 200px;
+      }
+    }
+
+    >a.get {
+      background-image: linear-gradient(to bottom, #884cea, #6a42b8);
+      box-shadow: 0 3px 3px rgba(41,25,66,0.6);
+      background-color: #613c91;
+
+      &:hover {
+        background-image: linear-gradient(to bottom, #925bef, #794cc2);
+        background-color: #794cc2;
+      }
+    }
+
+    >a.demo {
+      background-image: linear-gradient(to bottom, #f46b8b, #d13f6c);
+      box-shadow: 0 3px 3px rgba(41,25,66,0.6);
+      background-color: #d13f6c;
+
+      &:hover {
+        background-image: linear-gradient(to bottom, #fb839f, #d54f79);
+        background-color: #d54f79;
+      }
+    }
+  }
+  
+  section h3 {
+    @media (max-width: 850px) {
+      font-size: 20px;
+    }
+  }
+  
+  li h3 {
+    font-weight: 400;
+  }
+  
+  p {
+    &.highlight {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    &.copyright {
+      text-align: center;
+      font-size: 14px;
+    }
+  }
+  
+  #why-it {
+    
+    >h3 {
+      max-width: 940px;
+      margin: 1em auto;
+    }
+
+    ul {
+      padding: 0;
+      
+      li {
+        padding-right: 2%;
+        padding-left: 2%;
+        display: inline-block;
+        position: relative;
+        padding-bottom: 5px;
+        width: 50%;
+        vertical-align: top;
+        
+        @media (max-width: 550px) {
+          width: 100%;
+        }
+        
+        @media (max-width: 450px) {
+          padding-left: 0;
+        }
+      
+        &::before {
+          content: " ";
+          display: block;
+          position: absolute;
+          background: center/contain no-repeat;
+          left: 0;
+          width: 35%;
+          height: 90%;
+          
+          @media (max-width: 450px) {
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+          }
+        }
+
+          &.publish-online::before { background-image: url(images/why-onprem.svg); } 
+          &.typeset-papers::before { background-image: url(images/why-finegrained.svg); }
+      }
+    
+      h3 {
+        text-align: left;
+        padding-top: 10px;
+        
+        @media (max-width: 450px) {
+          text-align: center;
+          padding-top: 0;
+        }
+      }
+    }
+  }
+
+  #inhouse {
+    >h3 {
+      background: 32px 100%/136px 136px no-repeat url("/images/blackhat.svg");
+      @include stripe {
+        background-color: #eee9f4;
+        top: 8px;
+      }
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 40px 0 32px 200px;
+      color: $purplebg-fontcolor;
+      text-align: left;
+
+      @media (max-width: 500px) {
+        background: 50% 100%/136px 136px no-repeat url("/images/blackhat.svg");
+        padding: 1em 16px 150px;
+      }
+    }
+
+    >p {
+      max-width: 950px;
+      margin: 1em auto;
+    }
+  }
+
+  #web-apps {
+    >h3 {
+      max-width: 940px;
+      margin: 1em auto;
+    }
+
+    padding-bottom: 30px;
+    ul {
+      display: table-row;
+      align-content: space-between;
+      list-style: none;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+      
+      h3 {
+        margin-bottom: 10px;
+      }
+
+      li {
+        text-align: left;
+        display: inline-block;
+        width: 33%;
+        padding: 0 2% 20px 2%;
+        vertical-align: top;
+
+        @media (max-width: 700px) {
+          width: 50%;
+        }
+
+        @media (max-width: 500px) {
+          width: 100%;
+          padding-top: 30px;
+        }
+
+          &::before {
+            content: " ";
+            display: block;
+            background-repeat: none;
+            height: 200px;
+            background: bottom/contain no-repeat;
+
+            @media (max-width: 800px) {
+              height: 180px;
+            }
+
+            @media (max-width: 600px) {
+              height: 150px;
+            }
+            
+            @media (max-width: 450px) {
+              height: 200px;
+            }
+          }
+
+          &.publish-online::before { background-image: url("images/education-publish.svg"); } 
+          &.typeset-papers::before { background-image: url("images/education-typeset.svg"); }  
+          &.organize-projects::before { background-image: url("images/education-organize.svg"); }
+          &.sync-and-share-files::before { background-image: url("images/education-sync-share.svg"); } 
+          &.access-one-place::before { background-image: url("images/education-one-place.svg"); }  
+          &.use-our-apps::before { background-image: url("images/education-our-apps.svg"); }
+      }
+      
+      p {
+        text-align: center;
+        line-height: 0.6;
+      }
+      
+      .start {
+        height: 60px;
+        padding-top: 25px;
+        border: none;
+        background-color: white;
+        display: block;
+        width: 100%;
+
+        a {
+          text-align: center;
+          padding: 10px 0;
+          margin: 0 auto;
+          width: 100%;
+          border-radius: 5px;
+          display: block;
+          transition: transform 0.75s ease, background 0.35s ease;
+          background-color: lavender;
+
+          @media (max-width: 500px) {
+            float: none;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+          }
+
+          &:hover {
+            background-color: #d1d1f5;
+          }
+        }
+      }
+    }
+  }
+  
+  #open-ed {
+    .content {
+      padding: 0 5% 0 5%;
+      margin: 40px 0 70px 0;
+        &::before {
+          margin: 0 20px 0 0;
+          display: block;
+          content: " ";
+          float: left;
+          background-image: url(/images/grant-potter.jpg);
+          background-repeat: no-repeat;
+          background-position: top;
+          background-size: contain;
+          width: 320px;
+          height: 250px;
+        }
+      .text {  
+        padding: 0 0 0 340px;
+        
+        @media (max-width: 700px) {
+          padding: 0;
+        }
+        
+        p {
+          font-size: 130%;
+          line-height: 1.4;
+        }
+        
+        .organization {
+          font-size: 90%;
+          &::before {
+            display: block;
+            content: " ";
+            float: left;
+            background-image: url(/images/open-education.jpg);
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: contain;
+            width: 65px;
+            height: 65px;
+            margin: 0 15px 0 0;
+            }
+          }
+        }
+      }
+    }
+    
+  .action {
+    padding-bottom: 50px;
+    color: #fff;
+    @include stripe {
+      background-color: #0D4379;
+    }
+    a {
+      display: inline-block;
+      width: 280px;
+      margin: 10px 20px;
+    }
+    
+    p {
+      color: #caeaff;
+      font-size: 23px;
+    }
+    
+    h3 {
+      font-size: 25px;
+    }
+  }
+  
+  #join-list {
+    padding-bottom: 25px;
+    
+    @include stripe {
+      background-color: #F4F3FB;
+    }
+    .email {
+      padding: 25px 0 20px 0;
+    }
+  }
+}
