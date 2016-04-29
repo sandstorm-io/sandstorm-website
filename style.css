@@ -2924,7 +2924,8 @@ body > footer {
           background-color: #d1d1f5; }
 #education #open-ed .content {
   padding: 0 5% 0 5%;
-  margin: 40px 0 70px 0; }
+  margin: 40px 0 70px 0;
+  min-height: 240px; }
   #education #open-ed .content::before {
     margin: 0 20px 0 0;
     display: block;
