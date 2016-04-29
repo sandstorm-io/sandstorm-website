@@ -1,0 +1,136 @@
+---
+layout: page
+id: education
+title: Education
+---
+
+<header>
+  <h1>The best professors need more than just email.</h1><p>Students and faculty deserve access to the best open source web apps.</p>
+  <a class="demo" href="http://demo.sandstorm.io">Try a Quick Demo</a><a class="get" href="https://sandstorm.io/get-feature-key">Start Sandstorm setup</a>
+</header>
+
+<script type="text/javascript">
+var appCount = "Dozens of";
+
+(function () {
+  // Fetch the app list so that we can display the number of apps currently in the
+  // market. I decided to make this a synchronous request because having the number
+  // flicker in after page load seemed undesirable. Sorry.
+  //
+  // TODO: Maybe update app index to export the count at a separate URL? Note that
+  //   the CORS hack in Sandstorm core would need updating too.
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://app-index.sandstorm.io/apps/index.json", false);
+  xhr.send(null);
+
+  if (xhr.status === 200) {
+    appCount = JSON.parse(xhr.responseText).apps.length;
+  }
+})();
+</script>
+
+<section id="web-apps">
+  <h2>Why use Sandstorm?</h2>
+    <h3>University IT teams around the world are installing Sandstorm, an open source dashboard for productivity tools, hosted within the institution.
+
+    Web productivity tools are a few clicks away for educators and students. Enjoy the <script type="text/javascript">document.write(appCount)</script>+ apps in the Sandstorm App Market, all pre-approved, or add custom apps.</h3>
+  
+  <ul>
+    
+    <li class="publish-online">
+      <h3>Publish online</h3>
+      <p>With <a href="https://apps.sandstorm.io/app/aax9j672p6z8n7nyupzvj2nmumeqd4upa0f7mgu8gprwmy53x04h">WordPress</a></p>
+      
+    <li class="typeset-papers">
+      <h3>Typeset papers</h3>
+      <p>With <a href="https://apps.sandstorm.io/app/5vuv7v0w7gu20z72m78n83rx9qqtqpmtk32f39823wh967z226qh">ShareLaTeX</a></p>
+      
+    <li class="organize-projects">
+      <h3>Organize projects</h3>
+      <p>With <a href="https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h">Wekan</a></p>
+      
+    <li class="sync-and-share-files">
+      <h3>Sync and share files</h3>
+      <p>With <a href="https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h">Davros</a></p>
+      
+    <li class="access-one-place">
+      <h3>Access them all in one place with Sandstorm</h3>
+      
+    <li class="use-our-apps">
+      <h3>Use our <script type="text/javascript">document.write(appCount)</script>+ apps, or add custom apps</h3>
+    
+  </ul>
+  <p class="highlight">See our other great apps for calendars, diagrams, forums, and more on the <a href="http://apps.sandstorm.io">App Market</a>.</p>
+</section>
+
+<section id="why-it">
+  <h2>Here's why IT teams love it</h2>
+    <h3>Sandstorm comes with <script type="text/javascript">document.write(appCount)</script>+ great apps for every project. Instructors and students can also package their own apps that anyone can then install.</h3>
+  <ul>
+    
+    <li>
+      <h3>On-prem install for education privacy</h3>
+      <p>Run Sandstorm on hardware that you control. Everything users do on a Sandstorm server stays safely within your institution. Enjoy free dynamic DNS and SSL.</p>
+      
+    <li>
+      <h3>Self-service software</h3>
+      <p>Sandstorm provides simple web access to every user at the institution. When you approve Sandstorm, users do what they want safely within Sandstorm, and they file fewer support tickets.</p>
+
+    <li>
+      <h3>Single-sign-on and web access</h3>
+      <p>Once you enable login via Google, GitHub, email, LDAP, or SAML every app automatically uses that login provider.</p>
+    
+    <li>
+      <h3>Custom apps can use the built-in access control</h3>
+      <p>Academic departments need custom apps. As those apps get older, Sandstorm helps you sleep well at night. Sandstorm automatically protects against <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/">95% of app security issues, according to our analysis.</a></p>
+      
+    <li>
+      <h3>Access control like Google Docs</h3>
+      <p>Sandstorm makes all data private by default. Users can share access through a familiar interface.</p>
+      
+    <li>
+      <h3>Automatic app downscaling</h3>
+      <p>When a user closes a browser tab to an app, Sandstorm waits a few minutes, then terminates the processes. When the user visits the app again, Sandstorm starts it automatically.</p>
+      
+    <li>
+      <h3>Centralized backups and data migration</h3>
+      <p>Your Sandstorm server stores all data for all apps and all the databases they use. When you take a backup of it, you have everything. </p>
+      
+    <li>
+      <h3>Open source software</h3>
+      <p>Sandstorm is open source software enjoyed by thousands of individuals at non-profits and companies every day. With <a href="https://sandstorm.io/business">Sandstorm for Work</a> organizations can enjoy LDAP and SAML log in, organization management, and more.</p>
+    
+  </ul>
+  <p class="highlight">Learn more about <a href="/how-it-works">Sandstorm's security model</a>.</p>
+</section>
+
+<section id="open-ed">
+<h2>See how educators in British Columbia use Sandstorm</h2>
+  <div class="content">
+  <div class="text">
+  <p>"If we did not have Sandstorm, we would be significantly limited in the range of applications we could offer to BC faculty and be burdened by layers of required administrative and technical oversight." —Grant Potter</p>
+  <i class="organization">The <a href="http://bcopened.org">BC Open Educational Technology Collaborative</a> aims to support and provide spaces for BC higher education institutions to participate in the development and application of open source Next Generation Digital Learning Environments.</i>
+  </div>
+  </div>
+
+</section>
+
+<section id="get-started">
+</section>
+<div class="action">  
+  <h3>Use great web apps while keeping ownership of your data.</h3>
+  <p>Start your free 90-day trial today</p>
+  <a href="http://demo.sandstorm.io">Try a Quick Demo</a><a href="https://sandstorm.io/get-feature-key">Start Sandstorm setup</a>
+</div>
+
+<section id="join-list">
+  <div class="email">
+    <li>Join our mailing list for the latest updates.
+  </div>
+    <div class="subscribe">
+      <form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+      <input type="email" name="EMAIL" placeholder="e-mail" required>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</section>
