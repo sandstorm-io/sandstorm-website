@@ -3155,6 +3155,7 @@ body >footer {
     .content {
       padding: 0 5% 0 5%;
       margin: 40px 0 70px 0;
+      min-height: 240px;
         &::before {
           margin: 0 20px 0 0;
           display: block;
