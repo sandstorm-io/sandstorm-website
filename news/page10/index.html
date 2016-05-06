@@ -98,13 +98,45 @@
 
 
 <section>
+  <h2><a href="/news/2015-01-21-gitweb-and-gitlab">Gitweb and Gitlab</a></h2>
+  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
+    
+    - <a href="/news/2015-01-21-gitweb-and-gitlab">21 Jan 2015</a>
+  
+  
+  
+  
+  <p>When I write software, <a href="http://git-scm.com">Git</a> is usually at the core of my workflow. Therefore I’m particularly excited to announce today that we are releasing not one but <em>two</em> Git apps for Sandstorm.</p>
+
+<p>With either of these apps, you can host a Git repository on a Sandstorm server, connect to it with a Git client, and browse it through a web interface. Furthermore, both apps make it easy to share access to a repository without any need to manage SSH keys.</p>
+
+<p>The first app is a simple wrapper around <a href="http://git-scm.com/docs/gitweb">GitWeb</a>, the minimalist Perl CGI script that comes bundled with Git.</p>
+
+<p><a href="https://sandstorm.io/gitweb.png"><img src="https://sandstorm.io/gitweb-small.png" alt="Gitweb" /></a></p>
+
+<p>The second is a port of <a href="https://about.gitlab.com">GitLab</a>, a sophisticated Ruby on Rails app whose features include an issue tracker, a wiki, and an editor that allows you to compose and submit commits entirely from a web interface.</p>
+
+<p><a href="https://sandstorm.io/gitlab.png"><img src="https://sandstorm.io/gitlab-small.png" alt="Gitlab" /></a></p>
+
+<p>Both apps can now be found on the Sandstorm app list. If you don’t have your own server already, <a href="https://demo.sandstorm.io">try the demo</a>.</p>
+
+<h3 id="the-rise-of-modular-frontends">The Rise of Modular Frontends</h3>
+
+<p>These two apps bring into focus some distinguishing characteristics of the Sandstorm platform.</p>
+
+<p>Web software today tends to consist of monolithic, centralized services – at least when viewed from a user’s perspective. As the number of users grow, the demand for scalability and easy deployability can drive developers to put a lot of effort into modularizing <em>backends</em>. So the software often gets split into reconfigurable components like databases, caches, webservers, and message queues, and we see lots of clever ways to organize and orchestrate all of these things. However, as far as the user can tell, the only benefit is that, well, the service still works.</p>
+
+<p>Sandstorm enables a more fundamental kind of modularization. Because it is decentralized and carefully designed to take full advantage of <a href="https://capnproto.org/">Cap’n Proto</a>’s object-capabilities, Sandstorm allows web software to be split into fine-grained components along <em>user-facing</em> concerns. The components can be so finely grained, in fact, that scalability ceases to be a major concern. When each app instance (a “grain” in Sandstorm jargon) contains only a single document, app developers can instead focus on user-facing functionality, and can start thinking seriously about cooperation between apps.</p>
+
+<p>And that’s why we’ve set up the GitWeb and GitLab apps to provide only a single repository per grain. This setup means that sharing a Git repository with another user through these apps works just like sharing anything else in Sandstorm. Although it does imply that some GitLab features, like forks and merge requests, are not supported within our port, it also means that once we’ve fully implemented Sandstorm’s Powerbox interface for sharing capabilities between grains, “fork” and “merge request” can be actions that are allowed to take place between instances of <em>any</em> Git app.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-01-15-sandstorm-1.3M-seed-round-pay-it-forward">Sandstorm raises $1.3M seed; paying forward crowdfunds</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2015-01-15-sandstorm-1.3M-seed-round-pay-it-forward">15 Jan 2015</a>
-  
-  
-  
   
   <p>Lately, some of you may have noticed that Sandstorm’s <a href="https://groups.google.com/group/sandstorm-dev">daily meeting notes</a> have often contained the ill-defined bullet point “business crap”. Today we’re finally able to share what that meant: we have secured $1.3M in seed funding from a great group of venture capitalists and angel investors, led by <a href="http://questvp.com">Quest Venture Partners</a>.</p>
 
@@ -248,53 +280,6 @@ talk to me.”</p>
 
 <p>I should have gone. And you should come to this one.
 <a href="https://www.eventbrite.com/e/self-hosted-servers-sandstorm-chat-tickets-15273451304">RSVP here</a>.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-01-07-asheesh-and-irc">Introducing Asheesh and our new IRC channel</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2015-01-07-asheesh-and-irc">07 Jan 2015</a>
-  
-  <p>I’m Asheesh Laroia, and I’m excited to say I’m joining Sandstorm as a member of 
-the technical staff.</p>
-
-<p>For most of my career, I’ve worked in open source: I’ve been a software engineer 
-at Creative Commons, and I co-founded OpenHatch, a non-profit that helps people 
-get involved in open source. I got my start in open source by reporting a bug
-against a Linux filesystem check tool, made my first visible contribution in
-2003 when I created the Xbox-Linux wiki, and I mentor others as a Developer
-in Debian. I did a one-year stint in web startup-land to hone 
-my security knowledge, and now I find myself in the coolest possible position: 
-working at Sandstorm on tools and community to build the easiest, most secure 
-system ever to run a personal server.</p>
-
-<p>Personal servers mean a lot to me. I’ve been running one since 2001; in 2006, I 
-found a way to move it out of my parents’ basement into friend’s apartment in 
-Tokyo (that’s another story). I’ve been through it all – RAID failures, 
-difficult package upgrades, and getting compromised – for the pride of knowing 
-I’m running my own real Internet site, so it’s amazing to be working on 
-Sandstorm’s mission of creating the easiest way to run a personal server.</p>
-
-<p>I first heard about Sandstorm when Kenton visited San Francisco to 
-discuss it with me and get my feedback. We talked about about what Sandstorm can
-learn from efforts like Freedombox, and I was 
-impressed to discover that the Sandstorm vision seemed to be ahead of my own 
-thinking. So last summer, I came to the Sandstorm Hackathon (app port-a-thon), 
-and rather than port an app, I added a
-<a href="https://github.com/sandstorm-io/sandstorm/blob/master/Vagrantfile">Vagrantfile</a>
-to make it easier to port apps to Sandstorm from a Mac. You might have seen me 
-talk about it in the video for the
-<a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform">Indiegogo campaign</a>.</p>
-
-<p>Sandstorm’s mission has two pillars: the codebase, and the community, and I’m 
-lucky to be working on both. As my first act, I’ve given us an IRC channel. Come 
-find me in #sandstorm on freenode as “paulproteus” – ping me about parts that
-need improvement, or about how to get involved.  If you already have a 
-client, great – join in! And if you don’t, visit us via this
-<a href="https://kiwiirc.com/client/irc.freenode.net/?channel=#sandstorm">web chat link</a>
-and say hello! I’m looking forward to meeting all of you.</p>
 
 </section>
 

@@ -7,6 +7,47 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Sandstorm lets university IT be the hero</title>
+				<description>&lt;p&gt;Picture yourself running a university IT helpdesk. When professors come to you, you point to the
+tech tools your colleagues have already deployed. It takes a long process to get something new
+approved. You know that’s been limiting professors’ creativity, but you haven’t known what to do
+about it.&lt;/p&gt;
+
+&lt;p&gt;Then one day, Sandstorm comes along.&lt;/p&gt;
+
+&lt;p&gt;Now educators are empowered to help themselves. They can make course websites with Ghost, teach
+students how to typeset documents using ShareLaTeX, or create shared folders for classes using
+Davros. They can even use GrooveBasin to set up a collaborative radio station for a music history
+course.&lt;/p&gt;
+
+&lt;p&gt;All that happens on your Sandstorm server, running safely within the institution.&lt;/p&gt;
+
+&lt;h3 id=&quot;can-you-help-spread-the-word&quot;&gt;Can you help spread the word?&lt;/h3&gt;
+
+&lt;p&gt;Néna Nguyễn just finished designing a page with the
+&lt;a href=&quot;https://sandstorm.io/go/education&quot;&gt;information educators need about Sandstorm&lt;/a&gt;. I’m writing because
+I need your help reaching educators and technologists to share it with.&lt;/p&gt;
+
+&lt;p&gt;Can you think of an IT staffer or professor who is wondering how to get access to a wider variety of
+software available at their institution? If so, please send them a link to
+&lt;a href=&quot;https://sandstorm.io/go/education&quot;&gt;https://sandstorm.io/go/education&lt;/a&gt;. I just sent it to the head
+of IT at my alma mater’s CS department.&lt;/p&gt;
+
+&lt;p&gt;If they ask you about security or privacy, you can tell them that Sandstorm is
+&lt;a href=&quot;https://sandstorm.io/install/&quot;&gt;self-hostable&lt;/a&gt; open source software, integrates with
+&lt;a href=&quot;https://sandstorm.io/business&quot;&gt;LDAP/SAML single sign-on&lt;/a&gt;, and
+&lt;a href=&quot;https://sandstorm.io/news/2016-02-29-security-track-record&quot;&gt;automatically mitigates 95% of security issues, before they are even discovered&lt;/a&gt;.
+For more on Sandstorm’s security design, read our
+&lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-practices/&quot;&gt;security practices documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thanks!&lt;/p&gt;
+</description>
+				<pubDate>Fri, 06 May 2016 00:00:00 -0700</pubDate>
+                                <link>https://sandstorm.io/news/2016-05-06-university-it-be-the-hero</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-05-06-university-it-be-the-hero</guid>
+			</item>
+		
+			<item>
 				<title>Sandstorm for Work Beta: LDAP, SAML, organization management</title>
 				<description>&lt;p&gt;Sandstorm is a great way to run open source collaborative productivity apps like document editors, task managers, chat rooms, file sharing, and more (54 apps and growing), all in one place. Lots of people – including us – use Sandstorm every day as part of doing their jobs. For example, right now I am composing this blog post in &lt;a href=&quot;https://apps.sandstorm.io/app/fq057t4ek3yt96xsfje6c1wv61pkjkqm9hs1539x4jqxjwzdp7fh&quot;&gt;Dillinger&lt;/a&gt; running on &lt;a href=&quot;https://oasis.sandstorm.io&quot;&gt;Sandstorm Oasis&lt;/a&gt; (our hosting service), but many people choose to self-host Sandstorm on their own machines.&lt;/p&gt;
 
@@ -425,59 +466,6 @@ install page&lt;/a&gt;.&lt;/p&gt;
 				<pubDate>Mon, 11 Jan 2016 00:00:00 -0800</pubDate>
                                 <link>https://sandstorm.io/news/2016-01-11-meetups</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-01-11-meetups</guid>
-			</item>
-		
-			<item>
-				<title>Sharing is referring - up to 30 GB bonus storage</title>
-				<description>&lt;p&gt;The easiest way to enjoy Sandstorm is on our &lt;a href=&quot;https://oasis.sandstorm.io/&quot;&gt;managed hosting&lt;/a&gt;.
-Now, when you invite your friends to the service, you’ll get up to 30 GB
-of bonus storage as our way of saying thanks. When you share a grain with a
-friend, and they make an account and start sharing, that’s a referral.&lt;/p&gt;
-
-&lt;h3 id=&quot;how-it-works&quot;&gt;How it works&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;You share a grain&lt;/strong&gt; with a friend (who isn’t already an Oasis user).&lt;/p&gt;
-
-&lt;p&gt;&lt;img style=&quot;margin: auto; max-width: 100%; display: block;&quot; src=&quot;/news/images/share_access.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Friend &lt;strong&gt;signs in.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img style=&quot;margin: auto; max-width: 100%; display: block;&quot; src=&quot;/news/images/referral-2.svg&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Friend shares a grain&lt;/strong&gt; with any person (including you), who successfully opens the grain.&lt;/p&gt;
-
-&lt;p&gt;&lt;img style=&quot;margin: auto; max-width: 100%; display: block;&quot; src=&quot;/news/images/share_access.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;keeping-track-of-your-bonus&quot;&gt;Keeping track of your bonus&lt;/h3&gt;
-
-&lt;p&gt;To see how you’re progressing, check out the referral program page in the
-top-right drop-down menu.&lt;/p&gt;
-
-&lt;p&gt;&lt;img style=&quot;margin: auto; max-width: 100%; display: block;&quot; src=&quot;/news/images/referral-program-menu.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Or you can visit the &lt;a href=&quot;https://oasis.sandstorm.io/referrals&quot;&gt;referrals program page&lt;/a&gt;
-directly. Honestly, you should do that right now just to see
-&lt;a href=&quot;https://github.com/neynah&quot;&gt;Néna Nguyễn’s&lt;/a&gt; design work.&lt;/p&gt;
-
-&lt;p&gt;Paid subscribers can get up to 30 GB of free storage, in addition to the storage
-from their account level, 2 GB per person they refer. Free account holders can
-unlock unlimited grains and 50 MB of free storage per person they refer, up to 2 GB
-total. If you need even more space, you can always upgrade your account.&lt;/p&gt;
-
-&lt;h3 id=&quot;common-question-i-received-referral-bonus-storage-for-someone-i-dont-know-how-does-that-happen&quot;&gt;Common question: I received referral bonus storage for someone I don’t know. How does that happen?&lt;/h3&gt;
-
-&lt;p&gt;Anyone who signs up for an Oasis account after opening up a grain that you shared
-counts as your referral. If you tweeted a link or shared a document on a mailing
-list (e.g., puzzle hunt team, collaborators at work, study group), anyone who
-found Oasis through you and signs up for an account counts as your referral.&lt;/p&gt;
-
-&lt;h3 id=&quot;get-started&quot;&gt;Get started&lt;/h3&gt;
-
-&lt;p&gt;That’s it! To get started, open any grain and click Share Access in the top bar.&lt;/p&gt;
-</description>
-				<pubDate>Fri, 18 Dec 2015 00:00:00 -0800</pubDate>
-                                <link>https://sandstorm.io/news/2015-12-18-referral-program</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2015-12-18-referral-program</guid>
 			</item>
 		
 	</channel>
