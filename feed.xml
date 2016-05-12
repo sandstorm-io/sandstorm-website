@@ -7,6 +7,77 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>How self-hosted analytics preserve user privacy</title>
+				<description>&lt;p&gt;Filippo Valsorda just published &lt;a href=&quot;https://blog.filippo.io/self-host-analytics/&quot;&gt;an overview of why to use Piwik for web analytics&lt;/a&gt; instead of Google’s product. He reflects on the fact that he saw &lt;strong&gt;18% more pageviews&lt;/strong&gt; with Piwik compared to Google Analytics, seemingly because self-hosted analytics get past ad-blocking browser extensions. I want to reflect on the privacy implications of running your own analytics and explain the nuts and bolts of how Piwik runs on Sandstorm.&lt;/p&gt;
+
+&lt;p&gt;Here’s what Piwik on Sandstorm looks like.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2016-05-12-blog-post-piwik-screenshot.png&quot; alt=&quot;piwik screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;how-a-web-analytics-service-works&quot;&gt;How a web analytics service works&lt;/h3&gt;
+
+&lt;p&gt;For a website (let’s say example.com) that that embeds Google Analytics’ Javascript tracking code, a web browser like Chrome takes the following steps:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Download the HTML content of example.com.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Notice a SCRIPT or IMG tag going to Google Analytics.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Download the Google Analytics tracking code from Google, whose purpose is to  &lt;strong&gt;tell Google Analytics the URL of the page that included it.&lt;/strong&gt; One main purpose of web analytics is to see a chart of which pages are popular, so it stands to reason that if Google runs the analytics tool, Google needs to know what page is being viewed.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Google has a strong &lt;a href=&quot;https://www.google.com/policies/privacy/&quot;&gt;privacy policy&lt;/a&gt;, and this information typically falls under the heading of “Information we get from your use of our services,” and I am personally OK with sharing this information with Google Analytics.&lt;/p&gt;
+
+&lt;h3 id=&quot;some-people-like-staying-private&quot;&gt;Some people like staying private&lt;/h3&gt;
+
+&lt;p&gt;According to &lt;a href=&quot;http://w3techs.com/technologies/details/ta-googleanalytics/all/all&quot;&gt;W3Techs&lt;/a&gt;, more than 50% of all websites use Google Analytics. This has a somewhat surprising result: Google’s analytics service knows about a &lt;em&gt;huge&lt;/em&gt; fraction of all web page visits. After all, any central analytics service can see the webpage visits for all the sites using it. They can even see traffic patterns that each individual site operator cannot.&lt;/p&gt;
+
+&lt;p&gt;Some web surfers want to keep their surfing information private. They may be OK with the site owner knowing that someone visited, but Google is not the site owner. They may see &lt;a href=&quot;https://www.schneier.com/blog/archives/2016/03/data_is_a_toxic.html&quot;&gt;data as a toxic asset,&lt;/a&gt; per Bruce Schneier. Many of them use web browser add-ons like &lt;a href=&quot;https://www.eff.org/privacybadger&quot;&gt;Privacy Badger.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As a website operator, this puts you in a bind. If you want to use Google Analytics to get a graph of which pages are popular, you need to share your users’ surfing patterns with Google. Google doesn’t distribute Google Analytics as software you can run; they only run it as a central service.&lt;/p&gt;
+
+&lt;p&gt;A different way to do web analytics is to use software running on a server that you maintain. This is called &lt;strong&gt;self-hosting web analytics.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The easiest way to do that is to do what &lt;a href=&quot;https://blog.filippo.io/self-host-analytics&quot;&gt;Filippo Valsorda said:&lt;/a&gt; run a Sandstorm server and &lt;a href=&quot;https://apps.sandstorm.io/app/xuajusd5d4a9v4js71ru0cwj9wn984q1x8kny10htsp8f5dcfep0&quot;&gt;install Piwik from the app market,&lt;/a&gt; and copy-paste something into your website.&lt;/p&gt;
+
+&lt;p&gt;Today, that’s possible with a few presses on a touchpad. Getting to that point involved some fascinating challenges.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-to-share-an-api-token-you-cannot-see&quot;&gt;How to share an API token you cannot see&lt;/h3&gt;
+
+&lt;p&gt;One design goal of Sandstorm is that apps are &lt;strong&gt;&lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-practices/#true-confinement&quot;&gt;confined.&lt;/a&gt;&lt;/strong&gt; An app in Sandstorm never learns a URL that outsiders can use to reach it. That way, the app must rely on Sandstorm for access control, which means the “Share access” button can always show the users who has access. Sandstorm can provide one interface for granting and revoking access across all apps.&lt;/p&gt;
+
+&lt;p&gt;However, Piwik needs a way to show a URL that a website operator can embed into their website, so that website visitors can be tracked by Piwik!&lt;/p&gt;
+
+&lt;p&gt;To get past this Catch-22, &lt;a href=&quot;https://github.com/zarvox&quot;&gt;Drew Fisher&lt;/a&gt; built a new Sandstorm feature called &lt;a href=&quot;https://docs.sandstorm.io/en/latest/developing/http-apis/#creating-an-offer-template&quot;&gt;offer templates&lt;/a&gt;. Piwik asks Sandstorm to show a templated message, and an IFRAME from Sandstorm appears with that token placed into the templated message. Drew’s Piwik package was the first to use it, and it’s become the most common way for apps on Sandstorm to create copy-pastable instructions for how to connect to their APIs.&lt;/p&gt;
+
+&lt;h3 id=&quot;when-to-make-ip-addresses-available&quot;&gt;When to make IP addresses available&lt;/h3&gt;
+
+&lt;p&gt;Another obstacle was IP addresses. Piwik needs to know the IP address of visitors so it can create a visual map to show website operators where in the world their visitors come from.  However, we didn’t want every Sandstorm app to be able to collect this data without user intervention. Drew added a &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/blob/432be37489b210b19d9677f29befcd5c910a0f76/src/sandstorm/api-session.capnp#L28&quot;&gt;way for client-side Javascript to optionally share the user’s IP address&lt;/a&gt;, while keeping the defaults safe. I’ll quote him here:&lt;/p&gt;
+
+&lt;blockquote class=&quot;notbig&quot;&gt;
+Normally, we strip the remote address from requests, since most applications shouldn&#39;t need it.  However, for those that benefit from it (like analytics), clients can opt into passing their IP on to the backend by adding an &quot;X-Sandstorm-Passthrough: address&quot; header to their request.  This would be a privacy leak for WebSession, since the grain can give the client scripts which would send the header, but ApiSession requires a user action, so it&#39;s safe here.
+&lt;/blockquote&gt;
+
+&lt;p&gt;In the context of the above, an ApiSession covers requests that come in via an app’s &lt;a href=&quot;https://docs.sandstorm.io/en/latest/developing/http-apis/&quot;&gt;HTTP APIs&lt;/a&gt; such as Piwik’s tracking system, and a WebSession covers requests that come in from the grain owner clicking around, such as a site owner viewing their statistics.&lt;/p&gt;
+
+&lt;h3 id=&quot;enabling-the-community&quot;&gt;Enabling the community&lt;/h3&gt;
+
+&lt;p&gt;When we finished, we had built a foundation that other apps could build upon. You can try &lt;a href=&quot;https://apps.sandstorm.io/app/4mfserfc04wtcevvgn0jw27hvwfntmt8j468y3ma55kj8d5tj9kh&quot;&gt;Hummingbird,&lt;/a&gt; &lt;a href=&quot;https://github.com/mnutt&quot;&gt;Michael Nutt&lt;/a&gt;’s real-time analytics tool, and &lt;a href=&quot;https://apps.sandstorm.io/app/8kr4rvyrggvzfvc160htzdt4u5rfvjc2dgdn27n5pt66mxa40m1h&quot;&gt;Radicale,&lt;/a&gt; &lt;a href=&quot;https://github.com/synchrone&quot;&gt;Aleksandr Bogdanov&lt;/a&gt;’s package that enables calendar and contact synchronization by combining a few tools.&lt;/p&gt;
+
+&lt;p&gt;If you want to make an open source web app that anyone can self-host safely, start at the &lt;a href=&quot;https://docs.sandstorm.io/en/latest/developing/&quot;&gt;Sandstorm Developer Hub&lt;/a&gt;. Sandstorm supports any programming language or stack, like PHP or Meteor or Rust, that runs on Linux. You’ll find a &lt;a href=&quot;https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial/&quot;&gt;packaging tutorial&lt;/a&gt; and detailed information about offer templates. And if you just want to start using Piwik, &lt;a href=&quot;https://apps.sandstorm.io/app/xuajusd5d4a9v4js71ru0cwj9wn984q1x8kny10htsp8f5dcfep0&quot;&gt;check it out on the app market.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.sandstorm.io/en/latest/developing/&quot; class=&quot;linkbutton&quot;&gt;See Developer Hub »&lt;/a&gt;&lt;/p&gt;
+</description>
+				<pubDate>Thu, 12 May 2016 00:00:00 -0700</pubDate>
+                                <link>https://sandstorm.io/news/2016-05-12-analytics-privacy</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-05-12-analytics-privacy</guid>
+			</item>
+		
+			<item>
 				<title>Sandstorm lets university IT be the hero</title>
 				<description>&lt;p&gt;Picture yourself running a university IT helpdesk. When professors come to you, you point to the
 tech tools your colleagues have already deployed. It takes a long process to get something new
@@ -443,29 +514,6 @@ install page&lt;/a&gt;.&lt;/p&gt;
 				<pubDate>Mon, 11 Jan 2016 00:00:00 -0800</pubDate>
                                 <link>https://sandstorm.io/news/2016-01-11-website</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-01-11-website</guid>
-			</item>
-		
-			<item>
-				<title>Upcoming Sandstorm meetups in SF, NY, Boston, Berlin, Zurich</title>
-				<description>&lt;p&gt;Here in the San Francisco Bay Area, since May 2015, we’ve been organizing &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/&quot;&gt;monthly Sandstorm meetups&lt;/a&gt; for community members can share their apps, works in progress, and learn from each other.  Recently, Sandstorm community members have stepped up to organize &lt;a href=&quot;http://sandstorm.meetup.com/&quot;&gt;local Sandstorm meetups&lt;/a&gt; in &lt;a href=&quot;http://www.meetup.com/Sandstorm-NY/&quot;&gt;New York&lt;/a&gt;, &lt;a href=&quot;http://www.meetup.com/Sandstorm-Boston/&quot;&gt;Boston&lt;/a&gt;, &lt;a href=&quot;http://www.meetup.com/Sandstorm-Berlin/&quot;&gt;Berlin&lt;/a&gt;, and &lt;a href=&quot;http://www.meetup.com/Sandstorm-CH/&quot;&gt;Switzerland&lt;/a&gt; as well. Scroll to the bottom for the list of upcoming events:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://sandstorm.meetup.com&quot;&gt;&lt;img src=&quot;/news/images/SandstormMeetups.png&quot; alt=&quot;map of Sandstorm meetups&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;To put your city on the map, drop a line to &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&quot;&gt;&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&lt;/a&gt;, and I’ll get you all set up.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Upcoming Sandstorm events worldwide:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Tue Jan 19, 2016 - Boston, USA - &lt;a href=&quot;http://www.meetup.com/Sandstorm-Boston/events/227067134/&quot;&gt;The Future of Sandstorm’s Powerbox UI&lt;/a&gt; (feat. Sandstorm core dev Drew Fisher)&lt;/li&gt;
-  &lt;li&gt;Wed Jan 20, 2016 - New York, USA - &lt;a href=&quot;http://www.meetup.com/Sandstorm-NY/events/227579425/&quot;&gt;January Sandstorm NYC Meetup&lt;/a&gt; (feat. Sandstorm core dev Asheesh Laroia)&lt;/li&gt;
-  &lt;li&gt;Wed Jan 27, 2016 - San Francisco, USA - &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/227595644/&quot;&gt;January Meetup with Lightning Talks&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Wed Jan 27, 2016 - Berlin, Germany - &lt;a href=&quot;http://www.meetup.com/Sandstorm-Berlin/events/227978660/&quot;&gt;First Sandstorm group session Berlin&lt;/a&gt; (feat. Sandstorm core dev Asheesh Laroia, via Skype)&lt;/li&gt;
-  &lt;li&gt;Tue Feb 16, 2016 - Zurich, Switzerland - &lt;a href=&quot;http://www.meetup.com/Sandstorm-CH/events/226863112/&quot;&gt;First Sandstorm Swiss Project Night&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-				<pubDate>Mon, 11 Jan 2016 00:00:00 -0800</pubDate>
-                                <link>https://sandstorm.io/news/2016-01-11-meetups</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-01-11-meetups</guid>
 			</item>
 		
 	</channel>
