@@ -1805,6 +1805,7 @@ body >footer {
             &.inperson::before { content: "\e907"; }
             &.devgroup::before { content: "\e901"; }
             &.youtube::before { content: "\e909"; }
+            &.linkedin::before { content: "\e910"; }
           }
         }
       }
@@ -2226,11 +2227,12 @@ body >footer {
     }
 
 		li {
-			width: 12.5%;
+			width: 11%;
 			display: inline-block;
+          
 			
 			@media (max-width:800px) {
-				width: 25%;
+				width: 20%;
 			}
 			
 			@media (max-width:500px) {
@@ -2261,6 +2263,7 @@ body >footer {
 				&.inperson::before { content: "\e907"; }
 				&.devgroup::before { content: "\e901"; }
 				&.youtube::before { content: "\e909"; }
+				&.linkedin::before { content: "\e910"; }
 			}
 			a:hover:before {
 				color: $purple-highlight;
