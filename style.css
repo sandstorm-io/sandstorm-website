@@ -1765,6 +1765,8 @@ body > footer {
             content: "\e901"; }
           #blog > div.post-list > div.sidebar > ul.socialmedia > li > a.youtube::before {
             content: "\e909"; }
+          #blog > div.post-list > div.sidebar > ul.socialmedia > li > a.linkedin::before {
+            content: "\e910"; }
     #blog > div.post-list > div.sidebar > .more {
       padding: 16px;
       background-color: #f4f3fb; }
@@ -2144,11 +2146,11 @@ body > footer {
       -ms-flex-pack: justify;
           justify-content: space-between; }
 #community #socialmedia li {
-  width: 12.5%;
+  width: 11%;
   display: inline-block; }
   @media (max-width: 800px) {
     #community #socialmedia li {
-      width: 25%; } }
+      width: 20%; } }
   @media (max-width: 500px) {
     #community #socialmedia li {
       width: 50%; } }
@@ -2181,6 +2183,8 @@ body > footer {
       content: "\e901"; }
     #community #socialmedia li a.youtube::before {
       content: "\e909"; }
+    #community #socialmedia li a.linkedin::before {
+      content: "\e910"; }
   #community #socialmedia li a:hover:before {
     color: #7757bc; }
 #community #helpothers ul, #community #helpproject ul {
