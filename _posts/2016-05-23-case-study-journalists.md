@@ -11,7 +11,7 @@ authorUrl: https://github.com/jadeqwang
 
 Lightning Talk: Jason Hernandez talks about how North Star Post uses Sandstorm  
 
-Are you using Sandstorm for your work? I'd love to hear more about how you're using Sandstorm and share your story. Drop me a line at <a href="mailto:community@sandstorm.io"></a> and tell me about it!
+Are you using Sandstorm for your work? I'd love to hear more about how you're using Sandstorm and share your story. Drop me a line at <a href="mailto:community@sandstorm.io">community@sandstorm.io</a> and tell me about it!
 
 Are you in the Bay Area? Hope you can make it to the next Sandstorm meetup: [RSVP here](http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231065150/)
 
