@@ -7,6 +7,25 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Case Study: Sandstorm for journalists</title>
+				<description>&lt;p&gt;&lt;a href=&quot;https://twitter.com/jason_nstar&quot;&gt;Jason Hernandez&lt;/a&gt; is a journalist who often covers sensitive topics like &lt;a href=&quot;http://www.nstarpost.com/17518/145186/a/updated-fbi-continues-to-operate-spy-planes-without-warrants-despite-federal-rul&quot;&gt;mass&lt;/a&gt; &lt;a href=&quot;http://nstarpost.com/17486/159855/a/update-2-cellphone-surveillance-used-on-black-lives-matter-protesters-at-fourth&quot;&gt;surveillance&lt;/a&gt; for the &lt;a href=&quot;http://nstarpost.com/&quot;&gt;North Star Post&lt;/a&gt;. And given the nature of his work, he and his colleagues are justifiably concerned about the information security, not just between journalists and sources, but also drafts and storage of source materials. So, when Jason was visiting the SF Bay Area, he dropped by Sandstorm meetup to talk about the Sandstorm server he set up so he and his colleagues so that they can still enjoy the benefits of web applications, like real-time collaboration, while keeping control over their data.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/cAzOL_eoMdQ&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Lightning Talk: Jason Hernandez talks about how North Star Post uses Sandstorm&lt;/p&gt;
+
+&lt;p&gt;Are you using Sandstorm for your work? I’d love to hear more about how you’re using Sandstorm and share your story. Drop me a line at &lt;a href=&quot;mailto:community@sandstorm.io&quot;&gt;&lt;/a&gt; and tell me about it!&lt;/p&gt;
+
+&lt;p&gt;Are you in the Bay Area? Hope you can make it to the next Sandstorm meetup: &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231065150/&quot;&gt;RSVP here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Or share your Sandstorm use case at local meetups in: &lt;a href=&quot;http://www.meetup.com/Sandstorm-Boston/&quot;&gt;Boston&lt;/a&gt;, &lt;a href=&quot;http://www.meetup.com/Sandstorm-NY/&quot;&gt;New York&lt;/a&gt;, &lt;a href=&quot;http://www.meetup.com/Sandstorm-Berlin/&quot;&gt;Berlin&lt;/a&gt;, &lt;a href=&quot;http://www.meetup.com/Sandstorm-CH/&quot;&gt;Zurich&lt;/a&gt;, or &lt;a href=&quot;http://www.meetup.com/Sandstorm-New-Zealand/&quot;&gt;Wellington&lt;/a&gt;.&lt;/p&gt;
+</description>
+				<pubDate>Mon, 23 May 2016 00:00:00 -0700</pubDate>
+                                <link>https://sandstorm.io/news/2016-05-23-case-study-journalists</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-05-23-case-study-journalists</guid>
+			</item>
+		
+			<item>
 				<title>Richard Caceres talks about designing open source apps</title>
 				<description>&lt;p&gt;We had the pleasure of having designer, developer, and app author &lt;a href=&quot;https://github.com/rchrd2&quot;&gt;Richard Caceres&lt;/a&gt; speak at our Sandstorm.io &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/229350176/&quot;&gt;meetup&lt;/a&gt; in San Francisco on March 24, 2016.&lt;/p&gt;
 
@@ -502,21 +521,6 @@ install page&lt;/a&gt;.&lt;/p&gt;
 				<pubDate>Fri, 22 Jan 2016 00:00:00 -0800</pubDate>
                                 <link>https://sandstorm.io/news/2016-01-22-8-new-open-source-apps</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-01-22-8-new-open-source-apps</guid>
-			</item>
-		
-			<item>
-				<title>How Sandstorm Works: Containerize Data, not Services</title>
-				<description>&lt;p style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;/how-it-works&quot;&gt;&lt;img src=&quot;/images/how-it-works.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Last week &lt;a href=&quot;/news/2016-01-11-website&quot;&gt;we announced the launch of our new web site&lt;/a&gt;. Everything has changed!&lt;/p&gt;
-
-&lt;p&gt;Today, I want to call your attention to one page that I’m particularly excited to have written: &lt;a href=&quot;/how-it-works&quot;&gt;The “How it works” page&lt;/a&gt;. Sandstorm is radically different from all other web infrastructure you might be familiar with, in that we containerize not just “microservices” but individual documents. As it turns out, this has all kinds of huge advantages, especially in terms of security but also in the ability to compose apps into larger workflows. Read all about it here:&lt;/p&gt;
-
-&lt;p style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;/how-it-works&quot; class=&quot;linkbutton&quot;&gt;Learn How Sandstorm Works &amp;raquo;&lt;/a&gt;&lt;/p&gt;
-</description>
-				<pubDate>Wed, 20 Jan 2016 00:00:00 -0800</pubDate>
-                                <link>https://sandstorm.io/news/2016-01-20-how-it-works</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-01-20-how-it-works</guid>
 			</item>
 		
 	</channel>
