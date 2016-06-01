@@ -7,6 +7,47 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>May changelog - what&#39;s new in Sandstorm</title>
+				<description>&lt;p&gt;This month features a big change: when you delete grains, they are sent to a “Trash” area, where
+they are held for 30 days before being deleted permanently. I personally have clicked “Delete” on
+the wrong grain by accident, so I’m very happy with the new feature! This way, I can undo it.&lt;/p&gt;
+
+&lt;p&gt;Self-hosters will also appreciate the totally-redesigned admin interface. Visit /admin on your server
+and you’ll see that it’s easier to navigate and visually cleaner.&lt;/p&gt;
+
+&lt;p&gt;Here’s the full changelog. As always, you can visit your Sandstorm server and find the changelog
+under the “About Sandstorm” section.&lt;/p&gt;
+
+&lt;h3 id=&quot;v0164-2016-05-20&quot;&gt;v0.164 (2016-05-20)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Self-hosting: The admin settings UI has been completely revamped.&lt;/li&gt;
+  &lt;li&gt;Fixed grain debug log auto-scrolling.&lt;/li&gt;
+  &lt;li&gt;Sandcats: Fixed obscure ASN.1 type issue in CSRs that was causing Globalsign API to complain.&lt;/li&gt;
+  &lt;li&gt;Fixed bug where logging in via Google or Github while viewing a sharing link which you had already redeemed previously would lead to an error.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;v0163-2016-05-15-bugfixes&quot;&gt;v0.163 (2016-05-15) [bugfixes]&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Fixed subtle bug introduced in 0.162 which caused shared grains to refresh every minute.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;v0162-2016-05-14&quot;&gt;v0.162 (2016-05-14)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Implemented “trash”. Deleted grains go to the trash where they can be recovered for up to 30 days.&lt;/li&gt;
+  &lt;li&gt;Grains can now be deleted from the grain list, without opening them first. Multiple grains can be selected for deletion at once.&lt;/li&gt;
+  &lt;li&gt;An app can now request that the “who has access” dialog be displayed.&lt;/li&gt;
+  &lt;li&gt;Fixed bug where after an upload failed, future uploads would show the same error despite not having failed.&lt;/li&gt;
+  &lt;li&gt;Tweaked the “logout other sessions” button to give better feedback that the request is in-progress.&lt;/li&gt;
+  &lt;li&gt;When visiting a Sandstorm server that hasn’t been set up yet, you’ll now be redirected to the setup wizard.&lt;/li&gt;
+  &lt;li&gt;The API endpoint now allows the authorization token to be specified as part of the path, for cases where setting the &lt;code&gt;Authorization&lt;/code&gt; header is not possible (especially cross-origin WebSocket).&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Tue, 31 May 2016 00:00:00 -0700</pubDate>
+                                <link>https://sandstorm.io/news/2016-05-31-whats-new</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-05-31-whats-new</guid>
+			</item>
+		
+			<item>
 				<title>Case Study: Sandstorm for journalists</title>
 				<description>&lt;p&gt;&lt;a href=&quot;https://twitter.com/jason_nstar&quot;&gt;Jason Hernandez&lt;/a&gt; is a journalist who often covers sensitive topics like &lt;a href=&quot;http://www.nstarpost.com/17518/145186/a/updated-fbi-continues-to-operate-spy-planes-without-warrants-despite-federal-rul&quot;&gt;mass&lt;/a&gt; &lt;a href=&quot;http://nstarpost.com/17486/159855/a/update-2-cellphone-surveillance-used-on-black-lives-matter-protesters-at-fourth&quot;&gt;surveillance&lt;/a&gt; for the &lt;a href=&quot;http://nstarpost.com/&quot;&gt;North Star Post&lt;/a&gt;. And given the nature of his work, he and his colleagues are justifiably concerned about the information security, not just between journalists and sources, but also drafts and storage of source materials. So, when Jason was visiting the SF Bay Area, he dropped by Sandstorm meetup to talk about the Sandstorm server he set up so he and his colleagues so that they can still enjoy the benefits of web applications, like real-time collaboration, while keeping control over their data.&lt;/p&gt;
 
@@ -450,77 +491,6 @@ install page&lt;/a&gt;.&lt;/p&gt;
 				<pubDate>Wed, 03 Feb 2016 00:00:00 -0800</pubDate>
                                 <link>https://sandstorm.io/news/2016-02-03-hn-highlights</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-02-03-hn-highlights</guid>
-			</item>
-		
-			<item>
-				<title>App update: 8 New open source self-hostable apps</title>
-				<description>&lt;p&gt;Have an &lt;a href=&quot;http://oasis.sandstorm.io&quot;&gt;Oasis account&lt;/a&gt; already? If not, you can &lt;a href=&quot;https://sandstorm.io/get&quot;&gt;sign up for one right now&lt;/a&gt; and start using it to install any of the 48 apps in the &lt;a href=&quot;http://apps.sandstorm.io&quot;&gt;Sandstorm App Market&lt;/a&gt;. (You can also &lt;a href=&quot;https://sandstorm.io/get#self-hosting&quot;&gt;use your own Linux box&lt;/a&gt;, of course.)&lt;/p&gt;
-
-&lt;p&gt;App authors in the &lt;a href=&quot;https://sandstorm.io/community&quot;&gt;Sandstorm community&lt;/a&gt; have been exceptionally productive lately, packaging their favorite apps and writing original apps as well. I wanted to share some of my recent favorites with you. Here are some brand new apps you should install on your Sandstorm server today:&lt;/p&gt;
-
-&lt;h2 id=&quot;davros-file-sync&quot;&gt;Davros (file-sync)&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h&quot;&gt;&lt;img src=&quot;/news/images/davros-screenshot.jpg&quot; alt=&quot;Davros screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h&quot;&gt;Davros&lt;/a&gt; is an open source alternative to Dropbox that works with the &lt;a href=&quot;https://owncloud.org/install/#install-clients&quot;&gt;ownCloud client&lt;/a&gt; installed on your local machine. It’s an original app by Michael Nutt (one of the founders of &lt;a href=&quot;https://movableink.com/&quot;&gt;Movable Ink&lt;/a&gt;) who also hosts the &lt;a href=&quot;http://www.meetup.com/Sandstorm-NY/&quot;&gt;Sandstorm NY meetup&lt;/a&gt;. He also wrote &lt;a href=&quot;https://apps.sandstorm.io/app/4mfserfc04wtcevvgn0jw27hvwfntmt8j468y3ma55kj8d5tj9kh&quot;&gt;Hummingbird&lt;/a&gt; (see below).&lt;/p&gt;
-
-&lt;h2 id=&quot;sandforms-forms&quot;&gt;SandForms (forms)&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/ztxnreej8a0pqn97ccfhuckswjkrmsaavn85n5sgzk30tv2k4y9h&quot;&gt;&lt;img src=&quot;/news/images/sandforms.png&quot; alt=&quot;SandForms screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/ztxnreej8a0pqn97ccfhuckswjkrmsaavn85n5sgzk30tv2k4y9h&quot;&gt;SandForms&lt;/a&gt; is a slick open source forms app (alternative to Google Forms), by a team at &lt;a href=&quot;https://www.thoughtworks.com/&quot;&gt;ThoughtWorks&lt;/a&gt;, led by Jack Singleton, who is also author of &lt;a href=&quot;https://apps.sandstorm.io/app/7qvcjh7gk0rzdx1s3c8gufd288sesf6vvdt297756xcv4q8xxvhh&quot;&gt;Hacker Slides&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;rocketchat-slack-alternative&quot;&gt;Rocket.Chat (Slack alternative)&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0&quot;&gt;&lt;img src=&quot;/images/rocketchat.jpg&quot; alt=&quot;Rocket.Chat screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0&quot;&gt;Rocket.Chat&lt;/a&gt; is &lt;a href=&quot;https://blog.okturtles.com/2015/11/five-open-source-slack-alternatives/&quot;&gt;a full-featured open source Slack alternative&lt;/a&gt; that has taken the world by storm (by Gabriel Engel and the &lt;a href=&quot;http://rocket.chat&quot;&gt;Rocket.Chat&lt;/a&gt; team).&lt;/p&gt;
-
-&lt;h2 id=&quot;hummingbird-real-time-web-tracker&quot;&gt;Hummingbird (real-time web tracker)&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/4mfserfc04wtcevvgn0jw27hvwfntmt8j468y3ma55kj8d5tj9kh&quot;&gt;&lt;img src=&quot;/news/images/06980a0d551bed7ef4eb3991ae1cb92f.jpg&quot; alt=&quot;screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/4mfserfc04wtcevvgn0jw27hvwfntmt8j468y3ma55kj8d5tj9kh&quot;&gt;Hummingbird&lt;/a&gt; gives you real-time web statistics on your website, much like the real-time feature in Google Analytics. It’s also by Michael Nutt (author of &lt;a href=&quot;https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h&quot;&gt;Davros&lt;/a&gt;).&lt;/p&gt;
-
-&lt;h2 id=&quot;gogs-git-server--interface&quot;&gt;Gogs (git server &amp;amp; interface)&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/d9ygf47xrtnw12j92cyt6cu8ut75esx01u4q3kcrn8415w9qzzgh&quot;&gt;&lt;img src=&quot;/news/images/gogs_screenshot.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/d9ygf47xrtnw12j92cyt6cu8ut75esx01u4q3kcrn8415w9qzzgh&quot;&gt;Gogs&lt;/a&gt; is an advanced yet lightweight git server that also ships with an issue tracker. It was packaged by Cem Kocagil, who also packaged a bunch of apps I’ll talk about below. (Gog upstream authors: &lt;a href=&quot;https://gogs.io/&quot;&gt;Gogs team&lt;/a&gt;)&lt;/p&gt;
-
-&lt;h2 id=&quot;dillinger-markdown-editor&quot;&gt;Dillinger (markdown editor)&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/fq057t4ek3yt96xsfje6c1wv61pkjkqm9hs1539x4jqxjwzdp7fh&quot;&gt;&lt;img src=&quot;/news/images/dillinger_screenshot.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/fq057t4ek3yt96xsfje6c1wv61pkjkqm9hs1539x4jqxjwzdp7fh&quot;&gt;Dillinger&lt;/a&gt; is a markdown editor with side-by-side panels, much like desktop markdown editor LightPaper, where the left side is for editing, and the right side is for previews. It was also packaged by Cem Kocagil. (Upstream author: Joe McCann).&lt;/p&gt;
-
-&lt;h2 id=&quot;nodebb-bulletin-board&quot;&gt;NodeBB (bulletin board)&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/zt4j87mc54jkgaehgfqyq2a0qeytm15pcskazvxfkh10yqg4rsrh&quot;&gt;&lt;img src=&quot;/news/images/5f71ba0fe62cc3d437db933495a7c121.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/zt4j87mc54jkgaehgfqyq2a0qeytm15pcskazvxfkh10yqg4rsrh&quot;&gt;NodeBB&lt;/a&gt; is a real-time forum app, featuring a modern user interface, tags, voting, and real-time chat. Like &lt;a href=&quot;https://apps.sandstorm.io/app/d9ygf47xrtnw12j92cyt6cu8ut75esx01u4q3kcrn8415w9qzzgh&quot;&gt;Gogs&lt;/a&gt; and &lt;a href=&quot;https://apps.sandstorm.io/app/fq057t4ek3yt96xsfje6c1wv61pkjkqm9hs1539x4jqxjwzdp7fh&quot;&gt;Dillinger&lt;/a&gt;, it was also packaged by Cem Kocagil. (Upstream author: &lt;a href=&quot;https://nodebb.org/&quot;&gt;NodeBB&lt;/a&gt;, Inc.)&lt;/p&gt;
-
-&lt;h2 id=&quot;dokuwiki-wiki&quot;&gt;DokuWiki (wiki)&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/nx3dqcmz2sjjz939vkg4847vvxrzqsatqfjrt3ea50z3jac5kv7h&quot;&gt;&lt;img src=&quot;/news/images/DokuWiki_screenshot.jpg&quot; alt=&quot;screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;DokuWiki is a simple yet versatile classic-style wiki. It was packaged by Nolan Darilek, who also packaged lightweight accounting app &lt;a href=&quot;https://apps.sandstorm.io/app/8x12h6p0x0nrzk73hfq6zh2jxtgyzzcty7qsatkg7jfg2mzw5n90&quot;&gt;HLedger Web&lt;/a&gt;. (Upstream author: &lt;a href=&quot;https://www.dokuwiki.org&quot;&gt;DokuWiki Team&lt;/a&gt;)&lt;/p&gt;
-
-&lt;h2 id=&quot;and-more&quot;&gt;And more…&lt;/h2&gt;
-
-&lt;p&gt;I also wanted to share with you an article I wrote for OpenSource.com, highlighting the &lt;a href=&quot;https://opensource.com/life/15/12/5-open-source-web-apps-self-hosted&quot;&gt;open source apps on Sandstorm that replace Google Drive&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Check out these apps and more in the &lt;a href=&quot;http://apps.sandstorm.io&quot;&gt;Sandstorm App Market&lt;/a&gt;. Or write your own round-up blog post of your own favorite apps and drop a line to &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&quot;&gt;&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&lt;/a&gt; to let me know.&lt;/p&gt;
-
-&lt;h2 id=&quot;spread-the-love&quot;&gt;Spread the love&lt;/h2&gt;
-
-&lt;p&gt;Did you know that you can get bonus storage on Oasis through the &lt;a href=&quot;https://oasis.sandstorm.io/referrals&quot;&gt;referral program&lt;/a&gt;?&lt;/p&gt;
-
-&lt;p&gt;Unlock up to 30GB if you’re a paid user, or up to 2GB bonus storage (+ unlimited grains) for free tier users. (Technically, all plans are free right now while we’re in beta, so catch that while you can.)  That bonus storage will come in handy when you switch over to &lt;a href=&quot;https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h&quot;&gt;Davros&lt;/a&gt; like me.&lt;/p&gt;
-</description>
-				<pubDate>Fri, 22 Jan 2016 00:00:00 -0800</pubDate>
-                                <link>https://sandstorm.io/news/2016-01-22-8-new-open-source-apps</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-01-22-8-new-open-source-apps</guid>
 			</item>
 		
 	</channel>
