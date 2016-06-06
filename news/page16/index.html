@@ -97,13 +97,53 @@
 
 
 <section>
+  <h2><a href="/news/2014-07-24-tinytinyrss-plus-security-discussion">We now have an RSS reader; plus let's talk about security</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-07-24-tinytinyrss-plus-security-discussion">24 Jul 2014</a>
+  
+  
+  
+  
+  <p>Have you ever wished for an RSS reader that won’t simply <a href="http://reader.google.com">disappear</a> if the developers get tired of it?</p>
+
+<p>Today, we’re releasing our port of <a href="http://tt-rss.org/">TinyTinyRSS</a> to Sandstorm. Go install it on your Sandstorm server now, or <a href="https://demo.sandstorm.io">try the Sandstorm demo</a>.</p>
+
+<p>Unlike traditional web apps, Sandstorm apps can never “disappear”, because they run on <em>your</em> server rather than on the developer’s. Even if the developer stops supporting the app, you still have a copy that will keep working.</p>
+
+<p>You might say: “But what about security updates?” Good question! Let’s talk about security.</p>
+
+<h3 id="what-happens-if-an-app-has-security-bugs">What happens if an app has security bugs?</h3>
+
+<p>It turns out Sandstorm apps are automatically much more secure than on traditional servers. Much of your security is handled by the platform, without the app’s involvement. In many cases, even an app that has known security flaws is perfectly safe to run in Sandstorm.</p>
+
+<p>For starters, Sandstorm handles login and authentication, so automatically one of the biggest potential vulnerabilities is gone. There is no way someone can exploit a vulnerability in the app to “log in” to your account, and the app never has access to your password or session keys and therefore cannot leak them.</p>
+
+<p>Moreover, attacks in which the attacker “tricks” your browser into performing some action on an app (with your credentials) are largely mitigated as well, because the attacker has no way to know your app’s address. Sandstorm assigns apps to hostnames on a temporary, per-session basis. When you don’t have your app open, it doesn’t even have a hostname. These hostnames are not displayed to the user, and we’re working on a change to make them cryptographically unguessable. If the attacker does not know your app’s hostname, they cannot launch CSRF attacks and many kinds of XSS attacks are thwarted as well.</p>
+
+<p>The only remaining way to attack your app is by getting data into it by some other means. What this means depends on the app.</p>
+
+<p>Imagine a document editor like Etherpad. This app never talks to the outside world at all. The only way an attacker can even talk to it (the first step in exploiting it) is by convincing you to explicitly share the document with them.</p>
+
+<p>For an app like TinyTinyRSS, there’s another opening: the app requests RSS feeds from the internet and parses them. Hypothetically, a bug in the feed parser or in the way feeds are rendered in the UI could make the app vulnerable. In order to exploit such a vulnerability, an attacker would have to trick you into signing up for their malicious RSS feed.</p>
+
+<p>But even in the worst case in these two examples, the damage is small, because Sandstorm itself isolates each app in a separate sandbox. Even if an app is exploited, the attacker only gets access to that app – and only the particular <em>instance</em> of that app.</p>
+
+<p>In the case of Etherpad, we create a separate sandbox for every document. So, if an attacker exploits a document, they only get access to that document. And as mentioned above, there’s no way for an attacker to exploit Etherpad without first receiving a share from the document owner. And if the document has already been shared with the attacker, they already have the whole contents, so what’s left to exploit? They can’t use that exploit to get access to any <em>other</em> document, because each document is in its own sandbox.</p>
+
+<p>In the case of TinyTinyRSS, if an attacker exploited an RSS parsing bug, they might get access to the TinyTinyRSS instance. This means they’d be able to see your other feeds, and could perhaps change your subscriptions. That’s it. For most people this is probably not a big deal. It’s a problem, but it’s nothing like having your password stolen or e-mail erased. And if you actually have a super-secret feed that you want no one to know about, you can protect yourself by having two separate TinyTinyRSS instances: one for your common feeds and one for the sensitive-but-trusted ones. If you accidentally sign up for an evil feed, you’ll probably put it in the first instance, and thus the sensitive instance is still protected. (Again, this is all hypothetical; we know of no such vulnerability.)</p>
+
+<p>This is what we call the “principle of least authority”: Each app only has the “authority” to do its job, and thus a vulnerability in one app can only do as much damage as the app’s authority allows. On traditional desktop systems with no sandboxing, a security bug in one app could completely expose your entire system to hackers. On the web today, a security vulnerability in one app might expose your password, thus giving attackers access to any other app where you use that password. On Sandstorm, a security bug in one app only harms that app and things to which it is connected.</p>
+
+<p>Of course, the above discussion is about apps. A bug in Sandstorm itself could be much more devastating. But that’s a smaller attack surface, and we have multiple security experts working with us. Security bugs are always possible in any code, but the less code you rely on not to have bugs, the less likely it is that one will harm you.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2014-07-22-ghost">Ghost Blogging Platform on Sandstorm</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2014-07-22-ghost">22 Jul 2014</a>
-  
-  
-  
   
   <p>Today we’re releasing a major new app on Sandstorm: Ghost.</p>
 
@@ -259,85 +299,6 @@ allow them to contribute. We think this is entirely understandable. We have
 always intended to switch to Apache 2.0 after gaining some momentum (which is
 why we have asked contributors to sign a CLA allowing us to make this change).
 So, we’ve gone ahead and made the switch now.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2014-07-07-mailpile">Mailpile on Sandstorm</a></h2>
-  <p class="post-details">By <a href="https://github.com/jparyani">Jason Paryani</a>
-    
-    - <a href="/news/2014-07-07-mailpile">07 Jul 2014</a>
-  
-  <p>Hello, I’m Jason, a new member of the Sandstorm team. Today I’m excited to
-announce that I’ve extended Sandstorm to support e-mail, and ported
-<a href="https://www.mailpile.is/">Mailpile Alpha II</a> to demonstrate. Mailpile is
-available on the <a href="https://sandstorm.io/apps/">Sandstorm app list</a> right now, so
-go ahead and try it out.</p>
-
-<p>You may know Mailpile from
-<a href="https://www.indiegogo.com/projects/mailpile-taking-e-mail-back">their successful Indiegogo campaign</a>
-last year. They’ve been working hard to create a web mail app that is designed
-to be self-hosted, which makes it a perfect fit for Sandstorm. It’s worth noting
-that Mailpile itself is, like Sandstorm, still in alpha. It is still somewhat
-rough around the edges, and may not quite be ready to replace your regular
-e-mail client yet. We will be updating our port as Mailpile matures, and we’re
-also looking at porting some other web mail apps so that you can choose the one
-that’s right for you.</p>
-
-<h3 id="how-sandstorm-does-e-mail">How Sandstorm does e-mail</h3>
-
-<p>We know that switching people over to using Sandstorm for e-mail will take time.
-So, we are starting with a design that makes it safe and easy to try out
-Sandstorm without committing.</p>
-
-<p>When you launch an e-mail application on Sandstorm, it is assigned a random
-e-mail address at your server, like “JBuaKxjkwiJq7oksS@alpha.sandstorm.io”. Any
-e-mail sent to that address is delivered to the app. The idea is not that you’d
-actually use this address publicly, but rather that you should set up e-mail
-forwarding from your real address to this address. For example, GMail allows
-you to set up such forwarding while still keeping a copy in your GMail inbox,
-and even lets you do the forwarding conditionally based on a filter.
-Additionally, most domain registrars have the ability to set up basic e-mail
-forwarding, so if you have your own domain, it’s easy to set up an address that
-redirects to a Sandstorm app.</p>
-
-<p>When you send e-mail from a Sandstorm app, we allow you to set the “From”
-header either to your app’s random address or to your verified Sandstorm login
-address. In the future, we’d like to add the ability to attach additional
-verified addresses to your account. Either way, the message’s envelope return
-address is always the app’s address. As a result, the mail recipient may see
-that the message was sent “via” your server.</p>
-
-<p>For more details on how to write an app that uses e-mail, and how to set up
-your Sandstorm server to support e-mail, check out the docs:
-* <a href="https://github.com/sandstorm-io/sandstorm/wiki/Configuring-your-server-for-email">Configuring your server for e-mail.</a>
-* <a href="https://github.com/sandstorm-io/sandstorm/wiki/Using-Email-From-Your-Sandstorm-App">Writing an app to use e-mail.</a></p>
-
-<h3 id="a-note-on-encryption">A note on encryption</h3>
-
-<p>A key feature of Mailpile is its support for PGP / GPG encryption and
-signatures. Unfortunately, this is not yet supported by our Sandstorm port, as
-we need to do more work to get crypto right.</p>
-
-<p>The simplest way we could support crypto would be to have you upload your
-private key into the app, to be stored on the server. This is not a good idea!
-In an ideal world, your private key would live only on a physical token or
-smart card and never even touch the storage of a real computer. Barring that,
-you should at least keep your key only on systems you own. If you run your own
-Sandstorm server, then uploading your key might be OK, but for anyone using a
-shared server, it’s not a good idea. We want a solution that works for everyone.</p>
-
-<p>Therefore we are looking into how we can make crypto available to Sandstorm
-apps without sending your key to the server. We are hopeful that the nascent
-<a href="http://www.w3.org/TR/WebCryptoAPI/">WebCrypto API</a> might solve this problem,
-but at present the standard is still under development and there is apparently
-some controversy over its design. In the meantime, browser-extension-based
-approaches like <a href="https://code.google.com/p/end-to-end/">Google’s End-To-End</a>
-provide an intriguing alternative, although Chrome’s decision to kill off NPAPI
-may make it impossible to access hardware tokens or your local GPG agent in
-this way.</p>
-
-<p>In any case, this is something we’ll be investigating further in the future.</p>
 
 </section>
 

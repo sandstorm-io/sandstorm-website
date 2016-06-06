@@ -7,6 +7,45 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Upcoming events in June in San Francisco, Morgantown</title>
+				<description>&lt;p&gt;&lt;img src=&quot;/news/images/drew-talk.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Designing secure systems with Object-Capabilities, Python, and Cap’n Proto (San Francisco, CA)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Join us for a talk from Sandstorm core dev &lt;a href=&quot;https://github.com/zarvox&quot;&gt;Drew Fisher&lt;/a&gt; about an object-oriented programming inspired technique for designing secure systems called object-capability security. Drew’s talk will be followed by a Q&amp;amp;A session with opportunities to chat with Sandstorm’s community before and after. A huge shoutout and thanks to &lt;a href=&quot;https://www.thoughtworks.com/&quot;&gt;ThoughtWorks&lt;/a&gt; for hosting the meetup and for dinner!&lt;/p&gt;
+
+&lt;p&gt;Thursday, June 16, 2016
+&lt;br /&gt;
+6:00 PM to 9:30 PM
+&lt;br /&gt;
+ThoughtWorks
+&lt;br /&gt;
+814 Mission St, 5th Floor, San Francisco, CA&lt;/p&gt;
+
+&lt;p&gt;RSVP here: &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231065150/&quot;&gt;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231065150/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/news/images/david-talk.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Building a decentralized web with Sandstorm&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you’re in Morgantown, West Virginia, join the &lt;a href=&quot;http://www.meetup.com/Morgantown-Linux-User-Group/&quot;&gt;Linux User Group&lt;/a&gt;, and meet Sandstorm core dev &lt;a href=&quot;https://github.com/dwrensha&quot;&gt;David Renshaw&lt;/a&gt;! David will give an overview of Sandstorm, and will dive into some of the technical details of what makes Sandstorm tick.&lt;/p&gt;
+
+&lt;p&gt;Thursday, June 9, 2016
+&lt;br /&gt;
+7:00 PM
+&lt;br /&gt;
+Listhub
+&lt;br /&gt;
+453 Suncrest Towne Centre, 2nd Floor, Morgantown, WV&lt;/p&gt;
+
+&lt;p&gt;RSVP here: &lt;a href=&quot;http://www.meetup.com/Morgantown-Linux-User-Group/events/228038429/&quot;&gt;http://www.meetup.com/Morgantown-Linux-User-Group/events/228038429/&lt;/a&gt;&lt;/p&gt;
+</description>
+				<pubDate>Mon, 06 Jun 2016 00:00:00 -0700</pubDate>
+                                <link>https://sandstorm.io/news/2016-06-06-upcoming-events-june</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-06-06-upcoming-events-june</guid>
+			</item>
+		
+			<item>
 				<title>May changelog - what&#39;s new in Sandstorm</title>
 				<description>&lt;p&gt;This month features a big change: when you delete grains, they are sent to a “Trash” area, where
 they are held for 30 days before being deleted permanently. I personally have clicked “Delete” on
@@ -452,45 +491,6 @@ install page&lt;/a&gt;.&lt;/p&gt;
 				<pubDate>Fri, 05 Feb 2016 00:00:00 -0800</pubDate>
                                 <link>https://sandstorm.io/news/2016-02-05-app-author-publicity-oasis</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-02-05-app-author-publicity-oasis</guid>
-			</item>
-		
-			<item>
-				<title>Sandstorm user stories from Hacker News</title>
-				<description>&lt;p&gt;While &lt;a href=&quot;https://sandstorm.io/news/2016-01-22-8-new-open-source-apps&quot;&gt;my previous blog post&lt;/a&gt; was discussed on Hacker News yesterday, &lt;em&gt;andybak&lt;/em&gt; asked to “hear from people that are using Sandstorm day to day.” &lt;a href=&quot;https://news.ycombinator.com/item?id=11023300&quot;&gt;Reading the replies&lt;/a&gt; really made me appreciate the warmth of the &lt;a href=&quot;https://sandstorm.io/community&quot;&gt;Sandstorm community&lt;/a&gt;, and I just wanted to share a few excerpts.&lt;/p&gt;
-
-&lt;p&gt;Nolan Darilek writes:&lt;/p&gt;
-
-&lt;blockquote class=&quot;notbig&quot;&gt;
-  &lt;p&gt;I use Sandstorm daily. Private/company projects are run in &lt;a href=&quot;https://apps.sandstorm.io/app/zx9d3pt0fjh4uqrprjftgpqfwgzp6y2ena6098ug3ctv37uv6kfh&quot;&gt;Gitlab&lt;/a&gt; instances, though I may switch to &lt;a href=&quot;https://apps.sandstorm.io/app/6va4cjamc21j0znf5h5rrgnv0rpyvh1vaxurkrgknefvj0x63ash&quot;&gt;Gitweb&lt;/a&gt; if a minor cosmetic issue is resolved  (Gitweb in Sandstorm can only host one repo by design but you still have to click through to it when viewing the instance, which is mildly annoying when all other apps come up ready to use.)&lt;/p&gt;
-
-  &lt;p&gt;I have a bunch of &lt;a href=&quot;https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h&quot;&gt;Wekan&lt;/a&gt; boards managing everything from coding projects to my GTD buckets to separate boards for random home improvement projects. I prefer Wekan to spreadsheets because I can track work through arbitrary workflows and annotate items with additional data, and Sandstorm lets me manage that without having to maintain and secure a separate Wekan server that any random person could find and exploit. My blog is hosted in &lt;a href=&quot;https://apps.sandstorm.io/app/aax9j672p6z8n7nyupzvj2nmumeqd4upa0f7mgu8gprwmy53x04h&quot;&gt;Sandstorm WordPress&lt;/a&gt; so I have the niceness of its admin interface but none of its security risks, and all the speed of a static site. A small 2-person bootstrapped startup I’ve cofounded uses it for many of the same use cases plus hosting our app’s &lt;a href=&quot;https://apps.sandstorm.io/app/xuajusd5d4a9v4js71ru0cwj9wn984q1x8kny10htsp8f5dcfep0&quot;&gt;Piwik&lt;/a&gt; instance, again so there’s literally no non-Sandstorm-secured user-facing attack surface other than Piwik’s API endpoint. I have an idea for a platform co-op in the middle distant future, and if I manage to launch it then I’ll run it via Sandstorm-hosted Loomio, which I’m actively attempting to port and am fairly close to completing.&lt;/p&gt;
-
-  &lt;p&gt;Sandstorm is a great platform, and the community comprises some of the nicest, most dedicated folks I know. When my cofounder messed up our install a bit, Kenton talked us through fixing it on a weekend no less, right down to giving us database queries to run and then patching Sandstorm to handle our edge case the next week. Awesome people.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Jacob Weisz writes:&lt;/p&gt;
-
-&lt;blockquote class=&quot;notbig&quot;&gt;
-  &lt;p&gt;I use Sandstorm daily. Effectively it &lt;a href=&quot;https://opensource.com/life/15/12/5-open-source-web-apps-self-hosted&quot;&gt;replaces Google Drive/Docs&lt;/a&gt; for me. I use &lt;a href=&quot;https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60&quot;&gt;Etherpad&lt;/a&gt;, &lt;a href=&quot;https://apps.sandstorm.io/app/a0n6hwm32zjsrzes8gnjg734dh6jwt7x83xdgytspe761pe2asw0&quot;&gt;EtherCalc&lt;/a&gt;, and &lt;a href=&quot;https://apps.sandstorm.io/app/n4n49dkfyskmhcmg5h0mfzk4kjvce2jcs8ravr7y7uw9xs2pzghh&quot;&gt;Text Editor&lt;/a&gt; a lot on it. And I use &lt;a href=&quot;https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h&quot;&gt;Davros&lt;/a&gt; for storing arbitrary files I want to share. My blog is hosted on Sandstorm, but I’ve posted to it like four times so it doesn’t really count.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Steve Dee writes:&lt;/p&gt;
-
-&lt;blockquote class=&quot;notbig&quot;&gt;
-  &lt;p&gt;I’ve been hosting a &lt;a href=&quot;https://apps.sandstorm.io/app/wfg1r0qra2ewyvns05r0rddqttt57qxurz3nz5z95rjnm63et7e0&quot;&gt;Groove Basin&lt;/a&gt; instance on it for the last little while. Check it out, it’s anarchist radio! &lt;a href=&quot;https://mrdomino.sandcats.io/shared/_NnFzbFzvci0JBgXw3hRwCWOHeECQkJEIO00t2zUmXX&quot;&gt;Link »&lt;/a&gt;&lt;/p&gt;
-
-  &lt;p&gt;At some point some crazy mofo is going to post it to hackernews. Hopefully I don’t have to revoke the URL and clean up any spam and y’all just groove with the little community I’ve got going on there! But just in case, here’s one where you can only listen, that might last a little longer: &lt;a href=&quot;https://mrdomino.sandcats.io/shared/kYJ-X75DzV3HTB0Ro6cTizCDhUUSyFd3xnNczrxKXbZ&quot;&gt;Link »&lt;/a&gt;&lt;/p&gt;
-
-  &lt;p&gt;I posted a URL for that station to my work’s Slack, and then people started uploading stuff and rocking out. We’ve had a great time taking turns DJing, sharing our musical taste with each other, and hijacking the stream when it gets too boring or weird. I’ve had friends of mine jump on from elsewhere in the world, some who I haven’t seen in years, and drop their music on us. We’re completely in love with this – it’s a way for us to stay connected through music without disturbing the people who just want to work quietly.&lt;/p&gt;
-
-  &lt;p&gt;I’m astounded at how easy Sandstorm made this whole thing. These guys continue to blow me away with their ability to create incredibly useful experiences on a small budget and in such a short time.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Are you using Sandstorm at work? Drop me a line at &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&quot;&gt;&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#117;&amp;#110;&amp;#105;&amp;#116;&amp;#121;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&lt;/a&gt;, I’d love to hear about it and find out how I can be useful!&lt;/p&gt;
-</description>
-				<pubDate>Wed, 03 Feb 2016 00:00:00 -0800</pubDate>
-                                <link>https://sandstorm.io/news/2016-02-03-hn-highlights</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-02-03-hn-highlights</guid>
 			</item>
 		
 	</channel>
