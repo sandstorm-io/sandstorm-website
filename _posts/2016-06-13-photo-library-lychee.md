@@ -4,6 +4,9 @@ title: "How to create a shared photo library with Lychee"
 author: Ovidiu Pacuraru
 authorUrl: https://github.com/ovizii
 ---
+
+_Today's blog post comes from guest writer Ovidiu Pacuraru._
+
 In this tutorial, we will show you how a family on holiday can organize images from dad's DSLR, mom's iPhone and the kid's Android phone inside one album. They can all use the same Lychee grain in Sandstorm from a web browser; this tutorial shows how to set it up.
 
 <img src="/news/images/lychee-9.png">
