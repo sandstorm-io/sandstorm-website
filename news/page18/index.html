@@ -95,13 +95,82 @@
 
 
 <section>
+  <h2><a href="/news/2014-05-12-easy-port">Easy-Port</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-05-12-easy-port">12 May 2014</a>
+  
+  
+  
+  
+  <h3 id="port-your-app-to-sandstorm-in-five-minutes">Port your app to Sandstorm in five minutes!</h3>
+
+<p>Sandstorm employs a native-code sandbox. App servers may be written using any
+technology stack that runs on Linux. The app provides all of its own libraries;
+all Sandstorm provides is a filesystem and HTTP routing.</p>
+
+<p>Up until now, porting apps to Sandstorm was a rather tedious process involving
+carefully figuring out dependencies and building a chroot environment. But now,
+we’ve written a tool that automates the process. It’s so easy that if you have
+a traditional web app server already running on your Linux machine, you can
+probably turn it into a Sandstorm app package in five minutes or less.</p>
+
+<p>The trick is actually quite simple: we run your app in a special version of
+the Sandstorm sandbox running on top of a FUSE filesystem that detects exactly
+what files your app tries to open, satisfies those dependencies just-in-time,
+and then makes a list so that you can build a package later. By default, the
+tool just pulls binaries and libraries from your local system. Just make sure
+to test all of your app’s features in dev mode, and you should have a complete
+package.</p>
+
+<p><a href="https://github.com/kentonv/sandstorm/wiki/Porting-Guide">Check out the porting guide for details.</a></p>
+
+<h3 id="wait-what-about-reproducible-builds">Wait, what about reproducible builds?</h3>
+
+<p>Glad you asked. Obviously, pulling whatever happens to be installed on your own
+machine into a package is a huge hack. A serious project will probably want to
+do something more hermetic and reproducible. Sandstorm supports that just fine.
+You can configure excatly where the dev tool looks for dependencies; it doesn’t
+have to be your own root directory. So, set up a chroot environment in whatever
+way suits you, and point it at that.</p>
+
+<p>You could, for example, use <a href="https://docker.io">Docker</a>. Once you’ve set up an
+appropriate Docker container for your app, point the Sandstorm dev tool at it
+and build a package. But it’s also possible to use the package management
+systems of various Linux distros directly. We didn’t want to constrain you to
+any one toolchain, because we know everyone has different tastes.</p>
+
+<h3 id="speaking-of-docker">Speaking of Docker</h3>
+
+<p>Many people have asked how Sandstorm is different from Docker. The answer is in
+the user interface. Docker is essentially a set of command-line tools for
+building chroot environments and deploying them. It is meant to be used by
+developers and sysadmins, to deploy software that might have any arbitrary
+number of users or, indeed, not be user-oriented at all. Docker is awesome at
+what it does, but what it does is actually not at all the same thing as what
+Sandstorm does.</p>
+
+<p>In contrast, Sandstorm is a user interface for a personal cloud server. It is
+perfectly possible for a non-technical end user to install new apps to their
+Sandstorm instance and use them. Moreover, Sandstorm provides and integrated
+login and sharing model, so that individual apps do not have to implement this
+themselves. The Sandstorm platform sits between the user and the app, so when
+an HTTP request arrives at the app, it is already annotated with information about the
+user’s identity and permissions as authenticated by the platform. Eventually, Sandstorm aims to provide a user
+interface that allows end users to connect their apps to each other and to
+other users’ app securely through an intuitive UI – think OAuth, except
+streamlined because all the apps already share an authentication system.
+Meanwhile, until two app instances have been connected by the user, they are
+completely isolated from each other, so that you need not worry that one
+insecure app might compromise your whole server.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2014-04-22-easy-install">Easy Install; New Apps</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2014-04-22-easy-install">22 Apr 2014</a>
-  
-  
-  
   
   <p>It’s been nearly a month since Sandstorm launched, and we’ve been busy.  Here’s
 what’s new!</p>

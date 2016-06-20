@@ -7,6 +7,28 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Designing secure systems with Object-Capabilities, Python, and Cap&#39;n Proto</title>
+				<description>&lt;p&gt;At our Sandstorm meetup on June 16th, Sandstorm core dev &lt;a href=&quot;https://github.com/zarvox&quot;&gt;Drew Fisher&lt;/a&gt; talked about an object-oriented programming inspired technique for designing secure systems called object-capability security.&lt;/p&gt;
+
+&lt;p&gt;Object-capability security is a technique for designing systems that lets us apply object-oriented design principles to security policies, reducing cognitive overhead and risk of errors that lead to vulnerabilities. In this talk, Drew explains capabilities, how they work, and what cool things they make possible for your systems, with real-world examples from Sandstorm.io.&lt;/p&gt;
+
+&lt;p&gt;Watch the full talk here:&lt;/p&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/acMsHx5XFbQ&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;To see the slides: &lt;a href=&quot;http://zarvox.org/pycon2016-talk&quot;&gt;http://zarvox.org/pycon2016-talk&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;To read more about capability-based security: &lt;a href=&quot;https://sandstorm.io/how-it-works#capabilities&quot;&gt;https://sandstorm.io/how-it-works#capabilities&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;To read more on Cap’n Proto: &lt;a href=&quot;https://capnproto.org/&quot;&gt;https://capnproto.org/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We also have an upcoming meetup on July 19 where Asheesh is giving a talk entitled, “Web app packaging in Sandstorm: It’s not LAMP.” RethinkDB is kind enough to host our event at their office in Mountain View, and all are invited. &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231954146/&quot;&gt;Read the details &amp;amp; RSVP here&lt;/a&gt;.&lt;/p&gt;
+</description>
+				<pubDate>Mon, 20 Jun 2016 00:00:00 -0700</pubDate>
+                                <link>https://sandstorm.io/news/2016-06-20-drew-object-capabilities</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-06-20-drew-object-capabilities</guid>
+			</item>
+		
+			<item>
 				<title>How to create a shared photo library with Lychee</title>
 				<description>&lt;p&gt;&lt;em&gt;Today’s blog post comes from guest writer Ovidiu Pacuraru.&lt;/em&gt;&lt;/p&gt;
 
@@ -453,23 +475,6 @@ install page&lt;/a&gt;.&lt;/p&gt;
 				<pubDate>Mon, 29 Feb 2016 00:00:00 -0800</pubDate>
                                 <link>https://sandstorm.io/news/2016-02-29-security-track-record</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-02-29-security-track-record</guid>
-			</item>
-		
-			<item>
-				<title>Andrew Wansley shares his story of Giftr</title>
-				<description>&lt;p&gt;Giftr is one of the newest additions to our &lt;a href=&quot;https://apps.sandstorm.io/&quot;&gt;App Market&lt;/a&gt;; it helps make coordinating gift exchanges less painful for you and other gifters involved. At our &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/227595644/&quot;&gt;Sandstorm San Francisco meetup&lt;/a&gt; in January, app author Andrew Wansley shared his story of how his decision to create &amp;amp; package his &lt;a href=&quot;https://apps.sandstorm.io/app/tr3w5p7ajsf61nf2e6dkfv8tdjes0qsm5w6ew0frd4qwnacwur90&quot;&gt;Giftr&lt;/a&gt; app all started from a simple family tradition.&lt;/p&gt;
-
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/tr3w5p7ajsf61nf2e6dkfv8tdjes0qsm5w6ew0frd4qwnacwur90&quot;&gt;
-&lt;img width=&quot;90%&quot; src=&quot;/news/images/giftr.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;watch-andrews-talk-here&quot;&gt;Watch Andrew’s talk here:&lt;/h3&gt;
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/-qIqNXVw4v0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
-
-&lt;p&gt;Try &lt;a href=&quot;https://apps.sandstorm.io/app/tr3w5p7ajsf61nf2e6dkfv8tdjes0qsm5w6ew0frd4qwnacwur90&quot;&gt;Giftr&lt;/a&gt; &amp;amp; remember to review it on the App Market!&lt;/p&gt;
-</description>
-				<pubDate>Thu, 25 Feb 2016 00:00:00 -0800</pubDate>
-                                <link>https://sandstorm.io/news/2016-02-25-giftr</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-02-25-giftr</guid>
 			</item>
 		
 	</channel>
