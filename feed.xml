@@ -13,7 +13,7 @@
 &lt;p&gt;Object-capability security is a technique for designing systems that lets us apply object-oriented design principles to security policies, reducing cognitive overhead and risk of errors that lead to vulnerabilities. In this talk, Drew explains capabilities, how they work, and what cool things they make possible for your systems, with real-world examples from Sandstorm.io.&lt;/p&gt;
 
 &lt;p&gt;Watch the full talk here:&lt;/p&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/acMsHx5XFbQ&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/2H-Azm8tM24&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;To see the slides: &lt;a href=&quot;http://zarvox.org/pycon2016-talk&quot;&gt;http://zarvox.org/pycon2016-talk&lt;/a&gt;&lt;/p&gt;
 
