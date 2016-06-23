@@ -10,7 +10,7 @@ At our Sandstorm meetup on June 16th, Sandstorm core dev [Drew Fisher](https://g
 Object-capability security is a technique for designing systems that lets us apply object-oriented design principles to security policies, reducing cognitive overhead and risk of errors that lead to vulnerabilities. In this talk, Drew explains capabilities, how they work, and what cool things they make possible for your systems, with real-world examples from Sandstorm.io. 
 
 Watch the full talk here:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/acMsHx5XFbQ" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2H-Azm8tM24" frameborder="0" allowfullscreen></iframe>
 
 To see the slides: [http://zarvox.org/pycon2016-talk](http://zarvox.org/pycon2016-talk)
 
