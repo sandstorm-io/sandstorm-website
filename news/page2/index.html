@@ -97,13 +97,33 @@
 
 
 <section>
+  <h2><a href="/news/2016-05-23-case-study-journalists">Case Study: Sandstorm for journalists</a></h2>
+  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
+    
+    - <a href="/news/2016-05-23-case-study-journalists">23 May 2016</a>
+  
+  
+  
+  
+  <p><a href="https://twitter.com/jason_nstar">Jason Hernandez</a> is a journalist who often covers sensitive topics like <a href="http://www.nstarpost.com/17518/145186/a/updated-fbi-continues-to-operate-spy-planes-without-warrants-despite-federal-rul">mass</a> <a href="http://nstarpost.com/17486/159855/a/update-2-cellphone-surveillance-used-on-black-lives-matter-protesters-at-fourth">surveillance</a> for the <a href="http://nstarpost.com/">North Star Post</a>. And given the nature of his work, he and his colleagues are justifiably concerned about the information security, not just between journalists and sources, but also drafts and storage of source materials. So, when Jason was visiting the SF Bay Area, he dropped by Sandstorm meetup to talk about the Sandstorm server he set up so he and his colleagues so that they can still enjoy the benefits of web applications, like real-time collaboration, while keeping control over their data.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cAzOL_eoMdQ" frameborder="0" allowfullscreen=""></iframe>
+
+<p>Lightning Talk: Jason Hernandez talks about how North Star Post uses Sandstorm</p>
+
+<p>Are you using Sandstorm for your work? I’d love to hear more about how you’re using Sandstorm and share your story. Drop me a line at <a href="mailto:community@sandstorm.io">community@sandstorm.io</a> and tell me about it!</p>
+
+<p>Are you in the Bay Area? Hope you can make it to the next Sandstorm meetup: <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231065150/">RSVP here</a></p>
+
+<p>Or share your Sandstorm use case at local meetups in: <a href="http://www.meetup.com/Sandstorm-Boston/">Boston</a>, <a href="http://www.meetup.com/Sandstorm-NY/">New York</a>, <a href="http://www.meetup.com/Sandstorm-Berlin/">Berlin</a>, <a href="http://www.meetup.com/Sandstorm-CH/">Zurich</a>, or <a href="http://www.meetup.com/Sandstorm-New-Zealand/">Wellington</a>.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2016-05-16-designing-open-source">Richard Caceres talks about designing open source apps</a></h2>
   <p class="post-details">By <a href="https://github.com/neynah">Nena Nguyen</a>
     
     - <a href="/news/2016-05-16-designing-open-source">16 May 2016</a>
-  
-  
-  
   
   <p>We had the pleasure of having designer, developer, and app author <a href="https://github.com/rchrd2">Richard Caceres</a> speak at our Sandstorm.io <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/229350176/">meetup</a> in San Francisco on March 24, 2016.</p>
 
@@ -318,84 +338,6 @@ For more on Sandstorm’s security design, read our
 <p>If you install Sandstorm today, <strong>you’ll automatically get these features as they become available</strong> – your server will automatically update after every weekly release with no action needed on your part. So why not install now and see what you think? Feel free to <a href="https://github.com/sandstorm-io/sandstorm/issues">file a bug</a> to tell us what you want to see next.</p>
 
 <p style="text-align: center"><a style="display: inline-block; width: 250px; margin: 4px 0;" href="https://demo.sandstorm.io" class="linkbutton">Try a demo »</a> <a style="display: inline-block; width: 250px; margin: 4px 0;" href="/install" class="linkbutton">Install Sandstorm »</a></p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-02-29-security-track-record">Sandstorm's security track record, and what it means for self-hosting</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2016-02-29-security-track-record">29 Feb 2016</a>
-  
-  <p>Today I want to share the results of our own <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/">analysis of security issues of web apps available on
-the Sandstorm app market</a>.</p>
-
-<h3 id="of-security-issues-automatically-mitigated-before-they-were-discovered">95% of security issues automatically mitigated, before they were discovered</h3>
-
-<p>Sandstorm automatically protects users from a huge fraction of the publicly disclosed security
-vulnerabilities discovered in apps on the Sandstorm app market, before the vulnerabilities were even
-disclosed. Of the issues we examined, 95% were wholly or partly mitigated. You can read the <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/">full
-report here in our
-documentation</a>. The analysis covers
-publicly-disclosed vulnerabilities in Etherpad, WordPress, Roundcube, ShareLaTeX, and Tiny Tiny
-RSS. In WordPress, we limited our analysis to security issues of severity score 6 or higher, due to
-the large number of issues. We also mitigated 21 CVEs in the Linux kernel to prevent sandbox
-breakout.</p>
-
-<p>We built Sandstorm to create a <a href="https://sandstorm.io/news/2014-07-21-open-source-web-apps-require-federated-hosting">viable ecosystem for indie and open source web
-apps</a>. When
-server apps are as safe to run as apps on a phone, people will feel free to choose whatever software
-they like. Consider that some Sandstorm apps, like
-<a href="https://sandstorm.io/news/2016-02-25-giftr">Giftr</a>, are small and don’t have as many people
-checking the code for bugs. Sandstorm protects you when you use those apps, too.</p>
-
-<p>We know that security is risk-management, not binary. No software, Sandstorm included, will ever
-protect all user data from all bugs in all programs. However, raising barriers to a successful
-attack means fewer successful attacks will occur.</p>
-
-<h3 id="self-hosted-apps-can-be-as-secure-as-a-centralized-web-app">Self-hosted apps can be as secure as a centralized web app</h3>
-
-<p>With Sandstorm, you get an experience as easy to use as software-as-a-service, and you retain the
-privacy benefits of self-hosting. One of our key security strategies is to isolate each grain
-(typically, one document) separately, so that a buggy or malicious app has a hard time ruining your
-day. That degree of isolation is enabled by our various <a href="https://sandstorm.io/how-it-works">security
-practices</a>.</p>
-
-<p>I hope you’ll <a href="https://docs.sandstorm.io/en/latest/using/security-practices/">read the full
-analysis</a>, prepared by myself and
-Kenton Varda. <a href="https://groups.google.com/forum/#!forum/sandstorm-dev">Let us know</a> what
-you think!</p>
-
-<h3 id="when-self-hosting-is-secure-users-are-free-to-choose">When self-hosting is secure, users are free to choose</h3>
-
-<p>Security enables freedom of choice. If you use a Sandstorm server, you can choose productivity tools
-that fit your needs, even if the server is maintained by someone else.</p>
-
-<p>Want to chat with colleagues? Install
-<a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> or
-<a href="https://apps.sandstorm.io/app/qkgkaxfqhgsff8zgx2f4nf1a8xvmpte6wa19egmfkk06mzt7e8dh">Let’s
-Chat</a>. Want to
-track tasks and stay organized? Install
-<a href="https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h">WeKan</a> or
-<a href="https://apps.sandstorm.io/app/0dp7n6ehj8r5ttfc0fj0au6gxkuy1nhw2kx70wussfa1mqj8tf80">Simple
-Todos</a>. Want to
-organize a gift exchange? Install
-<a href="https://apps.sandstorm.io/app/tr3w5p7ajsf61nf2e6dkfv8tdjes0qsm5w6ew0frd4qwnacwur90">Giftr</a>. Want to
-share files quickly with friends? Install
-<a href="https://apps.sandstorm.io/app/nn7axgy3y8kvd0m1mtk3cwca34t916p5d7m4j1j2e874nuz3t8y0">FileDrop</a> or
-<a href="https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h">Davros</a>.</p>
-
-<p>If you prefer managed hosting, you can <a href="https://oasis.sandstorm.io/">make an account on Oasis</a> and
-enjoy any of these apps or upload your own.</p>
-
-<p>Or you can run your own Sandstorm install. Over the past six months, we’ve integrated <a href="https://sandstorm.io/news/2015-10-01-free-ssl-certificates">free SSL
-certificates</a> and
-<a href="https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install">cryptographically-verified automatic
-updates</a> into
-self-hosted Sandstorm. As soon as someone installs Sandstorm for an organization, they can safely
-allow colleagues to choose their own tools. If you install Sandstorm for yourself, you can use the
-best indie web apps and let the platform handle security for you.  Get started on the <a href="https://sandstorm.io/install">Sandstorm
-install page</a>.</p>
 
 </section>
 

@@ -97,13 +97,39 @@
 
 
 <section>
+  <h2><a href="/news/2014-08-18-wordpress">WordPress on Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
+    
+    - <a href="/news/2014-08-18-wordpress">18 Aug 2014</a>
+  
+  
+  
+  
+  <p>WordPress is the world’s <a href="http://trends.builtwith.com/cms">most</a> <a href="http://w3techs.com/technologies/overview/content_management/all/">popular</a> web publishing platform, and we are excited to announce today that we’ve ported it to Sandstorm.</p>
+
+<p>You can try it now in the <a href="https://demo.sandstorm.io">demo</a> or on your personal Sandstorm server.</p>
+
+<p>Like the existing <a href="/news/2014-06-04-self-service-web-publishing.html">HackerCMS</a> and <a href="/news/2014-07-22-ghost.html">Ghost</a> apps, WordPress on Sandstorm lets you publish content to a custom domain. You can use it to create all kinds of web sites, including blogs, magazines, and webcomics. WordPress has an enormous ecosystem of themes and plugins, and our port grants you the power to install any of them and to modify them through the built-in editor.</p>
+
+<p>Moreover, the app’s integration with Sandstorm’s login system makes it easy to collaborate with multiple authors; you can add new authors simply by sharing a link.</p>
+
+<p><a href="https://sandstorm.io/apps/wordpress1-big.png"><img alt="WordPress Screenshot" src="https://sandstorm.io/apps/wordpress1.png" /></a></p>
+
+<p><a href="https://sandstorm.io/apps/wordpress2-big.png"><img alt="WordPress Screenshot" src="https://sandstorm.io/apps/wordpress2.png" /></a></p>
+
+<p>A few features of WordPress require us to make more progress on Sandstorm before we can support them. We would like to allow the app to make remote HTTP requests – a feature that would simplify the process of installing add-ons and importing media content – but we also want to tightly control that capability, so that an evil plugin can’t leak data. This will require the Powerbox. We would also like to integrate WordPress’s comment system with SandStorm’s web publishing, but before that’s possible Sandstorm apps need to be able to export public HTTP APIs.</p>
+
+<p>Fortunately, these are things we’d like to add to Sandstorm anyway. And, of course, the more help we get from you in our <a href="http://igg.me/at/sandstorm">crowdfunding campaign</a>, the sooner we will be able to add them.</p>
+
+<p>In any case, we think that among WordPress hosting options, WordPress on Sandstorm offers a uniquely high degree of convenience, freedom, and <a href="/news/2014-07-24-tinytinyrss-plus-security-discussion.html">security</a>.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2014-08-15-fundraising-updates">Fundraising Updates and Corporate Sponsorships</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2014-08-15-fundraising-updates">15 Aug 2014</a>
-  
-  
-  
   
   <p>We’re now nearly 60% funded with two and a half weeks left in the campaign. Crowdfunding campaigns usually end with a spike, so we will likely exceed our goal. Plus, we have a couple of really exciting announcements lined up for next week.</p>
 
@@ -259,46 +285,6 @@ meteor-spk pack myapp.spk
 </ul>
 
 <p>We hope these design choices mean you get a unified experience no matter which apps you choose to use, and new players can break into the market more quickly, leading to faster innovation.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2014-08-05-ethercalc">EtherCalc: Online spreadsheets</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2014-08-05-ethercalc">05 Aug 2014</a>
-  
-  <p>Today’s release is a pleasant surprise even to us. Last week, a Sandstorm
-fan, <a href="https://plus.google.com/+JakeWeisz">Jake Weisz</a>, e-mailed me out of the
-blue to tell me he had ported <a href="http://ethercalc.net">EtherCalc</a>, an online
-collaborative spreadsheet editor, to Sandstorm.</p>
-
-<p>I hadn’t heard of EtherCalc before, but Jake included a link to a spreadsheet
-running on our own alpha server, so I was able to try it out immediately, and
-I was impressed. Sure enough, it’s a spreadsheet editor, it does the things
-you expect spreadsheets to do, it supports real-time collaboration, and it’s
-Free Software.</p>
-
-<p><img src="https://sandstorm.io/apps/ethercalc.png" alt="screenshot" /></p>
-
-<p>Jake professes to have had no idea what he was doing. “I have never even seen
-Node.js before, I don’t even know JavaScript, and I have only a passing
-familiarity with using Linux.” Yet, by just following the
-<a href="https://github.com/sandstorm-io/sandstorm/wiki/Porting-Guide">porting guide</a>,
-he managed to port an app. Jake attributes this to EtherCalc’s simple and
-elegant design: “The way it was already designed, it was incredibly easy to
-port to Sandstorm. I think I changed three or four lines of code tops to
-get it working.”</p>
-
-<p>Speaking of EtherCalc’s design, developer <a href="http://en.wikipedia.org/wiki/Audrey_Tang">Audrey Tang</a>
-has written a long and fascinating history of EtherCalc (and its previous
-iterations, WikiCalc and SocialCalc) for the book series
-<a href="http://aosabook.org/"><em>The Architecture of Open Source Applications</em></a>. These
-chapters have also been reproduced on <a href="http://ethercalc.net/">EtherCalc’s web site</a>.
-Check it out!</p>
-
-<p>Meanwhile, Jake’s port is on the Sandstorm app list now. As always, you can
-install it on your Sansdtorm server, or <a href="https://demo.sandstorm.io">try the demo</a>.</p>
 
 </section>
 
