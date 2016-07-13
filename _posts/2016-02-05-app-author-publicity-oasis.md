@@ -58,6 +58,9 @@ Your users probably don't know how to deploy your app, which is why they need Sa
 
 While you're on Oasis, feel free to enjoy it for anything else within the usual terms and conditions. Take advantage of private git repositories with <a href="https://apps.sandstorm.io/app/d9ygf47xrtnw12j92cyt6cu8ut75esx01u4q3kcrn8415w9qzzgh">gogs</a>, project task tracking with <a href="https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h">Wekan</a>, or privacy-preserving web analytics with <a href="https://apps.sandstorm.io/app/xuajusd5d4a9v4js71ru0cwj9wn984q1x8kny10htsp8f5dcfep0">Piwik</a>. I'll also give you an invite to [Keybase](https://keybase.io) so when people install your apps, they can verify your identity via the world's most usable interface to PGP.
 
+To take advantage of this offer, visit [Oasis](https://oasis.sandstorm.io/) and upgrade to any paid plan, knowing that all the paid plans
+are free-of-cost while Sandstorm is in beta. Then email me at community@sandstorm.io to request a statement credit equal to the cost of a Power User account. We'll add it to your account, and you'll be all set.
+
 ### To get started, read the docs, or email me
 
 Every good web app deserves users and publicity. I'm here to help you with that.
