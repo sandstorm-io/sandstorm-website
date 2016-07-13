@@ -2,13 +2,13 @@
 
 <html lang="en">
   <head>
-    <title>Sandstorm Blog</title>
+    <title>June changelog - what's new in Sandstorm - Sandstorm Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Sandstorm Blog">
+    <meta property="og:title" content="June changelog - what's new in Sandstorm">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://sandstorm.io/images/sandcat.png">
-    <meta property="og:url" content="https://sandstorm.io/news/">
+    <meta property="og:url" content="https://sandstorm.io/news/2016-07-13-whats-new">
     <meta property="og:description"
         content="Take control of your web by running your own personal cloud server with Sandstorm.">
     <link rel="stylesheet" type="text/css" href="/style.css">
@@ -79,19 +79,15 @@
 </div>
 
 
-
-
-
+<nav class="pagination top">
+  <a class="newer" href="/news/" title="All posts">&laquo; All posts</a>
+</nav>
 
 <section>
-  <h2><a href="/news/2016-07-13-whats-new">June changelog - what's new in Sandstorm</a></h2>
+  <h2>June changelog - what's new in Sandstorm</h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
-    - <a href="/news/2016-07-13-whats-new">13 Jul 2016</a>
-  
-  
-  
-  
+    - 13 Jul 2016
   <p>June’s big change is that we’ve reworked what first-time users see when using Sandstorm. There are
 speech bubbles guiding them to install an app, create a grain, and to take a look at the “Share
 access” interface, all powered by <a href="http://introjs.com/">intro.js</a>. I’m hopeful this helps people
@@ -153,171 +149,6 @@ changelog at any time.</p>
 </ul>
 
 </section>
-
-<section>
-  <h2><a href="/news/2016-06-29-asheesh-web-apps">Upcoming Event: Web app packaging in Sandstorm: It's not LAMP</a></h2>
-  <p class="post-details">By <a href="https://github.com/neynah">Nena Nguyen</a>
-    
-    - <a href="/news/2016-06-29-asheesh-web-apps">29 Jun 2016</a>
-  
-  <p>On July 19th, Sandstorm core dev <a href="https://github.com/paulproteus">Asheesh Larioa</a> will be giving a talk about web packaging at our South Bay Sandstorm meetup.</p>
-
-<p><img src="/news/images/asheesh-profile.jpg" /></p>
-
-<p><strong>Talk details</strong></p>
-
-<p>This talk covers how web app packaging works for Sandstorm.io. Asheesh will compare and contrast Sandstorm packaging against the typical install process on a Linux/Apache/MySQL/PHP system. This talk was featured at <a href="https://debconf16.debconf.org/talks/84/">Debconf16</a>, the yearly Debian conference.</p>
-
-<p>He will outline how Sandstorm’s packaging tools do a few strange things to allow unprivileged users to install apps with one click:</p>
-
-<p>• Every app package is a tiny Debian derivative, often as small as 20MB.</p>
-
-<p>• Apps have no Internet connectivity to the outside world.</p>
-
-<p>• Sandstorm uses a FUSE filesystem to identify which files are needed to run the app.</p>
-
-<p>• An app bundles all its needed services, as well as files, resulting in one MySQL service per app.</p>
-
-<p>• Users click and run one instance of an app like Etherpad per document, which is all handled transparently via a web app, a strategy that has neutralized 95% of 0-day web app vulnerabilities, based on our analysis.</p>
-
-<p>• Developers on Mac OS and Windows can create packages for Sandstorm, even though Sandstorm is Linux-only, due to an emphasis on Linux VMs in our development tools.</p>
-
-<p>Somehow we manage to make this scale reasonably well. Additionally, it is popular with upstream authors: of the &gt;58 web apps packaged for Sandstorm, about 1/3 are maintained by their upstreams.</p>
-
-<p>This talk focuses on how the Sandstorm packaging tools work, with community insights as well as technical ones, with the hopes of showing Debian how to more effectively package web apps for end users.</p>
-
-<p>Come for the opportunity to meet others in the Sandstorm community, and work on your project with guidance from our core devs. This event will be held at RethinkDB in Mountain View on July 19. RSVP <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231954146/">here</a>.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-06-20-drew-object-capabilities">Designing secure systems with Object-Capabilities, Python, and Cap'n Proto</a></h2>
-  <p class="post-details">By <a href="https://github.com/neynah">Nena Nguyen</a>
-    
-    - <a href="/news/2016-06-20-drew-object-capabilities">20 Jun 2016</a>
-  
-  <p>At our Sandstorm meetup on June 16th, Sandstorm core dev <a href="https://github.com/zarvox">Drew Fisher</a> talked about an object-oriented programming inspired technique for designing secure systems called object-capability security.</p>
-
-<p>Object-capability security is a technique for designing systems that lets us apply object-oriented design principles to security policies, reducing cognitive overhead and risk of errors that lead to vulnerabilities. In this talk, Drew explains capabilities, how they work, and what cool things they make possible for your systems, with real-world examples from Sandstorm.io.</p>
-
-<p>Watch the full talk here:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2H-Azm8tM24" frameborder="0" allowfullscreen=""></iframe>
-
-<p>To see the slides: <a href="http://zarvox.org/pycon2016-talk">http://zarvox.org/pycon2016-talk</a></p>
-
-<p>To read more about capability-based security: <a href="https://sandstorm.io/how-it-works#capabilities">https://sandstorm.io/how-it-works#capabilities</a></p>
-
-<p>To read more on Cap’n Proto: <a href="https://capnproto.org/">https://capnproto.org/</a></p>
-
-<p>We also have an upcoming meetup on July 19 where Asheesh is giving a talk entitled, “Web app packaging in Sandstorm: It’s not LAMP.” RethinkDB is kind enough to host our event at their office in Mountain View, and all are invited. <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231954146/">Read the details &amp; RSVP here</a>.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-06-13-photo-library-lychee">How to create a shared photo library with Lychee</a></h2>
-  <p class="post-details">By <a href="https://github.com/ovizii">Ovidiu Pacuraru</a>
-    
-    - <a href="/news/2016-06-13-photo-library-lychee">13 Jun 2016</a>
-  
-  <p><em>Today’s blog post comes from guest writer Ovidiu Pacuraru.</em></p>
-
-<p>In this tutorial, we will show you how a family on holiday can organize images from dad’s DSLR, mom’s iPhone and the kid’s Android phone inside one album. They can all use the same Lychee grain in Sandstorm from a web browser; this tutorial shows how to set it up.</p>
-
-<p><img src="/news/images/lychee-9.png" /></p>
-
-<p>There are at least a couple of different scenarios where you’d want to create a photo library and share it with others. Another example is when 3 people are writing a blog but only one editor approves images, so images need to be collected at a central point. I have found uploading and sharing via Google to be a bit hit and miss.</p>
-
-<p>In any case where you need to create a shared photo library using Lychee, you can follow these steps:</p>
-
-<h3>1. Get Sandstorm by <a href="https://oasis.sandstorm.io/">signing up for Oasis</a> or <a href="https://sandstorm.io/get#self-hosting">installing it on your own machine.</a><h3>
-
-<h3>2. Install Lychee from the <a href="https://apps.sandstorm.io">App Market</a></h3>
-<img src="/news/images/lychee-1.png" />
-
-<h3>3. In the next window that opens, click: INSTALL</h3> 
-<img src="/news/images/lychee-2.png" />
-
-<h3>4. Create a new grain</h3>
-<img src="/news/images/lychee-3.png" />
-
-<h3>5. Rename your grain</h3>
-<img src="/news/images/lychee-4.png" />
-
-<h3>6. Add an album</h3>
-<img src="/news/images/lychee-5.png" />
-
-<h3>7. Name your album</h3>
-<img src="/news/images/lychee-6.png" />
-
-<h3>8. Upload some images</h3>
-<img src="/news/images/lychee-7.png" />
-<img src="/news/images/lychee-8.png" />
-
-<h3>9. Browse your album</h3>
-<img src="/news/images/lychee-9.png" />
-
-<h3>10. Share access with your family</h3>
-<img src="/news/images/lychee-10.png" />
-
-<h3>11. Invite family members</h3>
-<img src="/news/images/lychee-11.png" />
-
-<p>
-I hope you enjoy creating photo albums using <a href="https://apps.sandstorm.io/app/z6rj6js4h8p8rjz2myp3dwmv3mcfv40qyfdn0d7714qxzvzvq3w0">Lychee from the Sandstorm App Market</a>. Don't forget to leave a review!
-</p>
-</h3></h3>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-06-06-upcoming-events-june">Upcoming events in June in San Francisco, Morgantown</a></h2>
-  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
-    
-    - <a href="/news/2016-06-06-upcoming-events-june">06 Jun 2016</a>
-  
-  <p><img src="/news/images/drew-talk.jpeg" /></p>
-
-<p><strong>Designing secure systems with Object-Capabilities, Python, and Cap’n Proto (San Francisco, CA)</strong></p>
-
-<p>Join us for a talk from Sandstorm core dev <a href="https://github.com/zarvox">Drew Fisher</a> about an object-oriented programming inspired technique for designing secure systems called object-capability security. Drew’s talk will be followed by a Q&amp;A session with opportunities to chat with Sandstorm’s community before and after. A huge shoutout and thanks to <a href="https://www.thoughtworks.com/">ThoughtWorks</a> for hosting the meetup and for dinner!</p>
-
-<p>Thursday, June 16, 2016
-<br />
-6:00 PM to 9:30 PM
-<br />
-ThoughtWorks
-<br />
-814 Mission St, 5th Floor, San Francisco, CA</p>
-
-<p>RSVP here: <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231065150/">http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231065150/</a></p>
-
-<p><img src="/news/images/david-talk.jpg" /></p>
-
-<p><strong>Building a decentralized web with Sandstorm</strong></p>
-
-<p>If you’re in Morgantown, West Virginia, join the <a href="http://www.meetup.com/Morgantown-Linux-User-Group/">Linux User Group</a>, and meet Sandstorm core dev <a href="https://github.com/dwrensha">David Renshaw</a>! David will give an overview of Sandstorm, and will dive into some of the technical details of what makes Sandstorm tick.</p>
-
-<p>Thursday, June 9, 2016
-<br />
-7:00 PM
-<br />
-Listhub
-<br />
-453 Suncrest Towne Centre, 2nd Floor, Morgantown, WV</p>
-
-<p>RSVP here: <a href="http://www.meetup.com/Morgantown-Linux-User-Group/events/228038429/">http://www.meetup.com/Morgantown-Linux-User-Group/events/228038429/</a></p>
-
-</section>
-
-
-<nav class="pagination bottom">
-  
-
-  
-    <a class="older" href="/news/page2/" title="Next Page">Older posts &raquo;</a>
-  
-  <br clear="both">
-</nav>
 
 </div>
 

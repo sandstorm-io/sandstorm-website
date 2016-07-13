@@ -97,13 +97,39 @@
 
 
 <section>
+  <h2><a href="/news/2015-03-12-laverna-and-localstorage">Packaging Laverna: localStorage within Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/jparyani">Jason Paryani</a>
+    
+    - <a href="/news/2015-03-12-laverna-and-localstorage">12 Mar 2015</a>
+  
+  
+  
+  
+  <p>Last week, I packaged <a href="https://laverna.cc/">Laverna</a> for Sandstorm and added it to the <a href="https://sandstorm.io/apps/">app list</a>. You can now use this open source note-taking app from any Sandstorm instance with one click. In this post, I explain how a purely client-side note-taking app integrates with Sandstorm for storage.</p>
+
+<p>From the Laverna devs:</p>
+
+<blockquote>
+  <p>Laverna is a JavaScript note-taking web application with a Markdown editor and encryption support. It’s built to be an open source alternative to Evernote.</p>
+</blockquote>
+
+<p>Laverna is a fully <a href="https://github.com/sandstorm-io/sandstorm/wiki/Pure-client-apps">client side app</a> and typically stores all its data in IndexedDB/localStorage. In the case of the Sandstorm package, we configure the app to use localStorage and mirror any updates to localStorage to disk using a simple REST backend. On app start, we query the backend, and restore all the keys to localStorage.</p>
+
+<p>Unfortunately (or maybe fortunately), there’s no way to monkey-patch the built-in localStorage to support this since it allows you to set keys by doing normal property access, ie. with <code>localStorage.KEY</code> or <code>localStorage[KEY]</code>. Javascript provides no way to shim over that, at least until <a href="https://github.com/lukehoban/es6features#proxies">ES6 proxies</a> are widely implemented.</p>
+
+<p>It’s also worth noting that the backend is a very lightweight C++ server that uses the raw Sandstorm API. The backend’s only jobs are to serve the index.html, handle GET/POST/PUT/DELETE requests to allow fetching/persisting the localStorage keys, and provide one GET endpoint that lists all the keys that have been stored. Its memory footprint is incredibly small, which makes it ideal for Sandstorm. You can check out the source <a href="https://github.com/jparyani/laverna-sandstorm/blob/master/server.c%2B%2B">here</a>.</p>
+
+<p>Within Laverna, it was surprisingly easy to add the automatic synchronizing. It took very little work to wire it up. You can see exactly how it works by reading <a href="https://github.com/jparyani/laverna/commit/38d7641fd2b0d64df80132493a933f97757f6413">my changes</a>. If there’s some interest, let me know by emailing jparyani@sandstorm.io, and I can think about writing a nice looking wrapper around localStorage that would handle this seamlessly.</p>
+
+<p>If you want to test this out, you can try <a href="https://demo.sandstorm.io/appdemo/4dgxs5m0gnjmjpg88mswqsy9fj08t3z6c8kwv4y9tkgxvp9eas9h">Laverna on the Sandstorm demo</a>; look at the network inspector tab in your browser as it runs.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-03-11-testing">Testing Sandstorm apps</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2015-03-11-testing">11 Mar 2015</a>
-  
-  
-  
   
   <p>Have you ever wanted to try out new apps for Sandstorm before they make their
 way to the app list? Apps always need testing, and you can help.</p>
@@ -237,156 +263,6 @@ code to handle user login, access control, or handling multiple documents.</p>
 <p>He’s generously made it open source and published it on the
 <a href="https://sandstorm.io/apps/">Sandstorm App List</a>, so you can install it with one
 click on your self-hosted Sandstorm instance.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-02-11-app-updates">Results from app update week</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2015-02-11-app-updates">11 Feb 2015</a>
-  
-  <h3 id="updates-to-the-porting-guide">Updates to the porting guide</h3>
-
-<p>Over the past year, the Sandstorm platform has grown new features to fit
-app developers’ needs.
-For example, Sandstorm apps can now
-<a href="https://github.com/sandstorm-io/sandstorm/wiki/Using-Email-From-Your-Sandstorm-App">send and receive email</a>
-and
-<a href="https://github.com/sandstorm-io/sandstorm/wiki/Exporting-HTTP-APIs">export an HTTP API</a>,
-enabling apps to <a href="http://mediagoblin.org/pages/campaign.html">federate across sites</a>
-or communicate with a mobile app.</p>
-
-<p>The process of porting an app to Sandstorm has also become better-documented
-and more reliable.
-The
-<a href="https://github.com/sandstorm-io/sandstorm/wiki/Porting-Guide">Porting Guide</a>
-contains our collected wisdom on making an app work great under Sandstorm,
-including framework-specific advice to streamline the porting process.
-It mentions the tool that Kenton wrote last year –
-<a href="/news/2014-08-12-meteor-spk.html">meteor-spk</a> –
-that makes porting apps for one framework as easy as running a few commands.
-More recently, David’s experience maintaining apps like ShareLaTeX and GitLab
-resulted in a
-<a href="https://github.com/sandstorm-io/sandstorm/wiki/Ruby-on-Rails">collection of tips for porting Rails apps</a>.</p>
-
-<p>I’m heartened to report that in addition to the platform and docs changes,
-there are
-three
-Sandstorm apps actively maintained by their authors: draw.io,
-EtherCalc, and LibreBoard. Those apps now appear
-at the top of the
-<a href="https://sandstorm.io/apps/">Sandstorm app list</a>. In the long run,
-the best way
-for a Sandstorm
-port to stay up-to-date is for the
-app’s own community to actively maintain the app on Sandstorm as well.</p>
-
-<h3 id="app-update-week-changelog">App update week changelog</h3>
-
-<p>The core team still maintains twenty apps, and this experience allows us to
-continuously improve the the documentation and automation behind the porting
-process and prioritize which platform features to build.
-Those apps’ own communities have been hard at work, so we took the
-past week to make those changes available to users of Sandstorm.</p>
-
-<p>Here’s a list of the apps that received updates.</p>
-
-<ul>
-  <li>
-    <p>Etherpad, updated by Kenton. Updated to v1.5.
-See their
-<a href="https://github.com/ether/etherpad-lite/blob/develop/CHANGELOG.md">CHANGELOG.md</a>
-for more
-details. Also added better integration with Sandstorm user accounts, so now your
-color stays consistent across sessions and your display name is pre-populated
-from Sandstorm.</p>
-  </li>
-  <li>
-    <p>Ghost, updated by Jason. Updated from v0.4.2 to v0.5.8. See
-Ghost’s <a href="https://github.com/TryGhost/Ghost/releases">releases page</a> for a list
-of changes.</p>
-  </li>
-  <li>
-    <p>GitLab, updated by David. Kept same upstream version. Improved startup time. Fixed to
-account for
-<a href="https://github.com/sandstorm-io/sandstorm/pull/229">new Sandstorm support for Content-Encoding header</a>.
-Added per-startup session secrets.</p>
-  </li>
-  <li>
-    <p>GitWeb, updated by David. Kept same upstream version. Fixed to account for
-<a href="https://github.com/sandstorm-io/sandstorm/pull/229">new Sandstorm support for Content-Encoding header</a>.</p>
-  </li>
-  <li>
-    <p>Groove Basin, updated by David from upstream v1.4.0 to v1.5.0.
-See <a href="https://github.com/andrewrk/groovebasin/blob/master/CHANGELOG.md">Groove Basin’s CHANGELOG</a>.
-Better
-integration with Sandstorm accounts. Enabled the chat/events tab.</p>
-  </li>
-  <li>
-    <p>Hacker CMS, updated by Kenton. Updated to a more recent version of Jekyll and
-made the tree view sidebar scrollable.</p>
-  </li>
-  <li>
-    <p>IPython Notebook, updated by Jason. Updated from v2.0.0 to v2.4.0. See
-<a href="http://ipython.org/ipython-doc/2/whatsnew/version2.0.html">IPython’s “What’s New” page</a>
-for a list of changes.
-Also fixed Sandstorm specific bugs where grains could hang on startup or when
-clicking “Restart Kernel” in the app.</p>
-  </li>
-  <li>
-    <p>Mailpile, updated by Jason. Updated from Alpha II (v0.3.1) to v0.4.3. Unfortunately,
-the major changes to Mailpile have involved encryption and key management which
-we have removed from the app. As soon as we figure out a good way to keep keys
-secure and fully owned by the user, we will add this funcitonality back in.</p>
-  </li>
-  <li>
-    <p>MediaGoblin, updated by Jason. Updated from v0.7.0 to v0.7.1. This was a minor
-bugfix release. See the
-<a href="http://mediagoblin.readthedocs.org/en/latest/siteadmin/relnotes.html">release notes</a>
-for more details.</p>
-  </li>
-  <li>
-    <p>MediaWiki, updated by Jason. Updated from v1.23.2 to v1.24.1.
-See the <a href="https://www.mediawiki.org/wiki/MediaWiki_1.24">MediaWiki 1.24 release page</a>
-for a list of changes.
-Also, Sandstorm specific, enabled the ability to upload images.</p>
-  </li>
-  <li>
-    <p>Meteor Todos, updated by Asheesh. The new version lost a feature
-(tagging your todo items) and gained some nicer CSS. We used a new app ID rather
-than make this truly an upgrade so that people with existing todo lists aren’t
-disturbed by the feature removal.</p>
-  </li>
-  <li>
-    <p>Roundcube, updated by Jason. Updated from v1.0.1 to v1.1-rc. See
-the <a href="https://github.com/roundcube/roundcubemail/blob/master/CHANGELOG">Roundcube CHANGELOG</a>
-for a list of
-changes.</p>
-  </li>
-  <li>
-    <p>ShareLaTeX, updated by David, from upstream pre-v0.1.0 to v0.1.2.
-Details at ShareLaTeX’s <a href="https://github.com/sharelatex/sharelatex/blob/master/CHANGELOG.md">CHANGELOG.md</a>.
-Add
-per-startup session secrets.</p>
-  </li>
-  <li>
-    <p>Telescope, updated by Jason. Updated from a git head pre v0.9.0 to v0.14.0.
-See <a href="https://github.com/TelescopeJS/Telescope/blob/master/History.md">Telescope History</a>
-for a list
-of changes. Also fixed Sandstorm specific bugs with profiles not being accessible.</p>
-  </li>
-  <li>
-    <p>TinyTinyRSS, updated by Jason. Updated from v1.13 to v1.15.3.</p>
-  </li>
-  <li>
-    <p>WordPress, updated by David from upstream v3.9 to v4.1. Changelogs:
-<a href="http://codex.wordpress.org/Version_4.0">4.0</a>,
-<a href="http://codex.wordpress.org/Version_4.1">4.1</a>.
-Hooked up the “New User Default Role” option so that it works as it should
-with Sandstorm sharing. Added per-startup session secrets.</p>
-  </li>
-</ul>
 
 </section>
 
