@@ -97,13 +97,41 @@
 
 
 <section>
+  <h2><a href="/news/2014-08-20-apache-wave">Apache Wave on Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-08-20-apache-wave">20 Aug 2014</a>
+  
+  
+  
+  
+  <p>In an unspeakable act of technical necromancy, we’ve revived what was once <a href="http://wave.google.com">Google Wave</a> and placed it on the <a href="https://sandstorm.io/apps/">Sandstorm app list</a>. You can install it now – on your own Sandstorm server, or using <a href="https://demo.sandstorm.io">our demo</a> – and use it to… um… whatever it is that Wave is for. We’re still trying to figure that out too. We’re pretty sure it’s amazing, though!</p>
+
+<p>OK, joking aside…</p>
+
+<p>Put simply, Wave is a collaborative document editor with inline, nestable comment threads. What do you use it for? Well, one thing I think it’s great for is design discussions. Your root Wave is your design proposal. People can comment on individual parts, you can reply to those comments, and so on. It’s easier to keep threads organized than in an e-mail discussion. For example, here’s what a recent design discussion I had with security guru Jas Nagra might have looked like as a Wave:</p>
+
+<p><img src="https://sandstorm.io/apps/wave-big.png" alt="Wave screenshot" style="width: 800px;" /></p>
+
+<p>As you may recall, Google released Wave back in 2009 to great fanfare only to pull the plug on it just a year later, citing lackluster user growth. Whether that was the fault of the product itself or of a botched rollout and bad messaging is hard to say. In any case, Google was kind enough to release their code, and since then the folks over at Apache have been keeping development going as <a href="http://incubator.apache.org/wave/">Apache Wave</a>.</p>
+
+<p>Apache has made sure that Wave keeps progressing. But, how exactly does one use Wave today? Well, a few people maintain <a href="http://incubator.apache.org/wave/demo-servers.html">demo servers</a>, but these are not meant for real use and have no reliability guarantees. Instead, if you really want to use Wave, you are supposed to set up your own server.</p>
+
+<p>Now there’s an easier option: Install it on Sandstorm.</p>
+
+<p>Moreover, with our port, it’s easier than ever to actually share a Wave with your friends. Normally with Apache Wave today, you must convince your friends to first create accounts on your Wave server so that you can then share with them. For our Sandstorm port, we’ve adapted Wave to rely on Sandstorm for sharing. What that means right now is that to share a wave with anyone, all you have to do is send them the URL. They don’t even need to have a Sandstorm account. Sandstorm’s sharing model will become more sophisticated in the future, but we consider it critical that sharing with anyone – whether they have an account or not – be as frictionless as possible.</p>
+
+<p>We see companies shutting down useful apps all the time. Often, they offer users the opportunity to download their data as massive zip files full of useless XML. Wouldn’t it be great if these companies could give you not just your data, but also the app, in a format that you could easily keep using? We hope that in the future, developers will decide that it makes more sense to convert their failed SaaS offerings into Sandstorm apps. This way, companies can cut their costs without leaving users out in the cold.</p>
+
+<p><em>If you want to see Sandstorm succeed, there are 12 days left to <a href="http://igg.me/at/sandstorm">contribute to the campaign</a>.</em></p>
+
+</section>
+
+<section>
   <h2><a href="/news/2014-08-19-why-not-run-docker-apps">Why doesn't Sandstorm just run Docker apps?</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2014-08-19-why-not-run-docker-apps">19 Aug 2014</a>
-  
-  
-  
   
   <p>We get this question a lot. Sandstorm and Docker use the same Linux kernel features for containerization. Docker already has a large ecosystem of apps. Why introduce a new app format? Why not simply position Sandstorm as a UI for Docker? Wouldn’t that save a lot of work? Why reinvent the wheel?</p>
 
@@ -275,41 +303,6 @@
 <p>Two of Sandstorm’s advisors – Andrew Lutomirski (a security-focused kernel developer) and Mark Seaborn (a member of Chrome’s Native Client sandbox team) – are experts on these issues and have been helping us work out the details. Andy actually implemented the <code>no_new_privs</code> kernel feature and contributed Sandstorm’s seccomp filter. He has been keeping us informed as new kernel vulnerabilities arise. Mark has implemented several Linux native code sandboxes before and is helping us design what we hope will be the best yet. (Note: Our advisors contribute in their spare time, not on behalf of their employers.)</p>
 
 <p>Of course, to see any of this happen, we need your help. :) <a href="http://igg.me/at/sandstorm">Please fund our Indiegogo campaign.</a></p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2014-08-12-meteor-spk">Porting Meteor apps to Sandstorm in three minutes</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2014-08-12-meteor-spk">12 Aug 2014</a>
-  
-  <p>As you know, Sandstorm apps can be written using any tech stack that runs on Linux. We have apps written in PHP, Python, Node.js, C++, Go, and even Rust.</p>
-
-<p>But if you’re starting from scratch and need to choose, the easiest way to write a Sandstorm app today is using <a href="https://www.meteor.com">Meteor</a>. Meteor is a modern open source web framework that makes it ridiculously easy to build high-quality, low-latency, real-time web apps quickly. Sandstorm’s own front-end is built on Meteor.</p>
-
-<p>I recently gave a lightning talk at <a href="https://devshop.meteor.com">Meteor Devshop</a> where I demonstrated porting a Meteor app to Sandstorm. The app I chose was written by independent developers with no intent to target our platform. As you’ll see, it took me under three minutes to port live on stage:</p>
-
-<p><em>Note: The video shows the process for older versions of Meteor, in which packages had to be installed with the separate tool Meteorite (<code>mrt</code>). This blog post has since been updated for Meteor 0.9.x, which has its own built-in package repository.</em></p>
-
-<div><iframe class="youtube" src="//www.youtube.com/embed/mJpYHhqByUo" frameborder="0" allowfullscreen="true"> </iframe></div>
-
-<p>When it comes to writing a Sandstorm app, Meteor works particularly well as a platform because it tends to produce self-contained apps. Meteor’s tools already know how to construct a “bundle” containing all of the app’s dependencies. From there, we just need to add Node and Mongo, and we have ourselves a Sandstorm package. We don’t even need to use <a href="2014-05-12-easy-port.html">our trick to automatically detect dependencies</a>.</p>
-
-<p>To make this even easier, we’ve written a tool called <a href="https://sandstorm.io/meteor-spk"><code>meteor-spk</code></a> which automates this. We’ve also published a Meteor package <a href="https://atmospherejs.com/kenton/accounts-sandstorm"><code>kenton:accounts-sandstorm</code></a> which integrates Meteor’s accounts system with Sandstorm’s unified login. Together, these mean that porting a Meteor app to Sandstorm usually involves three commands:</p>
-
-<pre><code>meteor add kenton:accounts-sandstorm
-meteor-spk init
-meteor-spk pack myapp.spk
-</code></pre>
-
-<p>Our intrepid fan <a href="https://plus.google.com/+JakeWeisz">Jake Weisz</a> – who previously <a href="2014-08-05-ethercalc.html">contributed a port of EtherCalc</a> – has used this tool to port <a href="https://github.com/stubailo/meteor-blocks">Meteor Blocks</a>, a simple voxel-based model editor written using Meteor. You can find it on the Sandstorm app list now – <a href="https://demo.sandstorm.io">try the demo</a> if you don’t already have your own server.</p>
-
-<p><img src="https://sandstorm.io/apps/meteor-blocks.png" alt="Meteor-blocks screenshot" /></p>
-
-<p>We hope to see tools like this developed for other frameworks in the future. <code>meteor-spk</code> is just a simple bash script wrapping Sandstorm’s <code>spk</code> tool and providing a dependency bundle to merge into the package. If you’d like to contribute a similar script for your own favorite framework, <a href="https://groups.google.com/group/sandstorm-dev">let us know</a>!</p>
-
-<p><em>Disclosure: Jade Wang, a member of the Sandstorm project, also works for Meteor, but Sandstorm and Meteor are not affiliated.</em></p>
 
 </section>
 
