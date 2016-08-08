@@ -591,6 +591,10 @@ body >footer {
       >li {
         display: block;
         position: relative;
+        
+        @media (min-width: 900px) {
+          padding: 0 7%;
+        }
 
         >h3 {
           font-size: 32px;
@@ -620,21 +624,22 @@ body >footer {
           position: absolute;
           background: center/contain no-repeat;
         }
-        &.create::before      { background-image: url("images/ethercalc.jpg"); }
-        &.collaborate::before { background-image: url("images/wekan.jpg"); }
-        &.communicate::before { background-image: url("images/rocketchat.jpg"); }
+        &.chat::before      { background-image: url("images/chat-rocket.png"); }
+        &.file-storage::before { background-image: url("images/file-davros.png"); }
+        &.task-mgmt::before { background-image: url("images/task-wekan.png"); }
+        &.document::before { background-image: url("images/document-screenshot.png"); }
 
         @media (min-width: 700px) {
           height: 250px;
           &::before {
-            width: 40%;
+            width: 50%;
             height: 90%;
             top: 5%;
         }
 
           &:nth-of-type(odd) {
             // Screenshot goes on the right.
-            padding-right: 45%;
+            padding-right: 55%;
             &::before { right: 0; }
 
             background: linear-gradient(to right, white, #e0d8e8);
@@ -643,7 +648,7 @@ body >footer {
 
           &:nth-of-type(even) {
             // Screenshot goes on the left.
-            padding-left: 45%;
+            padding-left: 55%;
             &::before { left: 0; }
           }
         }
@@ -660,10 +665,67 @@ body >footer {
       }
     }
   }
+  
+  .action-home {
+  text-align: center;
+  padding: 50px 0 0 0;
+
+  @include stripe {
+    background-color: #F4F3FB;
+  }
+    li {
+      font-size: 25px;
+      padding: 0 20px;
+      list-style: none;
+      display: inline;
+      
+      @media (max-width: 800px) {
+        display: block;
+        line-height: 30px;
+        padding: 10px 0;
+      }
+    }
+
+    >a {
+      border: 1.5px solid #eee9f4;
+      font-size: 25px;
+      padding: 8px 20px;
+      margin: 0 15px;
+      width: 300px;
+      border-radius: 6px;
+      color: white;
+      transition: transform 0.75s ease, background 0.35s ease;
+      &.action-demo {
+        background-color: #d13f6c;
+        &:hover {
+          background-color: #e0507d;
+        }
+      }
+      &.action-get {
+        background-color: #613c91;
+        &:hover {
+          background-color: #7e53b5;
+        }
+      }
+      white-space: nowrap;
+      
+      @media (max-width: 600px) {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 40px;
+        width: 80%;
+      }
+      @media (max-width: 500px) {
+        width: 90%;
+        font-size: 20px;
+      }
+    }
+}
 
   .try-apps {
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     padding: 25px 0;
     list-style: none;
     color: $purplebg-fontcolor;
@@ -676,6 +738,9 @@ body >footer {
       @media (max-width: 700px) {
         background-image: none;
       }
+      @media (max-width: 500px) {
+        font-size: 20px;
+      }
     }
 
     >li {
@@ -687,12 +752,8 @@ body >footer {
     }
     
     >a {
-      border: 1.5px solid $whitebutton-border;
-      padding: 14px 0;
-      width: 300px;
-      border-radius: 6px;
+      padding: 5px 0;
       display: inline-block;
-      background-color: white;
       &:hover {
         color: #7356cc;
       }
