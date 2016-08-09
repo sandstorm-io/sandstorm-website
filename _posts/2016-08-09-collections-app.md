@@ -31,12 +31,11 @@ Sandstorm, through the "Share access" button.
 
 ### Powerbox makes it possible
 
-The fact that we have implemented collections *as an app* may come as a surprise. Indeed, the notion
+The fact that we have implemented collections *as an app* may come as a surprise, since the notion
 of a collection might seem fundamental enough to deserve being baked-in as a core feature of
 Sandstorm. However, Sandstorm bakes in an even more fundamental notion: the idea that grains can
 refer to and coordinate with one another. The embodiment of this idea is the [powerbox](/how-it-works#powerbox),
-an interface
---- mediated and auditable by the user --- through which grains can exchange capabilities.
+an interface --- mediated and auditable by the user --- through which grains can exchange capabilities.
 
 When you click the "Add grain" button in a collection, the collection in fact initiates a powerbox
 request. Sandstorm then asks you, the user, to choose a grain with which to fulfill the request.
