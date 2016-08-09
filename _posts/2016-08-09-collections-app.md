@@ -9,8 +9,8 @@ Starting work on a project in Sandstorm often means creating many grains, each p
 different aspect of your work. In a typical project, you might have a spreadsheet, a chat room, a
 kanban board, and several source code repositories. Sandstorm makes it easy to share these grains
 with your collaborators, but until recently, you would need to share each grain to each collaborator
-separately --- a task that could quickly become tedious. What if you want to share all of the
-project's grains as a single unit?
+separately --- a task that could quickly become tedious. What if you want to share the entire
+project as a single unit?
 
 Now that we have released the
 [Collections app](https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h),
