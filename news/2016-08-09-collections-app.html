@@ -2,13 +2,13 @@
 
 <html lang="en">
   <head>
-    <title>Sandstorm Blog</title>
+    <title>Share many as one, with the Collections app - Sandstorm Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Sandstorm Blog">
+    <meta property="og:title" content="Share many as one, with the Collections app">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://sandstorm.io/images/sandcat.png">
-    <meta property="og:url" content="https://sandstorm.io/news/page19/">
+    <meta property="og:url" content="https://sandstorm.io/news/2016-08-09-collections-app">
     <meta property="og:description"
         content="Take control of your web by running your own personal cloud server with Sandstorm.">
     <link rel="stylesheet" type="text/css" href="/style.css">
@@ -79,133 +79,85 @@
 </div>
 
 
-
-  <nav class="pagination top">
-    
-      
-        <a class="newer" href="/news/page18/" title="Previous Page">&laquo; Newer posts</a>
-      
-    
-
-    
-    <br clear="both">
-  </nav>
-
-
-
-
-<section>
-  <h2><a href="/news/2014-04-22-easy-install">Easy Install; New Apps</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2014-04-22-easy-install">22 Apr 2014</a>
-  
-  
-  
-  
-  <p>It’s been nearly a month since Sandstorm launched, and we’ve been busy.  Here’s
-what’s new!</p>
-
-<h3 id="easily-run-your-own-instance">Easily run your own instance</h3>
-
-<p>When Sandstorm launched, some people thought it odd that our message of freedom
-from other people’s servers was followed by an invitation to use ours.  To
-clear the air a bit, we’ve now made it ridiculously easy to install your own
-Sandstorm server on your very own Linux machine:</p>
-
-<pre><code>curl https://install.sandstorm.io | bash
-</code></pre>
-
-<p>Follow the on-screen directions and you’ll be up and running in seconds.  No
-need to build code nor edit config files.  In fact, your Sandstorm installation
-will even (if you choose) automatically keep itself updated, so you never
-have to deal with it again.  (Of course, you can still get the
-<a href="https://github.com/kentonv/sandstorm">full source code on Github</a> if you prefer.)</p>
-
-<p>Of course, not everybody has a Linux server lying around, or wants their cloud
-apps hosted off their home internet connection, or wants to pay the typical
-$50/mo for a cloud VM instance powerful enough to run Sandstorm well.  That’s
-why we also want to offer managed instances that don’t require any of that.</p>
-
-<p>To be clear: when you use our server, <strong>you are still in control</strong>.  You can
-upload any app you want.  We do not serve ads, and we will not mine your data.
-We let you move your data from our servers to your own at any time.  It’s like
-having your own VM on AWS except without the config files and the updating and
-the security issues.</p>
-
-<p>Eventually, we plan to charge a small fee for managed instances as a way to
-cover our upstream hosting costs and fund development.  But, for our early
-alpha testers, the service is free.</p>
-
-<h3 id="invites-rolling-out">Invites rolling out</h3>
-
-<p>Speaking of using our servers…</p>
-
-<p>Despite the limited scope of our initial announcement, we ended up with an
-order of magnitude more people on our waiting list than we anticipated.  If you
-signed up and haven’t received an invite – alas, that’s most of you – I
-apologize!</p>
-
-<p>We have not yet implemented the ability for Sandstorm to scale to multiple
-machines.  However, we recently increased the capacity of our main machine
-such that we should be able to invite a lot more people, and we’ll get to work
-on multi-machine scaling soon.  Be sure to
-<a href="https://sandstorm.io/#signup-form">get on the mailing list</a> if you want an
-invite – or just want to stay updated.</p>
-
-<h3 id="new-apps">New Apps</h3>
-
-<p>Some awesome contributors have written/ported a few new Sandstorm apps:</p>
-
-<ul>
-  <li><a href="https://github.com/jparyani">Jason Paryani</a> ported the
-<a href="http://ipython.org/notebook.html">IPython Notebook</a>, a powerful app that
-lets you execute Python code from your browser, render equations and charts,
-and more.</li>
-  <li><a href="https://github.com/dwrensha">David Renshaw</a> has written a little original
-game called Acronymy. Interestingly, he wrote
-<a href="https://github.com/dwrensha/acronymy">his code</a> in pure
-<a href="http://www.rust-lang.org/">Rust</a>, using Sandstorm’s low-level
-<a href="https://capnproto.org">Cap’n Proto</a>-based
-API directly, thus avoiding the need for an HTTP server.</li>
-  <li><a href="https://github.com/Sing-Li">Sing Li</a> is working on a port of
-<a href="http://ghost.org">Ghost</a>, the beautifully-designed open source blogging
-platform.  It’s not quite ready for public consumption, but the test version
-I tried is looking pretty good.</li>
-</ul>
-
-<p>Install these and other apps to your Sandstorm instance from
-<a href="https://sandstorm.io/apps">the app list</a>.</p>
-
-<p>Porting apps is still a somewhat weird and ad hoc process. Usually the code
-doesn’t need to change much, but figuring out the app’s dependencies for
-packaging purposes takes some sleuthing. We’re working on better tools which
-will make this process much easier; stay tuned.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2014-03-24-sandstorm-alpha">Sandstorm Alpha Launched!</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2014-03-24-sandstorm-alpha">24 Mar 2014</a>
-  
-  <p>Today I’m announcing the release and launch of the alpha version of
-Sandstorm.io.  <a href="https://sandstorm.io">See the site for more.</a></p>
-
-</section>
-
-
-<nav class="pagination bottom">
-  
-    
-      <a class="newer" href="/news/page18/" title="Previous Page">&laquo; Newer posts</a>
-    
-  
-
-  
-  <br clear="both">
+<nav class="pagination top">
+  <a class="newer" href="/news/" title="All posts">&laquo; All posts</a>
 </nav>
+
+<section>
+  <h2>Share many as one, with the Collections app</h2>
+  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
+    
+    - 09 Aug 2016
+  <p>Starting work on a project in Sandstorm often means creating many grains, each pertaining to a
+different aspect of your work. In a typical project, you might have a spreadsheet, a chat room, a
+kanban board, and several source code repositories. Sandstorm makes it easy to share these grains
+with your collaborators, but until recently, you would need to share each grain to each collaborator
+separately — a task that could quickly become tedious. What if you want to share the entire
+project as a single unit?</p>
+
+<p>Now that we have released the
+<a href="https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h">Collections app</a>,
+we have a satisfying answer to that question; to share many grains at once, you add them to a collection.</p>
+
+<p><img src="/news/images/collections-1.png" title="a collection with a chatroom, a kanban board, a spreadsheet, and two git repos" /></p>
+
+<p>A collection is a list of grains. Any collaborator with whom you share a collection gets access to
+all of the grains in it. On the flip side, when you remove a grain from the collection, your
+collaborators lose access to that grain. Moreover, when you revoke a collaborator from the
+collection, that (now former-) collaborator loses access to all of the collection’s grains.</p>
+
+<p>And since a collection is itself a grain, sharing one works just like sharing anything else on
+Sandstorm, through the “Share access” button.</p>
+
+<p><img src="/news/images/collections-2.png" title="the &quot;Share access&quot; dialog" /></p>
+
+<h3 id="powerbox-makes-it-possible">Powerbox makes it possible</h3>
+
+<p>The fact that we have implemented collections <em>as an app</em> may come as a surprise, since the notion
+of a collection might seem fundamental enough to deserve being baked-in as a core feature of
+Sandstorm. However, Sandstorm bakes in an even more fundamental notion: the idea that grains can
+refer to and coordinate with one another. The embodiment of this idea is the <a href="/how-it-works#powerbox">powerbox</a>,
+an interface — mediated and auditable by the user — through which grains can exchange capabilities.</p>
+
+<p>When you click the “Add grain” button in a collection, the collection in fact initiates a powerbox
+request. Sandstorm then asks you, the user, to choose a grain with which to fulfill the request.</p>
+
+<p><img src="/news/images/collections-3.png" title="Making a powerbox request" /></p>
+
+<p>Once you select a grain, the collection receives a reference to that grain. It can then use that
+reference to retrieve metadata such as the grain’s icon and the the name of the app that created the
+grain. Crucially, it can also offer the reference to your collaborators, so that your single “Add
+grain” action can result in all of your collaborators receiving access to the grain.
+The behind-the-scenes details of how this all works can be found in our
+<a href="https://docs.sandstorm.io/en/latest/developing/powerbox/">technical documentation</a>.</p>
+
+<p>Other apps can use the powerbox in the same way. You could write an alternative implementation of
+collections, either by starting from scratch or by forking
+<a href="https://github.com/sandstorm-io/collections-app">ours</a>. Apps whose primary purpose has nothing
+to do with collections can also benefit from the ability to request and offer grain references. For
+example, a chat room could be enhanced by the ability to embed Sandstorm-aware links to other
+grains. Indeed, the latest release of
+<a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> does just that.</p>
+
+<h3 id="built-with-rust">Built with Rust</h3>
+
+<p>Although a fast startup time and a small memory footprint are important performance goals for any
+Sandstorm app, they are especially important for the Collections app, as it provides such a central
+piece of functionality. Collections need to be lightweight so that their integration with the rest
+of Sandstorm can feel seamless. Our primary strategy for achieving such performance has been to
+develop the Collections app using the <a href="https://www.rust-lang.org/">Rust programming language</a>,
+interfacing directly with Sandstorm’s <a href="https://sandstorm.io/news/2014-12-15-capnproto-0.5"> Cap’n Proto interfaces </a>.
+Rust has worked well so far, and along the way we
+have produced some <a href="https://crates.io/crates/sandstorm">libraries</a> and <a href="https://github.com/dwrensha/sandstorm-rawapi-example-rust">examples</a> to help others also get started using it
+for Sandstorm app development.</p>
+
+<p>Whether or not you are a developer, now is an exciting time to
+<a href="https://sandstorm.io/community">get involved</a>
+with Sandstorm. The powerbox is still in its early stages, and the
+Collections app is a hint at the kinds of things it will enable.
+So <a href="https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h">try it out and let us know what you think</a>!</p>
+
+</section>
 
 </div>
 

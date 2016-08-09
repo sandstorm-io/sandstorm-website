@@ -84,13 +84,90 @@
 
 
 <section>
+  <h2><a href="/news/2016-08-09-collections-app">Share many as one, with the Collections app</a></h2>
+  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
+    
+    - <a href="/news/2016-08-09-collections-app">09 Aug 2016</a>
+  
+  
+  
+  
+  <p>Starting work on a project in Sandstorm often means creating many grains, each pertaining to a
+different aspect of your work. In a typical project, you might have a spreadsheet, a chat room, a
+kanban board, and several source code repositories. Sandstorm makes it easy to share these grains
+with your collaborators, but until recently, you would need to share each grain to each collaborator
+separately — a task that could quickly become tedious. What if you want to share the entire
+project as a single unit?</p>
+
+<p>Now that we have released the
+<a href="https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h">Collections app</a>,
+we have a satisfying answer to that question; to share many grains at once, you add them to a collection.</p>
+
+<p><img src="/news/images/collections-1.png" title="a collection with a chatroom, a kanban board, a spreadsheet, and two git repos" /></p>
+
+<p>A collection is a list of grains. Any collaborator with whom you share a collection gets access to
+all of the grains in it. On the flip side, when you remove a grain from the collection, your
+collaborators lose access to that grain. Moreover, when you revoke a collaborator from the
+collection, that (now former-) collaborator loses access to all of the collection’s grains.</p>
+
+<p>And since a collection is itself a grain, sharing one works just like sharing anything else on
+Sandstorm, through the “Share access” button.</p>
+
+<p><img src="/news/images/collections-2.png" title="the &quot;Share access&quot; dialog" /></p>
+
+<h3 id="powerbox-makes-it-possible">Powerbox makes it possible</h3>
+
+<p>The fact that we have implemented collections <em>as an app</em> may come as a surprise, since the notion
+of a collection might seem fundamental enough to deserve being baked-in as a core feature of
+Sandstorm. However, Sandstorm bakes in an even more fundamental notion: the idea that grains can
+refer to and coordinate with one another. The embodiment of this idea is the <a href="/how-it-works#powerbox">powerbox</a>,
+an interface — mediated and auditable by the user — through which grains can exchange capabilities.</p>
+
+<p>When you click the “Add grain” button in a collection, the collection in fact initiates a powerbox
+request. Sandstorm then asks you, the user, to choose a grain with which to fulfill the request.</p>
+
+<p><img src="/news/images/collections-3.png" title="Making a powerbox request" /></p>
+
+<p>Once you select a grain, the collection receives a reference to that grain. It can then use that
+reference to retrieve metadata such as the grain’s icon and the the name of the app that created the
+grain. Crucially, it can also offer the reference to your collaborators, so that your single “Add
+grain” action can result in all of your collaborators receiving access to the grain.
+The behind-the-scenes details of how this all works can be found in our
+<a href="https://docs.sandstorm.io/en/latest/developing/powerbox/">technical documentation</a>.</p>
+
+<p>Other apps can use the powerbox in the same way. You could write an alternative implementation of
+collections, either by starting from scratch or by forking
+<a href="https://github.com/sandstorm-io/collections-app">ours</a>. Apps whose primary purpose has nothing
+to do with collections can also benefit from the ability to request and offer grain references. For
+example, a chat room could be enhanced by the ability to embed Sandstorm-aware links to other
+grains. Indeed, the latest release of
+<a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> does just that.</p>
+
+<h3 id="built-with-rust">Built with Rust</h3>
+
+<p>Although a fast startup time and a small memory footprint are important performance goals for any
+Sandstorm app, they are especially important for the Collections app, as it provides such a central
+piece of functionality. Collections need to be lightweight so that their integration with the rest
+of Sandstorm can feel seamless. Our primary strategy for achieving such performance has been to
+develop the Collections app using the <a href="https://www.rust-lang.org/">Rust programming language</a>,
+interfacing directly with Sandstorm’s <a href="https://sandstorm.io/news/2014-12-15-capnproto-0.5"> Cap’n Proto interfaces </a>.
+Rust has worked well so far, and along the way we
+have produced some <a href="https://crates.io/crates/sandstorm">libraries</a> and <a href="https://github.com/dwrensha/sandstorm-rawapi-example-rust">examples</a> to help others also get started using it
+for Sandstorm app development.</p>
+
+<p>Whether or not you are a developer, now is an exciting time to
+<a href="https://sandstorm.io/community">get involved</a>
+with Sandstorm. The powerbox is still in its early stages, and the
+Collections app is a hint at the kinds of things it will enable.
+So <a href="https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h">try it out and let us know what you think</a>!</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2016-08-03-whats-new">July changelog - what's new in Sandstorm</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2016-08-03-whats-new">03 Aug 2016</a>
-  
-  
-  
   
   <p>In July, we introduced a new Sandstorm feature: Apps can notify users when something interesting
 happens within a grain. For example, Etherpad uses this to tell you when someone leaves a comment on
@@ -280,62 +357,6 @@ changelog at any time.</p>
 <p>To read more on Cap’n Proto: <a href="https://capnproto.org/">https://capnproto.org/</a></p>
 
 <p>We also have an upcoming meetup on July 19 where Asheesh is giving a talk entitled, “Web app packaging in Sandstorm: It’s not LAMP.” RethinkDB is kind enough to host our event at their office in Mountain View, and all are invited. <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231954146/">Read the details &amp; RSVP here</a>.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-06-13-photo-library-lychee">How to create a shared photo library with Lychee</a></h2>
-  <p class="post-details">By <a href="https://github.com/ovizii">Ovidiu Pacuraru</a>
-    
-    - <a href="/news/2016-06-13-photo-library-lychee">13 Jun 2016</a>
-  
-  <p><em>Today’s blog post comes from guest writer Ovidiu Pacuraru.</em></p>
-
-<p>In this tutorial, we will show you how a family on holiday can organize images from dad’s DSLR, mom’s iPhone and the kid’s Android phone inside one album. They can all use the same Lychee grain in Sandstorm from a web browser; this tutorial shows how to set it up.</p>
-
-<p><img src="/news/images/lychee-9.png" /></p>
-
-<p>There are at least a couple of different scenarios where you’d want to create a photo library and share it with others. Another example is when 3 people are writing a blog but only one editor approves images, so images need to be collected at a central point. I have found uploading and sharing via Google to be a bit hit and miss.</p>
-
-<p>In any case where you need to create a shared photo library using Lychee, you can follow these steps:</p>
-
-<h3>1. Get Sandstorm by <a href="https://oasis.sandstorm.io/">signing up for Oasis</a> or <a href="https://sandstorm.io/get#self-hosting">installing it on your own machine.</a><h3>
-
-<h3>2. Install Lychee from the <a href="https://apps.sandstorm.io">App Market</a></h3>
-<img src="/news/images/lychee-1.png" />
-
-<h3>3. In the next window that opens, click: INSTALL</h3> 
-<img src="/news/images/lychee-2.png" />
-
-<h3>4. Create a new grain</h3>
-<img src="/news/images/lychee-3.png" />
-
-<h3>5. Rename your grain</h3>
-<img src="/news/images/lychee-4.png" />
-
-<h3>6. Add an album</h3>
-<img src="/news/images/lychee-5.png" />
-
-<h3>7. Name your album</h3>
-<img src="/news/images/lychee-6.png" />
-
-<h3>8. Upload some images</h3>
-<img src="/news/images/lychee-7.png" />
-<img src="/news/images/lychee-8.png" />
-
-<h3>9. Browse your album</h3>
-<img src="/news/images/lychee-9.png" />
-
-<h3>10. Share access with your family</h3>
-<img src="/news/images/lychee-10.png" />
-
-<h3>11. Invite family members</h3>
-<img src="/news/images/lychee-11.png" />
-
-<p>
-I hope you enjoy creating photo albums using <a href="https://apps.sandstorm.io/app/z6rj6js4h8p8rjz2myp3dwmv3mcfv40qyfdn0d7714qxzvzvq3w0">Lychee from the Sandstorm App Market</a>. Don't forget to leave a review!
-</p>
-</h3></h3>
 
 </section>
 

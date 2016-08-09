@@ -97,13 +97,85 @@
 
 
 <section>
+  <h2><a href="/news/2016-05-12-analytics-privacy">How self-hosted analytics preserve user privacy</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2016-05-12-analytics-privacy">12 May 2016</a>
+  
+  
+  
+  
+  <p>Filippo Valsorda just published <a href="https://blog.filippo.io/self-host-analytics/">an overview of why to use Piwik for web analytics</a> instead of Google’s product. He reflects on the fact that he saw <strong>18% more pageviews</strong> with Piwik compared to Google Analytics, seemingly because self-hosted analytics get past ad-blocking browser extensions. I want to reflect on the privacy implications of running your own analytics and explain the nuts and bolts of how Piwik runs on Sandstorm.</p>
+
+<p>Here’s what Piwik on Sandstorm looks like.</p>
+
+<p><img src="/images/2016-05-12-blog-post-piwik-screenshot.png" alt="piwik screenshot" /></p>
+
+<h3 id="how-a-web-analytics-service-works">How a web analytics service works</h3>
+
+<p>For a website (let’s say example.com) that that embeds Google Analytics’ Javascript tracking code, a web browser like Chrome takes the following steps:</p>
+
+<ul>
+  <li>
+    <p>Download the HTML content of example.com.</p>
+  </li>
+  <li>
+    <p>Notice a SCRIPT or IMG tag going to Google Analytics.</p>
+  </li>
+  <li>
+    <p>Download the Google Analytics tracking code from Google, whose purpose is to  <strong>tell Google Analytics the URL of the page that included it.</strong> One main purpose of web analytics is to see a chart of which pages are popular, so it stands to reason that if Google runs the analytics tool, Google needs to know what page is being viewed.</p>
+  </li>
+</ul>
+
+<p>Google has a strong <a href="https://www.google.com/policies/privacy/">privacy policy</a>, and this information typically falls under the heading of “Information we get from your use of our services,” and I am personally OK with sharing this information with Google Analytics.</p>
+
+<h3 id="some-people-like-staying-private">Some people like staying private</h3>
+
+<p>According to <a href="http://w3techs.com/technologies/details/ta-googleanalytics/all/all">W3Techs</a>, more than 50% of all websites use Google Analytics. This has a somewhat surprising result: Google’s analytics service knows about a <em>huge</em> fraction of all web page visits. After all, any central analytics service can see the webpage visits for all the sites using it. They can even see traffic patterns that each individual site operator cannot.</p>
+
+<p>Some web surfers want to keep their surfing information private. They may be OK with the site owner knowing that someone visited, but Google is not the site owner. They may see <a href="https://www.schneier.com/blog/archives/2016/03/data_is_a_toxic.html">data as a toxic asset,</a> per Bruce Schneier. Many of them use web browser add-ons like <a href="https://www.eff.org/privacybadger">Privacy Badger.</a></p>
+
+<p>As a website operator, this puts you in a bind. If you want to use Google Analytics to get a graph of which pages are popular, you need to share your users’ surfing patterns with Google. Google doesn’t distribute Google Analytics as software you can run; they only run it as a central service.</p>
+
+<p>A different way to do web analytics is to use software running on a server that you maintain. This is called <strong>self-hosting web analytics.</strong></p>
+
+<p>The easiest way to do that is to do what <a href="https://blog.filippo.io/self-host-analytics">Filippo Valsorda said:</a> run a Sandstorm server and <a href="https://apps.sandstorm.io/app/xuajusd5d4a9v4js71ru0cwj9wn984q1x8kny10htsp8f5dcfep0">install Piwik from the app market,</a> and copy-paste something into your website.</p>
+
+<p>Today, that’s possible with a few presses on a touchpad. Getting to that point involved some fascinating challenges.</p>
+
+<h3 id="how-to-share-an-api-token-you-cannot-see">How to share an API token you cannot see</h3>
+
+<p>One design goal of Sandstorm is that apps are <strong><a href="https://docs.sandstorm.io/en/latest/using/security-practices/#true-confinement">confined.</a></strong> An app in Sandstorm never learns a URL that outsiders can use to reach it. That way, the app must rely on Sandstorm for access control, which means the “Share access” button can always show the users who has access. Sandstorm can provide one interface for granting and revoking access across all apps.</p>
+
+<p>However, Piwik needs a way to show a URL that a website operator can embed into their website, so that website visitors can be tracked by Piwik!</p>
+
+<p>To get past this Catch-22, <a href="https://github.com/zarvox">Drew Fisher</a> built a new Sandstorm feature called <a href="https://docs.sandstorm.io/en/latest/developing/http-apis/#creating-an-offer-template">offer templates</a>. Piwik asks Sandstorm to show a templated message, and an IFRAME from Sandstorm appears with that token placed into the templated message. Drew’s Piwik package was the first to use it, and it’s become the most common way for apps on Sandstorm to create copy-pastable instructions for how to connect to their APIs.</p>
+
+<h3 id="when-to-make-ip-addresses-available">When to make IP addresses available</h3>
+
+<p>Another obstacle was IP addresses. Piwik needs to know the IP address of visitors so it can create a visual map to show website operators where in the world their visitors come from.  However, we didn’t want every Sandstorm app to be able to collect this data without user intervention. Drew added a <a href="https://github.com/sandstorm-io/sandstorm/blob/432be37489b210b19d9677f29befcd5c910a0f76/src/sandstorm/api-session.capnp#L28">way for client-side Javascript to optionally share the user’s IP address</a>, while keeping the defaults safe. I’ll quote him here:</p>
+
+<blockquote class="notbig">
+Normally, we strip the remote address from requests, since most applications shouldn't need it.  However, for those that benefit from it (like analytics), clients can opt into passing their IP on to the backend by adding an "X-Sandstorm-Passthrough: address" header to their request.  This would be a privacy leak for WebSession, since the grain can give the client scripts which would send the header, but ApiSession requires a user action, so it's safe here.
+</blockquote>
+
+<p>In the context of the above, an ApiSession covers requests that come in via an app’s <a href="https://docs.sandstorm.io/en/latest/developing/http-apis/">HTTP APIs</a> such as Piwik’s tracking system, and a WebSession covers requests that come in from the grain owner clicking around, such as a site owner viewing their statistics.</p>
+
+<h3 id="enabling-the-community">Enabling the community</h3>
+
+<p>When we finished, we had built a foundation that other apps could build upon. You can try <a href="https://apps.sandstorm.io/app/4mfserfc04wtcevvgn0jw27hvwfntmt8j468y3ma55kj8d5tj9kh">Hummingbird,</a> <a href="https://github.com/mnutt">Michael Nutt</a>’s real-time analytics tool, and <a href="https://apps.sandstorm.io/app/8kr4rvyrggvzfvc160htzdt4u5rfvjc2dgdn27n5pt66mxa40m1h">Radicale,</a> <a href="https://github.com/synchrone">Aleksandr Bogdanov</a>’s package that enables calendar and contact synchronization by combining a few tools.</p>
+
+<p>If you want to make an open source web app that anyone can self-host safely, start at the <a href="https://docs.sandstorm.io/en/latest/developing/">Sandstorm Developer Hub</a>. Sandstorm supports any programming language or stack, like PHP or Meteor or Rust, that runs on Linux. You’ll find a <a href="https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial/">packaging tutorial</a> and detailed information about offer templates. And if you just want to start using Piwik, <a href="https://apps.sandstorm.io/app/xuajusd5d4a9v4js71ru0cwj9wn984q1x8kny10htsp8f5dcfep0">check it out on the app market.</a></p>
+
+<p><a href="https://docs.sandstorm.io/en/latest/developing/" class="linkbutton">See Developer Hub »</a></p>
+
+</section>
+
+<section>
   <h2><a href="/news/2016-05-06-university-it-be-the-hero">Sandstorm lets university IT be the hero</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2016-05-06-university-it-be-the-hero">06 May 2016</a>
-  
-  
-  
   
   <p>Picture yourself running a university IT helpdesk. When professors come to you, you point to the
 tech tools your colleagues have already deployed. It takes a long process to get something new
@@ -301,86 +373,6 @@ install page</a>.</p>
 <p style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/-qIqNXVw4v0" frameborder="0" allowfullscreen=""></iframe></p>
 
 <p>Try <a href="https://apps.sandstorm.io/app/tr3w5p7ajsf61nf2e6dkfv8tdjes0qsm5w6ew0frd4qwnacwur90">Giftr</a> &amp; remember to review it on the App Market!</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-02-05-app-author-publicity-oasis">Free publicity for your indie web app, and free Oasis service for you</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2016-02-05-app-author-publicity-oasis">05 Feb 2016</a>
-  
-  <p>Every useful web app deserves users and publicity. Every author deserves an easy way to see their app the way their users see it on Sandstorm.</p>
-
-<p>So here’s the deal: If you write an open source web app, and you package it for Sandstorm, I’ll help people discover your app and use it. You’ll also get credit toward one year of <a href="https://oasis.sandstorm.io"><strong>Oasis managed hosting</strong></a> so you can test your app on Sandstorm. The offer applies to anyone who successfully submits an app to the <a href="https://apps.sandstorm.io">Sandstorm App Market</a>, whether or not you’re the original author. It doesn’t have to be open source, though we do love open source. The Oasis hosting can be used for anything you like.</p>
-
-<h3 id="a-sandstorm-package-allows-people-to-use-your-app-even-if-you-dont-maintain-a-public-service">A Sandstorm package allows people to use your app even if you don’t maintain a public service</h3>
-
-<p>When I asked <a href="http://simon.vansintjan.net/">Simon Vansintjan</a> why he made a Sandstorm package of his <a href="https://apps.sandstorm.io/app/wupmzqk4872vgsye9t9x5dmrdw17mad97dk21jvcm2ph4jataze0">Quick Survey</a> app, he told me, “I have no interest in running a SaaS of every small app that I think would be a benefit [to other people].”</p>
-
-<p>Simon wants to publish code, not commit to maintaining a service. Simon wrote Quick Survey so he could run one particular survey, as well as for the joy of learning Meteor.</p>
-
-<p>By packaging his app for Sandstorm, he got multiple document support without writing any code. Simon said, “Once I understood that [multi-document] translated really well to how Sandstorm views apps / grains, I figured it made a lot of sense to port it to Sandstorm. I’m happy I ended up trying to port it, because it opened up how easy it would be to get other apps up and running with it.”</p>
-
-<p style="text-align: center;"><a href="https://apps.sandstorm.io/app/wupmzqk4872vgsye9t9x5dmrdw17mad97dk21jvcm2ph4jataze0"><img src="/news/images/2016-02-05-app-author-publicity-oasis/cbd94e8d81ed9bccaf19eb0228dbf451.png" style="max-width: 50%;" /></a></p>
-
-<p>You can <a href="https://apps.sandstorm.io/app/wupmzqk4872vgsye9t9x5dmrdw17mad97dk21jvcm2ph4jataze0">try out Quick Survey with a click.</a> Your app could be that easy to spin up.</p>
-
-<p>Quick Survey is a web app that isn’t a business, and Sandstorm is perfect for apps like that. For example, <a href="https://twitter.com/frigginglorious">Daniel Kraft</a> is nearly done packaging up his personal D&amp;D dice rolling app. What hobby apps have you made that others might enjoy?</p>
-
-<h3 id="publicity-graphics-app-demo-outreach-and-more">Publicity: Graphics, app demo, outreach, and more</h3>
-
-<p>When your app is on the Sandstorm app market, it’s naturally in front of people who use Sandstorm every day. Universities, corporations, non-profits, and self-hosting enthusiasts alike spend huge amounts of time in apps on Sandstorm.</p>
-
-<p>Beyond that, every Sandstorm app is supported by the Sandstorm.io community team — Néna, Jade, and me.</p>
-
-<p>Néna supports open source web app developers by <a href="https://sandstorm.io/news/2015-11-10-icons-spks-for-everyone#graphics-for-everyone">providing graphics</a> for any app with a Sandstorm package. Here are some of the graphics she’s put together:</p>
-
-<p style="text-align: center;"><img src="/news/images/2016-02-05-app-author-publicity-oasis/10-appdesigns.png" style="max-width: 50%;" /></p>
-
-<p>All three of us spend every day thinking about how to get more people using the apps in the Sandstorm ecosystem. The apps are what what make Sandstorm interesting. So we do things like:</p>
-
-<ul>
-  <li>
-    <p>Give every app a free, live demo service. This one goes to Hacker Slides. It could go to your app. <a href="https://demo.sandstorm.io/appdemo/7qvcjh7gk0rzdx1s3c8gufd288sesf6vvdt297756xcv4q8xxvhh"><img alt="Try Hacker Slides on Sandstorm" src="/news/images/2016-02-05-app-author-publicity-oasis/try-live%20demo-783189.svg" style="max-width: 92;" /></a></p>
-  </li>
-  <li>
-    <p><a href="https://opensource.com/life/14/8/sandstorm-open-source-web-apps">Write</a> <a href="https://opensource.com/life/16/1/8-ways-contribute-open-source-without-writing-code">articles</a> <a href="https://opensource.com/life/15/12/5-open-source-web-apps-self-hosted">for</a> outlets like opensource.com, reaching many thousands of readers.</p>
-  </li>
-  <li>
-    <p>Write about new apps in our <a href="https://sandstorm.io/#join-list">monthly newsletter</a>, seen by thousands of subscribers.</p>
-  </li>
-  <li>
-    <p>Encourage Sandstorm community members to <a href="https://sandstorm.io/news/2015-12-17-community-talks">give talks</a> about their favorite apps and <a href="http://www.meetup.com/topics/sandstorm/">organize meetups.</a></p>
-  </li>
-  <li>
-    <p>Write <a href="https://sandstorm.io/news/2016-01-22-8-new-open-source-apps">blog posts about new apps</a>, frequently seen on <a href="https://news.ycombinator.com/item?id=11022993">Hacker News</a> (thanks to Andy for submitting the most recent one!).</p>
-  </li>
-  <li>
-    <p>Find organizations that care about specific apps, and explain to them in person how the community’s apps plus self-hosting it would help the organization achieve its mission.</p>
-  </li>
-</ul>
-
-<p>The Sandstorm <a href="https://sandstorm.io/community">community</a> as a whole will give you feedback on your app if you email the <a href="https://groups.google.com/forum/#!forum/sandstorm-dev">sandstorm-dev group</a>. Check out these <a href="https://groups.google.com/forum/#!topic/sandstorm-dev/YNiAzlqON40">recent</a> <a href="https://groups.google.com/forum/#!topic/sandstorm-dev/nVu9VBNFNUM">threads</a> to see how it works.</p>
-
-<p>I want self-hosting to be a meaningful alternative to software as a service. You can be part of that movement by packaging your app for Sandstorm. If your app is written using Meteor, I’ll even create the <a href="one-click-installers-for-everyone">initial packaging</a>.</p>
-
-<h3 id="see-what-users-see-with-a-free-power-user-account-on-oasis">See what users see, with a free Power User account on Oasis</h3>
-
-<p>Your users probably don’t know how to deploy your app, which is why they need Sandstorm. I want you to be able to see what your users see, so I’ll give you <a href="https://sandstorm.io/get"><strong>a free year of Power User level on Oasis</strong></a> managed hosting if you write or package an app for Sandstorm.</p>
-
-<p>While you’re on Oasis, feel free to enjoy it for anything else within the usual terms and conditions. Take advantage of private git repositories with <a href="https://apps.sandstorm.io/app/d9ygf47xrtnw12j92cyt6cu8ut75esx01u4q3kcrn8415w9qzzgh">gogs</a>, project task tracking with <a href="https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h">Wekan</a>, or privacy-preserving web analytics with <a href="https://apps.sandstorm.io/app/xuajusd5d4a9v4js71ru0cwj9wn984q1x8kny10htsp8f5dcfep0">Piwik</a>. I’ll also give you an invite to <a href="https://keybase.io">Keybase</a> so when people install your apps, they can verify your identity via the world’s most usable interface to PGP.</p>
-
-<p>To take advantage of this offer, visit <a href="https://oasis.sandstorm.io/">Oasis</a> and upgrade to any paid plan, knowing that all the paid plans
-are free-of-cost while Sandstorm is in beta. Then email me at community@sandstorm.io to request a statement credit equal to the cost of a Power User account. We’ll add it to your account, and you’ll be all set.</p>
-
-<h3 id="to-get-started-read-the-docs-or-email-me">To get started, read the docs, or email me</h3>
-
-<p>Every good web app deserves users and publicity. I’m here to help you with that.</p>
-
-<p>You can dive right in by reading the <a href="https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial/">packaging tutorial</a>. Sandstorm supports any language/stack that runs on Linux, and has special <a href="https://docs.sandstorm.io/en/latest/vagrant-spk/platform-stacks/">tooling</a> for nodejs, PHP/MySQL, Meteor, and Python.</p>
-
-<p>If you’re unsure, or you just want to chat, or you’re waiting on us to publish your app, it’d be my honor to hear from you. Send me an email at <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#099;&#111;&#109;&#109;&#117;&#110;&#105;&#116;&#121;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;">&#099;&#111;&#109;&#109;&#117;&#110;&#105;&#116;&#121;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;</a>!</p>
 
 </section>
 
