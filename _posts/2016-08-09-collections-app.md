@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Collecting Connections through the Powerbox"
+title: "Collecting connections through the powerbox"
 author: David Renshaw
 authorUrl: https://github.com/dwrensha
 ---
