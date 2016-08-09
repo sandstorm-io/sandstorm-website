@@ -48,8 +48,8 @@ grain. Crucially, it can also offer the reference to your collaborators, so that
 grain" action can result in all of your collaborators receiving access to the grain.
 
 Other apps can use the powerbox in the same way. You could write an alternative implementation of
-collections, either by starting from scratch or by forking [ours](
-https://github.com/dwrensha/sandstorm-collections-app ). And apps whose primary purpose has nothing
+collections, either by starting from scratch or by forking
+[ours](https://github.com/sandstorm-io/collections-app ). Apps whose primary purpose has nothing
 to do with collections can also benefit from the ability to request and offer grain references. For
 example, a chat room could be enhanced by the ability to embed Sandstorm-aware links to other
 grains. Indeed, the latest release of
