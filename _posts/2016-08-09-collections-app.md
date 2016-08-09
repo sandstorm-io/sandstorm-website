@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Collecting connections through the powerbox"
+title: "Share many as one, with the Collections app"
 author: David Renshaw
 authorUrl: https://github.com/dwrensha
 ---
@@ -46,6 +46,8 @@ Once you select a grain, the collection receives a reference to that grain. It c
 reference to retrieve metadata such as the grain's icon and the the name of the app that created the
 grain. Crucially, it can also offer the reference to your collaborators, so that your single "Add
 grain" action can result in all of your collaborators receiving access to the grain.
+The behind-the-scenes details of how this all works can be found in our
+[technical documentation](https://docs.sandstorm.io/en/latest/developing/powerbox/).
 
 Other apps can use the powerbox in the same way. You could write an alternative implementation of
 collections, either by starting from scratch or by forking
@@ -64,18 +66,13 @@ of Sandstorm can feel seamless. Our primary strategy for achieving such performa
 develop the Collections app using the [Rust programming language](https://www.rust-lang.org/),
 interfacing directly with Sandstorm's [ Cap'n Proto interfaces ](
 https://sandstorm.io/news/2014-12-15-capnproto-0.5 ).
-Rust has worked well for us so far, and we
+Rust has worked well so far, and along the way we
 have produced some [libraries](https://crates.io/crates/sandstorm) and [examples](
 https://github.com/dwrensha/sandstorm-rawapi-example-rust) to help others also get started using it
 for Sandstorm app development.
 
-Whether or not you are a developer, now is an exciting time to be
-[getting involved](https://sandstorm.io/community)
+Whether or not you are a developer, now is an exciting time to
+[get involved](https://sandstorm.io/community)
 with Sandstorm. The powerbox is still in its early stages, and the
-Colllections app is a hint at the kinds of things it will enable.
-So [try it out](https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h)
-and let me know what you think!
-
-
-
-
+Collections app is a hint at the kinds of things it will enable.
+So [try it out and let us know what you think](https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h)!
