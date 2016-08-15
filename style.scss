@@ -342,7 +342,7 @@ body >footer {
 
 .action {
   text-align: center;
-  padding: 30px 0;
+  padding: 40px 0;
 
   @include stripe {
     background-color: #F4F3FB;
@@ -1384,7 +1384,7 @@ body >footer {
       color: $default-fontcolor;
 
       &:first-of-type {
-        background: 50% 70px/175px no-repeat url("/images/hosted-service.svg");
+        background: 50% 70px/175px no-repeat url("/images/self-host.svg");
 
         @media (max-width: 600px) {
           background-position: 50% 120px;
@@ -1392,10 +1392,10 @@ body >footer {
         }
       }
       &:last-of-type {
-        background: 50% 85px/175px no-repeat url("/images/self-host.svg") #edf2f8;
-
+        background: 50% 85px/175px no-repeat url("/images/hosted-service.svg") #efedf9;
+      
         @include stripe-right {
-          background-color: #edf2f8;
+          background-color: #efedf9;
         }
 
         @media (max-width: 600px) {
@@ -1500,6 +1500,7 @@ body >footer {
           background-color: $purplebutton-bg;
           width: 95%;
           padding: 12px 0;
+          transition: transform 0.75s ease, background 0.35s ease;
           &:hover {
             background-color: $purplehover-bg;
           }
