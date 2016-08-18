@@ -97,13 +97,51 @@
 
 
 <section>
+  <h2><a href="/news/2016-01-11-website">The new Sandstorm.io website</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2016-01-11-website">11 Jan 2016</a>
+  
+  
+  
+  
+  <p>If you take a look at <a href="https://sandstorm.io/">https://sandstorm.io/</a>, you’ll see our new website, created by Néna Nguyen with assistance from Kenton Varda. They took feedback from many users and the core dev team over the course of building it, and we’re all going to keep adjusting it over time. If you have feedback, please share it with the community in the <a href="https://groups.google.com/forum/#!forum/sandstorm-dev">sandstorm-dev mailing list</a>.</p>
+
+<p>I wanted to highlight a few important things the new website does better when compared to the old website, <a href="https://web.archive.org/web/20151213145657/https://sandstorm.io/">available at the Internet Archive</a>.</p>
+
+<ul>
+  <li>
+    <p><strong>Responsive design.</strong> If you view the new website on a phone, you’ll get something reasonable. This wasn’t true a year ago, and it required some thinking. If you’re new to responsive web design, start by reading <a href="http://alistapart.com/article/responsive-web-design">Ethan Marcotte’s article at A List Apart</a>.</p>
+  </li>
+  <li>
+    <p><strong>Flexbox.</strong> We use the new <code>display: flex;</code> layout mode so that we can express columns very naturally in CSS. So far we’re very happy with it. You can read up about it at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes">MDN</a> or by playing <a href="http://flexboxfroggy.com/">Flexbox Froggy</a>, an interactive learning game. You can also read our CSS on the <a href="https://github.com/sandstorm-io/sandstorm-website">GitHub repository for the website</a> to find out how we use it.</p>
+  </li>
+  <li>
+    <p><strong>SCSS/SASS.</strong> We now use a CSS extension language called <a href="http://sass-lang.com/">SCSS</a>. This lets us use features like variables and nesting. You can see how we use it in the <a href="https://github.com/sandstorm-io/sandstorm-website">sandstorm-website GitHub repository</a>.</p>
+  </li>
+  <li>
+    <p><strong>Multiple pages.</strong> The older Sandstorm.io website had just one page: index.html. The new site goes into more depth about <a href="https://sandstorm.io/how-it-works">how Sandstorm works</a>, how to <a href="https://sandstorm.io/community">get involved in the community</a>. how <a href="https://sandstorm.io/business">businesses can make the best use of Sandstorm</a>, and more. It was time to have more than one page. A side note: if you hear us talking about how the “front page redesign” is finally done, this is because we’re used to the entire website being one page.</p>
+  </li>
+  <li>
+    <p><strong>A button to sign in to Oasis, our hosting service.</strong> Sandstorm is open source software that anyone can install; since not everyone wants to install it, <a href="https://oasis.sandstorm.io/">oasis.sandstorm.io</a> is our hosting service where you can run Sandstorm apps without your own server. The new “sign-in” link above the fold makes it easy to log into our Oasis hosting service.</p>
+  </li>
+  <li>
+    <p><strong>One repository for the blog and the website.</strong> Until now, we maintained the Sandstorm blog separately, with its own templates and no version control. Kenton built the <a href="https://apps.sandstorm.io/app/nqmcqs9spcdpmqyuxemf0tsgwn8awfvswc58wgk375g4u25xv6yh">Hacker CMS</a> app for this purpose. Now that the main website uses Jekyll, we’ve integrated our old blog posts into the main <a href="https://github.com/sandstorm-io/sandstorm-website">sandstorm-website</a> git repository.</p>
+  </li>
+  <li>
+    <p><strong>A simpler top banner.</strong> In the previous website, the banner at the top of the site would allow you to subscribe to our Facebook page, or try a demo, or download Sandstorm, or sign up now for the Oasis hosting service. We’ve limited the number of options to help people learn more faster.</p>
+  </li>
+</ul>
+
+<p>Those are the most essential changes. You’ll find a lot of subtle changes as you click around <a href="https://sandstorm.io/">the new site</a> and compare it to <a href="https://web.archive.org/web/20151213145657/https://sandstorm.io/">the old one!</a> If you have comments, consider <a href="https://github.com/sandstorm-io/sandstorm-website/issues">filing a bug</a> or emailing <a href="https://groups.google.com/forum/#!forum/sandstorm-dev">sandstorm-dev</a>. Kudos to Néna Nguyen and Kenton Varda for getting these changes ready in record time.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2016-01-11-meetups">Upcoming Sandstorm meetups in SF, NY, Boston, Berlin, Zurich</a></h2>
   <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
     
     - <a href="/news/2016-01-11-meetups">11 Jan 2016</a>
-  
-  
-  
   
   <p>Here in the San Francisco Bay Area, since May 2015, we’ve been organizing <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/">monthly Sandstorm meetups</a> for community members can share their apps, works in progress, and learn from each other.  Recently, Sandstorm community members have stepped up to organize <a href="http://sandstorm.meetup.com/">local Sandstorm meetups</a> in <a href="http://www.meetup.com/Sandstorm-NY/">New York</a>, <a href="http://www.meetup.com/Sandstorm-Boston/">Boston</a>, <a href="http://www.meetup.com/Sandstorm-Berlin/">Berlin</a>, and <a href="http://www.meetup.com/Sandstorm-CH/">Switzerland</a> as well. Scroll to the bottom for the list of upcoming events:</p>
 
@@ -306,41 +344,6 @@ authenticity that Just Works, and it’s available today for all Sandstorm users
 and packages in the App Market.  Today is a good day to
 <a href="https://sandstorm.io/install/">install Sandstorm on your own server</a> or sign up
 for our <a href="/news/2015-08-31-oasis-beta-launch.html">managed hosting</a>.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-11-10-icons-spks-for-everyone">Graphics and one-click installers for everyone</a></h2>
-  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
-    
-      and <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2015-11-10-icons-spks-for-everyone">10 Nov 2015</a>
-  
-  <p>Open source web app developers build great apps. But sometimes, backend-minded developers need a little help, from making it easy for end users to install their apps to making their icons and other graphics visually appealing. To make open source web apps <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">viable</a> as an ecosystem, the apps must be easy to install and use, and to get the attention they deserve, they should have good-looking icons that convey the purpose of the app.</p>
-
-<h3 id="graphics-for-everyone">Graphics for everyone</h3>
-
-<p>Lately, we’ve been running an experiment – will app authors be interested in custom graphics, designed by Néna Nguyen at Sandstorm? So far, <a href="https://github.com/audreyt/ethercalc/issues/236">the</a> <a href="https://github.com/cem/dillinger-sandstorm/pull/2">response</a> <a href="https://github.com/cem/nodebb-sandstorm/pull/1">has</a> <a href="https://github.com/jacksingleton/hacker-slides/issues/28">been</a> <a href="https://github.com/strawlab/neuron-catalog/pull/36">positive</a>!</p>
-
-<p>So I’m excited to announce we’ll do this for everyone who packages their app
-for Sandstorm: To support app authors, we are happy to help with graphics. This is on top of the <a href="https://apps.sandstorm.io/">one-click install</a> for your app that Sandstorm enables, which works just as well <a href="https://oasis.sandstorm.io">in the cloud</a> as it does for <a href="https://sandstorm.io/install">self-hosters</a> (see below). For instance, Néna will make an icon for you if you need it. Check out this awesome icon set that Néna made for Wekan (kanban board):</p>
-
-<p><a href="https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h"><img src="/news/images/wekan-icon-gallery.png" width="100%" alt="logos" /></a></p>
-
-<p><em>Wekan (open source Trello alternative) icons in varying contexts. Check out <a href="https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h">Wekan on the App Market »</a></em></p>
-
-<h3 id="one-click-installers-for-everyone">One-click installers for everyone</h3>
-
-<p>An app written <strong>using Meteor</strong> is the easiest to package – there’s a <a href="https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial-meteor">special tutorial for Meteor apps</a>. If you input the URL of your GitHub repo below, we can even do a first-run of the packaging for you and ping you with a live demo featuring your own spk (Sandstorm package):</p>
-
-<iframe src="https://docs.google.com/a/corp.sandstorm.io/forms/d/1gj8h2rkeovWxtKP-8nTmouwLLxwEkh5iDNHudlckfE8/viewform?embedded=true" width="760" height="356" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-
-<p>Meteor or not, any web app that runs on Linux can be packaged for Sandstorm. Get started with <a href="https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial">this documentation link</a>.</p>
-
-<p><a class="linkbutton" href="https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial/">Packaging docs »</a></p>
-
-<p>Drop a line to community@sandstorm.io with any questions and we’ll make sure you succeed.</p>
 
 </section>
 

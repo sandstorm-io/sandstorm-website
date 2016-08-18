@@ -7,6 +7,33 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Decentralization is about diversity</title>
+				<description>&lt;p&gt;&lt;img src=&quot;/news/images/decentralize.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lately, there has been a flurry of activity around decentralizing the web. Summits have been held. New projects – and companies – have been started. Having worked on this issue for several years now, we’re excited to see it becoming increasingly mainstream.&lt;/p&gt;
+
+&lt;p&gt;But what, exactly, are we trying to solve? Most people think it has something to do with privacy, and maybe also security. Some argue that data ownership and mobility are the most important things. Sometimes this leads decentralization projects to focus on data storage while neglecting compute. Some projects even propose that so long as storage is decentralized, it doesn’t matter where the software actually runs.&lt;/p&gt;
+
+&lt;p&gt;Privacy, security, ownership, and mobility are all important, but I feel there is a much more important goal that is often poorly understood:&lt;/p&gt;
+
+&lt;p style=&quot;font-weight: bold; text-align: center; font-size: 130%; margin: 1em auto; width: 500px; max-width: 90%;&quot;&gt;The most important reason to decentralize is software&amp;mdash;and developer&amp;mdash;diversity.&lt;/p&gt;
+
+&lt;p&gt;By “diversity”, I mean this: Who can develop software that other people can plausibly use? Is it primarily mega-corps like Apple and Google? VC-backed startups? Or can one random person, working in their spare time, build just the right app and reach millions of people? Can a community of unfunded volunteers build an open source app that wins because it is the best? Can an employee of one company, having built a useful internal app to solve a problem they had, give (or sell) that app to another company in the same position, without a lot of hassle? Can a teenage fan of a particular video game build an app that assists players of the game, and then share that app with the rest of the game’s community?&lt;/p&gt;
+
+&lt;p&gt;All of the above happens regularly with mobile and desktop apps, but it is far more difficult on the web.&lt;/p&gt;
+
+&lt;p&gt;We live in a time when our tools are so good that a single competent application developer working weekends can create almost any web application you can imagine. However, rarely can that single developer also run a secure, scalable service and a business around it. As a result, when software is delivered as a service, the only software that is available is that which was deemed &lt;em&gt;a priori&lt;/em&gt; to be sufficiently lucrative to interest a mega-corp like Google or a VC-backed startup. &lt;strong&gt;Therefore, the only software services we get come courtesy of these gatekeepers.&lt;/strong&gt; Experimental, indie, or amateur projects are rare. Novel services serving a small niche community are rare. Services designed by people who aren’t well-represented in the tech industry are rare. Community-driven open source projects &lt;a href=&quot;https://sandstorm.io/news/2014-07-21-open-source-web-apps-require-federated-hosting&quot;&gt;basically aren’t viable&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The only way to solve these problems is by decentralizing the software (not just the storage). Software must be provided as a package – not as a service – with each user running their own private copy. It doesn’t really matter if the user chooses to deploy to “the cloud” or to their own machine, as long as they can run any package they want. It is, however, important that the means to deploy software be accessible even to non-technical users, so that everyone can participate and developers can reach a wide audience. Deploying an app on your server must therefore be as easy as installing an app on your phone, and must be “secure by default”.&lt;/p&gt;
+
+&lt;p&gt;This is the focus of Sandstorm.&lt;/p&gt;
+</description>
+				<pubDate>Wed, 17 Aug 2016 00:00:00 -0700</pubDate>
+                                <link>https://sandstorm.io/news/2016-08-17-decentralization-is-about-diversity</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-08-17-decentralization-is-about-diversity</guid>
+			</item>
+		
+			<item>
 				<title>Share many as one, with the Collections app</title>
 				<description>&lt;p&gt;Starting work on a project in Sandstorm often means creating many grains, each pertaining to a
 different aspect of your work. In a typical project, you might have a spreadsheet, a chat room, a
@@ -427,46 +454,6 @@ under the “About Sandstorm” section.&lt;/p&gt;
 				<pubDate>Mon, 23 May 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-05-23-case-study-journalists</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-05-23-case-study-journalists</guid>
-			</item>
-		
-			<item>
-				<title>Richard Caceres talks about designing open source apps</title>
-				<description>&lt;p&gt;We had the pleasure of having designer, developer, and app author &lt;a href=&quot;https://github.com/rchrd2&quot;&gt;Richard Caceres&lt;/a&gt; speak at our Sandstorm.io &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/229350176/&quot;&gt;meetup&lt;/a&gt; in San Francisco on March 24, 2016.&lt;/p&gt;
-
-&lt;p&gt;In his talk Richard emphasized the value of free and open source software, he shared design principles that app authors should follow (to create a more cohesive user experience across apps), and he also demoed a newly updated version of his TextEditor app.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“Every app would benefit from allowing you to customize the CSS. I think that’s really important. In TextEditor, you can do that now.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3&gt;Watch Richard&#39;s full talk to hear more about:&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;What makes good free software&lt;/li&gt;
-  &lt;li&gt;Why you should develop apps for Sandstorm&lt;/li&gt;
-  &lt;li&gt;The importance of design for apps&lt;/li&gt;
-  &lt;li&gt;Examples of successful open source design&lt;/li&gt;
-  &lt;li&gt;Visual guidelines for apps&lt;/li&gt;
-  &lt;li&gt;New TextEditor features (like customizable CSS)&lt;/li&gt;
-  &lt;li&gt;And more!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p style=&quot;text-align: center;&quot;&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/L1cIXBx7_4Q&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/p&gt;
-
-&lt;h3&gt;You can follow the slides here:&lt;/h3&gt;
-&lt;p style=&quot;text-align: center;&quot;&gt;
-&lt;iframe src=&quot;https://docs.google.com/presentation/d/14l0BXCWRHb2oXbui4kAE9QdWpS1bQ8y2UqHVp7wGBpI/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&quot; frameborder=&quot;0&quot; width=&quot;560&quot; height=&quot;315&quot; allowfullscreen=&quot;true&quot; mozallowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;
-&lt;/p&gt;
-
-&lt;p&gt;As a follow-up to his talk, Richard has also recently announced &lt;a href=&quot;http://rchrd.net/x-gui/&quot;&gt;x-gui&lt;/a&gt;, a library of web components for building consistent web apps.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apps.sandstorm.io/app/n4n49dkfyskmhcmg5h0mfzk4kjvce2jcs8ravr7y7uw9xs2pzghh&quot;&gt;Try out TextEditor&lt;/a&gt; for yourself and don’t forget to leave a review!&lt;/p&gt;
-</description>
-				<pubDate>Mon, 16 May 2016 00:00:00 -0700</pubDate>
-                                <link>https://sandstorm.io/news/2016-05-16-designing-open-source</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-05-16-designing-open-source</guid>
 			</item>
 		
 	</channel>
