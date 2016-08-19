@@ -172,6 +172,7 @@ body>nav {
       &[href^="/get"] { display: none; }
       &[href="/community"] { display: none; }
       &[href^="https://docs.sandstorm.io"] { display: none; }
+      &[href^="https://github.com"] { display: none; }
     }
   }
 }
