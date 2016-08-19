@@ -168,7 +168,7 @@ body>nav {
       &[href^="/news"] { display: none; }
       &[href="/features"] { display: none; }
     }
-    @media (max-width: 900px) {
+    @media (max-width: 940px) {
       &[href^="/get"] { display: none; }
       &[href="/community"] { display: none; }
       &[href^="https://docs.sandstorm.io"] { display: none; }
