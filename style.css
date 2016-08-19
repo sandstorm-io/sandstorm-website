@@ -416,7 +416,7 @@ body > footer {
 
 .action {
   text-align: center;
-  padding: 30px 0;
+  padding: 40px 0;
   position: relative; }
   .action::after {
     display: block;
@@ -1399,13 +1399,13 @@ body > footer {
     padding: 24px 0;
     color: black; }
     #get #where > a:first-of-type {
-      background: 50% 70px/175px no-repeat url("/images/hosted-service.svg"); }
+      background: 50% 70px/175px no-repeat url("/images/self-host.svg"); }
       @media (max-width: 600px) {
         #get #where > a:first-of-type {
           background-position: 50% 120px;
           background-size: 125px; } }
     #get #where > a:last-of-type {
-      background: 50% 85px/175px no-repeat url("/images/self-host.svg") #edf2f8;
+      background: 50% 85px/175px no-repeat url("/images/hosted-service.svg") #efedf9;
       position: relative; }
       #get #where > a:last-of-type::after {
         display: block;
@@ -1418,7 +1418,7 @@ body > footer {
         z-index: -1;
         left: 100%;
         width: calc(50vw - 50%);
-        background-color: #edf2f8; }
+        background-color: #efedf9; }
       @media (max-width: 600px) {
         #get #where > a:last-of-type {
           background-position: 50% 120px;
@@ -1490,7 +1490,11 @@ body > footer {
         display: inline-block;
         background-color: #442672;
         width: 95%;
-        padding: 12px 0; }
+        padding: 12px 0;
+        -webkit-transition: background 0.35s ease, -webkit-transform 0.75s ease;
+        transition: background 0.35s ease, -webkit-transform 0.75s ease;
+        transition: transform 0.75s ease, background 0.35s ease;
+        transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease; }
         #get #managed-hosting > ul > li .get > a:hover, #get #self-hosting > ul > li .get > a:hover {
           background-color: #6341a5; }
       #get #managed-hosting > ul > li.plan2, #get #self-hosting > ul > li.plan2 {
