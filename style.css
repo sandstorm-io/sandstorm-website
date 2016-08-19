@@ -244,12 +244,14 @@ body > nav {
         display: none; }
       body > nav > a[href="/features"] {
         display: none; } }
-    @media (max-width: 900px) {
+    @media (max-width: 940px) {
       body > nav > a[href^="/get"] {
         display: none; }
       body > nav > a[href="/community"] {
         display: none; }
       body > nav > a[href^="https://docs.sandstorm.io"] {
+        display: none; }
+      body > nav > a[href^="https://github.com"] {
         display: none; } }
 
 body#home > nav > a[href="/"] {
@@ -491,14 +493,17 @@ body > footer {
     color: #7757bc; }
 
 #home > header #banner {
-  height: 400px;
+  padding: 0 6%;
+  height: 360px;
   background-image: url(/images/home-banner.svg);
   background-position: bottom;
   background-repeat: no-repeat;
   position: relative; }
-  @media (max-width: 800px) {
+  @media (max-width: 850px) {
     #home > header #banner {
-      height: 300px; } }
+      height: 310px;
+      padding: 0;
+      font-size: 40px; } }
   @media (min-width: 600px) {
     #home > header #banner::before {
       display: block;
@@ -507,16 +512,19 @@ body > footer {
       background-image: url(/images/sandcat.svg);
       background-repeat: no-repeat;
       background-position: bottom;
-      width: 320px;
-      height: 400px; } }
-  @media (min-width: 600px) and (max-width: 800px) {
+      width: 270px;
+      height: 360px;
+      padding: 0; } }
+  @media (min-width: 600px) and (max-width: 850px) {
     #home > header #banner::before {
       width: 240px;
-      height: 300px; } }
+      height: 310px;
+      padding: 0; } }
 
   @media (max-width: 430px) {
     #home > header #banner {
-      height: 350px; } }
+      height: 320px;
+      padding: 0; } }
   #home > header #banner::after {
     display: block;
     content: " ";
@@ -530,6 +538,7 @@ body > footer {
     background-image: linear-gradient(to bottom, #1b1b3d, #613c82);
     background-color: #211f44; }
   #home > header #banner > h1 {
+    font-size: 43px;
     padding-top: 100px;
     margin-top: 0; }
     @media (min-width: 600px) {
@@ -537,7 +546,7 @@ body > footer {
         padding-left: 30%; } }
     #home > header #banner > h1 strong {
       color: white; }
-    @media (max-width: 950px) {
+    @media (max-width: 980px) {
       #home > header #banner > h1 {
         font-size: 38px; } }
     @media (max-width: 850px) {
@@ -546,6 +555,13 @@ body > footer {
     @media (max-width: 750px) {
       #home > header #banner > h1 {
         font-size: 25px; } }
+    @media (max-width: 430px) {
+      #home > header #banner > h1 {
+        margin-bottom: 0;
+        padding-top: 80px; } }
+    @media (max-width: 430px) {
+      #home > header #banner > h1 .home-break {
+        display: none; } }
   #home > header #banner > p {
     margin-top: 35px;
     text-align: center;
@@ -553,23 +569,26 @@ body > footer {
     @media (min-width: 600px) {
       #home > header #banner > p {
         padding-left: 25%; } }
+    @media (max-width: 430px) {
+      #home > header #banner > p {
+        margin-top: 10px; } }
     #home > header #banner > p > a {
       color: white;
       text-align: center;
       display: inline-block;
-      width: 33%;
+      width: 34%;
       margin: 15px;
       height: 60px;
       line-height: 60px;
-      font-size: 26px;
+      font-size: 24px;
       border-radius: 4px; }
       @media (max-width: 900px) {
         #home > header #banner > p > a {
-          font-size: 22px;
+          font-size: 21px;
           margin: 11px;
           height: 45px;
           line-height: 45px;
-          width: 32%; } }
+          width: 31%; } }
       @media (max-width: 800px) {
         #home > header #banner > p > a {
           font-size: 17px;
@@ -620,6 +639,12 @@ body > footer {
   #home #what > ul > li {
     display: block;
     position: relative; }
+    @media (min-width: 900px) {
+      #home #what > ul > li {
+        padding: 0 5%; } }
+    @media (min-width: 1000px) {
+      #home #what > ul > li {
+        padding: 0 8%; } }
     #home #what > ul > li > h3 {
       font-size: 32px;
       margin: 0;
@@ -640,21 +665,23 @@ body > footer {
       content: " ";
       position: absolute;
       background: center/contain no-repeat; }
-    #home #what > ul > li.create::before {
-      background-image: url("images/ethercalc.jpg"); }
-    #home #what > ul > li.collaborate::before {
-      background-image: url("images/wekan.jpg"); }
-    #home #what > ul > li.communicate::before {
-      background-image: url("images/rocketchat.jpg"); }
+    #home #what > ul > li.chat::before {
+      background-image: url("images/chat-rocket.png"); }
+    #home #what > ul > li.file-storage::before {
+      background-image: url("images/file-davros.png"); }
+    #home #what > ul > li.task-mgmt::before {
+      background-image: url("images/task-wekan.png"); }
+    #home #what > ul > li.document::before {
+      background-image: url("images/document-etherpad.png"); }
     @media (min-width: 700px) {
       #home #what > ul > li {
         height: 250px; }
         #home #what > ul > li::before {
-          width: 40%;
+          width: 50%;
           height: 90%;
           top: 5%; }
         #home #what > ul > li:nth-of-type(odd) {
-          padding-right: 45%;
+          padding-right: 55%;
           background: -webkit-linear-gradient(left, white, #e0d8e8);
           background: linear-gradient(to right, white, #e0d8e8);
           position: relative; }
@@ -673,7 +700,7 @@ body > footer {
             width: calc(50vw - 50%);
             background-color: #e0d8e8; }
         #home #what > ul > li:nth-of-type(even) {
-          padding-left: 45%; }
+          padding-left: 55%; }
           #home #what > ul > li:nth-of-type(even)::before {
             left: 0; } }
     @media (max-width: 700px) {
@@ -683,14 +710,11 @@ body > footer {
           width: 100%;
           height: 150px;
           top: 0; } }
-#home .try-apps {
+#home .action-home {
   text-align: center;
-  font-size: 30px;
-  padding: 25px 0;
-  list-style: none;
-  color: #302851;
+  padding: 60px 0 0 0;
   position: relative; }
-  #home .try-apps::after {
+  #home .action-home::after {
     display: block;
     content: " ";
     position: absolute;
@@ -704,8 +728,59 @@ body > footer {
     background-position: right bottom;
     background-repeat: no-repeat; }
     @media (max-width: 700px) {
-      #home .try-apps::after {
+      #home .action-home::after {
         background-image: none; } }
+    @media (max-width: 500px) {
+      #home .action-home::after {
+        font-size: 20px; } }
+  #home .action-home li {
+    font-size: 25px;
+    padding: 0 20px;
+    list-style: none;
+    display: inline; }
+    @media (max-width: 800px) {
+      #home .action-home li {
+        display: block;
+        line-height: 30px;
+        padding: 10px 0; } }
+  #home .action-home > a {
+    border: 1.5px solid #eee9f4;
+    font-size: 25px;
+    padding: 8px 20px;
+    margin: 0 15px;
+    width: 300px;
+    border-radius: 6px;
+    color: white;
+    -webkit-transition: background 0.35s ease, -webkit-transform 0.75s ease;
+    transition: background 0.35s ease, -webkit-transform 0.75s ease;
+    transition: transform 0.75s ease, background 0.35s ease;
+    transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease;
+    white-space: nowrap; }
+    #home .action-home > a.action-demo {
+      background-color: #d13f6c; }
+      #home .action-home > a.action-demo:hover {
+        background-color: #e0507d; }
+    #home .action-home > a.action-get {
+      background-color: #613c91; }
+      #home .action-home > a.action-get:hover {
+        background-color: #7e53b5; }
+    @media (max-width: 600px) {
+      #home .action-home > a {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 40px;
+        width: 80%; } }
+    @media (max-width: 500px) {
+      #home .action-home > a {
+        width: 90%;
+        font-size: 20px; } }
+#home .try-apps {
+  text-align: center;
+  font-size: 25px;
+  padding: 30px 0;
+  list-style: none;
+  color: #302851; }
   #home .try-apps > li {
     display: inline; }
     @media (max-width: 700px) {
@@ -713,12 +788,8 @@ body > footer {
         display: block;
         padding: 0 0 20px 0; } }
   #home .try-apps > a {
-    border: 1.5px solid #a19cbc;
-    padding: 14px 0;
-    width: 300px;
-    border-radius: 6px;
-    display: inline-block;
-    background-color: white; }
+    padding: 5px 0;
+    display: inline-block; }
     #home .try-apps > a:hover {
       color: #7356cc; }
 #home #how > section {
