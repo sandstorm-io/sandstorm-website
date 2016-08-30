@@ -1579,6 +1579,8 @@ body > footer {
         #get #managed-hosting > ul > li.plan2 p, #get #self-hosting > ul > li.plan2 p {
           max-width: 375px;
           margin: 1em auto; }
+        #get #managed-hosting > ul > li.plan2 #self-host .price, #get #self-hosting > ul > li.plan2 #self-host .price {
+          padding-top: 28px; }
         #get #managed-hosting > ul > li.plan2 .title, #get #self-hosting > ul > li.plan2 .title {
           padding: 15px 15px 0 10px;
           border-bottom: 1px solid #b6b6d8;
@@ -1590,10 +1592,18 @@ body > footer {
           #get #managed-hosting > ul > li.plan2 .title img, #get #self-hosting > ul > li.plan2 .title img {
             height: 150px; }
         #get #managed-hosting > ul > li.plan2 .price, #get #self-hosting > ul > li.plan2 .price {
-          border-bottom: 1px solid #b6b6d8; }
+          border-bottom: 1px solid #b6b6d8;
+          padding: 0 0 10px 0; }
           #get #managed-hosting > ul > li.plan2 .price strong, #get #self-hosting > ul > li.plan2 .price strong {
-            font-size: 30px;
+            font-size: 40px;
             color: #202d70; }
+          #get #managed-hosting > ul > li.plan2 .price .old-price, #get #self-hosting > ul > li.plan2 .price .old-price {
+            color: #b0b0b0;
+            font-size: 80%; }
+          #get #managed-hosting > ul > li.plan2 .price .offer, #get #self-hosting > ul > li.plan2 .price .offer {
+            padding: 3px 0;
+            color: #fff;
+            background-color: #ad3e73; }
         #get #managed-hosting > ul > li.plan2 .storage, #get #self-hosting > ul > li.plan2 .storage {
           border-bottom: 1px solid #b6b6d8; }
           #get #managed-hosting > ul > li.plan2 .storage strong, #get #self-hosting > ul > li.plan2 .storage strong {
