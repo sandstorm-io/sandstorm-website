@@ -22,7 +22,7 @@ Sandstorm for Work is Sandstorm plus the ability to integrate with your corporat
 
 During the beta period we listened to your feedback on pricing, and we've decided to make some changes:
 
-1. We've set a new list price to $10/user/month.
+1. We've set a new list price of $10/user/month.
 2. For a limited time, we are offering an additional **50% off** if you choose annual billing.
 3. Free trials now last 60 days.
 
@@ -35,7 +35,7 @@ We only think you should be paying for Sandstorm if it is helping you make money
 * **Non-profits** with paid employees can receive Sandstorm for Work at half price: $5/user/month.
 * **Educational institutions** supporting faculty and students pay $5/month for each faculty member and $1/month for each student.
 * **Volunteer groups** can receive Sandstorm for Work completely free.
-* **Home users** can also receive Sandstorm for Work for free -- all you crazy geeks who run home LDAP servers for your families are covered.
+* **Home users** can also receive Sandstorm for Work for free; if you run an LDAP server for your own family, then we want your Sandstorm server to be able to take advantage of it.
 * **Bulk discounts** are available for large organizations and resellers.
 
 If any of these situations describe you, [tell us about it](mailto:sales@sandstorm.io) and we'll set you up.
