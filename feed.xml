@@ -7,6 +7,82 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Sandstorm for Work is Ready</title>
+				<description>&lt;p&gt;Today, we’re announcing that Sandstorm for Work is no longer in beta. Companies large and small – ourselves included – have been getting work done using Sandstorm for months. It’s time for you to join us!&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-sandstorm-for-work&quot;&gt;What is Sandstorm for Work?&lt;/h3&gt;
+
+&lt;p&gt;&lt;img style=&quot;float: right; width: 283px; height: 221px;&quot; src=&quot;/images/business-ldap.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Do you wish you could use web services like Google Apps, Slack, Trello, Dropbox, and others, but can’t for security, privacy, or compliance reasons? Frustrated by the setup and maintenance costs of most self-hosted solutions? Need to integrate with your corporate single-sign-on (LDAP, SAML, Active Directory) and enforce company-wide access control policies?&lt;/p&gt;
+
+&lt;p&gt;Sandstorm is a suite of web-based productivity software which you can deploy on your own servers with minimal effort. Any user can install the apps they need with a few clicks – like installing apps on your phone. Apps run inside secure sandboxes with single-sign-on and uniform fine-grained access control. And everything stays up-to-date automatically, so you can set it and forget it.&lt;/p&gt;
+
+&lt;p&gt;Sandstorm for Work is Sandstorm plus the ability to integrate with your corporate single-sign-on, priority support, and other features businesses need.&lt;/p&gt;
+
+&lt;h3 id=&quot;pricing&quot;&gt;Pricing&lt;/h3&gt;
+
+&lt;p&gt;During the beta period we listened to your feedback on pricing, and we’ve decided to make some changes:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;We’ve set a new list price of $10/user/month.&lt;/li&gt;
+  &lt;li&gt;For a limited time, we are offering an additional &lt;strong&gt;50% off&lt;/strong&gt; if you choose annual billing.&lt;/li&gt;
+  &lt;li&gt;Free trials now last 60 days.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;https://sandstorm.io/get-feature-key&quot;&gt;Get Sandstorm for Work »&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;discounted-and-free-keys&quot;&gt;Discounted and free keys&lt;/h3&gt;
+
+&lt;p&gt;We only think you should be paying for Sandstorm if it is helping you make money. To that end:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Non-profits&lt;/strong&gt; with paid employees can receive Sandstorm for Work at half price: $5/user/month.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Educational institutions&lt;/strong&gt; supporting faculty and students pay $5/month for each faculty member and $1/month for each student.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Volunteer groups&lt;/strong&gt; can receive Sandstorm for Work completely free.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Home users&lt;/strong&gt; can also receive Sandstorm for Work for free; if you run an LDAP server for your own family, then we want your Sandstorm server to be able to take advantage of it.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Bulk discounts&lt;/strong&gt; are available for large organizations and resellers.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If any of these situations describe you, &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#115;&amp;#097;&amp;#108;&amp;#101;&amp;#115;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&quot;&gt;tell us about it&lt;/a&gt; and we’ll set you up.&lt;/p&gt;
+
+&lt;h3 id=&quot;core-productivity-suite&quot;&gt;Core productivity suite&lt;/h3&gt;
+
+&lt;p&gt;Sandstorm now bundles our four most-popular apps. Every user can immediately edit documents with Etherpad, create task boards with Wekan, create a chat room with Rocket.Chat, and synchronize &amp;amp; secure their files with Davros.&lt;/p&gt;
+
+&lt;p&gt;On Sandstorm, these apps can integrate in ways that aren’t possible when they run stand-alone. For example:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Activity, comments, and mentions are merged into a single notification stream, so it’s easy to keep track of what your teammates are working on across all apps at once.&lt;/li&gt;
+  &lt;li&gt;You can gather related data from across apps into collections to be shared as a unit.&lt;/li&gt;
+  &lt;li&gt;You can share data from any app directly and securely to a chat room in Rocket.Chat – click the button just to the left of the chat box. No need to generate nor copy/paste a secret link – and no need to worry about that link falling into the wrong hands.&lt;/li&gt;
+  &lt;li&gt;Sandstorm for Work’s priority support covers these apps in addition to Sandstorm itself. If you have a problem, just let us know and we’ll work with the upstream developers to get it fixed on your behalf.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;extended-app-library&quot;&gt;Extended app library&lt;/h3&gt;
+
+&lt;p&gt;There are currently &lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;61 apps and growing&lt;/a&gt; available on Sandstorm, and you can easily &lt;a href=&quot;https://docs.sandstorm.io/en/latest/developing/&quot;&gt;make your own&lt;/a&gt;. Need to run surveys, create spreadsheets, make diagrams, take notes, typeset scholarly papers, host code, publish web pages, or run wikis? We have all that, and more.&lt;/p&gt;
+
+&lt;h3 id=&quot;unprecedented-security&quot;&gt;Unprecedented security&lt;/h3&gt;
+
+&lt;p&gt;Sandstorm is the only server platform that uses fine-grained containerization, which &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/&quot;&gt;protects you against security bugs in apps&lt;/a&gt;, so you can safely let your users install the apps they need, relying on Sandstorm’s automatic exploit mitigation and network isolation to keep data safe.&lt;/p&gt;
+
+&lt;h3 id=&quot;automatic-updates&quot;&gt;Automatic updates&lt;/h3&gt;
+
+&lt;p&gt;As always, once you’ve installed Sandstorm for Work, Sandstorm and apps will be kept up-to-date automatically, with no action needed on your part. Sandstorm is getting better every day, and your users will get those benefits without you lifting a finger.&lt;/p&gt;
+
+&lt;h3 id=&quot;still-open-source&quot;&gt;Still open source&lt;/h3&gt;
+
+&lt;p&gt;Sandstorm for Work is 100% open source software with a thriving community. That means it will never disappear or stop working. Read more in &lt;a href=&quot;https://sandstorm.io/news/2016-04-06-sandstorm-for-work&quot;&gt;our original announcement&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;https://sandstorm.io/get-feature-key&quot;&gt;Get Sandstorm for Work »&lt;/a&gt;&lt;/p&gt;
+</description>
+				<pubDate>Wed, 31 Aug 2016 00:00:00 -0700</pubDate>
+                                <link>https://sandstorm.io/news/2016-08-31-sandstorm-for-work-ready</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-08-31-sandstorm-for-work-ready</guid>
+			</item>
+		
+			<item>
 				<title>Decentralization is about diversity</title>
 				<description>&lt;p&gt;&lt;img src=&quot;/news/images/decentralize.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -435,25 +511,6 @@ under the “About Sandstorm” section.&lt;/p&gt;
 				<pubDate>Tue, 31 May 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-05-31-whats-new</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-05-31-whats-new</guid>
-			</item>
-		
-			<item>
-				<title>Case Study: Sandstorm for journalists</title>
-				<description>&lt;p&gt;&lt;a href=&quot;https://twitter.com/jason_nstar&quot;&gt;Jason Hernandez&lt;/a&gt; is a journalist who often covers sensitive topics like &lt;a href=&quot;http://www.nstarpost.com/17518/145186/a/updated-fbi-continues-to-operate-spy-planes-without-warrants-despite-federal-rul&quot;&gt;mass&lt;/a&gt; &lt;a href=&quot;http://nstarpost.com/17486/159855/a/update-2-cellphone-surveillance-used-on-black-lives-matter-protesters-at-fourth&quot;&gt;surveillance&lt;/a&gt; for the &lt;a href=&quot;http://nstarpost.com/&quot;&gt;North Star Post&lt;/a&gt;. And given the nature of his work, he and his colleagues are justifiably concerned about the information security, not just between journalists and sources, but also drafts and storage of source materials. So, when Jason was visiting the SF Bay Area, he dropped by Sandstorm meetup to talk about the Sandstorm server he set up so he and his colleagues so that they can still enjoy the benefits of web applications, like real-time collaboration, while keeping control over their data.&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/cAzOL_eoMdQ&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;Lightning Talk: Jason Hernandez talks about how North Star Post uses Sandstorm&lt;/p&gt;
-
-&lt;p&gt;Are you using Sandstorm for your work? I’d love to hear more about how you’re using Sandstorm and share your story. Drop me a line at &lt;a href=&quot;mailto:community@sandstorm.io&quot;&gt;community@sandstorm.io&lt;/a&gt; and tell me about it!&lt;/p&gt;
-
-&lt;p&gt;Are you in the Bay Area? Hope you can make it to the next Sandstorm meetup: &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231065150/&quot;&gt;RSVP here&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Or share your Sandstorm use case at local meetups in: &lt;a href=&quot;http://www.meetup.com/Sandstorm-Boston/&quot;&gt;Boston&lt;/a&gt;, &lt;a href=&quot;http://www.meetup.com/Sandstorm-NY/&quot;&gt;New York&lt;/a&gt;, &lt;a href=&quot;http://www.meetup.com/Sandstorm-Berlin/&quot;&gt;Berlin&lt;/a&gt;, &lt;a href=&quot;http://www.meetup.com/Sandstorm-CH/&quot;&gt;Zurich&lt;/a&gt;, or &lt;a href=&quot;http://www.meetup.com/Sandstorm-New-Zealand/&quot;&gt;Wellington&lt;/a&gt;.&lt;/p&gt;
-</description>
-				<pubDate>Mon, 23 May 2016 00:00:00 -0700</pubDate>
-                                <link>https://sandstorm.io/news/2016-05-23-case-study-journalists</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-05-23-case-study-journalists</guid>
 			</item>
 		
 	</channel>

@@ -62,6 +62,7 @@
     <ul>
       <li><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">Open Source Web Apps Aren't Viable; Let's Fix That</a></li>
       <li><a href="/news/2016-02-29-security-track-record">Sandstorm's security track record, and what it means for self-hosting</a></li>
+      <li><a href="/news/2016-08-17-decentralization-is-about-diversity">Decentralization is about diversity</a></li>
       <li><a href="/news/2016-01-22-8-new-open-source-apps.html">8 New open source self-hostable apps</a></li>
       <li><a href="/news/2016-04-06-sandstorm-for-work">Sandstorm for Work Beta: LDAP, SAML, organization management</a></li>
       <li><a href="/news/2016-02-05-app-author-publicity-oasis">Free publicity for your indie web app, and free Oasis service for you</a></li>
@@ -96,13 +97,71 @@
 
 
 <section>
+  <h2><a href="/news/2014-06-04-self-service-web-publishing">Host Your Web Site</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-06-04-self-service-web-publishing">04 Jun 2014</a>
+  
+  
+  
+  
+  <p>Sandstorm now supports apps that publish content to your personal web domain,
+such as blogging apps and content management systems.</p>
+
+<p>While we already had an app that claimed to do this (the “Hacker CMS” app), it
+previously required manual configuration of nginx to actually serve the content.
+Users of alpha.sandstorm.io actually had to ask me to manually set things up.
+But as of build 0.20, you can host your site in a completely self-service way.</p>
+
+<p>To try it out, install the latest version of Hacker CMS from the
+<a href="https://sandstorm.io/apps">app list</a> and click the “Setup DNS” button. (If you
+already have the app installed, install it again to get the latest version;
+we’re still working on automatic updates.)</p>
+
+<p>Hacker CMS is still mostly a tech demo, and we’d like to replace it with ports
+of some better-known blogging platforms. That said, our own blog at
+blog.sandstorm.io is actually hosted using Hacker CMS.</p>
+
+<p>Want to write your own app that does web publishing? Check out
+<a href="https://github.com/kentonv/sandstorm/wiki/Publishing-to-the-user's-domain">the wiki page</a>
+to see how.</p>
+
+<h3 id="tool-improvements">Tool Improvements</h3>
+
+<p>We’ve been hard at work improving Sandstorm’s developer experience. Some
+highlights include:</p>
+
+<ul>
+  <li>Your app’s stdout/stderr output is now accessible via the web UI. Just click
+the wrench icon.</li>
+  <li>A file size indicator is now shown in the top bar, so you can see if your app
+is using unreasonable disk space (<em>cough</em> MongoDB <em>cough</em>).</li>
+  <li><a href="https://github.com/jparyani">Jason Paryani</a> has built preliminary support
+for e-mail, which he’ll talk more about in a future update (once an app is ready).</li>
+  <li>Many other small tweaks have been made to the <code>spk</code> tool.</li>
+</ul>
+
+<h3 id="all-invites-sent">All Invites Sent</h3>
+
+<p>Everyone who was on the <a href="https://sandstorm.io/#signup-form">mailing list</a>
+as of yesterday should have received an invite to alpha.sandstorm.io by now. Please
+let me know if you are on the list but didn’t receive one. Sorry it took so long!
+We will continue sending invites to new sign-ups as long as we can handle the
+server load.</p>
+
+<h3 id="follow-sandstorm-on-twitter-and-google">Follow Sandstorm on Twitter and Google+!</h3>
+
+<p>We are <a href="http://twitter.com/SandstormIO">@SandstormIO on Twitter</a>
+and <a href="https://plus.google.com/u/0/107599969974415778560/posts">Sandstorm.io on Google+</a>.
+We want to keep the mailing list non-spammy, so follow us there for more frequent updates!</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2014-05-12-easy-port">Easy-Port</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2014-05-12-easy-port">12 May 2014</a>
-  
-  
-  
   
   <h3 id="port-your-app-to-sandstorm-in-five-minutes">Port your app to Sandstorm in five minutes!</h3>
 

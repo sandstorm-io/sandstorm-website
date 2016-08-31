@@ -62,6 +62,7 @@
     <ul>
       <li><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">Open Source Web Apps Aren't Viable; Let's Fix That</a></li>
       <li><a href="/news/2016-02-29-security-track-record">Sandstorm's security track record, and what it means for self-hosting</a></li>
+      <li><a href="/news/2016-08-17-decentralization-is-about-diversity">Decentralization is about diversity</a></li>
       <li><a href="/news/2016-01-22-8-new-open-source-apps.html">8 New open source self-hostable apps</a></li>
       <li><a href="/news/2016-04-06-sandstorm-for-work">Sandstorm for Work Beta: LDAP, SAML, organization management</a></li>
       <li><a href="/news/2016-02-05-app-author-publicity-oasis">Free publicity for your indie web app, and free Oasis service for you</a></li>
@@ -98,13 +99,91 @@
 
 
 <section>
+  <h2><a href="/news/2016-02-29-security-track-record">Sandstorm's security track record, and what it means for self-hosting</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2016-02-29-security-track-record">29 Feb 2016</a>
+  
+  
+  
+  
+  <p>Today I want to share the results of our own <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/">analysis of security issues of web apps available on
+the Sandstorm app market</a>.</p>
+
+<h3 id="of-security-issues-automatically-mitigated-before-they-were-discovered">95% of security issues automatically mitigated, before they were discovered</h3>
+
+<p>Sandstorm automatically protects users from a huge fraction of the publicly disclosed security
+vulnerabilities discovered in apps on the Sandstorm app market, before the vulnerabilities were even
+disclosed. Of the issues we examined, 95% were wholly or partly mitigated. You can read the <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/">full
+report here in our
+documentation</a>. The analysis covers
+publicly-disclosed vulnerabilities in Etherpad, WordPress, Roundcube, ShareLaTeX, and Tiny Tiny
+RSS. In WordPress, we limited our analysis to security issues of severity score 6 or higher, due to
+the large number of issues. We also mitigated 21 CVEs in the Linux kernel to prevent sandbox
+breakout.</p>
+
+<p>We built Sandstorm to create a <a href="https://sandstorm.io/news/2014-07-21-open-source-web-apps-require-federated-hosting">viable ecosystem for indie and open source web
+apps</a>. When
+server apps are as safe to run as apps on a phone, people will feel free to choose whatever software
+they like. Consider that some Sandstorm apps, like
+<a href="https://sandstorm.io/news/2016-02-25-giftr">Giftr</a>, are small and don’t have as many people
+checking the code for bugs. Sandstorm protects you when you use those apps, too.</p>
+
+<p>We know that security is risk-management, not binary. No software, Sandstorm included, will ever
+protect all user data from all bugs in all programs. However, raising barriers to a successful
+attack means fewer successful attacks will occur.</p>
+
+<h3 id="self-hosted-apps-can-be-as-secure-as-a-centralized-web-app">Self-hosted apps can be as secure as a centralized web app</h3>
+
+<p>With Sandstorm, you get an experience as easy to use as software-as-a-service, and you retain the
+privacy benefits of self-hosting. One of our key security strategies is to isolate each grain
+(typically, one document) separately, so that a buggy or malicious app has a hard time ruining your
+day. That degree of isolation is enabled by our various <a href="https://sandstorm.io/how-it-works">security
+practices</a>.</p>
+
+<p>I hope you’ll <a href="https://docs.sandstorm.io/en/latest/using/security-practices/">read the full
+analysis</a>, prepared by myself and
+Kenton Varda. <a href="https://groups.google.com/forum/#!forum/sandstorm-dev">Let us know</a> what
+you think!</p>
+
+<h3 id="when-self-hosting-is-secure-users-are-free-to-choose">When self-hosting is secure, users are free to choose</h3>
+
+<p>Security enables freedom of choice. If you use a Sandstorm server, you can choose productivity tools
+that fit your needs, even if the server is maintained by someone else.</p>
+
+<p>Want to chat with colleagues? Install
+<a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> or
+<a href="https://apps.sandstorm.io/app/qkgkaxfqhgsff8zgx2f4nf1a8xvmpte6wa19egmfkk06mzt7e8dh">Let’s
+Chat</a>. Want to
+track tasks and stay organized? Install
+<a href="https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h">WeKan</a> or
+<a href="https://apps.sandstorm.io/app/0dp7n6ehj8r5ttfc0fj0au6gxkuy1nhw2kx70wussfa1mqj8tf80">Simple
+Todos</a>. Want to
+organize a gift exchange? Install
+<a href="https://apps.sandstorm.io/app/tr3w5p7ajsf61nf2e6dkfv8tdjes0qsm5w6ew0frd4qwnacwur90">Giftr</a>. Want to
+share files quickly with friends? Install
+<a href="https://apps.sandstorm.io/app/nn7axgy3y8kvd0m1mtk3cwca34t916p5d7m4j1j2e874nuz3t8y0">FileDrop</a> or
+<a href="https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h">Davros</a>.</p>
+
+<p>If you prefer managed hosting, you can <a href="https://oasis.sandstorm.io/">make an account on Oasis</a> and
+enjoy any of these apps or upload your own.</p>
+
+<p>Or you can run your own Sandstorm install. Over the past six months, we’ve integrated <a href="https://sandstorm.io/news/2015-10-01-free-ssl-certificates">free SSL
+certificates</a> and
+<a href="https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install">cryptographically-verified automatic
+updates</a> into
+self-hosted Sandstorm. As soon as someone installs Sandstorm for an organization, they can safely
+allow colleagues to choose their own tools. If you install Sandstorm for yourself, you can use the
+best indie web apps and let the platform handle security for you.  Get started on the <a href="https://sandstorm.io/install">Sandstorm
+install page</a>.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2016-02-25-giftr">Andrew Wansley shares his story of Giftr</a></h2>
   <p class="post-details">By <a href="https://github.com/neynah">Nena Nguyen</a>
     
     - <a href="/news/2016-02-25-giftr">25 Feb 2016</a>
-  
-  
-  
   
   <p>Giftr is one of the newest additions to our <a href="https://apps.sandstorm.io/">App Market</a>; it helps make coordinating gift exchanges less painful for you and other gifters involved. At our <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/227595644/">Sandstorm San Francisco meetup</a> in January, app author Andrew Wansley shared his story of how his decision to create &amp; package his <a href="https://apps.sandstorm.io/app/tr3w5p7ajsf61nf2e6dkfv8tdjes0qsm5w6ew0frd4qwnacwur90">Giftr</a> app all started from a simple family tradition.</p>
 
@@ -307,22 +386,6 @@ are free-of-cost while Sandstorm is in beta. Then email me at community@sandstor
 <p>Did you know that you can get bonus storage on Oasis through the <a href="https://oasis.sandstorm.io/referrals">referral program</a>?</p>
 
 <p>Unlock up to 30GB if you’re a paid user, or up to 2GB bonus storage (+ unlimited grains) for free tier users. (Technically, all plans are free right now while we’re in beta, so catch that while you can.)  That bonus storage will come in handy when you switch over to <a href="https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h">Davros</a> like me.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-01-20-how-it-works">How Sandstorm Works: Containerize Data, not Services</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2016-01-20-how-it-works">20 Jan 2016</a>
-  
-  <p style="text-align: center"><a href="/how-it-works"><img src="/images/how-it-works.png" /></a></p>
-
-<p>Last week <a href="/news/2016-01-11-website">we announced the launch of our new web site</a>. Everything has changed!</p>
-
-<p>Today, I want to call your attention to one page that I’m particularly excited to have written: <a href="/how-it-works">The “How it works” page</a>. Sandstorm is radically different from all other web infrastructure you might be familiar with, in that we containerize not just “microservices” but individual documents. As it turns out, this has all kinds of huge advantages, especially in terms of security but also in the ability to compose apps into larger workflows. Read all about it here:</p>
-
-<p style="text-align: center"><a href="/how-it-works" class="linkbutton">Learn How Sandstorm Works &raquo;</a></p>
 
 </section>
 
