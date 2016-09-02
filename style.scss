@@ -1556,16 +1556,12 @@ body >footer {
             font-size: 40px;
           }
         }
-        .storage {
+        .features {
           border-bottom: 1px solid #b6b6d8;
           padding: 10px 0;
           strong {
             font-size: 30px;
           }
-        }
-        .grains {
-          font-size: 20px;
-          padding: 10px 0 0 0;
         }
         .get {
           border-radius: 0px 0px 5px 5px;
@@ -1592,12 +1588,16 @@ body >footer {
         }
 
         &.plan2 {
-          margin: 0 2% 20px 2%;
-          width: 45%;
+          margin: 0 0.5% 10px 0.5%;
+          width: 29%;
           position: relative;
           box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
-           @media (max-width: 700px) {
+          @media (max-width: 700px) {
+            width: 45%;
+          }
+          
+          @media (max-width: 550px) {
             width: 100%;
           }
 
@@ -1622,7 +1622,10 @@ body >footer {
               color: #202d70;
             }
             img {
-              height: 150px;
+              height: 8rem;
+              @media (max-width: 700px) {
+                height: 10rem;
+              }
             }
           }
           .price {
@@ -1642,15 +1645,24 @@ body >footer {
               background-color: #ad3e73;
             }
           }
-          .storage {
+          
+          #feature-list {
+            text-align: left;
+            padding-left: 10px;
+            color: #232323;
+            font-size: 14px;
+            line-height: 1.7em;
+          }
+          
+          .features {
             border-bottom: 1px solid #b6b6d8;
             strong {
               font-size: 30px;
               color: #202d70;
+              @media (max-width: 800px) {
+                font-size: 25px;
+              }
             }
-          }
-          .grains {
-            color: #202d70;
           }
           .get>a {
             color: white;
