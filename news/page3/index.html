@@ -99,13 +99,55 @@
 
 
 <section>
+  <h2><a href="/news/2016-05-31-whats-new">May changelog - what's new in Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2016-05-31-whats-new">31 May 2016</a>
+  
+  
+  
+  
+  <p>This month features a big change: when you delete grains, they are sent to a “Trash” area, where
+they are held for 30 days before being deleted permanently. I personally have clicked “Delete” on
+the wrong grain by accident, so I’m very happy with the new feature! This way, I can undo it.</p>
+
+<p>Self-hosters will also appreciate the totally-redesigned admin interface. Visit /admin on your server
+and you’ll see that it’s easier to navigate and visually cleaner.</p>
+
+<p>Here’s the full changelog. As always, you can visit your Sandstorm server and find the changelog
+under the “About Sandstorm” section.</p>
+
+<h3 id="v0164-2016-05-20">v0.164 (2016-05-20)</h3>
+<ul>
+  <li>Self-hosting: The admin settings UI has been completely revamped.</li>
+  <li>Fixed grain debug log auto-scrolling.</li>
+  <li>Sandcats: Fixed obscure ASN.1 type issue in CSRs that was causing Globalsign API to complain.</li>
+  <li>Fixed bug where logging in via Google or Github while viewing a sharing link which you had already redeemed previously would lead to an error.</li>
+</ul>
+
+<h3 id="v0163-2016-05-15-bugfixes">v0.163 (2016-05-15) [bugfixes]</h3>
+<ul>
+  <li>Fixed subtle bug introduced in 0.162 which caused shared grains to refresh every minute.</li>
+</ul>
+
+<h3 id="v0162-2016-05-14">v0.162 (2016-05-14)</h3>
+<ul>
+  <li>Implemented “trash”. Deleted grains go to the trash where they can be recovered for up to 30 days.</li>
+  <li>Grains can now be deleted from the grain list, without opening them first. Multiple grains can be selected for deletion at once.</li>
+  <li>An app can now request that the “who has access” dialog be displayed.</li>
+  <li>Fixed bug where after an upload failed, future uploads would show the same error despite not having failed.</li>
+  <li>Tweaked the “logout other sessions” button to give better feedback that the request is in-progress.</li>
+  <li>When visiting a Sandstorm server that hasn’t been set up yet, you’ll now be redirected to the setup wizard.</li>
+  <li>The API endpoint now allows the authorization token to be specified as part of the path, for cases where setting the <code>Authorization</code> header is not possible (especially cross-origin WebSocket).</li>
+</ul>
+
+</section>
+
+<section>
   <h2><a href="/news/2016-05-23-case-study-journalists">Case Study: Sandstorm for journalists</a></h2>
   <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
     
     - <a href="/news/2016-05-23-case-study-journalists">23 May 2016</a>
-  
-  
-  
   
   <p><a href="https://twitter.com/jason_nstar">Jason Hernandez</a> is a journalist who often covers sensitive topics like <a href="http://www.nstarpost.com/17518/145186/a/updated-fbi-continues-to-operate-spy-planes-without-warrants-despite-federal-rul">mass</a> <a href="http://nstarpost.com/17486/159855/a/update-2-cellphone-surveillance-used-on-black-lives-matter-protesters-at-fourth">surveillance</a> for the <a href="http://nstarpost.com/">North Star Post</a>. And given the nature of his work, he and his colleagues are justifiably concerned about the information security, not just between journalists and sources, but also drafts and storage of source materials. So, when Jason was visiting the SF Bay Area, he dropped by Sandstorm meetup to talk about the Sandstorm server he set up so he and his colleagues so that they can still enjoy the benefits of web applications, like real-time collaboration, while keeping control over their data.</p>
 
@@ -273,73 +315,6 @@ For more on Sandstorm’s security design, read our
 <a href="https://docs.sandstorm.io/en/latest/using/security-practices/">security practices documentation</a>.</p>
 
 <p>Thanks!</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-04-06-sandstorm-for-work">Sandstorm for Work Beta: LDAP, SAML, organization management</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2016-04-06-sandstorm-for-work">06 Apr 2016</a>
-  
-  <p>Sandstorm is a great way to run open source collaborative productivity apps like document editors, task managers, chat rooms, file sharing, and more (54 apps and growing), all in one place. Lots of people – including us – use Sandstorm every day as part of doing their jobs. For example, right now I am composing this blog post in <a href="https://apps.sandstorm.io/app/fq057t4ek3yt96xsfje6c1wv61pkjkqm9hs1539x4jqxjwzdp7fh">Dillinger</a> running on <a href="https://oasis.sandstorm.io">Sandstorm Oasis</a> (our hosting service), but many people choose to self-host Sandstorm on their own machines.</p>
-
-<p><img style="float: right; width: 283px; height: 221px;" src="/images/business-ldap.png" /></p>
-
-<p><a href="https://sandstorm.io/business">Sandstorm for Work</a> makes self-hosted Sandstorm easier to integrate into a corporate environment. That means you can:</p>
-
-<ul>
-  <li>Integrate with LDAP (including Active Directory) or SAML for single-sign-on.</li>
-  <li>Manage user groups and domains as whole units rather than inviting each user individually.</li>
-  <li>Specify organization-wide access control policies, like “no sharing outside of the organization”.</li>
-  <li><a href="https://sandstorm.io/business">And more…</a></li>
-</ul>
-
-<p>We’re in beta now, so not all features are ready yet, but once you’ve installed Sandstorm you’ll automatically receive updates as they become available.</p>
-
-<p>To get started now, install Sandstorm and choose “Sandstorm for Work” during setup (or if you already have a server, look for the “for Work” tab in the admin settings). Sandstorm for Work is priced at $15/user/month, and currently we’re offering a 90-day free trial. (It’s still open source! More on that in a bit.)</p>
-
-<p><a href="https://sandstorm.io/install" class="linkbutton">Install Sandstorm »</a></p>
-
-<h3 id="productivity-apps-large-and-small">Productivity Apps Large and Small</h3>
-
-<p>With Sandstorm for Work, you can run apps similar to popular SaaS products, but keep your data in-house. For example, you can run <a href="https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60">Etherpad</a> and <a href="https://apps.sandstorm.io/app/a0n6hwm32zjsrzes8gnjg734dh6jwt7x83xdgytspe761pe2asw0">EtherCalc</a> instead of Google Docs, <a href="https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h">Wekan</a> instead of Trello, <a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> instead of Slack, and <a href="https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h">Davros</a> instead of Dropbox. Once you have Sandstorm running, you can install each new app with a click – no need to create a new account on a new service, and no worry about whether that service is sufficiently private and secure. With Sandstorm, running apps in-house is actually <strong>easier</strong> than using SaaS.</p>
-
-<p>But even more interestingly, you can run apps on Sandstorm that aren’t available anywhere else, like Simon Vansintjan’s <a href="https://apps.sandstorm.io/app/c6zfftftrra9d4pdyuc1psew65ukqrjujvk20fac4zke1uasxv10">Annotate</a>. The idea behind Annotate is simple: upload an image, then annotate it with comments. We at Sandstorm use it to discuss UI and illustration mockups. Here’s me using it to comment on a slide deck we’re working on:</p>
-
-<p style="max-width: 500px; margin: 1em auto;"><a href="/news/images/annotate.png"><img src="/news/images/annotate-small.png" /></a></p>
-
-<p>What I love about Annotate is its simplicity: Simon wrote the whole thing in a couple weekends. And yet, it’s enough to be useful to design teams anywhere. No matter what Simon decides to do in the future, this app will never disappear, and you don’t have to trust Simon because your data stays on your server.</p>
-
-<p>Annotate is just one of <a href="https://apps.sandstorm.io">54 apps and growing</a> on our app market. By installing Sandstorm at your workplace, you get access to all of these at once, under a single login, and without giving up control of your data.</p>
-
-<h3 id="security-behind-the-firewall">Security Behind the Firewall</h3>
-
-<p><img style="float: right; width: 236px; height: 188px;" src="https://sandstorm.io/images/why-finegrained.svg" /></p>
-
-<p>Of course, if you want to run apps on your own infrastructure, behind your firewall, you need to think about security. A malicious app – or a buggy app that gets hacked – can compromise your whole network.</p>
-
-<p>Fortunately, Sandstorm protects you. Sandstorm is the only container engine that implements <a href="https://sandstorm.io/how-it-works">fine-grained isolation</a>, locking every document in its own container. By doing so, it prevents any app from compromising the server or network, and indeed <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/">it renders 95% of app security vulnerabilities moot before they are even discovered</a>.</p>
-
-<h3 id="developing-for-enterprise">Developing for Enterprise</h3>
-
-<p>Are you a developer of a web app aimed at enterprise? Do you ever get requests for an on-prem version, but find it hard to fulfill this request given the myriad environments and infrastructure you’d need to support? Perhaps we can help. If you target Sandstorm, then these logistics become our job. If your app works on one Sandstorm server, it will work everywhere. If you are interested in learning more, <a href="https://sandstorm.io/developer">check out our developer features</a> and <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#099;&#111;&#109;&#109;&#117;&#110;&#105;&#116;&#121;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;">e-mail us</a>.</p>
-
-<h3 id="is-it-open-source">Is it Open Source?</h3>
-
-<p>Yes! Sandstorm for Work features are part of the same codebase as the rest of Sandstorm and under the same Apache 2.0 license. However, in order to unlock Sandstorm for Work features, we ask that you buy a “feature key” from us.</p>
-
-<p>So how does that work? Can’t anyone just remove the feature key check? In fact, yes, you can. However, if you did that, you would not be able to take advantage of our automatic updater, which ensures that your server is updated to the latest version within 24 hours of any release with no effort on your part. Automatic updates are important to keep your server secure and to make sure you can always run the latest apps.</p>
-
-<p>Purchasing a feature key also entitles you to priority support. However, we don’t want to be a company who primarily sells support, because we think that creates a perverse incentive for us to make our product hard to use. Indeed, it is our goal that no one should ever need to contact support at all, but under a support model, we’d be putting ourselves out of business! Under the feature key model, we are selling features, and promising support if there are problems. This way, we are incentivized to make sure there are no problems, because then we don’t have to answer support tickets.</p>
-
-<h3 id="the-future">The Future</h3>
-
-<p>We like to release features early and often – we push a new release almost every week. What we are announcing today is only the beginning of what we have in store for Sandstorm for Work. Over the coming months, we’ll be adding features like group management (to make it easier to share documents with your team), audit logging (keep track of who has been accessing what, for security and compliance purposes), customizable access control policies, and much more.</p>
-
-<p>If you install Sandstorm today, <strong>you’ll automatically get these features as they become available</strong> – your server will automatically update after every weekly release with no action needed on your part. So why not install now and see what you think? Feel free to <a href="https://github.com/sandstorm-io/sandstorm/issues">file a bug</a> to tell us what you want to see next.</p>
-
-<p style="text-align: center"><a style="display: inline-block; width: 250px; margin: 4px 0;" href="https://demo.sandstorm.io" class="linkbutton">Try a demo »</a> <a style="display: inline-block; width: 250px; margin: 4px 0;" href="/install" class="linkbutton">Install Sandstorm »</a></p>
 
 </section>
 

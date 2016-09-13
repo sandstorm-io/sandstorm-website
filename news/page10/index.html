@@ -99,13 +99,60 @@
 
 
 <section>
+  <h2><a href="/news/2015-04-08-osx-security-bug">Remotely send Chrome and Node.js into infinite loops via this one weird OSX kernel bug</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2015-04-08-osx-security-bug">08 Apr 2015</a>
+  
+  
+  
+  
+  <p>A few months ago I discovered a security bug in the Darwin kernel used by most Apple products. The bug could allow an attacker to trivially remotely DoS a variety of network services and apps, from Node.js to Chrome. Today, <a href="https://support.apple.com/en-us/HT204659">Apple released a patch</a> (look for CVE-2015-1105), so now I can tell you about it.</p>
+
+<p>Now, just to be clear, I’m no <a href="https://www.imperialviolet.org/">Adam Langley</a>. This bug is “just” a DoS, nothing like a Heartbleed or a Shellshock. The worst it can do is allow an attacker to cause a temporary service disruption. But I think all security bugs deserve a writeup so that we can learn from them, and Apple’s terse description of the problem doesn’t accomplish this. Also, it’s a fun story.</p>
+
+<p>I discovered the problem while doing research on the different interfaces that various operating systems provide for doing event-driven I/O – that is, how you tell the platform: “Here are all my open connections; wake me up when one of them receives a message.” It turns out that every OS does this differently. Linux has <code>epoll</code>. BSD has <code>kqueue</code>. Windows has… well, about five different mechanisms that cover differing subsets of usecases and you can only choose one. In any case, I was trying to build an abstraction layer over these for <a href="https://capnproto.org">Cap’n Proto</a>, so I wanted to make sure I understood them all.</p>
+
+<p>I noticed a curious thing: some man pages discussed an event called “out-of-band data” while others didn’t. “Out-of-band data” (OOB), also known as “urgent data”, is a little-used feature of TCP connections that essentially allows you to send a byte that “jumps the queue” so that the receiving app can receive it before receiving other data sent before it. You probably didn’t know about this, because basically no one uses this feature – except for Telnet, which needs a way to signal that you pressed “ctrl+C” when the destination app is not otherwise processing input.</p>
+
+<p>With almost all event notification APIs, regular data and OOB data raise different kinds of events. For example, <code>poll()</code> (and its successor on Linux, <code>epoll</code>) has <code>POLLIN</code> for regular data and <code>POLLPRI</code> for OOB. This way, if your app does not expect to receive OOB data, it simply doesn’t ask to be notified about that type of event, and the kernel happily discards it for you (or maybe inserts it into the regular stream, which is fine).</p>
+
+<p>Curiously, the BSD <code>kqueue</code> docs are unclear on how OOB data is handled. <a href="https://www.freebsd.org/cgi/man.cgi?query=kqueue&amp;sektion=2">FreeBSD’s <code>kqueue</code></a> makes no mention of it, and as far as I’ve been able to determine it simply doesn’t support notification of OOB events at all. <a href="http://leaf.dragonflybsd.org/cgi/web-man?command=kqueue&amp;section=2">DragonflyBSD’s <code>kqueue</code></a> defines an <code>EVFILT_EXCEPT</code> event type.</p>
+
+<p><a href="https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man2/kqueue.2.html">Darwin’s (OSX/iOS) <code>kqueue</code></a> also doesn’t mention OOB data, but some Googling revealed an undocumented “feature”: on OOB data, Darwin will raise a regular <code>EVFILT_READ</code> event (which normally indicates that regular in-band data was received) but set the special flag <code>EV_OOBAND</code> on the event structure.</p>
+
+<p>Of course, if you aren’t <em>expecting</em> OOB data, you’re not going to check for that flag. So when you receive <code>EVFILT_READ</code>, you’re going to believe you’ve received regular data. And you’re going to do a <code>recv()</code> call to read that data, and there isn’t going to be any. And then you’re going to say “oh well” and return to the event loop. But if you are using <code>kqueue()</code> in level-triggered mode (as most people do, because it’s easier), then the operating system is going to see that the OOB data is still there, and is going to give you <em>the exact same event again</em>.</p>
+
+<p>So you go into an infinite loop.</p>
+
+<p><strong>Wait, doesn’t that mean almost all event-driven OSX network apps will go into an infinite loop if they receive a single TCP packet with the urgent bit set?</strong></p>
+
+<p>I didn’t think that could possibly be true at first, so I fired up a Mac machine to try it. Sure enough:</p>
+
+<ul>
+  <li>
+    <p>When Google Chrome visited an HTTP server that sent back an OOB byte, the whole app (not just the tab, but everything) locked up and had to be force-quit. It turns out Chrome does all networking from the main process, so the per-tab process separation did not help. (<a href="https://code.google.com/p/chromium/issues/detail?id=437642">Chromium issue 437642</a> – currently still locked down as a security issue)</p>
+  </li>
+  <li>
+    <p>When a <a href="https://nodejs.org">Node.js</a> server received an OOB byte from a client, the server would go into an infinite loop and stop handling other connections. (<a href="https://github.com/libuv/libuv/commit/e19089f7b14800d3f9bd74d9699e841e4b61a36d">fixed in this commit</a>)</p>
+  </li>
+</ul>
+
+<p>On the other hand, my third test case – <a href="http://nginx.org">nginx</a> – was not affected, because it uses kqueue in edge-triggered mode, and therefore it only receives the unexpected event when new data arrives rather than any time data is available – i.e. once rather than infinity times. But two of three is a pretty worrisome hit rate, especially when these are some very big names.</p>
+
+<p>Arguably the worst / most interesting part of this problem is that it was a problem inherent in the API. Technically it was not that the kernel was buggy, but that the interface was confusing (and underdocumented) in a way that caused the same bug to manifest in several different apps. Fixing the problem either required fixing every app (and being ever-vigilant in the future), or changing the API and <em>breaking</em> any existing app that depended on the behavior (of which there appears to be a few).</p>
+
+<p>To Apple’s credit, they did what I think is the right thing: they changed the interface so that it no longer reports <code>EVFILT_READ</code> events on TCP OOB data. I do not quite understand their description of this problem as a “state inconsistency issue”, but my tests confirm that OOB data is now ignored.</p>
+
+<p>The moral of the story? <strong>Confusing APIs are a security problem. If many users of your API get it wrong in a way that introduces a security bug, that’s a bug in your API, not their code.</strong></p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-04-06-pycon">See you at PyCon in Montreal this weekend</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2015-04-06-pycon">06 Apr 2015</a>
-  
-  
-  
   
   <p>I’m hoping to see you in Montreal at
 <a href="https://us.pycon.org/2015/">PyCon 2015</a>! I’m co-speaking at a talk and
@@ -214,32 +261,6 @@ or
 
 <p>If you’re in the Boston area between now and Tuesday March 24, send me an email and let’s
 meet up! I’m asheesh@sandstorm.io.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-03-12-laverna-and-localstorage">Packaging Laverna: localStorage within Sandstorm</a></h2>
-  <p class="post-details">By <a href="https://github.com/jparyani">Jason Paryani</a>
-    
-    - <a href="/news/2015-03-12-laverna-and-localstorage">12 Mar 2015</a>
-  
-  <p>Last week, I packaged <a href="https://laverna.cc/">Laverna</a> for Sandstorm and added it to the <a href="https://sandstorm.io/apps/">app list</a>. You can now use this open source note-taking app from any Sandstorm instance with one click. In this post, I explain how a purely client-side note-taking app integrates with Sandstorm for storage.</p>
-
-<p>From the Laverna devs:</p>
-
-<blockquote>
-  <p>Laverna is a JavaScript note-taking web application with a Markdown editor and encryption support. It’s built to be an open source alternative to Evernote.</p>
-</blockquote>
-
-<p>Laverna is a fully <a href="https://github.com/sandstorm-io/sandstorm/wiki/Pure-client-apps">client side app</a> and typically stores all its data in IndexedDB/localStorage. In the case of the Sandstorm package, we configure the app to use localStorage and mirror any updates to localStorage to disk using a simple REST backend. On app start, we query the backend, and restore all the keys to localStorage.</p>
-
-<p>Unfortunately (or maybe fortunately), there’s no way to monkey-patch the built-in localStorage to support this since it allows you to set keys by doing normal property access, ie. with <code>localStorage.KEY</code> or <code>localStorage[KEY]</code>. Javascript provides no way to shim over that, at least until <a href="https://github.com/lukehoban/es6features#proxies">ES6 proxies</a> are widely implemented.</p>
-
-<p>It’s also worth noting that the backend is a very lightweight C++ server that uses the raw Sandstorm API. The backend’s only jobs are to serve the index.html, handle GET/POST/PUT/DELETE requests to allow fetching/persisting the localStorage keys, and provide one GET endpoint that lists all the keys that have been stored. Its memory footprint is incredibly small, which makes it ideal for Sandstorm. You can check out the source <a href="https://github.com/jparyani/laverna-sandstorm/blob/master/server.c%2B%2B">here</a>.</p>
-
-<p>Within Laverna, it was surprisingly easy to add the automatic synchronizing. It took very little work to wire it up. You can see exactly how it works by reading <a href="https://github.com/jparyani/laverna/commit/38d7641fd2b0d64df80132493a933f97757f6413">my changes</a>. If there’s some interest, let me know by emailing jparyani@sandstorm.io, and I can think about writing a nice looking wrapper around localStorage that would handle this seamlessly.</p>
-
-<p>If you want to test this out, you can try <a href="https://demo.sandstorm.io/appdemo/4dgxs5m0gnjmjpg88mswqsy9fj08t3z6c8kwv4y9tkgxvp9eas9h">Laverna on the Sandstorm demo</a>; look at the network inspector tab in your browser as it runs.</p>
 
 </section>
 

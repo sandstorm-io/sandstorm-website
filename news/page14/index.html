@@ -99,13 +99,73 @@
 
 
 <section>
+  <h2><a href="/news/2014-12-15-capnproto-0.5">Cap'n Proto 0.5, and how it is central to Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-12-15-capnproto-0.5">15 Dec 2014</a>
+  
+  
+  
+  
+  <p><a href="https://capnproto.org">Cap’n Proto</a> is an open source serialization and RPC
+protocol being developed as part of the Sandstorm project. Today,
+we’ve <a href="https://capnproto.org/news/2014-12-15-capnproto-0.5-generics-msvc-java-csharp.html">released version 0.5</a> of Cap’n Proto with lots of goodies, including
+new features like generics and support for additional compilers and languages
+like Visual C++, Java, and C#. Much of the work comes from a large number of
+awesome open source contributors.</p>
+
+<p>So, what does this have to do with Sandstorm?</p>
+
+<div><div style="float:right; text-align: center; width: 50%"><img src="https://kentonv.github.io/capnproto/images/infinity-times-faster.png" /><br /><img style="width: 100%" src="https://kentonv.github.io/capnproto/images/time-travel.png" /></div></div>
+
+<p>Many developers are excited by Cap’n Proto for being “like Google’s
+Protocol Buffers, except infinity times faster”. When it comes to Sandstorm, though,
+the design of Cap’n Proto’s RPC system is far more important than the speed of
+its encoding. Sandstorm is a
+<a href="http://www.erights.org/elib/capability/overview.html">capability system</a>: applications can send
+each other object references and address messages to those objects. Messages can themselves contain
+new object references, and the recipient implicitly gains permission to use any object reference
+they receive. Essentially, Sandstorm allows the interfaces between two apps, or between and app
+and the platform, to be designed using the same vocabulary as interfaces between objects or
+libraries in an object-oriented programming language (but
+<a href="https://capnproto.org/rpc.html#distributed-objects">without the mistakes of CORBA or DCOM</a>).
+Cap’n Proto RPC is at the core of this.</p>
+
+<p>This has powerful implications: Consider the case of service discovery. On Sandstorm, all
+applications start out isolated from each other in secure containers. However, applications can
+(or, will be able to) publish Cap’n Proto object references to the system representing APIs they
+support. Then, another app can make a request to the system, saying “I need an object that
+implements interface Foo”. At this point, the system can display a picker UI to the user,
+presenting all objects the user owns that satisfy the requirement. However, the requesting app only
+ever receives a reference to the object the user chooses; all others remain hidden. Thus, security
+becomes “automatic”. The user does not have to edit an ACL on the providing app, nor copy around
+credentials, nor even answer any security question at all; it all derives automatically and
+naturally from the user’s choices. We call this interface “The Powerbox”.</p>
+
+<p>Moreover, because Sandstorm is fully aware of the object references held by every app, it will
+be able to display a visualization of these connections, allowing a user to quickly see which of
+their apps have access to each other and even revoke connections that are no longer desired with
+a mouse click.</p>
+
+<p>Cap’n Proto 0.5 introduces primitives to support “persistent” capabilities – that is, the ability
+to “save” an object reference to disk and then restore it later, on a different connection.
+Obviously, the features described above totally depend on this feature.</p>
+
+<p>The next release of Cap’n Proto is likely to include another feature essential for Sandstorm: the
+ability to pass capabilities from machine to machine and have Cap’n Proto automatically form direct
+connections when you do. This allows servers running on different machines to interact with each
+other in a completely object-oriented way. Instead of passing around URLs (which necessitate a
+global namespace, lifetime management, firewall traversal, and all sorts of other obstacles), you
+can pass around capabilities and not worry about it. This will be central to Sandstorm’s strategies
+for federation and cluster management.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2014-11-05-mobile-strategy">How Sandstorm works on mobile; plus app updates</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2014-11-05-mobile-strategy">05 Nov 2014</a>
-  
-  
-  
   
   <p>Today we have a few announcements regarding Sandstorm and mobile.</p>
 
@@ -251,22 +311,6 @@ update. Now you can upload your whole music library more easily!</p>
 <p>We’ve just released our last app port of the campaign: MediaWiki. This is the very software that powers Wikipedia, packaged as a Sandstorm app. You can use MediaWiki on Sandstorm to host a private wiki for you and your friends or teammates. Go install it from the app list now, either on your own Sandstorm server or on <a href="https://demo.sandstorm.io">our demo</a>.</p>
 
 <p><img src="https://sandstorm.io/apps/mediawiki.png" alt="MediaWiki screenshot" /></p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2014-08-27-sandcat">Meet the Sand Cat</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2014-08-27-sandcat">27 Aug 2014</a>
-  
-  <p>Allow me to introduce Sandstorm’s new mascot, the Sand Cat. Based on the <a href="https://www.google.com/search?q=sand+cat&amp;tbm=isch">adorable desert animal</a> who can go for weeks without drinking by using only the water from its prey, the Sand Cat is the handiwork of talented illustrator <a href="http://nenanguyen.ca/">Néna Nguyen</a>.</p>
-
-<p style="text-align: center"><a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=8&amp;perk_id=2166937"><img src="https://sandstorm.io/sandcat2.png" alt="Sand cat illustration #2" /></a></p>
-
-<p>The Sand Cat’s story will begin to unfold over the coming weeks, but we wanted to give you a sneak peek so that we could let you know that we’ll be adding Sand Cat stickers to every sticker pack sold as part of <a href="http://igg.me/at/sandstorm">our Indiegogo campaign</a>. So, if you haven’t had a chance yet, grab <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=8&amp;perk_id=2166937">a sticker pack for $8</a> or <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=32&amp;perk_id=2166959">a t-shirt plus sticker pack for $32</a>.</p>
-
-<p style="text-align: center"><a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=8&amp;perk_id=2166937"><img src="https://sandstorm.io/sandcat1.png" alt="Sand cat illustration #1" /> <img src="https://sandstorm.io/sandcat3.png" alt="Sand cat illustration #3" /></a></p>
 
 </section>
 

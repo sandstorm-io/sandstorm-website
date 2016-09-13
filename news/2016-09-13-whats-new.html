@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>August changelog - what's new in Sandstorm - Sandstorm Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="August changelog - what's new in Sandstorm">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sandstorm.io/images/sandcat.png">
+    <meta property="og:url" content="https://sandstorm.io/news/2016-09-13-whats-new">
+    <meta property="og:description"
+        content="Take control of your web by running your own personal cloud server with Sandstorm.">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
+  </head>
+
+
+
+  <body id="blog">
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a href="/get">Get Sandstorm</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">How it Works</a>
+      <a href="/news/">Blog</a>
+      <a href="https://docs.sandstorm.io">Docs</a>
+      <a href="https://github.com/sandstorm-io/sandstorm">Code</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <!-- TODO: search -->
+    </nav>
+
+    <header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+<div class="post-list">
+
+<div class="sidebar">
+  <ul class="socialmedia">
+    <li><a class="twitter" href="https://twitter.com/SandstormIO">Twitter</a>
+    <li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank">Facebook</a>
+    <li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank">Google</a>
+    <li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank">Github</a>
+  </ul>
+
+  <div class="more">
+    <form id="signup" action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+      Join our mailing list for updates<br>
+      <input type="email" name="EMAIL" placeholder="E-mail" required><input type="submit" value="Submit">
+    </form>
+    <a href="/get">
+      Sandstorm is an open source operating system for personal and private clouds.
+      <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
+      <span class="selfhost" href="/install">or host your own</span>
+    </a>
+    
+    <h3>Recommended Posts</h3>
+    <ul>
+      <li><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">Open Source Web Apps Aren't Viable; Let's Fix That</a></li>
+      <li><a href="/news/2016-02-29-security-track-record">Sandstorm's security track record, and what it means for self-hosting</a></li>
+      <li><a href="/news/2016-08-17-decentralization-is-about-diversity">Decentralization is about diversity</a></li>
+      <li><a href="/news/2016-01-22-8-new-open-source-apps.html">8 New open source self-hostable apps</a></li>
+      <li><a href="/news/2016-04-06-sandstorm-for-work">Sandstorm for Work Beta: LDAP, SAML, organization management</a></li>
+      <li><a href="/news/2016-02-05-app-author-publicity-oasis">Free publicity for your indie web app, and free Oasis service for you</a></li>
+      <li><a href="/news/2015-10-01-free-ssl-certificates.html">Free, automated SSL certificates for Sandstorm self-hosters</a></li>
+      <li><a href="/news/2014-08-19-why-not-run-docker-apps.html">Why doesn't Sandstorm just run Docker apps?</a></li>
+      <li><a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization.html">Understand the Sandstorm sharing model</a></li>
+    </ul>
+    
+    <h3>Further Reading</h3>
+      <ul>
+        <li><a href="/how-it-works">How Sandstorm Works</a></li>
+        <li><a href="http://docs.sandstorm.io">Sandstorm Documentation</a></li>
+        <li><a href="/install">How to install Sandstorm</a></li>
+      </ul>
+  </div>
+</div>
+
+
+<nav class="pagination top">
+  <a class="newer" href="/news/" title="All posts">&laquo; All posts</a>
+</nav>
+
+<section>
+  <h2>August changelog - what's new in Sandstorm</h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - 13 Sep 2016
+  <p>August’s most visible change is that when new users join a Sandstorm server, some apps are installed
+automatically. By default, and on
+<a href="https://oasis.sandstorm.io/">Oasis,</a> users can jump into Davros, Etherpad, Rocket.Chat, and Wekan,
+and they can create collections using the <a href="https://sandstorm.io/news/2016-08-09-collections-app">Collections
+app,</a>. The server administrator can choose
+which apps come preinstalled for their users. We hope this helps people quickly become productive
+with Sandstorm!</p>
+
+<p>We made some underlying technical changes this month, too. The most significant is that we migrated
+to <a href="http://info.meteor.com/blog/announcing-meteor-1.4">Meteor 1.4</a>, which allowed us to switch to
+the most recent long-term supported version of nodejs, <a href="https://nodejs.org/en/blog/release/v4.0.0/">node
+4.</a> This required some substantial upheaval behind the
+scenes. It also enabled a change we’ve wanted to make for a long time: users of our
+<a href="https://docs.sandstorm.io/en/latest/administering/sandcats/">sandcats.io</a> free HTTPS service now
+use ciphers supporting <a href="http://stackoverflow.com/questions/14034508/dh-vs-dhe-and-ecdhe-and-perfect-forward-secrecy">perfect forward
+secrecy.</a>
+If you test your own sandcats-enabled server on the <a href="https://www.ssllabs.com/ssltest/">Qualys SSL Labs server
+test</a>, you’ll see that your grade has improved from an A- to an A!</p>
+
+<p>Sandstorm servers have automatic updates enabled by default, so to get these updates, you don’t
+have to do anything. Sandstorm checks for updates and smoothly switches to the latest code every
+24 hours.</p>
+
+<p>Here’s the full August changelog!</p>
+
+<h3 id="v0179-2016-08-26">v0.179 (2016-08-26)</h3>
+<ul>
+  <li>A user can now request deletion of their own account, unless they are a member of a Sandstorm for Work organization. Deletion has a 7-day cooldown during whith the user can change their mind.</li>
+  <li>Admins can now suspend and delete accounts from the admin panel.</li>
+  <li>Apps can now request that an offer template be a link with a special protocol scheme that can trigger a mobile intent, allowing one-click setup of mobile apps. Apps will need to be updated to take advantage of this.</li>
+  <li>Identity capabilities now have a getProfile() method, allowing a grain to discover when a user’s profile information has changed without requiring the user to return to the grain.</li>
+  <li>Fixed that admins were unable to un-configure SMTP after it had been configured.</li>
+  <li>Fixed problems in sandstorm-http-bridge that could make notifications unreliable. Affected apps will need to rebuild.</li>
+  <li>Increased expiration time for uploading a backup from 15 minutes to 2 hours, to accommodate large backup files on slow connections.</li>
+  <li>Fixed email attachments from apps having incorrect filenames.</li>
+  <li>Fixed various styling issues.</li>
+  <li>Various ongoing refactoring.</li>
+</ul>
+
+<h3 id="v0178-2016-08-20">v0.178 (2016-08-20)</h3>
+<ul>
+  <li>The grain list can now be sorted by clicking on the column headers.</li>
+  <li>Many improvements to mobile UI. (Still more to do.)</li>
+  <li>Your current identity’s profile picture now appears next to your name in the upper-right.</li>
+  <li>Fixed desktop notifications displaying grain titles incorrectly.</li>
+  <li>Fixed <code>spk publish</code> throwing an exception due to a bug in email handling.</li>
+  <li>Improved accessibility of “Sandstorm has been updated - click to reload” bar.</li>
+  <li>When an app returns an invalid <code>ETag</code> header, sandstorm-http-bridge will now log an error and drop it rather than throw an exception.</li>
+  <li>Updated to Meteor 1.4.1.</li>
+  <li>Oasis: Fixed appdemo not working for Davros.</li>
+</ul>
+
+<h3 id="v0177-2016-08-15-bugfixes">v0.177 (2016-08-15) [bugfixes]</h3>
+<ul>
+  <li>Changes to SMTP handling in v0.175 caused Sandstorm to begin verifying TLS certificates strictly. Unfortunately, the prevailing norm in SMTP is loose enforcement and many actual users found Sandstorm no longer worked with their SMTP providers. This update therefore relaxes the rules again, but in the near future we will add configuration options to control this.</li>
+</ul>
+
+<h3 id="v0176-2016-08-13-bugfixes">v0.176 (2016-08-13) [bugfixes]</h3>
+<ul>
+  <li>Fix web publishing to alternate hosts, broken by an API change in Node.</li>
+</ul>
+
+<h3 id="v0175-2016-08-13">v0.175 (2016-08-13)</h3>
+<ul>
+  <li>Grain sizes now appear on the grain list.</li>
+  <li>Added <code>sandstorm uninstall</code> shell command.</li>
+  <li>Upgraded to Meteor 1.4 and Node 4.</li>
+  <li>Sandcats: HTTPS connections now support ECDHE forward secrecy (as a result of the Node upgrade). Qualys grade increased from A- to A.</li>
+  <li>Bell-menu notifications now also trigger desktop notifications.</li>
+  <li>The collections app has been added to the default preinstall list for new servers. (We highly recommend existing servers add it in the admin settings, too.)</li>
+  <li>No apps will be automatically installed on dev/testing servers (e.g. vagrant-spk).</li>
+  <li>Switched to newer, better mail-handling libraries.</li>
+  <li>Fixed the “close” button on the email self-test dialog.</li>
+  <li>Fixed the “dismiss” button on notifications behaving like you’d clicked the notification body.</li>
+  <li>Errors during a powerbox request will now be shown on-screen rather than just printed to the console.</li>
+  <li>Fixed that uploading a backup left a bogus history entry, breaking the browser’s back button.</li>
+  <li>Fixed powerbox search box, which was apparently completely broken.</li>
+</ul>
+
+<h3 id="v0174-2016-08-05">v0.174 (2016-08-05)</h3>
+<ul>
+  <li>Admins can now choose to pre-install certain apps into new user accounts. For all new servers and Oasis, our four most-popular apps will be pre-installed by default: Etherpad, Wekan, Rocket.Chat, and Davros. Admins can disable this if they prefer, and servers predating this change will not pre-install any apps by default (but the admin can change this).</li>
+  <li>offer()ing a grain capability now works for anonymous users, which means anonymous users can use the collections app. This app will be officially released shortly.</li>
+  <li>Identicons are now rendered as SVGs rather than PNGs, which makes them much more efficient to generate. This in particular fixes the noticeable pause when the sharing contact auto-complete first appears for users who have many contacts.</li>
+  <li>Updated to Meteor 1.3.5.1 (1.4 / Node 4 coming soon!).</li>
+  <li>Fixed that Sandstorm sometimes temporarily incorrectly flashed “(incognito)” in place of the user name when starting.</li>
+  <li>Sandstorm for Work: Non-square whitelabel icons now do something reasonable.</li>
+  <li>Various refactoring.</li>
+  <li>Somewhat improved styling of bell-menu notifications. (More work to be done.)</li>
+</ul>
+
+</section>
+
+</div>
+
+
+    <footer>
+      <ul>
+        <li>
+          <h3><a href="/get">Get Sandstorm</a></h3>
+          <ul>
+            <li><a href="/get#managed-hosting">Hosting</a>
+            <li><a href="/get#self-host">Download</a>
+            <li><a href="/get#self-host">For Organizations</a>
+            <li><a href="https://github.com/sandstorm-io/sandstorm">Source Code (GitHub)</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/features">Features</a></h3>
+          <ul>
+            <li><a href="/features">Core</a>
+            <li><a href="/features#security">Security</a>
+            <li><a href="/business">Sandstorm for Work</a>
+            <li><a href="/business#scale">Sandstorm for Enterprise</a>
+            <li><a href="/developer">Development</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/how-it-works">How it Works</a></h3>
+          <ul>
+            <li><a href="/how-it-works#grains">Fine-grained object containers</a>
+            <li><a href="/how-it-works#capabilities">Capability-based Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="https://docs.sandstorm.io">Documentation</a></h3>
+          <ul>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/">How to use Sandstorm</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/developing/">Developer Hub</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/administering/">Administering &amp; installing</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/security-practices/">Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a></h3>
+          <ul>
+            <li><a href="/news">Sandstorm Blog</a>
+            <li><a href="/community#connect-with">Connect with us</a>
+            <li><a href="/community#helpothers">Help Others</a>
+            <li><a href="/community#helpproject">Help the Project</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/about">About</a></h3>
+          <ul>
+            <li><a href="/about">Sandstorm Story</a>
+            <li><a href="/about#team">Team</a>
+            <li><a href="/about#advisors">Advisors</a>
+            <li><a href="mailto:contact@sandstorm.io">Contact</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <ul>
+            <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
+          </ul>
+        </li>
+        <li>
+          <h3>Connect</h3>
+          <ul id="socialmedia-small">
+						<li><a class="twitter" href="https://twitter.com/SandstormIO"></a>
+						<li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank"></a>
+						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
+						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
+  			</ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+                                                        <form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+                                                                <input type="email" name="EMAIL" placeholder="e-mail" required>
+                                                                <input type="submit" value="Submit">
+                                                                </form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
+        </li>
+      </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
+    </footer>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-42127409-1', 'sandstorm.io');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
+  </body>
+</html>
