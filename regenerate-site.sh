@@ -59,3 +59,14 @@ else
   echo "Push CANCELED"
   exit 1
 fi
+
+echo -n "Make live? (y/N)"
+read -n 1 YESNO
+echo
+
+if [ "x$YESNO" == "xy" ]; then
+  CLOUDSDK_COMPUTE_ZONE=us-central1-a gcloud --project=sandstorm-io compute ssh fe --command 'cd /var/www/sandstorm.io && pull-and-purge-cf-cache.sh'
+else
+  echo "Publish CANCELED"
+  exit 1
+fi
