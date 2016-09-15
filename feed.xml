@@ -7,7 +7,7 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>August changelog - what&#39;s new in Sandstorm</title>
+				<title>August changelog: what&#39;s new in Sandstorm</title>
 				<description>&lt;p&gt;August’s most visible change is that when new users join a Sandstorm server, some apps are installed
 automatically. By default, and on
 &lt;a href=&quot;https://oasis.sandstorm.io/&quot;&gt;Oasis,&lt;/a&gt; users can jump into Davros, Etherpad, Rocket.Chat, and Wekan,
