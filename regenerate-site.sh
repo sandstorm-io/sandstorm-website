@@ -54,25 +54,18 @@ echo
 (cd _published && git diff --name-only HEAD^)
 
 echo
-echo -n "Push to github? (y/N)"
+echo -n "Make these changes live? (y/N)"
 read -n 1 YESNO
 echo
 
 if [ "x$YESNO" == "xy" ]; then
   (cd _published && git push)
   git push -u origin "$BRANCH:$BRANCH"
-else
-  echo "Push CANCELED"
-  exit 1
-fi
-
-echo -n "Make live? (y/N)"
-read -n 1 YESNO
-echo
-
-if [ "x$YESNO" == "xy" ]; then
   CLOUDSDK_COMPUTE_ZONE=us-central1-a gcloud --project=sandstorm-io compute ssh fe --command 'cd /var/www/sandstorm.io && pull-and-purge-cf-cache.sh'
 else
-  echo "Publish CANCELED"
+  echo "Push CANCELED"
+  echo "You can examine the canceled changes in: ./_published"
+  echo "When you run this script again, that directory will be wiped and regenerated."
   exit 1
 fi
+
