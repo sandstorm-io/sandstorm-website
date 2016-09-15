@@ -48,6 +48,12 @@ cp -r _pushsite/* _published
 COMMIT=$(git rev-parse HEAD)
 (cd _published && git add . && git commit -am "Regenerated site from commit: $COMMIT")
 
+echo
+echo "Files changed:"
+echo
+(cd _published && git diff --name-only HEAD^)
+
+echo
 echo -n "Push to github? (y/N)"
 read -n 1 YESNO
 echo
