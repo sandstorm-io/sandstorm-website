@@ -12,7 +12,7 @@
 automatically. By default, and on
 &lt;a href=&quot;https://oasis.sandstorm.io/&quot;&gt;Oasis,&lt;/a&gt; users can jump into Davros, Etherpad, Rocket.Chat, and Wekan,
 and they can create collections using the &lt;a href=&quot;https://sandstorm.io/news/2016-08-09-collections-app&quot;&gt;Collections
-app,&lt;/a&gt;. The server administrator can choose
+app&lt;/a&gt;. The server administrator can choose
 which apps come preinstalled for their users. We hope this helps people quickly become productive
 with Sandstorm!&lt;/p&gt;
 
