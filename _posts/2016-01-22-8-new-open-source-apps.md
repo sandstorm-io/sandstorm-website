@@ -5,7 +5,7 @@ author: Jade Wang
 authorUrl: https://github.com/jadeqwang
 ---
 
-Have an [Oasis account](http://oasis.sandstorm.io) already? If not, you can [sign up for one right now](https://sandstorm.io/get) and start using it to install any of the 48 apps in the [Sandstorm App Market](http://apps.sandstorm.io). (You can also [use your own Linux box](https://sandstorm.io/get#self-hosting), of course.)
+Have an [Oasis account](http://oasis.sandstorm.io) already? If not, you can [sign up for one right now](https://sandstorm.io/get) and start using it to install any of the 48 apps in the [Sandstorm App Market](http://apps.sandstorm.io). (You can also [use your own Linux box](https://sandstorm.io/get), of course.)
 
 App authors in the [Sandstorm community](https://sandstorm.io/community) have been exceptionally productive lately, packaging their favorite apps and writing original apps as well. I wanted to share some of my recent favorites with you. Here are some brand new apps you should install on your Sandstorm server today:
 
