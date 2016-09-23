@@ -1521,12 +1521,9 @@ body >footer {
         border: 1px solid #dbcdea;
         border-radius: 5px;
         margin: 0 2% 20px 0;
-        width: 31%;
+        width: 32%;
         position: relative;
         color: #684599;
-        @media (max-width: 800px) {
-          width: 32%;
-        }
         @media (max-width: 750px) {
           width: 47%;
         }
@@ -1556,7 +1553,7 @@ body >footer {
         }
         .get {
           border-radius: 0px 0px 5px 5px;
-          padding: 15px 0;
+          padding: 12px 0;
           display: flex;
           flex: 1;
           flex-direction: column;
@@ -1573,7 +1570,7 @@ body >footer {
           font-size: 20px;
           border-radius: 5px;
           width: 90%;
-          padding: 12px 0;
+          padding: 5px 0;
           transition: transform 0.75s ease, background 0.35s ease;
           align-self: center;
         }
@@ -1584,44 +1581,22 @@ body >footer {
           margin: 0 auto;
           margin-bottom: 20px;
           >ul {
-            width: 31%;
-            position: relative;
-            flex: 1;
-
-            @media (max-width: 800px) {
-              width: 45%;
-            }
-
-            @media (max-width: 550px) {
-              width: 100%;
-            }
-
+            width: 100%;
             p {
               max-width: 375px;
-              margin: 1em auto;
-            }
-            
+              margin: 0.6em auto;
+            }         
             a {
               text-decoration: none;
             }
-
             .title {
               border-bottom: 1px solid #eee9f4;
               color: #202d70;
-              min-height: 290px;
               border-radius: 5px 5px 0px 0px;
-              padding-top: 17px;
+              padding-top: 11px;
               display: flex;
               flex-direction: column;
-              @media (max-width: 1200px) {
-                padding-top: 15px;
-              }
-              @media (max-width: 900px) {
-                padding-top: 12px;
-              }
-              @media (max-width: 700px) {
-                padding-top: 8px;
-              }
+              justify-content: flex-end;
               strong {
                 padding: 15px 10px 0 10px;
                 font-size: 25px;
@@ -1631,7 +1606,7 @@ body >footer {
                 }
               }
               p {
-                padding: 0 10px;
+                padding: 0 8px;
                 width: 90%;
                 min-height: 70px;
                 @media (max-width: 900px) {
@@ -1687,58 +1662,90 @@ body >footer {
                   font-size: 25px;
                 }
               }
-              #highlight {
+              .highlight {
                 li {
-                  line-height: 2.5em;
+                  line-height: 2.3em;
                   color: #232323;
-                  font-size: 18px;
                   border-bottom: 1px solid #eee9f4;
                   @media (max-width: 900px) and (min-width: 550px) {
                     font-size: 16px;
                   }
                 }
               }
-              #feature-list {
-                padding: 15px 0;
+              .feature-list {
+                padding: 5px 5px 15px 11px;
                 text-align: left;
-                padding-left: 15px;
                 color: #232323;
-                font-size: 17px;
                 line-height: 1.9em;
-                border-bottom: 1px solid #eee9f4;
-                @media (max-width: 1050px) {
-                  font-size: 15px;
-                  padding-left: 12px;
-                }
-                @media (max-width: 950px) {
-                  font-size: 13px;
-                  padding-left: 9px;
-                }
-                @media (max-width: 850px) {
-                  font-size: 12px;
-                }
-                @media (max-width: 750px) {
-                  font-size: 15px;
-                  padding-left: 15px;
-                }
-                @media (max-width: 550px) {
-                  font-size: 17px;
-                }
                 li {
-                  line-height: 2.3em;
+                  line-height: 2.2em;
                   &::before {
+                    width: 21px;
+                    height: 15px;
+                    margin-top: 11px;
                     display: block;
                     content: " ";
                     float: left;
-                    width: 20px;
-                    height: 12px;
-                    margin-top: 12px;
-                    background-image: url(/images/check.svg);
+                    background-image: url(/images/check-dark.svg);
                     background-repeat: no-repeat;
                     background-size: contain;
+                    @media (min-width: 1000px) {
+                      width: 21px;
+                      height: 15px;
+                      margin-top: 13px;
+                  }
                   }
                   a {
                     text-decoration: none;
+                  }
+                }
+                .list-title {
+                  font-size: 21px;
+                  @media (max-width: 1050px) {
+                    font-size: 18px;
+                  }
+                  @media (max-width: 950px) {
+                    font-size: 16px;
+                  }
+                  @media (max-width: 850px) {
+                    font-size: 15px;
+                  }
+                  @media (max-width: 750px) {
+                    font-size: 18px;
+                  }
+                  @media (max-width: 550px) {
+                    font-size: 21px;
+                  }
+                }
+                .sub-list {
+                  margin: 0 4px 5px 18px;
+                  font-size: 16px;
+                  @media (max-width: 1050px) {
+                    font-size: 14px;
+                  }
+                  @media (max-width: 950px) {
+                    font-size: 13px;
+                  }
+                  @media (max-width: 900px) {
+                    font-size: 12px;
+                  }
+                  @media (max-width: 850px) {
+                    font-size: 11px;
+                  }
+                  @media (max-width: 750px) {
+                    font-size: 15px;
+                  }
+                  @media (max-width: 550px) {
+                    font-size: 17px;
+                  }
+                  li {
+                    line-height: 2em;
+                    &::before {
+                      width: 17px;
+                      height: 12px;
+                      margin-top: 9px;
+                      background-image: url(/images/check.svg);
+                    }
                   }
                 }
                 .non-features {
