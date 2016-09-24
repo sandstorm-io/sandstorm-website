@@ -15,7 +15,7 @@ There are at least a couple of different scenarios where you'd want to create a 
 
 In any case where you need to create a shared photo library using Lychee, you can follow these steps:
 
-<h3>1. Get Sandstorm by <a href="https://oasis.sandstorm.io/">signing up for Oasis</a> or <a href="https://sandstorm.io/get#self-hosting">installing it on your own machine.</a><h3>
+<h3>1. Get Sandstorm by <a href="https://oasis.sandstorm.io/">signing up for Oasis</a> or <a href="https://sandstorm.io/get">installing it on your own machine.</a><h3>
 
 <h3>2. Install Lychee from the <a href="https://apps.sandstorm.io">App Market</a></h3>
 <img src="/news/images/lychee-1.png">

@@ -35,7 +35,7 @@ We only think you should be paying for Sandstorm if it is helping you make money
 * **Non-profits** with paid employees can receive Sandstorm for Work at half price: $5/user/month.
 * **Educational institutions** supporting faculty and students pay $5/month for each faculty member and $1/month for each student.
 * **Volunteer groups** can receive Sandstorm for Work completely free.
-* **Home users** can also receive Sandstorm for Work for free; if you run an LDAP server for your own family, then we want your Sandstorm server to be able to take advantage of it.
+* **Home users** can also receive Sandstorm for Work for free; if you run an LDAP or SAML server for your own family, then we want your Sandstorm server to be able to take advantage of it.
 * **Bulk discounts** are available for large organizations and resellers.
 
 If any of these situations describe you, [tell us about it](mailto:sales@sandstorm.io) and we'll set you up.
