@@ -138,7 +138,7 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
   &lt;li&gt;&lt;strong&gt;Non-profits&lt;/strong&gt; with paid employees can receive Sandstorm for Work at half price: $5/user/month.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Educational institutions&lt;/strong&gt; supporting faculty and students pay $5/month for each faculty member and $1/month for each student.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Volunteer groups&lt;/strong&gt; can receive Sandstorm for Work completely free.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Home users&lt;/strong&gt; can also receive Sandstorm for Work for free; if you run an LDAP server for your own family, then we want your Sandstorm server to be able to take advantage of it.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Home users&lt;/strong&gt; can also receive Sandstorm for Work for free; if you run an LDAP or SAML server for your own family, then we want your Sandstorm server to be able to take advantage of it.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Bulk discounts&lt;/strong&gt; are available for large organizations and resellers.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -488,7 +488,7 @@ changelog at any time.&lt;/p&gt;
 
 &lt;p&gt;In any case where you need to create a shared photo library using Lychee, you can follow these steps:&lt;/p&gt;
 
-&lt;h3&gt;1. Get Sandstorm by &lt;a href=&quot;https://oasis.sandstorm.io/&quot;&gt;signing up for Oasis&lt;/a&gt; or &lt;a href=&quot;https://sandstorm.io/get#self-hosting&quot;&gt;installing it on your own machine.&lt;/a&gt;&lt;h3&gt;
+&lt;h3&gt;1. Get Sandstorm by &lt;a href=&quot;https://oasis.sandstorm.io/&quot;&gt;signing up for Oasis&lt;/a&gt; or &lt;a href=&quot;https://sandstorm.io/get&quot;&gt;installing it on your own machine.&lt;/a&gt;&lt;h3&gt;
 
 &lt;h3&gt;2. Install Lychee from the &lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;App Market&lt;/a&gt;&lt;/h3&gt;
 &lt;img src=&quot;/news/images/lychee-1.png&quot; /&gt;

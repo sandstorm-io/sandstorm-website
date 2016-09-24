@@ -1446,181 +1446,281 @@ body > footer {
 #get section h2 {
   padding-top: 20px;
   font-weight: 300; }
-#get #where {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  height: 250px;
-  padding: 0; }
-  #get #where > a {
-    display: block;
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 50%;
-        -ms-flex: 0 0 50%;
-            flex: 0 0 50%;
-    height: 100%;
-    text-align: center;
-    font-size: 32px;
-    padding: 24px 0;
-    color: black; }
-    #get #where > a:first-of-type {
-      background: 50% 70px/175px no-repeat url("/images/self-host.svg"); }
-      @media (max-width: 600px) {
-        #get #where > a:first-of-type {
-          background-position: 50% 120px;
-          background-size: 125px; } }
-    #get #where > a:last-of-type {
-      background: 50% 85px/175px no-repeat url("/images/hosted-service.svg") #efedf9;
-      position: relative; }
-      #get #where > a:last-of-type::after {
-        display: block;
-        content: " ";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: calc(50% - 50vw);
-        width: 100vw;
-        z-index: -1;
-        left: 100%;
-        width: calc(50vw - 50%);
-        background-color: #efedf9; }
-      @media (max-width: 600px) {
-        #get #where > a:last-of-type {
-          background-position: 50% 120px;
-          background-size: 125px; } }
-#get #managed-hosting, #get #self-hosting {
+#get #self-hosting .title {
+  background-color: #f9eff5; }
+#get #self-hosting .offer {
+  background-color: #f9eff5; }
+#get #self-hosting .get > a {
+  background-color: #962751; }
+  #get #self-hosting .get > a:hover {
+    background-color: #ae2e5e; }
+#get #organizations .title {
+  background-color: #eaf2fd; }
+#get #organizations .offer {
+  background-color: #4e58c8; }
+#get #organizations .get > a {
+  background-color: #4049a7; }
+  #get #organizations .get > a:hover {
+    background-color: #4e58c8; }
+#get #oasis .title {
+  background-color: #f5edfd; }
+#get #oasis .offer {
+  background-color: #f5edfd; }
+#get #oasis .get > a {
+  background-color: #442672; }
+  #get #oasis .get > a:hover {
+    background-color: #6341a5; }
+#get #plan-table {
   text-align: center; }
-  #get #managed-hosting p strong, #get #self-hosting p strong {
+  #get #plan-table p strong {
     font-size: 35px; }
-  #get #managed-hosting > ul, #get #self-hosting > ul {
+  #get #plan-table > ul {
     margin: 0;
     padding: 37px 0;
-    text-align: center; }
-    #get #managed-hosting > ul > li, #get #self-hosting > ul > li {
+    text-align: center;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+    #get #plan-table > ul > li {
       list-style: none;
-      display: inline-block;
+      display: -webkit-inline-box;
+      display: -webkit-inline-flex;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
       background: white;
       padding: 0;
       text-align: center;
-      border: 1px solid #8c72b5;
+      border: 1px solid #dbcdea;
       border-radius: 5px;
       margin: 0 2% 20px 0;
-      width: 30%;
+      width: 32%;
       position: relative;
-      color: #684599;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
-      #get #managed-hosting > ul > li ul, #get #self-hosting > ul > li ul {
-        padding: 0; }
-        #get #managed-hosting > ul > li ul li, #get #self-hosting > ul > li ul li {
-          list-style: none; }
+      color: #684599; }
       @media (max-width: 750px) {
-        #get #managed-hosting > ul > li, #get #self-hosting > ul > li {
-          width: 45%; } }
-      @media (max-width: 500px) {
-        #get #managed-hosting > ul > li, #get #self-hosting > ul > li {
+        #get #plan-table > ul > li {
+          width: 47%; } }
+      @media (max-width: 550px) {
+        #get #plan-table > ul > li {
           width: 100%; } }
-      #get #managed-hosting > ul > li strong, #get #self-hosting > ul > li strong {
+      #get #plan-table > ul > li ul {
+        padding: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column; }
+        #get #plan-table > ul > li ul li {
+          list-style: none; }
+      #get #plan-table > ul > li strong {
         color: #4f3070; }
-      #get #managed-hosting > ul > li .title, #get #self-hosting > ul > li .title {
-        background-color: #ebe7f7;
-        padding: 15px 0;
-        border-radius: 5px 5px 0px 0px; }
-        #get #managed-hosting > ul > li .title p, #get #self-hosting > ul > li .title p {
-          min-height: 80px; }
-        #get #managed-hosting > ul > li .title strong, #get #self-hosting > ul > li .title strong {
-          font-size: 30px; }
-      #get #managed-hosting > ul > li .price, #get #self-hosting > ul > li .price {
-        border-bottom: 1px solid #b6b6d8;
+      #get #plan-table > ul > li .price {
+        border-bottom: 1px solid #eee9f4;
         padding: 10px 0; }
-        #get #managed-hosting > ul > li .price strong, #get #self-hosting > ul > li .price strong {
+        #get #plan-table > ul > li .price strong {
           font-size: 40px; }
-      #get #managed-hosting > ul > li .storage, #get #self-hosting > ul > li .storage {
-        border-bottom: 1px solid #b6b6d8;
-        padding: 10px 0; }
-        #get #managed-hosting > ul > li .storage strong, #get #self-hosting > ul > li .storage strong {
-          font-size: 30px; }
-      #get #managed-hosting > ul > li .grains, #get #self-hosting > ul > li .grains {
-        font-size: 20px;
-        padding: 10px 0 0 0; }
-      #get #managed-hosting > ul > li .get, #get #self-hosting > ul > li .get {
+      #get #plan-table > ul > li .get {
         border-radius: 0px 0px 5px 5px;
-        padding: 10px 0; }
-      #get #managed-hosting > ul > li a, #get #self-hosting > ul > li a {
+        padding: 12px 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex; }
+      #get #plan-table > ul > li a {
         text-decoration: underline; }
-      #get #managed-hosting > ul > li .get > a, #get #self-hosting > ul > li .get > a {
+      #get #plan-table > ul > li .get > a {
         text-decoration: none;
         color: white;
         font-size: 20px;
         border-radius: 5px;
-        display: inline-block;
-        background-color: #442672;
-        width: 95%;
-        padding: 12px 0;
+        width: 90%;
+        padding: 5px 0;
         -webkit-transition: background 0.35s ease, -webkit-transform 0.75s ease;
         transition: background 0.35s ease, -webkit-transform 0.75s ease;
         transition: transform 0.75s ease, background 0.35s ease;
-        transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease; }
-        #get #managed-hosting > ul > li .get > a:hover, #get #self-hosting > ul > li .get > a:hover {
-          background-color: #6341a5; }
-      #get #managed-hosting > ul > li.plan2, #get #self-hosting > ul > li.plan2 {
-        margin: 0 2% 20px 2%;
-        width: 45%;
-        position: relative;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
-        @media (max-width: 700px) {
-          #get #managed-hosting > ul > li.plan2, #get #self-hosting > ul > li.plan2 {
-            width: 100%; } }
-        #get #managed-hosting > ul > li.plan2 p, #get #self-hosting > ul > li.plan2 p {
-          max-width: 375px;
-          margin: 1em auto; }
-        #get #managed-hosting > ul > li.plan2 #self-host .price, #get #self-hosting > ul > li.plan2 #self-host .price {
-          padding-top: 28px; }
-        #get #managed-hosting > ul > li.plan2 .title, #get #self-hosting > ul > li.plan2 .title {
-          padding: 15px 15px 0 10px;
-          border-bottom: 1px solid #b6b6d8;
-          background: #edf2f9;
-          color: #202d70; }
-          #get #managed-hosting > ul > li.plan2 .title strong, #get #self-hosting > ul > li.plan2 .title strong {
+        transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease;
+        margin: 0 auto; }
+      #get #plan-table > ul > li.plans {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        margin: 0 auto;
+        margin-bottom: 20px; }
+        #get #plan-table > ul > li.plans > ul {
+          width: 100%; }
+          #get #plan-table > ul > li.plans > ul p {
+            max-width: 375px;
+            margin: 0.6em auto; }
+          #get #plan-table > ul > li.plans > ul a {
+            text-decoration: none; }
+          #get #plan-table > ul > li.plans > ul .title {
+            border-bottom: 1px solid #eee9f4;
+            color: #202d70;
+            border-radius: 5px 5px 0px 0px;
+            padding-top: 11px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            -webkit-box-pack: end;
+            -webkit-justify-content: flex-end;
+                -ms-flex-pack: end;
+                    justify-content: flex-end; }
+            #get #plan-table > ul > li.plans > ul .title strong {
+              padding: 15px 10px 0 10px;
+              font-size: 25px;
+              color: #202d70; }
+              @media (max-width: 900px) {
+                #get #plan-table > ul > li.plans > ul .title strong {
+                  font-size: 22px; } }
+            #get #plan-table > ul > li.plans > ul .title p {
+              padding: 0 8px;
+              width: 90%;
+              min-height: 70px; }
+              @media (max-width: 900px) {
+                #get #plan-table > ul > li.plans > ul .title p {
+                  width: 95%;
+                  font-size: 16px;
+                  padding: 0 6px; } }
+              @media (max-width: 550px) {
+                #get #plan-table > ul > li.plans > ul .title p {
+                  min-height: 50px;
+                  font-size: 18px; } }
+            #get #plan-table > ul > li.plans > ul .title img {
+              width: 60%;
+              margin: 0 auto; }
+              @media (max-width: 850px) {
+                #get #plan-table > ul > li.plans > ul .title img {
+                  width: 70%; } }
+              @media (max-width: 700px) {
+                #get #plan-table > ul > li.plans > ul .title img {
+                  width: 80%; } }
+              @media (max-width: 550px) {
+                #get #plan-table > ul > li.plans > ul .title img {
+                  width: 50%; } }
+            #get #plan-table > ul > li.plans > ul .title .offer {
+              height: 27px;
+              padding: 3px 0;
+              color: #fff;
+              -webkit-box-pack: end;
+              -webkit-justify-content: flex-end;
+                  -ms-flex-pack: end;
+                      justify-content: flex-end; }
+          #get #plan-table > ul > li.plans > ul .price {
+            border-bottom: 1px solid #eee9f4;
+            padding: 25px 15px 15px 15px;
+            line-height: 2em; }
+            @media (max-width: 900px) and (min-width: 550px) {
+              #get #plan-table > ul > li.plans > ul .price {
+                font-size: 14px; } }
+            #get #plan-table > ul > li.plans > ul .price strong {
+              font-size: 50px; }
+            #get #plan-table > ul > li.plans > ul .price .old-price {
+              color: #b0b0b0;
+              font-size: 80%; }
+          #get #plan-table > ul > li.plans > ul .features strong {
             font-size: 30px;
             color: #202d70; }
-          #get #managed-hosting > ul > li.plan2 .title img, #get #self-hosting > ul > li.plan2 .title img {
-            height: 150px; }
-        #get #managed-hosting > ul > li.plan2 .price, #get #self-hosting > ul > li.plan2 .price {
-          border-bottom: 1px solid #b6b6d8;
-          padding: 0 0 10px 0; }
-          #get #managed-hosting > ul > li.plan2 .price strong, #get #self-hosting > ul > li.plan2 .price strong {
-            font-size: 40px;
-            color: #202d70; }
-          #get #managed-hosting > ul > li.plan2 .price .old-price, #get #self-hosting > ul > li.plan2 .price .old-price {
-            color: #b0b0b0;
-            font-size: 80%; }
-          #get #managed-hosting > ul > li.plan2 .price .offer, #get #self-hosting > ul > li.plan2 .price .offer {
-            padding: 3px 0;
-            color: #fff;
-            background-color: #ad3e73; }
-        #get #managed-hosting > ul > li.plan2 .storage, #get #self-hosting > ul > li.plan2 .storage {
-          border-bottom: 1px solid #b6b6d8; }
-          #get #managed-hosting > ul > li.plan2 .storage strong, #get #self-hosting > ul > li.plan2 .storage strong {
-            font-size: 30px;
-            color: #202d70; }
-        #get #managed-hosting > ul > li.plan2 .grains, #get #self-hosting > ul > li.plan2 .grains {
-          color: #202d70; }
-        #get #managed-hosting > ul > li.plan2 .get > a, #get #self-hosting > ul > li.plan2 .get > a {
-          color: white;
-          font-size: 20px;
-          border-radius: 5px;
-          display: inline-block;
-          background-color: #202d70;
-          width: 95%;
-          padding: 15px 0; }
-          #get #managed-hosting > ul > li.plan2 .get > a:hover, #get #self-hosting > ul > li.plan2 .get > a:hover {
-            background-color: #274c96; }
+            @media (max-width: 800px) {
+              #get #plan-table > ul > li.plans > ul .features strong {
+                font-size: 25px; } }
+          #get #plan-table > ul > li.plans > ul .features .highlight li {
+            line-height: 2.3em;
+            color: #232323;
+            border-bottom: 1px solid #eee9f4; }
+            @media (max-width: 900px) and (min-width: 550px) {
+              #get #plan-table > ul > li.plans > ul .features .highlight li {
+                font-size: 16px; } }
+          #get #plan-table > ul > li.plans > ul .features .feature-list {
+            padding: 5px 5px 15px 11px;
+            text-align: left;
+            color: #232323;
+            line-height: 1.9em; }
+            #get #plan-table > ul > li.plans > ul .features .feature-list li {
+              line-height: 2.2em; }
+              #get #plan-table > ul > li.plans > ul .features .feature-list li::before {
+                width: 21px;
+                height: 15px;
+                margin-top: 11px;
+                display: block;
+                content: " ";
+                float: left;
+                background-image: url(/images/check-dark.svg);
+                background-repeat: no-repeat;
+                background-size: contain; }
+                @media (min-width: 1000px) {
+                  #get #plan-table > ul > li.plans > ul .features .feature-list li::before {
+                    width: 21px;
+                    height: 15px;
+                    margin-top: 13px; } }
+              #get #plan-table > ul > li.plans > ul .features .feature-list li a {
+                text-decoration: none; }
+            #get #plan-table > ul > li.plans > ul .features .feature-list .list-title {
+              font-size: 21px; }
+              @media (max-width: 1050px) {
+                #get #plan-table > ul > li.plans > ul .features .feature-list .list-title {
+                  font-size: 18px; } }
+              @media (max-width: 950px) {
+                #get #plan-table > ul > li.plans > ul .features .feature-list .list-title {
+                  font-size: 16px; } }
+              @media (max-width: 850px) {
+                #get #plan-table > ul > li.plans > ul .features .feature-list .list-title {
+                  font-size: 15px; } }
+              @media (max-width: 750px) {
+                #get #plan-table > ul > li.plans > ul .features .feature-list .list-title {
+                  font-size: 18px; } }
+              @media (max-width: 550px) {
+                #get #plan-table > ul > li.plans > ul .features .feature-list .list-title {
+                  font-size: 21px; } }
+            #get #plan-table > ul > li.plans > ul .features .feature-list .sub-list {
+              margin: 0 4px 5px 18px;
+              font-size: 16px; }
+              @media (max-width: 1050px) {
+                #get #plan-table > ul > li.plans > ul .features .feature-list .sub-list {
+                  font-size: 14px; } }
+              @media (max-width: 950px) {
+                #get #plan-table > ul > li.plans > ul .features .feature-list .sub-list {
+                  font-size: 13px; } }
+              @media (max-width: 900px) {
+                #get #plan-table > ul > li.plans > ul .features .feature-list .sub-list {
+                  font-size: 12px; } }
+              @media (max-width: 850px) {
+                #get #plan-table > ul > li.plans > ul .features .feature-list .sub-list {
+                  font-size: 11px; } }
+              @media (max-width: 750px) {
+                #get #plan-table > ul > li.plans > ul .features .feature-list .sub-list {
+                  font-size: 15px; } }
+              @media (max-width: 550px) {
+                #get #plan-table > ul > li.plans > ul .features .feature-list .sub-list {
+                  font-size: 17px; } }
+              #get #plan-table > ul > li.plans > ul .features .feature-list .sub-list li {
+                line-height: 2em; }
+                #get #plan-table > ul > li.plans > ul .features .feature-list .sub-list li::before {
+                  width: 17px;
+                  height: 12px;
+                  margin-top: 9px;
+                  background-image: url(/images/check.svg); }
+            #get #plan-table > ul > li.plans > ul .features .feature-list .non-features {
+              color: #939393; }
+              #get #plan-table > ul > li.plans > ul .features .feature-list .non-features li::before {
+                background-image: url(images/xmark.svg); }
 
 #how-it-works header {
   text-align: center;
