@@ -1555,9 +1555,6 @@ body >footer {
           border-radius: 0px 0px 5px 5px;
           padding: 12px 0;
           display: flex;
-          flex: 1;
-          flex-direction: column;
-          justify-content: flex-end;
         }
 
         a {
@@ -1572,7 +1569,7 @@ body >footer {
           width: 90%;
           padding: 5px 0;
           transition: transform 0.75s ease, background 0.35s ease;
-          align-self: center;
+          margin: 0 auto;
         }
 
         &.plans {
