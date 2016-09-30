@@ -3,6 +3,7 @@ layout: post
 title: "The Mysterious Fiber Bomb Problem: A Debugging Story"
 author: Kenton Varda
 authorUrl: https://github.com/kentonv
+imageUrl: https://sandstorm.io/news/images/fiber-bomb-perf3.png
 ---
 
 A month or two ago, we started seeing a mysterious problem in production: every now and then, one of our Node.js web server processes supporting Sandstorm Oasis would suddenly jump to 100% CPU usage (of one core) and stay there until it was killed. The problem wasn't an infinite loop, though: the process continued to respond to requests, just slowly. Since the process continued to respond to requests, it continued to pass health checks and was never restarted automatically. But for users assigned to that shard, the service was essentially unusable, as every action would take seconds to complete. The problem left nothing at all suspicious in the logs -- other than a gap in which far fewer requests that normal were being handled. At first, the problem only struck about once a week, seemingly at random.
