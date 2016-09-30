@@ -99,13 +99,43 @@
 
 
 <section>
+  <h2><a href="/news/2015-02-17-hacker-slides">Hacker Slides: open source presentation app</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2015-02-17-hacker-slides">17 Feb 2015</a>
+  
+  
+  
+  
+  <p>Last Thursday, <a href="https://github.com/jacksingleton">Jack Singleton</a> published a
+totally new app, designed for Sandstorm:
+<a href="https://github.com/jacksingleton/hacker-slides">Hacker Slides</a>.</p>
+
+<p>He explains:</p>
+
+<blockquote style="width: auto;"><p>You can write markdown on the left, and
+preview your presentation on the right.</p></blockquote>
+
+<p>Here is what it looks like. Click the image to try it on the Sandstorm demo:</p>
+
+<p><a href="https://demo.sandstorm.io/appdemo/7qvcjh7gk0rzdx1s3c8gufd288sesf6vvdt297756xcv4q8xxvhh">
+<img width="600" src="/news/images/hacker-slides.png" />
+</a></p>
+
+<p>Hacker Slides relies on the Sandstorm APIs, which means Jack never had to write
+code to handle user login, access control, or handling multiple documents.</p>
+
+<p>He’s generously made it open source and published it on the
+<a href="https://sandstorm.io/apps/">Sandstorm App List</a>, so you can install it with one
+click on your self-hosted Sandstorm instance.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-02-11-app-updates">Results from app update week</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2015-02-11-app-updates">11 Feb 2015</a>
-  
-  
-  
   
   <h3 id="updates-to-the-porting-guide">Updates to the porting guide</h3>
 
@@ -360,38 +390,6 @@ people knowing about the project.</p>
 
 <p>So please give it a read and
 <a href="https://github.com/sandstorm-io/sandstorm/wiki/Get-Involved">get involved</a>!</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-01-21-gitweb-and-gitlab">Gitweb and Gitlab</a></h2>
-  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
-    
-    - <a href="/news/2015-01-21-gitweb-and-gitlab">21 Jan 2015</a>
-  
-  <p>When I write software, <a href="http://git-scm.com">Git</a> is usually at the core of my workflow. Therefore I’m particularly excited to announce today that we are releasing not one but <em>two</em> Git apps for Sandstorm.</p>
-
-<p>With either of these apps, you can host a Git repository on a Sandstorm server, connect to it with a Git client, and browse it through a web interface. Furthermore, both apps make it easy to share access to a repository without any need to manage SSH keys.</p>
-
-<p>The first app is a simple wrapper around <a href="http://git-scm.com/docs/gitweb">GitWeb</a>, the minimalist Perl CGI script that comes bundled with Git.</p>
-
-<p><a href="https://sandstorm.io/gitweb.png"><img src="https://sandstorm.io/gitweb-small.png" alt="Gitweb" /></a></p>
-
-<p>The second is a port of <a href="https://about.gitlab.com">GitLab</a>, a sophisticated Ruby on Rails app whose features include an issue tracker, a wiki, and an editor that allows you to compose and submit commits entirely from a web interface.</p>
-
-<p><a href="https://sandstorm.io/gitlab.png"><img src="https://sandstorm.io/gitlab-small.png" alt="Gitlab" /></a></p>
-
-<p>Both apps can now be found on the Sandstorm app list. If you don’t have your own server already, <a href="https://demo.sandstorm.io">try the demo</a>.</p>
-
-<h3 id="the-rise-of-modular-frontends">The Rise of Modular Frontends</h3>
-
-<p>These two apps bring into focus some distinguishing characteristics of the Sandstorm platform.</p>
-
-<p>Web software today tends to consist of monolithic, centralized services – at least when viewed from a user’s perspective. As the number of users grow, the demand for scalability and easy deployability can drive developers to put a lot of effort into modularizing <em>backends</em>. So the software often gets split into reconfigurable components like databases, caches, webservers, and message queues, and we see lots of clever ways to organize and orchestrate all of these things. However, as far as the user can tell, the only benefit is that, well, the service still works.</p>
-
-<p>Sandstorm enables a more fundamental kind of modularization. Because it is decentralized and carefully designed to take full advantage of <a href="https://capnproto.org/">Cap’n Proto</a>’s object-capabilities, Sandstorm allows web software to be split into fine-grained components along <em>user-facing</em> concerns. The components can be so finely grained, in fact, that scalability ceases to be a major concern. When each app instance (a “grain” in Sandstorm jargon) contains only a single document, app developers can instead focus on user-facing functionality, and can start thinking seriously about cooperation between apps.</p>
-
-<p>And that’s why we’ve set up the GitWeb and GitLab apps to provide only a single repository per grain. This setup means that sharing a Git repository with another user through these apps works just like sharing anything else in Sandstorm. Although it does imply that some GitLab features, like forks and merge requests, are not supported within our port, it also means that once we’ve fully implemented Sandstorm’s Powerbox interface for sharing capabilities between grains, “fork” and “merge request” can be actions that are allowed to take place between instances of <em>any</em> Git app.</p>
 
 </section>
 

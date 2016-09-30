@@ -2085,6 +2085,8 @@ body > footer {
       overflow: auto;
       margin: auto;
       border: 1px solid #ccc; }
+    #blog > div.post-list > section code {
+      font-family: Courier, monospace; }
     #blog > div.post-list > section a.linkbutton {
       display: block;
       max-width: 370px;
