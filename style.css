@@ -183,6 +183,9 @@ th {
 * {
   box-sizing: border-box; }
 
+.no-vertical-scroll {
+  overflow-y: hidden; }
+
 body {
   background-color: white;
   font-family: "Source Sans Pro", sans-serif;
@@ -1462,14 +1465,174 @@ body > footer {
   background-color: #4049a7; }
   #get #organizations .get > a:hover {
     background-color: #4e58c8; }
-#get #oasis .title {
+#get #oasis .title, #get #managed-hosting .title {
   background-color: #f5edfd; }
-#get #oasis .offer {
+#get #oasis .offer, #get #managed-hosting .offer {
   background-color: #f5edfd; }
-#get #oasis .get > a {
+#get #oasis .get > a, #get #managed-hosting .get > a {
   background-color: #442672; }
-  #get #oasis .get > a:hover {
+  #get #oasis .get > a:hover, #get #managed-hosting .get > a:hover {
     background-color: #6341a5; }
+#get .box {
+  width: 40%;
+  margin: 0 auto;
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 25px/50px;
+  background: rgba(255, 255, 255, 0.3);
+  background-clip: padding-box;
+  text-align: center; }
+#get .pricing-button {
+  padding: 2px 4px;
+  border-radius: 5px;
+  background: #f5edfd;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out; }
+#get .pricing-button:hover {
+  background: #fbf6ff; }
+#get .popup {
+  position: relative;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 5px;
+  background: #fff;
+  width: 80%;
+  max-width: 850px;
+  -webkit-transition: all 4s ease-in-out;
+  transition: all 4s ease-in-out; }
+  @media (max-width: 800px) {
+    #get .popup {
+      width: 95%; } }
+  @media (max-width: 500px) {
+    #get .popup {
+      width: 100%; } }
+  #get .popup .content {
+    max-height: 80%;
+    overflow: hidden; }
+  #get .popup .close {
+    text-decoration: none;
+    position: absolute;
+    font-size: 35px;
+    font-weight: 400;
+    top: 20px;
+    right: 30px;
+    -webkit-transition: all 200ms;
+    transition: all 200ms; }
+  #get .popup .close:hover {
+    color: #684599; }
+#get .overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  overflow: scroll;
+  max-width: 100%; }
+#get .overlay:target {
+  opacity: 1;
+  visibility: visible; }
+#get #managed-hosting {
+  padding: 0 20px; }
+  @media (max-width: 750px) {
+    #get #managed-hosting {
+      padding: 0 10px; } }
+  #get #managed-hosting h1 {
+    font-size: 30px;
+    font-weight: 400;
+    padding-top: 20px; }
+    @media (max-width: 500px) {
+      #get #managed-hosting h1 {
+        font-size: 25px; } }
+  #get #managed-hosting h2, #get #managed-hosting h3 {
+    text-align: center; }
+  #get #managed-hosting ul {
+    list-style: none;
+    padding-left: 0;
+    width: 100%; }
+  #get #managed-hosting .oasis-plans {
+    width: 100%;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+    #get #managed-hosting .oasis-plans #basic {
+      border: 1px solid #b6a1cd;
+      border-radius: 5px; }
+    #get #managed-hosting .oasis-plans .oasis-plan {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 31%;
+      margin: 0 5px 10px 5px; }
+      @media (max-width: 650px) {
+        #get #managed-hosting .oasis-plans .oasis-plan {
+          width: 46%; } }
+      @media (max-width: 500px) {
+        #get #managed-hosting .oasis-plans .oasis-plan {
+          width: 95%; } }
+      #get #managed-hosting .oasis-plans .oasis-plan li {
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #dbcdea; }
+      #get #managed-hosting .oasis-plans .oasis-plan .title {
+        border-radius: 5px 5px 0px 0px; }
+        @media (max-width: 750px) and (min-width: 650px) {
+          #get #managed-hosting .oasis-plans .oasis-plan .title {
+            font-size: 15px; } }
+        #get #managed-hosting .oasis-plans .oasis-plan .title strong {
+          font-size: 30px; }
+          @media (max-width: 750px) and (min-width: 650px) {
+            #get #managed-hosting .oasis-plans .oasis-plan .title strong {
+              font-size: 20px; } }
+      #get #managed-hosting .oasis-plans .oasis-plan .price strong {
+        font-size: 25px; }
+      #get #managed-hosting .oasis-plans .oasis-plan .storage strong {
+        font-size: 25px; }
+      #get #managed-hosting .oasis-plans .oasis-plan .get {
+        border-bottom: 0px;
+        border-radius: 0px 0px 5px 5px;
+        padding: 12px 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex; }
+        #get #managed-hosting .oasis-plans .oasis-plan .get > a {
+          text-decoration: none;
+          color: white;
+          font-size: 20px;
+          border-radius: 5px;
+          width: 90%;
+          padding: 10px 0;
+          -webkit-transition: background 0.35s ease, -webkit-transform 0.75s ease;
+          transition: background 0.35s ease, -webkit-transform 0.75s ease;
+          transition: transform 0.75s ease, background 0.35s ease;
+          transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease;
+          margin: 0 auto; }
+  #get #managed-hosting #faq {
+    padding-bottom: 20px; }
+    #get #managed-hosting #faq h2 {
+      padding-top: 0; }
+    #get #managed-hosting #faq li, #get #managed-hosting #faq p {
+      font-size: 16px; }
+    #get #managed-hosting #faq hr {
+      border: 0;
+      border-top: 1px solid #ccc; }
 #get #plan-table {
   text-align: center; }
   #get #plan-table p strong {
