@@ -207,7 +207,7 @@ title: Get Sandstorm
   var makeOverlayClicksCloseTheOverlay = function () {
     var overlays = document.body.getElementsByClassName('overlay');
     for (var i = 0; i < overlays.length; i++) {
-      overlays[i].addEventListener("click", function(evt) { if (evt.target.classList[0] === "overlay") { if (startedOutAtModal) { window.location = "#"; } else { dismissOverlay(evt); } } } );
+      overlays[i].addEventListener("click", function(evt) { if (evt.target.classList[0] === "overlay") { if (startedOutAtModal) { window.location.href = "#"; } else { dismissOverlay(evt); } } } );
     }
   };
   makeOverlayClicksCloseTheOverlay();
