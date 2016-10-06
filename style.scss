@@ -80,6 +80,10 @@ $lightpurple-text: #d7c4f4;
   box-sizing: border-box;
 }
 
+.no-vertical-scroll {
+  overflow-y: hidden;
+}
+
 body {
   background-color: white;
   font-family: "Source Sans Pro", sans-serif;
@@ -1483,7 +1487,7 @@ body >footer {
     }
   }
   
-  #oasis {
+  #oasis, #managed-hosting {
     .title {
       background-color: #f5edfd;
     }
@@ -1497,6 +1501,197 @@ body >footer {
       }
     }
   }
+  
+// =======================================================================================
+// Oasis pricing tables on get.html
+
+  .box {
+    width: 40%;
+    margin: 0 auto;
+    padding: 35px;
+    border: 2px solid #fff;
+    border-radius: 25px/50px;
+    background: rgba(255,255,255,0.3);
+    background-clip: padding-box;
+    text-align: center;
+  }
+
+  .pricing-button {
+    padding: 2px 4px;
+    border-radius: 5px;
+    background: #f5edfd;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+  }
+  .pricing-button:hover {
+    background: #fbf6ff;
+  }
+
+  .popup {
+    position: relative;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 5px;
+    background: #fff;
+    width: 80%;
+    max-width: 850px;
+    transition: all 4s ease-in-out;
+    
+    @media (max-width: 800px) {
+     width: 95%; 
+    }
+    
+    @media (max-width: 500px) {
+      width: 100%;
+    }
+    
+    .content {
+      max-height: 80%;
+      overflow: hidden;
+    }
+    .close {
+      text-decoration: none;
+      position: absolute;
+      font-size: 35px;
+      font-weight: 400;
+      top: 20px;
+      right: 30px;
+      transition: all 200ms; 
+    }    
+    .close:hover {
+      color: #684599;
+    }
+  }
+  
+  .overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    visibility: hidden;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    overflow: scroll;
+    max-width: 100%;
+  }
+  .overlay:target {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  #managed-hosting {
+    padding: 0 20px;
+    @media (max-width: 750px) {
+      padding: 0 10px;
+    }
+    
+    h1 {
+      font-size: 30px;
+      font-weight: 400;
+      padding-top: 20px;
+      @media (max-width: 500px) {
+        font-size: 25px;
+      }
+    }
+    
+    h2, h3 {
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      width: 100%;
+    }
+    .oasis-plans {
+      width: 100%;
+      display: inline-flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      #basic {
+        border: 1px solid #b6a1cd;
+        border-radius: 5px;
+      }
+      .oasis-plan {
+        display: flex;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 31%;
+        margin: 0 5px 10px 5px;
+        @media (max-width: 650px) {
+          width: 46%;
+        }
+        @media (max-width: 500px) {
+          width: 95%;
+        }
+        li {
+          text-align: center;
+          padding: 10px 0;
+          border-bottom: 1px solid #dbcdea;
+        }
+        .title {
+          border-radius: 5px 5px 0px 0px;
+          @media (max-width: 750px) and (min-width: 650px) {
+            font-size: 15px;
+          }
+          strong {
+            font-size: 30px;
+            @media (max-width: 750px) and (min-width: 650px) {
+              font-size: 20px;
+            }
+          }
+        }
+        .price {
+          strong {
+            font-size: 25px;
+          }
+        }
+        .storage {
+          strong {
+            font-size: 25px;
+          }
+        }
+        .grains {
+
+        }
+        .get {
+          border-bottom: 0px;
+          border-radius: 0px 0px 5px 5px;
+          padding: 12px 0;
+          display: flex;
+          >a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            border-radius: 5px;
+            width: 90%;
+            padding: 10px 0;
+            transition: transform 0.75s ease, background 0.35s ease;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+    
+    #faq {
+      padding-bottom: 20px;
+      h2 {
+        padding-top: 0;
+      }
+      li, p {
+        font-size: 16px;
+      }
+      hr {
+        border: 0;
+        border-top: 1px solid #ccc;
+      }
+    }
+  }
+  
+// =======================================================================================
 
   #plan-table {
     text-align: center;
@@ -3432,4 +3627,3 @@ body >footer {
     }
   }
 }
-
