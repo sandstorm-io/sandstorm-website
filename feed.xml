@@ -7,6 +7,47 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Sharing documents with a Rocket.Chat room in Sandstorm</title>
+				<description>&lt;p&gt;I’m sharing a pro-tip today because I like making sure that everyone gets the most productivity they can out of Sandstorm.&lt;/p&gt;
+
+&lt;p&gt;Let’s say I want to share a grain (e.g., a document, spreadsheet, git repository, or a &lt;a href=&quot;https://sandstorm.io/news/2016-08-09-collections-app&quot;&gt;Collection&lt;/a&gt;) with a group of colleagues who are already in the same &lt;a href=&quot;https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0&quot;&gt;Rocket.Chat&lt;/a&gt; chatroom. To do so, I first click the + icon in Rocket.Chat.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/news/images/rc_button.png&quot; alt=&quot;Click on the + button in Rocket Chat&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This opens a &lt;a href=&quot;https://sandstorm.io/how-it-works#powerbox&quot;&gt;Powerbox&lt;/a&gt; request with a type-ahead search box. Before I’ve typed anything, I can see the grains that have most recently been opened by me.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/news/images/rc2.png&quot; alt=&quot;Powerbox list of grains (ordered by most recently opened)&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For instance, if I’m looking for feedback for a blog post I drafted in &lt;a href=&quot;https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60&quot;&gt;Etherpad&lt;/a&gt;, I can type “Etherpad” and it will list all Etherpads that I have access to on this server.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/news/images/rc3.png&quot; alt=&quot;Search by grain type&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here are all the Etherpads I have access to. But today, I’m actually searching for something else: a Collection titled “Sales / Revenue docs”. I can also search for grains by title, so I search for “revenue”:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/news/images/rc4.png&quot; alt=&quot;Search by grain type or title&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Once I’ve selected the grain, I can choose whether I’d like to give everyone in this chatroom the permission to edit or only view this Collection before I connect the grain with this Rocket.Chat room.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/news/images/rc5.png&quot; alt=&quot;grant permission&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When I share a grain in a chatroom, it automatically renders a snippet which includes the icon for the app that opens the grain. It looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/news/images/rc6_shared.png&quot; alt=&quot;snippet&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, everyone who is in this chatroom has access to this Collection (as well as every grain inside it). No need to go share it with them separately.&lt;/p&gt;
+
+&lt;p&gt;To try it out for yourself, go install &lt;a href=&quot;https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0&quot;&gt;Rocket.Chat&lt;/a&gt; now!&lt;/p&gt;
+
+&lt;p&gt;Do you use Sandstorm to collaborate at work? &lt;a href=&quot;https://sandstorm.io/business&quot;&gt;Sandstorm for Work&lt;/a&gt; (&lt;a href=&quot;https://sandstorm.io/get-feature-key&quot;&gt;60-day free trial&lt;/a&gt;) comes with priority support, organization management features, and integration with enterprise infrastructure.&lt;/p&gt;
+
+&lt;p&gt;By the way, if you found this useful and would like to see more bite-sized pro-tip style blog posts in the future, please reshare this and let me know (I’m &lt;a href=&quot;https://twitter.com/qiqing&quot;&gt;@qiqing&lt;/a&gt; on Twitter)!&lt;/p&gt;
+</description>
+				<pubDate>Thu, 13 Oct 2016 00:00:00 -0700</pubDate>
+                                <link>https://sandstorm.io/news/2016-10-13-sharing-documents-rocketchat</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-10-13-sharing-documents-rocketchat</guid>
+			</item>
+		
+			<item>
 				<title>The Mysterious Fiber Bomb Problem: A Debugging Story</title>
 				<description>&lt;p&gt;A month or two ago, we started seeing a mysterious problem in production: every now and then, one of our Node.js web server processes supporting Sandstorm Oasis would suddenly jump to 100% CPU usage (of one core) and stay there until it was killed. The problem wasn’t an infinite loop, though: the process continued to respond to requests, just slowly. Since the process continued to respond to requests, it continued to pass health checks and was never restarted automatically. But for users assigned to that shard, the service was essentially unusable, as every action would take seconds to complete. The problem left nothing at all suspicious in the logs – other than a gap in which far fewer requests that normal were being handled. At first, the problem only struck about once a week, seemingly at random.&lt;/p&gt;
 
@@ -541,61 +582,6 @@ changelog at any time.&lt;/p&gt;
 				<pubDate>Mon, 20 Jun 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-06-20-drew-object-capabilities</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-06-20-drew-object-capabilities</guid>
-			</item>
-		
-			<item>
-				<title>How to create a shared photo library with Lychee</title>
-				<description>&lt;p&gt;&lt;em&gt;Today’s blog post comes from guest writer Ovidiu Pacuraru.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;In this tutorial, we will show you how a family on holiday can organize images from dad’s DSLR, mom’s iPhone and the kid’s Android phone inside one album. They can all use the same Lychee grain in Sandstorm from a web browser; this tutorial shows how to set it up.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/news/images/lychee-9.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;There are at least a couple of different scenarios where you’d want to create a photo library and share it with others. Another example is when 3 people are writing a blog but only one editor approves images, so images need to be collected at a central point. I have found uploading and sharing via Google to be a bit hit and miss.&lt;/p&gt;
-
-&lt;p&gt;In any case where you need to create a shared photo library using Lychee, you can follow these steps:&lt;/p&gt;
-
-&lt;h3&gt;1. Get Sandstorm by &lt;a href=&quot;https://oasis.sandstorm.io/&quot;&gt;signing up for Oasis&lt;/a&gt; or &lt;a href=&quot;https://sandstorm.io/get&quot;&gt;installing it on your own machine.&lt;/a&gt;&lt;h3&gt;
-
-&lt;h3&gt;2. Install Lychee from the &lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;App Market&lt;/a&gt;&lt;/h3&gt;
-&lt;img src=&quot;/news/images/lychee-1.png&quot; /&gt;
-
-&lt;h3&gt;3. In the next window that opens, click: INSTALL&lt;/h3&gt; 
-&lt;img src=&quot;/news/images/lychee-2.png&quot; /&gt;
-
-&lt;h3&gt;4. Create a new grain&lt;/h3&gt;
-&lt;img src=&quot;/news/images/lychee-3.png&quot; /&gt;
-
-&lt;h3&gt;5. Rename your grain&lt;/h3&gt;
-&lt;img src=&quot;/news/images/lychee-4.png&quot; /&gt;
-
-&lt;h3&gt;6. Add an album&lt;/h3&gt;
-&lt;img src=&quot;/news/images/lychee-5.png&quot; /&gt;
-
-&lt;h3&gt;7. Name your album&lt;/h3&gt;
-&lt;img src=&quot;/news/images/lychee-6.png&quot; /&gt;
-
-&lt;h3&gt;8. Upload some images&lt;/h3&gt;
-&lt;img src=&quot;/news/images/lychee-7.png&quot; /&gt;
-&lt;img src=&quot;/news/images/lychee-8.png&quot; /&gt;
-
-&lt;h3&gt;9. Browse your album&lt;/h3&gt;
-&lt;img src=&quot;/news/images/lychee-9.png&quot; /&gt;
-
-&lt;h3&gt;10. Share access with your family&lt;/h3&gt;
-&lt;img src=&quot;/news/images/lychee-10.png&quot; /&gt;
-
-&lt;h3&gt;11. Invite family members&lt;/h3&gt;
-&lt;img src=&quot;/news/images/lychee-11.png&quot; /&gt;
-
-&lt;p&gt;
-I hope you enjoy creating photo albums using &lt;a href=&quot;https://apps.sandstorm.io/app/z6rj6js4h8p8rjz2myp3dwmv3mcfv40qyfdn0d7714qxzvzvq3w0&quot;&gt;Lychee from the Sandstorm App Market&lt;/a&gt;. Don&#39;t forget to leave a review!
-&lt;/p&gt;
-&lt;/h3&gt;&lt;/h3&gt;
-</description>
-				<pubDate>Mon, 13 Jun 2016 00:00:00 -0700</pubDate>
-                                <link>https://sandstorm.io/news/2016-06-13-photo-library-lychee</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-06-13-photo-library-lychee</guid>
 			</item>
 		
 	</channel>
