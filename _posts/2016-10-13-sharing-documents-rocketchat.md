@@ -7,9 +7,7 @@ authorUrl: https://github.com/jadeqwang
 
 I'm sharing a pro-tip today because I like making sure that everyone gets the most productivity they can out of Sandstorm. 
 
-Let's say I want to share a [Collection](https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h)  with a group of colleagues who are already in the same [Rocket.Chat](https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0) chatroom.  A Collection is similar to a folder or a Gmail "tag": it can contain multiple grains (e.g., documents, [Wekan boards](https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h), chatrooms, photo albums). It's useful for organizing and group sharing, so everyone on a particular team is given access to a *collection* of documents, task-trackers, UI mockups, spreadsheets, and anything that's added to it in the future as long as they're part of the group. ([Here's more on how Collections works >>](https://sandstorm.io/news/2016-08-09-collections-app))
-
-To share a grain (e.g., document, spreadsheet, chatroom, Collection) with the chatroom, I first click the + icon in Rocket.Chat. 
+Let's say I want to share a grain (e.g., a document, spreadsheet, git repository, or a [Collection](https://sandstorm.io/news/2016-08-09-collections-app)) with a group of colleagues who are already in the same [Rocket.Chat](https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0) chatroom. To do so, I first click the + icon in Rocket.Chat. 
 
 ![Click on the + button in Rocket Chat](/news/images/rc_button.png)
 
@@ -21,13 +19,11 @@ For instance, if I'm looking for feedback for a blog post I drafted in [Etherpad
 
 ![Search by grain type](/news/images/rc3.png)
 
-Here are all the Etherpads I have access to. But today, I'm actually searching for a Collection: it will return to me all Collections as well as any other grains that have "collection" in the title.
+Here are all the Etherpads I have access to. But today, I'm actually searching for something else: a Collection titled "Sales / Revenue docs". I can also search for grains by title, so I search for "revenue":
 
 ![Search by grain type or title](/news/images/rc4.png)
 
-So I select the collection called "Sales / revenue docs" which contains a whole bunch of Etherpads, Wekan boards, and other grains related to working towards our revenue goals. 
-
-Now I can choose whether I'd like to give everyone in this chatroom the permission to edit (e.g., add additional grains / documents or remove them) or only view this Collection before I connect this Collection with this Rocket.Chat room.
+Once I've selected the grain, I can choose whether I'd like to give everyone in this chatroom the permission to edit or only view this Collection before I connect the grain with this Rocket.Chat room.
 
 ![grant permission](/news/images/rc5.png)
 
@@ -35,12 +31,9 @@ When I share a grain in a chatroom, it automatically renders a snippet which inc
 
 ![snippet](/news/images/rc6_shared.png)
 
-Now, everyone who is in this chatroom has access to this Collection as well as every grain inside it. 
+Now, everyone who is in this chatroom has access to this Collection (as well as every grain inside it). No need to go share it with them separately.
 
-To use these together, go install these apps if you don't already have them: 
-
-* [Rocket.Chat](https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0)
-* [Collections](https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h)
+To try it out for yourself, go install [Rocket.Chat](https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0) now!
 
 Do you use Sandstorm to collaborate at work? [Sandstorm for Work](https://sandstorm.io/business) ([60-day free trial](https://sandstorm.io/get-feature-key)) comes with priority support, organization management features, and integration with enterprise infrastructure.
 
