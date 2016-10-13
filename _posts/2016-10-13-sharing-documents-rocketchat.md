@@ -3,6 +3,7 @@ layout: post
 title: "Sharing documents with a Rocket.Chat room in Sandstorm"
 author: Jade Q. Wang
 authorUrl: https://github.com/jadeqwang
+imageUrl: https://sandstorm.io/news/images/rc6_shared.png
 ---
 
 I'm sharing a pro-tip today because I like making sure that everyone gets the most productivity they can out of Sandstorm. 
