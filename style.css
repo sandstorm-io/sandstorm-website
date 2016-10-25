@@ -3117,7 +3117,7 @@ body > footer {
   font-weight: 400; }
 #education p.highlight {
   text-align: center;
-  padding-bottom: 20px; }
+  font-size: 20px; }
 #education p.copyright {
   text-align: center;
   font-size: 14px; }
@@ -3277,6 +3277,59 @@ body > footer {
             width: 80%; } }
         #education #web-apps ul .start a:hover {
           background-color: #d1d1f5; }
+  #education #web-apps .action-ed {
+    padding-top: 35px;
+    padding-bottom: 15px;
+    display: block;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+    position: relative; }
+    #education #web-apps .action-ed a {
+      margin: 0 auto;
+      background-color: #d13f6c;
+      border: 1.5px solid #eee9f4;
+      width: 300px;
+      display: block;
+      font-size: 25px;
+      padding: 8px 20px;
+      border-radius: 6px;
+      color: white;
+      -webkit-transition: background 0.35s ease, -webkit-transform 0.75s ease;
+      transition: background 0.35s ease, -webkit-transform 0.75s ease;
+      transition: transform 0.75s ease, background 0.35s ease;
+      transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease; }
+      #education #web-apps .action-ed a:hover {
+        background-color: #e0507d; }
+      @media (max-width: 500px) {
+        #education #web-apps .action-ed a {
+          font-size: 22px;
+          width: 250px; } }
+    #education #web-apps .action-ed::after {
+      display: block;
+      content: " ";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(50% - 50vw);
+      width: 100vw;
+      z-index: -1;
+      background-color: #F6F2FC; }
+    #education #web-apps .action-ed:after {
+      display: block;
+      content: " ";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(50% - 50vw);
+      width: 100vw;
+      z-index: -1;
+      background-color: #F6F2FC;
+      background-image: url(/images/market-tent.svg);
+      background-position: right bottom;
+      background-repeat: no-repeat; }
 #education #open-ed .content {
   padding: 0 5% 0 5%;
   margin: 40px 0 70px 0;

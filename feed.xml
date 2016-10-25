@@ -42,7 +42,7 @@
 
 &lt;p&gt;By the way, if you found this useful and would like to see more bite-sized pro-tip style blog posts in the future, please reshare this and let me know (I’m &lt;a href=&quot;https://twitter.com/qiqing&quot;&gt;@qiqing&lt;/a&gt; on Twitter)!&lt;/p&gt;
 </description>
-				<pubDate>Thu, 13 Oct 2016 00:00:00 -0700</pubDate>
+				<pubDate>Thu, 13 Oct 2016 00:00:00 -0400</pubDate>
                                 <link>https://sandstorm.io/news/2016-10-13-sharing-documents-rocketchat</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-10-13-sharing-documents-rocketchat</guid>
 			</item>
@@ -109,7 +109,7 @@
 
 &lt;p&gt;Meanwhile, we’ve also &lt;a href=&quot;https://bugs.chromium.org/p/v8/issues/detail?id=5338&quot;&gt;filed an issue against V8&lt;/a&gt;, requesting that they replace their linked list with a hashtable. This wouldn’t have completely mitigated the fiber bombs, but it would have at least prevented them from permanently crippling the process.&lt;/p&gt;
 </description>
-				<pubDate>Fri, 30 Sep 2016 00:00:00 -0700</pubDate>
+				<pubDate>Fri, 30 Sep 2016 00:00:00 -0400</pubDate>
                                 <link>https://sandstorm.io/news/2016-09-30-fiber-bomb-debugging-story</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-09-30-fiber-bomb-debugging-story</guid>
 			</item>
@@ -207,7 +207,7 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
   &lt;li&gt;Somewhat improved styling of bell-menu notifications. (More work to be done.)&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-				<pubDate>Tue, 13 Sep 2016 00:00:00 -0700</pubDate>
+				<pubDate>Tue, 13 Sep 2016 00:00:00 -0400</pubDate>
                                 <link>https://sandstorm.io/news/2016-09-13-whats-new</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-09-13-whats-new</guid>
 			</item>
@@ -283,7 +283,7 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
 
 &lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;https://sandstorm.io/get-feature-key&quot;&gt;Get Sandstorm for Work »&lt;/a&gt;&lt;/p&gt;
 </description>
-				<pubDate>Wed, 31 Aug 2016 00:00:00 -0700</pubDate>
+				<pubDate>Wed, 31 Aug 2016 00:00:00 -0400</pubDate>
                                 <link>https://sandstorm.io/news/2016-08-31-sandstorm-for-work-ready</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-08-31-sandstorm-for-work-ready</guid>
 			</item>
@@ -310,7 +310,7 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
 
 &lt;p&gt;This is the focus of Sandstorm.&lt;/p&gt;
 </description>
-				<pubDate>Wed, 17 Aug 2016 00:00:00 -0700</pubDate>
+				<pubDate>Wed, 17 Aug 2016 00:00:00 -0400</pubDate>
                                 <link>https://sandstorm.io/news/2016-08-17-decentralization-is-about-diversity</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-08-17-decentralization-is-about-diversity</guid>
 			</item>
@@ -386,7 +386,7 @@ with Sandstorm. The powerbox is still in its early stages, and the
 Collections app is a hint at the kinds of things it will enable.
 So &lt;a href=&quot;https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h&quot;&gt;try it out and let us know what you think&lt;/a&gt;!&lt;/p&gt;
 </description>
-				<pubDate>Tue, 09 Aug 2016 00:00:00 -0700</pubDate>
+				<pubDate>Tue, 09 Aug 2016 00:00:00 -0400</pubDate>
                                 <link>https://sandstorm.io/news/2016-08-09-collections-app</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-08-09-collections-app</guid>
 			</item>
@@ -455,7 +455,7 @@ within 24 hours of a new release.&lt;/p&gt;
   &lt;li&gt;Fixed “guided tour” hint bubble for installing apps showing for users who aren’t allowed to install apps.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-				<pubDate>Wed, 03 Aug 2016 00:00:00 -0700</pubDate>
+				<pubDate>Wed, 03 Aug 2016 00:00:00 -0400</pubDate>
                                 <link>https://sandstorm.io/news/2016-08-03-whats-new</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-08-03-whats-new</guid>
 			</item>
@@ -522,7 +522,7 @@ changelog at any time.&lt;/p&gt;
   &lt;li&gt;Re-enabled websocket self-check under new admin UI.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-				<pubDate>Wed, 13 Jul 2016 00:00:00 -0700</pubDate>
+				<pubDate>Wed, 13 Jul 2016 00:00:00 -0400</pubDate>
                                 <link>https://sandstorm.io/news/2016-07-13-whats-new</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-07-13-whats-new</guid>
 			</item>
@@ -557,7 +557,7 @@ changelog at any time.&lt;/p&gt;
 
 &lt;p&gt;Come for the opportunity to meet others in the Sandstorm community, and work on your project with guidance from our core devs. This event will be held at RethinkDB in Mountain View on July 19. RSVP &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231954146/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
-				<pubDate>Wed, 29 Jun 2016 00:00:00 -0700</pubDate>
+				<pubDate>Wed, 29 Jun 2016 00:00:00 -0400</pubDate>
                                 <link>https://sandstorm.io/news/2016-06-29-asheesh-web-apps</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-06-29-asheesh-web-apps</guid>
 			</item>
@@ -579,7 +579,7 @@ changelog at any time.&lt;/p&gt;
 
 &lt;p&gt;We also have an upcoming meetup on July 19 where Asheesh is giving a talk entitled, “Web app packaging in Sandstorm: It’s not LAMP.” RethinkDB is kind enough to host our event at their office in Mountain View, and all are invited. &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231954146/&quot;&gt;Read the details &amp;amp; RSVP here&lt;/a&gt;.&lt;/p&gt;
 </description>
-				<pubDate>Mon, 20 Jun 2016 00:00:00 -0700</pubDate>
+				<pubDate>Mon, 20 Jun 2016 00:00:00 -0400</pubDate>
                                 <link>https://sandstorm.io/news/2016-06-20-drew-object-capabilities</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-06-20-drew-object-capabilities</guid>
 			</item>
