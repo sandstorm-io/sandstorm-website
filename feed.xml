@@ -7,7 +7,7 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Linux kernel CVE-2016-5195 &quot;Dirty COW&quot; mitigated by Sandstorm</title>
+				<title>Linux kernel CVE-2016-5195 &amp;quot;Dirty COW&amp;quot; mitigated by Sandstorm</title>
 				<description>&lt;p&gt;Last week, a Linux kernel bug, &lt;a href=&quot;https://www.google.com/search?q=CVE-2016-5195&quot;&gt;CVE-2016-5195&lt;/a&gt;, was described as &lt;a href=&quot;http://arstechnica.com/security/2016/10/most-serious-linux-privilege-escalation-bug-ever-is-under-active-exploit/&quot;&gt;“the most serious Linux local privilege escalation ever”&lt;/a&gt;. The bug – which potentially allowed any code running on a Linux machine to escalate its privileges to root – was already being actively exploited in the wild before it was fixed, and had existed in the kernel for many years.&lt;/p&gt;
 
 &lt;p&gt;Since Sandstorm allows any user of a server to upload their own apps, you might wonder if this bug could allow a Sandstorm user to compromise the server.&lt;/p&gt;
