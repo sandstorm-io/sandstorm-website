@@ -3351,7 +3351,7 @@ body >footer {
   p {
     &.highlight {
       text-align: center;
-      padding-bottom: 20px;
+      font-size: 20px;
     }
 
     &.copyright {
@@ -3542,6 +3542,49 @@ body >footer {
             background-color: #d1d1f5;
           }
         }
+      }
+    }
+    .action-ed {
+      padding-top: 35px;
+      padding-bottom: 15px;
+      display: block;
+      justify-content: center;
+      text-align: center;
+      a {
+        margin: 0 auto;
+        background-color: #d13f6c; 
+        border: 1.5px solid #eee9f4;
+        width: 300px;
+        display: block;
+        font-size: 25px;
+        padding: 8px 20px;
+        border-radius: 6px;
+        color: white;
+        transition: transform 0.75s ease, background 0.35s ease;
+        &:hover {
+          background-color: #e0507d;
+        }
+        @media (max-width: 500px) {
+          font-size: 22px;
+          width: 250px;
+        }
+      }
+      @include stripe {
+        background-color: #F6F2FC;
+      }
+      &:after {
+        display: block;
+        content: " ";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: calc(50% - 50vw);
+        width: 100vw;
+        z-index: -1;
+        background-color: #F6F2FC;
+        background-image: url(/images/market-tent.svg);
+        background-position: right bottom;
+        background-repeat: no-repeat;
       }
     }
   }
