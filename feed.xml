@@ -7,6 +7,60 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Linux kernel CVE-2016-5195 &quot;Dirty COW&quot; mitigated by Sandstorm</title>
+				<description>&lt;p&gt;Last week, a Linux kernel bug, &lt;a href=&quot;https://www.google.com/search?q=CVE-2016-5195&quot;&gt;CVE-2016-5195&lt;/a&gt;, was described as &lt;a href=&quot;http://arstechnica.com/security/2016/10/most-serious-linux-privilege-escalation-bug-ever-is-under-active-exploit/&quot;&gt;“the most serious Linux local privilege escalation ever”&lt;/a&gt;. The bug – which potentially allowed any code running on a Linux machine to escalate its privileges to root – was already being actively exploited in the wild before it was fixed, and had existed in the kernel for many years.&lt;/p&gt;
+
+&lt;p&gt;Since Sandstorm allows any user of a server to upload their own apps, you might wonder if this bug could allow a Sandstorm user to compromise the server.&lt;/p&gt;
+
+&lt;p&gt;We’re happy to report that the answer is “no”. As is &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/#linux-kernel&quot;&gt;often the case&lt;/a&gt; with Linux kernel bugs, our sandbox blocked the exploit.&lt;/p&gt;
+
+&lt;h3 id=&quot;technical-details&quot;&gt;Technical Details&lt;/h3&gt;
+
+&lt;p&gt;The bug in question was a race condition in the handling of memory pages mapped copy-on-write. A process can ask that a read-only file be mapped into its memory space in such a way that it is allowed to modify the mapped memory. When the process writes to the memory, the kernel makes a private copy of the affected page, so that the process only modifies its copy, not the original. Meanwhile, a process can request later on that the modifications it made be discarded, returning the page to its original state. In certain circumstances, by both writing to a page and requesting this discard at the same time (in separate threads), the process could end up writing to the original pages that are shared with other processes on the system, instead of its own private copy. Hence, the process could modify any file on the system. By modifying, say, the &lt;code&gt;sudo&lt;/code&gt; utility, it could give itself a backdoor which allows it to gain root privileges trivially.&lt;/p&gt;
+
+&lt;p&gt;However, not just any old write worked here. In order to trigger the race condition, the process had to write in a way that calls the kernel’s &lt;code&gt;get_user_pages()&lt;/code&gt; function with the &lt;code&gt;force&lt;/code&gt; parameter set to &lt;code&gt;1&lt;/code&gt;. The &lt;code&gt;force&lt;/code&gt; parameter says: “If this page is mapped copy-on-write, then let me write to it (making a private copy) even if the page’s protection mode is read-only.” As it turns out, it is possible for a memory mapping to be both read-only and copy-on-write, and in fact this is the mode that is usually used when mapping in a program’s main binary and shared libraries. Normally, no copy is ever performed, because the writes that would trigger them are not allowed. However, there is a special case where this combination of flags matters: If you are running a program in a debugger, and you ask the debugger to insert a breakpoint, it does so by overwriting the instruction at the given address with a break instruction. That is, it modifies the mapped executable. The &lt;code&gt;force&lt;/code&gt; flag actually exists for exactly this purpose: so that the debugger can inject breakpoints into the program being executed by the process being debugged (without affecting any other processes that happen to be running the same program).&lt;/p&gt;
+
+&lt;p&gt;Because the &lt;code&gt;force&lt;/code&gt; flag is only useful in very specific circumstances, only certain code paths can trigger the vulnerability. Kernel security engineer and Sandstorm contributor Andrew Lutomirski tells us the only entry points appear to be:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The &lt;code&gt;ptrace()&lt;/code&gt; system call’s &lt;code&gt;PTRACE_POKEDATA&lt;/code&gt; operation, which is explicitly meant to be used by debuggers, often for the purpose of setting breakpoints.&lt;/li&gt;
+  &lt;li&gt;Writes to &lt;code&gt;/proc/&amp;lt;pid&amp;gt;/mem&lt;/code&gt;. It’s unclear why this code uses &lt;code&gt;force&lt;/code&gt; – possibly it was a mistake.&lt;/li&gt;
+  &lt;li&gt;Various drivers, which are also probably using the flag by mistake.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As it turns out, none of these code paths can be exploited by Sandstorm apps:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sandstorm uses seccomp to block the app from invoking &lt;code&gt;ptrace()&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Sandstorm does not mount &lt;code&gt;/proc&lt;/code&gt; inside app sandboxes.&lt;/li&gt;
+  &lt;li&gt;Sandstorm does not expose driver interfaces from inside app sandboxes. For example, &lt;code&gt;/dev&lt;/code&gt; contains only &lt;code&gt;null&lt;/code&gt;, &lt;code&gt;zero&lt;/code&gt;, and &lt;code&gt;urandom&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So, as far as we can tell, Sandstorm has never been vulnerable to this bug.&lt;/p&gt;
+
+&lt;h3 id=&quot;defense-in-depth&quot;&gt;Defense in depth&lt;/h3&gt;
+
+&lt;p&gt;Even if Sandstorm were vulnerable, the exploit would have far reduced impact inside Sandstorm than in a typical Linux environment, because:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Within a Sandstorm app’s sandbox, the visible filesystem consists of the contents of its own package. It cannot see the host system’s files nor files belonging to other apps, hence it would not be able to memory-map them in order to modify them using this bug.&lt;/li&gt;
+  &lt;li&gt;App packages cannot contain setuid binaries and, even if they could, apps would not be able to execute them, because Sandstorm sets the &lt;code&gt;NO_NEW_PRIVS&lt;/code&gt; &lt;code&gt;prctl()&lt;/code&gt; flag inside the sandbox.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When running on Sandstorm, a user’s data in an app like Etherpad is containerized separately from another user’s data. In fact, we go one step further and &lt;a href=&quot;https://sandstorm.io/how-it-works#grains&quot;&gt;containerize each document separately&lt;/a&gt;. In the case that Sandstorm had not mitigated the bug outright, it appears the impact of the bug would be that an app could break Sandstorm’s per-document isolation and read/write documents from any number of users, so long as those users all use the same version of the same app on the same server. The app still would not have been able to interfere with other apps. This is the status quo in a typical Linux environment: in most non-Sandstorm environments, an app keeps all users’ data in a single database without per-user isolation. Overall, this is much less significant than a privilege escalation to root. Thankfully, our seccomp mitigation prevented this.&lt;/p&gt;
+
+&lt;h3 id=&quot;sandstorms-security-record&quot;&gt;Sandstorm’s Security Record&lt;/h3&gt;
+
+&lt;p&gt;This is not the first Linux security bug mitigated by Sandstorm. In fact, we’ve kept a long list. Moreover, in addition to mitigating Linux kernel problem, Sandstorm mitigates most vulnerabilities in the apps that run on top of it. Check out the whole list of mitigated vulnerabilities that we’ve compiled: &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/&quot;&gt;Sandstorm Security Non-Events&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Want to try out Sandstorm as a user? &lt;a href=&quot;https://demo.sandstorm.io&quot;&gt;Try the online demo »&lt;/a&gt;&lt;/p&gt;
+</description>
+				<pubDate>Tue, 25 Oct 2016 00:00:00 -0700</pubDate>
+                                <link>https://sandstorm.io/news/2016-10-25-cve-2016-5195-dirtycow-mitigated</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-10-25-cve-2016-5195-dirtycow-mitigated</guid>
+			</item>
+		
+			<item>
 				<title>Sharing documents with a Rocket.Chat room in Sandstorm</title>
 				<description>&lt;p&gt;I’m sharing a pro-tip today because I like making sure that everyone gets the most productivity they can out of Sandstorm.&lt;/p&gt;
 
@@ -42,7 +96,7 @@
 
 &lt;p&gt;By the way, if you found this useful and would like to see more bite-sized pro-tip style blog posts in the future, please reshare this and let me know (I’m &lt;a href=&quot;https://twitter.com/qiqing&quot;&gt;@qiqing&lt;/a&gt; on Twitter)!&lt;/p&gt;
 </description>
-				<pubDate>Thu, 13 Oct 2016 00:00:00 -0400</pubDate>
+				<pubDate>Thu, 13 Oct 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-10-13-sharing-documents-rocketchat</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-10-13-sharing-documents-rocketchat</guid>
 			</item>
@@ -109,7 +163,7 @@
 
 &lt;p&gt;Meanwhile, we’ve also &lt;a href=&quot;https://bugs.chromium.org/p/v8/issues/detail?id=5338&quot;&gt;filed an issue against V8&lt;/a&gt;, requesting that they replace their linked list with a hashtable. This wouldn’t have completely mitigated the fiber bombs, but it would have at least prevented them from permanently crippling the process.&lt;/p&gt;
 </description>
-				<pubDate>Fri, 30 Sep 2016 00:00:00 -0400</pubDate>
+				<pubDate>Fri, 30 Sep 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-09-30-fiber-bomb-debugging-story</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-09-30-fiber-bomb-debugging-story</guid>
 			</item>
@@ -207,7 +261,7 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
   &lt;li&gt;Somewhat improved styling of bell-menu notifications. (More work to be done.)&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-				<pubDate>Tue, 13 Sep 2016 00:00:00 -0400</pubDate>
+				<pubDate>Tue, 13 Sep 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-09-13-whats-new</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-09-13-whats-new</guid>
 			</item>
@@ -283,7 +337,7 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
 
 &lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;https://sandstorm.io/get-feature-key&quot;&gt;Get Sandstorm for Work »&lt;/a&gt;&lt;/p&gt;
 </description>
-				<pubDate>Wed, 31 Aug 2016 00:00:00 -0400</pubDate>
+				<pubDate>Wed, 31 Aug 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-08-31-sandstorm-for-work-ready</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-08-31-sandstorm-for-work-ready</guid>
 			</item>
@@ -310,7 +364,7 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
 
 &lt;p&gt;This is the focus of Sandstorm.&lt;/p&gt;
 </description>
-				<pubDate>Wed, 17 Aug 2016 00:00:00 -0400</pubDate>
+				<pubDate>Wed, 17 Aug 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-08-17-decentralization-is-about-diversity</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-08-17-decentralization-is-about-diversity</guid>
 			</item>
@@ -386,7 +440,7 @@ with Sandstorm. The powerbox is still in its early stages, and the
 Collections app is a hint at the kinds of things it will enable.
 So &lt;a href=&quot;https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h&quot;&gt;try it out and let us know what you think&lt;/a&gt;!&lt;/p&gt;
 </description>
-				<pubDate>Tue, 09 Aug 2016 00:00:00 -0400</pubDate>
+				<pubDate>Tue, 09 Aug 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-08-09-collections-app</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-08-09-collections-app</guid>
 			</item>
@@ -455,7 +509,7 @@ within 24 hours of a new release.&lt;/p&gt;
   &lt;li&gt;Fixed “guided tour” hint bubble for installing apps showing for users who aren’t allowed to install apps.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-				<pubDate>Wed, 03 Aug 2016 00:00:00 -0400</pubDate>
+				<pubDate>Wed, 03 Aug 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-08-03-whats-new</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-08-03-whats-new</guid>
 			</item>
@@ -522,7 +576,7 @@ changelog at any time.&lt;/p&gt;
   &lt;li&gt;Re-enabled websocket self-check under new admin UI.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-				<pubDate>Wed, 13 Jul 2016 00:00:00 -0400</pubDate>
+				<pubDate>Wed, 13 Jul 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-07-13-whats-new</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-07-13-whats-new</guid>
 			</item>
@@ -557,31 +611,9 @@ changelog at any time.&lt;/p&gt;
 
 &lt;p&gt;Come for the opportunity to meet others in the Sandstorm community, and work on your project with guidance from our core devs. This event will be held at RethinkDB in Mountain View on July 19. RSVP &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231954146/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
-				<pubDate>Wed, 29 Jun 2016 00:00:00 -0400</pubDate>
+				<pubDate>Wed, 29 Jun 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-06-29-asheesh-web-apps</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-06-29-asheesh-web-apps</guid>
-			</item>
-		
-			<item>
-				<title>Designing secure systems with Object-Capabilities, Python, and Cap&#39;n Proto</title>
-				<description>&lt;p&gt;At our Sandstorm meetup on June 16th, Sandstorm core dev &lt;a href=&quot;https://github.com/zarvox&quot;&gt;Drew Fisher&lt;/a&gt; talked about an object-oriented programming inspired technique for designing secure systems called object-capability security.&lt;/p&gt;
-
-&lt;p&gt;Object-capability security is a technique for designing systems that lets us apply object-oriented design principles to security policies, reducing cognitive overhead and risk of errors that lead to vulnerabilities. In this talk, Drew explains capabilities, how they work, and what cool things they make possible for your systems, with real-world examples from Sandstorm.io.&lt;/p&gt;
-
-&lt;p&gt;Watch the full talk here:&lt;/p&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/2H-Azm8tM24&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;To see the slides: &lt;a href=&quot;http://zarvox.org/pycon2016-talk&quot;&gt;http://zarvox.org/pycon2016-talk&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;To read more about capability-based security: &lt;a href=&quot;https://sandstorm.io/how-it-works#capabilities&quot;&gt;https://sandstorm.io/how-it-works#capabilities&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;To read more on Cap’n Proto: &lt;a href=&quot;https://capnproto.org/&quot;&gt;https://capnproto.org/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;We also have an upcoming meetup on July 19 where Asheesh is giving a talk entitled, “Web app packaging in Sandstorm: It’s not LAMP.” RethinkDB is kind enough to host our event at their office in Mountain View, and all are invited. &lt;a href=&quot;http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231954146/&quot;&gt;Read the details &amp;amp; RSVP here&lt;/a&gt;.&lt;/p&gt;
-</description>
-				<pubDate>Mon, 20 Jun 2016 00:00:00 -0400</pubDate>
-                                <link>https://sandstorm.io/news/2016-06-20-drew-object-capabilities</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-06-20-drew-object-capabilities</guid>
 			</item>
 		
 	</channel>

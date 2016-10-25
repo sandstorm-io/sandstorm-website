@@ -99,13 +99,40 @@
 
 
 <section>
+  <h2><a href="/news/2015-03-05-postcards">Postcards from Boston & Chicago</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2015-03-05-postcards">05 Mar 2015</a>
+  
+  
+  
+  
+  <p>I was recently traveling to Boston for the
+<a href="http://www.mit.edu/~puzzle/">MIT Mystery Hunt</a> and to Chicago
+to see my
+<a href="http://www.brooklynvegan.com/chicago/2015/01/rainer_maria_pl.html">favorite band’s last show</a>.
+While in town, I thought it’d be nice to
+meet up with Sandstorm fans. Here’s us!</p>
+
+<p>In Boston, at <a href="http://www.yelp.com/biz/clover-cambridge-5">Clover Food Lab</a>:</p>
+
+<p><img width="600" src="/news/images/boston.jpg" /></p>
+
+<p>In Chicago, at <a href="http://www.yelp.com/biz/la-brasa-roja-chicago">La Brasa Roja</a>:</p>
+
+<p><img width="600" src="/news/images/chicago.jpg" /></p>
+
+<p>If I’m traveling again, I’ll drop a line to
+<a href="https://groups.google.com/forum/#!forum/sandstorm-dev">sandstorm-dev</a> –
+one more good reason to subscribe!</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-02-27-speaker-kit">Give a talk; use this kit!</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2015-02-27-speaker-kit">27 Feb 2015</a>
-  
-  
-  
   
   <p>Have you been wanting to give a Sandstorm lightning talk, but haven’t found time
 to put together slides? To make that easier, I made a
@@ -375,32 +402,6 @@ people’s personal Sandstorm servers, so you’ll also be strengthening the
 ecosystem of self-hosting.  If you’re excited about that but don’t know where
 to start, <a href="https://github.com/sandstorm-io/sandstorm/wiki/Get-Involved">
 get in touch</a>!</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-02-03-draw.io">draw.io: Advanced Diagram Editor on Sandstorm</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2015-02-03-draw.io">03 Feb 2015</a>
-  
-  <p>Today we are releasing draw.io, an advanced diagramming editor developed by the folks at <a href="https://www.jgraph.com/">JGraph</a>. You can install it on your Sandstorm server from the app list. Or, <a href="https://demo.sandstorm.io/appdemo/nfqhx83vvzm80edpgkpax8mhqp176qj2vwg67rgq5e3kjc5r4cyh">try it on our demo server now »</a></p>
-
-<div><div style="text-align: center; width: 100%;"><a href="https://sandstorm.io/apps/drawio-big.png"><img src="https://sandstorm.io/apps/drawio.png" /></a></div></div>
-
-<p>As you may recall, draw.io was one of the “Corporate Sponsors” of our Indiegogo campaign, chipping in $4096. Now, they’ve given us an app.</p>
-
-<p>I’m excited about this for three reasons:</p>
-
-<p>First, draw.io is an app I really want to use. I often need to create system design diagrams or UI mockups, and in the past I’ve struggled to find a good tool for these jobs. Local apps are a pain to manage (hard to share, need to make backups, etc.) but the cloud offerings I’ve used in the past were mostly unsophisticated (like Google Drive’s) or required keeping my data on the servers of a company I knew nothing about. With draw.io on Sandstorm, I know where my data lives, I can share it securely, I know the app cannot disappear on me, and I know the app is not secretly mining my data. And as far as functionality goes, it’s more powerful than anything else I’ve used.</p>
-
-<p>Second, draw.io’s Sandstorm port uses the Sandstorm APIs natively, and that makes it start faster and use far fewer resources than other apps. Although Sandstorm apps are web-based, Sandstorm does not actually speak HTTP directly to apps. Instead, it converts incoming requests into <a href="https://capnproto.org">Cap’n Proto</a> requests according to the <a href="https://github.com/sandstorm-io/sandstorm/blob/master/src/sandstorm/web-session.capnp">WebSession API</a>. This brings significant security benefits. However, most apps are built on existing HTTP frameworks, and therefore most Sandstorm apps use <code>sandstorm-http-bridge</code>, a small program that runs inside the sandbox and converts incoming WebSession calls back into loopback HTTP requests. This allows these apps to run in Sandstorm with minimal code changes, but it’s a bit inefficient.</p>
-
-<p>draw.io on Sandstorm does not use <code>sandstorm-http-bridge</code>; instead, it implements the Cap’n Proto interfaces directly, avoiding a step. Moreover, this makes the code much simpler – draw.io does not need to include an HTTP server framework at all. The whole server is actually implemented in one C++ file, based closely on our <a href="https://github.com/sandstorm-io/sandstorm-rawapi-example">Raw API Sample App</a>. As a C++ program, draw.io’s server also uses only a couple megabytes of RAM, whereas most apps written in dynamic languages use on the order of 100MB – this means that on our upcoming managed hosting service, draw.io will use almost no <a href="/news/2015-01-14-compute-units.html">compute units</a>.</p>
-
-<p>Third, draw.io is our third app whose Sandstorm port is maintained directly by the upstream authors, joining LibreBoard and EtherCalc. Ports maintained by upstream authors tend to be higher-quality and get more timely updates, since it’s tough for us to closely track our 20+ app ports while working on Sandstorm itself. (Speaking of which, this week is App Update Week: we’ll be refreshing most of our app ports to their latest versions. Today we published updates to GitLab, GitWeb, MediaWiki, Groove Basin, and Telescope. We’ll talk more about this in another blog post later this week.)</p>
-
-<p>It’s worth noting that draw.io is our first proprietary app. It’s “free as in beer”, but the code is not open. For many people, as long as they have control of the server, whatever gets the job done is fine. But, we know some of you would prefer to use only Free / Open Source Software. To that end, we’ve implemented a new filtering feature on our app list which allows you to choose to see only open source apps.</p>
 
 </section>
 
