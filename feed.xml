@@ -12,7 +12,9 @@
 
 &lt;p&gt;Since Sandstorm allows any user of a server to upload their own apps, you might wonder if this bug could allow a Sandstorm user to compromise the server.&lt;/p&gt;
 
-&lt;p&gt;We’re happy to report that the answer is “no”. As is &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/#linux-kernel&quot;&gt;often the case&lt;/a&gt; with Linux kernel bugs, our sandbox blocked the exploit.&lt;/p&gt;
+&lt;p&gt;We’re happy to report that the answer appears to be “no”. As is &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/#linux-kernel&quot;&gt;often the case&lt;/a&gt; with Linux kernel bugs, our sandbox blocked the exploit.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Of course, we still recommend updating your kernel in case the bug can be exploited in ways that have not been discovered yet.&lt;/em&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;technical-details&quot;&gt;Technical Details&lt;/h3&gt;
 
