@@ -35,7 +35,7 @@ function getId() {
   return id;
 }
 
-function sendData(data) {
+function sendData(data, path) {
   var xhr = new XMLHttpRequest();
 
   xhr.onreadystatechange = function () {
@@ -48,7 +48,7 @@ function sendData(data) {
     }
   };
 
-  xhr.open("POST", "https://api-5d23e9c497f90642a85ba1fb909fa9d8.oasis.sandstorm.io/pageEvent", true);
+  xhr.open("POST", "https://api-5d23e9c497f90642a85ba1fb909fa9d8.oasis.sandstorm.io/" + path, true);
 
   xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhr.setRequestHeader("Authorization", "Bearer hVU87Vp2UzNnRmMepiXpjKUk6n6MZc7YMgAJ6YrVe-6");
@@ -131,5 +131,15 @@ function trackView() {
     referrer: document.referrer,
     location: window.location + '',
     experiments: experimentMembership
-  });
+  }, "pageEvent");
+}
+
+function trackClick(elementId) {
+  var id = getId();
+  sendData({
+    uid: id,
+    elementId: elementId,
+    location: window.location + '',
+    experiments: experimentMembership
+  }, "clickEvent");
 }

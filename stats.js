@@ -15,6 +15,7 @@
   window.sandstormTrackView = trackView; // TODO: remove once feature key vendor uses window.sandstormTracker.trackView
   window.sandstormTracker = {
     trackView: trackView,
+    trackClick: trackClick,
     experiments: experiments,
     getId: getId
   };

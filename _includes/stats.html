@@ -11,5 +11,13 @@ unstyled content.
 
 runExperimentHooks();
 trackView();
+
+window.sandstormTracker = {
+  trackView: trackView,
+  trackClick: trackClick,
+  experiments: experiments,
+  getId: getId
+};
+
 })();
 </script>
