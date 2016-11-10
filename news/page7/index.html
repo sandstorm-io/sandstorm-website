@@ -99,15 +99,106 @@
 
 
 <section>
+  <h2><a href="/news/2015-11-12-authenticated-app-packages">Authenticated app packages on Sandstorm with PGP and Keybase</a></h2>
+  <p class="post-details">By <a href="https://github.com/zarvox">Drew Fisher</a>
+    
+    - <a href="/news/2015-11-12-authenticated-app-packages">12 Nov 2015</a>
+  
+  
+  
+  
+  <p>I like to joke that Sandstorm is a security project posing as a
+usability project.  In actuality, it’s both!  Sandstorm users deserve to be
+confident that the apps they’re running are exactly as
+the packager built them, and have not been backdoored or accidentally modified
+by a malicious ISP, government, or other attacker.  Furthermore, this
+information must be easy to consume and verify.</p>
+
+<p>To that end, I’ve worked with Kenton to make it possible to provide a cryptographic chain of trust
+that connects the app package you’re installing to the app publisher’s online
+accounts.  When you install the
+<a href="https://apps.sandstorm.io/app/a0n6hwm32zjsrzes8gnjg734dh6jwt7x83xdgytspe761pe2asw0">EtherCalc spreadsheet app</a>,
+Sandstorm lets you see that the app was made by the same Audrey Tang that owns
+<a href="https://github.com/audreyt">audreyt on Github</a> and
+<a href="https://keybase.io/au">au on Keybase</a>.
+Publisher information is shown front and center:</p>
+
+<p><img src="/news/images/install-ethercalc.png" width="100%" alt="Installing EtherCalc" /></p>
+
+<p>To make this all work, there are a few steps involved.</p>
+
+<h3 id="the-app-id-is-a-public-key">The app ID is a public key</h3>
+
+<p>Sandstorm has required that apps be signed since its inception, providing
+a first line of defense against package corruption.  The app is signed with an
+app-specific Ed25519 key at package-building time.  Sandstorm uses the public key
+as the app’s ID on the app market and your server.</p>
+
+<p>This guarantees that app packages cannot be modified by a CDN or the app market
+without using a different app ID.  This also had the nice effect of providing
+trust-on-first-use properties for apps until we were able to bind these
+identities to something more meaningful.  The upshot: when you’ve installed an
+app, only the same app author can provide updates to it.</p>
+
+<h3 id="connect-the-app-id-to-a-pgp-key">Connect the app ID to a PGP key</h3>
+
+<p>Since the release of the <a href="https://apps.sandstorm.io/">app market</a>,
+app packagers have been PGP-signing statements that they are the author of the
+Sandstorm app with that app ID, and include that statement, their PGP public 
+key, and the email address associated with that key in their package’s metadata.
+Since that metadata is in the Sandstorm package file signed by the Ed25519 key,
+any server running Sandstorm can verify
+that these statements were provided by the person or people who control that
+Ed25519 key.  Additionally, since the statement is signed by the PGP key, there
+is a trust path from the owner of that PGP private key to the app you are
+installing. To defeat this, an attacker would need to convince an app author to
+replace both their signing statement and their PGP key in the package metadata
+with ones produced by the attacker.</p>
+
+<h3 id="connect-the-pgp-key-to-social-identities">Connect the PGP key to social identities</h3>
+
+<p>The next goal is to connect that PGP fingerprint to meaningful, real-world
+identities.  While a handful of people might be able to rely on the
+web-of-trust to verify PGP fingerprints, most users will need something more
+approachable.  That’s where <a href="https://keybase.io">Keybase</a> comes in.  Keybase
+helps you link PGP keys to social identities, like GitHub or Twitter accounts.
+App authors can create a Keybase account, then create signed proofs-of-ownership
+that they post to their social media pages or websites.  Keybase provides an
+index of these proofs, so given a PGP fingerprint, you can list the accounts for
+which the PGP key’s owner has proven control.</p>
+
+<h3 id="the-result-end-to-end-verified-apps">The result: end-to-end verified apps</h3>
+
+<p>When you go to install a package, Sandstorm verifies that the package is
+correctly signed by the Ed25519 key.  It looks for a PGP signature in the 
+metadata, and verifies that the PGP-signed assertion is for the correct app ID 
+and the email address specified in the metadata.  It queries the Keybase API to
+see what accounts the packager has proven ownership of, and lists them with 
+their links on the app install page.</p>
+
+<p>Currently, the implementation of this feature trusts Keybase’s servers to verify
+proofs and return an accurate list of the signer’s identities. However, Keybase
+proofs are designed to be verifiable by third parties without trusting Keybase,
+and we plan to extend Sandstorm to do this, thus eliminating Keybase itself from
+the trust chain.</p>
+
+<p>So that’s how Sandstorm links app packages to their
+creators’ social identities, with cryptographic verification at each step along
+the way, with no additional action needed by end users.  This is software
+authenticity that Just Works, and it’s available today for all Sandstorm users
+and packages in the App Market.  Today is a good day to
+<a href="https://sandstorm.io/install/">install Sandstorm on your own server</a> or sign up
+for our <a href="/news/2015-08-31-oasis-beta-launch.html">managed hosting</a>.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-11-10-icons-spks-for-everyone">Graphics and one-click installers for everyone</a></h2>
   <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
     
       and <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2015-11-10-icons-spks-for-everyone">10 Nov 2015</a>
-  
-  
-  
   
   <p>Open source web app developers build great apps. But sometimes, backend-minded developers need a little help, from making it easy for end users to install their apps to making their icons and other graphics visually appealing. To make open source web apps <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">viable</a> as an ecosystem, the apps must be easy to install and use, and to get the attention they deserve, they should have good-looking icons that convey the purpose of the app.</p>
 
@@ -260,79 +351,6 @@ Where: <a href="https://www.google.com/maps?f=q&amp;hl=en&amp;q=814+Mission+St,+
 <p>So take a moment and <a href="https://sandstorm.io/install/">install Sandstorm now</a> to securely enjoy these kinds of apps, or at least <a href="https://demo.sandstorm.io">try the online demo</a>.</p>
 
 <p>And if you already have a Sandcats-enabled install of Sandstorm from before today, check out the <a href="https://docs.sandstorm.io/en/latest/administering/ssl/">documentation</a> to enable HTTPS!</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install">Is curl|bash insecure?</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install">24 Sep 2015</a>
-  
-  <p>Since the early days of Sandstorm, we have offered the following mechanism for installing it:</p>
-
-<pre><code>curl https://install.sandstorm.io | bash
-</code></pre>
-
-<p>As it turns out, a lot of people object to <code>curl|bash</code>. In fact, some people object <em>very strongly</em> to it, going so far as to scoff publicly at how obviously terrible it is and smugly proclaim that they dismissed our entire project when they saw this line. Usually, the loudest objectors claim that <code>curl|bash</code> is bad for security.</p>
-
-<p><a href="https://docs.sandstorm.io/en/latest/developing/security-practices/">Sandstorm is a security product</a>, so we want to address that head-on.</p>
-
-<h3 id="the-bogus-argument-code-execution">The Bogus Argument: Code Execution</h3>
-
-<p>I’ll admit: <code>curl|bash</code> certainly <em>smells</em> funny. To anyone with a basic understanding of Unix, the construction makes it really obvious: This command will give the named web site direct access to your system, with the ability to do anything that <em>you</em> could do. This feels very wrong: We should be able to install software without giving the developers full access to our systems, right?</p>
-
-<p>We at Sandstorm would obviously be the first to agree that software you install should not be automatically fully trusted – that’s why <a href="https://docs.sandstorm.io/en/latest/developing/security-practices/#fine-grained-isolation">Sandstorm itself runs every app in a secure, isolated sandbox by default</a>. Unfortunately, however, traditional Unix software is always granted the full authority of the user who runs it. When you install software on Linux, no matter what package manager you use, you are giving that software permission to act as you. Most package managers will even execute scripts from the package at install time – as root. So in reality, although <code>curl|bash</code> <em>looks</em> scary, it’s really just laying bare the reality that applies to every popular package manager out there: anything you install can pwn you.</p>
-
-<p>If you wish to install Sandstorm – or any software – without giving it full access to your system, you must install it on a dedicated machine, VM, or (perhaps, with caveats) user account. In fact, we highly encourage you to do so, for defense in depth. But, we know it’s more work than a lot of people want to deal with.</p>
-
-<h3 id="the-better-argument-code-signing">The Better Argument: Code Signing</h3>
-
-<p>Some of the objectors, though, go a bit further: They claim that <code>curl|bash</code> is more open to attack that other distribution mechanisms, potentially allowing a third party to replace our Sandstorm downloads with evil ones.</p>
-
-<p>Of course, all content served by sandstorm.io – from software downloads to our blog – is served strictly over HTTPS (with HSTS).</p>
-
-<p>Various people argue, though, that this is not good enough, and that we should be signing each release with keys kept offline.</p>
-
-<p>In fact, I agree: where possible, we like to use two or more independent mechanisms of protecting against a security problem, so that when one breaks it’s not a big deal. So, as of today, it is possible to verify the Sandstorm installer from the PGP keys of various Sandstorm developers by following our “PGP-verified install” instructions.</p>
-
-<p><a class="linkbutton" href="https://docs.sandstorm.io/en/latest/install/#option-3-pgp-verified-install">Try PGP-verified Install »</a></p>
-
-<p>That said, we do not think this issue quite warrants the visceral anger we’ve seen people express over <code>curl|bash</code>. Realistically, downloading and installing software while relying on HTTPS for integrity is a widely-used practice. The web sites for Firefox, Rust, Google Chrome, and many others offer an HTTPS download as the primary installation mechanism. It’s even the standard way to install most Linux distros in the first place (by downloading an iso from the web site). Many popular package managers, such as npm, rely only on HTTPS for integrity. <code>curl|bash</code> over HTTPS is just as “secure” as any of these.</p>
-
-<h3 id="verifying-keys-with-keybase">Verifying Keys with Keybase</h3>
-
-<p>To get benefit from PGP code signing beyond what you get from HTTPS distribution, you must verify that the software is signed by the specific developer you are expecting – and to do that, you need a way to bootstrap trust in their PGP key. This means you can’t simply fetch the key from the developer’s own server. You can use PGP “Web of Trust”, but sadly few people really understand how to do that.</p>
-
-<p>Recently, though, a fairly plausible option has emerged: <a href="https://keybase.io">Keybase.io</a>. Keybase has implemented usable tools and techniques to bootstrap trust from a variety of sources, including social networks like Github and Twitter, all <em>without</em> trusting Keybase. It’s unlikely that an attacker could compromise all of these sources at once. Once you’ve used Keybase to verify our PGP key, then you can verify the signed packages downloaded from our servers, and actually have a higher degree of confidence that the software is authentic than you would get from HTTPS alone.</p>
-
-<h3 id="non-security-concerns">Non-security Concerns</h3>
-
-<p><code>curl|bash</code> is not pretty, and people have raised some legitimate non-security-related concerns about it:</p>
-
-<ul>
-  <li>If the connection dies mid-line, bash will execute the incomplete line – however, this can be mitigated by wrapping the whole script in a bash function executed on the last line, as we do. (This is actually arguably a security concern if an attacker can induce a disconnect at a chosen point, but in any case it doesn’t apply to our script.)</li>
-  <li>Although almost all package managers allow packages to run arbitrary install-time scripts (often as root), it is far more likely that a wholly hand-rolled install script will be sloppy and harm the system. In the case of Sandstorm, we have taken care to avoid interfering with your system in any way – in fact, Sandstorm self-containerizes in its own chroot under /opt/sandstorm, meaning that for the most part it does not touch the rest of your system at all. <a href="https://install.sandstorm.io">See comments at the top of the script for more details.</a></li>
-  <li>Installing software not managed by the distro’s package manager can be inconvenient for system administrators, especially those who are deeply familiar with the inner workings of their distro.</li>
-</ul>
-
-<p>On these concerns: We hear you.</p>
-
-<p>For now, we believe that having our own install scripts allows us to iterate faster, compared to maintaining (and testing) half a dozen package formats for different distros. However, once Sandstorm reaches a stable release, we fully intend to offer more traditional packaging choices as well. We still have lots of work to do!</p>
-
-<h3 id="faq">FAQ</h3>
-
-<p><strong>Does Sandstorm’s auto-updater verify signatures on updates?</strong></p>
-
-<p>As of this release, yes. (This is in addition to using HTTPS, as it always has.)</p>
-
-<p><strong>What happens if the release-signing private key is compromised?</strong></p>
-
-<p>We can rotate the key at any time. Certificates on the old key expire in about a month. The auto-updater will begin using the new key as soon as it has installed an update that is aware of the new key. We sign updates with all old keys as well so that old Sandstorm installs continue to be able to update even after key rotation.</p>
-
-<p><strong>Are the installer and updater resistant to downgrade attacks?</strong></p>
-
-<p>Yes. The installer will not install a release more than a month old. The updater will never “downgrade” to an older version. We also plan to add an alert to the Sandstorm UI if the Sandstorm build is more than a month old, which could indicate that an attacker is blocking access to the update server.</p>
 
 </section>
 

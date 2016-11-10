@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Sandstorm now supports RHEL 7, CentOS 7, Arch, and more - Sandstorm Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Sandstorm now supports RHEL 7, CentOS 7, Arch, and more">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sandstorm.io/images/sandcat.png">
+    <meta property="og:url" content="https://sandstorm.io/news/2016-11-10-rhel-centos-arch-support">
+    <meta property="og:description"
+        content="Real-time collaborative web productivity suite behind the firewall.">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
+  </head>
+
+
+
+  <body id="blog">
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a href="/get">Get Sandstorm</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">How it Works</a>
+      <a href="/news/">Blog</a>
+      <a href="https://docs.sandstorm.io">Docs</a>
+      <a href="https://github.com/sandstorm-io/sandstorm">Code</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <!-- TODO: search -->
+    </nav>
+
+    <header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+<div class="post-list">
+
+<div class="sidebar">
+  <ul class="socialmedia">
+    <li><a class="twitter" href="https://twitter.com/SandstormIO">Twitter</a>
+    <li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank">Facebook</a>
+    <li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank">Google</a>
+    <li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank">Github</a>
+  </ul>
+
+  <div class="more">
+    <form id="signup" action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+      Join our mailing list for updates<br>
+      <input type="email" name="EMAIL" placeholder="E-mail" required><input type="submit" value="Submit">
+    </form>
+    <a href="/get">
+      Sandstorm is a self-hostable web productivity suite.
+      <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
+      <span class="selfhost" href="/install">or host your own</span>
+    </a>
+    
+    <h3>Recommended Posts</h3>
+    <ul>
+      <li><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">Open Source Web Apps Aren't Viable; Let's Fix That</a></li>
+      <li><a href="/news/2016-02-29-security-track-record">Sandstorm's security track record, and what it means for self-hosting</a></li>
+      <li><a href="/news/2016-08-17-decentralization-is-about-diversity">Decentralization is about diversity</a></li>
+      <li><a href="/news/2016-01-22-8-new-open-source-apps.html">8 New open source self-hostable apps</a></li>
+      <li><a href="/news/2016-04-06-sandstorm-for-work">Sandstorm for Work Beta: LDAP, SAML, organization management</a></li>
+      <li><a href="/news/2016-02-05-app-author-publicity-oasis">Free publicity for your indie web app, and free Oasis service for you</a></li>
+      <li><a href="/news/2015-10-01-free-ssl-certificates.html">Free, automated SSL certificates for Sandstorm self-hosters</a></li>
+      <li><a href="/news/2014-08-19-why-not-run-docker-apps.html">Why doesn't Sandstorm just run Docker apps?</a></li>
+      <li><a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization.html">Understand the Sandstorm sharing model</a></li>
+    </ul>
+    
+    <h3>Further Reading</h3>
+      <ul>
+        <li><a href="/how-it-works">How Sandstorm Works</a></li>
+        <li><a href="http://docs.sandstorm.io">Sandstorm Documentation</a></li>
+        <li><a href="/install">How to install Sandstorm</a></li>
+      </ul>
+  </div>
+</div>
+
+
+<nav class="pagination top">
+  <a class="newer" href="/news/" title="All posts">&laquo; All posts</a>
+</nav>
+
+<section>
+  <h2>Sandstorm now supports RHEL 7, CentOS 7, Arch, and more</h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - 10 Nov 2016
+  <p>As of a couple weeks ago – October 23, 2016 – Sandstorm can now be installed on systems with:</p>
+
+<ul>
+  <li>Linux Kernel 3.10+ (previously required 3.13+)</li>
+  <li>User namespaces disabled (previously required unprivileged user namespaces)</li>
+</ul>
+
+<p>This means that Sandstorm can now be installed on Red Hat Enterprise Linux (RHEL) 7, as well as its cousin CentOS 7, both of which use kernel version 3.10.</p>
+
+<p>It also means that Sandstorm can now be installed on Arch Linux, which has historically shipped kernels compiled with <code>CONFIG_USER_NS=n</code>.</p>
+
+<p>So if you previously couldn’t install Sandstorm because you were using one of these distros, now you can!</p>
+
+<p><a class="linkbutton" href="https://sandstorm.io/install">Install Sandstorm now »</a></p>
+
+<h3 id="what-changed">What changed?</h3>
+
+<p><em>For the technically curious…</em></p>
+
+<p>Sandstorm uses the Linux kernel’s “namespaces” feature as part of setting up the secure sandboxes in which apps run. Normally, creating namespaces requires root privileges, because these features could be used to escalate privileges. However, using “user namespaces”, a process that does not have root privileges can create a special kind of namespace in which other namespaces are (ostensibly) safe to use. Hence, it allows unprivileged processes to create sandboxes.</p>
+
+<p>For security reasons, most of Sandstorm does not run with root privileges. Because of this, it has long relied on user namespaces to allow it to set up sandboxes. At the time the Sandstorm project started, it looked like user namespaces would soon be broadly available across Linux distros, so this seemed like a reasonable strategy.</p>
+
+<p>Unfortunately, this has not been entirely true in practice. The enterprise-oriented RHEL and CentOS distros have long release cycles. Today, they still use kernel version 3.10, which is nearly three years old. Because user namespaces still had many problems in this kernel version, they were disabled by default and are today available only with a boot flag. Meanwhile, some faster-moving distros like Arch have chosen to <a href="https://bugs.archlinux.org/task/36969">keep user namespaces disabled</a> even with newer kernel versions due to security concerns: the user namespaces feature has been the source of many local privilege escalation exploits in Linux. Although these vulnerabilities <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/#linux-kernel">can’t be exploited by Sandstorm apps</a>, such frequent vulnerabilities are problematic for servers which rely on user account separation for security outside of Sandstorm.</p>
+
+<p>Even as it became apparent that Sandstorm’s use of user namespaces was preventing it from being used on some distros, we were hesitant to try other approaches. It seemed like the only way to solve the problem would be to employ a setuid-root binary to set up sandboxes when user namespaces were not available. setuid-root binaries are inherently risky – if not written exactly correctly, it could open its own privilege escalation vulnerability. Also, it would require a major refactoring of Sandstorm internals to move the supervisor into its own binary.</p>
+
+<p>But a couple weeks ago, I realized suddenly that a different idea would work. The Sandstorm server normally starts up as root, but then runs several child processes under a regular user account. Most of Sandstorm’s business logic is in a node.js web server. That process talks via Cap’n Proto RPC to a “back-end” daemon written in C++, which in turn launches app sandboxes. This back-end daemon is hand-coded in C++, with the core logic all living in a single file.</p>
+
+<p>Because of this design, it turned out to be relatively easy to pass superuser privileges down through the back-end, while still keeping them away from the web server. Specifically, the back-end can execute with its <em>effective</em> UID set to a normal user account, but its <em>real</em> UID being root. Then, when it comes time to start a sandbox, it can promote itself back to root to do the work.</p>
+
+<p>This turned out to take only a couple hours to <a href="https://github.com/sandstorm-io/sandstorm/pull/2644">implement</a>. In retrospect, the design seems obvious, and I wish I’d thought of it sooner!</p>
+
+<p>There is a minor downside: If a vulnerability allows an attacker to cause the back-end to execute arbitrary code, that code could claim the superuser privileges, whereas before it would be limited to the Sandstorm server UID. This risk is probably small because the back-end is a relatively simple program that only speaks directly to other trusted programs (although it speaks indirectly to potentially-malicious actors). Nevertheless, if user namespaces are available, then Sandstorm will avoid handing root privileges to the back-end at all, continuing to operate as it did historically.</p>
+
+<h3 id="what-do-i-need-to-do">What do I need to do?</h3>
+
+<p>Existing Sandstorm users need not take any action. Your servers will continue to operate exactly as they always have.</p>
+
+<p>But if you’ve been held back from installing Sandstorm before because it wouldn’t work on your distro, you should try again now!</p>
+
+<p><a href="https://sandstorm.io/install">Install Sandstorm Standard »</a></p>
+
+<p><a href="https://sandstorm.io/get-feature-key">Try Sandstorm for Work (supports corporate SSO via LDAP/SAML/AD and organization management features) »</a></p>
+
+
+</section>
+
+</div>
+
+
+    <footer>
+      <ul>
+        <li>
+          <h3><a href="/get">Get Sandstorm</a></h3>
+          <ul>
+            <li><a href="/get">Sandstorm on Oasis</a>
+            <li><a href="/get">Sandstorm Standard</a>
+            <li><a href="/get">Sandstorm for Work</a>
+            <li><a href="https://github.com/sandstorm-io/sandstorm">Source Code (GitHub)</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/features">Features</a></h3>
+          <ul>
+            <li><a href="/features">Core</a>
+            <li><a href="/features#security">Security</a>
+            <li><a href="/business">Sandstorm for Work</a>
+            <li><a href="/business#scale">Sandstorm for Enterprise</a>
+            <li><a href="/developer">Development</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/how-it-works">How it Works</a></h3>
+          <ul>
+            <li><a href="/how-it-works#grains">Fine-grained object containers</a>
+            <li><a href="/how-it-works#capabilities">Capability-based Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="https://docs.sandstorm.io">Documentation</a></h3>
+          <ul>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/">How to use Sandstorm</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/developing/">Developer Hub</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/administering/">Administering &amp; installing</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/security-practices/">Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a></h3>
+          <ul>
+            <li><a href="/news">Sandstorm Blog</a>
+            <li><a href="/community#connect-with">Connect with us</a>
+            <li><a href="/community#helpothers">Help Others</a>
+            <li><a href="/community#helpproject">Help the Project</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/about">About</a></h3>
+          <ul>
+            <li><a href="/about">Sandstorm Story</a>
+            <li><a href="/about#team">Team</a>
+            <li><a href="/about#advisors">Advisors</a>
+            <li><a href="mailto:contact@sandstorm.io">Contact</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <ul>
+            <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
+          </ul>
+        </li>
+        <li>
+          <h3>Connect</h3>
+          <ul id="socialmedia-small">
+						<li><a class="twitter" href="https://twitter.com/SandstormIO"></a>
+						<li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank"></a>
+						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
+						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
+  			</ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+                                                        <form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+                                                                <input type="email" name="EMAIL" placeholder="e-mail" required>
+                                                                <input type="submit" value="Submit">
+                                                                </form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
+        </li>
+      </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
+    </footer>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-42127409-1', 'sandstorm.io');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- Sandstorm stats collection -->
+    <script type="text/javascript" src="/stats.js"></script>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
+  </body>
+</html>
