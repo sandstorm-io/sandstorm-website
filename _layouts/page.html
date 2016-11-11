@@ -13,6 +13,7 @@
         content="Real-time collaborative web productivity suite behind the firewall.">
     <link rel="stylesheet" type="text/css" href="/style.css">
     <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="{{site.baseurl}}feed.xml">
+    {% include stats.html %}
   </head>
 
 {% if layout.id %}
@@ -132,9 +133,6 @@
       ga('create', 'UA-42127409-1', 'sandstorm.io');
       ga('send', 'pageview');
     </script>
-
-    <!-- Sandstorm stats collection -->
-    <script type="text/javascript" src="/stats.js"></script>
 
     <!-- livereload, for development -->
     <script type="text/javascript">

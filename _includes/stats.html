@@ -1,0 +1,15 @@
+{% if false %}
+<!--
+We include this in the <head> of every page to ensure that experiments are loaded
+and stylesheets applied *before* the rest of the page renders, to prevent flash of
+unstyled content.
+-->
+{% endif %}
+<script>
+(function(){
+{% include stats-support.js %}
+
+runExperimentHooks();
+trackView();
+})();
+</script>
