@@ -53,7 +53,12 @@ title: Install Sandstorm
       <h3>HTTPS-verified install</h3>
 
       <p>Run this in a terminal:</p>
-      <pre>curl https://install.sandstorm.io | bash</pre>
+<script type="text/javascript">
+function onInstallMouseDown() {
+  window.sandstormTracker && window.sandstormTracker.trackClick("curl-pipe-bash");
+}
+</script>
+      <pre onmousedown="onInstallMouseDown();">curl https://install.sandstorm.io | bash</pre>
 
       <p>The installer will offer you free dynamic DNS and valid HTTPS via <a href="https://sandcats.io">sandcats.io</a>,
         a service maintained by the Sandstorm development team.
