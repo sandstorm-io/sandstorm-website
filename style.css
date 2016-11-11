@@ -2679,6 +2679,8 @@ body > footer {
       padding: 8px 0;
       text-decoration: none;
       color: #6A237C; }
+    #install main > section .exp-install-screencast-autoplay-test {
+      display: none; }
     #install main > section pre {
       font-size: 16px;
       text-align: center;
