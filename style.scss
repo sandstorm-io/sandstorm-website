@@ -2796,6 +2796,11 @@ body >footer {
         width: 35%;
         margin-bottom: 0;
       }
+      >.aws {
+        float: right;
+        width: 35%;
+        margin-bottom: 0;
+      }
 
       &::after {
         content: " ";
@@ -2810,12 +2815,33 @@ body >footer {
         display: block;
         margin: 0 0 1em;
         background-color: #f0edf7;
-        font-size: 30px;
+        font-size: 28px;
         text-align: center;
         padding: 8px 0;
         text-decoration: none;
         color: #6A237C;
+        border-radius: 5px;
+        &:hover {
+          background-color: #e9e6f4;
+        }
       }
+    }
+    
+    >.aws {
+      >a {
+        display: block;
+        margin: 0 0 1em;
+        background-color: #f7981f;
+        font-size: 28px;
+        text-align: center;
+        padding: 8px 0;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 5px;
+        &:hover {
+          background-color: #f28e22;
+        }
+      } 
     }
 
     pre {
