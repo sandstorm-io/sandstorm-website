@@ -78,7 +78,7 @@ var experiments = [
   {
     id: "install-screencast-autoplay",
     exp_range_start: 0,
-    exp_range_end: 0x1999999, // 10% of users
+    exp_range_end: 0x19999999, // 10% of users
     hook: function (userId, exp, inExperiment) {
       // Creates a stylesheet with a pair of classes that change the display: property,
       // allowing hiding of baseline content and showing of experimental content.
