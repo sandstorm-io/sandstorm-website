@@ -1568,9 +1568,6 @@ body > footer {
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap; }
-    #get #managed-hosting .oasis-plans #basic {
-      border: 1px solid #b6a1cd;
-      border-radius: 5px; }
     #get #managed-hosting .oasis-plans .oasis-plan {
       display: -webkit-box;
       display: -webkit-flex;
