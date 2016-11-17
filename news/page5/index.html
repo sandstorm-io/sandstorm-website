@@ -240,13 +240,80 @@ window.sandstormTracker = {
 
 
 <section>
+  <h2><a href="/news/2016-04-06-sandstorm-for-work">Sandstorm for Work Beta: LDAP, SAML, organization management</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2016-04-06-sandstorm-for-work">06 Apr 2016</a>
+  
+  
+  
+  
+  <p>Sandstorm is a great way to run open source collaborative productivity apps like document editors, task managers, chat rooms, file sharing, and more (54 apps and growing), all in one place. Lots of people – including us – use Sandstorm every day as part of doing their jobs. For example, right now I am composing this blog post in <a href="https://apps.sandstorm.io/app/fq057t4ek3yt96xsfje6c1wv61pkjkqm9hs1539x4jqxjwzdp7fh">Dillinger</a> running on <a href="https://oasis.sandstorm.io">Sandstorm Oasis</a> (our hosting service), but many people choose to self-host Sandstorm on their own machines.</p>
+
+<p><img style="float: right; width: 283px; height: 221px;" src="/images/business-ldap.png" /></p>
+
+<p><a href="https://sandstorm.io/business">Sandstorm for Work</a> makes self-hosted Sandstorm easier to integrate into a corporate environment. That means you can:</p>
+
+<ul>
+  <li>Integrate with LDAP (including Active Directory) or SAML for single-sign-on.</li>
+  <li>Manage user groups and domains as whole units rather than inviting each user individually.</li>
+  <li>Specify organization-wide access control policies, like “no sharing outside of the organization”.</li>
+  <li><a href="https://sandstorm.io/business">And more…</a></li>
+</ul>
+
+<p>We’re in beta now, so not all features are ready yet, but once you’ve installed Sandstorm you’ll automatically receive updates as they become available.</p>
+
+<p>To get started now, install Sandstorm and choose “Sandstorm for Work” during setup (or if you already have a server, look for the “for Work” tab in the admin settings). Sandstorm for Work is priced at $15/user/month, and currently we’re offering a 90-day free trial. (It’s still open source! More on that in a bit.)</p>
+
+<p><a href="https://sandstorm.io/install" class="linkbutton">Install Sandstorm »</a></p>
+
+<h3 id="productivity-apps-large-and-small">Productivity Apps Large and Small</h3>
+
+<p>With Sandstorm for Work, you can run apps similar to popular SaaS products, but keep your data in-house. For example, you can run <a href="https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60">Etherpad</a> and <a href="https://apps.sandstorm.io/app/a0n6hwm32zjsrzes8gnjg734dh6jwt7x83xdgytspe761pe2asw0">EtherCalc</a> instead of Google Docs, <a href="https://apps.sandstorm.io/app/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h">Wekan</a> instead of Trello, <a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> instead of Slack, and <a href="https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h">Davros</a> instead of Dropbox. Once you have Sandstorm running, you can install each new app with a click – no need to create a new account on a new service, and no worry about whether that service is sufficiently private and secure. With Sandstorm, running apps in-house is actually <strong>easier</strong> than using SaaS.</p>
+
+<p>But even more interestingly, you can run apps on Sandstorm that aren’t available anywhere else, like Simon Vansintjan’s <a href="https://apps.sandstorm.io/app/c6zfftftrra9d4pdyuc1psew65ukqrjujvk20fac4zke1uasxv10">Annotate</a>. The idea behind Annotate is simple: upload an image, then annotate it with comments. We at Sandstorm use it to discuss UI and illustration mockups. Here’s me using it to comment on a slide deck we’re working on:</p>
+
+<p style="max-width: 500px; margin: 1em auto;"><a href="/news/images/annotate.png"><img src="/news/images/annotate-small.png" /></a></p>
+
+<p>What I love about Annotate is its simplicity: Simon wrote the whole thing in a couple weekends. And yet, it’s enough to be useful to design teams anywhere. No matter what Simon decides to do in the future, this app will never disappear, and you don’t have to trust Simon because your data stays on your server.</p>
+
+<p>Annotate is just one of <a href="https://apps.sandstorm.io">54 apps and growing</a> on our app market. By installing Sandstorm at your workplace, you get access to all of these at once, under a single login, and without giving up control of your data.</p>
+
+<h3 id="security-behind-the-firewall">Security Behind the Firewall</h3>
+
+<p><img style="float: right; width: 236px; height: 188px;" src="https://sandstorm.io/images/why-finegrained.svg" /></p>
+
+<p>Of course, if you want to run apps on your own infrastructure, behind your firewall, you need to think about security. A malicious app – or a buggy app that gets hacked – can compromise your whole network.</p>
+
+<p>Fortunately, Sandstorm protects you. Sandstorm is the only container engine that implements <a href="https://sandstorm.io/how-it-works">fine-grained isolation</a>, locking every document in its own container. By doing so, it prevents any app from compromising the server or network, and indeed <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/">it renders 95% of app security vulnerabilities moot before they are even discovered</a>.</p>
+
+<h3 id="developing-for-enterprise">Developing for Enterprise</h3>
+
+<p>Are you a developer of a web app aimed at enterprise? Do you ever get requests for an on-prem version, but find it hard to fulfill this request given the myriad environments and infrastructure you’d need to support? Perhaps we can help. If you target Sandstorm, then these logistics become our job. If your app works on one Sandstorm server, it will work everywhere. If you are interested in learning more, <a href="https://sandstorm.io/developer">check out our developer features</a> and <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#099;&#111;&#109;&#109;&#117;&#110;&#105;&#116;&#121;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;">e-mail us</a>.</p>
+
+<h3 id="is-it-open-source">Is it Open Source?</h3>
+
+<p>Yes! Sandstorm for Work features are part of the same codebase as the rest of Sandstorm and under the same Apache 2.0 license. However, in order to unlock Sandstorm for Work features, we ask that you buy a “feature key” from us.</p>
+
+<p>So how does that work? Can’t anyone just remove the feature key check? In fact, yes, you can. However, if you did that, you would not be able to take advantage of our automatic updater, which ensures that your server is updated to the latest version within 24 hours of any release with no effort on your part. Automatic updates are important to keep your server secure and to make sure you can always run the latest apps.</p>
+
+<p>Purchasing a feature key also entitles you to priority support. However, we don’t want to be a company who primarily sells support, because we think that creates a perverse incentive for us to make our product hard to use. Indeed, it is our goal that no one should ever need to contact support at all, but under a support model, we’d be putting ourselves out of business! Under the feature key model, we are selling features, and promising support if there are problems. This way, we are incentivized to make sure there are no problems, because then we don’t have to answer support tickets.</p>
+
+<h3 id="the-future">The Future</h3>
+
+<p>We like to release features early and often – we push a new release almost every week. What we are announcing today is only the beginning of what we have in store for Sandstorm for Work. Over the coming months, we’ll be adding features like group management (to make it easier to share documents with your team), audit logging (keep track of who has been accessing what, for security and compliance purposes), customizable access control policies, and much more.</p>
+
+<p>If you install Sandstorm today, <strong>you’ll automatically get these features as they become available</strong> – your server will automatically update after every weekly release with no action needed on your part. So why not install now and see what you think? Feel free to <a href="https://github.com/sandstorm-io/sandstorm/issues">file a bug</a> to tell us what you want to see next.</p>
+
+<p style="text-align: center"><a style="display: inline-block; width: 250px; margin: 4px 0;" href="https://demo.sandstorm.io" class="linkbutton">Try a demo »</a> <a style="display: inline-block; width: 250px; margin: 4px 0;" href="/install" class="linkbutton">Install Sandstorm »</a></p>
+
+</section>
+
+<section>
   <h2><a href="/news/2016-02-29-security-track-record">Sandstorm's security track record, and what it means for self-hosting</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2016-02-29-security-track-record">29 Feb 2016</a>
-  
-  
-  
   
   <p>Today I want to share the results of our own <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/">analysis of security issues of web apps available on
 the Sandstorm app market</a>.</p>
@@ -455,78 +522,6 @@ are free-of-cost while Sandstorm is in beta. Then email me at community@sandstor
 </blockquote>
 
 <p>Are you using Sandstorm at work? Drop me a line at <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#099;&#111;&#109;&#109;&#117;&#110;&#105;&#116;&#121;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;">&#099;&#111;&#109;&#109;&#117;&#110;&#105;&#116;&#121;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;</a>, I’d love to hear about it and find out how I can be useful!</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-01-22-8-new-open-source-apps">App update: 8 New open source self-hostable apps</a></h2>
-  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
-    
-    - <a href="/news/2016-01-22-8-new-open-source-apps">22 Jan 2016</a>
-  
-  <p>Have an <a href="http://oasis.sandstorm.io">Oasis account</a> already? If not, you can <a href="https://sandstorm.io/get">sign up for one right now</a> and start using it to install any of the 48 apps in the <a href="http://apps.sandstorm.io">Sandstorm App Market</a>. (You can also <a href="https://sandstorm.io/get">use your own Linux box</a>, of course.)</p>
-
-<p>App authors in the <a href="https://sandstorm.io/community">Sandstorm community</a> have been exceptionally productive lately, packaging their favorite apps and writing original apps as well. I wanted to share some of my recent favorites with you. Here are some brand new apps you should install on your Sandstorm server today:</p>
-
-<h2 id="davros-file-sync">Davros (file-sync)</h2>
-
-<p><a href="https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h"><img src="/news/images/davros-screenshot.jpg" alt="Davros screenshot" /></a></p>
-
-<p><a href="https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h">Davros</a> is an open source alternative to Dropbox that works with the <a href="https://owncloud.org/install/#install-clients">ownCloud client</a> installed on your local machine. It’s an original app by Michael Nutt (one of the founders of <a href="https://movableink.com/">Movable Ink</a>) who also hosts the <a href="http://www.meetup.com/Sandstorm-NY/">Sandstorm NY meetup</a>. He also wrote <a href="https://apps.sandstorm.io/app/4mfserfc04wtcevvgn0jw27hvwfntmt8j468y3ma55kj8d5tj9kh">Hummingbird</a> (see below).</p>
-
-<h2 id="sandforms-forms">SandForms (forms)</h2>
-
-<p><a href="https://apps.sandstorm.io/app/ztxnreej8a0pqn97ccfhuckswjkrmsaavn85n5sgzk30tv2k4y9h"><img src="/news/images/sandforms.png" alt="SandForms screenshot" /></a></p>
-
-<p><a href="https://apps.sandstorm.io/app/ztxnreej8a0pqn97ccfhuckswjkrmsaavn85n5sgzk30tv2k4y9h">SandForms</a> is a slick open source forms app (alternative to Google Forms), by a team at <a href="https://www.thoughtworks.com/">ThoughtWorks</a>, led by Jack Singleton, who is also author of <a href="https://apps.sandstorm.io/app/7qvcjh7gk0rzdx1s3c8gufd288sesf6vvdt297756xcv4q8xxvhh">Hacker Slides</a>.</p>
-
-<h2 id="rocketchat-slack-alternative">Rocket.Chat (Slack alternative)</h2>
-
-<p><a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0"><img src="/images/rocketchat.jpg" alt="Rocket.Chat screenshot" /></a></p>
-
-<p><a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> is <a href="https://blog.okturtles.com/2015/11/five-open-source-slack-alternatives/">a full-featured open source Slack alternative</a> that has taken the world by storm (by Gabriel Engel and the <a href="http://rocket.chat">Rocket.Chat</a> team).</p>
-
-<h2 id="hummingbird-real-time-web-tracker">Hummingbird (real-time web tracker)</h2>
-
-<p><a href="https://apps.sandstorm.io/app/4mfserfc04wtcevvgn0jw27hvwfntmt8j468y3ma55kj8d5tj9kh"><img src="/news/images/06980a0d551bed7ef4eb3991ae1cb92f.jpg" alt="screenshot" /></a></p>
-
-<p><a href="https://apps.sandstorm.io/app/4mfserfc04wtcevvgn0jw27hvwfntmt8j468y3ma55kj8d5tj9kh">Hummingbird</a> gives you real-time web statistics on your website, much like the real-time feature in Google Analytics. It’s also by Michael Nutt (author of <a href="https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h">Davros</a>).</p>
-
-<h2 id="gogs-git-server--interface">Gogs (git server &amp; interface)</h2>
-
-<p><a href="https://apps.sandstorm.io/app/d9ygf47xrtnw12j92cyt6cu8ut75esx01u4q3kcrn8415w9qzzgh"><img src="/news/images/gogs_screenshot.png" alt="screenshot" /></a></p>
-
-<p><a href="https://apps.sandstorm.io/app/d9ygf47xrtnw12j92cyt6cu8ut75esx01u4q3kcrn8415w9qzzgh">Gogs</a> is an advanced yet lightweight git server that also ships with an issue tracker. It was packaged by Cem Kocagil, who also packaged a bunch of apps I’ll talk about below. (Gog upstream authors: <a href="https://gogs.io/">Gogs team</a>)</p>
-
-<h2 id="dillinger-markdown-editor">Dillinger (markdown editor)</h2>
-
-<p><a href="https://apps.sandstorm.io/app/fq057t4ek3yt96xsfje6c1wv61pkjkqm9hs1539x4jqxjwzdp7fh"><img src="/news/images/dillinger_screenshot.png" alt="screenshot" /></a></p>
-
-<p><a href="https://apps.sandstorm.io/app/fq057t4ek3yt96xsfje6c1wv61pkjkqm9hs1539x4jqxjwzdp7fh">Dillinger</a> is a markdown editor with side-by-side panels, much like desktop markdown editor LightPaper, where the left side is for editing, and the right side is for previews. It was also packaged by Cem Kocagil. (Upstream author: Joe McCann).</p>
-
-<h2 id="nodebb-bulletin-board">NodeBB (bulletin board)</h2>
-
-<p><a href="https://apps.sandstorm.io/app/zt4j87mc54jkgaehgfqyq2a0qeytm15pcskazvxfkh10yqg4rsrh"><img src="/news/images/5f71ba0fe62cc3d437db933495a7c121.png" alt="screenshot" /></a></p>
-
-<p><a href="https://apps.sandstorm.io/app/zt4j87mc54jkgaehgfqyq2a0qeytm15pcskazvxfkh10yqg4rsrh">NodeBB</a> is a real-time forum app, featuring a modern user interface, tags, voting, and real-time chat. Like <a href="https://apps.sandstorm.io/app/d9ygf47xrtnw12j92cyt6cu8ut75esx01u4q3kcrn8415w9qzzgh">Gogs</a> and <a href="https://apps.sandstorm.io/app/fq057t4ek3yt96xsfje6c1wv61pkjkqm9hs1539x4jqxjwzdp7fh">Dillinger</a>, it was also packaged by Cem Kocagil. (Upstream author: <a href="https://nodebb.org/">NodeBB</a>, Inc.)</p>
-
-<h2 id="dokuwiki-wiki">DokuWiki (wiki)</h2>
-
-<p><a href="https://apps.sandstorm.io/app/nx3dqcmz2sjjz939vkg4847vvxrzqsatqfjrt3ea50z3jac5kv7h"><img src="/news/images/DokuWiki_screenshot.jpg" alt="screenshot" /></a></p>
-
-<p>DokuWiki is a simple yet versatile classic-style wiki. It was packaged by Nolan Darilek, who also packaged lightweight accounting app <a href="https://apps.sandstorm.io/app/8x12h6p0x0nrzk73hfq6zh2jxtgyzzcty7qsatkg7jfg2mzw5n90">HLedger Web</a>. (Upstream author: <a href="https://www.dokuwiki.org">DokuWiki Team</a>)</p>
-
-<h2 id="and-more">And more…</h2>
-
-<p>I also wanted to share with you an article I wrote for OpenSource.com, highlighting the <a href="https://opensource.com/life/15/12/5-open-source-web-apps-self-hosted">open source apps on Sandstorm that replace Google Drive</a>.</p>
-
-<p>Check out these apps and more in the <a href="http://apps.sandstorm.io">Sandstorm App Market</a>. Or write your own round-up blog post of your own favorite apps and drop a line to <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#099;&#111;&#109;&#109;&#117;&#110;&#105;&#116;&#121;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;">&#099;&#111;&#109;&#109;&#117;&#110;&#105;&#116;&#121;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;</a> to let me know.</p>
-
-<h2 id="spread-the-love">Spread the love</h2>
-
-<p>Did you know that you can get bonus storage on Oasis through the <a href="https://oasis.sandstorm.io/referrals">referral program</a>?</p>
-
-<p>Unlock up to 30GB if you’re a paid user, or up to 2GB bonus storage (+ unlimited grains) for free tier users. (Technically, all plans are free right now while we’re in beta, so catch that while you can.)  That bonus storage will come in handy when you switch over to <a href="https://apps.sandstorm.io/app/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h">Davros</a> like me.</p>
 
 </section>
 

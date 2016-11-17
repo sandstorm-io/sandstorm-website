@@ -7,6 +7,54 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Sandstorm Oasis emerging from beta</title>
+				<description>&lt;p&gt;Sandstorm is about making it easy to run a personal server. But we also offer &lt;a href=&quot;https://oasis.sandstorm.io&quot;&gt;Sandstorm Oasis&lt;/a&gt;, a service which runs your Sandstorm server for you.&lt;/p&gt;
+
+&lt;p&gt;Contradiction?&lt;/p&gt;
+
+&lt;p&gt;Actually, no: Even if you run your own server, Oasis benefits you. Oasis is important because it makes it possible for anyone to use &lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;Sandstorm’s library of open source apps&lt;/a&gt;, even if they really don’t want to run their own server. A larger audience means that more and better apps will become available. Indeed, after we launched Oasis last year, the rate of new apps becoming available on Sandstorm spiked.&lt;/p&gt;
+
+&lt;p&gt;That benefits self-hosters, because those same apps can be used on your private server, too.&lt;/p&gt;
+
+&lt;p&gt;In fact, we at Sandstorm don’t necessarily think “the cloud” is a bad idea. What we believe is that you should have the freedom to choose what makes sense for you. But that choice is moot if the particular app you need to use is only available in the cloud – we need the same apps to be available everywhere.&lt;/p&gt;
+
+&lt;p&gt;Oasis has now been running reliably for over a year. The Sandstorm team uses Oasis every day to get our own work done. I am composing this blog post in &lt;a href=&quot;https://oasis.sandstorm.io/appdemo/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60&quot;&gt;Etherpad&lt;/a&gt;, while organizing my task list in &lt;a href=&quot;https://oasis.sandstorm.io/appdemo/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h&quot;&gt;Wekan&lt;/a&gt;, chatting with teammates in &lt;a href=&quot;https://oasis.sandstorm.io/appdemo/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0&quot;&gt;Rocket.Chat&lt;/a&gt;, and syncing files with &lt;a href=&quot;https://oasis.sandstorm.io/appdemo/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h&quot;&gt;Davros&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here are just some of the things we’ve changed since Oasis was launched:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Implemented automatic updates for apps.&lt;/li&gt;
+  &lt;li&gt;Added cryptographic verification of app author identity.&lt;/li&gt;
+  &lt;li&gt;Added unified notifications and activity indicators, so you can find out when apps need attention without opening them to find out.&lt;/li&gt;
+  &lt;li&gt;Added collections, allowing you to share a group of grains as one unit.&lt;/li&gt;
+  &lt;li&gt;Added the ability to share grains through other apps, e.g. sharing a document to a Rocket.Chat channel, without generating a magic link.&lt;/li&gt;
+  &lt;li&gt;Added a “trash” mechanism to make it harder to accidentally delete an important grain.&lt;/li&gt;
+  &lt;li&gt;Added the ability to delete your own account.&lt;/li&gt;
+  &lt;li&gt;Added support for apps to export WebDAV APIs.&lt;/li&gt;
+  &lt;li&gt;Made it easier for Sandstorm apps to connect with mobile client apps.&lt;/li&gt;
+  &lt;li&gt;Made Sandstorm’s UI mobile-friendly.&lt;/li&gt;
+  &lt;li&gt;Made it so that our most-used apps are pre-installed for new users.&lt;/li&gt;
+  &lt;li&gt;Made sharing easier and more secure by adding contact auto-complete and “request access” UIs.&lt;/li&gt;
+  &lt;li&gt;Added the ability to attach multiple credentials to one account, so that one login provider being unresponsive won’t prevent you from accessing Sandstorm.&lt;/li&gt;
+  &lt;li&gt;Made the left sidebar collapseable for more screen space.&lt;/li&gt;
+  &lt;li&gt;With the help of our developer community, doubled the number of apps available on Sandstorm.&lt;/li&gt;
+  &lt;li&gt;Improved onboarding for new users with tutorial hints.&lt;/li&gt;
+  &lt;li&gt;Performance, scalability, and stability improvements.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/blob/master/CHANGELOG.md&quot;&gt;Much more.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We’ve so far kept Oasis labeled “beta”, mostly because, as engineers, we always feel like there’s so much more to do. But, that will always be true – no good software project is ever “done”. With Oasis being used for so much real work, the time has come to remove the “beta” label.&lt;/p&gt;
+
+&lt;p&gt;Oasis will officially emerge from beta on November 27. We wanted to give advance notice of this change because it affects our paying users: we will no longer be waiving your subscription fee as we have during the beta period. For backers of our Indiegogo campaign who opted for free hosting as a perk, the timer on your service will start now (hey, you got an extra free year!). For the rest, your next monthly invoice will be charged from your credit card. Your subscription payments help support further development of Sandstorm and packaging more apps. Thank you for your support!&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;https://oasis.sandstorm.io/demo&quot;&gt;Demo Oasis now »&lt;span style=&quot;font-size:60%&quot;&gt;&lt;br /&gt;(no sign-in required)&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+				<pubDate>Thu, 17 Nov 2016 00:00:00 -0800</pubDate>
+                                <link>https://sandstorm.io/news/2016-11-17-oasis-emerging-from-beta</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2016-11-17-oasis-emerging-from-beta</guid>
+			</item>
+		
+			<item>
 				<title>Sandstorm now supports RHEL 7, CentOS 7, Arch, and more</title>
 				<description>&lt;p&gt;As of a couple weeks ago – October 23, 2016 – Sandstorm can now be installed on systems with:&lt;/p&gt;
 
@@ -54,7 +102,7 @@
 &lt;p&gt;&lt;a href=&quot;https://sandstorm.io/get-feature-key&quot;&gt;Try Sandstorm for Work (supports corporate SSO via LDAP/SAML/AD and organization management features) »&lt;/a&gt;&lt;/p&gt;
 
 </description>
-				<pubDate>Thu, 10 Nov 2016 00:00:00 -0500</pubDate>
+				<pubDate>Thu, 10 Nov 2016 00:00:00 -0800</pubDate>
                                 <link>https://sandstorm.io/news/2016-11-10-rhel-centos-arch-support</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-11-10-rhel-centos-arch-support</guid>
 			</item>
@@ -110,7 +158,7 @@
 
 &lt;p&gt;Want to try out Sandstorm as a user? &lt;a href=&quot;https://demo.sandstorm.io&quot;&gt;Try the online demo »&lt;/a&gt;&lt;/p&gt;
 </description>
-				<pubDate>Tue, 25 Oct 2016 00:00:00 -0400</pubDate>
+				<pubDate>Tue, 25 Oct 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-10-25-cve-2016-5195-dirtycow-mitigated</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-10-25-cve-2016-5195-dirtycow-mitigated</guid>
 			</item>
@@ -151,7 +199,7 @@
 
 &lt;p&gt;By the way, if you found this useful and would like to see more bite-sized pro-tip style blog posts in the future, please reshare this and let me know (I’m &lt;a href=&quot;https://twitter.com/qiqing&quot;&gt;@qiqing&lt;/a&gt; on Twitter)!&lt;/p&gt;
 </description>
-				<pubDate>Thu, 13 Oct 2016 00:00:00 -0400</pubDate>
+				<pubDate>Thu, 13 Oct 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-10-13-sharing-documents-rocketchat</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-10-13-sharing-documents-rocketchat</guid>
 			</item>
@@ -218,7 +266,7 @@
 
 &lt;p&gt;Meanwhile, we’ve also &lt;a href=&quot;https://bugs.chromium.org/p/v8/issues/detail?id=5338&quot;&gt;filed an issue against V8&lt;/a&gt;, requesting that they replace their linked list with a hashtable. This wouldn’t have completely mitigated the fiber bombs, but it would have at least prevented them from permanently crippling the process.&lt;/p&gt;
 </description>
-				<pubDate>Fri, 30 Sep 2016 00:00:00 -0400</pubDate>
+				<pubDate>Fri, 30 Sep 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-09-30-fiber-bomb-debugging-story</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-09-30-fiber-bomb-debugging-story</guid>
 			</item>
@@ -316,7 +364,7 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
   &lt;li&gt;Somewhat improved styling of bell-menu notifications. (More work to be done.)&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-				<pubDate>Tue, 13 Sep 2016 00:00:00 -0400</pubDate>
+				<pubDate>Tue, 13 Sep 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-09-13-whats-new</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-09-13-whats-new</guid>
 			</item>
@@ -392,7 +440,7 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
 
 &lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;https://sandstorm.io/get-feature-key&quot;&gt;Get Sandstorm for Work »&lt;/a&gt;&lt;/p&gt;
 </description>
-				<pubDate>Wed, 31 Aug 2016 00:00:00 -0400</pubDate>
+				<pubDate>Wed, 31 Aug 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-08-31-sandstorm-for-work-ready</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-08-31-sandstorm-for-work-ready</guid>
 			</item>
@@ -419,7 +467,7 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
 
 &lt;p&gt;This is the focus of Sandstorm.&lt;/p&gt;
 </description>
-				<pubDate>Wed, 17 Aug 2016 00:00:00 -0400</pubDate>
+				<pubDate>Wed, 17 Aug 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-08-17-decentralization-is-about-diversity</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-08-17-decentralization-is-about-diversity</guid>
 			</item>
@@ -495,7 +543,7 @@ with Sandstorm. The powerbox is still in its early stages, and the
 Collections app is a hint at the kinds of things it will enable.
 So &lt;a href=&quot;https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h&quot;&gt;try it out and let us know what you think&lt;/a&gt;!&lt;/p&gt;
 </description>
-				<pubDate>Tue, 09 Aug 2016 00:00:00 -0400</pubDate>
+				<pubDate>Tue, 09 Aug 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-08-09-collections-app</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-08-09-collections-app</guid>
 			</item>
@@ -564,76 +612,9 @@ within 24 hours of a new release.&lt;/p&gt;
   &lt;li&gt;Fixed “guided tour” hint bubble for installing apps showing for users who aren’t allowed to install apps.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-				<pubDate>Wed, 03 Aug 2016 00:00:00 -0400</pubDate>
+				<pubDate>Wed, 03 Aug 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-08-03-whats-new</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-08-03-whats-new</guid>
-			</item>
-		
-			<item>
-				<title>June changelog - what&#39;s new in Sandstorm</title>
-				<description>&lt;p&gt;June’s big change is that we’ve reworked what first-time users see when using Sandstorm. There are
-speech bubbles guiding them to install an app, create a grain, and to take a look at the “Share
-access” interface, all powered by &lt;a href=&quot;http://introjs.com/&quot;&gt;intro.js&lt;/a&gt;. I’m hopeful this helps people
-become productive and comfortable with Sandstorm faster than before.&lt;/p&gt;
-
-&lt;p&gt;It applies to all users, including demo users, so test it out by opening
-&lt;a href=&quot;https://demo.sandstorm.io/&quot;&gt;demo.sandstorm.io&lt;/a&gt; in an incognito window and click Try a quick demo.&lt;/p&gt;
-
-&lt;p&gt;Some readers will appreciate that this month, we also chased down a subtle memory leak caused by a
-lack of flow control in the HTTP implementation spread across proxy.js and
-sandstorm-http-bridge. You’ll find the details in &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/pull/2056/files&quot;&gt;pull request
-#2056.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Read the full changelog here, or visit your own Sandstorm server’s “About Sandstorm” section for a
-changelog at any time.&lt;/p&gt;
-
-&lt;h3 id=&quot;v0169-2016-06-26-bugfixes&quot;&gt;v0.169 (2016-06-26) [bugfixes]&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Fixed regression in static web publishing that caused requests that should have returned 404s or redirect-to-add-trailing-slash to instead return a 500 status with a blank page.&lt;/li&gt;
-  &lt;li&gt;Added ability for admin to request a heapdump (to debug memory leaks).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;v0168-2016-06-24-bugfixes&quot;&gt;v0.168 (2016-06-24) [bugfixes]&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Sandstorm for Work: SAML connector should now work with Active Directory.&lt;/li&gt;
-  &lt;li&gt;Fixed various subtle resource leaks in Sandstorm front-end and sandstorm-http-bridge.&lt;/li&gt;
-  &lt;li&gt;Fixed random crash/hang bug introduced in sandstorm-http-bridge v0.166. Apps build since that time will need to be rebuilt.&lt;/li&gt;
-  &lt;li&gt;The old admin interface has been completely removed (the new admin interface has been the default since v0.164).&lt;/li&gt;
-  &lt;li&gt;The email configuration test dialog now shows more informative error messages.&lt;/li&gt;
-  &lt;li&gt;The “most-used” apps row is now only shown if you have more than 6 apps, without which it isn’t helping.&lt;/li&gt;
-  &lt;li&gt;Added “guided tour” hint highlighting the “share access” button.&lt;/li&gt;
-  &lt;li&gt;Added explanatory text to admin user invite page.&lt;/li&gt;
-  &lt;li&gt;Fixed search bar autofocus on app list page.&lt;/li&gt;
-  &lt;li&gt;The question mark info button on Grains page was supposed to have a circle around it.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;v0167-2016-06-18-bugfixes&quot;&gt;v0.167 (2016-06-18) [bugfixes]&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Updated to Meteor 1.3.3.1.&lt;/li&gt;
-  &lt;li&gt;Implemented hard flow control at the Cap’n Proto layer so that an errant (or malicious) app cannot cause excessive memory use elsewhere in the system by making excessive simultaneous calls. This should improve the stability of Oasis.&lt;/li&gt;
-  &lt;li&gt;Implemented flow control for uploads to an app (though it rarely comes into play unless running Sandstorm locally).&lt;/li&gt;
-  &lt;li&gt;Fixed that after losing internet connectivity for a while (or suspending your laptop) and then coming back, grains would refresh.&lt;/li&gt;
-  &lt;li&gt;Fixed some memory leaks in shell server.&lt;/li&gt;
-  &lt;li&gt;Added more “guided tour” points to help new users learn Sandstorm.&lt;/li&gt;
-  &lt;li&gt;Sandstorm for Work: SAML connector now exports XML auto-configuration blob.&lt;/li&gt;
-  &lt;li&gt;Sandstorm for Work: Improved UI around feature keys.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;v0166-2016-06-11-bugfixes&quot;&gt;v0.166 (2016-06-11) [bugfixes]&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Implemented flow control for large file downloads from apps so that they don’t buffer in the front-end consuming excessive RAM. Apps that handle large files will need to re-pack using the latest sandstorm-http-bridge and push an update.&lt;/li&gt;
-  &lt;li&gt;Sandstorm for Work: Made SAML entity ID configurable; added more setup instructions.&lt;/li&gt;
-  &lt;li&gt;Updated Google login setup instructions to match latest gratuitous UI changes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;v0165-2016-06-04-bugfixes&quot;&gt;v0.165 (2016-06-04) [bugfixes]&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Re-enabled websocket self-check under new admin UI.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-				<pubDate>Wed, 13 Jul 2016 00:00:00 -0400</pubDate>
-                                <link>https://sandstorm.io/news/2016-07-13-whats-new</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-07-13-whats-new</guid>
 			</item>
 		
 	</channel>
