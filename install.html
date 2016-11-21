@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
     <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
     
+<script src="/ga-helper.js"></script>
 <script>
 (function(){
 
@@ -173,18 +174,6 @@ window.sandstormTracker = {
     </nav>
 
     <!DOCTYPE html>
-
-<script type="text/javascript">
-  var trackOutboundLink = function(url) {
-  var followTheLink = function() { document.location = url; };
-  var doGaPing = window.ga && ga.create;
-  if (doGaPing) {
-  ga("send", "event", "outbound", "click", url, {"hitCallback": followTheLink});
-  } else {
-  followTheLink();
-  }
-  };
-</script>
 
 <header>
   <div>
