@@ -443,7 +443,7 @@ body > footer {
         display: block;
         line-height: 30px;
         padding: 10px 0; } }
-  .action > a {
+  .action > a, .action li a {
     border: 1.5px solid #a19cbc;
     font-size: 25px;
     padding: 8px 20px;
@@ -452,10 +452,10 @@ body > footer {
     background-color: white;
     color: #442672;
     white-space: nowrap; }
-    .action > a:hover {
+    .action > a:hover, .action li a:hover {
       color: #7356cc; }
     @media (max-width: 800px) {
-      .action > a {
+      .action > a, .action li a {
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -1474,7 +1474,23 @@ body > footer {
   #get #oasis .get > a:hover, #get #managed-hosting .get > a:hover {
     background-color: #6341a5; }
 #get .action {
-  color: #fff; }
+  color: #fff;
+  padding: 10px 0 25px 0;
+  position: relative; }
+  #get .action::after {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 50vw);
+    width: 100vw;
+    z-index: -1;
+    background-color: #2e2765;
+    background-image: url(/images/header-get.svg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    padding: 0 75% 0 0; }
   #get .action:after {
     background-color: #2e2765; }
   #get .action li {
