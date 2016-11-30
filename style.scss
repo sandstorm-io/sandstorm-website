@@ -1502,6 +1502,31 @@ body >footer {
     }
   }
   
+  .action {
+    color: #fff;
+    &:after {
+     background-color: #2e2765; 
+    }
+    li {
+      display: block;
+    }
+    a {
+      line-height: 60px;
+    }
+    #number {
+      color: #d7c4f4;
+      font-size: 40px;
+      padding-bottom: 10px;
+      @media (max-width: 500px) {
+        font-size: 30px;
+      }
+    }
+    #number2 {
+      color: #a899c0;
+      padding-bottom: 30px;
+    }
+  }
+  
 // =======================================================================================
 // Oasis pricing tables on get.html
 
