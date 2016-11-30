@@ -1473,6 +1473,24 @@ body > footer {
   background-color: #442672; }
   #get #oasis .get > a:hover, #get #managed-hosting .get > a:hover {
     background-color: #6341a5; }
+#get .action {
+  color: #fff; }
+  #get .action:after {
+    background-color: #2e2765; }
+  #get .action li {
+    display: block; }
+  #get .action a {
+    line-height: 60px; }
+  #get .action #number {
+    color: #d7c4f4;
+    font-size: 40px;
+    padding-bottom: 10px; }
+    @media (max-width: 500px) {
+      #get .action #number {
+        font-size: 30px; } }
+  #get .action #number2 {
+    color: #a899c0;
+    padding-bottom: 30px; }
 #get .box {
   width: 40%;
   margin: 0 auto;
