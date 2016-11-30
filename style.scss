@@ -365,7 +365,7 @@ body >footer {
       }
     }
 
-    >a {
+    >a, li a {
       border: 1.5px solid $whitebutton-border;
       font-size: 25px;
       padding: 8px 20px;
@@ -1504,6 +1504,14 @@ body >footer {
   
   .action {
     color: #fff;
+    padding: 10px 0 25px 0;
+    @include stripe {
+      background-color: #2e2765;
+      background-image: url(/images/header-get.svg);
+      background-repeat: no-repeat;
+      background-position: bottom;
+      padding: 0 75% 0 0;
+    }
     &:after {
      background-color: #2e2765; 
     }
