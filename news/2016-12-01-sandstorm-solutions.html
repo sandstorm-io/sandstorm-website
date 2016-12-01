@@ -2,13 +2,13 @@
 
 <html lang="en">
   <head>
-    <title>Sandstorm Blog</title>
+    <title>Sandstorm Solutions: pay for feature prioritization - Sandstorm Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Sandstorm Blog">
+    <meta property="og:title" content="Sandstorm Solutions: pay for feature prioritization">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://sandstorm.io/images/sandcat.png">
-    <meta property="og:url" content="https://sandstorm.io/news/page12/">
+    <meta property="og:url" content="https://sandstorm.io/news/2016-12-01-sandstorm-solutions">
     <meta property="og:description"
         content="Real-time collaborative web productivity suite behind the firewall.">
     <link rel="stylesheet" type="text/css" href="/style.css">
@@ -223,196 +223,49 @@ window.sandstormTracker = {
 </div>
 
 
-
-  <nav class="pagination top">
-    
-      
-        <a class="newer" href="/news/page11/" title="Previous Page">&laquo; Newer posts</a>
-      
-    
-
-    
-      <a class="older" href="/news/page13/" title="Next Page">Older posts &raquo;</a>
-    
-    <br clear="both">
-  </nav>
-
-
-
-
-<section>
-  <h2><a href="/news/2015-03-19-libreplanet">See you at LibrePlanet this weekend</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2015-03-19-libreplanet">19 Mar 2015</a>
-  
-  
-  
-  
-  <p>I’m a Free Software Foundation member, and I’m happy to say that I’ll be visiting
-Boston this weekend for the FSF’s yearly
-<a href="https://www.libreplanet.org/2015/">LibrePlanet conference</a>.</p>
-
-<p>You can read more about the conference from
-<a href="https://www.fsf.org/blogs/community/photos-and-feedback-from-libreplanet">Zak Rogoff’s summary of 2013</a>
-or
-<a href="https://www.fsf.org/blogs/community/i-spoke-at-libreplanet-and-you-can-too">Shauna Gordon-McKeon’s invitation to new speakers in 2014</a>.</p>
-
-<p>If you’re in the Boston area between now and Tuesday March 24, send me an email and let’s
-meet up! I’m asheesh@sandstorm.io.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-03-12-laverna-and-localstorage">Packaging Laverna: localStorage within Sandstorm</a></h2>
-  <p class="post-details">By <a href="https://github.com/jparyani">Jason Paryani</a>
-    
-    - <a href="/news/2015-03-12-laverna-and-localstorage">12 Mar 2015</a>
-  
-  <p>Last week, I packaged <a href="https://laverna.cc/">Laverna</a> for Sandstorm and added it to the <a href="https://sandstorm.io/apps/">app list</a>. You can now use this open source note-taking app from any Sandstorm instance with one click. In this post, I explain how a purely client-side note-taking app integrates with Sandstorm for storage.</p>
-
-<p>From the Laverna devs:</p>
-
-<blockquote>
-  <p>Laverna is a JavaScript note-taking web application with a Markdown editor and encryption support. It’s built to be an open source alternative to Evernote.</p>
-</blockquote>
-
-<p>Laverna is a fully <a href="https://github.com/sandstorm-io/sandstorm/wiki/Pure-client-apps">client side app</a> and typically stores all its data in IndexedDB/localStorage. In the case of the Sandstorm package, we configure the app to use localStorage and mirror any updates to localStorage to disk using a simple REST backend. On app start, we query the backend, and restore all the keys to localStorage.</p>
-
-<p>Unfortunately (or maybe fortunately), there’s no way to monkey-patch the built-in localStorage to support this since it allows you to set keys by doing normal property access, ie. with <code>localStorage.KEY</code> or <code>localStorage[KEY]</code>. Javascript provides no way to shim over that, at least until <a href="https://github.com/lukehoban/es6features#proxies">ES6 proxies</a> are widely implemented.</p>
-
-<p>It’s also worth noting that the backend is a very lightweight C++ server that uses the raw Sandstorm API. The backend’s only jobs are to serve the index.html, handle GET/POST/PUT/DELETE requests to allow fetching/persisting the localStorage keys, and provide one GET endpoint that lists all the keys that have been stored. Its memory footprint is incredibly small, which makes it ideal for Sandstorm. You can check out the source <a href="https://github.com/jparyani/laverna-sandstorm/blob/master/server.c%2B%2B">here</a>.</p>
-
-<p>Within Laverna, it was surprisingly easy to add the automatic synchronizing. It took very little work to wire it up. You can see exactly how it works by reading <a href="https://github.com/jparyani/laverna/commit/38d7641fd2b0d64df80132493a933f97757f6413">my changes</a>. If there’s some interest, let me know by emailing jparyani@sandstorm.io, and I can think about writing a nice looking wrapper around localStorage that would handle this seamlessly.</p>
-
-<p>If you want to test this out, you can try <a href="https://demo.sandstorm.io/appdemo/4dgxs5m0gnjmjpg88mswqsy9fj08t3z6c8kwv4y9tkgxvp9eas9h">Laverna on the Sandstorm demo</a>; look at the network inspector tab in your browser as it runs.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-03-11-testing">Testing Sandstorm apps</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2015-03-11-testing">11 Mar 2015</a>
-  
-  <p>Have you ever wanted to try out new apps for Sandstorm before they make their
-way to the app list? Apps always need testing, and you can help.</p>
-
-<p>Historically, the packaging process has been somewhat
-opaque – the App Committee would
-<a href="https://sandstorm.io/vote">vote</a> on apps, and new apps would magically appear
-in the <a href="https://sandstorm.io/apps/">app list</a>. If an app’s author packages
-their own project, it seems to arrive all at once app list.</p>
-
-<p>The truth is, someone tests these apps to make sure
-they work properly. App packagers have been emailing people privately to find testers.</p>
-
-<p>I’m opening that testing up to the community with some
-new
-<a href="https://github.com/sandstorm-io/sandstorm/wiki/Testing">documentation</a>.</p>
-
-<blockquote>
-  <p>Anyone who uses Sandstorm can test out new Sandstorm apps and features!
-Consider it our open beta program.</p>
-</blockquote>
-
-<p>Check out the
-<a href="https://github.com/sandstorm-io/sandstorm/wiki/Testing">new testing doc</a>,
-and subscribe to
-<a href="https://groups.google.com/forum/#!forum/sandstorm-dev">sandstorm-dev</a>
-so you can hear about cool apps that are almost ready!</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-03-05-postcards">Postcards from Boston & Chicago</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2015-03-05-postcards">05 Mar 2015</a>
-  
-  <p>I was recently traveling to Boston for the
-<a href="http://www.mit.edu/~puzzle/">MIT Mystery Hunt</a> and to Chicago
-to see my
-<a href="http://www.brooklynvegan.com/chicago/2015/01/rainer_maria_pl.html">favorite band’s last show</a>.
-While in town, I thought it’d be nice to
-meet up with Sandstorm fans. Here’s us!</p>
-
-<p>In Boston, at <a href="http://www.yelp.com/biz/clover-cambridge-5">Clover Food Lab</a>:</p>
-
-<p><img width="600" src="/news/images/boston.jpg" /></p>
-
-<p>In Chicago, at <a href="http://www.yelp.com/biz/la-brasa-roja-chicago">La Brasa Roja</a>:</p>
-
-<p><img width="600" src="/news/images/chicago.jpg" /></p>
-
-<p>If I’m traveling again, I’ll drop a line to
-<a href="https://groups.google.com/forum/#!forum/sandstorm-dev">sandstorm-dev</a> –
-one more good reason to subscribe!</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-02-27-speaker-kit">Give a talk; use this kit!</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2015-02-27-speaker-kit">27 Feb 2015</a>
-  
-  <p>Have you been wanting to give a Sandstorm lightning talk, but haven’t found time
-to put together slides? To make that easier, I made a
-<a href="https://github.com/sandstorm-io/sandstorm/wiki/Speaker-Kit-Lightning-Talk">speaker kit</a>!</p>
-
-<p>It has slides, notes, and advice so you can give a talk that explains the “what”
-and “why” of Sandstorm, and for showcasing an app of your choice on the
-<a href="https://demo.sandstorm.io/">Sandstorm Demo</a>.</p>
-
-<h3 id="where-should-i-give-my-talk">Where should I give my talk?</h3>
-
-<p>Anywhere there’s a local software meetup, or Linux users group, or tech group
-within your company or university, there are people who want to learn about
-Sandstorm.</p>
-
-<p>For a programming meetup, attendees would be especially interested if you demo
-Sandstorm with an app on their platform. For a Node meetup, think EtherCalc.
-For Python (or data scientists!), think IPython Notebook. For Ruby, GitLab.
-For Rust, Acronymy. For Meteor, Telescope. (Check out the
-<a href="https://sandstorm.io/apps/">Sandstorm app list</a> if you need more ideas!)</p>
-
-<p>If you work with physicists or mathematicians, show them ShareLaTeX.</p>
-
-<p>If you attend a tech conference, a Linux users group or other open
-source-oriented meetup, they’ll
-be captivated by the <em>why</em> and <em>what</em> of Sandstorm: easy web app self-hosting,
-with no config files or environment variables.</p>
-
-<h3 id="get-in-touch">Get in touch</h3>
-
-<p>The <a href="https://github.com/sandstorm-io/sandstorm/wiki/Speaker-Kit-Lightning-Talk">speaker kit</a>
-will get you started, and if you want practice, or coaching, or
-help promoting your talk, I’d love to hear from you.
-I also want to send you
-stickers! Write me an email at
-<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#099;&#111;&#109;&#109;&#117;&#110;&#105;&#116;&#121;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;">&#099;&#111;&#109;&#109;&#117;&#110;&#105;&#116;&#121;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;</a>!</p>
-
-<p>And thanks to all the people who worked on the
-<a href="https://meteor.hackpad.com/Intro-to-Meteor-speaker-kit-uaPe3zDDH8z">“Intro to Meteor” Speaker Kit</a>
-– Alice Yu, Cesar Chen, Miroslav Hibler, Robert Dickert, and others – for
-writing a clear, inviting document that inspired me.</p>
-
-</section>
-
-
-<nav class="pagination bottom">
-  
-    
-      <a class="newer" href="/news/page11/" title="Previous Page">&laquo; Newer posts</a>
-    
-  
-
-  
-    <a class="older" href="/news/page13/" title="Next Page">Older posts &raquo;</a>
-  
-  <br clear="both">
+<nav class="pagination top">
+  <a class="newer" href="/news/" title="All posts">&laquo; All posts</a>
 </nav>
+
+<section>
+  <h2>Sandstorm Solutions: pay for feature prioritization</h2>
+  <p class="post-details">By <a href="https://github.com/zarvox">Drew Fisher</a>
+    
+    - 01 Dec 2016
+  <p>Is there a feature or bug holding you back from deploying Sandstorm at your company or for your
+team?  Do you need the Sandstorm core devs to prioritize a feature?  <strong>Sandstorm
+Solutions</strong> can fix that.</p>
+
+<p>There’s always way more on our roadmap than time and people to do it.  We receive requests from
+potential customers around the world who would love to use Sandstorm, but need a particular planned
+but unimplemented feature, or hit a bug that affects them in particular.
+<strong>We now offer Sandstorm feature prioritization to our customers</strong>.</p>
+
+<p>We’re happy to adjust our priorities to support these folks, so we figure we should state that
+clearly and make sure it’s something everyone can take advantage of, not just the people who
+inquire.</p>
+
+<p>So here’s the deal with Sandstorm Solutions: if you want a Sandstorm feature prioritized, or a
+particular bug fixed, we can do it.  The way this works is:</p>
+
+<ul>
+  <li>You email us at
+<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#111;&#108;&#117;&#116;&#105;&#111;&#110;&#115;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;&#063;&#115;&#117;&#098;&#106;&#101;&#099;&#116;&#061;&#083;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#037;&#050;&#048;&#083;&#111;&#108;&#117;&#116;&#105;&#111;&#110;&#115;&#037;&#050;&#048;&#101;&#115;&#116;&#105;&#109;&#097;&#116;&#101;&#037;&#050;&#048;&#114;&#101;&#113;&#117;&#101;&#115;&#116;&#037;&#050;&#048;&#102;&#111;&#114;&#037;&#050;&#048;&#037;&#050;&#056;&#121;&#111;&#117;&#114;&#037;&#050;&#048;&#099;&#111;&#109;&#112;&#097;&#110;&#121;&#037;&#050;&#048;&#110;&#097;&#109;&#101;&#037;&#050;&#057;&#038;&#098;&#111;&#100;&#121;&#061;&#072;&#105;&#037;&#050;&#048;&#083;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#037;&#050;&#048;&#116;&#101;&#097;&#109;&#037;&#050;&#067;&#037;&#048;&#065;&#037;&#048;&#065;&#079;&#117;&#114;&#037;&#050;&#048;&#112;&#114;&#111;&#098;&#108;&#101;&#109;&#037;&#050;&#048;&#116;&#104;&#097;&#116;&#037;&#050;&#048;&#119;&#101;&#037;&#050;&#048;&#110;&#101;&#101;&#100;&#037;&#050;&#048;&#115;&#111;&#108;&#118;&#101;&#100;&#037;&#050;&#048;&#105;&#115;&#037;&#051;&#065;&#037;&#048;&#065;&#037;&#048;&#065;&#037;&#050;&#056;&#101;&#120;&#112;&#108;&#097;&#105;&#110;&#037;&#050;&#048;&#112;&#114;&#111;&#098;&#108;&#101;&#109;&#037;&#050;&#048;&#104;&#101;&#114;&#101;&#037;&#050;&#057;&#037;&#048;&#065;&#037;&#048;&#065;&#087;&#104;&#097;&#116;&#037;&#050;&#048;&#099;&#097;&#110;&#037;&#050;&#048;&#121;&#111;&#117;&#037;&#050;&#048;&#100;&#111;&#037;&#050;&#048;&#116;&#111;&#037;&#050;&#048;&#104;&#101;&#108;&#112;&#037;&#050;&#048;&#117;&#115;&#037;&#050;&#067;&#037;&#050;&#048;&#097;&#110;&#100;&#037;&#050;&#048;&#104;&#111;&#119;&#037;&#050;&#048;&#109;&#117;&#099;&#104;&#037;&#050;&#048;&#119;&#111;&#117;&#108;&#100;&#037;&#050;&#048;&#105;&#116;&#037;&#050;&#048;&#099;&#111;&#115;&#116;&#037;&#051;&#070;&#037;&#048;&#065;&#037;&#048;&#065;&#084;&#104;&#097;&#110;&#107;&#115;&#037;&#050;&#049;&#037;&#048;&#065;&#037;&#048;&#065;&#037;&#050;&#056;&#121;&#111;&#117;&#114;&#037;&#050;&#048;&#110;&#097;&#109;&#101;&#037;&#050;&#057;&#037;&#048;&#065;&#037;&#050;&#056;&#121;&#111;&#117;&#114;&#037;&#050;&#048;&#099;&#111;&#109;&#112;&#097;&#110;&#121;&#037;&#050;&#057;&#037;&#048;&#065;&#037;&#050;&#056;&#121;&#111;&#117;&#114;&#037;&#050;&#048;&#112;&#104;&#111;&#110;&#101;&#037;&#050;&#048;&#110;&#117;&#109;&#098;&#101;&#114;&#037;&#050;&#057;&#037;&#048;&#065;">solutions@sandstorm.io</a>
+with an explanation of what you need.</li>
+  <li>We’ll make sure it fits into our roadmap, and if so, we’ll give you an preliminary estimate of how
+long we think it’ll take to implement, and how much it’ll cost.</li>
+  <li>We own the copyright on our work.</li>
+  <li>If everything sounds good, we’ll draw up a contract and get to work!</li>
+</ul>
+
+<p><a class="linkbutton" href="mailto:solutions@sandstorm.io?subject=Sandstorm%20Solutions%20estimate%20request%20for%20%28your%20company%20name%29&amp;body=Hi%20Sandstorm%20team%2C%0A%0AOur%20problem%20that%20we%20need%20solved%20is%3A%0A%0A%28explain%20problem%20here%29%0A%0AWhat%20can%20you%20do%20to%20help%20us%2C%20and%20how%20much%20would%20it%20cost%3F%0A%0AThanks%21%0A%0A%28your%20name%29%0A%28your%20company%29%0A%28your%20phone%20number%29%0A">
+Get an estimate »
+</a></p>
+
+<p>Need something different?  We’re happy to talk about how we can help you succeed - drop us a line at
+<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#111;&#108;&#117;&#116;&#105;&#111;&#110;&#115;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;&#063;&#115;&#117;&#098;&#106;&#101;&#099;&#116;&#061;&#083;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#037;&#050;&#048;&#083;&#111;&#108;&#117;&#116;&#105;&#111;&#110;&#115;&#037;&#050;&#048;&#101;&#115;&#116;&#105;&#109;&#097;&#116;&#101;&#037;&#050;&#048;&#114;&#101;&#113;&#117;&#101;&#115;&#116;&#037;&#050;&#048;&#102;&#111;&#114;&#037;&#050;&#048;&#037;&#050;&#056;&#121;&#111;&#117;&#114;&#037;&#050;&#048;&#099;&#111;&#109;&#112;&#097;&#110;&#121;&#037;&#050;&#048;&#110;&#097;&#109;&#101;&#037;&#050;&#057;&#038;&#098;&#111;&#100;&#121;&#061;&#072;&#105;&#037;&#050;&#048;&#083;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#037;&#050;&#048;&#116;&#101;&#097;&#109;&#037;&#050;&#067;&#037;&#048;&#065;&#037;&#048;&#065;&#079;&#117;&#114;&#037;&#050;&#048;&#112;&#114;&#111;&#098;&#108;&#101;&#109;&#037;&#050;&#048;&#116;&#104;&#097;&#116;&#037;&#050;&#048;&#119;&#101;&#037;&#050;&#048;&#110;&#101;&#101;&#100;&#037;&#050;&#048;&#115;&#111;&#108;&#118;&#101;&#100;&#037;&#050;&#048;&#105;&#115;&#037;&#051;&#065;&#037;&#048;&#065;&#037;&#048;&#065;&#037;&#050;&#056;&#101;&#120;&#112;&#108;&#097;&#105;&#110;&#037;&#050;&#048;&#112;&#114;&#111;&#098;&#108;&#101;&#109;&#037;&#050;&#048;&#104;&#101;&#114;&#101;&#037;&#050;&#057;&#037;&#048;&#065;&#037;&#048;&#065;&#087;&#104;&#097;&#116;&#037;&#050;&#048;&#099;&#097;&#110;&#037;&#050;&#048;&#121;&#111;&#117;&#037;&#050;&#048;&#100;&#111;&#037;&#050;&#048;&#116;&#111;&#037;&#050;&#048;&#104;&#101;&#108;&#112;&#037;&#050;&#048;&#117;&#115;&#037;&#050;&#067;&#037;&#050;&#048;&#097;&#110;&#100;&#037;&#050;&#048;&#104;&#111;&#119;&#037;&#050;&#048;&#109;&#117;&#099;&#104;&#037;&#050;&#048;&#119;&#111;&#117;&#108;&#100;&#037;&#050;&#048;&#105;&#116;&#037;&#050;&#048;&#099;&#111;&#115;&#116;&#037;&#051;&#070;&#037;&#048;&#065;&#037;&#048;&#065;&#084;&#104;&#097;&#110;&#107;&#115;&#037;&#050;&#049;&#037;&#048;&#065;&#037;&#048;&#065;&#037;&#050;&#056;&#121;&#111;&#117;&#114;&#037;&#050;&#048;&#110;&#097;&#109;&#101;&#037;&#050;&#057;&#037;&#048;&#065;&#037;&#050;&#056;&#121;&#111;&#117;&#114;&#037;&#050;&#048;&#099;&#111;&#109;&#112;&#097;&#110;&#121;&#037;&#050;&#057;&#037;&#048;&#065;&#037;&#050;&#056;&#121;&#111;&#117;&#114;&#037;&#050;&#048;&#112;&#104;&#111;&#110;&#101;&#037;&#050;&#048;&#110;&#117;&#109;&#098;&#101;&#114;&#037;&#050;&#057;&#037;&#048;&#065;">solutions@sandstorm.io</a>.</p>
+
+</section>
 
 </div>
 

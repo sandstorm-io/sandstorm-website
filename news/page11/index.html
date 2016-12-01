@@ -241,13 +241,35 @@ window.sandstormTracker = {
 
 
 <section>
+  <h2><a href="/news/2015-04-13-lets-chat">Let's Chat</a></h2>
+  <p class="post-details">By <a href="https://github.com/jparyani">Jason Paryani</a>
+    
+    - <a href="/news/2015-04-13-lets-chat">13 Apr 2015</a>
+  
+  
+  
+  
+  <p><img src="/news/images/letschat.png" style="width: 100%" /></p>
+
+<p>Last week, I packaged Let’s Chat, an open source team chat app, similar to Slack. You can try it on the Sandstorm demo <a href="https://demo.sandstorm.io/appdemo/qkgkaxfqhgsff8zgx2f4nf1a8xvmpte6wa19egmfkk06mzt7e8dh">right now</a>, or install it from the <a href="https://sandstorm.io/apps/">app list</a>.</p>
+
+<p>As described by its developers:</p>
+
+<blockquote>
+  <p>Let’s Chat is a persistent messaging application that runs on Node.js and MongoDB. It’s designed to be easily deployable and fits well with small, intimate teams.</p>
+</blockquote>
+
+<p>A few notes on the packaging process: This package doesn’t use the normal MongoDB, but instead <a href="https://github.com/kentonv/mongo/tree/niscu">Kenton’s fork</a>. This allows the app to only use ~300KB of storage when each instance is created instead of the normal minimum of a few hundred MB for Mongo. Otherwise, the packaging process went very smoothly except for dealing with passport, a Node.js authentication library. I ended up forking <a href="https://github.com/leepowellcouk/passport-token">passport-token</a> to look at HTTP headers only (by default it will look at POST data as well, which would make it insecure inside Sandstorm). You can see the forked code <a href="https://github.com/jparyani/lets-chat/tree/sandstorm/node_modules/passport-token">here</a>, and if there’s some interest, I can work to get it published on NPM.</p>
+
+<p>You can see the full package source <a href="https://github.com/jparyani/lets-chat">here</a>, and if you want to use <a href="https://demo.sandstorm.io/appdemo/qkgkaxfqhgsff8zgx2f4nf1a8xvmpte6wa19egmfkk06mzt7e8dh">Let’s Chat</a>, check it out on the <a href="https://sandstorm.io/apps/">app list</a>. Feel free to let me know what you think on <a href="https://groups.google.com/group/sandstorm-dev">sandstorm-dev</a>.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-04-08-osx-security-bug">Remotely send Chrome and Node.js into infinite loops via this one weird OSX kernel bug</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2015-04-08-osx-security-bug">08 Apr 2015</a>
-  
-  
-  
   
   <p>A few months ago I discovered a security bug in the Darwin kernel used by most Apple products. The bug could allow an attacker to trivially remotely DoS a variety of network services and apps, from Node.js to Chrome. Today, <a href="https://support.apple.com/en-us/HT204659">Apple released a patch</a> (look for CVE-2015-1105), so now I can tell you about it.</p>
 
@@ -383,26 +405,6 @@ Sandstorm could be of use to the MIT community.</p>
 <p><img width="600" height="400" src="/news/images/boston-sipb.jpg" /></p>
 
 <p>I hope to see you in my future travels!</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-03-19-libreplanet">See you at LibrePlanet this weekend</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2015-03-19-libreplanet">19 Mar 2015</a>
-  
-  <p>I’m a Free Software Foundation member, and I’m happy to say that I’ll be visiting
-Boston this weekend for the FSF’s yearly
-<a href="https://www.libreplanet.org/2015/">LibrePlanet conference</a>.</p>
-
-<p>You can read more about the conference from
-<a href="https://www.fsf.org/blogs/community/photos-and-feedback-from-libreplanet">Zak Rogoff’s summary of 2013</a>
-or
-<a href="https://www.fsf.org/blogs/community/i-spoke-at-libreplanet-and-you-can-too">Shauna Gordon-McKeon’s invitation to new speakers in 2014</a>.</p>
-
-<p>If you’re in the Boston area between now and Tuesday March 24, send me an email and let’s
-meet up! I’m asheesh@sandstorm.io.</p>
 
 </section>
 
