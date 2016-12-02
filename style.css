@@ -242,20 +242,6 @@ body > nav {
     body > nav > a:hover {
       background-color: #f8f8ff;
       color: #18003f; }
-    @media (max-width: 550px) {
-      body > nav > a[href^="/news"] {
-        display: none; }
-      body > nav > a[href="/features"] {
-        display: none; } }
-    @media (max-width: 940px) {
-      body > nav > a[href^="/get"] {
-        display: none; }
-      body > nav > a[href="/community"] {
-        display: none; }
-      body > nav > a[href^="https://docs.sandstorm.io"] {
-        display: none; }
-      body > nav > a[href^="https://github.com"] {
-        display: none; } }
 
 body#home > nav > a[href="/"] {
   font-weight: 500; }
