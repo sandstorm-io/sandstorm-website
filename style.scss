@@ -191,12 +191,16 @@ body#blog>nav>a[href="/news/"] { font-weight: 500; }
 body#community>nav>a[href="/community"] { font-weight: 500; }
 body#about>nav>a[href="/about"] { font-weight: 500; }
 
-body>.notice {  
+body>.notice {
   line-height: 70px;
   text-align: center;
   color: #1d1843;
   font-weight: normal;
   display: flex;
+  &.exp-donations-bar-test {
+    display: none;
+  }
+
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -210,7 +214,7 @@ body>.notice {
   @include stripe {
     background-color: #ffc781;
   }
-  
+
   span {
     text-align: left;
     font-size: 25px;
@@ -224,7 +228,7 @@ body>.notice {
       font-size: 13px;
     }
   }
-  
+
   .donate-form {
     position: relative; 
     display: inline-block;
@@ -234,23 +238,21 @@ body>.notice {
       display: block;
       padding-bottom: 10px;
     }
-    
+
     label.donate-label {
       font-size: 25px;
-      position: relative; 
-      left: 0.9em; 
+      position: relative;
+      left: 0.9em;
     }
-    
+
     input.donate-input {
       padding-left: 19px;
-    }
-    
-    input[type="number"] {
       height: 45px;
       font-size: 25px;
       padding-left: 20px;
       padding-right: 10px;
       border: 0;
+      border-radius: 3px;
       outline: 0;
       max-width: 90px;
     }
