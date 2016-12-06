@@ -84,6 +84,14 @@ var experiments = [
       // allowing hiding of baseline content and showing of experimental content.
       addCssOverride(inExperiment, exp.id, "block");
     }
+  },
+  {
+    id: "donations-bar",
+    exp_range_start: 0x3fffffff, // 50% of users, equal fraction in install-screencast-autoplay and not
+    exp_range_end: 0xbfffffff,
+    hook: function (userId, exp, inExperiment) {
+      addCssOverride(inExperiment, exp.id, "flex");
+    }
   }
 ];
 
@@ -98,6 +106,7 @@ for (var i=0; i<experiments.length; i++) {
 
 function runExperimentHooks() {
   for (var i=0; i<experiments.length; i++) {
+    var exp = experiments[i];
     if (exp.hook) {
       exp.hook(userId, exp, exp.inExperiment);
     }

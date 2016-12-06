@@ -101,6 +101,14 @@ var experiments = [
       // allowing hiding of baseline content and showing of experimental content.
       addCssOverride(inExperiment, exp.id, "block");
     }
+  },
+  {
+    id: "donations-bar",
+    exp_range_start: 0x3fffffff, // 50% of users, equal fraction in install-screencast-autoplay and not
+    exp_range_end: 0xbfffffff,
+    hook: function (userId, exp, inExperiment) {
+      addCssOverride(inExperiment, exp.id, "flex");
+    }
   }
 ];
 
@@ -115,6 +123,7 @@ for (var i=0; i<experiments.length; i++) {
 
 function runExperimentHooks() {
   for (var i=0; i<experiments.length; i++) {
+    var exp = experiments[i];
     if (exp.hook) {
       exp.hook(userId, exp, exp.inExperiment);
     }
@@ -169,6 +178,14 @@ window.sandstormTracker = {
       <a href="/community">Community</a>
       <!-- TODO: search -->
     </nav>
+    <div class="notice exp-donations-bar-test" id="notice1">
+      <span>Your donations help us make open source apps viable.</span>
+      <form class="donate-form" action="/">
+        <label class="donate-label" for="donate-top">$</label>
+        <input class="donate-input" id="donate-top"  name="AMOUNT" type="number" value="10" required>
+        <button type="submit">Donate</button>
+      </form>
+    </div>
 
     <header>
   <div class="sand">
@@ -288,6 +305,14 @@ window.sandstormTracker = {
 </div>
 
 
+    <div class="notice exp-donations-bar-test" id="notice2">
+      <span>Your donations help us make open source apps viable.</span>
+      <form class="donate-form" action="/">
+        <label class="donate-label" for="donate-bottom">$</label>
+        <input class="donate-input" id="donate-bottom"  name="AMOUNT" type="number" value="10" required>
+        <button type="submit">Donate</button>
+      </form>
+    </div>
     <footer>
       <ul>
         <li>
@@ -391,6 +416,58 @@ window.sandstormTracker = {
       if (document.location.hostname === "localhost") {
         document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
       }
+    </script>
+
+    <!-- Donation form integration -->
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script>
+    var amountCents = 0;
+    var handler = StripeCheckout.configure({
+      key: "pk_live_bkrz8iFkfEeXDsdIqzDNdSkH",
+      image: "https://sandstorm.io/images/sandstorm-purplecircle.png",
+      locale: "auto",
+      token: function(token) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status !== 200) {
+              console && console.error(xhr.responseText);
+            } else {
+              console && console.log("donation successful");
+            }
+          }
+        };
+        xhr.open("POST", "https://donations-backend.sandstorm.io/", true);
+        var formData = new FormData();
+        formData.append("token_id", token.id);
+        formData.append("token_email", token.email);
+        formData.append("amount", amountCents);
+        xhr.send(formData);
+        window.sandstormTracker && window.sandstormTracker.trackClick("donation-complete");
+      }
+    });
+    var submitDonateForm = function(e) {
+      window.lastEvent = e;
+      e.preventDefault();
+      var dollars = parseFloat(e.target.querySelector("input").value);
+      amountCents = Math.floor(100*dollars);
+      handler.open({
+        name: "Sandstorm.io",
+        description: "Donation (not tax deductible)",
+        zipCode: true,
+        amount: amountCents,
+      });
+      window.sandstormTracker && window.sandstormTracker.trackClick("donate-button");
+    };
+    var forms = document.querySelectorAll("form.donate-form");
+    for (var i=0; i<forms.length; i++) {
+      var form = forms[i];
+      form.onsubmit = submitDonateForm;
+    }
+    // Close checkout on page navigation.
+    window.addEventListener("popstate", function() {
+      handler.close();
+    });
     </script>
   </body>
 </html>
