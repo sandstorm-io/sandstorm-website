@@ -194,13 +194,13 @@ body {
   color: black;
   overflow-x: hidden; }
 
-body > * {
+body > nav, body > header, body > main, body > section, body > footer, body > div, body > span {
   padding: 1px 30px 0;
   margin: 0 auto;
   width: auto;
   max-width: 1200px; }
   @media (max-width: 800px) {
-    body > * {
+    body > nav, body > header, body > main, body > section, body > footer, body > div, body > span {
       padding: 1px 20px 0; } }
 
 h1 {
