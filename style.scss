@@ -197,6 +197,10 @@ body>.notice {
   color: #1d1843;
   font-weight: normal;
   display: flex;
+  &.exp-donations-bar-test {
+    display: none;
+  }
+
   flex-direction: row;
   align-items: center;
   justify-content: center;
