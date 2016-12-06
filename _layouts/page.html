@@ -32,9 +32,25 @@
       <a href="/community">Community</a>
       <!-- TODO: search -->
     </nav>
+    <div class="notice" id="notice1">
+      <span>Your donations help us make open source apps viable.</span>
+      <form class="donate-form" action="/">
+        <label class="donate-label" for="donate-top">$</label>
+        <input class="donate-input" id="donate-top"  name="AMOUNT" type="number" value="10" required>
+        <button type="submit">Donate</button>
+      </form>
+    </div>
 
     {{ content }}
 
+    <div class="notice" id="notice2">
+      <span>Your donations help us make open source apps viable.</span>
+      <form class="donate-form" action="/">
+        <label class="donate-label" for="donate-bottom">$</label>
+        <input class="donate-input" id="donate-bottom"  name="AMOUNT" type="number" value="10" required>
+        <button type="submit">Donate</button>
+      </form>
+    </div>
     <footer>
       <ul>
         <li>

@@ -191,6 +191,89 @@ body#blog>nav>a[href="/news/"] { font-weight: 500; }
 body#community>nav>a[href="/community"] { font-weight: 500; }
 body#about>nav>a[href="/about"] { font-weight: 500; }
 
+body>.notice {  
+  line-height: 70px;
+  text-align: center;
+  color: #1d1843;
+  font-weight: normal;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 650px) {
+    display: block;
+    line-height: 50px;
+  }
+  @media (max-width: 600px) {
+    padding: 0;
+  }
+  @include stripe {
+    background-color: #ffc781;
+  }
+  
+  span {
+    text-align: left;
+    font-size: 25px;
+    @media (max-width: 900px) {
+      font-size: 22px;
+    }
+    @media (max-width: 800px) { 
+      font-size: 16px;
+    }
+    @media (max-width: 370px) {
+      font-size: 13px;
+    }
+  }
+  
+  .donate-form {
+    position: relative; 
+    display: inline-block;
+    margin-left: 10px;
+    line-height: 45px;
+    @media (max-width: 650px) {
+      display: block;
+      padding-bottom: 10px;
+    }
+    
+    label.donate-label {
+      font-size: 25px;
+      position: relative; 
+      left: 0.9em; 
+    }
+    
+    input.donate-input {
+      padding-left: 19px;
+    }
+    
+    input[type="number"] {
+      height: 45px;
+      font-size: 25px;
+      padding-left: 20px;
+      padding-right: 10px;
+      border: 0;
+      outline: 0;
+      max-width: 90px;
+    }
+
+    button[type="submit"] {
+      text-align: center;
+      height: 45px;
+      background: #f46e12;
+      border: 0px;
+      border-radius: 3px;
+      padding: 0 15px;
+      font-size: 25px;
+      color: #fff;
+      cursor: pointer;
+      outline: none;
+      transition: transform 0.75s ease, background 0.35s ease;
+      &:hover {
+        background: #ff8f1f;
+      }
+    }
+  }
+}
+
 body>header {
   min-height: 180px;
   color: white;
@@ -1509,6 +1592,9 @@ body >footer {
     }
     a {
       line-height: 60px;
+      @media (max-width: 600px) {
+        line-height: 40px;
+      }
     }
     #number {
       color: #d7c4f4;
