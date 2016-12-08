@@ -104,8 +104,8 @@ var experiments = [
   },
   {
     id: "donations-bar",
-    exp_range_start: 0x3fffffff, // 50% of users, equal fraction in install-screencast-autoplay and not
-    exp_range_end: 0xbfffffff,
+    exp_range_start: 0,  // disable
+    exp_range_end: 0,
     hook: function (userId, exp, inExperiment) {
       addCssOverride(inExperiment, exp.id, "flex");
     }
