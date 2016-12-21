@@ -170,6 +170,19 @@ body>nav {
       color: #18003f;
     }
   }
+  .sign-up, .install {
+    color: #6946bf;
+    border-radius: 3px;
+    border: 1px solid #6946bf;
+    line-height: 32px;
+    height: 33px;
+    font-weight: 500;
+    margin: 0 5px;
+    &:hover {
+      border: 1px solid #5a3da2;
+      color: #5534a6;
+    }
+  }
 }
 
 body#home>nav>a[href="/"] { font-weight: 500; }
