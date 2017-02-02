@@ -100,9 +100,7 @@ body {
   overflow-x: hidden;
 }
 
-body>nav, body>header, body>main, body>section, body>footer, body>div, body>span {
-  // The donation iframe needs to not get max-width: 1200px; applied to it, or the overlay will fail
-  // to cover other things.
+body>* {
   // 1px top padding prevents margin collapsing. We can't use overflow: hidden because it hides our
   // stripes.
   padding: 1px 30px 0;
@@ -199,9 +197,6 @@ body>.notice {
   color: #1d1843;
   font-weight: normal;
   display: flex;
-  &.exp-donations-bar-test {
-    display: none;
-  }
 
   flex-direction: row;
   align-items: center;
@@ -228,52 +223,6 @@ body>.notice {
     }
     @media (max-width: 370px) {
       font-size: 13px;
-    }
-  }
-
-  .donate-form {
-    position: relative; 
-    display: inline-block;
-    margin-left: 10px;
-    line-height: 45px;
-    @media (max-width: 650px) {
-      display: block;
-      padding-bottom: 10px;
-    }
-
-    label.donate-label {
-      font-size: 25px;
-      position: relative;
-      left: 0.9em;
-    }
-
-    input.donate-input {
-      padding-left: 19px;
-      height: 45px;
-      font-size: 25px;
-      padding-left: 20px;
-      padding-right: 10px;
-      border: 0;
-      border-radius: 3px;
-      outline: 0;
-      max-width: 90px;
-    }
-
-    button[type="submit"] {
-      text-align: center;
-      height: 45px;
-      background: #f46e12;
-      border: 0px;
-      border-radius: 3px;
-      padding: 0 15px;
-      font-size: 25px;
-      color: #fff;
-      cursor: pointer;
-      outline: none;
-      transition: transform 0.75s ease, background 0.35s ease;
-      &:hover {
-        background: #ff8f1f;
-      }
     }
   }
 }
@@ -2950,10 +2899,6 @@ body >footer {
           background-color: #f28e22;
         }
       }
-    }
-
-    .exp-install-screencast-autoplay-test {
-      display: none;
     }
 
     pre {
