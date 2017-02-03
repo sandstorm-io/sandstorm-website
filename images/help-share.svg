@@ -1,82 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 19.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 300 250" style="enable-background:new 0 0 300 250;" xml:space="preserve">
 <style type="text/css">
-	.st0{opacity:0.3;fill:#D0D9F7;}
-	.st1{filter:url(#Adobe_OpacityMaskFilter);}
-	.st2{fill:url(#SVGID_2_);}
-	.st3{mask:url(#SVGID_1_);}
+	.st0{fill:#6585B7;}
+	.st1{opacity:0.6;fill:#A8B6DD;enable-background:new    ;}
+	.st2{fill:#EDF2F9;}
+	.st3{fill:#B3BCE0;}
 	.st4{fill:#324F83;}
-	.st5{fill:none;stroke:#D0D9F7;stroke-miterlimit:10;}
+	.st5{opacity:0.6;fill:#6585B7;}
+	.st6{fill:#4C4277;}
+	.st7{fill:#93B3DB;}
+	.st8{clip-path:url(#SVGID_3_);fill:#93B3DB;}
 </style>
-<path class="st0" d="M242.4,223.6H65.8c-7,0-12.8-5.7-12.8-12.8V34.3c0-7,5.7-12.8,12.8-12.8h176.6c7,0,12.8,5.7,12.8,12.8v176.6
-	C255.1,217.9,249.4,223.6,242.4,223.6z"/>
-<defs>
-	<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="77.5" y="36.5" width="162" height="167">
-		<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
-	</filter>
-</defs>
-<mask maskUnits="userSpaceOnUse" x="77.5" y="36.5" width="162" height="167" id="SVGID_1_">
-	<g class="st1">
-		
-			<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="5106.4736" y1="5547.7529" x2="5288.7124" y2="5365.5146" gradientTransform="matrix(-1 0 0 -1 5354.4448 5574.3335)">
-			<stop  offset="0" style="stop-color:#000000"/>
-			<stop  offset="2.729893e-003" style="stop-color:#010101"/>
-			<stop  offset="0.124" style="stop-color:#3C3C3C"/>
-			<stop  offset="0.2478" style="stop-color:#707070"/>
-			<stop  offset="0.3721" style="stop-color:#9C9C9C"/>
-			<stop  offset="0.4965" style="stop-color:#C0C0C0"/>
-			<stop  offset="0.6212" style="stop-color:#DBDBDB"/>
-			<stop  offset="0.7463" style="stop-color:#EFEFEF"/>
-			<stop  offset="0.8721" style="stop-color:#FBFBFB"/>
-			<stop  offset="1" style="stop-color:#FFFFFF"/>
-		</linearGradient>
-		<rect x="69.6" y="22.7" class="st2" width="174.4" height="190"/>
-	</g>
-</mask>
-<g class="st3">
-	<polygon class="st4" points="109,111.5 109,117.7 115.2,117.7 115.8,117.7 122,117.7 122,117.7 128.2,117.7 134.4,117.7 
-		134.4,110.9 134.4,104.7 128.2,104.7 128.2,98.6 122,98.6 122,92.4 115.8,92.4 115.2,92.4 109,92.4 109,98.6 109,99.2 109,105.4 
-		109,105.4 	"/>
-	<rect x="156.8" y="54.4" class="st4" width="6.8" height="6.8"/>
-	<polygon class="st4" points="130,102.6 136.8,102.6 136.8,95.8 130,95.8 130,89 123.2,89 123.2,95.8 130,95.8 	"/>
-	<polygon class="st4" points="142,96.5 142,97.1 142,102.7 142,103.3 142,109.5 148.2,109.5 148.8,109.5 154.3,109.5 155,109.5 
-		161.1,109.5 161.1,109.5 167.3,109.5 167.3,102.7 161.1,102.7 161.1,96.5 155,96.5 155,90.3 148.8,90.3 148.8,84.1 142,84.1 
-		142,90.9 	"/>
-	<rect x="151.2" y="78.4" class="st4" width="6.8" height="6.8"/>
-	<rect x="185.8" y="41.5" class="st4" width="6.8" height="6.8"/>
-	<rect x="158.4" y="85.8" class="st4" width="6.8" height="6.8"/>
-	<polygon class="st4" points="221.2,48.3 221.2,41.5 217.5,41.5 217.5,36.7 210.7,36.7 210.7,43.5 214.4,43.5 214.4,48.3 	"/>
-	<rect x="198.7" y="55.6" class="st4" width="6.8" height="6.8"/>
-	<rect x="165.5" y="93" class="st4" width="6.8" height="6.8"/>
-	<polygon class="st4" points="135.4,124.9 135.4,125.5 135.4,131.1 135.4,131.7 135.4,137.9 135.4,137.9 135.4,144.1 141.6,144.1 
-		142.2,144.1 147.7,144.1 148.4,144.1 153.9,144.1 154.5,144.1 160.7,144.1 160.7,137.9 160.7,137.3 160.7,131.1 154.5,131.1 
-		154.5,124.9 148.4,124.9 148.4,118.7 141.6,118.7 135.4,118.7 	"/>
-	<polygon class="st4" points="150,115.9 150,122.7 156.8,122.7 156.8,129.4 163.6,129.4 163.6,122.6 156.8,122.6 156.8,115.9 	"/>
-	<rect x="203.4" y="72.8" class="st4" width="6.8" height="6.8"/>
-	<polygon class="st4" points="195.7,89.9 194.2,89.9 194.2,85.5 189.6,85.5 189.6,83.7 183.4,83.7 183.4,77.5 176.6,77.5 
-		176.6,83.7 176.6,83.7 176.6,90.5 176.6,96.1 176.6,96.7 176.6,102.9 183.4,102.9 183.4,102.9 188.9,102.9 188.9,102.9 
-		195.7,102.9 201.9,102.9 201.9,96.1 195.7,96.1 	"/>
-	<rect x="179.9" y="107.1" class="st4" width="6.8" height="6.8"/>
-	<rect x="219.4" y="72.9" class="st4" width="6.8" height="6.8"/>
-	<rect x="186.8" y="114.2" class="st4" width="6.8" height="6.8"/>
-	<polygon class="st4" points="239.6,61.5 232.8,61.5 232.8,64.2 232.1,64.2 232.1,71 238.9,71 238.9,68.3 239.6,68.3 	"/>
-	<rect x="222.8" y="87.7" class="st4" width="6.8" height="6.8"/>
-	<rect x="194.4" y="121.5" class="st4" width="6.8" height="6.8"/>
-	<polygon class="st4" points="189.1,130.7 189.1,124.5 183,124.5 183,118.3 176.8,118.3 176.8,112.1 170,112.1 170,118.9 170,124.5 
-		170,125.1 170,130.7 170,131.3 170,137.5 176.2,137.5 176.8,137.5 182.3,137.5 183,137.5 188.5,137.5 189.1,137.5 195.3,137.5 
-		195.3,130.7 	"/>
-	<rect x="176.8" y="142.7" class="st4" width="6.8" height="6.8"/>
-	<rect x="219" y="116.1" class="st4" width="6.8" height="6.8"/>
-	<rect x="183.6" y="149.5" class="st4" width="6.8" height="6.8"/>
-	<polygon class="st4" points="187.1,157.4 180.9,157.4 180.9,151.3 174.7,151.3 174.7,145.1 167.9,145.1 161.7,145.1 161.7,151.9 
-		161.7,157.4 161.7,158.1 161.7,163.6 161.7,164.2 161.7,170.4 168.5,170.4 174.1,170.4 174.7,170.4 180.3,170.4 180.9,170.4 
-		187.1,170.4 187.1,163.6 187.1,163.6 	"/>
-	<polygon class="st4" points="154.4,176.3 154.4,151.6 129.7,151.6 129.7,126.9 105,126.9 105,102.1 77.8,102.1 77.8,129.3 
-		77.8,129.3 77.8,154.1 77.8,154.1 77.8,176.3 77.8,176.3 77.8,203.5 105,203.5 105,203.5 129.7,203.5 129.7,203.5 154.3,203.5 
-		154.3,203.5 181.5,203.5 181.5,176.3 	"/>
+<ellipse class="st0" cx="254.9" cy="76.5" rx="28.4" ry="29.6"/>
+<path class="st0" d="M214,145.1c0-15.3,7.7-39.8,28.2-39.8h24.7c20.7,0,28.1,24.6,28.1,40.3v0.5h-81V145.1"/>
+<polyline class="st1" points="270.6,140.1 248.5,140.1 248.5,146.1 270.6,146.1 270.6,140.1 "/>
+<g>
+	<path class="st2" d="M269,83.5c-1.6,4.5-7.2,7.9-14.2,7.9c-6.9,0-12.6-3.4-14.2-7.9c-0.6,1.2-0.8,2.3-0.8,3.6
+		c0,5.9,6.6,10.8,15,10.8c8.3,0,15-4.8,15-10.8C269.9,85.8,269.6,84.7,269,83.5z"/>
 </g>
-<path class="st5" d="M242.4,223.6H65.8c-7,0-12.8-5.7-12.8-12.8V34.3c0-7,5.7-12.8,12.8-12.8h176.6c7,0,12.8,5.7,12.8,12.8v176.6
-	C255.1,217.9,249.4,223.6,242.4,223.6z"/>
+<ellipse class="st0" cx="254.5" cy="83.9" rx="16.5" ry="7.5"/>
+<g>
+	<polygon class="st3" points="248.5,94.8 237.3,94.8 176,94.8 176,146.1 248.4,146.1 248.4,105.9 	"/>
+</g>
+<path class="st4" d="M157.3,222.4c0-29.2-14.4-76.3-53.4-76.3H57.2c-39.5,0-53.7,47.4-53.7,77.3v0.6h153.7v-1.8"/>
+<polyline class="st5" points="92.6,212.4 50.2,212.4 50.2,223.7 92.6,223.7 92.6,212.4 "/>
+<polyline class="st6" points="146.1,212.4 92.6,212.4 92.6,223.7 146.1,223.7 146.1,212.4 "/>
+<ellipse class="st4" cx="80.5" cy="91.4" rx="54.1" ry="56.3"/>
+<g>
+	<path class="st2" d="M108.4,104.7c-3.1,8.5-13.8,15-27,15s-23.9-6.5-27-15c-1.2,2.2-1.5,4.4-1.5,6.9c0,11.1,12.6,20.5,28.6,20.5
+		s28.6-9.1,28.6-20.5C110.2,109.1,109.6,106.9,108.4,104.7z"/>
+</g>
+<ellipse class="st4" cx="80.8" cy="105.5" rx="31.4" ry="14.2"/>
+<g>
+	<polygon class="st0" points="230.7,126.2 209.5,126.2 92.6,126.2 92.6,224 230.6,224 230.6,147.5 	"/>
+</g>
+<g>
+	<rect x="152.6" y="153.1" class="st7" width="2.4" height="2.4"/>
+	<rect x="152.6" y="155.2" class="st7" width="2.4" height="2.4"/>
+	<rect x="152.6" y="157.4" class="st7" width="2.4" height="2.4"/>
+	<rect x="152.6" y="159.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="154.6" y="153.1" class="st7" width="2.4" height="2.4"/>
+	<rect x="154.6" y="155.2" class="st7" width="2.4" height="2.4"/>
+	<rect x="154.6" y="157.4" class="st7" width="2.4" height="2.4"/>
+	<rect x="154.6" y="159.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="157.5" y="151.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="156.9" y="155.2" class="st7" width="2.4" height="2.4"/>
+	<rect x="156.9" y="157.4" class="st7" width="2.4" height="2.4"/>
+	<rect x="156.9" y="159.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="169.4" y="139.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="159.9" y="154.3" class="st7" width="2.4" height="2.4"/>
+	<rect x="159" y="157.4" class="st7" width="2.4" height="2.4"/>
+	<rect x="159" y="159.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="164.2" y="150.1" class="st7" width="2.4" height="2.4"/>
+	<rect x="164.2" y="152.4" class="st7" width="2.4" height="2.4"/>
+	<rect x="164.2" y="154.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="164.2" y="156.7" class="st7" width="2.4" height="2.4"/>
+	<rect x="167.5" y="148" class="st7" width="2.4" height="2.4"/>
+	<rect x="166.3" y="152.4" class="st7" width="2.4" height="2.4"/>
+	<rect x="166.3" y="154.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="166.3" y="156.7" class="st7" width="2.4" height="2.4"/>
+	<rect x="179.7" y="135" class="st7" width="2.4" height="2.4"/>
+	<rect x="170" y="150.7" class="st7" width="2.4" height="2.4"/>
+	<rect x="168.5" y="154.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="168.5" y="156.7" class="st7" width="2.4" height="2.4"/>
+	<rect x="189.9" y="135" class="st7" width="2.4" height="2.4"/>
+	<rect x="184.4" y="140" class="st7" width="2.4" height="2.4"/>
+	<rect x="172.6" y="153.4" class="st7" width="2.4" height="2.4"/>
+	<rect x="170.6" y="156.7" class="st7" width="2.4" height="2.4"/>
+	<rect x="162" y="162.4" class="st7" width="2.4" height="2.4"/>
+	<rect x="162" y="164.6" class="st7" width="2.4" height="2.4"/>
+	<rect x="162" y="166.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="162" y="168.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="163.9" y="162.4" class="st7" width="2.4" height="2.4"/>
+	<rect x="163.9" y="164.6" class="st7" width="2.4" height="2.4"/>
+	<rect x="163.9" y="166.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="163.9" y="168.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="167" y="161.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="166.1" y="164.6" class="st7" width="2.4" height="2.4"/>
+	<rect x="166.1" y="166.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="166.1" y="168.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="180.3" y="150.6" class="st7" width="2.4" height="2.4"/>
+	<rect x="169.4" y="163.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="168.4" y="166.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="168.4" y="168.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="176.5" y="147.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="176.5" y="150" class="st7" width="2.4" height="2.4"/>
+	<rect x="176.5" y="152.2" class="st7" width="2.4" height="2.4"/>
+	<rect x="176.5" y="154.3" class="st7" width="2.4" height="2.4"/>
+	<rect x="188.4" y="133.3" class="st7" width="2.4" height="2.4"/>
+	<rect x="178.7" y="150" class="st7" width="2.4" height="2.4"/>
+	<rect x="178.7" y="152.2" class="st7" width="2.4" height="2.4"/>
+	<rect x="178.7" y="154.3" class="st7" width="2.4" height="2.4"/>
+	<rect x="186.6" y="145.9" class="st7" width="2.4" height="2.4"/>
+	<g>
+		<g>
+			<g>
+				<g>
+					<polyline id="SVGID_1_" class="st7" points="186.6,148.3 189,148.3 189,145.9 186.6,145.9 186.6,148.3 					"/>
+				</g>
+				<g>
+					<g>
+						<defs>
+							<polyline id="SVGID_2_" points="186.6,148.3 189,148.3 189,145.9 186.6,145.9 186.6,148.3 							"/>
+						</defs>
+						<use xlink:href="#SVGID_2_"  style="overflow:visible;fill:#93B3DB;"/>
+						<clipPath id="SVGID_3_">
+							<use xlink:href="#SVGID_2_"  style="overflow:visible;"/>
+						</clipPath>
+						<rect x="186.6" y="145.9" class="st8" width="2.4" height="2.4"/>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+	<rect x="180.8" y="152.2" class="st7" width="2.4" height="2.4"/>
+	<rect x="180.8" y="154.3" class="st7" width="2.4" height="2.4"/>
+	<rect x="196" y="143" class="st7" width="2.4" height="2.4"/>
+	<rect x="183" y="154.3" class="st7" width="2.4" height="2.4"/>
+	<rect x="174.1" y="160" class="st7" width="2.4" height="2.4"/>
+	<rect x="174.1" y="162.2" class="st7" width="2.4" height="2.4"/>
+	<rect x="174.1" y="164.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="174.1" y="166.7" class="st7" width="2.4" height="2.4"/>
+	<rect x="177.6" y="158.3" class="st7" width="2.4" height="2.4"/>
+	<rect x="176.2" y="162.2" class="st7" width="2.4" height="2.4"/>
+	<rect x="176.2" y="164.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="176.2" y="166.7" class="st7" width="2.4" height="2.4"/>
+	<rect x="191.7" y="146.2" class="st7" width="2.4" height="2.4"/>
+	<rect x="180" y="160.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="178.5" y="164.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="178.5" y="166.7" class="st7" width="2.4" height="2.4"/>
+	<rect x="196.3" y="142.2" class="st7" width="2.4" height="2.4"/>
+	<rect x="192.9" y="151.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="182.7" y="163.4" class="st7" width="2.4" height="2.4"/>
+	<rect x="180.6" y="166.7" class="st7" width="2.4" height="2.4"/>
+	<rect x="171.1" y="171.8" class="st7" width="2.4" height="2.4"/>
+	<rect x="171.1" y="173.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="171.1" y="176.1" class="st7" width="2.4" height="2.4"/>
+	<rect x="171.1" y="178.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="173.3" y="171.8" class="st7" width="2.4" height="2.4"/>
+	<rect x="173.3" y="173.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="173.3" y="176.1" class="st7" width="2.4" height="2.4"/>
+	<rect x="173.3" y="178.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="176.6" y="170.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="175.6" y="173.9" class="st7" width="2.4" height="2.4"/>
+	<rect x="175.6" y="176.1" class="st7" width="2.4" height="2.4"/>
+	<rect x="175.6" y="178.5" class="st7" width="2.4" height="2.4"/>
+	<rect x="191.5" y="161.6" class="st7" width="2.4" height="2.4"/>
+	<rect x="179" y="173.3" class="st7" width="2.4" height="2.4"/>
+	<rect x="177.8" y="176.1" class="st7" width="2.4" height="2.4"/>
+	<rect x="177.8" y="178.5" class="st7" width="2.4" height="2.4"/>
+	<polygon class="st7" points="169.3,183.6 169.3,173.6 159.4,173.6 159.4,165.2 151.1,165.2 151.1,157 141.2,157 141.2,165.2 
+		141.2,166.9 141.2,173.6 141.2,175.1 141.2,183.6 141.2,184.4 141.2,191.8 149.6,191.8 151.1,191.8 159.4,191.8 168.4,191.8 
+		169.3,191.8 179.3,191.8 179.3,183.6 	"/>
+</g>
 </svg>
