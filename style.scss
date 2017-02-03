@@ -169,14 +169,14 @@ body>nav {
     }
 
     @media (max-width: 550px) {
-      &[href^="/news"] { display: none; }
+      &[href="/about"] { display: none; }
       &[href="/features"] { display: none; }
     }
     @media (max-width: 940px) {
       &[href^="/get"] { display: none; }
       &[href="/community"] { display: none; }
       &[href^="https://docs.sandstorm.io"] { display: none; }
-      &[href^="https://github.com"] { display: none; }
+      &[href="/how-it-works"] { display: none; }
     }
   }
 }
