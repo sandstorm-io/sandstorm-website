@@ -13,157 +13,6 @@
         content="Real-time collaborative web productivity suite behind the firewall.">
     <link rel="stylesheet" type="text/css" href="/style.css">
     <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
-    
-<script src="/ga-helper.js"></script>
-<script>
-(function(){
-
-function getIdFromCookie() {
-  var match = document.cookie.match(new RegExp("(^| )sandstormStatsId=([^;]+)"));
-  if (match) return match[2];
-}
-
-function setIdCookie(val) {
-  var d = new Date();
-  d.setMonth(d.getMonth() + 120);
-  document.cookie = "sandstormStatsId=" + val + ";expires=" + d + ";domain=.sandstorm.io;";
-}
-
-function uidGenerator() {
-  if (window.crypto && window.crypto.getRandomValues) {
-    var array = new Uint32Array(4);
-    window.crypto.getRandomValues(array);
-    return array[0] + "-" + array[1] + "-" + array[2] + "-" + array[3];
-  } else {
-    var genInt = function() {
-      return Math.floor(Math.random() * 0x100000000);
-    }
-    return genInt() + "-" + genInt() + "-" + genInt() + "-" + genInt();
-  }
-}
-
-function getId() {
-  var id = getIdFromCookie();
-  if (!id) {
-    id = uidGenerator();
-    setIdCookie(id);
-  }
-  return id;
-}
-
-function sendData(data, path) {
-  var xhr = new XMLHttpRequest();
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4) {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        // do nothing
-      } else {
-        console.error("analytics send failed:", xhr.statusText, xhr.responseText);
-      }
-    }
-  };
-
-  xhr.open("POST", "https://api-5d23e9c497f90642a85ba1fb909fa9d8.oasis.sandstorm.io/" + path, true);
-
-  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xhr.setRequestHeader("Authorization", "Bearer hVU87Vp2UzNnRmMepiXpjKUk6n6MZc7YMgAJ6YrVe-6");
-
-  xhr.send(JSON.stringify(data));
-}
-
-
-function isInExperiment(userId, exp) {
-  var idBlocks = userId.split("-");
-  var id = parseInt(idBlocks[0], 10);
-  return exp.exp_range_start <= id && id < exp.exp_range_end;
-}
-
-function addCssOverride(inExperiment, id, activeDisplayValue) {
-  var s = document.createElement('style');
-  s.type = 'text/css';
-  var r = "";
-  if (inExperiment) {
-    r = r + ".exp-" + id + "-baseline { display: none !important; }\n";
-    r = r + ".exp-" + id + "-test { display: " + activeDisplayValue + " !important; }\n";
-  }
-  s.innerHTML = r;
-  document.getElementsByTagName('head')[0].appendChild(s);
-}
-
-var experiments = [
-  {
-    id: "install-screencast-autoplay",
-    exp_range_start: 0,
-    exp_range_end: 0x7fffffff, // 50% of users
-    hook: function (userId, exp, inExperiment) {
-      // Creates a stylesheet with a pair of classes that change the display: property,
-      // allowing hiding of baseline content and showing of experimental content.
-      addCssOverride(inExperiment, exp.id, "block");
-    }
-  },
-  {
-    id: "donations-bar",
-    exp_range_start: 0,  // disable
-    exp_range_end: 0,
-    hook: function (userId, exp, inExperiment) {
-      addCssOverride(inExperiment, exp.id, "flex");
-    }
-  }
-];
-
-var experimentMembership = {};
-var userId = getId();
-for (var i=0; i<experiments.length; i++) {
-  var exp = experiments[i];
-  var a = isInExperiment(userId, exp);
-  exp.inExperiment = a;
-  experimentMembership[exp.id] = a;
-}
-
-function runExperimentHooks() {
-  for (var i=0; i<experiments.length; i++) {
-    var exp = experiments[i];
-    if (exp.hook) {
-      exp.hook(userId, exp, exp.inExperiment);
-    }
-  }
-}
-
-function trackView() {
-  var id = getId();
-  sendData({
-    uid: id,
-    referrer: document.referrer,
-    location: window.location + '',
-    experiments: experimentMembership
-  }, "pageEvent");
-}
-
-function trackClick(elementId) {
-  var id = getId();
-  sendData({
-    uid: id,
-    elementId: elementId,
-    location: window.location + '',
-    experiments: experimentMembership
-  }, "clickEvent");
-}
-
-
-runExperimentHooks();
-trackView();
-
-window.sandstormTracker = {
-  trackView: trackView,
-  trackClick: trackClick,
-  experiments: experiments,
-  getId: getId
-};
-
-})();
-</script>
-
   </head>
 
 
@@ -173,19 +22,14 @@ window.sandstormTracker = {
       <a href="/">Sandstorm.io</a>
       <a href="/get">Get Sandstorm</a>
       <a href="/features">Features</a>
+      <a href="/how-it-works">Technology</a>
       <a href="/news/">Blog</a>
       <a href="https://docs.sandstorm.io">Docs</a>
+      <a href="https://github.com/sandstorm-io/sandstorm">Code</a>
       <a href="/community">Community</a>
+      <a href="/about">About</a>
       <!-- TODO: search -->
     </nav>
-    <div class="notice exp-donations-bar-test" id="notice1">
-      <span>Your donations help us make open source apps viable.</span>
-      <form class="donate-form" action="/">
-        <label class="donate-label" for="donate-top">$</label>
-        <input class="donate-input" id="donate-top"  name="AMOUNT" type="number" value="10" required>
-        <button type="submit">Donate</button>
-      </form>
-    </div>
 
     <header>
   <div class="sand">
@@ -242,13 +86,86 @@ window.sandstormTracker = {
 
 
 <section>
+  <h2><a href="/news/2017-02-06-sandstorm-returning-to-community-roots">Sandstorm is returning to its community roots</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2017-02-06-sandstorm-returning-to-community-roots">06 Feb 2017</a>
+  
+  
+  
+  
+  <p>Most people know Sandstorm as an open source, community-driven project aiming to enable self-hosting of cloud services and to make it possible for open source web apps to compete with today’s cloud services.</p>
+
+<p>Many people also know that Sandstorm is a for-profit startup, with a business model centered on charging for enterprise-oriented features, such as LDAP and SAML single-sign-on integration, organizational access control policies, and the like. This product was called “Sandstorm for Work”; it was still open source, but official builds hid the features behind a paywall. Additionally, we planned eventually to release a scalable version of Sandstorm for big enterprise users, based on the same tech that powers Sandstorm Oasis, our managed hosting service.</p>
+
+<p>As an open source project, Sandstorm has been successful: We have a thriving community of contributors, many developers building and packaging apps, and thousands of self-hosted servers running in the wild. This will continue.</p>
+
+<p>However, our business has not succeeded. To date, almost no one has purchased Sandstorm for Work, despite hundreds of trials and lots of interest expressed. Only a tiny fraction of Sandstorm Oasis users choose to pay for the service – enough to cover costs, but not much more.</p>
+
+<p>We attribute this failure to two main problems:</p>
+
+<ul>
+  <li>
+    <p>As a product, Sandstorm is still alpha-quality. As you may know, Sandstorm is pioneering a paradigm shift in the way servers operate, which we call fine-grained containerization. <a href="https://sandstorm.io/how-it-works">The benefits of this technology are huge</a>, but a lot of engineering work is needed to make it work smoothly. Although we’ve built a working product that many people – including ourselves – use for real work every day, many limitations still exist that make Sandstorm feel rough and incomplete compared to alternatives. We know how to fix these problems, but we need more time to do so.</p>
+  </li>
+  <li>
+    <p>We underestimated, in classic fashion, the challenge of enterprise sales. As a company of engineers and geeks, we knew that enterprise sales would be outside of our comfort zone, but we didn’t realize just how much work it would be to learn, and how much time we needed to be successful at it. By the end, we were only scratching the surface of how to generate leads and get in the door at big companies; we never managed to do a “real” sales call. In retrospect, we should have hired a business development expert much earlier on. We also should have raised more money and planned for a longer runway.</p>
+  </li>
+</ul>
+
+<p>We plan to publish a more complete postmortem in a subsequent blog post.</p>
+
+<p>Unfortunately, Sandstorm the business has now run out of money, and we have been unable to raise more.</p>
+
+<p><strong>The Project Lives On</strong></p>
+
+<p>Although it will no longer be our full-time job, Sandstorm will continue as an open source project. We still strongly believe in Sandstorm’s long-term vision and cannot abandon it. I personally will continue to lead Sandstorm’s technical development: reviewing and merging pull requests, pushing releases, and developing new features. We will continue to operate Sandstorm Oasis – your data there is safe. Meanwhile, we will make it easier for our extended community to be involved in core development and decision-making. Jade will be in contact with individual community members to appoint community leaders and grant them the authority to handle a variety of community organizing functions, from App Market approval to organizing meetups.</p>
+
+<p>Ironically, the pace of development may not even be hurt much. Over the past year, the Sandstorm team has spent a great deal of our time on enabling our business, e.g. building a payment mechanism, processing customers, marketing, and the like. I personally have spent far too much time on fundraising, sales, and other deal-making rather than on coding. With this shift in direction, we can now focus strictly on building out the core platform, getting more done with less time.</p>
+
+<p><strong>Immediate Action Items</strong></p>
+
+<p>As a result of this change, the following has happened today:</p>
+
+<ul>
+  <li>
+    <p>We have pushed a release which removes the Sandstorm for Work paywall. Sandstorm for Work features (like LDAP/SAML integration) are now available to all self-hosted Sandstorm servers at no cost. The product name “Sandstorm for Work” has been retired; there is now only Sandstorm. (Your server should already have received the update. If not, SSH in and type <code>sudo sandstorm update</code>. Don’t have a server yet? <a href="https://sandstorm.io/install">Install Sandstorm now.</a>)</p>
+  </li>
+  <li>
+    <p>We have <a href="https://github.com/sandstorm-io/blackrock">open sourced Blackrock</a>, an alternate back-end for Sandstorm which is able to scale out across a cluster of machines. We have long used this technology to power Sandstorm Oasis, but had hesitated to release it for fear that it would harm our business model. We no longer have a business model to protect, so the code can now be set free.</p>
+  </li>
+  <li>
+    <p>We have added the <a href="https://github.com/sandstorm-io/sandstorm/tree/master/roadmap">Sandstorm Technology Roadmap</a> to the Sandstorm repo, where you can learn about everything Sandstorm has built and plans to build. The roadmap is full of projects and features marked “TODO”, so you can see what needs to be built.</p>
+  </li>
+  <li>
+    <p>We’ve written a new <a href="https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md">contributing guide with a list of projects you can work on</a>. See if there’s anything that interests you!</p>
+  </li>
+  <li>
+    <p>No changes are expected to <a href="https://oasis.sandstorm.io">Sandstorm Oasis</a> nor <a href="https://docs.sandstorm.io/en/latest/administering/sandcats/">Sandcats.io</a>. Both services will continue to operate going forward.</p>
+  </li>
+</ul>
+
+<p><strong>How you can help</strong></p>
+
+<p>Want to see Sandstorm succeed? Then, contribute!</p>
+
+<ul>
+  <li>
+    <p>If you’d like to help build Sandstorm, sign up on <a href="https://groups.google.com/group/sandstorm-dev">the sandstorm-dev mailing list</a> and join us on IRC at #sandstorm on Freenode. There is lots to do, from hardcore systems hacking to community organizing to tasks that require nothing but enthusiasm. For ideas on how you can help, check out the <a href="https://sandstorm.io/community">community page</a> and the <a href="https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md">contributing guide</a>.</p>
+  </li>
+  <li>
+    <p>If you have more money than time and would like to support the project financially, the best way to do it is to sign up for a paid account on <a href="https://oasis.sandstorm.io">Oasis</a>.</p>
+  </li>
+</ul>
+
+
+</section>
+
+<section>
   <h2><a href="/news/2016-12-01-sandstorm-solutions">Sandstorm Solutions: pay for feature prioritization</a></h2>
   <p class="post-details">By <a href="https://github.com/zarvox">Drew Fisher</a>
     
     - <a href="/news/2016-12-01-sandstorm-solutions">01 Dec 2016</a>
-  
-  
-  
   
   <p>Is there a feature or bug holding you back from deploying Sandstorm at your company or for your
 team?  Do you need the Sandstorm core devs to prioritize a feature?  <strong>Sandstorm
@@ -445,48 +362,6 @@ Get an estimate »
 
 </section>
 
-<section>
-  <h2><a href="/news/2016-10-13-sharing-documents-rocketchat">Sharing documents with a Rocket.Chat room in Sandstorm</a></h2>
-  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Q. Wang</a>
-    
-    - <a href="/news/2016-10-13-sharing-documents-rocketchat">13 Oct 2016</a>
-  
-  <p>I’m sharing a pro-tip today because I like making sure that everyone gets the most productivity they can out of Sandstorm.</p>
-
-<p>Let’s say I want to share a grain (e.g., a document, spreadsheet, git repository, or a <a href="https://sandstorm.io/news/2016-08-09-collections-app">Collection</a>) with a group of colleagues who are already in the same <a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> chatroom. To do so, I first click the + icon in Rocket.Chat.</p>
-
-<p><img src="/news/images/rc_button.png" alt="Click on the + button in Rocket Chat" /></p>
-
-<p>This opens a <a href="https://sandstorm.io/how-it-works#powerbox">Powerbox</a> request with a type-ahead search box. Before I’ve typed anything, I can see the grains that have most recently been opened by me.</p>
-
-<p><img src="/news/images/rc2.png" alt="Powerbox list of grains (ordered by most recently opened)" /></p>
-
-<p>For instance, if I’m looking for feedback for a blog post I drafted in <a href="https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60">Etherpad</a>, I can type “Etherpad” and it will list all Etherpads that I have access to on this server.</p>
-
-<p><img src="/news/images/rc3.png" alt="Search by grain type" /></p>
-
-<p>Here are all the Etherpads I have access to. But today, I’m actually searching for something else: a Collection titled “Sales / Revenue docs”. I can also search for grains by title, so I search for “revenue”:</p>
-
-<p><img src="/news/images/rc4.png" alt="Search by grain type or title" /></p>
-
-<p>Once I’ve selected the grain, I can choose whether I’d like to give everyone in this chatroom the permission to edit or only view this Collection before I connect the grain with this Rocket.Chat room.</p>
-
-<p><img src="/news/images/rc5.png" alt="grant permission" /></p>
-
-<p>When I share a grain in a chatroom, it automatically renders a snippet which includes the icon for the app that opens the grain. It looks like this:</p>
-
-<p><img src="/news/images/rc6_shared.png" alt="snippet" /></p>
-
-<p>Now, everyone who is in this chatroom has access to this Collection (as well as every grain inside it). No need to go share it with them separately.</p>
-
-<p>To try it out for yourself, go install <a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> now!</p>
-
-<p>Do you use Sandstorm to collaborate at work? <a href="https://sandstorm.io/business">Sandstorm for Work</a> (<a href="https://sandstorm.io/get-feature-key">60-day free trial</a>) comes with priority support, organization management features, and integration with enterprise infrastructure.</p>
-
-<p>By the way, if you found this useful and would like to see more bite-sized pro-tip style blog posts in the future, please reshare this and let me know (I’m <a href="https://twitter.com/qiqing">@qiqing</a> on Twitter)!</p>
-
-</section>
-
 
 <nav class="pagination bottom">
   
@@ -500,22 +375,13 @@ Get an estimate »
 </div>
 
 
-    <div class="notice exp-donations-bar-test" id="notice2">
-      <span>Your donations help us make open source apps viable.</span>
-      <form class="donate-form" action="/">
-        <label class="donate-label" for="donate-bottom">$</label>
-        <input class="donate-input" id="donate-bottom"  name="AMOUNT" type="number" value="10" required>
-        <button type="submit">Donate</button>
-      </form>
-    </div>
     <footer>
       <ul>
         <li>
           <h3><a href="/get">Get Sandstorm</a></h3>
           <ul>
             <li><a href="/get">Sandstorm on Oasis</a>
-            <li><a href="/get">Sandstorm Standard</a>
-            <li><a href="/get">Sandstorm for Work</a>
+            <li><a href="/get">Self-host Sandstorm</a>
             <li><a href="https://github.com/sandstorm-io/sandstorm">Source Code (GitHub)</a>
             <li><a href="/go/education">For Educators</a></li>
           </ul>
@@ -526,9 +392,9 @@ Get an estimate »
             <li><a href="https://apps.sandstorm.io">App Market</a></li>
             <li><a href="/features">Core features</a>
             <li><a href="/features#security">Security features</a>
-            <li><a href="/business">Sandstorm for Work</a>
-            <li><a href="/business#scale">Sandstorm for Enterprise</a>
-            <li><a href="/developer">Development</a>
+            <li><a href="/business">For organizations</a>
+            <li><a href="/business#scale-features">Scale-out</a>
+            <li><a href="/developer">For developers</a>
           </ul>
         </li>
         <li>
@@ -541,7 +407,7 @@ Get an estimate »
           </ul>
         </li>
         <li>
-          <h3><a href="/how-it-works">How it Works</a></h3>
+          <h3><a href="/how-it-works">Technology (How it Works)</a></h3>
           <ul>
             <li><a href="/how-it-works#grains">Fine-grained object containers</a>
             <li><a href="/how-it-works#capabilities">Capability-based Security</a>
@@ -611,58 +477,6 @@ Get an estimate »
       if (document.location.hostname === "localhost") {
         document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
       }
-    </script>
-
-    <!-- Donation form integration -->
-    <script src="https://checkout.stripe.com/checkout.js"></script>
-    <script>
-    var amountCents = 0;
-    var handler = StripeCheckout.configure({
-      key: "pk_live_bkrz8iFkfEeXDsdIqzDNdSkH",
-      image: "https://sandstorm.io/images/sandstorm-purplecircle.png",
-      locale: "auto",
-      token: function(token) {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4) {
-            if (xhr.status !== 200) {
-              console && console.error(xhr.responseText);
-            } else {
-              console && console.log("donation successful");
-            }
-          }
-        };
-        xhr.open("POST", "https://donations-backend.sandstorm.io/", true);
-        var formData = new FormData();
-        formData.append("token_id", token.id);
-        formData.append("token_email", token.email);
-        formData.append("amount", amountCents);
-        xhr.send(formData);
-        window.sandstormTracker && window.sandstormTracker.trackClick("donation-complete");
-      }
-    });
-    var submitDonateForm = function(e) {
-      window.lastEvent = e;
-      e.preventDefault();
-      var dollars = parseFloat(e.target.querySelector("input").value);
-      amountCents = Math.floor(100*dollars);
-      handler.open({
-        name: "Sandstorm.io",
-        description: "Donation (not tax deductible)",
-        zipCode: true,
-        amount: amountCents,
-      });
-      window.sandstormTracker && window.sandstormTracker.trackClick("donate-button");
-    };
-    var forms = document.querySelectorAll("form.donate-form");
-    for (var i=0; i<forms.length; i++) {
-      var form = forms[i];
-      form.onsubmit = submitDonateForm;
-    }
-    // Close checkout on page navigation.
-    window.addEventListener("popstate", function() {
-      handler.close();
-    });
     </script>
   </body>
 </html>

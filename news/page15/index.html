@@ -13,157 +13,6 @@
         content="Real-time collaborative web productivity suite behind the firewall.">
     <link rel="stylesheet" type="text/css" href="/style.css">
     <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
-    
-<script src="/ga-helper.js"></script>
-<script>
-(function(){
-
-function getIdFromCookie() {
-  var match = document.cookie.match(new RegExp("(^| )sandstormStatsId=([^;]+)"));
-  if (match) return match[2];
-}
-
-function setIdCookie(val) {
-  var d = new Date();
-  d.setMonth(d.getMonth() + 120);
-  document.cookie = "sandstormStatsId=" + val + ";expires=" + d + ";domain=.sandstorm.io;";
-}
-
-function uidGenerator() {
-  if (window.crypto && window.crypto.getRandomValues) {
-    var array = new Uint32Array(4);
-    window.crypto.getRandomValues(array);
-    return array[0] + "-" + array[1] + "-" + array[2] + "-" + array[3];
-  } else {
-    var genInt = function() {
-      return Math.floor(Math.random() * 0x100000000);
-    }
-    return genInt() + "-" + genInt() + "-" + genInt() + "-" + genInt();
-  }
-}
-
-function getId() {
-  var id = getIdFromCookie();
-  if (!id) {
-    id = uidGenerator();
-    setIdCookie(id);
-  }
-  return id;
-}
-
-function sendData(data, path) {
-  var xhr = new XMLHttpRequest();
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4) {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        // do nothing
-      } else {
-        console.error("analytics send failed:", xhr.statusText, xhr.responseText);
-      }
-    }
-  };
-
-  xhr.open("POST", "https://api-5d23e9c497f90642a85ba1fb909fa9d8.oasis.sandstorm.io/" + path, true);
-
-  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xhr.setRequestHeader("Authorization", "Bearer hVU87Vp2UzNnRmMepiXpjKUk6n6MZc7YMgAJ6YrVe-6");
-
-  xhr.send(JSON.stringify(data));
-}
-
-
-function isInExperiment(userId, exp) {
-  var idBlocks = userId.split("-");
-  var id = parseInt(idBlocks[0], 10);
-  return exp.exp_range_start <= id && id < exp.exp_range_end;
-}
-
-function addCssOverride(inExperiment, id, activeDisplayValue) {
-  var s = document.createElement('style');
-  s.type = 'text/css';
-  var r = "";
-  if (inExperiment) {
-    r = r + ".exp-" + id + "-baseline { display: none !important; }\n";
-    r = r + ".exp-" + id + "-test { display: " + activeDisplayValue + " !important; }\n";
-  }
-  s.innerHTML = r;
-  document.getElementsByTagName('head')[0].appendChild(s);
-}
-
-var experiments = [
-  {
-    id: "install-screencast-autoplay",
-    exp_range_start: 0,
-    exp_range_end: 0x7fffffff, // 50% of users
-    hook: function (userId, exp, inExperiment) {
-      // Creates a stylesheet with a pair of classes that change the display: property,
-      // allowing hiding of baseline content and showing of experimental content.
-      addCssOverride(inExperiment, exp.id, "block");
-    }
-  },
-  {
-    id: "donations-bar",
-    exp_range_start: 0,  // disable
-    exp_range_end: 0,
-    hook: function (userId, exp, inExperiment) {
-      addCssOverride(inExperiment, exp.id, "flex");
-    }
-  }
-];
-
-var experimentMembership = {};
-var userId = getId();
-for (var i=0; i<experiments.length; i++) {
-  var exp = experiments[i];
-  var a = isInExperiment(userId, exp);
-  exp.inExperiment = a;
-  experimentMembership[exp.id] = a;
-}
-
-function runExperimentHooks() {
-  for (var i=0; i<experiments.length; i++) {
-    var exp = experiments[i];
-    if (exp.hook) {
-      exp.hook(userId, exp, exp.inExperiment);
-    }
-  }
-}
-
-function trackView() {
-  var id = getId();
-  sendData({
-    uid: id,
-    referrer: document.referrer,
-    location: window.location + '',
-    experiments: experimentMembership
-  }, "pageEvent");
-}
-
-function trackClick(elementId) {
-  var id = getId();
-  sendData({
-    uid: id,
-    elementId: elementId,
-    location: window.location + '',
-    experiments: experimentMembership
-  }, "clickEvent");
-}
-
-
-runExperimentHooks();
-trackView();
-
-window.sandstormTracker = {
-  trackView: trackView,
-  trackClick: trackClick,
-  experiments: experiments,
-  getId: getId
-};
-
-})();
-</script>
-
   </head>
 
 
@@ -173,19 +22,14 @@ window.sandstormTracker = {
       <a href="/">Sandstorm.io</a>
       <a href="/get">Get Sandstorm</a>
       <a href="/features">Features</a>
+      <a href="/how-it-works">Technology</a>
       <a href="/news/">Blog</a>
       <a href="https://docs.sandstorm.io">Docs</a>
+      <a href="https://github.com/sandstorm-io/sandstorm">Code</a>
       <a href="/community">Community</a>
+      <a href="/about">About</a>
       <!-- TODO: search -->
     </nav>
-    <div class="notice exp-donations-bar-test" id="notice1">
-      <span>Your donations help us make open source apps viable.</span>
-      <form class="donate-form" action="/">
-        <label class="donate-label" for="donate-top">$</label>
-        <input class="donate-input" id="donate-top"  name="AMOUNT" type="number" value="10" required>
-        <button type="submit">Donate</button>
-      </form>
-    </div>
 
     <header>
   <div class="sand">
@@ -255,13 +99,44 @@ window.sandstormTracker = {
 
 
 <section>
+  <h2><a href="/news/2015-01-12-boston">Cambridge, MA, Tue 1/20 - Web app self-hosting meet-up, 7:30pm</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2015-01-12-boston">12 Jan 2015</a>
+  
+  
+  
+  
+  <p>I’ll be in the Boston area next week, and I’ll be organizing a web app
+self-hosting meet-up on Tuesday, Jan 20, from 7:30pm to 9:30pm at
+<a href="http://www.yelp.com/biz/clover-cambridge-5">Clover Harvard Square</a>.
+If you’re in town, I hope you can escape the cold and come by! First beverage
+(beer/hibiscus lemonade/iced coffee/etc.) is on us. Please
+<a href="https://www.eventbrite.com/e/self-hosted-servers-sandstorm-chat-tickets-15273451304">RSVP for free here</a>!</p>
+
+<div><div style="text-align: center; width: 100%;"><img width="400" src="/news/images/clover-IMG_1599-400px.jpg" /><br /><div style="font-style: italic; font-size: 80%;">Photo by Clover Food Lab</div></div></div>
+
+<p>If you’ve read this far, you might appreciate the following personal note:</p>
+
+<p>I used to live in the Boston area, so it’ll be nice to see old friends and meet
+new people as well. If you haven’t heard of Sandstorm, but you care about
+personal servers or self-hosting, then I’d love to meet you.</p>
+
+<p>In 2009, I once knew that the authors of a web application I used a lot, and had
+complicated feelings about, were coming to town. I read an announcement just
+like this one, and I thought, “Whatever, those people are too fancy to want to
+talk to me.”</p>
+
+<p>I should have gone. And you should come to this one.
+<a href="https://www.eventbrite.com/e/self-hosted-servers-sandstorm-chat-tickets-15273451304">RSVP here</a>.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-01-07-asheesh-and-irc">Introducing Asheesh and our new IRC channel</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2015-01-07-asheesh-and-irc">07 Jan 2015</a>
-  
-  
-  
   
   <p>I’m Asheesh Laroia, and I’m excited to say I’m joining Sandstorm as a member of 
 the technical staff.</p>
@@ -462,43 +337,6 @@ update. Now you can upload your whole music library more easily!</p>
 
 </section>
 
-<section>
-  <h2><a href="/news/2014-08-31-last-day">Last day to contribute to Sandstorm</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2014-08-31-last-day">31 Aug 2014</a>
-  
-  <p>There’s just a few hours left in our campaign, which wraps up at midnight tonight (Pacific time). This is your last chance to grab <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=8&amp;perk_id=2166937">some stickers</a>, <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=32&amp;perk_id=2166959">a t-shirt</a>, <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=64&amp;perk_id=2166961">hosting</a>, or a <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=512&amp;perk_id=2167013">LAN party invite</a>. Starting tomorrow we’ll be heads-down coding, so you won’t be hearing from us quite so often. ;)</p>
-
-<p>We’d like to take a moment to thank our <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=2048&amp;perk_id=2219065">Key Individual</a> and <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=4096&amp;perk_id=2167019">Corporate Sponsors</a> who together contributed $16,384:</p>
-
-<ul>
-  <li><a href="http://www.rogerwagner.com">Roger Wagner</a></li>
-  <li><a href="http://en.wikipedia.org/wiki/Audrey_Tang">Audrey Tang</a></li>
-</ul>
-
-<div><div style="float: left"><a href="https://www.draw.io"><img alt="draw.io" src="https://sandstorm.io/thirdparty/draw.io-logo.svg" style="height: 200px" /></a></div>
-<img alt="HumanWeb Networks" src="https://sandstorm.io/thirdparty/humanweb.png" /><br />
-<a href="https://uniregistry.com"><img alt="Uniregistry" style="margin-left: 24px; margin-top: 28px" src="https://sandstorm.io/thirdparty/uniregistry.png" /></a></div>
-
-<div style="clear: both"> </div>
-
-<p>Thank you all for your support!</p>
-
-<p>– Kenton, Jade, Jason, David, and Garply</p>
-
-<p>PS. If you want to help us a little more by clicking some things:</p>
-
-<ul>
-  <li>Star <a href="https://github.com/sandstorm-io/sandstorm">Sandstorm on Github</a></li>
-  <li>Follow <a href="https://twitter.com/SandstormIO">@SandstormIO on Twitter</a></li>
-  <li>Follow <a href="https://google.com/+SandstormIO">Sandstorm.io on Google+</a></li>
-  <li>Like <a href="https://facebook.com/sandstorm.io">Sandstorm.io on Facebook</a></li>
-  <li>Subscribe to the <a href="/news/">Sandstorm blog</a> using your favorite RSS feed reader</li>
-</ul>
-
-</section>
-
 
 <nav class="pagination bottom">
   
@@ -516,22 +354,13 @@ update. Now you can upload your whole music library more easily!</p>
 </div>
 
 
-    <div class="notice exp-donations-bar-test" id="notice2">
-      <span>Your donations help us make open source apps viable.</span>
-      <form class="donate-form" action="/">
-        <label class="donate-label" for="donate-bottom">$</label>
-        <input class="donate-input" id="donate-bottom"  name="AMOUNT" type="number" value="10" required>
-        <button type="submit">Donate</button>
-      </form>
-    </div>
     <footer>
       <ul>
         <li>
           <h3><a href="/get">Get Sandstorm</a></h3>
           <ul>
             <li><a href="/get">Sandstorm on Oasis</a>
-            <li><a href="/get">Sandstorm Standard</a>
-            <li><a href="/get">Sandstorm for Work</a>
+            <li><a href="/get">Self-host Sandstorm</a>
             <li><a href="https://github.com/sandstorm-io/sandstorm">Source Code (GitHub)</a>
             <li><a href="/go/education">For Educators</a></li>
           </ul>
@@ -542,9 +371,9 @@ update. Now you can upload your whole music library more easily!</p>
             <li><a href="https://apps.sandstorm.io">App Market</a></li>
             <li><a href="/features">Core features</a>
             <li><a href="/features#security">Security features</a>
-            <li><a href="/business">Sandstorm for Work</a>
-            <li><a href="/business#scale">Sandstorm for Enterprise</a>
-            <li><a href="/developer">Development</a>
+            <li><a href="/business">For organizations</a>
+            <li><a href="/business#scale-features">Scale-out</a>
+            <li><a href="/developer">For developers</a>
           </ul>
         </li>
         <li>
@@ -557,7 +386,7 @@ update. Now you can upload your whole music library more easily!</p>
           </ul>
         </li>
         <li>
-          <h3><a href="/how-it-works">How it Works</a></h3>
+          <h3><a href="/how-it-works">Technology (How it Works)</a></h3>
           <ul>
             <li><a href="/how-it-works#grains">Fine-grained object containers</a>
             <li><a href="/how-it-works#capabilities">Capability-based Security</a>
@@ -627,58 +456,6 @@ update. Now you can upload your whole music library more easily!</p>
       if (document.location.hostname === "localhost") {
         document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
       }
-    </script>
-
-    <!-- Donation form integration -->
-    <script src="https://checkout.stripe.com/checkout.js"></script>
-    <script>
-    var amountCents = 0;
-    var handler = StripeCheckout.configure({
-      key: "pk_live_bkrz8iFkfEeXDsdIqzDNdSkH",
-      image: "https://sandstorm.io/images/sandstorm-purplecircle.png",
-      locale: "auto",
-      token: function(token) {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4) {
-            if (xhr.status !== 200) {
-              console && console.error(xhr.responseText);
-            } else {
-              console && console.log("donation successful");
-            }
-          }
-        };
-        xhr.open("POST", "https://donations-backend.sandstorm.io/", true);
-        var formData = new FormData();
-        formData.append("token_id", token.id);
-        formData.append("token_email", token.email);
-        formData.append("amount", amountCents);
-        xhr.send(formData);
-        window.sandstormTracker && window.sandstormTracker.trackClick("donation-complete");
-      }
-    });
-    var submitDonateForm = function(e) {
-      window.lastEvent = e;
-      e.preventDefault();
-      var dollars = parseFloat(e.target.querySelector("input").value);
-      amountCents = Math.floor(100*dollars);
-      handler.open({
-        name: "Sandstorm.io",
-        description: "Donation (not tax deductible)",
-        zipCode: true,
-        amount: amountCents,
-      });
-      window.sandstormTracker && window.sandstormTracker.trackClick("donate-button");
-    };
-    var forms = document.querySelectorAll("form.donate-form");
-    for (var i=0; i<forms.length; i++) {
-      var form = forms[i];
-      form.onsubmit = submitDonateForm;
-    }
-    // Close checkout on page navigation.
-    window.addEventListener("popstate", function() {
-      handler.close();
-    });
     </script>
   </body>
 </html>

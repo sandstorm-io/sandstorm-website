@@ -13,157 +13,6 @@
         content="Real-time collaborative web productivity suite behind the firewall.">
     <link rel="stylesheet" type="text/css" href="/style.css">
     <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
-    
-<script src="/ga-helper.js"></script>
-<script>
-(function(){
-
-function getIdFromCookie() {
-  var match = document.cookie.match(new RegExp("(^| )sandstormStatsId=([^;]+)"));
-  if (match) return match[2];
-}
-
-function setIdCookie(val) {
-  var d = new Date();
-  d.setMonth(d.getMonth() + 120);
-  document.cookie = "sandstormStatsId=" + val + ";expires=" + d + ";domain=.sandstorm.io;";
-}
-
-function uidGenerator() {
-  if (window.crypto && window.crypto.getRandomValues) {
-    var array = new Uint32Array(4);
-    window.crypto.getRandomValues(array);
-    return array[0] + "-" + array[1] + "-" + array[2] + "-" + array[3];
-  } else {
-    var genInt = function() {
-      return Math.floor(Math.random() * 0x100000000);
-    }
-    return genInt() + "-" + genInt() + "-" + genInt() + "-" + genInt();
-  }
-}
-
-function getId() {
-  var id = getIdFromCookie();
-  if (!id) {
-    id = uidGenerator();
-    setIdCookie(id);
-  }
-  return id;
-}
-
-function sendData(data, path) {
-  var xhr = new XMLHttpRequest();
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4) {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        // do nothing
-      } else {
-        console.error("analytics send failed:", xhr.statusText, xhr.responseText);
-      }
-    }
-  };
-
-  xhr.open("POST", "https://api-5d23e9c497f90642a85ba1fb909fa9d8.oasis.sandstorm.io/" + path, true);
-
-  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xhr.setRequestHeader("Authorization", "Bearer hVU87Vp2UzNnRmMepiXpjKUk6n6MZc7YMgAJ6YrVe-6");
-
-  xhr.send(JSON.stringify(data));
-}
-
-
-function isInExperiment(userId, exp) {
-  var idBlocks = userId.split("-");
-  var id = parseInt(idBlocks[0], 10);
-  return exp.exp_range_start <= id && id < exp.exp_range_end;
-}
-
-function addCssOverride(inExperiment, id, activeDisplayValue) {
-  var s = document.createElement('style');
-  s.type = 'text/css';
-  var r = "";
-  if (inExperiment) {
-    r = r + ".exp-" + id + "-baseline { display: none !important; }\n";
-    r = r + ".exp-" + id + "-test { display: " + activeDisplayValue + " !important; }\n";
-  }
-  s.innerHTML = r;
-  document.getElementsByTagName('head')[0].appendChild(s);
-}
-
-var experiments = [
-  {
-    id: "install-screencast-autoplay",
-    exp_range_start: 0,
-    exp_range_end: 0x7fffffff, // 50% of users
-    hook: function (userId, exp, inExperiment) {
-      // Creates a stylesheet with a pair of classes that change the display: property,
-      // allowing hiding of baseline content and showing of experimental content.
-      addCssOverride(inExperiment, exp.id, "block");
-    }
-  },
-  {
-    id: "donations-bar",
-    exp_range_start: 0,  // disable
-    exp_range_end: 0,
-    hook: function (userId, exp, inExperiment) {
-      addCssOverride(inExperiment, exp.id, "flex");
-    }
-  }
-];
-
-var experimentMembership = {};
-var userId = getId();
-for (var i=0; i<experiments.length; i++) {
-  var exp = experiments[i];
-  var a = isInExperiment(userId, exp);
-  exp.inExperiment = a;
-  experimentMembership[exp.id] = a;
-}
-
-function runExperimentHooks() {
-  for (var i=0; i<experiments.length; i++) {
-    var exp = experiments[i];
-    if (exp.hook) {
-      exp.hook(userId, exp, exp.inExperiment);
-    }
-  }
-}
-
-function trackView() {
-  var id = getId();
-  sendData({
-    uid: id,
-    referrer: document.referrer,
-    location: window.location + '',
-    experiments: experimentMembership
-  }, "pageEvent");
-}
-
-function trackClick(elementId) {
-  var id = getId();
-  sendData({
-    uid: id,
-    elementId: elementId,
-    location: window.location + '',
-    experiments: experimentMembership
-  }, "clickEvent");
-}
-
-
-runExperimentHooks();
-trackView();
-
-window.sandstormTracker = {
-  trackView: trackView,
-  trackClick: trackClick,
-  experiments: experiments,
-  getId: getId
-};
-
-})();
-</script>
-
   </head>
 
 
@@ -173,19 +22,14 @@ window.sandstormTracker = {
       <a href="/">Sandstorm.io</a>
       <a href="/get">Get Sandstorm</a>
       <a href="/features">Features</a>
+      <a href="/how-it-works">Technology</a>
       <a href="/news/">Blog</a>
       <a href="https://docs.sandstorm.io">Docs</a>
+      <a href="https://github.com/sandstorm-io/sandstorm">Code</a>
       <a href="/community">Community</a>
+      <a href="/about">About</a>
       <!-- TODO: search -->
     </nav>
-    <div class="notice exp-donations-bar-test" id="notice1">
-      <span>Your donations help us make open source apps viable.</span>
-      <form class="donate-form" action="/">
-        <label class="donate-label" for="donate-top">$</label>
-        <input class="donate-input" id="donate-top"  name="AMOUNT" type="number" value="10" required>
-        <button type="submit">Donate</button>
-      </form>
-    </div>
 
     <header>
   <div class="sand">
@@ -255,13 +99,55 @@ window.sandstormTracker = {
 
 
 <section>
+  <h2><a href="/news/2016-10-13-sharing-documents-rocketchat">Sharing documents with a Rocket.Chat room in Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Q. Wang</a>
+    
+    - <a href="/news/2016-10-13-sharing-documents-rocketchat">13 Oct 2016</a>
+  
+  
+  
+  
+  <p>I’m sharing a pro-tip today because I like making sure that everyone gets the most productivity they can out of Sandstorm.</p>
+
+<p>Let’s say I want to share a grain (e.g., a document, spreadsheet, git repository, or a <a href="https://sandstorm.io/news/2016-08-09-collections-app">Collection</a>) with a group of colleagues who are already in the same <a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> chatroom. To do so, I first click the + icon in Rocket.Chat.</p>
+
+<p><img src="/news/images/rc_button.png" alt="Click on the + button in Rocket Chat" /></p>
+
+<p>This opens a <a href="https://sandstorm.io/how-it-works#powerbox">Powerbox</a> request with a type-ahead search box. Before I’ve typed anything, I can see the grains that have most recently been opened by me.</p>
+
+<p><img src="/news/images/rc2.png" alt="Powerbox list of grains (ordered by most recently opened)" /></p>
+
+<p>For instance, if I’m looking for feedback for a blog post I drafted in <a href="https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60">Etherpad</a>, I can type “Etherpad” and it will list all Etherpads that I have access to on this server.</p>
+
+<p><img src="/news/images/rc3.png" alt="Search by grain type" /></p>
+
+<p>Here are all the Etherpads I have access to. But today, I’m actually searching for something else: a Collection titled “Sales / Revenue docs”. I can also search for grains by title, so I search for “revenue”:</p>
+
+<p><img src="/news/images/rc4.png" alt="Search by grain type or title" /></p>
+
+<p>Once I’ve selected the grain, I can choose whether I’d like to give everyone in this chatroom the permission to edit or only view this Collection before I connect the grain with this Rocket.Chat room.</p>
+
+<p><img src="/news/images/rc5.png" alt="grant permission" /></p>
+
+<p>When I share a grain in a chatroom, it automatically renders a snippet which includes the icon for the app that opens the grain. It looks like this:</p>
+
+<p><img src="/news/images/rc6_shared.png" alt="snippet" /></p>
+
+<p>Now, everyone who is in this chatroom has access to this Collection (as well as every grain inside it). No need to go share it with them separately.</p>
+
+<p>To try it out for yourself, go install <a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> now!</p>
+
+<p>Do you use Sandstorm to collaborate at work? <a href="https://sandstorm.io/business">Sandstorm for Work</a> (<a href="https://sandstorm.io/get-feature-key">60-day free trial</a>) comes with priority support, organization management features, and integration with enterprise infrastructure.</p>
+
+<p>By the way, if you found this useful and would like to see more bite-sized pro-tip style blog posts in the future, please reshare this and let me know (I’m <a href="https://twitter.com/qiqing">@qiqing</a> on Twitter)!</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2016-09-30-fiber-bomb-debugging-story">The Mysterious Fiber Bomb Problem: A Debugging Story</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2016-09-30-fiber-bomb-debugging-story">30 Sep 2016</a>
-  
-  
-  
   
   <p>A month or two ago, we started seeing a mysterious problem in production: every now and then, one of our Node.js web server processes supporting Sandstorm Oasis would suddenly jump to 100% CPU usage (of one core) and stay there until it was killed. The problem wasn’t an infinite loop, though: the process continued to respond to requests, just slowly. Since the process continued to respond to requests, it continued to pass health checks and was never restarted automatically. But for users assigned to that shard, the service was essentially unusable, as every action would take seconds to complete. The problem left nothing at all suspicious in the logs – other than a gap in which far fewer requests that normal were being handled. At first, the problem only struck about once a week, seemingly at random.</p>
 
@@ -529,83 +415,6 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
 
 </section>
 
-<section>
-  <h2><a href="/news/2016-08-09-collections-app">Share many as one, with the Collections app</a></h2>
-  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
-    
-    - <a href="/news/2016-08-09-collections-app">09 Aug 2016</a>
-  
-  <p>Starting work on a project in Sandstorm often means creating many grains, each pertaining to a
-different aspect of your work. In a typical project, you might have a spreadsheet, a chat room, a
-kanban board, and several source code repositories. Sandstorm makes it easy to share these grains
-with your collaborators, but until recently, you would need to share each grain to each collaborator
-separately — a task that could quickly become tedious. What if you want to share the entire
-project as a single unit?</p>
-
-<p>Now that we have released the
-<a href="https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h">Collections app</a>,
-we have a satisfying answer to that question; to share many grains at once, you add them to a collection.</p>
-
-<p><img src="/news/images/collections-1.png" title="a collection with a chatroom, a kanban board, a spreadsheet, and two git repos" /></p>
-
-<p>A collection is a list of grains. Any collaborator with whom you share a collection gets access to
-all of the grains in it. On the flip side, when you remove a grain from the collection, your
-collaborators lose access to that grain. Moreover, when you revoke a collaborator from the
-collection, that (now former-) collaborator loses access to all of the collection’s grains.</p>
-
-<p>And since a collection is itself a grain, sharing one works just like sharing anything else on
-Sandstorm, through the “Share access” button.</p>
-
-<p><img src="/news/images/collections-2.png" title="the &quot;Share access&quot; dialog" /></p>
-
-<h3 id="powerbox-makes-it-possible">Powerbox makes it possible</h3>
-
-<p>The fact that we have implemented collections <em>as an app</em> may come as a surprise, since the notion
-of a collection might seem fundamental enough to deserve being baked-in as a core feature of
-Sandstorm. However, Sandstorm bakes in an even more fundamental notion: the idea that grains can
-refer to and coordinate with one another. The embodiment of this idea is the <a href="/how-it-works#powerbox">powerbox</a>,
-an interface — mediated and auditable by the user — through which grains can exchange capabilities.</p>
-
-<p>When you click the “Add grain” button in a collection, the collection in fact initiates a powerbox
-request. Sandstorm then asks you, the user, to choose a grain with which to fulfill the request.</p>
-
-<p><img src="/news/images/collections-3.png" title="Making a powerbox request" /></p>
-
-<p>Once you select a grain, the collection receives a reference to that grain. It can then use that
-reference to retrieve metadata such as the grain’s icon and the the name of the app that created the
-grain. Crucially, it can also offer the reference to your collaborators, so that your single “Add
-grain” action can result in all of your collaborators receiving access to the grain.
-The behind-the-scenes details of how this all works can be found in our
-<a href="https://docs.sandstorm.io/en/latest/developing/powerbox/">technical documentation</a>.</p>
-
-<p>Other apps can use the powerbox in the same way. You could write an alternative implementation of
-collections, either by starting from scratch or by forking
-<a href="https://github.com/sandstorm-io/collections-app">ours</a>. Apps whose primary purpose has nothing
-to do with collections can also benefit from the ability to request and offer grain references. For
-example, a chat room could be enhanced by the ability to embed Sandstorm-aware links to other
-grains. Indeed, the latest release of
-<a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> does just that.</p>
-
-<h3 id="built-with-rust">Built with Rust</h3>
-
-<p>Although a fast startup time and a small memory footprint are important performance goals for any
-Sandstorm app, they are especially important for the Collections app, as it provides such a central
-piece of functionality. Collections need to be lightweight so that their integration with the rest
-of Sandstorm can feel seamless. Our primary strategy for achieving such performance has been to
-develop the Collections app using the <a href="https://www.rust-lang.org/">Rust programming language</a>,
-interfacing directly with Sandstorm’s <a href="https://sandstorm.io/news/2014-12-15-capnproto-0.5"> Cap’n Proto interfaces </a>.
-Rust has worked well so far, and along the way we
-have produced some <a href="https://crates.io/crates/sandstorm">libraries</a> and <a href="https://github.com/dwrensha/sandstorm-rawapi-example-rust">examples</a> to help others also get started using it
-for Sandstorm app development.</p>
-
-<p>Whether or not you are a developer, now is an exciting time to
-<a href="https://sandstorm.io/community">get involved</a>
-with Sandstorm. The powerbox is still in its early stages, and the
-Collections app is a hint at the kinds of things it will enable.
-So <a href="https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h">try it out and let us know what you think</a>!</p>
-
-</section>
-
 
 <nav class="pagination bottom">
   
@@ -623,22 +432,13 @@ So <a href="https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5p
 </div>
 
 
-    <div class="notice exp-donations-bar-test" id="notice2">
-      <span>Your donations help us make open source apps viable.</span>
-      <form class="donate-form" action="/">
-        <label class="donate-label" for="donate-bottom">$</label>
-        <input class="donate-input" id="donate-bottom"  name="AMOUNT" type="number" value="10" required>
-        <button type="submit">Donate</button>
-      </form>
-    </div>
     <footer>
       <ul>
         <li>
           <h3><a href="/get">Get Sandstorm</a></h3>
           <ul>
             <li><a href="/get">Sandstorm on Oasis</a>
-            <li><a href="/get">Sandstorm Standard</a>
-            <li><a href="/get">Sandstorm for Work</a>
+            <li><a href="/get">Self-host Sandstorm</a>
             <li><a href="https://github.com/sandstorm-io/sandstorm">Source Code (GitHub)</a>
             <li><a href="/go/education">For Educators</a></li>
           </ul>
@@ -649,9 +449,9 @@ So <a href="https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5p
             <li><a href="https://apps.sandstorm.io">App Market</a></li>
             <li><a href="/features">Core features</a>
             <li><a href="/features#security">Security features</a>
-            <li><a href="/business">Sandstorm for Work</a>
-            <li><a href="/business#scale">Sandstorm for Enterprise</a>
-            <li><a href="/developer">Development</a>
+            <li><a href="/business">For organizations</a>
+            <li><a href="/business#scale-features">Scale-out</a>
+            <li><a href="/developer">For developers</a>
           </ul>
         </li>
         <li>
@@ -664,7 +464,7 @@ So <a href="https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5p
           </ul>
         </li>
         <li>
-          <h3><a href="/how-it-works">How it Works</a></h3>
+          <h3><a href="/how-it-works">Technology (How it Works)</a></h3>
           <ul>
             <li><a href="/how-it-works#grains">Fine-grained object containers</a>
             <li><a href="/how-it-works#capabilities">Capability-based Security</a>
@@ -734,58 +534,6 @@ So <a href="https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5p
       if (document.location.hostname === "localhost") {
         document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
       }
-    </script>
-
-    <!-- Donation form integration -->
-    <script src="https://checkout.stripe.com/checkout.js"></script>
-    <script>
-    var amountCents = 0;
-    var handler = StripeCheckout.configure({
-      key: "pk_live_bkrz8iFkfEeXDsdIqzDNdSkH",
-      image: "https://sandstorm.io/images/sandstorm-purplecircle.png",
-      locale: "auto",
-      token: function(token) {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4) {
-            if (xhr.status !== 200) {
-              console && console.error(xhr.responseText);
-            } else {
-              console && console.log("donation successful");
-            }
-          }
-        };
-        xhr.open("POST", "https://donations-backend.sandstorm.io/", true);
-        var formData = new FormData();
-        formData.append("token_id", token.id);
-        formData.append("token_email", token.email);
-        formData.append("amount", amountCents);
-        xhr.send(formData);
-        window.sandstormTracker && window.sandstormTracker.trackClick("donation-complete");
-      }
-    });
-    var submitDonateForm = function(e) {
-      window.lastEvent = e;
-      e.preventDefault();
-      var dollars = parseFloat(e.target.querySelector("input").value);
-      amountCents = Math.floor(100*dollars);
-      handler.open({
-        name: "Sandstorm.io",
-        description: "Donation (not tax deductible)",
-        zipCode: true,
-        amount: amountCents,
-      });
-      window.sandstormTracker && window.sandstormTracker.trackClick("donate-button");
-    };
-    var forms = document.querySelectorAll("form.donate-form");
-    for (var i=0; i<forms.length; i++) {
-      var form = forms[i];
-      form.onsubmit = submitDonateForm;
-    }
-    // Close checkout on page navigation.
-    window.addEventListener("popstate", function() {
-      handler.close();
-    });
     </script>
   </body>
 </html>

@@ -13,157 +13,6 @@
         content="Real-time collaborative web productivity suite behind the firewall.">
     <link rel="stylesheet" type="text/css" href="/style.css">
     <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
-    
-<script src="/ga-helper.js"></script>
-<script>
-(function(){
-
-function getIdFromCookie() {
-  var match = document.cookie.match(new RegExp("(^| )sandstormStatsId=([^;]+)"));
-  if (match) return match[2];
-}
-
-function setIdCookie(val) {
-  var d = new Date();
-  d.setMonth(d.getMonth() + 120);
-  document.cookie = "sandstormStatsId=" + val + ";expires=" + d + ";domain=.sandstorm.io;";
-}
-
-function uidGenerator() {
-  if (window.crypto && window.crypto.getRandomValues) {
-    var array = new Uint32Array(4);
-    window.crypto.getRandomValues(array);
-    return array[0] + "-" + array[1] + "-" + array[2] + "-" + array[3];
-  } else {
-    var genInt = function() {
-      return Math.floor(Math.random() * 0x100000000);
-    }
-    return genInt() + "-" + genInt() + "-" + genInt() + "-" + genInt();
-  }
-}
-
-function getId() {
-  var id = getIdFromCookie();
-  if (!id) {
-    id = uidGenerator();
-    setIdCookie(id);
-  }
-  return id;
-}
-
-function sendData(data, path) {
-  var xhr = new XMLHttpRequest();
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4) {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        // do nothing
-      } else {
-        console.error("analytics send failed:", xhr.statusText, xhr.responseText);
-      }
-    }
-  };
-
-  xhr.open("POST", "https://api-5d23e9c497f90642a85ba1fb909fa9d8.oasis.sandstorm.io/" + path, true);
-
-  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xhr.setRequestHeader("Authorization", "Bearer hVU87Vp2UzNnRmMepiXpjKUk6n6MZc7YMgAJ6YrVe-6");
-
-  xhr.send(JSON.stringify(data));
-}
-
-
-function isInExperiment(userId, exp) {
-  var idBlocks = userId.split("-");
-  var id = parseInt(idBlocks[0], 10);
-  return exp.exp_range_start <= id && id < exp.exp_range_end;
-}
-
-function addCssOverride(inExperiment, id, activeDisplayValue) {
-  var s = document.createElement('style');
-  s.type = 'text/css';
-  var r = "";
-  if (inExperiment) {
-    r = r + ".exp-" + id + "-baseline { display: none !important; }\n";
-    r = r + ".exp-" + id + "-test { display: " + activeDisplayValue + " !important; }\n";
-  }
-  s.innerHTML = r;
-  document.getElementsByTagName('head')[0].appendChild(s);
-}
-
-var experiments = [
-  {
-    id: "install-screencast-autoplay",
-    exp_range_start: 0,
-    exp_range_end: 0x7fffffff, // 50% of users
-    hook: function (userId, exp, inExperiment) {
-      // Creates a stylesheet with a pair of classes that change the display: property,
-      // allowing hiding of baseline content and showing of experimental content.
-      addCssOverride(inExperiment, exp.id, "block");
-    }
-  },
-  {
-    id: "donations-bar",
-    exp_range_start: 0,  // disable
-    exp_range_end: 0,
-    hook: function (userId, exp, inExperiment) {
-      addCssOverride(inExperiment, exp.id, "flex");
-    }
-  }
-];
-
-var experimentMembership = {};
-var userId = getId();
-for (var i=0; i<experiments.length; i++) {
-  var exp = experiments[i];
-  var a = isInExperiment(userId, exp);
-  exp.inExperiment = a;
-  experimentMembership[exp.id] = a;
-}
-
-function runExperimentHooks() {
-  for (var i=0; i<experiments.length; i++) {
-    var exp = experiments[i];
-    if (exp.hook) {
-      exp.hook(userId, exp, exp.inExperiment);
-    }
-  }
-}
-
-function trackView() {
-  var id = getId();
-  sendData({
-    uid: id,
-    referrer: document.referrer,
-    location: window.location + '',
-    experiments: experimentMembership
-  }, "pageEvent");
-}
-
-function trackClick(elementId) {
-  var id = getId();
-  sendData({
-    uid: id,
-    elementId: elementId,
-    location: window.location + '',
-    experiments: experimentMembership
-  }, "clickEvent");
-}
-
-
-runExperimentHooks();
-trackView();
-
-window.sandstormTracker = {
-  trackView: trackView,
-  trackClick: trackClick,
-  experiments: experiments,
-  getId: getId
-};
-
-})();
-</script>
-
   </head>
 
 
@@ -173,19 +22,14 @@ window.sandstormTracker = {
       <a href="/">Sandstorm.io</a>
       <a href="/get">Get Sandstorm</a>
       <a href="/features">Features</a>
+      <a href="/how-it-works">Technology</a>
       <a href="/news/">Blog</a>
       <a href="https://docs.sandstorm.io">Docs</a>
+      <a href="https://github.com/sandstorm-io/sandstorm">Code</a>
       <a href="/community">Community</a>
+      <a href="/about">About</a>
       <!-- TODO: search -->
     </nav>
-    <div class="notice exp-donations-bar-test" id="notice1">
-      <span>Your donations help us make open source apps viable.</span>
-      <form class="donate-form" action="/">
-        <label class="donate-label" for="donate-top">$</label>
-        <input class="donate-input" id="donate-top"  name="AMOUNT" type="number" value="10" required>
-        <button type="submit">Donate</button>
-      </form>
-    </div>
 
     <header>
   <div class="sand">
@@ -255,13 +99,64 @@ window.sandstormTracker = {
 
 
 <section>
+  <h2><a href="/news/2015-10-22-upcoming-meetups">Upcoming Sandstorm meetups in Palo Alto & San Francisco</a></h2>
+  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
+    
+    - <a href="/news/2015-10-22-upcoming-meetups">22 Oct 2015</a>
+  
+  
+  
+  
+  <p>Live in the Bay Area or passing through? Come out and meet other awesome folks working on cool projects on Sandstorm.</p>
+
+<p>We’ve got two meetups coming up on Weds., 10/28 in Palo Alto and Tuesday, 11/3 in San Francisco.</p>
+
+<h3 id="sandstorm-bbq-in-the-park-palo-alto">Sandstorm BBQ in the Park (Palo Alto)</h3>
+
+<p><a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/225890352/">RSVP link</a>
+Time: 5:30 PM - 9PM-ish
+Date: Wednesday, October 28, 2015 (next Wednesday!)
+Where: <a href="https://www.google.com/maps?f=q&amp;hl=en&amp;q=390+Fernando+Ave,+Palo+Alto,+CA,+us">John Boulware Park (street parking available)
+390 Fernando Ave, Palo Alto, CA</a></p>
+
+<ul>
+  <li>
+    <p>5:30PM: BBQ in the park</p>
+  </li>
+  <li>
+    <p>Dusk: When it gets too dark to eat, we can all head back to Sandstorm HQ (nearby) to hang out and have more unstructured discussions. Personally, I (Jade) want to see <a href="https://en.wikipedia.org/wiki/Citizenfour">Citizen Four</a> because I haven’t seen it yet. Come watch with me.</p>
+  </li>
+</ul>
+
+<h3 id="hands-on-sandstorm-qa-esp-app-packaging-and-lightning-talks-san-francisco">Hands-on Sandstorm Q&amp;A (esp. app packaging), and lightning talks (San Francisco)</h3>
+
+<p><a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/226062960/">RSVP link</a>
+Time: 6:00PM - 9:30PM
+Date: Tuesday, November 3, 2015
+Where: <a href="https://www.google.com/maps?f=q&amp;hl=en&amp;q=814+Mission+St,+5th+Floor,+San+Francisco,+CA,+us">ThoughtWorks HQ (near Powell St. BART)
+814 Mission St, 5th Floor, San Francisco, CA</a></p>
+
+<ul>
+  <li>
+    <p>6 PM: If you want to talk tech details about Sandstorm, show up at six! Core developers, app packagers, self-hosters, and others will be helping each other with app packaging questions, installation issues, and more. We’ll have food!</p>
+  </li>
+  <li>
+    <p>8 PM: Lightning talks. Leave a comment to sign up for one!</p>
+  </li>
+  <li>
+    <p>8:30 PM - 9:30 PM: Socializing and informal Q&amp;A.</p>
+  </li>
+</ul>
+
+<p>Hope you can make it!</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-10-20-hanselminutes">Hanselminutes features Sandstorm.io</a></h2>
   <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
     
     - <a href="/news/2015-10-20-hanselminutes">20 Oct 2015</a>
-  
-  
-  
   
   <p><a href="http://www.hanselminutes.com/497/your-personal-cloud-platform-with-sandstormio-and-kenton-varda"><img src="/news/images/hanselminutes.jpg" /></a></p>
 
@@ -467,57 +362,6 @@ window.sandstormTracker = {
 
 </section>
 
-<section>
-  <h2><a href="/news/2015-08-11-meetup-recap">Recap of our August meetup</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2015-08-11-meetup-recap">11 Aug 2015</a>
-  
-  <p>Last Thursday, <a href="http://rethinkdb.com/">RethinkDB</a> co-hosted the first
-<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223144969/">Sandstorm meetup in the South Bay</a>
-Here’s the view of the crowd at their Mountain View office.</p>
-
-<p><img src="/news/images/2015-08-meetup-rethinkdb.jpg" height="356" width="600" alt="Meetup at RethinkDB HQ" /></p>
-
-<p>I gave a talk introducing Sandstorm, inspired by Kenton’s blog post explaining
-the <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">motivation for Sandstorm: making it possible for open source and indie
-developers to build successful web apps</a>.</p>
-
-<p><a href="https://twitter.com/thejsj">Jorge Silva</a> followed that with a talk focusing on
-RethinkDB. He explained how
-the open source RethinkDB database makes real-time apps easy to build, and showed
-how to package RethinkDB apps for Sandstorm. He used the new Sandstorm packaging
-tool called <a href="https://docs.sandstorm.io/en/latest/developing/">vagrant-spk</a>.</p>
-
-<p>We then heard four lightning talks.</p>
-
-<ul>
-  <li><a href="https://github.com/pelzlpj">Paul Pelzl</a> explained how and why he wrote an
-implementation of <a href="https://pelzlpj.github.io/capnp-ocaml/">Cap’n Proto in OCaml</a>.</li>
-  <li><a href="https://github.com/wtogami">Warren Togami</a> talked about the importance of
-security in enterprise chat.</li>
-  <li><a href="https://github.com/amluto">Andy Lutomirski</a> discussed recent Linux security
-vulnerabilities, the history of Linux’s surprisingly large attack surface, and
-his excitement that Sandstorm will bring <a href="http://erights.org/elib/capability/ode/ode-capabilities.html">object-capability security</a>
-to the world.</li>
-  <li><a href="https://github.com/zombiezen">Ross Light</a> showed us the simple file
-uploading and sharing app he is building using <a href="https://golang.org/">Go</a>. The app
-looks sharp and he expects it’s almost ready for release. He remarked that it
-has a 3MB package file, and that could shrink further as he works on implementing
-replacing <a href="https://github.com/sandstorm-io/sandstorm/blob/master/src/sandstorm/sandstorm-http-bridge.c%2B%2B">sandstorm-http-bridge</a>
-with new code using his support for <a href="https://github.com/zombiezen/go-capnproto">Cap’n Proto RPC in Go</a>.</li>
-</ul>
-
-<p>My personal thanks go out to
-<a href="https://twitter.com/christinakeelan">Christina Keelan</a> for handling the
-logistics and planning that made the event a success.</p>
-
-<p>I plan to organize September’s event in San Francisco and return to the South
-Bay in October. If you want to hear about those events,
-<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/">join the Sandstorm Meetup group</a>!</p>
-
-</section>
-
 
 <nav class="pagination bottom">
   
@@ -535,22 +379,13 @@ Bay in October. If you want to hear about those events,
 </div>
 
 
-    <div class="notice exp-donations-bar-test" id="notice2">
-      <span>Your donations help us make open source apps viable.</span>
-      <form class="donate-form" action="/">
-        <label class="donate-label" for="donate-bottom">$</label>
-        <input class="donate-input" id="donate-bottom"  name="AMOUNT" type="number" value="10" required>
-        <button type="submit">Donate</button>
-      </form>
-    </div>
     <footer>
       <ul>
         <li>
           <h3><a href="/get">Get Sandstorm</a></h3>
           <ul>
             <li><a href="/get">Sandstorm on Oasis</a>
-            <li><a href="/get">Sandstorm Standard</a>
-            <li><a href="/get">Sandstorm for Work</a>
+            <li><a href="/get">Self-host Sandstorm</a>
             <li><a href="https://github.com/sandstorm-io/sandstorm">Source Code (GitHub)</a>
             <li><a href="/go/education">For Educators</a></li>
           </ul>
@@ -561,9 +396,9 @@ Bay in October. If you want to hear about those events,
             <li><a href="https://apps.sandstorm.io">App Market</a></li>
             <li><a href="/features">Core features</a>
             <li><a href="/features#security">Security features</a>
-            <li><a href="/business">Sandstorm for Work</a>
-            <li><a href="/business#scale">Sandstorm for Enterprise</a>
-            <li><a href="/developer">Development</a>
+            <li><a href="/business">For organizations</a>
+            <li><a href="/business#scale-features">Scale-out</a>
+            <li><a href="/developer">For developers</a>
           </ul>
         </li>
         <li>
@@ -576,7 +411,7 @@ Bay in October. If you want to hear about those events,
           </ul>
         </li>
         <li>
-          <h3><a href="/how-it-works">How it Works</a></h3>
+          <h3><a href="/how-it-works">Technology (How it Works)</a></h3>
           <ul>
             <li><a href="/how-it-works#grains">Fine-grained object containers</a>
             <li><a href="/how-it-works#capabilities">Capability-based Security</a>
@@ -646,58 +481,6 @@ Bay in October. If you want to hear about those events,
       if (document.location.hostname === "localhost") {
         document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
       }
-    </script>
-
-    <!-- Donation form integration -->
-    <script src="https://checkout.stripe.com/checkout.js"></script>
-    <script>
-    var amountCents = 0;
-    var handler = StripeCheckout.configure({
-      key: "pk_live_bkrz8iFkfEeXDsdIqzDNdSkH",
-      image: "https://sandstorm.io/images/sandstorm-purplecircle.png",
-      locale: "auto",
-      token: function(token) {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4) {
-            if (xhr.status !== 200) {
-              console && console.error(xhr.responseText);
-            } else {
-              console && console.log("donation successful");
-            }
-          }
-        };
-        xhr.open("POST", "https://donations-backend.sandstorm.io/", true);
-        var formData = new FormData();
-        formData.append("token_id", token.id);
-        formData.append("token_email", token.email);
-        formData.append("amount", amountCents);
-        xhr.send(formData);
-        window.sandstormTracker && window.sandstormTracker.trackClick("donation-complete");
-      }
-    });
-    var submitDonateForm = function(e) {
-      window.lastEvent = e;
-      e.preventDefault();
-      var dollars = parseFloat(e.target.querySelector("input").value);
-      amountCents = Math.floor(100*dollars);
-      handler.open({
-        name: "Sandstorm.io",
-        description: "Donation (not tax deductible)",
-        zipCode: true,
-        amount: amountCents,
-      });
-      window.sandstormTracker && window.sandstormTracker.trackClick("donate-button");
-    };
-    var forms = document.querySelectorAll("form.donate-form");
-    for (var i=0; i<forms.length; i++) {
-      var form = forms[i];
-      form.onsubmit = submitDonateForm;
-    }
-    // Close checkout on page navigation.
-    window.addEventListener("popstate", function() {
-      handler.close();
-    });
     </script>
   </body>
 </html>

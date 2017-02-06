@@ -2,13 +2,13 @@
 
 <html lang="en">
   <head>
-    <title>Is curl|bash insecure? - Sandstorm Blog</title>
+    <title>Sandstorm is returning to its community roots - Sandstorm Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Is curl|bash insecure?">
+    <meta property="og:title" content="Sandstorm is returning to its community roots">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://sandstorm.io/images/sandcat.png">
-    <meta property="og:url" content="https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install">
+    <meta property="og:url" content="https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots">
     <meta property="og:description"
         content="Real-time collaborative web productivity suite behind the firewall.">
     <link rel="stylesheet" type="text/css" href="/style.css">
@@ -86,74 +86,74 @@
 </nav>
 
 <section>
-  <h2>Is curl|bash insecure?</h2>
+  <h2>Sandstorm is returning to its community roots</h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
-    - 24 Sep 2015
-  <p>Since the early days of Sandstorm, we have offered the following mechanism for installing it:</p>
+    - 06 Feb 2017
+  <p>Most people know Sandstorm as an open source, community-driven project aiming to enable self-hosting of cloud services and to make it possible for open source web apps to compete with today’s cloud services.</p>
 
-<pre><code>curl https://install.sandstorm.io | bash
-</code></pre>
+<p>Many people also know that Sandstorm is a for-profit startup, with a business model centered on charging for enterprise-oriented features, such as LDAP and SAML single-sign-on integration, organizational access control policies, and the like. This product was called “Sandstorm for Work”; it was still open source, but official builds hid the features behind a paywall. Additionally, we planned eventually to release a scalable version of Sandstorm for big enterprise users, based on the same tech that powers Sandstorm Oasis, our managed hosting service.</p>
 
-<p>As it turns out, a lot of people object to <code>curl|bash</code>. In fact, some people object <em>very strongly</em> to it, going so far as to scoff publicly at how obviously terrible it is and smugly proclaim that they dismissed our entire project when they saw this line. Usually, the loudest objectors claim that <code>curl|bash</code> is bad for security.</p>
+<p>As an open source project, Sandstorm has been successful: We have a thriving community of contributors, many developers building and packaging apps, and thousands of self-hosted servers running in the wild. This will continue.</p>
 
-<p><a href="https://docs.sandstorm.io/en/latest/developing/security-practices/">Sandstorm is a security product</a>, so we want to address that head-on.</p>
+<p>However, our business has not succeeded. To date, almost no one has purchased Sandstorm for Work, despite hundreds of trials and lots of interest expressed. Only a tiny fraction of Sandstorm Oasis users choose to pay for the service – enough to cover costs, but not much more.</p>
 
-<h3 id="the-bogus-argument-code-execution">The Bogus Argument: Code Execution</h3>
-
-<p>I’ll admit: <code>curl|bash</code> certainly <em>smells</em> funny. To anyone with a basic understanding of Unix, the construction makes it really obvious: This command will give the named web site direct access to your system, with the ability to do anything that <em>you</em> could do. This feels very wrong: We should be able to install software without giving the developers full access to our systems, right?</p>
-
-<p>We at Sandstorm would obviously be the first to agree that software you install should not be automatically fully trusted – that’s why <a href="https://docs.sandstorm.io/en/latest/developing/security-practices/#fine-grained-isolation">Sandstorm itself runs every app in a secure, isolated sandbox by default</a>. Unfortunately, however, traditional Unix software is always granted the full authority of the user who runs it. When you install software on Linux, no matter what package manager you use, you are giving that software permission to act as you. Most package managers will even execute scripts from the package at install time – as root. So in reality, although <code>curl|bash</code> <em>looks</em> scary, it’s really just laying bare the reality that applies to every popular package manager out there: anything you install can pwn you.</p>
-
-<p>If you wish to install Sandstorm – or any software – without giving it full access to your system, you must install it on a dedicated machine, VM, or (perhaps, with caveats) user account. In fact, we highly encourage you to do so, for defense in depth. But, we know it’s more work than a lot of people want to deal with.</p>
-
-<h3 id="the-better-argument-code-signing">The Better Argument: Code Signing</h3>
-
-<p>Some of the objectors, though, go a bit further: They claim that <code>curl|bash</code> is more open to attack that other distribution mechanisms, potentially allowing a third party to replace our Sandstorm downloads with evil ones.</p>
-
-<p>Of course, all content served by sandstorm.io – from software downloads to our blog – is served strictly over HTTPS (with HSTS).</p>
-
-<p>Various people argue, though, that this is not good enough, and that we should be signing each release with keys kept offline.</p>
-
-<p>In fact, I agree: where possible, we like to use two or more independent mechanisms of protecting against a security problem, so that when one breaks it’s not a big deal. So, as of today, it is possible to verify the Sandstorm installer from the PGP keys of various Sandstorm developers by following our “PGP-verified install” instructions.</p>
-
-<p><a class="linkbutton" href="https://docs.sandstorm.io/en/latest/install/#option-3-pgp-verified-install">Try PGP-verified Install »</a></p>
-
-<p>That said, we do not think this issue quite warrants the visceral anger we’ve seen people express over <code>curl|bash</code>. Realistically, downloading and installing software while relying on HTTPS for integrity is a widely-used practice. The web sites for Firefox, Rust, Google Chrome, and many others offer an HTTPS download as the primary installation mechanism. It’s even the standard way to install most Linux distros in the first place (by downloading an iso from the web site). Many popular package managers, such as npm, rely only on HTTPS for integrity. <code>curl|bash</code> over HTTPS is just as “secure” as any of these.</p>
-
-<h3 id="verifying-keys-with-keybase">Verifying Keys with Keybase</h3>
-
-<p>To get benefit from PGP code signing beyond what you get from HTTPS distribution, you must verify that the software is signed by the specific developer you are expecting – and to do that, you need a way to bootstrap trust in their PGP key. This means you can’t simply fetch the key from the developer’s own server. You can use PGP “Web of Trust”, but sadly few people really understand how to do that.</p>
-
-<p>Recently, though, a fairly plausible option has emerged: <a href="https://keybase.io">Keybase.io</a>. Keybase has implemented usable tools and techniques to bootstrap trust from a variety of sources, including social networks like Github and Twitter, all <em>without</em> trusting Keybase. It’s unlikely that an attacker could compromise all of these sources at once. Once you’ve used Keybase to verify our PGP key, then you can verify the signed packages downloaded from our servers, and actually have a higher degree of confidence that the software is authentic than you would get from HTTPS alone.</p>
-
-<h3 id="non-security-concerns">Non-security Concerns</h3>
-
-<p><code>curl|bash</code> is not pretty, and people have raised some legitimate non-security-related concerns about it:</p>
+<p>We attribute this failure to two main problems:</p>
 
 <ul>
-  <li>If the connection dies mid-line, bash will execute the incomplete line – however, this can be mitigated by wrapping the whole script in a bash function executed on the last line, as we do. (This is actually arguably a security concern if an attacker can induce a disconnect at a chosen point, but in any case it doesn’t apply to our script.)</li>
-  <li>Although almost all package managers allow packages to run arbitrary install-time scripts (often as root), it is far more likely that a wholly hand-rolled install script will be sloppy and harm the system. In the case of Sandstorm, we have taken care to avoid interfering with your system in any way – in fact, Sandstorm self-containerizes in its own chroot under /opt/sandstorm, meaning that for the most part it does not touch the rest of your system at all. <a href="https://install.sandstorm.io">See comments at the top of the script for more details.</a></li>
-  <li>Installing software not managed by the distro’s package manager can be inconvenient for system administrators, especially those who are deeply familiar with the inner workings of their distro.</li>
+  <li>
+    <p>As a product, Sandstorm is still alpha-quality. As you may know, Sandstorm is pioneering a paradigm shift in the way servers operate, which we call fine-grained containerization. <a href="https://sandstorm.io/how-it-works">The benefits of this technology are huge</a>, but a lot of engineering work is needed to make it work smoothly. Although we’ve built a working product that many people – including ourselves – use for real work every day, many limitations still exist that make Sandstorm feel rough and incomplete compared to alternatives. We know how to fix these problems, but we need more time to do so.</p>
+  </li>
+  <li>
+    <p>We underestimated, in classic fashion, the challenge of enterprise sales. As a company of engineers and geeks, we knew that enterprise sales would be outside of our comfort zone, but we didn’t realize just how much work it would be to learn, and how much time we needed to be successful at it. By the end, we were only scratching the surface of how to generate leads and get in the door at big companies; we never managed to do a “real” sales call. In retrospect, we should have hired a business development expert much earlier on. We also should have raised more money and planned for a longer runway.</p>
+  </li>
 </ul>
 
-<p>On these concerns: We hear you.</p>
+<p>We plan to publish a more complete postmortem in a subsequent blog post.</p>
 
-<p>For now, we believe that having our own install scripts allows us to iterate faster, compared to maintaining (and testing) half a dozen package formats for different distros. However, once Sandstorm reaches a stable release, we fully intend to offer more traditional packaging choices as well. We still have lots of work to do!</p>
+<p>Unfortunately, Sandstorm the business has now run out of money, and we have been unable to raise more.</p>
 
-<h3 id="faq">FAQ</h3>
+<p><strong>The Project Lives On</strong></p>
 
-<p><strong>Does Sandstorm’s auto-updater verify signatures on updates?</strong></p>
+<p>Although it will no longer be our full-time job, Sandstorm will continue as an open source project. We still strongly believe in Sandstorm’s long-term vision and cannot abandon it. I personally will continue to lead Sandstorm’s technical development: reviewing and merging pull requests, pushing releases, and developing new features. We will continue to operate Sandstorm Oasis – your data there is safe. Meanwhile, we will make it easier for our extended community to be involved in core development and decision-making. Jade will be in contact with individual community members to appoint community leaders and grant them the authority to handle a variety of community organizing functions, from App Market approval to organizing meetups.</p>
 
-<p>As of this release, yes. (This is in addition to using HTTPS, as it always has.)</p>
+<p>Ironically, the pace of development may not even be hurt much. Over the past year, the Sandstorm team has spent a great deal of our time on enabling our business, e.g. building a payment mechanism, processing customers, marketing, and the like. I personally have spent far too much time on fundraising, sales, and other deal-making rather than on coding. With this shift in direction, we can now focus strictly on building out the core platform, getting more done with less time.</p>
 
-<p><strong>What happens if the release-signing private key is compromised?</strong></p>
+<p><strong>Immediate Action Items</strong></p>
 
-<p>We can rotate the key at any time. Certificates on the old key expire in about a month. The auto-updater will begin using the new key as soon as it has installed an update that is aware of the new key. We sign updates with all old keys as well so that old Sandstorm installs continue to be able to update even after key rotation.</p>
+<p>As a result of this change, the following has happened today:</p>
 
-<p><strong>Are the installer and updater resistant to downgrade attacks?</strong></p>
+<ul>
+  <li>
+    <p>We have pushed a release which removes the Sandstorm for Work paywall. Sandstorm for Work features (like LDAP/SAML integration) are now available to all self-hosted Sandstorm servers at no cost. The product name “Sandstorm for Work” has been retired; there is now only Sandstorm. (Your server should already have received the update. If not, SSH in and type <code>sudo sandstorm update</code>. Don’t have a server yet? <a href="https://sandstorm.io/install">Install Sandstorm now.</a>)</p>
+  </li>
+  <li>
+    <p>We have <a href="https://github.com/sandstorm-io/blackrock">open sourced Blackrock</a>, an alternate back-end for Sandstorm which is able to scale out across a cluster of machines. We have long used this technology to power Sandstorm Oasis, but had hesitated to release it for fear that it would harm our business model. We no longer have a business model to protect, so the code can now be set free.</p>
+  </li>
+  <li>
+    <p>We have added the <a href="https://github.com/sandstorm-io/sandstorm/tree/master/roadmap">Sandstorm Technology Roadmap</a> to the Sandstorm repo, where you can learn about everything Sandstorm has built and plans to build. The roadmap is full of projects and features marked “TODO”, so you can see what needs to be built.</p>
+  </li>
+  <li>
+    <p>We’ve written a new <a href="https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md">contributing guide with a list of projects you can work on</a>. See if there’s anything that interests you!</p>
+  </li>
+  <li>
+    <p>No changes are expected to <a href="https://oasis.sandstorm.io">Sandstorm Oasis</a> nor <a href="https://docs.sandstorm.io/en/latest/administering/sandcats/">Sandcats.io</a>. Both services will continue to operate going forward.</p>
+  </li>
+</ul>
 
-<p>Yes. The installer will not install a release more than a month old. The updater will never “downgrade” to an older version. We also plan to add an alert to the Sandstorm UI if the Sandstorm build is more than a month old, which could indicate that an attacker is blocking access to the update server.</p>
+<p><strong>How you can help</strong></p>
+
+<p>Want to see Sandstorm succeed? Then, contribute!</p>
+
+<ul>
+  <li>
+    <p>If you’d like to help build Sandstorm, sign up on <a href="https://groups.google.com/group/sandstorm-dev">the sandstorm-dev mailing list</a> and join us on IRC at #sandstorm on Freenode. There is lots to do, from hardcore systems hacking to community organizing to tasks that require nothing but enthusiasm. For ideas on how you can help, check out the <a href="https://sandstorm.io/community">community page</a> and the <a href="https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md">contributing guide</a>.</p>
+  </li>
+  <li>
+    <p>If you have more money than time and would like to support the project financially, the best way to do it is to sign up for a paid account on <a href="https://oasis.sandstorm.io">Oasis</a>.</p>
+  </li>
+</ul>
+
 
 </section>
 

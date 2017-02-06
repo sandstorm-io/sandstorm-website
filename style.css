@@ -194,13 +194,13 @@ body {
   color: black;
   overflow-x: hidden; }
 
-body > nav, body > header, body > main, body > section, body > footer, body > div, body > span {
+body > * {
   padding: 1px 30px 0;
   margin: 0 auto;
   width: auto;
   max-width: 1200px; }
   @media (max-width: 800px) {
-    body > nav, body > header, body > main, body > section, body > footer, body > div, body > span {
+    body > * {
       padding: 1px 20px 0; } }
 
 h1 {
@@ -242,6 +242,20 @@ body > nav {
     body > nav > a:hover {
       background-color: #f8f8ff;
       color: #18003f; }
+    @media (max-width: 550px) {
+      body > nav > a[href="/about"] {
+        display: none; }
+      body > nav > a[href="/features"] {
+        display: none; } }
+    @media (max-width: 940px) {
+      body > nav > a[href^="/get"] {
+        display: none; }
+      body > nav > a[href="/community"] {
+        display: none; }
+      body > nav > a[href^="https://docs.sandstorm.io"] {
+        display: none; }
+      body > nav > a[href="/how-it-works"] {
+        display: none; } }
 
 body#home > nav > a[href="/"] {
   font-weight: 500; }
@@ -296,8 +310,6 @@ body > .notice {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative; }
-  body > .notice.exp-donations-bar-test {
-    display: none; }
   @media (max-width: 650px) {
     body > .notice {
       display: block;
@@ -327,46 +339,6 @@ body > .notice {
     @media (max-width: 370px) {
       body > .notice span {
         font-size: 13px; } }
-  body > .notice .donate-form {
-    position: relative;
-    display: inline-block;
-    margin-left: 10px;
-    line-height: 45px; }
-    @media (max-width: 650px) {
-      body > .notice .donate-form {
-        display: block;
-        padding-bottom: 10px; } }
-    body > .notice .donate-form label.donate-label {
-      font-size: 25px;
-      position: relative;
-      left: 0.9em; }
-    body > .notice .donate-form input.donate-input {
-      padding-left: 19px;
-      height: 45px;
-      font-size: 25px;
-      padding-left: 20px;
-      padding-right: 10px;
-      border: 0;
-      border-radius: 3px;
-      outline: 0;
-      max-width: 90px; }
-    body > .notice .donate-form button[type="submit"] {
-      text-align: center;
-      height: 45px;
-      background: #f46e12;
-      border: 0px;
-      border-radius: 3px;
-      padding: 0 15px;
-      font-size: 25px;
-      color: #fff;
-      cursor: pointer;
-      outline: none;
-      -webkit-transition: background 0.35s ease, -webkit-transform 0.75s ease;
-      transition: background 0.35s ease, -webkit-transform 0.75s ease;
-      transition: transform 0.75s ease, background 0.35s ease;
-      transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease; }
-      body > .notice .donate-form button[type="submit"]:hover {
-        background: #ff8f1f; }
 
 body > header {
   min-height: 180px;
@@ -1370,12 +1342,12 @@ body > footer {
     @media (max-width: 700px) {
       #business-scale .audit .image {
         width: 100%; } }
-  #business-scale .ldap, #business-scale .group {
+  #business-scale .ldap, #business-scale .global {
     width: 50%; }
-    #business-scale .ldap::after, #business-scale .group::after {
+    #business-scale .ldap::after, #business-scale .global::after {
       display: none; }
     @media (max-width: 700px) {
-      #business-scale .ldap, #business-scale .group {
+      #business-scale .ldap, #business-scale .global {
         width: 100%; } }
   #business-scale .failover, #business-scale .encryption {
     width: 50%; }
@@ -1775,7 +1747,7 @@ body > footer {
       border: 1px solid #dbcdea;
       border-radius: 5px;
       margin: 0 2% 20px 0;
-      width: 32%;
+      width: 48%;
       position: relative;
       color: #684599; }
       @media (max-width: 750px) {
@@ -2813,8 +2785,6 @@ body > footer {
       border-radius: 5px; }
       #install main > section > .aws > a:hover {
         background-color: #f28e22; }
-    #install main > section .exp-install-screencast-autoplay-test {
-      display: none; }
     #install main > section pre {
       font-size: 16px;
       text-align: center;
