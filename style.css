@@ -406,7 +406,8 @@ body > footer {
   body > footer ul h3, body > footer ul h3 a {
     text-decoration: none;
     font-weight: normal;
-    color: #302851; }
+    color: #302851;
+    margin: 30px 0 10px 0; }
   body > footer ul li a {
     text-decoration: none; }
     body > footer ul li a:hover {
