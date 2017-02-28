@@ -99,13 +99,38 @@
 
 
 <section>
+  <h2><a href="/news/2015-01-14-compute-units">What are Compute Units?</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2015-01-14-compute-units">14 Jan 2015</a>
+  
+  
+  
+  
+  <p>When using Sandstorm’s upcoming managed hosting service, your resource usage will be limited in two important ways:</p>
+
+<ul>
+  <li>Storage space, measured in gigabytes.</li>
+  <li>Compute time, measured in “compute units”, or “CU” for short.</li>
+</ul>
+
+<p>So, what exactly are compute units? Technically speaking, a CU can also be described as a “gigabyte-RAM-hour”: using a gigabyte of RAM for one hour consumes one CU. Or, alternatively, using 100 MB of RAM for 10 hours, or using 10GB of RAM for six minutes, is also one CU.</p>
+
+<p>Practically speaking, think of your CU quota like the battery on your phone. Some apps, when they are running, use more CU than others. Sandstorm aggressively shuts down apps when they are not in-use, so apps will only consume CU when you are actively using them (e.g. when you have them open in your browser). As a rule of thumb, we find that many apps use about 1 CU for every 5-10 hours of active use. Some apps – especially ones with servers written in ahead-of-time compiled languages like C++, Rust, or Go – may use far less, while particularly inefficient apps may use a bit more. You will be able to check your CU level and see which apps are using it by clicking the CU indicator in the top bar.</p>
+
+<p>Note that when you use an app to publish a web site to a separate domain – such as Ghost or WordPress – Sandstorm caches the page content and serves it statically. Therefore, the app does not start up and does not consume CU when a guest merely visits your site; CU is only used if the visitor does something that changes the site (like leaving a comment) or when you open the app’s administrative interface.</p>
+
+<p>For our managed hosting service, you will receive a monthly CU allowance. Those who sign up for the “standard” plan (currently slated for $6 / month) will receive 200CU per month. That equates to 1000-2000 hours of using a typical app, which is more time than a month actually has! We expect that most users will never come anywhere near hitting their CU quota.</p>
+
+<p>But what happens if you do hit your quota? We said your CU is like a battery, but it’s like a battery that is always charging. When you first create your account, your CU battery starts out full. When it is not full, it recharges at a rate such that over the course of a month it will recharge equal to your monthly limit. So if you run out of CU, go take a walk, and when you get back you’ll have some more. And if you run out often, consider upgrading to a larger plan. :)</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-01-12-boston">Cambridge, MA, Tue 1/20 - Web app self-hosting meet-up, 7:30pm</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2015-01-12-boston">12 Jan 2015</a>
-  
-  
-  
   
   <p>I’ll be in the Boston area next week, and I’ll be organizing a web app
 self-hosting meet-up on Tuesday, Jan 20, from 7:30pm to 9:30pm at
@@ -288,52 +313,6 @@ chosen Gitlab and Diaspora.</p>
 (This was previously disabled due to a limitation in Sandstorm, which we’ve
 now fixed.) Re-install Groovebasin from the Sandstorm app list to get the
 update. Now you can upload your whole music library more easily!</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2014-10-09-app-updates">App updates and more</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2014-10-09-app-updates">09 Oct 2014</a>
-  
-  <p>It’s been a while since our last post, but we’ve been doing a ton of stuff. It’s been a mad scramble here at Sandstorm HQ to get things organized after our <a href="http://igg.me/at/sandstorm">successful crowdfunding campaign</a>. Let me fill you in on some of the things we’ve been doing!</p>
-
-<h3 id="app-updates">App Updates</h3>
-
-<p>The Sandstorm app list now stands at 20 apps. While we will continue adding more, it’s also important to keep the ones we have up to date. To that end, today we’ve pushed updates to several apps which have seen upstream changes since our original releases:</p>
-
-<ul>
-  <li>Ghost</li>
-  <li>Wave</li>
-  <li>Mediagoblin</li>
-  <li>Tiny Tiny RSS</li>
-  <li>EtherCalc</li>
-</ul>
-
-<p>We have more updates coming soon, including Mailpile, Groovebasin, and ShareLaTeX.</p>
-
-<p>We are also excited to say that our EtherCalc port will henceforth be directly maintained by the upstream maintainer, Audrey Tang.</p>
-
-<p>We don’t have automatic “push” updates yet (they’re coming), so to update your copy of a Sandstorm app, you must go to the <a href="https://sandstorm.io/apps">app list</a> and install it again. Sandstorm will recognize that you’re installing an update and will upgrade your existing files.</p>
-
-<h3 id="meeting-notes">Meeting Notes</h3>
-
-<p>Curious to see what’s going on with Sandstorm on a day-to-day basis? We have started posting our daily meeting notes to the <a href="https://groups.google.com/group/sandstorm-dev">Sandstorm dev list</a>. Feel free to subscribe for updates. (And yes, we do hope to move the mailing list to a Sandstorm app as soon as we have one. ;) )</p>
-
-<h3 id="app-committee">App Committee</h3>
-
-<p>The App Committee will begin voting on new Sandstorm Apps soon. You can follow the action on the <a href="groups.google.com/group/sandstorm-app-committee">App Committee group</a> (but only committee members can post there).</p>
-
-<h3 id="apis">APIs</h3>
-
-<p>Sandstorm recently gained the ability to host apps which expose APIs. This means that it’s now possible to do things like have a mobile client app which talks to your Sandstorm server. We will soon be updating some of our existing apps to take advantage of this feature, at which point we’ll do a larger announcement. Check out the <a href="https://groups.google.com/d/msg/sandstorm-dev/7D6R5kDSyRw/jvDP5Br7AgwJ">sandstorm-dev post</a> for details.</p>
-
-<h3 id="perk-fulfillment">Perk fulfillment</h3>
-
-<p><strong>Credits:</strong> Everyone who contributed and who responded to our questionnaire is now named in the <a href="https://demo.sandstorm.io/about">Sandstorm about page</a> and on <a href="https://sandstorm.io">our home page</a>. If you contributed but missed the questionnaire we sent out, please <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;">e-mail us</a> to let us know how you want your name to appear.</p>
-
-<p><strong>Stickers and t-shirts:</strong> We’ve collected everyone’s shipping addresses and t-shirt sizes and will be shipping these out soon. It took a little longer than expected to get everyone to respond, but we’ve now passed the info off to the fulfillment company and expect these to ship within the next five weeks or so.</p>
 
 </section>
 

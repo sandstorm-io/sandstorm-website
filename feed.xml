@@ -7,6 +7,56 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Impact of Cloudflare security advisory on Sandstorm Oasis</title>
+				<description>&lt;p&gt;A few days ago, Cloudflare &lt;a href=&quot;https://blog.cloudflare.com/incident-report-on-memory-leak-caused-by-cloudflare-parser-bug/&quot;&gt;disclosed a security bug&lt;/a&gt; in their services which may have leaked secrets from sites which use Cloudflare. Sandstorm uses Cloudflare as a cache in front of our web site and Sandstorm Oasis, and so some of our users have asked if this problem affects them.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt; If you uploaded or downloaded a grain backup (zip file) between September 22, 2016 and February 18, 2017 (more so between Feb 13 to Feb 18), there is a very remote chance that some portion of the content of your backup could have been leaked to a third party, due to a bug in Cloudflare. We suspect, but cannot say for sure, that no such leakage occurred. We believe that no data other than grain backups could have leaked.&lt;/p&gt;
+
+&lt;h3 id=&quot;details&quot;&gt;Details&lt;/h3&gt;
+
+&lt;p&gt;We believe that Sandstorm services are mostly unaffected (with the exception of grain backups, described below). We intentionally divide our services such that public, static content is served from different hosts from dynamic/private content. We only enable Cloudflare in front of the public, static content (to provide caching and faster delivery). Moreover, the public, static hosts avoid storing sensitive credentials in cookies.&lt;/p&gt;
+
+&lt;p&gt;Specifically, we have Cloudflare enabled on the following hosts:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;sandstorm.io&lt;/strong&gt;, which serves our public web site. There are no secrets here.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;docs.sandstorm.io&lt;/strong&gt;, which serves our public documentation. There are no secrets here.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;dl.sandstorm.io&lt;/strong&gt;, from which Sandstorm install packages and updates are served. There are no secrets here.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;oasis.sandstorm.io&lt;/strong&gt;, which serves the static HTML, Javascript, CSS, and images for Sandstorm Oasis. Dynamic content in the Sandstorm UI is delivered – and user actions are communicated – via a WebSocket on ddp.oasis.sandstorm.io, which does not use Cloudflare. The user’s authentication token is stored in localStorage rather than a cookie and is only ever transmitted over the WebSocket. Sandstorm apps are served from randomly-generated subdomains of oasis.sandstorm.io, which are not served through Cloudflare. However, grain backup uploads and downloads occur on the main host and could be affected – see below.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;app-index.sandstorm.io&lt;/strong&gt;, which serves public Sandstorm app packages and metadata for use by the app market and for implementing automatic updates. There are no secrets here.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;apps.sandstorm.io&lt;/strong&gt;, which serves the static HTML, Javascript, CSS, and images for our app market. As with Oasis, dynamic content and interaction (mainly, reading/posting reviews) happens via a WebSocket on apps-ddp.sandstorm.io and credentials are stored in localStorage.&lt;/li&gt;
+  &lt;li&gt;Various internal testing hosts and hosts that only redirect to other hosts.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We chose this design because we rely on Cloudflare only for caching purposes. Since dynamic data cannot be cached anyway, it made sense to form direct connections for that data rather than pass through a proxy, both to reduce our TCB and to improve performance. On the other hand, this means we cannot fully take advantage of Cloudflare’s security features such as its Web Application Firewall and DDoS protection, but we felt comfortable with this trade-off.&lt;/p&gt;
+
+&lt;p&gt;That said, we’ve identified one notable exception to our design: When you download a backup of a grain via the Sandstorm Oasis UI, or upload a backup to be restored, the zip file is transmitted through the main Oasis host, proxied through Cloudflare. This seems to be an oversight; it would make sense for these requests to go through the DDP host. These transfers are authorized via short-lived tokens, so there’s no risk of Oasis credentials being leaked. However, the contents of a .zip file could possibly have been leaked by Cloudflare.&lt;/p&gt;
+
+&lt;p&gt;Cloudflare reports that the bug existed between 2016-09-22 and 2017-02-18, with the greatest potential impact being in the last four days of that period. If you uploaded or downloaded a grain backup in that time, it could have been leaked. However, Cloudflare reports that the incidence of such leaks was extremely small, and each instance would have leaked data from an essentially random website served by Cloudflare, of which there are many (Cloudflare handles some 10% of all internet traffic). Given the probabilities, it is likely that no Sandstorm grain backup data was actually leaked. There is also so far no evidence that anyone was actively exploiting this bug.&lt;/p&gt;
+
+&lt;p&gt;With all that said, if you are worried about the possibility that your data was leaked, the proper course of action depends on the app and grain involved. Sandstorm is explicitly designed to keep credentials out of the hands of apps, so usually the only sensitive information in a grain backup is information that you gave to it yourself. For example, if you had an Etherpad document where you kept a list of passwords (and you downloaded a backup of that document recently), you may want to change those passwords. Otherwise, there is nothing to do.&lt;/p&gt;
+
+&lt;h3 id=&quot;editorial&quot;&gt;Editorial&lt;/h3&gt;
+
+&lt;p&gt;Bugs like this probably exist in a lot of software. The Cloudflare bug is notable because:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;It was discovered. (Most bugs aren’t.)&lt;/li&gt;
+  &lt;li&gt;Cloudflare handles some 10% of all internet traffic, meaning that basically everyone on the internet is possibly affected.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;It’s important to keep in mind that security is not binary. Security is about risk management. The Cloudflare bug did not change anyone’s security level from “secure” to “insecure” – instead, it increased the likelihood of any particular person becoming the victim of a real attack from, say, 5.26% to 5.28% (numbers made up to illustrate point). Had Cloudflare been slow to respond once the vulnerability was found, this risk may have shot up. Fortunately, though, they were anything but.&lt;/p&gt;
+
+&lt;p&gt;Now, consider the use of password-based authentication. Nearly every service on the web uses it. However, it is demonstrably horribly insecure: Not only do people regularly use bad passwords or reuse the same password across sites, but passwords stored in a database (even if hashed) make it much easier for attackers to escalate a read-only database snapshot into full access privileges (possibly even to sites other than the one attacked). By requiring the user to receive an authentication code by e-mail each time they log in from a new location, a service can hugely reduce their users’ risk of compromise – probably by an order of magnitude! By this measure, bare password-based authentication should be considered a vulnerability, and a much more serious one than Cloudflare’s bug.&lt;/p&gt;
+
+&lt;p&gt;And yet, people accept passwords because they are more convenient than other mechanisms. &lt;em&gt;(Well, many people do. Sandstorm does not implement passwords.)&lt;/em&gt; So, we admit that security is not absolute, but rather a trade-off which needs to be judged against other factors. We need to weigh the risks of our infrastructure being insecure against the value that infrastructure brings – and Cloudflare certainly brings a lot of value. That said, with good design, it’s often possible to reduce and contain risks without sacrificing too much utility. This is one of the core goals of Sandstorm – to introduce an &lt;a href=&quot;https://sandstorm.io/how-it-works&quot;&gt;infrastructure model&lt;/a&gt; and &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-practices/&quot;&gt;security practices&lt;/a&gt; which &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/&quot;&gt;mitigate risks&lt;/a&gt;.&lt;/p&gt;
+</description>
+				<pubDate>Tue, 28 Feb 2017 00:00:00 -0800</pubDate>
+                                <link>https://sandstorm.io/news/2017-02-28-cloudbleed</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2017-02-28-cloudbleed</guid>
+			</item>
+		
+			<item>
 				<title>Sandstorm is returning to its community roots</title>
 				<description>&lt;p&gt;Most people know Sandstorm as an open source, community-driven project aiming to enable self-hosting of cloud services and to make it possible for open source web apps to compete with today’s cloud services.&lt;/p&gt;
 
@@ -555,33 +605,6 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
 				<pubDate>Wed, 31 Aug 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-08-31-sandstorm-for-work-ready</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-08-31-sandstorm-for-work-ready</guid>
-			</item>
-		
-			<item>
-				<title>Decentralization is about diversity</title>
-				<description>&lt;p&gt;&lt;img src=&quot;/news/images/decentralize.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Lately, there has been a flurry of activity around decentralizing the web. Summits have been held. New projects – and companies – have been started. Having worked on this issue for several years now, we’re excited to see it becoming increasingly mainstream.&lt;/p&gt;
-
-&lt;p&gt;But what, exactly, are we trying to solve? Most people think it has something to do with privacy, and maybe also security. Some argue that data ownership and mobility are the most important things. Sometimes this leads decentralization projects to focus on data storage while neglecting compute. Some projects even propose that so long as storage is decentralized, it doesn’t matter where the software actually runs.&lt;/p&gt;
-
-&lt;p&gt;Privacy, security, ownership, and mobility are all important, but I feel there is a much more important goal that is often poorly understood:&lt;/p&gt;
-
-&lt;p style=&quot;font-weight: bold; text-align: center; font-size: 130%; margin: 1em auto; width: 500px; max-width: 90%;&quot;&gt;The most important reason to decentralize is software&amp;mdash;and developer&amp;mdash;diversity.&lt;/p&gt;
-
-&lt;p&gt;By “diversity”, I mean this: Who can develop software that other people can plausibly use? Is it primarily mega-corps like Apple and Google? VC-backed startups? Or can one random person, working in their spare time, build just the right app and reach millions of people? Can a community of unfunded volunteers build an open source app that wins because it is the best? Can an employee of one company, having built a useful internal app to solve a problem they had, give (or sell) that app to another company in the same position, without a lot of hassle? Can a teenage fan of a particular video game build an app that assists players of the game, and then share that app with the rest of the game’s community?&lt;/p&gt;
-
-&lt;p&gt;All of the above happens regularly with mobile and desktop apps, but it is far more difficult on the web.&lt;/p&gt;
-
-&lt;p&gt;We live in a time when our tools are so good that a single competent application developer working weekends can create almost any web application you can imagine. However, rarely can that single developer also run a secure, scalable service and a business around it. As a result, when software is delivered as a service, the only software that is available is that which was deemed &lt;em&gt;a priori&lt;/em&gt; to be sufficiently lucrative to interest a mega-corp like Google or a VC-backed startup. &lt;strong&gt;Therefore, the only software services we get come courtesy of these gatekeepers.&lt;/strong&gt; Experimental, indie, or amateur projects are rare. Novel services serving a small niche community are rare. Services designed by people who aren’t well-represented in the tech industry are rare. Community-driven open source projects &lt;a href=&quot;https://sandstorm.io/news/2014-07-21-open-source-web-apps-require-federated-hosting&quot;&gt;basically aren’t viable&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The only way to solve these problems is by decentralizing the software (not just the storage). Software must be provided as a package – not as a service – with each user running their own private copy. It doesn’t really matter if the user chooses to deploy to “the cloud” or to their own machine, as long as they can run any package they want. It is, however, important that the means to deploy software be accessible even to non-technical users, so that everyone can participate and developers can reach a wide audience. Deploying an app on your server must therefore be as easy as installing an app on your phone, and must be “secure by default”.&lt;/p&gt;
-
-&lt;p&gt;This is the focus of Sandstorm.&lt;/p&gt;
-</description>
-				<pubDate>Wed, 17 Aug 2016 00:00:00 -0700</pubDate>
-                                <link>https://sandstorm.io/news/2016-08-17-decentralization-is-about-diversity</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-08-17-decentralization-is-about-diversity</guid>
 			</item>
 		
 	</channel>
