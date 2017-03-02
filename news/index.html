@@ -153,7 +153,7 @@
 
 <h4 id="failure-to-mitigate-linux-kernel-cve-2017-6074">4. Failure to mitigate Linux kernel CVE-2017-6074</h4>
 
-<p><em>(This was caught internally by the Sandstorm team, not by DevCore, but is fixed in the same release.)</em></p>
+<p><em>(This was caught by Sandstorm core developer <a href="https://github.com/dwrensha">David Renshaw</a>, not by DevCore, but is fixed in the same release.)</em></p>
 
 <p>A recent Linux kernel bug could allow a malicious app to cause a kernel panic or perhaps break out of its sandbox. The bug is in Linux, but Sandstorm aims to protect against such bugs via seccomp. <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/#linux-kernel">Historically, Sandstorm’s sandbox has been very successful at blocking Linux vulnerabilities before they are discovered.</a> However, this one slipped through. On Sandstorm, the published PoC exploit for this bug only causes a kernel panic (not a sandbox breakout), but a developer with deep understanding of the bug and the Linux kernel might be able to create a successful attack in other ways.</p>
 
