@@ -60,7 +60,7 @@ This is a problem if unprotected services are exposed to the Sandstorm server *a
 
 #### 4. Failure to mitigate Linux kernel CVE-2017-6074
 
-_(This was caught internally by the Sandstorm team, not by DevCore, but is fixed in the same release.)_
+_(This was caught by Sandstorm core developer [David Renshaw](https://github.com/dwrensha), not by DevCore, but is fixed in the same release.)_
 
 A recent Linux kernel bug could allow a malicious app to cause a kernel panic or perhaps break out of its sandbox. The bug is in Linux, but Sandstorm aims to protect against such bugs via seccomp. [Historically, Sandstorm's sandbox has been very successful at blocking Linux vulnerabilities before they are discovered.](https://docs.sandstorm.io/en/latest/using/security-non-events/#linux-kernel) However, this one slipped through. On Sandstorm, the published PoC exploit for this bug only causes a kernel panic (not a sandbox breakout), but a developer with deep understanding of the bug and the Linux kernel might be able to create a successful attack in other ways.
 
