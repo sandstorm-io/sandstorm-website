@@ -46,7 +46,7 @@ As a result of this, a user could create a grain containing an empty directory n
 
 **Severity:** Low. An attacker who has full user status (permission to create grains) can read files located in the server's `/etc` and `/run` directories that are set world-readable (or specifically readable to the Sandstorm service account). No other host system directories are exposed. Usually, any files under `/etc` that contain sensitive secrets would be hidden from all users except root, hence would not be readable by Sandstorm nor by the attacker.
 
-**Fix:** We have fixed the validation of filenames so that newlines are never permitted, and we have enhanced the zip sandbox to use a whitelist of top-level directories rather than a blacklist. Fixed in commit [4ea8df7](https://github.com/sandstorm-io/sandstorm/commit/4ea8df7403381d9b657b121b3c98d8081b27414d).
+**Fix:** We have fixed the validation of filenames so that newlines are never permitted, and we have enhanced the zip sandbox to use a whitelist of top-level directories rather than a blacklist. Fixed in commits [4ea8df7](https://github.com/sandstorm-io/sandstorm/commit/4ea8df7403381d9b657b121b3c98d8081b27414d) and [6e8572e](https://github.com/sandstorm-io/sandstorm/commit/6e8572ea8bb56d0216bb1b410e5040edc051b120).
 
 #### 3. Server-side request forgery
 
