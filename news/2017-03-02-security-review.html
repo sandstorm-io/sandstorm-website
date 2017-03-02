@@ -135,7 +135,7 @@
 
 <p><strong>Severity:</strong> Low. An attacker who has full user status (permission to create grains) can read files located in the server’s <code>/etc</code> and <code>/run</code> directories that are set world-readable (or specifically readable to the Sandstorm service account). No other host system directories are exposed. Usually, any files under <code>/etc</code> that contain sensitive secrets would be hidden from all users except root, hence would not be readable by Sandstorm nor by the attacker.</p>
 
-<p><strong>Fix:</strong> We have fixed the validation of filenames so that newlines are never permitted, and we have enhanced the zip sandbox to use a whitelist of top-level directories rather than a blacklist. Fixed in commit <a href="https://github.com/sandstorm-io/sandstorm/commit/4ea8df7403381d9b657b121b3c98d8081b27414d">4ea8df7</a>.</p>
+<p><strong>Fix:</strong> We have fixed the validation of filenames so that newlines are never permitted, and we have enhanced the zip sandbox to use a whitelist of top-level directories rather than a blacklist. Fixed in commits <a href="https://github.com/sandstorm-io/sandstorm/commit/4ea8df7403381d9b657b121b3c98d8081b27414d">4ea8df7</a> and <a href="https://github.com/sandstorm-io/sandstorm/commit/6e8572ea8bb56d0216bb1b410e5040edc051b120">6e8572e</a>.</p>
 
 <h4 id="server-side-request-forgery">3. Server-side request forgery</h4>
 
