@@ -70,4 +70,4 @@ A recent Linux kernel bug could allow a malicious app to cause a kernel panic or
 
 ### Conclusion
 
-We are excited to have received such a thorough security review. Some of the problems discovered were very obscure and we're impressed that DevCore was able to find them. We thank Audrey Tang and the Department of Cyber Security of of Taiwan for commissioning this review.
+We are excited to have received such a thorough security review. Some of the problems discovered were very obscure and we're impressed that DevCore was able to find them. We thank Audrey Tang and the Department of Cyber Security of Taiwan for commissioning this review.
