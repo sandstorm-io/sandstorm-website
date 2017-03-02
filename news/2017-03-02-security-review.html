@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Sandstorm gets a security review - Sandstorm Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Sandstorm gets a security review">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sandstorm.io/images/sandcat.png">
+    <meta property="og:url" content="https://sandstorm.io/news/2017-03-02-security-review">
+    <meta property="og:description"
+        content="Real-time collaborative web productivity suite behind the firewall.">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
+  </head>
+
+
+
+  <body id="blog">
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a href="/get">Get Sandstorm</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">Technology</a>
+      <a href="/news/">Blog</a>
+      <a href="https://docs.sandstorm.io">Docs</a>
+      <a href="https://github.com/sandstorm-io/sandstorm">Code</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <!-- TODO: search -->
+    </nav>
+
+    <header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+<div class="post-list">
+
+<div class="sidebar">
+  <ul class="socialmedia">
+    <li><a class="twitter" href="https://twitter.com/SandstormIO">Twitter</a>
+    <li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank">Facebook</a>
+    <li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank">Google</a>
+    <li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank">Github</a>
+  </ul>
+
+  <div class="more">
+    <form id="signup" action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+      Join our mailing list for updates<br>
+      <input type="email" name="EMAIL" placeholder="E-mail" required><input type="submit" value="Submit">
+    </form>
+    <a href="/get">
+      Sandstorm is a self-hostable web productivity suite.
+      <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
+      <span class="selfhost" href="/install">or host your own</span>
+    </a>
+    
+    <h3>Recommended Posts</h3>
+    <ul>
+      <li><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">Open Source Web Apps Aren't Viable; Let's Fix That</a></li>
+      <li><a href="/news/2016-02-29-security-track-record">Sandstorm's security track record, and what it means for self-hosting</a></li>
+      <li><a href="/news/2016-08-17-decentralization-is-about-diversity">Decentralization is about diversity</a></li>
+      <li><a href="/news/2016-01-22-8-new-open-source-apps.html">8 New open source self-hostable apps</a></li>
+      <li><a href="/news/2016-04-06-sandstorm-for-work">Sandstorm for Work Beta: LDAP, SAML, organization management</a></li>
+      <li><a href="/news/2016-02-05-app-author-publicity-oasis">Free publicity for your indie web app, and free Oasis service for you</a></li>
+      <li><a href="/news/2015-10-01-free-ssl-certificates.html">Free, automated SSL certificates for Sandstorm self-hosters</a></li>
+      <li><a href="/news/2014-08-19-why-not-run-docker-apps.html">Why doesn't Sandstorm just run Docker apps?</a></li>
+      <li><a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization.html">Understand the Sandstorm sharing model</a></li>
+    </ul>
+    
+    <h3>Further Reading</h3>
+      <ul>
+        <li><a href="/how-it-works">How Sandstorm Works</a></li>
+        <li><a href="http://docs.sandstorm.io">Sandstorm Documentation</a></li>
+        <li><a href="/install">How to install Sandstorm</a></li>
+      </ul>
+  </div>
+</div>
+
+
+<nav class="pagination top">
+  <a class="newer" href="/news/" title="All posts">&laquo; All posts</a>
+</nav>
+
+<section>
+  <h2>Sandstorm gets a security review</h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - 02 Mar 2017
+  <p>Sandstorm recently underwent a security review by <a href="http://devco.re/">DevCore Inc.</a>, commissioned by Department of Cyber Security of Taiwan. The company has in the past found RCEs in big-name services like <a href="https://hackerone.com/reports/125980">Uber</a> and <a href="http://devco.re/blog/2016/04/21/how-I-hacked-facebook-and-found-someones-backdoor-script-eng-ver/">Facebook</a>.</p>
+
+<p>Although the full report is not public (and is not in English), Taiwan’s Digital Minister, <a href="https://en.wikipedia.org/wiki/Audrey_Tang">Audrey Tang</a>, tells us that overall DevCore feels Sandstorm has “excellent security design.”</p>
+
+<p>As would be expected of any good security review, DevCore did find several issues. Last night we released build 0.203 to fix them. All servers should automatically update within 24 hours of the release (by midnight tonight, PST), but if you’d like to speed up the process (or if you have disabled automatic updates), you can SSH into your server now and type:</p>
+
+<pre><code>sudo sandstorm update
+</code></pre>
+
+<h3 id="vulnerabilities-discovered-and-fixed">Vulnerabilities Discovered (and fixed)</h3>
+
+<h4 id="insufficient-e-mail-address-validation">1. Insufficient e-mail address validation</h4>
+
+<p>When logging in with an e-mail address, a user could enter an address like “foo@evil.com,bar@example.com”. In this case, login e-mails would be sent to <em>both</em> addresses, while Sandstorm would treat the user as if they were a member of the latter domain, “example.com”. Hence, an attacker could specify their real address as the first address and a fake address at a domain of their choice as the second, in order to appear to be a member of the domain. Servers that use Sandstorm’s organizational features (until recently only available as part of the <a href="https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots">now-defunct</a> product “Sandstorm for Work”) can be configured to automatically promote members of a domain to full users, allowing them to install apps, create grains, and discover the identities of other members of the organization. Such users would <strong>not</strong> receive access to any other grains on the server, but an attacker could install their own apps that consume the server’s resources, including CPU, RAM, and disk. An attacker could also combine this vulnerability with one of the others below, all of which require full user status as a starting point.</p>
+
+<p>The root cause of this bug is Sandstorm’s use of a library called Nodemailer to send e-mail. It turns out that Nodemailer “helpfully” interprets comma-separated lists of addresses as multiple addresses. This is true even if the string is already part of an array. For instance, say you pass the following array in the <code>to</code> field of a mail sent via Nodemailer:</p>
+
+<pre><code>[ "foo@example.com",
+  "bar@example.com,baz@example.com",
+  { name: "Garply", address: "qux@example.com,corge@example.com" } ]
+</code></pre>
+
+<p>Surprisingly, this three-element array will send e-mail to <em>five</em> addresses – foo@, bar@, baz@, qux@, and corge@.</p>
+
+<p>We did not anticipate this feature and assumed that Nodemailer would fail to send e-mail to an invalid address.</p>
+
+<p><strong>Severity:</strong> Moderate <strong>if</strong> Sandstorm is configured with an organization defined by e-mail domain. If you do not define an organization, or if you define it by LDAP, SAML, or G Suite domain, then we do not believe this bug can be meaningfully exploited.</p>
+
+<p><strong>Fix:</strong> Sandstorm now performs its own validation of addresses to ensure, among other things, that no separator characters are accepted and only one @-sign is allowed. Fixed in commit <a href="https://github.com/sandstorm-io/sandstorm/commit/37bd9a7f4eb776cdc2d3615f0bfea1254b66f59d">37bd9a7</a>.</p>
+
+<h4 id="insufficient-path-validation-when-building-zip-backups">2. Insufficient path validation when building ZIP backups</h4>
+
+<p>The owner of a Sandstorm grain can download a backup of the grain’s content in ZIP format. Sandstorm shells out to the <code>zip</code> utility to build this archive, but does so inside a sandbox designed to prevent exploitation of bugs in the utility.</p>
+
+<p>Unfortunately, a combination of factors resulted in the possibility of a minor data leak:</p>
+
+<ul>
+  <li>The list of files to include in the archive is passed to <code>zip</code> on standard input, delimited by newlines. However, it is possible for a filename to contain a newline character. Sandstorm actually checked for this, but accidentally failed to perform the check in one code path triggered by the existence of an empty directory.</li>
+  <li>The zip sandbox carefully hid sensitive directories like <code>/var</code>, <code>/proc</code>, and even <code>/etc</code>. However, after the zip sandbox was written, two new directories, <code>/etc.host</code> and <code>/run.host</code>, which are aliases for the host system’s <code>/etc</code> and <code>/run</code>, were added. Unfortunately, the zip sandbox was not updated to hide these directories, hence they were visible to the zip program.</li>
+</ul>
+
+<p>As a result of this, a user could create a grain containing an empty directory named <code>/var/blah\n/etc.host/passwd</code>, save a backup, and find the backup contained a copy of the host’s <code>/etc/passwd</code> file (which, despite its name, does not contain passwords, but does contain a list of local user accounts).</p>
+
+<p><strong>Severity:</strong> Low. An attacker who has full user status (permission to create grains) can read files located in the server’s <code>/etc</code> and <code>/run</code> directories that are set world-readable (or specifically readable to the Sandstorm service account). No other host system directories are exposed. Usually, any files under <code>/etc</code> that contain sensitive secrets would be hidden from all users except root, hence would not be readable by Sandstorm nor by the attacker.</p>
+
+<p><strong>Fix:</strong> We have fixed the validation of filenames so that newlines are never permitted, and we have enhanced the zip sandbox to use a whitelist of top-level directories rather than a blacklist. Fixed in commit <a href="https://github.com/sandstorm-io/sandstorm/commit/4ea8df7403381d9b657b121b3c98d8081b27414d">4ea8df7</a>.</p>
+
+<h4 id="server-side-request-forgery">3. Server-side request forgery</h4>
+
+<p>Apps running on Sandstorm can make outgoing HTTP requests through a few mechanisms. Additionally, users can instruct Sandstorm to download an app package file from an arbitrary URL. Sandstorm did not attempt to prevent these requests from reaching localhost or private network destinations. Because of this, a full user of the Sandstorm server (but not a visitor) could probe the internal network on which the Sandstorm server was hosted, as well as services exposed to localhost on the server itself.</p>
+
+<p>This is a problem if unprotected services are exposed to the Sandstorm server <em>and</em> you have invited users to your server who should not be trusted to access those services. Sandstorm itself does not expose any unprotected services to localhost, so some other service must be running locally to cause a problem. Only HTTP requests are possible.</p>
+
+<p><strong>Severity:</strong> High <strong>if</strong> unprotected HTTP services are visible to the Sandstorm server <em>and</em> you have invited users to your server who should not be trusted to access those services. Otherwise, low. Sandstorm itself does not expose any unprotected services to localhost, so some other service must be running locally to cause a problem. Only HTTP requests are possible.</p>
+
+<p><strong>Fix:</strong> Sandstorm now allows the server admin to configure an IP address blacklist. User-initiated requests will not be allowed from these addresses. By default, standard private network address ranges are blacklisted. Annoyingly, this “fix” is likely to break some servers who use private app indexes, but avoiding such breakage would mean leaving others vulnerable. Admins will need to update their blacklists accordingly. Fixed in commit <a href="https://github.com/sandstorm-io/sandstorm/commit/164997fb958effbc90c5328c166706280a84aaa1">164997f</a>.</p>
+
+<h4 id="failure-to-mitigate-linux-kernel-cve-2017-6074">4. Failure to mitigate Linux kernel CVE-2017-6074</h4>
+
+<p><em>(This was caught internally by the Sandstorm team, not by DevCore, but is fixed in the same release.)</em></p>
+
+<p>A recent Linux kernel bug could allow a malicious app to cause a kernel panic or perhaps break out of its sandbox. The bug is in Linux, but Sandstorm aims to protect against such bugs via seccomp. <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/#linux-kernel">Historically, Sandstorm’s sandbox has been very successful at blocking Linux vulnerabilities before they are discovered.</a> However, this one slipped through. On Sandstorm, the published PoC exploit for this bug only causes a kernel panic (not a sandbox breakout), but a developer with deep understanding of the bug and the Linux kernel might be able to create a successful attack in other ways.</p>
+
+<p><strong>Severity:</strong> High if you permit users you don’t trust to install apps on your server, or commonly install apps from untrustworthy sources, and you do not keep your kernel up-to-date.</p>
+
+<p><strong>Fix:</strong> Sandstorm’s seccomp filter has been updated to prohibit the creation of DCCP sockets. Fixed in commit <a href="https://github.com/sandstorm-io/sandstorm/commit/34749f9c0141a89680860b15433e8ac9dbdbbb62">34749f9</a>.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>We are excited to have received such a thorough security review. Some of the problems discovered were very obscure and we’re impressed that DevCore was able to find them. We thank Audrey Tang and the Department of Cyber Security of of Taiwan for commissioning this review.</p>
+
+</section>
+
+</div>
+
+
+    <footer>
+      <ul>
+        <li>
+          <h3><a href="/get">Get Sandstorm</a></h3>
+          <ul>
+            <li><a href="/get">Sandstorm on Oasis</a>
+            <li><a href="/get">Self-host Sandstorm</a>
+            <li><a href="https://github.com/sandstorm-io/sandstorm">Source code (GitHub)</a>
+            <li><a href="/go/education">For educators</a></li>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/features">Features</a></h3>
+          <ul>
+            <li><a href="https://apps.sandstorm.io">App Market</a></li>
+            <li><a href="/features">Core features</a>
+            <li><a href="/features#security">Security features</a>
+            <li><a href="/business#scale-features">Scale-out</a>
+            <li><a href="/business">For organizations</a>
+            <li><a href="/developer">For developers</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="https://docs.sandstorm.io">Documentation</a></h3>
+          <ul>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/">How to use Sandstorm</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/developing/">Developer Hub</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/administering/">Administering &amp; installing</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/security-practices/">Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/how-it-works">Technology (How it Works)</a></h3>
+          <ul>
+            <li><a href="/how-it-works#grains">Fine-grained object containers</a>
+            <li><a href="/how-it-works#capabilities">Capability-based security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a></h3>
+          <ul>
+            <li><a href="/news">Sandstorm Blog</a>
+            <li><a href="/community#connect-with">Connect with us</a>
+            <li><a href="/community#helpothers">Help others</a>
+            <li><a href="/community#helpproject">Help the project</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/about">About</a></h3>
+          <ul>
+            <li><a href="/about">Sandstorm story</a>
+            <li><a href="/about#team">Team</a>
+            <li><a href="/about#advisors">Advisors</a>
+            <li><a href="mailto:contact@sandstorm.io">Contact</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <ul>
+            <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
+          </ul>
+        </li>
+        <li>
+          <h3>Connect</h3>
+          <ul id="socialmedia-small">
+						<li><a class="twitter" href="https://twitter.com/SandstormIO"></a>
+						<li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank"></a>
+						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
+						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
+  			</ul>
+        </li>
+        <li>
+          <h3>Join our mailing list!</h3>
+            <div class="subscribe-small">
+                                                        <form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
+                                                                <input type="email" name="EMAIL" placeholder="e-mail" required>
+                                                                <input type="submit" value="Submit">
+                                                                </form>
+            </div>
+          <ul>
+            <li><a href=""></a>
+          </ul>
+        </li>
+      </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
+    </footer>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-42127409-1', 'sandstorm.io');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
+  </body>
+</html>

@@ -7,6 +7,84 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Sandstorm gets a security review</title>
+				<description>&lt;p&gt;Sandstorm recently underwent a security review by &lt;a href=&quot;http://devco.re/&quot;&gt;DevCore Inc.&lt;/a&gt;, commissioned by Department of Cyber Security of Taiwan. The company has in the past found RCEs in big-name services like &lt;a href=&quot;https://hackerone.com/reports/125980&quot;&gt;Uber&lt;/a&gt; and &lt;a href=&quot;http://devco.re/blog/2016/04/21/how-I-hacked-facebook-and-found-someones-backdoor-script-eng-ver/&quot;&gt;Facebook&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Although the full report is not public (and is not in English), Taiwan’s Digital Minister, &lt;a href=&quot;https://en.wikipedia.org/wiki/Audrey_Tang&quot;&gt;Audrey Tang&lt;/a&gt;, tells us that overall DevCore feels Sandstorm has “excellent security design.”&lt;/p&gt;
+
+&lt;p&gt;As would be expected of any good security review, DevCore did find several issues. Last night we released build 0.203 to fix them. All servers should automatically update within 24 hours of the release (by midnight tonight, PST), but if you’d like to speed up the process (or if you have disabled automatic updates), you can SSH into your server now and type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo sandstorm update
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;vulnerabilities-discovered-and-fixed&quot;&gt;Vulnerabilities Discovered (and fixed)&lt;/h3&gt;
+
+&lt;h4 id=&quot;insufficient-e-mail-address-validation&quot;&gt;1. Insufficient e-mail address validation&lt;/h4&gt;
+
+&lt;p&gt;When logging in with an e-mail address, a user could enter an address like “foo@evil.com,bar@example.com”. In this case, login e-mails would be sent to &lt;em&gt;both&lt;/em&gt; addresses, while Sandstorm would treat the user as if they were a member of the latter domain, “example.com”. Hence, an attacker could specify their real address as the first address and a fake address at a domain of their choice as the second, in order to appear to be a member of the domain. Servers that use Sandstorm’s organizational features (until recently only available as part of the &lt;a href=&quot;https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots&quot;&gt;now-defunct&lt;/a&gt; product “Sandstorm for Work”) can be configured to automatically promote members of a domain to full users, allowing them to install apps, create grains, and discover the identities of other members of the organization. Such users would &lt;strong&gt;not&lt;/strong&gt; receive access to any other grains on the server, but an attacker could install their own apps that consume the server’s resources, including CPU, RAM, and disk. An attacker could also combine this vulnerability with one of the others below, all of which require full user status as a starting point.&lt;/p&gt;
+
+&lt;p&gt;The root cause of this bug is Sandstorm’s use of a library called Nodemailer to send e-mail. It turns out that Nodemailer “helpfully” interprets comma-separated lists of addresses as multiple addresses. This is true even if the string is already part of an array. For instance, say you pass the following array in the &lt;code&gt;to&lt;/code&gt; field of a mail sent via Nodemailer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[ &quot;foo@example.com&quot;,
+  &quot;bar@example.com,baz@example.com&quot;,
+  { name: &quot;Garply&quot;, address: &quot;qux@example.com,corge@example.com&quot; } ]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Surprisingly, this three-element array will send e-mail to &lt;em&gt;five&lt;/em&gt; addresses – foo@, bar@, baz@, qux@, and corge@.&lt;/p&gt;
+
+&lt;p&gt;We did not anticipate this feature and assumed that Nodemailer would fail to send e-mail to an invalid address.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Severity:&lt;/strong&gt; Moderate &lt;strong&gt;if&lt;/strong&gt; Sandstorm is configured with an organization defined by e-mail domain. If you do not define an organization, or if you define it by LDAP, SAML, or G Suite domain, then we do not believe this bug can be meaningfully exploited.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fix:&lt;/strong&gt; Sandstorm now performs its own validation of addresses to ensure, among other things, that no separator characters are accepted and only one @-sign is allowed. Fixed in commit &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/commit/37bd9a7f4eb776cdc2d3615f0bfea1254b66f59d&quot;&gt;37bd9a7&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;insufficient-path-validation-when-building-zip-backups&quot;&gt;2. Insufficient path validation when building ZIP backups&lt;/h4&gt;
+
+&lt;p&gt;The owner of a Sandstorm grain can download a backup of the grain’s content in ZIP format. Sandstorm shells out to the &lt;code&gt;zip&lt;/code&gt; utility to build this archive, but does so inside a sandbox designed to prevent exploitation of bugs in the utility.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, a combination of factors resulted in the possibility of a minor data leak:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The list of files to include in the archive is passed to &lt;code&gt;zip&lt;/code&gt; on standard input, delimited by newlines. However, it is possible for a filename to contain a newline character. Sandstorm actually checked for this, but accidentally failed to perform the check in one code path triggered by the existence of an empty directory.&lt;/li&gt;
+  &lt;li&gt;The zip sandbox carefully hid sensitive directories like &lt;code&gt;/var&lt;/code&gt;, &lt;code&gt;/proc&lt;/code&gt;, and even &lt;code&gt;/etc&lt;/code&gt;. However, after the zip sandbox was written, two new directories, &lt;code&gt;/etc.host&lt;/code&gt; and &lt;code&gt;/run.host&lt;/code&gt;, which are aliases for the host system’s &lt;code&gt;/etc&lt;/code&gt; and &lt;code&gt;/run&lt;/code&gt;, were added. Unfortunately, the zip sandbox was not updated to hide these directories, hence they were visible to the zip program.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As a result of this, a user could create a grain containing an empty directory named &lt;code&gt;/var/blah\n/etc.host/passwd&lt;/code&gt;, save a backup, and find the backup contained a copy of the host’s &lt;code&gt;/etc/passwd&lt;/code&gt; file (which, despite its name, does not contain passwords, but does contain a list of local user accounts).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Severity:&lt;/strong&gt; Low. An attacker who has full user status (permission to create grains) can read files located in the server’s &lt;code&gt;/etc&lt;/code&gt; and &lt;code&gt;/run&lt;/code&gt; directories that are set world-readable (or specifically readable to the Sandstorm service account). No other host system directories are exposed. Usually, any files under &lt;code&gt;/etc&lt;/code&gt; that contain sensitive secrets would be hidden from all users except root, hence would not be readable by Sandstorm nor by the attacker.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fix:&lt;/strong&gt; We have fixed the validation of filenames so that newlines are never permitted, and we have enhanced the zip sandbox to use a whitelist of top-level directories rather than a blacklist. Fixed in commit &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/commit/4ea8df7403381d9b657b121b3c98d8081b27414d&quot;&gt;4ea8df7&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;server-side-request-forgery&quot;&gt;3. Server-side request forgery&lt;/h4&gt;
+
+&lt;p&gt;Apps running on Sandstorm can make outgoing HTTP requests through a few mechanisms. Additionally, users can instruct Sandstorm to download an app package file from an arbitrary URL. Sandstorm did not attempt to prevent these requests from reaching localhost or private network destinations. Because of this, a full user of the Sandstorm server (but not a visitor) could probe the internal network on which the Sandstorm server was hosted, as well as services exposed to localhost on the server itself.&lt;/p&gt;
+
+&lt;p&gt;This is a problem if unprotected services are exposed to the Sandstorm server &lt;em&gt;and&lt;/em&gt; you have invited users to your server who should not be trusted to access those services. Sandstorm itself does not expose any unprotected services to localhost, so some other service must be running locally to cause a problem. Only HTTP requests are possible.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Severity:&lt;/strong&gt; High &lt;strong&gt;if&lt;/strong&gt; unprotected HTTP services are visible to the Sandstorm server &lt;em&gt;and&lt;/em&gt; you have invited users to your server who should not be trusted to access those services. Otherwise, low. Sandstorm itself does not expose any unprotected services to localhost, so some other service must be running locally to cause a problem. Only HTTP requests are possible.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fix:&lt;/strong&gt; Sandstorm now allows the server admin to configure an IP address blacklist. User-initiated requests will not be allowed from these addresses. By default, standard private network address ranges are blacklisted. Annoyingly, this “fix” is likely to break some servers who use private app indexes, but avoiding such breakage would mean leaving others vulnerable. Admins will need to update their blacklists accordingly. Fixed in commit &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/commit/164997fb958effbc90c5328c166706280a84aaa1&quot;&gt;164997f&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;failure-to-mitigate-linux-kernel-cve-2017-6074&quot;&gt;4. Failure to mitigate Linux kernel CVE-2017-6074&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;(This was caught internally by the Sandstorm team, not by DevCore, but is fixed in the same release.)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;A recent Linux kernel bug could allow a malicious app to cause a kernel panic or perhaps break out of its sandbox. The bug is in Linux, but Sandstorm aims to protect against such bugs via seccomp. &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/#linux-kernel&quot;&gt;Historically, Sandstorm’s sandbox has been very successful at blocking Linux vulnerabilities before they are discovered.&lt;/a&gt; However, this one slipped through. On Sandstorm, the published PoC exploit for this bug only causes a kernel panic (not a sandbox breakout), but a developer with deep understanding of the bug and the Linux kernel might be able to create a successful attack in other ways.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Severity:&lt;/strong&gt; High if you permit users you don’t trust to install apps on your server, or commonly install apps from untrustworthy sources, and you do not keep your kernel up-to-date.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fix:&lt;/strong&gt; Sandstorm’s seccomp filter has been updated to prohibit the creation of DCCP sockets. Fixed in commit &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/commit/34749f9c0141a89680860b15433e8ac9dbdbbb62&quot;&gt;34749f9&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;We are excited to have received such a thorough security review. Some of the problems discovered were very obscure and we’re impressed that DevCore was able to find them. We thank Audrey Tang and the Department of Cyber Security of of Taiwan for commissioning this review.&lt;/p&gt;
+</description>
+				<pubDate>Thu, 02 Mar 2017 00:00:00 -0800</pubDate>
+                                <link>https://sandstorm.io/news/2017-03-02-security-review</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2017-03-02-security-review</guid>
+			</item>
+		
+			<item>
 				<title>Impact of Cloudflare security advisory on Sandstorm Oasis</title>
 				<description>&lt;p&gt;A few days ago, Cloudflare &lt;a href=&quot;https://blog.cloudflare.com/incident-report-on-memory-leak-caused-by-cloudflare-parser-bug/&quot;&gt;disclosed a security bug&lt;/a&gt; in their services which may have leaked secrets from sites which use Cloudflare. Sandstorm uses Cloudflare as a cache in front of our web site and Sandstorm Oasis, and so some of our users have asked if this problem affects them.&lt;/p&gt;
 
@@ -529,82 +607,6 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
 				<pubDate>Tue, 13 Sep 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-09-13-whats-new</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-09-13-whats-new</guid>
-			</item>
-		
-			<item>
-				<title>Sandstorm for Work is Ready</title>
-				<description>&lt;p&gt;Today, we’re announcing that Sandstorm for Work is no longer in beta. Companies large and small – ourselves included – have been getting work done using Sandstorm for months. It’s time for you to join us!&lt;/p&gt;
-
-&lt;h3 id=&quot;what-is-sandstorm-for-work&quot;&gt;What is Sandstorm for Work?&lt;/h3&gt;
-
-&lt;p&gt;&lt;img style=&quot;float: right; width: 283px; height: 221px;&quot; src=&quot;/images/business-ldap.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Do you wish you could use web services like Google Apps, Slack, Trello, Dropbox, and others, but can’t for security, privacy, or compliance reasons? Frustrated by the setup and maintenance costs of most self-hosted solutions? Need to integrate with your corporate single-sign-on (LDAP, SAML, Active Directory) and enforce company-wide access control policies?&lt;/p&gt;
-
-&lt;p&gt;Sandstorm is a suite of web-based productivity software which you can deploy on your own servers with minimal effort. Any user can install the apps they need with a few clicks – like installing apps on your phone. Apps run inside secure sandboxes with single-sign-on and uniform fine-grained access control. And everything stays up-to-date automatically, so you can set it and forget it.&lt;/p&gt;
-
-&lt;p&gt;Sandstorm for Work is Sandstorm plus the ability to integrate with your corporate single-sign-on, priority support, and other features businesses need.&lt;/p&gt;
-
-&lt;h3 id=&quot;pricing&quot;&gt;Pricing&lt;/h3&gt;
-
-&lt;p&gt;During the beta period we listened to your feedback on pricing, and we’ve decided to make some changes:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;We’ve set a new list price of $10/user/month.&lt;/li&gt;
-  &lt;li&gt;For a limited time, we are offering an additional &lt;strong&gt;50% off&lt;/strong&gt; if you choose annual billing.&lt;/li&gt;
-  &lt;li&gt;Free trials now last 60 days.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;https://sandstorm.io/get-feature-key&quot;&gt;Get Sandstorm for Work »&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;discounted-and-free-keys&quot;&gt;Discounted and free keys&lt;/h3&gt;
-
-&lt;p&gt;We only think you should be paying for Sandstorm if it is helping you make money. To that end:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Non-profits&lt;/strong&gt; with paid employees can receive Sandstorm for Work at half price: $5/user/month.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Educational institutions&lt;/strong&gt; supporting faculty and students pay $5/month for each faculty member and $1/month for each student.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Volunteer groups&lt;/strong&gt; can receive Sandstorm for Work completely free.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Home users&lt;/strong&gt; can also receive Sandstorm for Work for free; if you run an LDAP or SAML server for your own family, then we want your Sandstorm server to be able to take advantage of it.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Bulk discounts&lt;/strong&gt; are available for large organizations and resellers.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;If any of these situations describe you, &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#115;&amp;#097;&amp;#108;&amp;#101;&amp;#115;&amp;#064;&amp;#115;&amp;#097;&amp;#110;&amp;#100;&amp;#115;&amp;#116;&amp;#111;&amp;#114;&amp;#109;&amp;#046;&amp;#105;&amp;#111;&quot;&gt;tell us about it&lt;/a&gt; and we’ll set you up.&lt;/p&gt;
-
-&lt;h3 id=&quot;core-productivity-suite&quot;&gt;Core productivity suite&lt;/h3&gt;
-
-&lt;p&gt;Sandstorm now bundles our four most-popular apps. Every user can immediately edit documents with Etherpad, create task boards with Wekan, create a chat room with Rocket.Chat, and synchronize &amp;amp; secure their files with Davros.&lt;/p&gt;
-
-&lt;p&gt;On Sandstorm, these apps can integrate in ways that aren’t possible when they run stand-alone. For example:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Activity, comments, and mentions are merged into a single notification stream, so it’s easy to keep track of what your teammates are working on across all apps at once.&lt;/li&gt;
-  &lt;li&gt;You can gather related data from across apps into collections to be shared as a unit.&lt;/li&gt;
-  &lt;li&gt;You can share data from any app directly and securely to a chat room in Rocket.Chat – click the button just to the left of the chat box. No need to generate nor copy/paste a secret link – and no need to worry about that link falling into the wrong hands.&lt;/li&gt;
-  &lt;li&gt;Sandstorm for Work’s priority support covers these apps in addition to Sandstorm itself. If you have a problem, just let us know and we’ll work with the upstream developers to get it fixed on your behalf.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;extended-app-library&quot;&gt;Extended app library&lt;/h3&gt;
-
-&lt;p&gt;There are currently &lt;a href=&quot;https://apps.sandstorm.io&quot;&gt;61 apps and growing&lt;/a&gt; available on Sandstorm, and you can easily &lt;a href=&quot;https://docs.sandstorm.io/en/latest/developing/&quot;&gt;make your own&lt;/a&gt;. Need to run surveys, create spreadsheets, make diagrams, take notes, typeset scholarly papers, host code, publish web pages, or run wikis? We have all that, and more.&lt;/p&gt;
-
-&lt;h3 id=&quot;unprecedented-security&quot;&gt;Unprecedented security&lt;/h3&gt;
-
-&lt;p&gt;Sandstorm is the only server platform that uses fine-grained containerization, which &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/&quot;&gt;protects you against security bugs in apps&lt;/a&gt;, so you can safely let your users install the apps they need, relying on Sandstorm’s automatic exploit mitigation and network isolation to keep data safe.&lt;/p&gt;
-
-&lt;h3 id=&quot;automatic-updates&quot;&gt;Automatic updates&lt;/h3&gt;
-
-&lt;p&gt;As always, once you’ve installed Sandstorm for Work, Sandstorm and apps will be kept up-to-date automatically, with no action needed on your part. Sandstorm is getting better every day, and your users will get those benefits without you lifting a finger.&lt;/p&gt;
-
-&lt;h3 id=&quot;still-open-source&quot;&gt;Still open source&lt;/h3&gt;
-
-&lt;p&gt;Sandstorm for Work is 100% open source software with a thriving community. That means it will never disappear or stop working. Read more in &lt;a href=&quot;https://sandstorm.io/news/2016-04-06-sandstorm-for-work&quot;&gt;our original announcement&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;https://sandstorm.io/get-feature-key&quot;&gt;Get Sandstorm for Work »&lt;/a&gt;&lt;/p&gt;
-</description>
-				<pubDate>Wed, 31 Aug 2016 00:00:00 -0700</pubDate>
-                                <link>https://sandstorm.io/news/2016-08-31-sandstorm-for-work-ready</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-08-31-sandstorm-for-work-ready</guid>
 			</item>
 		
 	</channel>
