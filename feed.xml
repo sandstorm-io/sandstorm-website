@@ -7,6 +7,29 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>The Sandstorm Team is joining Cloudflare</title>
+				<description>&lt;p&gt;Recently, we announced that &lt;a href=&quot;https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots&quot;&gt;Sandstorm is returning to its community roots&lt;/a&gt;, transitioning away from being a for-profit startup and towards being a community-effort, open source project. The Sandstorm team is committed to keep building Sandstorm in collaboration with our amazing community, and we will keep operating Sandstorm Oasis as a service. But, Sandstorm will no longer be our full-time jobs.&lt;/p&gt;
+
+&lt;p&gt;So, what will be?&lt;/p&gt;
+
+&lt;p&gt;Starting today, most of the Sandstorm team – including Jade and myself – now work for Cloudflare.&lt;/p&gt;
+
+&lt;p&gt;Sandstorm has actually been a user of Cloudflare since the beginning. Our web site and static parts of Oasis are served through them. I’ve long been a fan of Cloudflare’s focus on security. A few years back, I enjoyed their &lt;a href=&quot;https://blog.cloudflare.com/answering-the-critical-question-can-you-get-private-ssl-keys-using-heartbleed/&quot;&gt;Heartbleed Challenge&lt;/a&gt; which proved conclusively that, yes, private keys can be leaked by Heartbleed. Although Cloudflare recently suffered from &lt;a href=&quot;https://blog.cloudflare.com/incident-report-on-memory-leak-caused-by-cloudflare-parser-bug/&quot;&gt;a widely-reported security incident&lt;/a&gt;, their response was impressively fast and transparent.&lt;/p&gt;
+
+&lt;p&gt;But a bigger reason I’m excited about joining Cloudflare is that they are big users – perhaps the biggest users – of &lt;a href=&quot;https://capnproto.org&quot;&gt;Cap’n Proto&lt;/a&gt;, the serialization and RPC framework developed by Sandstorm. Cloudflare actually &lt;a href=&quot;https://blog.cloudflare.com/introducing-lua-capnproto-better-serialization-in-lua/&quot;&gt;developed the Lua bindings for Cap’n Proto&lt;/a&gt; and has &lt;a href=&quot;http://www.thedotpost.com/2015/06/john-graham-cumming-i-got-10-trillion-problems-but-logging-aint-one&quot;&gt;spoken publicly about using Cap’n Proto in their logging pipeline&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sandstorm, for its part, remains an independent entity, and I won’t be working on it during my day job at Cloudflare. However, I will be working on Cap’n Proto. This should be good news for Cap’n Proto fans who have been disappointed by the lack of releases lately. Although Sandstorm uses Cap’n Proto extensively, in our scramble to build Sandstorm we tended to commit changes only to git master while neglecting to build (and test) formal releases. With a larger corporate backer, we can now afford to be more professional, doing more frequent releases, and putting effort into supporting more languages and platforms.&lt;/p&gt;
+
+&lt;p&gt;I will also be working on building some fascinating new infrastructure at Cloudflare. As a member of the edge platform team, I’ll be coming up with new ways to utilize Cloudflare’s machines located in over a hundred data centers around the world. Jade, meanwhile, will be working on building out Cloudflare’s community and developer advocacy program.&lt;/p&gt;
+
+&lt;p&gt;The Sandstorm community can expect to see me merging pull requests and pushing releases on weekends, with new releases at least every three weeks. There has been a flurry of activity lately around mobilizing community contributions. Join the discussion on &lt;a href=&quot;https://groups.google.com/forum/#!forum/sandstorm-dev&quot;&gt;the sandstorm-dev mailing list&lt;/a&gt; or on &lt;a href=&quot;https://kiwiirc.com/client/irc.freenode.net/?channel=#sandstorm&quot;&gt;IRC (#sandstorm on Freenode)&lt;/a&gt;!&lt;/p&gt;
+</description>
+				<pubDate>Mon, 13 Mar 2017 00:00:00 -0700</pubDate>
+                                <link>https://sandstorm.io/news/2017-03-13-joining-cloudflare</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2017-03-13-joining-cloudflare</guid>
+			</item>
+		
+			<item>
 				<title>Sandstorm gets a security review</title>
 				<description>&lt;p&gt;Sandstorm recently underwent a security review by &lt;a href=&quot;http://devco.re/&quot;&gt;DevCore Inc.&lt;/a&gt;, commissioned by Department of Cyber Security of Taiwan. The company has in the past found RCEs in big-name services like &lt;a href=&quot;https://hackerone.com/reports/125980&quot;&gt;Uber&lt;/a&gt; and &lt;a href=&quot;http://devco.re/blog/2016/04/21/how-I-hacked-facebook-and-found-someones-backdoor-script-eng-ver/&quot;&gt;Facebook&lt;/a&gt;.&lt;/p&gt;
 
@@ -509,104 +532,6 @@ Get an estimate »
 				<pubDate>Fri, 30 Sep 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-09-30-fiber-bomb-debugging-story</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-09-30-fiber-bomb-debugging-story</guid>
-			</item>
-		
-			<item>
-				<title>August changelog: what&#39;s new in Sandstorm</title>
-				<description>&lt;p&gt;August’s most visible change is that when new users join a Sandstorm server, some apps are installed
-automatically. By default, and on
-&lt;a href=&quot;https://oasis.sandstorm.io/&quot;&gt;Oasis,&lt;/a&gt; users can jump into Davros, Etherpad, Rocket.Chat, and Wekan,
-and they can create collections using the &lt;a href=&quot;https://sandstorm.io/news/2016-08-09-collections-app&quot;&gt;Collections
-app&lt;/a&gt;. The server administrator can choose
-which apps come preinstalled for their users. We hope this helps people quickly become productive
-with Sandstorm!&lt;/p&gt;
-
-&lt;p&gt;We made some underlying technical changes this month, too. The most significant is that we migrated
-to &lt;a href=&quot;http://info.meteor.com/blog/announcing-meteor-1.4&quot;&gt;Meteor 1.4&lt;/a&gt;, which allowed us to switch to
-the most recent long-term supported version of nodejs, &lt;a href=&quot;https://nodejs.org/en/blog/release/v4.0.0/&quot;&gt;node
-4.&lt;/a&gt; This required some substantial upheaval behind the
-scenes. It also enabled a change we’ve wanted to make for a long time: users of our
-&lt;a href=&quot;https://docs.sandstorm.io/en/latest/administering/sandcats/&quot;&gt;sandcats.io&lt;/a&gt; free HTTPS service now
-use ciphers supporting &lt;a href=&quot;http://stackoverflow.com/questions/14034508/dh-vs-dhe-and-ecdhe-and-perfect-forward-secrecy&quot;&gt;perfect forward
-secrecy.&lt;/a&gt;
-If you test your own sandcats-enabled server on the &lt;a href=&quot;https://www.ssllabs.com/ssltest/&quot;&gt;Qualys SSL Labs server
-test&lt;/a&gt;, you’ll see that your grade has improved from an A- to an A!&lt;/p&gt;
-
-&lt;p&gt;Sandstorm servers have automatic updates enabled by default, so to get these updates, you don’t
-have to do anything. Sandstorm checks for updates and smoothly switches to the latest code every
-24 hours.&lt;/p&gt;
-
-&lt;p&gt;Here’s the full August changelog!&lt;/p&gt;
-
-&lt;h3 id=&quot;v0179-2016-08-26&quot;&gt;v0.179 (2016-08-26)&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;A user can now request deletion of their own account, unless they are a member of a Sandstorm for Work organization. Deletion has a 7-day cooldown during whith the user can change their mind.&lt;/li&gt;
-  &lt;li&gt;Admins can now suspend and delete accounts from the admin panel.&lt;/li&gt;
-  &lt;li&gt;Apps can now request that an offer template be a link with a special protocol scheme that can trigger a mobile intent, allowing one-click setup of mobile apps. Apps will need to be updated to take advantage of this.&lt;/li&gt;
-  &lt;li&gt;Identity capabilities now have a getProfile() method, allowing a grain to discover when a user’s profile information has changed without requiring the user to return to the grain.&lt;/li&gt;
-  &lt;li&gt;Fixed that admins were unable to un-configure SMTP after it had been configured.&lt;/li&gt;
-  &lt;li&gt;Fixed problems in sandstorm-http-bridge that could make notifications unreliable. Affected apps will need to rebuild.&lt;/li&gt;
-  &lt;li&gt;Increased expiration time for uploading a backup from 15 minutes to 2 hours, to accommodate large backup files on slow connections.&lt;/li&gt;
-  &lt;li&gt;Fixed email attachments from apps having incorrect filenames.&lt;/li&gt;
-  &lt;li&gt;Fixed various styling issues.&lt;/li&gt;
-  &lt;li&gt;Various ongoing refactoring.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;v0178-2016-08-20&quot;&gt;v0.178 (2016-08-20)&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;The grain list can now be sorted by clicking on the column headers.&lt;/li&gt;
-  &lt;li&gt;Many improvements to mobile UI. (Still more to do.)&lt;/li&gt;
-  &lt;li&gt;Your current identity’s profile picture now appears next to your name in the upper-right.&lt;/li&gt;
-  &lt;li&gt;Fixed desktop notifications displaying grain titles incorrectly.&lt;/li&gt;
-  &lt;li&gt;Fixed &lt;code&gt;spk publish&lt;/code&gt; throwing an exception due to a bug in email handling.&lt;/li&gt;
-  &lt;li&gt;Improved accessibility of “Sandstorm has been updated - click to reload” bar.&lt;/li&gt;
-  &lt;li&gt;When an app returns an invalid &lt;code&gt;ETag&lt;/code&gt; header, sandstorm-http-bridge will now log an error and drop it rather than throw an exception.&lt;/li&gt;
-  &lt;li&gt;Updated to Meteor 1.4.1.&lt;/li&gt;
-  &lt;li&gt;Oasis: Fixed appdemo not working for Davros.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;v0177-2016-08-15-bugfixes&quot;&gt;v0.177 (2016-08-15) [bugfixes]&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Changes to SMTP handling in v0.175 caused Sandstorm to begin verifying TLS certificates strictly. Unfortunately, the prevailing norm in SMTP is loose enforcement and many actual users found Sandstorm no longer worked with their SMTP providers. This update therefore relaxes the rules again, but in the near future we will add configuration options to control this.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;v0176-2016-08-13-bugfixes&quot;&gt;v0.176 (2016-08-13) [bugfixes]&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Fix web publishing to alternate hosts, broken by an API change in Node.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;v0175-2016-08-13&quot;&gt;v0.175 (2016-08-13)&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Grain sizes now appear on the grain list.&lt;/li&gt;
-  &lt;li&gt;Added &lt;code&gt;sandstorm uninstall&lt;/code&gt; shell command.&lt;/li&gt;
-  &lt;li&gt;Upgraded to Meteor 1.4 and Node 4.&lt;/li&gt;
-  &lt;li&gt;Sandcats: HTTPS connections now support ECDHE forward secrecy (as a result of the Node upgrade). Qualys grade increased from A- to A.&lt;/li&gt;
-  &lt;li&gt;Bell-menu notifications now also trigger desktop notifications.&lt;/li&gt;
-  &lt;li&gt;The collections app has been added to the default preinstall list for new servers. (We highly recommend existing servers add it in the admin settings, too.)&lt;/li&gt;
-  &lt;li&gt;No apps will be automatically installed on dev/testing servers (e.g. vagrant-spk).&lt;/li&gt;
-  &lt;li&gt;Switched to newer, better mail-handling libraries.&lt;/li&gt;
-  &lt;li&gt;Fixed the “close” button on the email self-test dialog.&lt;/li&gt;
-  &lt;li&gt;Fixed the “dismiss” button on notifications behaving like you’d clicked the notification body.&lt;/li&gt;
-  &lt;li&gt;Errors during a powerbox request will now be shown on-screen rather than just printed to the console.&lt;/li&gt;
-  &lt;li&gt;Fixed that uploading a backup left a bogus history entry, breaking the browser’s back button.&lt;/li&gt;
-  &lt;li&gt;Fixed powerbox search box, which was apparently completely broken.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;v0174-2016-08-05&quot;&gt;v0.174 (2016-08-05)&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Admins can now choose to pre-install certain apps into new user accounts. For all new servers and Oasis, our four most-popular apps will be pre-installed by default: Etherpad, Wekan, Rocket.Chat, and Davros. Admins can disable this if they prefer, and servers predating this change will not pre-install any apps by default (but the admin can change this).&lt;/li&gt;
-  &lt;li&gt;offer()ing a grain capability now works for anonymous users, which means anonymous users can use the collections app. This app will be officially released shortly.&lt;/li&gt;
-  &lt;li&gt;Identicons are now rendered as SVGs rather than PNGs, which makes them much more efficient to generate. This in particular fixes the noticeable pause when the sharing contact auto-complete first appears for users who have many contacts.&lt;/li&gt;
-  &lt;li&gt;Updated to Meteor 1.3.5.1 (1.4 / Node 4 coming soon!).&lt;/li&gt;
-  &lt;li&gt;Fixed that Sandstorm sometimes temporarily incorrectly flashed “(incognito)” in place of the user name when starting.&lt;/li&gt;
-  &lt;li&gt;Sandstorm for Work: Non-square whitelabel icons now do something reasonable.&lt;/li&gt;
-  &lt;li&gt;Various refactoring.&lt;/li&gt;
-  &lt;li&gt;Somewhat improved styling of bell-menu notifications. (More work to be done.)&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-				<pubDate>Tue, 13 Sep 2016 00:00:00 -0700</pubDate>
-                                <link>https://sandstorm.io/news/2016-09-13-whats-new</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-09-13-whats-new</guid>
 			</item>
 		
 	</channel>

@@ -99,13 +99,81 @@
 
 
 <section>
+  <h2><a href="/news/2016-07-13-whats-new">June changelog - what's new in Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2016-07-13-whats-new">13 Jul 2016</a>
+  
+  
+  
+  
+  <p>June’s big change is that we’ve reworked what first-time users see when using Sandstorm. There are
+speech bubbles guiding them to install an app, create a grain, and to take a look at the “Share
+access” interface, all powered by <a href="http://introjs.com/">intro.js</a>. I’m hopeful this helps people
+become productive and comfortable with Sandstorm faster than before.</p>
+
+<p>It applies to all users, including demo users, so test it out by opening
+<a href="https://demo.sandstorm.io/">demo.sandstorm.io</a> in an incognito window and click Try a quick demo.</p>
+
+<p>Some readers will appreciate that this month, we also chased down a subtle memory leak caused by a
+lack of flow control in the HTTP implementation spread across proxy.js and
+sandstorm-http-bridge. You’ll find the details in <a href="https://github.com/sandstorm-io/sandstorm/pull/2056/files">pull request
+#2056.</a></p>
+
+<p>Read the full changelog here, or visit your own Sandstorm server’s “About Sandstorm” section for a
+changelog at any time.</p>
+
+<h3 id="v0169-2016-06-26-bugfixes">v0.169 (2016-06-26) [bugfixes]</h3>
+<ul>
+  <li>Fixed regression in static web publishing that caused requests that should have returned 404s or redirect-to-add-trailing-slash to instead return a 500 status with a blank page.</li>
+  <li>Added ability for admin to request a heapdump (to debug memory leaks).</li>
+</ul>
+
+<h3 id="v0168-2016-06-24-bugfixes">v0.168 (2016-06-24) [bugfixes]</h3>
+<ul>
+  <li>Sandstorm for Work: SAML connector should now work with Active Directory.</li>
+  <li>Fixed various subtle resource leaks in Sandstorm front-end and sandstorm-http-bridge.</li>
+  <li>Fixed random crash/hang bug introduced in sandstorm-http-bridge v0.166. Apps build since that time will need to be rebuilt.</li>
+  <li>The old admin interface has been completely removed (the new admin interface has been the default since v0.164).</li>
+  <li>The email configuration test dialog now shows more informative error messages.</li>
+  <li>The “most-used” apps row is now only shown if you have more than 6 apps, without which it isn’t helping.</li>
+  <li>Added “guided tour” hint highlighting the “share access” button.</li>
+  <li>Added explanatory text to admin user invite page.</li>
+  <li>Fixed search bar autofocus on app list page.</li>
+  <li>The question mark info button on Grains page was supposed to have a circle around it.</li>
+</ul>
+
+<h3 id="v0167-2016-06-18-bugfixes">v0.167 (2016-06-18) [bugfixes]</h3>
+<ul>
+  <li>Updated to Meteor 1.3.3.1.</li>
+  <li>Implemented hard flow control at the Cap’n Proto layer so that an errant (or malicious) app cannot cause excessive memory use elsewhere in the system by making excessive simultaneous calls. This should improve the stability of Oasis.</li>
+  <li>Implemented flow control for uploads to an app (though it rarely comes into play unless running Sandstorm locally).</li>
+  <li>Fixed that after losing internet connectivity for a while (or suspending your laptop) and then coming back, grains would refresh.</li>
+  <li>Fixed some memory leaks in shell server.</li>
+  <li>Added more “guided tour” points to help new users learn Sandstorm.</li>
+  <li>Sandstorm for Work: SAML connector now exports XML auto-configuration blob.</li>
+  <li>Sandstorm for Work: Improved UI around feature keys.</li>
+</ul>
+
+<h3 id="v0166-2016-06-11-bugfixes">v0.166 (2016-06-11) [bugfixes]</h3>
+<ul>
+  <li>Implemented flow control for large file downloads from apps so that they don’t buffer in the front-end consuming excessive RAM. Apps that handle large files will need to re-pack using the latest sandstorm-http-bridge and push an update.</li>
+  <li>Sandstorm for Work: Made SAML entity ID configurable; added more setup instructions.</li>
+  <li>Updated Google login setup instructions to match latest gratuitous UI changes.</li>
+</ul>
+
+<h3 id="v0165-2016-06-04-bugfixes">v0.165 (2016-06-04) [bugfixes]</h3>
+<ul>
+  <li>Re-enabled websocket self-check under new admin UI.</li>
+</ul>
+
+</section>
+
+<section>
   <h2><a href="/news/2016-06-29-asheesh-web-apps">Upcoming Event: Web app packaging in Sandstorm: It's not LAMP</a></h2>
   <p class="post-details">By <a href="https://github.com/neynah">Nena Nguyen</a>
     
     - <a href="/news/2016-06-29-asheesh-web-apps">29 Jun 2016</a>
-  
-  
-  
   
   <p>On July 19th, Sandstorm core dev <a href="https://github.com/paulproteus">Asheesh Larioa</a> will be giving a talk about web packaging at our South Bay Sandstorm meetup.</p>
 
@@ -253,48 +321,6 @@ Listhub
 453 Suncrest Towne Centre, 2nd Floor, Morgantown, WV</p>
 
 <p>RSVP here: <a href="http://www.meetup.com/Morgantown-Linux-User-Group/events/228038429/">http://www.meetup.com/Morgantown-Linux-User-Group/events/228038429/</a></p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-05-31-whats-new">May changelog - what's new in Sandstorm</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2016-05-31-whats-new">31 May 2016</a>
-  
-  <p>This month features a big change: when you delete grains, they are sent to a “Trash” area, where
-they are held for 30 days before being deleted permanently. I personally have clicked “Delete” on
-the wrong grain by accident, so I’m very happy with the new feature! This way, I can undo it.</p>
-
-<p>Self-hosters will also appreciate the totally-redesigned admin interface. Visit /admin on your server
-and you’ll see that it’s easier to navigate and visually cleaner.</p>
-
-<p>Here’s the full changelog. As always, you can visit your Sandstorm server and find the changelog
-under the “About Sandstorm” section.</p>
-
-<h3 id="v0164-2016-05-20">v0.164 (2016-05-20)</h3>
-<ul>
-  <li>Self-hosting: The admin settings UI has been completely revamped.</li>
-  <li>Fixed grain debug log auto-scrolling.</li>
-  <li>Sandcats: Fixed obscure ASN.1 type issue in CSRs that was causing Globalsign API to complain.</li>
-  <li>Fixed bug where logging in via Google or Github while viewing a sharing link which you had already redeemed previously would lead to an error.</li>
-</ul>
-
-<h3 id="v0163-2016-05-15-bugfixes">v0.163 (2016-05-15) [bugfixes]</h3>
-<ul>
-  <li>Fixed subtle bug introduced in 0.162 which caused shared grains to refresh every minute.</li>
-</ul>
-
-<h3 id="v0162-2016-05-14">v0.162 (2016-05-14)</h3>
-<ul>
-  <li>Implemented “trash”. Deleted grains go to the trash where they can be recovered for up to 30 days.</li>
-  <li>Grains can now be deleted from the grain list, without opening them first. Multiple grains can be selected for deletion at once.</li>
-  <li>An app can now request that the “who has access” dialog be displayed.</li>
-  <li>Fixed bug where after an upload failed, future uploads would show the same error despite not having failed.</li>
-  <li>Tweaked the “logout other sessions” button to give better feedback that the request is in-progress.</li>
-  <li>When visiting a Sandstorm server that hasn’t been set up yet, you’ll now be redirected to the setup wizard.</li>
-  <li>The API endpoint now allows the authorization token to be specified as part of the path, for cases where setting the <code>Authorization</code> header is not possible (especially cross-origin WebSocket).</li>
-</ul>
 
 </section>
 
