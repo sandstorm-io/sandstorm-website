@@ -99,13 +99,48 @@
 
 
 <section>
+  <h2><a href="/news/2014-08-12-meteor-spk">Porting Meteor apps to Sandstorm in three minutes</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-08-12-meteor-spk">12 Aug 2014</a>
+  
+  
+  
+  
+  <p>As you know, Sandstorm apps can be written using any tech stack that runs on Linux. We have apps written in PHP, Python, Node.js, C++, Go, and even Rust.</p>
+
+<p>But if you’re starting from scratch and need to choose, the easiest way to write a Sandstorm app today is using <a href="https://www.meteor.com">Meteor</a>. Meteor is a modern open source web framework that makes it ridiculously easy to build high-quality, low-latency, real-time web apps quickly. Sandstorm’s own front-end is built on Meteor.</p>
+
+<p>I recently gave a lightning talk at <a href="https://devshop.meteor.com">Meteor Devshop</a> where I demonstrated porting a Meteor app to Sandstorm. The app I chose was written by independent developers with no intent to target our platform. As you’ll see, it took me under three minutes to port live on stage:</p>
+
+<p><em>Note: The video shows the process for older versions of Meteor, in which packages had to be installed with the separate tool Meteorite (<code>mrt</code>). This blog post has since been updated for Meteor 0.9.x, which has its own built-in package repository.</em></p>
+
+<div><iframe class="youtube" src="//www.youtube.com/embed/mJpYHhqByUo" frameborder="0" allowfullscreen="true"> </iframe></div>
+
+<p>When it comes to writing a Sandstorm app, Meteor works particularly well as a platform because it tends to produce self-contained apps. Meteor’s tools already know how to construct a “bundle” containing all of the app’s dependencies. From there, we just need to add Node and Mongo, and we have ourselves a Sandstorm package. We don’t even need to use <a href="2014-05-12-easy-port.html">our trick to automatically detect dependencies</a>.</p>
+
+<p>To make this even easier, we’ve written a tool called <a href="https://sandstorm.io/meteor-spk"><code>meteor-spk</code></a> which automates this. We’ve also published a Meteor package <a href="https://atmospherejs.com/kenton/accounts-sandstorm"><code>kenton:accounts-sandstorm</code></a> which integrates Meteor’s accounts system with Sandstorm’s unified login. Together, these mean that porting a Meteor app to Sandstorm usually involves three commands:</p>
+
+<pre><code>meteor add kenton:accounts-sandstorm
+meteor-spk init
+meteor-spk pack myapp.spk
+</code></pre>
+
+<p>Our intrepid fan <a href="https://plus.google.com/+JakeWeisz">Jake Weisz</a> – who previously <a href="2014-08-05-ethercalc.html">contributed a port of EtherCalc</a> – has used this tool to port <a href="https://github.com/stubailo/meteor-blocks">Meteor Blocks</a>, a simple voxel-based model editor written using Meteor. You can find it on the Sandstorm app list now – <a href="https://demo.sandstorm.io">try the demo</a> if you don’t already have your own server.</p>
+
+<p><img src="https://sandstorm.io/apps/meteor-blocks.png" alt="Meteor-blocks screenshot" /></p>
+
+<p>We hope to see tools like this developed for other frameworks in the future. <code>meteor-spk</code> is just a simple bash script wrapping Sandstorm’s <code>spk</code> tool and providing a dependency bundle to merge into the package. If you’d like to contribute a similar script for your own favorite framework, <a href="https://groups.google.com/group/sandstorm-dev">let us know</a>!</p>
+
+<p><em>Disclosure: Jade Wang, a member of the Sandstorm project, also works for Meteor, but Sandstorm and Meteor are not affiliated.</em></p>
+
+</section>
+
+<section>
   <h2><a href="/news/2014-08-11-roundcube">Roundcube; and avoiding walled gardens</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2014-08-11-roundcube">11 Aug 2014</a>
-  
-  
-  
   
   <p>Today we’re releasing our port of <a href="http://roundcube.net">Roundcube</a>, another open source e-mail web app. You can go install it from the app list now, either on your own Sandstorm server or <a href="https://demo.sandstorm.io">on our demo</a>.</p>
 
@@ -297,46 +332,6 @@ to <a href="http://igg.me/at/sandstorm">fund our Indiegogo campaign</a>. :)</p>
 <p>Sandstorm, of course, also resolves the hosting question, making it easy for users to deploy ShareLaTeX to servers they control.</p>
 
 <p>We take all of this as evidence that Sandstorm can eliminate many of the less-interesting and potentially costly parts of developing web apps. We hope that Sandstorm will enable developers to create many more apps like ShareLaTeX, catering to audiences of all sizes.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2014-07-24-tinytinyrss-plus-security-discussion">We now have an RSS reader; plus let's talk about security</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2014-07-24-tinytinyrss-plus-security-discussion">24 Jul 2014</a>
-  
-  <p>Have you ever wished for an RSS reader that won’t simply <a href="http://reader.google.com">disappear</a> if the developers get tired of it?</p>
-
-<p>Today, we’re releasing our port of <a href="http://tt-rss.org/">TinyTinyRSS</a> to Sandstorm. Go install it on your Sandstorm server now, or <a href="https://demo.sandstorm.io">try the Sandstorm demo</a>.</p>
-
-<p>Unlike traditional web apps, Sandstorm apps can never “disappear”, because they run on <em>your</em> server rather than on the developer’s. Even if the developer stops supporting the app, you still have a copy that will keep working.</p>
-
-<p>You might say: “But what about security updates?” Good question! Let’s talk about security.</p>
-
-<h3 id="what-happens-if-an-app-has-security-bugs">What happens if an app has security bugs?</h3>
-
-<p>It turns out Sandstorm apps are automatically much more secure than on traditional servers. Much of your security is handled by the platform, without the app’s involvement. In many cases, even an app that has known security flaws is perfectly safe to run in Sandstorm.</p>
-
-<p>For starters, Sandstorm handles login and authentication, so automatically one of the biggest potential vulnerabilities is gone. There is no way someone can exploit a vulnerability in the app to “log in” to your account, and the app never has access to your password or session keys and therefore cannot leak them.</p>
-
-<p>Moreover, attacks in which the attacker “tricks” your browser into performing some action on an app (with your credentials) are largely mitigated as well, because the attacker has no way to know your app’s address. Sandstorm assigns apps to hostnames on a temporary, per-session basis. When you don’t have your app open, it doesn’t even have a hostname. These hostnames are not displayed to the user, and we’re working on a change to make them cryptographically unguessable. If the attacker does not know your app’s hostname, they cannot launch CSRF attacks and many kinds of XSS attacks are thwarted as well.</p>
-
-<p>The only remaining way to attack your app is by getting data into it by some other means. What this means depends on the app.</p>
-
-<p>Imagine a document editor like Etherpad. This app never talks to the outside world at all. The only way an attacker can even talk to it (the first step in exploiting it) is by convincing you to explicitly share the document with them.</p>
-
-<p>For an app like TinyTinyRSS, there’s another opening: the app requests RSS feeds from the internet and parses them. Hypothetically, a bug in the feed parser or in the way feeds are rendered in the UI could make the app vulnerable. In order to exploit such a vulnerability, an attacker would have to trick you into signing up for their malicious RSS feed.</p>
-
-<p>But even in the worst case in these two examples, the damage is small, because Sandstorm itself isolates each app in a separate sandbox. Even if an app is exploited, the attacker only gets access to that app – and only the particular <em>instance</em> of that app.</p>
-
-<p>In the case of Etherpad, we create a separate sandbox for every document. So, if an attacker exploits a document, they only get access to that document. And as mentioned above, there’s no way for an attacker to exploit Etherpad without first receiving a share from the document owner. And if the document has already been shared with the attacker, they already have the whole contents, so what’s left to exploit? They can’t use that exploit to get access to any <em>other</em> document, because each document is in its own sandbox.</p>
-
-<p>In the case of TinyTinyRSS, if an attacker exploited an RSS parsing bug, they might get access to the TinyTinyRSS instance. This means they’d be able to see your other feeds, and could perhaps change your subscriptions. That’s it. For most people this is probably not a big deal. It’s a problem, but it’s nothing like having your password stolen or e-mail erased. And if you actually have a super-secret feed that you want no one to know about, you can protect yourself by having two separate TinyTinyRSS instances: one for your common feeds and one for the sensitive-but-trusted ones. If you accidentally sign up for an evil feed, you’ll probably put it in the first instance, and thus the sensitive instance is still protected. (Again, this is all hypothetical; we know of no such vulnerability.)</p>
-
-<p>This is what we call the “principle of least authority”: Each app only has the “authority” to do its job, and thus a vulnerability in one app can only do as much damage as the app’s authority allows. On traditional desktop systems with no sandboxing, a security bug in one app could completely expose your entire system to hackers. On the web today, a security vulnerability in one app might expose your password, thus giving attackers access to any other app where you use that password. On Sandstorm, a security bug in one app only harms that app and things to which it is connected.</p>
-
-<p>Of course, the above discussion is about apps. A bug in Sandstorm itself could be much more devastating. But that’s a smaller attack surface, and we have multiple security experts working with us. Security bugs are always possible in any code, but the less code you rely on not to have bugs, the less likely it is that one will harm you.</p>
 
 </section>
 
