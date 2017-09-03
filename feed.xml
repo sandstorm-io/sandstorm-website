@@ -8,7 +8,9 @@
 		
 			<item>
 				<title>We&#39;re changing the way identities work</title>
-				<description>&lt;p&gt;Over the next few weeks, I’ll be making a major change to the way Sandstorm handles user accounts and identities. My goal is to make things far less confusing.&lt;/p&gt;
+				<description>&lt;p&gt;&lt;strong&gt;UPDATE September 2, 2017:&lt;/strong&gt; &lt;em&gt;This change has been fully released and will roll out to all servers within the next 24 hours.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Over the next few weeks, I’ll be making a major change to the way Sandstorm handles user accounts and identities. My goal is to make things far less confusing.&lt;/p&gt;
 
 &lt;p&gt;Most Sandstorm users probably have no idea that these features exist, and so won’t notice the change. However, if you’ve linked multiple “identities” (multiple e-mail, Google, or GitHub accounts) to your Sandstorm account, you may want to read this.&lt;/p&gt;
 
