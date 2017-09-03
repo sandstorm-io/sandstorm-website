@@ -5,6 +5,8 @@ author: Kenton Varda
 authorUrl: https://github.com/kentonv
 ---
 
+**UPDATE September 2, 2017:** _This change has been fully released and will roll out to all servers within the next 24 hours._
+
 Over the next few weeks, I'll be making a major change to the way Sandstorm handles user accounts and identities. My goal is to make things far less confusing.
 
 Most Sandstorm users probably have no idea that these features exist, and so won't notice the change. However, if you've linked multiple "identities" (multiple e-mail, Google, or GitHub accounts) to your Sandstorm account, you may want to read this.
