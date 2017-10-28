@@ -86,13 +86,29 @@
 
 
 <section>
+  <h2><a href="/news/2017-10-28-i18n">Sandstorm UI now available in Chinese, Dutch</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2017-10-28-i18n">28 Oct 2017</a>
+  
+  
+  
+  
+  <p>As of last week’s Sandstorm release (version 0.216), the Sandstorm UI is (mostly) now internationalized, meaning text has been moved out of the interface into separate translation tables.</p>
+
+<p><a href="https://github.com/sandstorm-io/sandstorm/pull/2985">This work</a> was mostly done by <a href="https://github.com/urakagi">Romulus Urakagi Tsai</a> and <a href="https://github.com/caasi">Caasi Huang</a>, supported by <a href="http://g0v.tw">g0v.tw</a>. Additionally, they contributed translation tables for Traditional Chinese, as well as a partial translation to Simplified Chinese (though the latter is still incomplete).</p>
+
+<p>With i18n in place, other Sandstorm users immediately began work on other translations. In this week’s release (0.218), we’ve merged a <a href="https://github.com/sandstorm-io/sandstorm/pull/2999">Dutch translation</a> by <a href="https://github.com/m-burg">Michel van der Burg</a>.</p>
+
+<p>Would you like to contribute a Sandstorm translation? It’s easy – no programming required. Check out <a href="https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md#internationalization-i18n">the contributing guide</a> for instructions, and talk to us on <a href="https://groups.google.com/group/sandstorm-dev">the sandstorm-dev mailing list</a>.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2017-05-08-refactoring-identities">We're changing the way identities work</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2017-05-08-refactoring-identities">08 May 2017</a>
-  
-  
-  
   
   <p><strong>UPDATE September 2, 2017:</strong> <em>This change has been fully released and will roll out to all servers within the next 24 hours.</em></p>
 
@@ -303,79 +319,6 @@
 <p>Now, consider the use of password-based authentication. Nearly every service on the web uses it. However, it is demonstrably horribly insecure: Not only do people regularly use bad passwords or reuse the same password across sites, but passwords stored in a database (even if hashed) make it much easier for attackers to escalate a read-only database snapshot into full access privileges (possibly even to sites other than the one attacked). By requiring the user to receive an authentication code by e-mail each time they log in from a new location, a service can hugely reduce their users’ risk of compromise – probably by an order of magnitude! By this measure, bare password-based authentication should be considered a vulnerability, and a much more serious one than Cloudflare’s bug.</p>
 
 <p>And yet, people accept passwords because they are more convenient than other mechanisms. <em>(Well, many people do. Sandstorm does not implement passwords.)</em> So, we admit that security is not absolute, but rather a trade-off which needs to be judged against other factors. We need to weigh the risks of our infrastructure being insecure against the value that infrastructure brings – and Cloudflare certainly brings a lot of value. That said, with good design, it’s often possible to reduce and contain risks without sacrificing too much utility. This is one of the core goals of Sandstorm – to introduce an <a href="https://sandstorm.io/how-it-works">infrastructure model</a> and <a href="https://docs.sandstorm.io/en/latest/using/security-practices/">security practices</a> which <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/">mitigate risks</a>.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2017-02-06-sandstorm-returning-to-community-roots">Sandstorm is returning to its community roots</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2017-02-06-sandstorm-returning-to-community-roots">06 Feb 2017</a>
-  
-  <p>Most people know Sandstorm as an open source, community-driven project aiming to enable self-hosting of cloud services and to make it possible for open source web apps to compete with today’s cloud services.</p>
-
-<p>Many people also know that Sandstorm is a for-profit startup, with a business model centered on charging for enterprise-oriented features, such as LDAP and SAML single-sign-on integration, organizational access control policies, and the like. This product was called “Sandstorm for Work”; it was still open source, but official builds hid the features behind a paywall. Additionally, we planned eventually to release a scalable version of Sandstorm for big enterprise users, based on the same tech that powers Sandstorm Oasis, our managed hosting service.</p>
-
-<p>As an open source project, Sandstorm has been successful: We have a thriving community of contributors, many developers building and packaging apps, and thousands of self-hosted servers running in the wild. This will continue.</p>
-
-<p>However, our business has not succeeded. To date, almost no one has purchased Sandstorm for Work, despite hundreds of trials and lots of interest expressed. Only a tiny fraction of Sandstorm Oasis users choose to pay for the service – enough to cover costs, but not much more.</p>
-
-<p>We attribute this failure to two main problems:</p>
-
-<ul>
-  <li>
-    <p>As a product, Sandstorm is still alpha-quality. As you may know, Sandstorm is pioneering a paradigm shift in the way servers operate, which we call fine-grained containerization. <a href="https://sandstorm.io/how-it-works">The benefits of this technology are huge</a>, but a lot of engineering work is needed to make it work smoothly. Although we’ve built a working product that many people – including ourselves – use for real work every day, many limitations still exist that make Sandstorm feel rough and incomplete compared to alternatives. We know how to fix these problems, but we need more time to do so.</p>
-  </li>
-  <li>
-    <p>We underestimated, in classic fashion, the challenge of enterprise sales. As a company of engineers and geeks, we knew that enterprise sales would be outside of our comfort zone, but we didn’t realize just how much work it would be to learn, and how much time we needed to be successful at it. By the end, we were only scratching the surface of how to generate leads and get in the door at big companies; we never managed to do a “real” sales call. In retrospect, we should have hired a business development expert much earlier on. We also should have raised more money and planned for a longer runway.</p>
-  </li>
-</ul>
-
-<p>We plan to publish a more complete postmortem in a subsequent blog post.</p>
-
-<p>Unfortunately, Sandstorm the business has now run out of money, and we have been unable to raise more.</p>
-
-<p><strong>The Project Lives On</strong></p>
-
-<p>Although it will no longer be our full-time job, Sandstorm will continue as an open source project. We still strongly believe in Sandstorm’s long-term vision and cannot abandon it. I personally will continue to lead Sandstorm’s technical development: reviewing and merging pull requests, pushing releases, and developing new features. We will continue to operate Sandstorm Oasis – your data there is safe. Meanwhile, we will make it easier for our extended community to be involved in core development and decision-making. Jade will be in contact with individual community members to appoint community leaders and grant them the authority to handle a variety of community organizing functions, from App Market approval to organizing meetups.</p>
-
-<p>Ironically, the pace of development may not even be hurt much. Over the past year, the Sandstorm team has spent a great deal of our time on enabling our business, e.g. building a payment mechanism, processing customers, marketing, and the like. I personally have spent far too much time on fundraising, sales, and other deal-making rather than on coding. With this shift in direction, we can now focus strictly on building out the core platform, getting more done with less time.</p>
-
-<p><strong>Immediate Action Items</strong></p>
-
-<p>As a result of this change, the following has happened today:</p>
-
-<ul>
-  <li>
-    <p>We have pushed a release which removes the Sandstorm for Work paywall. Sandstorm for Work features (like LDAP/SAML integration) are now available to all self-hosted Sandstorm servers at no cost. The product name “Sandstorm for Work” has been retired; there is now only Sandstorm. (Your server should already have received the update. If not, SSH in and type <code>sudo sandstorm update</code>. Don’t have a server yet? <a href="https://sandstorm.io/install">Install Sandstorm now.</a>)</p>
-  </li>
-  <li>
-    <p>We have <a href="https://github.com/sandstorm-io/blackrock">open sourced Blackrock</a>, an alternate back-end for Sandstorm which is able to scale out across a cluster of machines. We have long used this technology to power Sandstorm Oasis, but had hesitated to release it for fear that it would harm our business model. We no longer have a business model to protect, so the code can now be set free.</p>
-  </li>
-  <li>
-    <p>We have added the <a href="https://github.com/sandstorm-io/sandstorm/tree/master/roadmap">Sandstorm Technology Roadmap</a> to the Sandstorm repo, where you can learn about everything Sandstorm has built and plans to build. The roadmap is full of projects and features marked “TODO”, so you can see what needs to be built.</p>
-  </li>
-  <li>
-    <p>We’ve written a new <a href="https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md">contributing guide with a list of projects you can work on</a>. See if there’s anything that interests you!</p>
-  </li>
-  <li>
-    <p>No changes are expected to <a href="https://oasis.sandstorm.io">Sandstorm Oasis</a> nor <a href="https://docs.sandstorm.io/en/latest/administering/sandcats/">Sandcats.io</a>. Both services will continue to operate going forward.</p>
-  </li>
-</ul>
-
-<p><strong>How you can help</strong></p>
-
-<p>Want to see Sandstorm succeed? Then, contribute!</p>
-
-<ul>
-  <li>
-    <p>If you’d like to help build Sandstorm, sign up on <a href="https://groups.google.com/group/sandstorm-dev">the sandstorm-dev mailing list</a> and join us on IRC at #sandstorm on Freenode. There is lots to do, from hardcore systems hacking to community organizing to tasks that require nothing but enthusiasm. For ideas on how you can help, check out the <a href="https://sandstorm.io/community">community page</a> and the <a href="https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md">contributing guide</a>.</p>
-  </li>
-  <li>
-    <p>If you have more money than time and would like to support the project financially, the best way to do it is to sign up for a paid account on <a href="https://oasis.sandstorm.io">Oasis</a>.</p>
-  </li>
-</ul>
-
 
 </section>
 

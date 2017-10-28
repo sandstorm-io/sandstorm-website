@@ -7,6 +7,21 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Sandstorm UI now available in Chinese, Dutch</title>
+				<description>&lt;p&gt;As of last week’s Sandstorm release (version 0.216), the Sandstorm UI is (mostly) now internationalized, meaning text has been moved out of the interface into separate translation tables.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/pull/2985&quot;&gt;This work&lt;/a&gt; was mostly done by &lt;a href=&quot;https://github.com/urakagi&quot;&gt;Romulus Urakagi Tsai&lt;/a&gt; and &lt;a href=&quot;https://github.com/caasi&quot;&gt;Caasi Huang&lt;/a&gt;, supported by &lt;a href=&quot;http://g0v.tw&quot;&gt;g0v.tw&lt;/a&gt;. Additionally, they contributed translation tables for Traditional Chinese, as well as a partial translation to Simplified Chinese (though the latter is still incomplete).&lt;/p&gt;
+
+&lt;p&gt;With i18n in place, other Sandstorm users immediately began work on other translations. In this week’s release (0.218), we’ve merged a &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/pull/2999&quot;&gt;Dutch translation&lt;/a&gt; by &lt;a href=&quot;https://github.com/m-burg&quot;&gt;Michel van der Burg&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Would you like to contribute a Sandstorm translation? It’s easy – no programming required. Check out &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md#internationalization-i18n&quot;&gt;the contributing guide&lt;/a&gt; for instructions, and talk to us on &lt;a href=&quot;https://groups.google.com/group/sandstorm-dev&quot;&gt;the sandstorm-dev mailing list&lt;/a&gt;.&lt;/p&gt;
+</description>
+				<pubDate>Sat, 28 Oct 2017 00:00:00 -0700</pubDate>
+                                <link>https://sandstorm.io/news/2017-10-28-i18n</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2017-10-28-i18n</guid>
+			</item>
+		
+			<item>
 				<title>We&#39;re changing the way identities work</title>
 				<description>&lt;p&gt;&lt;strong&gt;UPDATE September 2, 2017:&lt;/strong&gt; &lt;em&gt;This change has been fully released and will roll out to all servers within the next 24 hours.&lt;/em&gt;&lt;/p&gt;
 
@@ -487,47 +502,6 @@ Get an estimate »
 				<pubDate>Tue, 25 Oct 2016 00:00:00 -0700</pubDate>
                                 <link>https://sandstorm.io/news/2016-10-25-cve-2016-5195-dirtycow-mitigated</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-10-25-cve-2016-5195-dirtycow-mitigated</guid>
-			</item>
-		
-			<item>
-				<title>Sharing documents with a Rocket.Chat room in Sandstorm</title>
-				<description>&lt;p&gt;I’m sharing a pro-tip today because I like making sure that everyone gets the most productivity they can out of Sandstorm.&lt;/p&gt;
-
-&lt;p&gt;Let’s say I want to share a grain (e.g., a document, spreadsheet, git repository, or a &lt;a href=&quot;https://sandstorm.io/news/2016-08-09-collections-app&quot;&gt;Collection&lt;/a&gt;) with a group of colleagues who are already in the same &lt;a href=&quot;https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0&quot;&gt;Rocket.Chat&lt;/a&gt; chatroom. To do so, I first click the + icon in Rocket.Chat.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/news/images/rc_button.png&quot; alt=&quot;Click on the + button in Rocket Chat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This opens a &lt;a href=&quot;https://sandstorm.io/how-it-works#powerbox&quot;&gt;Powerbox&lt;/a&gt; request with a type-ahead search box. Before I’ve typed anything, I can see the grains that have most recently been opened by me.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/news/images/rc2.png&quot; alt=&quot;Powerbox list of grains (ordered by most recently opened)&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;For instance, if I’m looking for feedback for a blog post I drafted in &lt;a href=&quot;https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60&quot;&gt;Etherpad&lt;/a&gt;, I can type “Etherpad” and it will list all Etherpads that I have access to on this server.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/news/images/rc3.png&quot; alt=&quot;Search by grain type&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Here are all the Etherpads I have access to. But today, I’m actually searching for something else: a Collection titled “Sales / Revenue docs”. I can also search for grains by title, so I search for “revenue”:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/news/images/rc4.png&quot; alt=&quot;Search by grain type or title&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Once I’ve selected the grain, I can choose whether I’d like to give everyone in this chatroom the permission to edit or only view this Collection before I connect the grain with this Rocket.Chat room.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/news/images/rc5.png&quot; alt=&quot;grant permission&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;When I share a grain in a chatroom, it automatically renders a snippet which includes the icon for the app that opens the grain. It looks like this:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/news/images/rc6_shared.png&quot; alt=&quot;snippet&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now, everyone who is in this chatroom has access to this Collection (as well as every grain inside it). No need to go share it with them separately.&lt;/p&gt;
-
-&lt;p&gt;To try it out for yourself, go install &lt;a href=&quot;https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0&quot;&gt;Rocket.Chat&lt;/a&gt; now!&lt;/p&gt;
-
-&lt;p&gt;Do you use Sandstorm to collaborate at work? &lt;a href=&quot;https://sandstorm.io/business&quot;&gt;Sandstorm for Work&lt;/a&gt; (&lt;a href=&quot;https://sandstorm.io/get-feature-key&quot;&gt;60-day free trial&lt;/a&gt;) comes with priority support, organization management features, and integration with enterprise infrastructure.&lt;/p&gt;
-
-&lt;p&gt;By the way, if you found this useful and would like to see more bite-sized pro-tip style blog posts in the future, please reshare this and let me know (I’m &lt;a href=&quot;https://twitter.com/qiqing&quot;&gt;@qiqing&lt;/a&gt; on Twitter)!&lt;/p&gt;
-</description>
-				<pubDate>Thu, 13 Oct 2016 00:00:00 -0700</pubDate>
-                                <link>https://sandstorm.io/news/2016-10-13-sharing-documents-rocketchat</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-10-13-sharing-documents-rocketchat</guid>
 			</item>
 		
 	</channel>

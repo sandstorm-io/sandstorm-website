@@ -99,13 +99,86 @@
 
 
 <section>
+  <h2><a href="/news/2017-02-06-sandstorm-returning-to-community-roots">Sandstorm is returning to its community roots</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2017-02-06-sandstorm-returning-to-community-roots">06 Feb 2017</a>
+  
+  
+  
+  
+  <p>Most people know Sandstorm as an open source, community-driven project aiming to enable self-hosting of cloud services and to make it possible for open source web apps to compete with today’s cloud services.</p>
+
+<p>Many people also know that Sandstorm is a for-profit startup, with a business model centered on charging for enterprise-oriented features, such as LDAP and SAML single-sign-on integration, organizational access control policies, and the like. This product was called “Sandstorm for Work”; it was still open source, but official builds hid the features behind a paywall. Additionally, we planned eventually to release a scalable version of Sandstorm for big enterprise users, based on the same tech that powers Sandstorm Oasis, our managed hosting service.</p>
+
+<p>As an open source project, Sandstorm has been successful: We have a thriving community of contributors, many developers building and packaging apps, and thousands of self-hosted servers running in the wild. This will continue.</p>
+
+<p>However, our business has not succeeded. To date, almost no one has purchased Sandstorm for Work, despite hundreds of trials and lots of interest expressed. Only a tiny fraction of Sandstorm Oasis users choose to pay for the service – enough to cover costs, but not much more.</p>
+
+<p>We attribute this failure to two main problems:</p>
+
+<ul>
+  <li>
+    <p>As a product, Sandstorm is still alpha-quality. As you may know, Sandstorm is pioneering a paradigm shift in the way servers operate, which we call fine-grained containerization. <a href="https://sandstorm.io/how-it-works">The benefits of this technology are huge</a>, but a lot of engineering work is needed to make it work smoothly. Although we’ve built a working product that many people – including ourselves – use for real work every day, many limitations still exist that make Sandstorm feel rough and incomplete compared to alternatives. We know how to fix these problems, but we need more time to do so.</p>
+  </li>
+  <li>
+    <p>We underestimated, in classic fashion, the challenge of enterprise sales. As a company of engineers and geeks, we knew that enterprise sales would be outside of our comfort zone, but we didn’t realize just how much work it would be to learn, and how much time we needed to be successful at it. By the end, we were only scratching the surface of how to generate leads and get in the door at big companies; we never managed to do a “real” sales call. In retrospect, we should have hired a business development expert much earlier on. We also should have raised more money and planned for a longer runway.</p>
+  </li>
+</ul>
+
+<p>We plan to publish a more complete postmortem in a subsequent blog post.</p>
+
+<p>Unfortunately, Sandstorm the business has now run out of money, and we have been unable to raise more.</p>
+
+<p><strong>The Project Lives On</strong></p>
+
+<p>Although it will no longer be our full-time job, Sandstorm will continue as an open source project. We still strongly believe in Sandstorm’s long-term vision and cannot abandon it. I personally will continue to lead Sandstorm’s technical development: reviewing and merging pull requests, pushing releases, and developing new features. We will continue to operate Sandstorm Oasis – your data there is safe. Meanwhile, we will make it easier for our extended community to be involved in core development and decision-making. Jade will be in contact with individual community members to appoint community leaders and grant them the authority to handle a variety of community organizing functions, from App Market approval to organizing meetups.</p>
+
+<p>Ironically, the pace of development may not even be hurt much. Over the past year, the Sandstorm team has spent a great deal of our time on enabling our business, e.g. building a payment mechanism, processing customers, marketing, and the like. I personally have spent far too much time on fundraising, sales, and other deal-making rather than on coding. With this shift in direction, we can now focus strictly on building out the core platform, getting more done with less time.</p>
+
+<p><strong>Immediate Action Items</strong></p>
+
+<p>As a result of this change, the following has happened today:</p>
+
+<ul>
+  <li>
+    <p>We have pushed a release which removes the Sandstorm for Work paywall. Sandstorm for Work features (like LDAP/SAML integration) are now available to all self-hosted Sandstorm servers at no cost. The product name “Sandstorm for Work” has been retired; there is now only Sandstorm. (Your server should already have received the update. If not, SSH in and type <code>sudo sandstorm update</code>. Don’t have a server yet? <a href="https://sandstorm.io/install">Install Sandstorm now.</a>)</p>
+  </li>
+  <li>
+    <p>We have <a href="https://github.com/sandstorm-io/blackrock">open sourced Blackrock</a>, an alternate back-end for Sandstorm which is able to scale out across a cluster of machines. We have long used this technology to power Sandstorm Oasis, but had hesitated to release it for fear that it would harm our business model. We no longer have a business model to protect, so the code can now be set free.</p>
+  </li>
+  <li>
+    <p>We have added the <a href="https://github.com/sandstorm-io/sandstorm/tree/master/roadmap">Sandstorm Technology Roadmap</a> to the Sandstorm repo, where you can learn about everything Sandstorm has built and plans to build. The roadmap is full of projects and features marked “TODO”, so you can see what needs to be built.</p>
+  </li>
+  <li>
+    <p>We’ve written a new <a href="https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md">contributing guide with a list of projects you can work on</a>. See if there’s anything that interests you!</p>
+  </li>
+  <li>
+    <p>No changes are expected to <a href="https://oasis.sandstorm.io">Sandstorm Oasis</a> nor <a href="https://docs.sandstorm.io/en/latest/administering/sandcats/">Sandcats.io</a>. Both services will continue to operate going forward.</p>
+  </li>
+</ul>
+
+<p><strong>How you can help</strong></p>
+
+<p>Want to see Sandstorm succeed? Then, contribute!</p>
+
+<ul>
+  <li>
+    <p>If you’d like to help build Sandstorm, sign up on <a href="https://groups.google.com/group/sandstorm-dev">the sandstorm-dev mailing list</a> and join us on IRC at #sandstorm on Freenode. There is lots to do, from hardcore systems hacking to community organizing to tasks that require nothing but enthusiasm. For ideas on how you can help, check out the <a href="https://sandstorm.io/community">community page</a> and the <a href="https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md">contributing guide</a>.</p>
+  </li>
+  <li>
+    <p>If you have more money than time and would like to support the project financially, the best way to do it is to sign up for a paid account on <a href="https://oasis.sandstorm.io">Oasis</a>.</p>
+  </li>
+</ul>
+
+
+</section>
+
+<section>
   <h2><a href="/news/2016-12-01-sandstorm-solutions">Sandstorm Solutions: pay for feature prioritization</a></h2>
   <p class="post-details">By <a href="https://github.com/zarvox">Drew Fisher</a>
     
     - <a href="/news/2016-12-01-sandstorm-solutions">01 Dec 2016</a>
-  
-  
-  
   
   <p>Is there a feature or bug holding you back from deploying Sandstorm at your company or for your
 team?  Do you need the Sandstorm core devs to prioritize a feature?  <strong>Sandstorm
@@ -299,48 +372,6 @@ Get an estimate »
 <p>This is not the first Linux security bug mitigated by Sandstorm. In fact, we’ve kept a long list. Moreover, in addition to mitigating Linux kernel problem, Sandstorm mitigates most vulnerabilities in the apps that run on top of it. Check out the whole list of mitigated vulnerabilities that we’ve compiled: <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/">Sandstorm Security Non-Events</a></p>
 
 <p>Want to try out Sandstorm as a user? <a href="https://demo.sandstorm.io">Try the online demo »</a></p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-10-13-sharing-documents-rocketchat">Sharing documents with a Rocket.Chat room in Sandstorm</a></h2>
-  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Q. Wang</a>
-    
-    - <a href="/news/2016-10-13-sharing-documents-rocketchat">13 Oct 2016</a>
-  
-  <p>I’m sharing a pro-tip today because I like making sure that everyone gets the most productivity they can out of Sandstorm.</p>
-
-<p>Let’s say I want to share a grain (e.g., a document, spreadsheet, git repository, or a <a href="https://sandstorm.io/news/2016-08-09-collections-app">Collection</a>) with a group of colleagues who are already in the same <a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> chatroom. To do so, I first click the + icon in Rocket.Chat.</p>
-
-<p><img src="/news/images/rc_button.png" alt="Click on the + button in Rocket Chat" /></p>
-
-<p>This opens a <a href="https://sandstorm.io/how-it-works#powerbox">Powerbox</a> request with a type-ahead search box. Before I’ve typed anything, I can see the grains that have most recently been opened by me.</p>
-
-<p><img src="/news/images/rc2.png" alt="Powerbox list of grains (ordered by most recently opened)" /></p>
-
-<p>For instance, if I’m looking for feedback for a blog post I drafted in <a href="https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60">Etherpad</a>, I can type “Etherpad” and it will list all Etherpads that I have access to on this server.</p>
-
-<p><img src="/news/images/rc3.png" alt="Search by grain type" /></p>
-
-<p>Here are all the Etherpads I have access to. But today, I’m actually searching for something else: a Collection titled “Sales / Revenue docs”. I can also search for grains by title, so I search for “revenue”:</p>
-
-<p><img src="/news/images/rc4.png" alt="Search by grain type or title" /></p>
-
-<p>Once I’ve selected the grain, I can choose whether I’d like to give everyone in this chatroom the permission to edit or only view this Collection before I connect the grain with this Rocket.Chat room.</p>
-
-<p><img src="/news/images/rc5.png" alt="grant permission" /></p>
-
-<p>When I share a grain in a chatroom, it automatically renders a snippet which includes the icon for the app that opens the grain. It looks like this:</p>
-
-<p><img src="/news/images/rc6_shared.png" alt="snippet" /></p>
-
-<p>Now, everyone who is in this chatroom has access to this Collection (as well as every grain inside it). No need to go share it with them separately.</p>
-
-<p>To try it out for yourself, go install <a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> now!</p>
-
-<p>Do you use Sandstorm to collaborate at work? <a href="https://sandstorm.io/business">Sandstorm for Work</a> (<a href="https://sandstorm.io/get-feature-key">60-day free trial</a>) comes with priority support, organization management features, and integration with enterprise infrastructure.</p>
-
-<p>By the way, if you found this useful and would like to see more bite-sized pro-tip style blog posts in the future, please reshare this and let me know (I’m <a href="https://twitter.com/qiqing">@qiqing</a> on Twitter)!</p>
 
 </section>
 

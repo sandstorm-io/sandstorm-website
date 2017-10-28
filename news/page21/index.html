@@ -99,13 +99,68 @@
 
 
 <section>
+  <h2><a href="/news/2014-07-11-demo-and-app-updates">Demo box; App updates</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-07-11-demo-and-app-updates">11 Jul 2014</a>
+  
+  
+  
+  
+  <p>A few quick updates today.</p>
+
+<h3 id="new-demo-server">New Demo server</h3>
+
+<p>It’s now possible to try out Sandstorm without an invite, and without installing
+it locally. Just go to <a href="https://demo.sandstorm.io/demo">demo.sandstorm.io</a>.</p>
+
+<p>On the demo server, anyone can create a one-hour trial account. We hope that
+this will make it much easier for people to understand what Sandstorm does,
+before they install it or wait in line for an invite. If a picture
+is worth a thousand words, a demo is worth ten thousand.</p>
+
+<h3 id="app-updates">App updates</h3>
+
+<p>We’ve posted updates to several apps with bug fixes and other improvements.
+Currently, in order to update an app, you must re-install it from the
+<a href="https://sandstorm.io/apps">app list</a>. (Push updates for apps are on our
+todo list.) So, if you’ve installed any of the following, install them again.</p>
+
+<ul>
+  <li><strong>Mailpile:</strong> Fixed bug where sent mail sometimes wasn’t saved.</li>
+  <li><strong>IPython Notebook:</strong> Added numpy and plotting packages, so you can now plot graphs.</li>
+  <li><strong>Etherpad:</strong> Minor UI tweaks.</li>
+</ul>
+
+<h3 id="new-features-and-fixes">New features and fixes</h3>
+
+<ul>
+  <li>We’ve added a “reset” button to the top bar, which lets you restart an app
+if it somehow gets wedged. This is rare, but otherwise really annoying when
+it happens.</li>
+  <li>Apps now receive the user’s display name and a unique stable identifier,
+which are useful for collaborative apps meant to be used by more than one
+user.</li>
+  <li>We fixed a crash that happened when updating a Sandstorm instance that runs
+as non-root, and tightened some security knobs in this mode.</li>
+</ul>
+
+<h3 id="license-is-now-apache-20">License is now Apache 2.0</h3>
+
+<p>Several people told us they were not comfortable contributing to Sandstorm
+when licensed under the GNU AGPL, or that their employers were hesitant to
+allow them to contribute. We think this is entirely understandable. We have
+always intended to switch to Apache 2.0 after gaining some momentum (which is
+why we have asked contributors to sign a CLA allowing us to make this change).
+So, we’ve gone ahead and made the switch now.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2014-07-07-mailpile">Mailpile on Sandstorm</a></h2>
   <p class="post-details">By <a href="https://github.com/jparyani">Jason Paryani</a>
     
     - <a href="/news/2014-07-07-mailpile">07 Jul 2014</a>
-  
-  
-  
   
   <p>Hello, I’m Jason, a new member of the Sandstorm team. Today I’m excited to
 announce that I’ve extended Sandstorm to support e-mail, and ported
@@ -399,93 +454,6 @@ streamlined because all the apps already share an authentication system.
 Meanwhile, until two app instances have been connected by the user, they are
 completely isolated from each other, so that you need not worry that one
 insecure app might compromise your whole server.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2014-04-22-easy-install">Easy Install; New Apps</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2014-04-22-easy-install">22 Apr 2014</a>
-  
-  <p>It’s been nearly a month since Sandstorm launched, and we’ve been busy.  Here’s
-what’s new!</p>
-
-<h3 id="easily-run-your-own-instance">Easily run your own instance</h3>
-
-<p>When Sandstorm launched, some people thought it odd that our message of freedom
-from other people’s servers was followed by an invitation to use ours.  To
-clear the air a bit, we’ve now made it ridiculously easy to install your own
-Sandstorm server on your very own Linux machine:</p>
-
-<pre><code>curl https://install.sandstorm.io | bash
-</code></pre>
-
-<p>Follow the on-screen directions and you’ll be up and running in seconds.  No
-need to build code nor edit config files.  In fact, your Sandstorm installation
-will even (if you choose) automatically keep itself updated, so you never
-have to deal with it again.  (Of course, you can still get the
-<a href="https://github.com/kentonv/sandstorm">full source code on Github</a> if you prefer.)</p>
-
-<p>Of course, not everybody has a Linux server lying around, or wants their cloud
-apps hosted off their home internet connection, or wants to pay the typical
-$50/mo for a cloud VM instance powerful enough to run Sandstorm well.  That’s
-why we also want to offer managed instances that don’t require any of that.</p>
-
-<p>To be clear: when you use our server, <strong>you are still in control</strong>.  You can
-upload any app you want.  We do not serve ads, and we will not mine your data.
-We let you move your data from our servers to your own at any time.  It’s like
-having your own VM on AWS except without the config files and the updating and
-the security issues.</p>
-
-<p>Eventually, we plan to charge a small fee for managed instances as a way to
-cover our upstream hosting costs and fund development.  But, for our early
-alpha testers, the service is free.</p>
-
-<h3 id="invites-rolling-out">Invites rolling out</h3>
-
-<p>Speaking of using our servers…</p>
-
-<p>Despite the limited scope of our initial announcement, we ended up with an
-order of magnitude more people on our waiting list than we anticipated.  If you
-signed up and haven’t received an invite – alas, that’s most of you – I
-apologize!</p>
-
-<p>We have not yet implemented the ability for Sandstorm to scale to multiple
-machines.  However, we recently increased the capacity of our main machine
-such that we should be able to invite a lot more people, and we’ll get to work
-on multi-machine scaling soon.  Be sure to
-<a href="https://sandstorm.io/#signup-form">get on the mailing list</a> if you want an
-invite – or just want to stay updated.</p>
-
-<h3 id="new-apps">New Apps</h3>
-
-<p>Some awesome contributors have written/ported a few new Sandstorm apps:</p>
-
-<ul>
-  <li><a href="https://github.com/jparyani">Jason Paryani</a> ported the
-<a href="http://ipython.org/notebook.html">IPython Notebook</a>, a powerful app that
-lets you execute Python code from your browser, render equations and charts,
-and more.</li>
-  <li><a href="https://github.com/dwrensha">David Renshaw</a> has written a little original
-game called Acronymy. Interestingly, he wrote
-<a href="https://github.com/dwrensha/acronymy">his code</a> in pure
-<a href="http://www.rust-lang.org/">Rust</a>, using Sandstorm’s low-level
-<a href="https://capnproto.org">Cap’n Proto</a>-based
-API directly, thus avoiding the need for an HTTP server.</li>
-  <li><a href="https://github.com/Sing-Li">Sing Li</a> is working on a port of
-<a href="http://ghost.org">Ghost</a>, the beautifully-designed open source blogging
-platform.  It’s not quite ready for public consumption, but the test version
-I tried is looking pretty good.</li>
-</ul>
-
-<p>Install these and other apps to your Sandstorm instance from
-<a href="https://sandstorm.io/apps">the app list</a>.</p>
-
-<p>Porting apps is still a somewhat weird and ad hoc process. Usually the code
-doesn’t need to change much, but figuring out the app’s dependencies for
-packaging purposes takes some sleuthing. We’re working on better tools which
-will make this process much easier; stay tuned.</p>
 
 </section>
 
