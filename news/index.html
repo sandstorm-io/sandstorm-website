@@ -86,13 +86,61 @@
 
 
 <section>
+  <h2><a href="/news/2018-02-19-http-rewrite-and-more">HTTP proxy rewrite and other updates</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2018-02-19-http-rewrite-and-more">19 Feb 2018</a>
+  
+  
+  
+  
+  <p>Development of Sandstorm continues! Despite now having a day job, I still spent a lot of my free
+time working on Sandstorm.</p>
+
+<p>This past weekend, <a href="https://github.com/sandstorm-io/sandstorm/pull/3038">I deleted some of the oldest code in Sandstorm</a>. This is the culmination of a few months of work: ever since early September, I have been working to transition the Sandstorm HTTP proxy from JavaScript to C++. This is the code which receives incoming HTTP requests, authenticates them, and forwards them to the appropriate grain (application instance). This low-level, performance-critical systems code.</p>
+
+<p>Historically, HTTP proxying was a duty of Sandstorm’s “Shell” server. The Sandstorm Shell is Sandstorm’s user interface, an application written on <a href="https://meteor.com">Meteor</a> and <a href="https://nodejs.org">Node</a>, and is responsible for most of Sandstorm’s business logic. Historically, the other major component of Sandstorm has been the “back end”, written in C++, responsible for running application containers and managing storage. HTTP proxying was done in the shell mostly because this was the most convenient place, building on Node.js’s HTTP library. However, performance (both CPU and memory usage) has been disappointing at best, and <a href="https://sandstorm.io/news/2016-09-30-fiber-bomb-debugging-story">a debugging nightmare at worst</a>.</p>
+
+<p>Sandstorm now has a third component: the “Gateway”. This component receives all incoming HTTP traffic and forwards it to the appropriate destination. Requests related to Sandstorm’s UI are forwarded on as HTTP to the Shell over an internal Unix domain socket. Requests intended for apps are converted by the Gateway into Cap’n Proto requests and routed to the appropriate app. The Gateway also performs TLS termination (e.g. for users of our <a href="https://docs.sandstorm.io/en/latest/administering/sandcats/">free TLS certificates under sandcats.io</a>).</p>
+
+<p>The Gateway is written in C++, using the <a href="https://github.com/capnproto/capnproto/blob/master/c++/src/kj/compat/http.h">KJ HTTP Library</a>. KJ is the C++ toolkit library originally built as part of the <a href="https://capnproto.org">Cap’n Proto</a> project (itself a sub-project of Sandstorm), but which is beginning to take on a life of its own. KJ HTTP is a low-level yet easy-to-use HTTP client and server library, built on top of the KJ asynchronous framework (think Promises but in C++), all authored by yours truly. KJ HTTP is also used in the implementation of <a href="https://blog.cloudflare.com/introducing-cloudflare-workers/">Cloudflare Workers</a> (the project I lead in my day job), where it has already handled billions of requests.</p>
+
+<p>We can see the performance improvement for Sandstorm Oasis, our hosting service which runs <a href="https://github.com/sandstorm-io/blackrock">a special cluster-scalable version of Sandstorm</a>. Oasis runs instances of the Sandstorm Shell on dedicated machines, with the ability to add more replicas as needed to handle traffic. Here’s the recent CPU usage history of one such replica:</p>
+
+<p><img src="/images/http-gateway-cpu-improvement.png" alt="Graph of shell CPU usage across Gateway deployment." /></p>
+
+<p>As you can see, introducing the gateway more than halved the CPU usage of the Sandstorm shell. Rather than reduce the number of replicas, I decided to cut the instance size in half. Either way, switching to the C++ Gateway saved money.</p>
+
+<p>What about the Gateway itself? Where does it run, and how much CPU does it add? Well, historically, Oasis used an nginx instance for ingress, to provide TLS termination and load balancing. With the Gateway introduced, we were able to eliminate nginx from our stack: the Gateway is perfectly capable of handling TLS termination itself, and is able to implement session-affinity load-balancing much more effectively than nginx could due to the Gateway’s intimate knowledge of Sansdtorm internals. Thus, introducing the Gateway did not add any new VM instances to our system: it simply replaced the existing nginx instance. The Gateway’s CPU usage is negligible, using only a few percent of a CPU core. It appears to be on par with nginx, although when the numbers are this low it’s hard to really tell. I did ultimately decide to reduce the Gateway instance from a full CPU core to a half core to save some more cash.</p>
+
+<p>These changes will roll out in full to self-hosted Sandstorm users on March 11 (the code is in git now, but I won’t have time to roll a release until then). Adventurous users can set <code>EXPERIMENTAL_GATEWAY=true</code> in their <code>/opt/sandstorm/sandstorm.conf</code> today, although note that this will give you the implementation as of the previous release two weeks ago, which still uses the old proxy for some things.</p>
+
+<h3 id="other-updates">Other updates</h3>
+
+<p><a href="https://github.com/xet7">Lauri Ojansivu</a> has translated the Sandstorm UI to Finnish, and <a href="https://github.com/Xia0ben">Benoit Renault</a> and <a href="https://github.com/jeau">Thierry Pasquier</a> have translated the Sandstorm UI to French. This means, along with English, Chinese, and Dutch, Sandstorm now supports five languages. <a href="https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md#internationalization-i18n">Learn how to help translate Sandstorm here.</a></p>
+
+<h3 id="next-up">Next up</h3>
+
+<p>Here’s some things I want to work on next:</p>
+
+<ul>
+  <li>Improving how app updates work. Today, you receive a notification when an app has been updated, and must explicitly accept the update. This unfortunately means that big Sandstorm servers with lots of users tend to get stuck storing every single historical version of every app forever, since there’s always someone who never updated after some version. I’d like to make updates fully automatic, but this requires some story for users who want to pin an older version, and some way to roll back to and older version in case of breakage.</li>
+  <li>Integrating with Let’s Encrypt, <a href="https://letsencrypt.org/2017/07/06/wildcard-certificates-coming-jan-2018.html">once they support wildcard certificates</a>. Hopefully, this will finally make it easy to run a secure Sandstorm server on your own domain. However, issuing a certificate requires completing a DNS challenge, and Sandstorm currently does not act as a DNS server. So, some manual intervention will likely still be required.</li>
+  <li>Really supporting e-mail. Today, Sandstorm has some limited ability to accept e-mail, but can’t really act as a standalone e-mail server. I’d like to fix this, with the goal of migrating my own personal e-mail off of GMail and onto Sandstorm.</li>
+  <li>Really supporting development workflows, centered around git. I want to be able to host a git repository, code review tools, a reasonable issue tracker, and a CI, all on Sandstorm, and all as separate apps.</li>
+  <li>Making the top bar less ugly. People complain that Sandstorm’s UI is suffocating, especially the black bar across the top. However, Sandstorm’s security model requires that we have a place to hang trusted UI bits – such as the sharing dialog – that is separate from the app proper. Many apps, though, also have their own top bar with app-specific features, creating a double-top-bar effect. What I’d like to do instead is have a single top bar rendered by Sandstorm, but which can be customized by the app to include app-specific controls as well and to look visually consistent with the rest of the app.</li>
+  <li>Many other things!</li>
+</ul>
+
+<p>Want to get involved? <a href="https://groups.google.com/group/sandstorm-dev">Join the sandstorm-dev mailing list.</a> and <a href="https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md">check out ways to contribute</a>.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2017-10-28-i18n">Sandstorm UI now available in Chinese, Dutch</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2017-10-28-i18n">28 Oct 2017</a>
-  
-  
-  
   
   <p>As of last week’s Sandstorm release (version 0.216), the Sandstorm UI is (mostly) now internationalized, meaning text has been moved out of the interface into separate translation tables.</p>
 
@@ -268,57 +316,6 @@
 <h3 id="conclusion">Conclusion</h3>
 
 <p>We are excited to have received such a thorough security review. Some of the problems discovered were very obscure and we’re impressed that DevCore was able to find them. We thank Audrey Tang and the Department of Cyber Security of Taiwan for commissioning this review.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2017-02-28-cloudbleed">Impact of Cloudflare security advisory on Sandstorm Oasis</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2017-02-28-cloudbleed">28 Feb 2017</a>
-  
-  <p>A few days ago, Cloudflare <a href="https://blog.cloudflare.com/incident-report-on-memory-leak-caused-by-cloudflare-parser-bug/">disclosed a security bug</a> in their services which may have leaked secrets from sites which use Cloudflare. Sandstorm uses Cloudflare as a cache in front of our web site and Sandstorm Oasis, and so some of our users have asked if this problem affects them.</p>
-
-<p><strong>TL;DR:</strong> If you uploaded or downloaded a grain backup (zip file) between September 22, 2016 and February 18, 2017 (more so between Feb 13 to Feb 18), there is a very remote chance that some portion of the content of your backup could have been leaked to a third party, due to a bug in Cloudflare. We suspect, but cannot say for sure, that no such leakage occurred. We believe that no data other than grain backups could have leaked.</p>
-
-<h3 id="details">Details</h3>
-
-<p>We believe that Sandstorm services are mostly unaffected (with the exception of grain backups, described below). We intentionally divide our services such that public, static content is served from different hosts from dynamic/private content. We only enable Cloudflare in front of the public, static content (to provide caching and faster delivery). Moreover, the public, static hosts avoid storing sensitive credentials in cookies.</p>
-
-<p>Specifically, we have Cloudflare enabled on the following hosts:</p>
-
-<ul>
-  <li><strong>sandstorm.io</strong>, which serves our public web site. There are no secrets here.</li>
-  <li><strong>docs.sandstorm.io</strong>, which serves our public documentation. There are no secrets here.</li>
-  <li><strong>dl.sandstorm.io</strong>, from which Sandstorm install packages and updates are served. There are no secrets here.</li>
-  <li><strong>oasis.sandstorm.io</strong>, which serves the static HTML, Javascript, CSS, and images for Sandstorm Oasis. Dynamic content in the Sandstorm UI is delivered – and user actions are communicated – via a WebSocket on ddp.oasis.sandstorm.io, which does not use Cloudflare. The user’s authentication token is stored in localStorage rather than a cookie and is only ever transmitted over the WebSocket. Sandstorm apps are served from randomly-generated subdomains of oasis.sandstorm.io, which are not served through Cloudflare. However, grain backup uploads and downloads occur on the main host and could be affected – see below.</li>
-  <li><strong>app-index.sandstorm.io</strong>, which serves public Sandstorm app packages and metadata for use by the app market and for implementing automatic updates. There are no secrets here.</li>
-  <li><strong>apps.sandstorm.io</strong>, which serves the static HTML, Javascript, CSS, and images for our app market. As with Oasis, dynamic content and interaction (mainly, reading/posting reviews) happens via a WebSocket on apps-ddp.sandstorm.io and credentials are stored in localStorage.</li>
-  <li>Various internal testing hosts and hosts that only redirect to other hosts.</li>
-</ul>
-
-<p>We chose this design because we rely on Cloudflare only for caching purposes. Since dynamic data cannot be cached anyway, it made sense to form direct connections for that data rather than pass through a proxy, both to reduce our TCB and to improve performance. On the other hand, this means we cannot fully take advantage of Cloudflare’s security features such as its Web Application Firewall and DDoS protection, but we felt comfortable with this trade-off.</p>
-
-<p>That said, we’ve identified one notable exception to our design: When you download a backup of a grain via the Sandstorm Oasis UI, or upload a backup to be restored, the zip file is transmitted through the main Oasis host, proxied through Cloudflare. This seems to be an oversight; it would make sense for these requests to go through the DDP host (I’ve prepared <a href="https://github.com/sandstorm-io/sandstorm/pull/2877">a pull request</a> to fix this). These transfers are authorized via short-lived tokens, so there’s no risk of Oasis credentials being leaked. However, the contents of a .zip file could possibly have been leaked by Cloudflare.</p>
-
-<p>Cloudflare reports that the bug existed between 2016-09-22 and 2017-02-18, with the greatest potential impact being in the last four days of that period. If you uploaded or downloaded a grain backup in that time, it could have been leaked. However, Cloudflare reports that the incidence of such leaks was extremely small, and each instance would have leaked data from an essentially random website served by Cloudflare, of which there are many (Cloudflare handles some 10% of all internet traffic). Given the probabilities, it is likely that no Sandstorm grain backup data was actually leaked. There is also so far no evidence that anyone was actively exploiting this bug.</p>
-
-<p>With all that said, if you are worried about the possibility that your data was leaked, the proper course of action depends on the app and grain involved. Sandstorm is explicitly designed to keep credentials out of the hands of apps, so usually the only sensitive information in a grain backup is information that you gave to it yourself. For example, if you had an Etherpad document where you kept a list of passwords (and you downloaded a backup of that document recently), you may want to change those passwords. Otherwise, there is nothing to do.</p>
-
-<h3 id="editorial">Editorial</h3>
-
-<p>Bugs like this probably exist in a lot of software. The Cloudflare bug is notable because:</p>
-
-<ol>
-  <li>It was discovered. (Most bugs aren’t.)</li>
-  <li>Cloudflare handles some 10% of all internet traffic, meaning that basically everyone on the internet is possibly affected.</li>
-</ol>
-
-<p>It’s important to keep in mind that security is not binary. Security is about risk management. The Cloudflare bug did not change anyone’s security level from “secure” to “insecure” – instead, it increased the likelihood of any particular person becoming the victim of a real attack from, say, 5.26% to 5.28% (numbers made up to illustrate point). Had Cloudflare been slow to respond once the vulnerability was found, this risk may have shot up. Fortunately, though, they were anything but.</p>
-
-<p>Now, consider the use of password-based authentication. Nearly every service on the web uses it. However, it is demonstrably horribly insecure: Not only do people regularly use bad passwords or reuse the same password across sites, but passwords stored in a database (even if hashed) make it much easier for attackers to escalate a read-only database snapshot into full access privileges (possibly even to sites other than the one attacked). By requiring the user to receive an authentication code by e-mail each time they log in from a new location, a service can hugely reduce their users’ risk of compromise – probably by an order of magnitude! By this measure, bare password-based authentication should be considered a vulnerability, and a much more serious one than Cloudflare’s bug.</p>
-
-<p>And yet, people accept passwords because they are more convenient than other mechanisms. <em>(Well, many people do. Sandstorm does not implement passwords.)</em> So, we admit that security is not absolute, but rather a trade-off which needs to be judged against other factors. We need to weigh the risks of our infrastructure being insecure against the value that infrastructure brings – and Cloudflare certainly brings a lot of value. That said, with good design, it’s often possible to reduce and contain risks without sacrificing too much utility. This is one of the core goals of Sandstorm – to introduce an <a href="https://sandstorm.io/how-it-works">infrastructure model</a> and <a href="https://docs.sandstorm.io/en/latest/using/security-practices/">security practices</a> which <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/">mitigate risks</a>.</p>
 
 </section>
 

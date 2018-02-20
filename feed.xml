@@ -7,6 +7,53 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>HTTP proxy rewrite and other updates</title>
+				<description>&lt;p&gt;Development of Sandstorm continues! Despite now having a day job, I still spent a lot of my free
+time working on Sandstorm.&lt;/p&gt;
+
+&lt;p&gt;This past weekend, &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/pull/3038&quot;&gt;I deleted some of the oldest code in Sandstorm&lt;/a&gt;. This is the culmination of a few months of work: ever since early September, I have been working to transition the Sandstorm HTTP proxy from JavaScript to C++. This is the code which receives incoming HTTP requests, authenticates them, and forwards them to the appropriate grain (application instance). This low-level, performance-critical systems code.&lt;/p&gt;
+
+&lt;p&gt;Historically, HTTP proxying was a duty of Sandstorm’s “Shell” server. The Sandstorm Shell is Sandstorm’s user interface, an application written on &lt;a href=&quot;https://meteor.com&quot;&gt;Meteor&lt;/a&gt; and &lt;a href=&quot;https://nodejs.org&quot;&gt;Node&lt;/a&gt;, and is responsible for most of Sandstorm’s business logic. Historically, the other major component of Sandstorm has been the “back end”, written in C++, responsible for running application containers and managing storage. HTTP proxying was done in the shell mostly because this was the most convenient place, building on Node.js’s HTTP library. However, performance (both CPU and memory usage) has been disappointing at best, and &lt;a href=&quot;https://sandstorm.io/news/2016-09-30-fiber-bomb-debugging-story&quot;&gt;a debugging nightmare at worst&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sandstorm now has a third component: the “Gateway”. This component receives all incoming HTTP traffic and forwards it to the appropriate destination. Requests related to Sandstorm’s UI are forwarded on as HTTP to the Shell over an internal Unix domain socket. Requests intended for apps are converted by the Gateway into Cap’n Proto requests and routed to the appropriate app. The Gateway also performs TLS termination (e.g. for users of our &lt;a href=&quot;https://docs.sandstorm.io/en/latest/administering/sandcats/&quot;&gt;free TLS certificates under sandcats.io&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;The Gateway is written in C++, using the &lt;a href=&quot;https://github.com/capnproto/capnproto/blob/master/c++/src/kj/compat/http.h&quot;&gt;KJ HTTP Library&lt;/a&gt;. KJ is the C++ toolkit library originally built as part of the &lt;a href=&quot;https://capnproto.org&quot;&gt;Cap’n Proto&lt;/a&gt; project (itself a sub-project of Sandstorm), but which is beginning to take on a life of its own. KJ HTTP is a low-level yet easy-to-use HTTP client and server library, built on top of the KJ asynchronous framework (think Promises but in C++), all authored by yours truly. KJ HTTP is also used in the implementation of &lt;a href=&quot;https://blog.cloudflare.com/introducing-cloudflare-workers/&quot;&gt;Cloudflare Workers&lt;/a&gt; (the project I lead in my day job), where it has already handled billions of requests.&lt;/p&gt;
+
+&lt;p&gt;We can see the performance improvement for Sandstorm Oasis, our hosting service which runs &lt;a href=&quot;https://github.com/sandstorm-io/blackrock&quot;&gt;a special cluster-scalable version of Sandstorm&lt;/a&gt;. Oasis runs instances of the Sandstorm Shell on dedicated machines, with the ability to add more replicas as needed to handle traffic. Here’s the recent CPU usage history of one such replica:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/http-gateway-cpu-improvement.png&quot; alt=&quot;Graph of shell CPU usage across Gateway deployment.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see, introducing the gateway more than halved the CPU usage of the Sandstorm shell. Rather than reduce the number of replicas, I decided to cut the instance size in half. Either way, switching to the C++ Gateway saved money.&lt;/p&gt;
+
+&lt;p&gt;What about the Gateway itself? Where does it run, and how much CPU does it add? Well, historically, Oasis used an nginx instance for ingress, to provide TLS termination and load balancing. With the Gateway introduced, we were able to eliminate nginx from our stack: the Gateway is perfectly capable of handling TLS termination itself, and is able to implement session-affinity load-balancing much more effectively than nginx could due to the Gateway’s intimate knowledge of Sansdtorm internals. Thus, introducing the Gateway did not add any new VM instances to our system: it simply replaced the existing nginx instance. The Gateway’s CPU usage is negligible, using only a few percent of a CPU core. It appears to be on par with nginx, although when the numbers are this low it’s hard to really tell. I did ultimately decide to reduce the Gateway instance from a full CPU core to a half core to save some more cash.&lt;/p&gt;
+
+&lt;p&gt;These changes will roll out in full to self-hosted Sandstorm users on March 11 (the code is in git now, but I won’t have time to roll a release until then). Adventurous users can set &lt;code&gt;EXPERIMENTAL_GATEWAY=true&lt;/code&gt; in their &lt;code&gt;/opt/sandstorm/sandstorm.conf&lt;/code&gt; today, although note that this will give you the implementation as of the previous release two weeks ago, which still uses the old proxy for some things.&lt;/p&gt;
+
+&lt;h3 id=&quot;other-updates&quot;&gt;Other updates&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/xet7&quot;&gt;Lauri Ojansivu&lt;/a&gt; has translated the Sandstorm UI to Finnish, and &lt;a href=&quot;https://github.com/Xia0ben&quot;&gt;Benoit Renault&lt;/a&gt; and &lt;a href=&quot;https://github.com/jeau&quot;&gt;Thierry Pasquier&lt;/a&gt; have translated the Sandstorm UI to French. This means, along with English, Chinese, and Dutch, Sandstorm now supports five languages. &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md#internationalization-i18n&quot;&gt;Learn how to help translate Sandstorm here.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;next-up&quot;&gt;Next up&lt;/h3&gt;
+
+&lt;p&gt;Here’s some things I want to work on next:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Improving how app updates work. Today, you receive a notification when an app has been updated, and must explicitly accept the update. This unfortunately means that big Sandstorm servers with lots of users tend to get stuck storing every single historical version of every app forever, since there’s always someone who never updated after some version. I’d like to make updates fully automatic, but this requires some story for users who want to pin an older version, and some way to roll back to and older version in case of breakage.&lt;/li&gt;
+  &lt;li&gt;Integrating with Let’s Encrypt, &lt;a href=&quot;https://letsencrypt.org/2017/07/06/wildcard-certificates-coming-jan-2018.html&quot;&gt;once they support wildcard certificates&lt;/a&gt;. Hopefully, this will finally make it easy to run a secure Sandstorm server on your own domain. However, issuing a certificate requires completing a DNS challenge, and Sandstorm currently does not act as a DNS server. So, some manual intervention will likely still be required.&lt;/li&gt;
+  &lt;li&gt;Really supporting e-mail. Today, Sandstorm has some limited ability to accept e-mail, but can’t really act as a standalone e-mail server. I’d like to fix this, with the goal of migrating my own personal e-mail off of GMail and onto Sandstorm.&lt;/li&gt;
+  &lt;li&gt;Really supporting development workflows, centered around git. I want to be able to host a git repository, code review tools, a reasonable issue tracker, and a CI, all on Sandstorm, and all as separate apps.&lt;/li&gt;
+  &lt;li&gt;Making the top bar less ugly. People complain that Sandstorm’s UI is suffocating, especially the black bar across the top. However, Sandstorm’s security model requires that we have a place to hang trusted UI bits – such as the sharing dialog – that is separate from the app proper. Many apps, though, also have their own top bar with app-specific features, creating a double-top-bar effect. What I’d like to do instead is have a single top bar rendered by Sandstorm, but which can be customized by the app to include app-specific controls as well and to look visually consistent with the rest of the app.&lt;/li&gt;
+  &lt;li&gt;Many other things!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Want to get involved? &lt;a href=&quot;https://groups.google.com/group/sandstorm-dev&quot;&gt;Join the sandstorm-dev mailing list.&lt;/a&gt; and &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md&quot;&gt;check out ways to contribute&lt;/a&gt;.&lt;/p&gt;
+</description>
+				<pubDate>Mon, 19 Feb 2018 00:00:00 -0800</pubDate>
+                                <link>https://sandstorm.io/news/2018-02-19-http-rewrite-and-more</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2018-02-19-http-rewrite-and-more</guid>
+			</item>
+		
+			<item>
 				<title>Sandstorm UI now available in Chinese, Dutch</title>
 				<description>&lt;p&gt;As of last week’s Sandstorm release (version 0.216), the Sandstorm UI is (mostly) now internationalized, meaning text has been moved out of the interface into separate translation tables.&lt;/p&gt;
 
@@ -446,62 +493,6 @@ Get an estimate »
 				<pubDate>Thu, 10 Nov 2016 00:00:00 -0800</pubDate>
                                 <link>https://sandstorm.io/news/2016-11-10-rhel-centos-arch-support</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-11-10-rhel-centos-arch-support</guid>
-			</item>
-		
-			<item>
-				<title>Linux kernel CVE-2016-5195 &amp;quot;Dirty COW&amp;quot; mitigated by Sandstorm</title>
-				<description>&lt;p&gt;Last week, a Linux kernel bug, &lt;a href=&quot;https://www.google.com/search?q=CVE-2016-5195&quot;&gt;CVE-2016-5195&lt;/a&gt;, was described as &lt;a href=&quot;http://arstechnica.com/security/2016/10/most-serious-linux-privilege-escalation-bug-ever-is-under-active-exploit/&quot;&gt;“the most serious Linux local privilege escalation ever”&lt;/a&gt;. The bug – which potentially allowed any code running on a Linux machine to escalate its privileges to root – was already being actively exploited in the wild before it was fixed, and had existed in the kernel for many years.&lt;/p&gt;
-
-&lt;p&gt;Since Sandstorm allows any user of a server to upload their own apps, you might wonder if this bug could allow a Sandstorm user to compromise the server.&lt;/p&gt;
-
-&lt;p&gt;We’re happy to report that the answer appears to be “no”. As is &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/#linux-kernel&quot;&gt;often the case&lt;/a&gt; with Linux kernel bugs, our sandbox blocked the exploit.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Of course, we still recommend updating your kernel in case the bug can be exploited in ways that have not been discovered yet.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;technical-details&quot;&gt;Technical Details&lt;/h3&gt;
-
-&lt;p&gt;The bug in question was a race condition in the handling of memory pages mapped copy-on-write. A process can ask that a read-only file be mapped into its memory space in such a way that it is allowed to modify the mapped memory. When the process writes to the memory, the kernel makes a private copy of the affected page, so that the process only modifies its copy, not the original. Meanwhile, a process can request later on that the modifications it made be discarded, returning the page to its original state. In certain circumstances, by both writing to a page and requesting this discard at the same time (in separate threads), the process could end up writing to the original pages that are shared with other processes on the system, instead of its own private copy. Hence, the process could modify any file on the system. By modifying, say, the &lt;code&gt;sudo&lt;/code&gt; utility, it could give itself a backdoor which allows it to gain root privileges trivially.&lt;/p&gt;
-
-&lt;p&gt;However, not just any old write worked here. In order to trigger the race condition, the process had to write in a way that calls the kernel’s &lt;code&gt;get_user_pages()&lt;/code&gt; function with the &lt;code&gt;force&lt;/code&gt; parameter set to &lt;code&gt;1&lt;/code&gt;. The &lt;code&gt;force&lt;/code&gt; parameter says: “If this page is mapped copy-on-write, then let me write to it (making a private copy) even if the page’s protection mode is read-only.” As it turns out, it is possible for a memory mapping to be both read-only and copy-on-write, and in fact this is the mode that is usually used when mapping in a program’s main binary and shared libraries. Normally, no copy is ever performed, because the writes that would trigger them are not allowed. However, there is a special case where this combination of flags matters: If you are running a program in a debugger, and you ask the debugger to insert a breakpoint, it does so by overwriting the instruction at the given address with a break instruction. That is, it modifies the mapped executable. The &lt;code&gt;force&lt;/code&gt; flag actually exists for exactly this purpose: so that the debugger can inject breakpoints into the program being executed by the process being debugged (without affecting any other processes that happen to be running the same program).&lt;/p&gt;
-
-&lt;p&gt;Because the &lt;code&gt;force&lt;/code&gt; flag is only useful in very specific circumstances, only certain code paths can trigger the vulnerability. Kernel security engineer and Sandstorm contributor Andrew Lutomirski tells us the only entry points appear to be:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The &lt;code&gt;ptrace()&lt;/code&gt; system call’s &lt;code&gt;PTRACE_POKEDATA&lt;/code&gt; operation, which is explicitly meant to be used by debuggers, often for the purpose of setting breakpoints.&lt;/li&gt;
-  &lt;li&gt;Writes to &lt;code&gt;/proc/&amp;lt;pid&amp;gt;/mem&lt;/code&gt;. It’s unclear why this code uses &lt;code&gt;force&lt;/code&gt; – possibly it was a mistake.&lt;/li&gt;
-  &lt;li&gt;Various drivers, which are also probably using the flag by mistake.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;As it turns out, none of these code paths can be exploited by Sandstorm apps:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Sandstorm uses seccomp to block the app from invoking &lt;code&gt;ptrace()&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Sandstorm does not mount &lt;code&gt;/proc&lt;/code&gt; inside app sandboxes.&lt;/li&gt;
-  &lt;li&gt;Sandstorm does not expose driver interfaces from inside app sandboxes. For example, &lt;code&gt;/dev&lt;/code&gt; contains only &lt;code&gt;null&lt;/code&gt;, &lt;code&gt;zero&lt;/code&gt;, and &lt;code&gt;urandom&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So, as far as we can tell, Sandstorm has never been vulnerable to this bug.&lt;/p&gt;
-
-&lt;h3 id=&quot;defense-in-depth&quot;&gt;Defense in depth&lt;/h3&gt;
-
-&lt;p&gt;Even if Sandstorm were vulnerable, the exploit would have far reduced impact inside Sandstorm than in a typical Linux environment, because:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Within a Sandstorm app’s sandbox, the visible filesystem consists of the contents of its own package. It cannot see the host system’s files nor files belonging to other apps, hence it would not be able to memory-map them in order to modify them using this bug.&lt;/li&gt;
-  &lt;li&gt;App packages cannot contain setuid binaries and, even if they could, apps would not be able to execute them, because Sandstorm sets the &lt;code&gt;NO_NEW_PRIVS&lt;/code&gt; &lt;code&gt;prctl()&lt;/code&gt; flag inside the sandbox.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;When running on Sandstorm, a user’s data in an app like Etherpad is containerized separately from another user’s data. In fact, we go one step further and &lt;a href=&quot;https://sandstorm.io/how-it-works#grains&quot;&gt;containerize each document separately&lt;/a&gt;. In the case that Sandstorm had not mitigated the bug outright, it appears the impact of the bug would be that an app could break Sandstorm’s per-document isolation and read/write documents from any number of users, so long as those users all use the same version of the same app on the same server. The app still would not have been able to interfere with other apps. This is the status quo in a typical Linux environment: in most non-Sandstorm environments, an app keeps all users’ data in a single database without per-user isolation. Overall, this is much less significant than a privilege escalation to root. Thankfully, our seccomp mitigation prevented this.&lt;/p&gt;
-
-&lt;h3 id=&quot;sandstorms-security-record&quot;&gt;Sandstorm’s Security Record&lt;/h3&gt;
-
-&lt;p&gt;This is not the first Linux security bug mitigated by Sandstorm. In fact, we’ve kept a long list. Moreover, in addition to mitigating Linux kernel problem, Sandstorm mitigates most vulnerabilities in the apps that run on top of it. Check out the whole list of mitigated vulnerabilities that we’ve compiled: &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/&quot;&gt;Sandstorm Security Non-Events&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Want to try out Sandstorm as a user? &lt;a href=&quot;https://demo.sandstorm.io&quot;&gt;Try the online demo »&lt;/a&gt;&lt;/p&gt;
-</description>
-				<pubDate>Tue, 25 Oct 2016 00:00:00 -0700</pubDate>
-                                <link>https://sandstorm.io/news/2016-10-25-cve-2016-5195-dirtycow-mitigated</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-10-25-cve-2016-5195-dirtycow-mitigated</guid>
 			</item>
 		
 	</channel>

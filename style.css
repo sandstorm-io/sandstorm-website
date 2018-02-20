@@ -690,6 +690,9 @@ body > footer {
         background-image: -webkit-linear-gradient(top, #fb839f, #d54f79);
         background-image: linear-gradient(to bottom, #fb839f, #d54f79);
         background-color: #d54f79; }
+#home #what > p {
+  max-width: 800px;
+  margin: 1em auto; }
 #home #what > ul {
   padding: 0;
   margin: 0; }
@@ -2398,19 +2401,23 @@ body > footer {
   width: 90%; }
   #about .story p {
     padding: 0 0 40px 0; }
-#about #team li h3, #about #advisors li h3, #about #sponsors li h3 {
+#about #team li h3, #about #past-team li h3, #about #advisors li h3, #about #sponsors li h3 {
   border-bottom: 1px solid #ddd;
   margin: 7px 0 5px 0;
   text-align: left; }
-#about #team h4, #about #advisors h4, #about #sponsors h4 {
+#about #team h4, #about #past-team h4, #about #advisors h4, #about #sponsors h4 {
   margin: 0; }
-#about #team p, #about #advisors p, #about #sponsors p {
+#about #team p, #about #past-team p, #about #advisors p, #about #sponsors p {
   font-size: 16px;
   float: left; }
-#about #team h5, #about #advisors h5, #about #sponsors h5 {
+#about #team > p, #about #past-team > p, #about #advisors > p, #about #sponsors > p {
+  float: none;
+  max-width: 800px;
+  margin: 1em auto; }
+#about #team h5, #about #past-team h5, #about #advisors h5, #about #sponsors h5 {
   display: block;
   font-weight: lighter; }
-#about #team > ul, #about #advisors > ul, #about #sponsors > ul {
+#about #team > ul, #about #past-team > ul, #about #advisors > ul, #about #sponsors > ul {
   width: 100%;
   padding: 0px;
   display: -webkit-box;
@@ -2425,7 +2432,7 @@ body > footer {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
-  #about #team > ul > li, #about #advisors > ul > li, #about #sponsors > ul > li {
+  #about #team > ul > li, #about #past-team > ul > li, #about #advisors > ul > li, #about #sponsors > ul > li {
     -webkit-box-flex: 0;
     -webkit-flex: 0 1 auto;
         -ms-flex: 0 1 auto;
@@ -2433,7 +2440,7 @@ body > footer {
     width: 50%;
     position: relative;
     padding: 40px 16px 0; }
-    #about #team > ul > li::before, #about #advisors > ul > li::before, #about #sponsors > ul > li::before {
+    #about #team > ul > li::before, #about #past-team > ul > li::before, #about #advisors > ul > li::before, #about #sponsors > ul > li::before {
       display: block;
       content: " ";
       float: left;
@@ -2443,40 +2450,40 @@ body > footer {
       background: bottom/contain no-repeat;
       background-position: left;
       background-color: #fff; }
-    #about #team > ul > li.kenton::before, #about #advisors > ul > li.kenton::before, #about #sponsors > ul > li.kenton::before {
+    #about #team > ul > li.kenton::before, #about #past-team > ul > li.kenton::before, #about #advisors > ul > li.kenton::before, #about #sponsors > ul > li.kenton::before {
       background-image: url("images/people/kenton.png"); }
-    #about #team > ul > li.jade::before, #about #advisors > ul > li.jade::before, #about #sponsors > ul > li.jade::before {
+    #about #team > ul > li.jade::before, #about #past-team > ul > li.jade::before, #about #advisors > ul > li.jade::before, #about #sponsors > ul > li.jade::before {
       background-image: url("images/people/jade.png"); }
-    #about #team > ul > li.jason::before, #about #advisors > ul > li.jason::before, #about #sponsors > ul > li.jason::before {
+    #about #team > ul > li.jason::before, #about #past-team > ul > li.jason::before, #about #advisors > ul > li.jason::before, #about #sponsors > ul > li.jason::before {
       background-image: url("images/people/jason.png"); }
-    #about #team > ul > li.david::before, #about #advisors > ul > li.david::before, #about #sponsors > ul > li.david::before {
+    #about #team > ul > li.david::before, #about #past-team > ul > li.david::before, #about #advisors > ul > li.david::before, #about #sponsors > ul > li.david::before {
       background-image: url("images/people/david.png"); }
-    #about #team > ul > li.asheesh::before, #about #advisors > ul > li.asheesh::before, #about #sponsors > ul > li.asheesh::before {
+    #about #team > ul > li.asheesh::before, #about #past-team > ul > li.asheesh::before, #about #advisors > ul > li.asheesh::before, #about #sponsors > ul > li.asheesh::before {
       background-image: url("images/people/asheesh.png"); }
-    #about #team > ul > li.nena::before, #about #advisors > ul > li.nena::before, #about #sponsors > ul > li.nena::before {
+    #about #team > ul > li.nena::before, #about #past-team > ul > li.nena::before, #about #advisors > ul > li.nena::before, #about #sponsors > ul > li.nena::before {
       background-image: url("images/people/nena.png"); }
-    #about #team > ul > li.drew::before, #about #advisors > ul > li.drew::before, #about #sponsors > ul > li.drew::before {
+    #about #team > ul > li.drew::before, #about #past-team > ul > li.drew::before, #about #advisors > ul > li.drew::before, #about #sponsors > ul > li.drew::before {
       background-image: url("images/people/drew.png"); }
-    #about #team > ul > li.garply::before, #about #advisors > ul > li.garply::before, #about #sponsors > ul > li.garply::before {
+    #about #team > ul > li.garply::before, #about #past-team > ul > li.garply::before, #about #advisors > ul > li.garply::before, #about #sponsors > ul > li.garply::before {
       background-image: url("images/people/garply.png"); }
-    #about #team > ul > li.swetland::before, #about #advisors > ul > li.swetland::before, #about #sponsors > ul > li.swetland::before {
+    #about #team > ul > li.swetland::before, #about #past-team > ul > li.swetland::before, #about #advisors > ul > li.swetland::before, #about #sponsors > ul > li.swetland::before {
       background-image: url("images/people/swetland.png"); }
-    #about #team > ul > li.lutomirski::before, #about #advisors > ul > li.lutomirski::before, #about #sponsors > ul > li.lutomirski::before {
+    #about #team > ul > li.lutomirski::before, #about #past-team > ul > li.lutomirski::before, #about #advisors > ul > li.lutomirski::before, #about #sponsors > ul > li.lutomirski::before {
       background-image: url("images/people/luto.png"); }
-    #about #team > ul > li.nagra::before, #about #advisors > ul > li.nagra::before, #about #sponsors > ul > li.nagra::before {
+    #about #team > ul > li.nagra::before, #about #past-team > ul > li.nagra::before, #about #advisors > ul > li.nagra::before, #about #sponsors > ul > li.nagra::before {
       background-image: url("images/people/jasvir.png"); }
-    #about #team > ul > li.seaborn::before, #about #advisors > ul > li.seaborn::before, #about #sponsors > ul > li.seaborn::before {
+    #about #team > ul > li.seaborn::before, #about #past-team > ul > li.seaborn::before, #about #advisors > ul > li.seaborn::before, #about #sponsors > ul > li.seaborn::before {
       background-image: url("images/people/seaborn.png"); }
-    #about #team > ul > li.miller::before, #about #advisors > ul > li.miller::before, #about #sponsors > ul > li.miller::before {
+    #about #team > ul > li.miller::before, #about #past-team > ul > li.miller::before, #about #advisors > ul > li.miller::before, #about #sponsors > ul > li.miller::before {
       background-image: url("images/people/miller.png"); }
-    #about #team > ul > li.wagner::before, #about #advisors > ul > li.wagner::before, #about #sponsors > ul > li.wagner::before {
+    #about #team > ul > li.wagner::before, #about #past-team > ul > li.wagner::before, #about #advisors > ul > li.wagner::before, #about #sponsors > ul > li.wagner::before {
       background-image: url("images/people/wagner.png"); }
-    #about #team > ul > li.tang::before, #about #advisors > ul > li.tang::before, #about #sponsors > ul > li.tang::before {
+    #about #team > ul > li.tang::before, #about #past-team > ul > li.tang::before, #about #advisors > ul > li.tang::before, #about #sponsors > ul > li.tang::before {
       background-image: url("images/people/audrey.png"); }
   @media (max-width: 800px) {
-    #about #team > ul, #about #advisors > ul, #about #sponsors > ul {
+    #about #team > ul, #about #past-team > ul, #about #advisors > ul, #about #sponsors > ul {
       margin: 0; }
-      #about #team > ul > li, #about #advisors > ul > li, #about #sponsors > ul > li {
+      #about #team > ul > li, #about #past-team > ul > li, #about #advisors > ul > li, #about #sponsors > ul > li {
         -webkit-box-flex: 1;
         -webkit-flex: 1 1 100%;
             -ms-flex: 1 1 100%;
