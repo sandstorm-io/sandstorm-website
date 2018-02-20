@@ -648,6 +648,10 @@ body >footer {
   }
 
   #what {
+    >p {
+      max-width: 800px;
+      margin: 1em auto;
+    }
 
     >ul {
       padding: 0;
@@ -826,7 +830,6 @@ body >footer {
   }
 
   #how {
-
     >section {
       display: flex;
       flex-direction: row;
@@ -2521,7 +2524,7 @@ body >footer {
 		}
 	}
 
-	#team, #advisors, #sponsors {
+	#team, #past-team, #advisors, #sponsors {
 
 		li h3 {
 			border-bottom: 1px solid #ddd;
@@ -2536,6 +2539,12 @@ body >footer {
 		p {
 			font-size: 16px;
 			float: left;
+		}
+
+		>p {
+		        float: none;
+		        max-width: 800px;
+		        margin: 1em auto;
 		}
 
 		h5 {
