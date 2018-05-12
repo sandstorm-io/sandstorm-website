@@ -31,7 +31,6 @@ title: Sandstorm Blog
   </nav>
 {% endif %}
 
-{% assign first = true %}
 {% for post in paginator.posts %}
 <section>
   <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
@@ -40,10 +39,6 @@ title: Sandstorm Blog
       and <a href="{{post.author2Url}}">{{ post.author2 }}</a>
     {% endif %}
     - <a href="{{ post.url }}">{{ post.date | date_to_string }}</a>
-  {% if first %}
-  {% assign first = false %}
-  {{ count }}
-  {% endif %}
   {{ post.content }}
 </section>
 {% endfor %}
