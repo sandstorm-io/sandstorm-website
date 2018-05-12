@@ -79,7 +79,6 @@ h1, h2, h3, h4, b {
 
   font-family: inherit;
   background-color: #428bca;
-  background-image: -webkit-linear-gradient(top,#428bca 0,#2d6ca2 100%);
   background-image: linear-gradient(to bottom,#428bca 0,#2d6ca2 100%);
   background-repeat: repeat-x;
 

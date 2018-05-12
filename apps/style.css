@@ -220,32 +220,17 @@ section>p {
   margin: 32px auto;
 }
 
-.bigpill:nth-child(2n) {
-  display: -ms-flexbox; /* Internet Explorer 10 */ /* Firefox */
-  display: -webkit-box; /* Safari */
-  display: -webkit-flex; /* Chrome */
+.bigpill:nth-child(2n) { /* Internet Explorer 10 */ /* Firefox */ /* Safari */ /* Chrome */
   display: flex;
 
-  -webkit-box-orient: horizontal;
-
-  -webkit-box-direction: normal;
-
-  -webkit-flex-direction: row;
-
-      -ms-flex-direction: row;
-
-          flex-direction: row;
+  flex-direction: row;
 }
 
 .bigpill:nth-child(2n+1)>h2 {
   border-right: 1px solid #a49f97;
 }
 .bigpill:nth-child(2n)>h2 {
-  border-left: 1px solid #a49f97;
-
-  -ms-flex-order: 3; /* Internet Explorer 10 */ /* Firefox */
-  -webkit-box-ordinal-group: 3; /* Safari */
-  -webkit-order: 3; /* Chrome */
+  border-left: 1px solid #a49f97; /* Internet Explorer 10 */ /* Firefox */ /* Safari */ /* Chrome */
   order: 3;
 }
 

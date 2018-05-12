@@ -97,16 +97,11 @@
 
 
 
-
 <section>
   <h2><a href="/news/2016-10-25-cve-2016-5195-dirtycow-mitigated">Linux kernel CVE-2016-5195 &quot;Dirty COW&quot; mitigated by Sandstorm</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2016-10-25-cve-2016-5195-dirtycow-mitigated">25 Oct 2016</a>
-  
-  
-  
-  
   <p>Last week, a Linux kernel bug, <a href="https://www.google.com/search?q=CVE-2016-5195">CVE-2016-5195</a>, was described as <a href="http://arstechnica.com/security/2016/10/most-serious-linux-privilege-escalation-bug-ever-is-under-active-exploit/">“the most serious Linux local privilege escalation ever”</a>. The bug – which potentially allowed any code running on a Linux machine to escalate its privileges to root – was already being actively exploited in the wild before it was fixed, and had existed in the kernel for many years.</p>
 
 <p>Since Sandstorm allows any user of a server to upload their own apps, you might wonder if this bug could allow a Sandstorm user to compromise the server.</p>
@@ -163,7 +158,6 @@
   <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Q. Wang</a>
     
     - <a href="/news/2016-10-13-sharing-documents-rocketchat">13 Oct 2016</a>
-  
   <p>I’m sharing a pro-tip today because I like making sure that everyone gets the most productivity they can out of Sandstorm.</p>
 
 <p>Let’s say I want to share a grain (e.g., a document, spreadsheet, git repository, or a <a href="https://sandstorm.io/news/2016-08-09-collections-app">Collection</a>) with a group of colleagues who are already in the same <a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> chatroom. To do so, I first click the + icon in Rocket.Chat.</p>
@@ -205,7 +199,6 @@
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2016-09-30-fiber-bomb-debugging-story">30 Sep 2016</a>
-  
   <p>A month or two ago, we started seeing a mysterious problem in production: every now and then, one of our Node.js web server processes supporting Sandstorm Oasis would suddenly jump to 100% CPU usage (of one core) and stay there until it was killed. The problem wasn’t an infinite loop, though: the process continued to respond to requests, just slowly. Since the process continued to respond to requests, it continued to pass health checks and was never restarted automatically. But for users assigned to that shard, the service was essentially unusable, as every action would take seconds to complete. The problem left nothing at all suspicious in the logs – other than a gap in which far fewer requests that normal were being handled. At first, the problem only struck about once a week, seemingly at random.</p>
 
 <p>This kind of bug is a web developer’s worst nightmare. How do you debug something which you can only reproduce once a week, at random, with real users on the line? What could even cause a process to slow down but not stop in this way?</p>
@@ -273,7 +266,6 @@
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
     - <a href="/news/2016-09-13-whats-new">13 Sep 2016</a>
-  
   <p>August’s most visible change is that when new users join a Sandstorm server, some apps are installed
 automatically. By default, and on
 <a href="https://oasis.sandstorm.io/">Oasis,</a> users can jump into Davros, Etherpad, Rocket.Chat, and Wekan,
@@ -372,7 +364,6 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
     - <a href="/news/2016-08-31-sandstorm-for-work-ready">31 Aug 2016</a>
-  
   <p>Today, we’re announcing that Sandstorm for Work is no longer in beta. Companies large and small – ourselves included – have been getting work done using Sandstorm for months. It’s time for you to join us!</p>
 
 <h3 id="what-is-sandstorm-for-work">What is Sandstorm for Work?</h3>
@@ -409,7 +400,7 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
   <li><strong>Bulk discounts</strong> are available for large organizations and resellers.</li>
 </ul>
 
-<p>If any of these situations describe you, <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#097;&#108;&#101;&#115;&#064;&#115;&#097;&#110;&#100;&#115;&#116;&#111;&#114;&#109;&#046;&#105;&#111;">tell us about it</a> and we’ll set you up.</p>
+<p>If any of these situations describe you, <a href="mailto:sales@sandstorm.io">tell us about it</a> and we’ll set you up.</p>
 
 <h3 id="core-productivity-suite">Core productivity suite</h3>
 
@@ -547,16 +538,6 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
       </ul>
       <p>This page was hand-crafted using only the finest web technologies.
     </footer>
-
-    <!-- Google Analytics -->
-    <script type="text/javascript">
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-42127409-1', 'sandstorm.io');
-      ga('send', 'pageview');
-    </script>
 
     <!-- livereload, for development -->
     <script type="text/javascript">
