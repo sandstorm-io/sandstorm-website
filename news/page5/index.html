@@ -48,13 +48,9 @@
   </ul>
 
   <div class="more">
-    <form id="signup" action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
-      Join our mailing list for updates<br>
-      <input type="email" name="EMAIL" placeholder="E-mail" required><input type="submit" value="Submit">
-    </form>
     <a href="/get">
       Sandstorm is a self-hostable web productivity suite.
-      <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
+      <span class="signup" href="https://oasis.sandstorm.io">Sign up</span>
       <span class="selfhost" href="/install">or host your own</span>
     </a>
     
@@ -96,6 +92,41 @@
   </nav>
 
 
+
+<section>
+  <h2><a href="/news/2016-06-29-asheesh-web-apps">Upcoming Event: Web app packaging in Sandstorm: It's not LAMP</a></h2>
+  <p class="post-details">By <a href="https://github.com/neynah">Nena Nguyen</a>
+    
+    - <a href="/news/2016-06-29-asheesh-web-apps">29 Jun 2016</a>
+  <p>On July 19th, Sandstorm core dev <a href="https://github.com/paulproteus">Asheesh Larioa</a> will be giving a talk about web packaging at our South Bay Sandstorm meetup.</p>
+
+<p><img src="/news/images/asheesh-profile.jpg" /></p>
+
+<p><strong>Talk details</strong></p>
+
+<p>This talk covers how web app packaging works for Sandstorm.io. Asheesh will compare and contrast Sandstorm packaging against the typical install process on a Linux/Apache/MySQL/PHP system. This talk was featured at <a href="https://debconf16.debconf.org/talks/84/">Debconf16</a>, the yearly Debian conference.</p>
+
+<p>He will outline how Sandstorm’s packaging tools do a few strange things to allow unprivileged users to install apps with one click:</p>
+
+<p>• Every app package is a tiny Debian derivative, often as small as 20MB.</p>
+
+<p>• Apps have no Internet connectivity to the outside world.</p>
+
+<p>• Sandstorm uses a FUSE filesystem to identify which files are needed to run the app.</p>
+
+<p>• An app bundles all its needed services, as well as files, resulting in one MySQL service per app.</p>
+
+<p>• Users click and run one instance of an app like Etherpad per document, which is all handled transparently via a web app, a strategy that has neutralized 95% of 0-day web app vulnerabilities, based on our analysis.</p>
+
+<p>• Developers on Mac OS and Windows can create packages for Sandstorm, even though Sandstorm is Linux-only, due to an emphasis on Linux VMs in our development tools.</p>
+
+<p>Somehow we manage to make this scale reasonably well. Additionally, it is popular with upstream authors: of the &gt;58 web apps packaged for Sandstorm, about 1/3 are maintained by their upstreams.</p>
+
+<p>This talk focuses on how the Sandstorm packaging tools work, with community insights as well as technical ones, with the hopes of showing Debian how to more effectively package web apps for end users.</p>
+
+<p>Come for the opportunity to meet others in the Sandstorm community, and work on your project with guidance from our core devs. This event will be held at RethinkDB in Mountain View on July 19. RSVP <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231954146/">here</a>.</p>
+
+</section>
 
 <section>
   <h2><a href="/news/2016-06-20-drew-object-capabilities">Designing secure systems with Object-Capabilities, Python, and Cap'n Proto</a></h2>
@@ -254,25 +285,6 @@ under the “About Sandstorm” section.</p>
 
 </section>
 
-<section>
-  <h2><a href="/news/2016-05-23-case-study-journalists">Case Study: Sandstorm for journalists</a></h2>
-  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
-    
-    - <a href="/news/2016-05-23-case-study-journalists">23 May 2016</a>
-  <p><a href="https://twitter.com/jason_nstar">Jason Hernandez</a> is a journalist who often covers sensitive topics like <a href="http://www.nstarpost.com/17518/145186/a/updated-fbi-continues-to-operate-spy-planes-without-warrants-despite-federal-rul">mass</a> <a href="http://nstarpost.com/17486/159855/a/update-2-cellphone-surveillance-used-on-black-lives-matter-protesters-at-fourth">surveillance</a> for the <a href="http://nstarpost.com/">North Star Post</a>. And given the nature of his work, he and his colleagues are justifiably concerned about the information security, not just between journalists and sources, but also drafts and storage of source materials. So, when Jason was visiting the SF Bay Area, he dropped by Sandstorm meetup to talk about the Sandstorm server he set up so he and his colleagues so that they can still enjoy the benefits of web applications, like real-time collaboration, while keeping control over their data.</p>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cAzOL_eoMdQ" frameborder="0" allowfullscreen=""></iframe>
-
-<p>Lightning Talk: Jason Hernandez talks about how North Star Post uses Sandstorm</p>
-
-<p>Are you using Sandstorm for your work? I’d love to hear more about how you’re using Sandstorm and share your story. Drop me a line at <a href="mailto:community@sandstorm.io">community@sandstorm.io</a> and tell me about it!</p>
-
-<p>Are you in the Bay Area? Hope you can make it to the next Sandstorm meetup: <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231065150/">RSVP here</a></p>
-
-<p>Or share your Sandstorm use case at local meetups in: <a href="http://www.meetup.com/Sandstorm-Boston/">Boston</a>, <a href="http://www.meetup.com/Sandstorm-NY/">New York</a>, <a href="http://www.meetup.com/Sandstorm-Berlin/">Berlin</a>, <a href="http://www.meetup.com/Sandstorm-CH/">Zurich</a>, or <a href="http://www.meetup.com/Sandstorm-New-Zealand/">Wellington</a>.</p>
-
-</section>
-
 
 <nav class="pagination bottom">
   
@@ -362,13 +374,6 @@ under the “About Sandstorm” section.</p>
   			</ul>
         </li>
         <li>
-          <h3>Join our mailing list!</h3>
-            <div class="subscribe-small">
-                                                        <form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
-                                                                <input type="email" name="EMAIL" placeholder="e-mail" required>
-                                                                <input type="submit" value="Submit">
-                                                                </form>
-            </div>
           <ul>
             <li><a href=""></a>
           </ul>

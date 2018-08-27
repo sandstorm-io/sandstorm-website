@@ -48,13 +48,9 @@
   </ul>
 
   <div class="more">
-    <form id="signup" action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
-      Join our mailing list for updates<br>
-      <input type="email" name="EMAIL" placeholder="E-mail" required><input type="submit" value="Submit">
-    </form>
     <a href="/get">
       Sandstorm is a self-hostable web productivity suite.
-      <span class="signup" href="https://oasis.sandstorm.io">Sign up for free</span>
+      <span class="signup" href="https://oasis.sandstorm.io">Sign up</span>
       <span class="selfhost" href="/install">or host your own</span>
     </a>
     
@@ -83,6 +79,55 @@
 
 
 
+
+<section>
+  <h2><a href="/news/2018-08-27-discontinuing-free-plan">Oasis free plan will be discontinued October 14</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2018-08-27-discontinuing-free-plan">27 Aug 2018</a>
+  <p>Starting October 14, 2018, Sandstorm Oasis’s “free” plan will be discontinued. Users will still be able to log in for free to access apps and grains owned by other, paying users, but free users will not be able to install their own apps nor create grains. Existing grains owned by free users will remain available for download via the “download backup” function, allowing you to transfer the data to a self-hosted Sandstorm server or manually extract it. However, the grains will no longer be able to start on Oasis unless you upgrade to a paid account.</p>
+
+<h3 id="why-do-this">Why do this?</h3>
+
+<p>Unfortunately, Oasis does not make enough money to support itself.</p>
+
+<p>As of this writing, Oasis hosts 2642 monthly active users. This number is actually up in the last few months, despite Sandstorm having put no effort at all into user growth since <a href="/news/2017-02-06-sandstorm-returning-to-community-roots">we changed gears in early 2017</a>.</p>
+
+<p>However, only 88 of those users have a paid subscription, generating a total of $828 in monthly revenue. Unfortunately, the bare cost of operating Oasis currently comes to about $960 per month, mostly to pay for servers. Additionally, to keep Sandstorm the corporation in existence as a vehicle to operate Oasis costs around an additional $600 per month (for things like taxes, tax preparation, banking fees, etc.). Although these fees don’t technically go to keeping the service running, dissolving Sandstorm the company would almost certainly require shutting down Oasis, and so to keep Oasis running we must pay these fees.</p>
+
+<p>All told, this means Oasis is running a deficit of $700 per month, which I personally pay out-of-pocket.</p>
+
+<p>I do not want to shut down Oasis, because I know a lot of people depend on it and use it every day. But, it doesn’t make sense for me personally to pay for compute for every person who signs up. I need each user to pay their share.</p>
+
+<h3 id="what-are-the-options-for-existing-users">What are the options for existing users?</h3>
+
+<p>If you currently have a free account with data on Sandstorm Oasis, you will need to do one of the following:</p>
+
+<ul>
+  <li>Upgrade to a paid plan on Oasis.</li>
+  <li><a href="https://sandstorm.io/install">Switch to a self-hosted Sandstorm server.</a> You can transfer your grains from Oasis to the new server by downloading a backup of each grain (down-arrow icon in the top bar when the grain is open) and uploading it to the new server. You won’t need to pay Sandstorm anything in this case, but by moving your grains off Oasis, you can help us shut down some servers to save money.</li>
+  <li>Download your data and extract it manually. Sandstorm grain backups are simple zip files containing all of the data the app stored. The format is different from each app – it may be a JSON file, a SQLite database, a MongoDB, etc. You may need special tools and knowledge to extract the data, but it’s all there.</li>
+  <li>Do nothing. Your data will remain intact and can be downloaded at any time. If you aren’t actively using your Oasis account, then you need not take action at this time.</li>
+</ul>
+
+<h3 id="faq">FAQ</h3>
+
+<h4 id="have-you-considered-a-crowdfunding-campaign">Have you considered a crowdfunding campaign?</h4>
+
+<p>Crowdfunding campaigns are harder than they look. Sandstorm ran one early in its life, successfully raising about $60,000. During that time, I had to spend every day for a month and a half going out and selling people on it. We lined up press articles. We had two paid employees pumping out apps. We got on Hacker News several times.</p>
+
+<p>These days, I have a day job leading development of <a href="https://blog.cloudflare.com/cloudflare-workers-unleashed/">Cloudflare Workers</a> and related projects. Workers is taking off quickly and there’s tons to do to make it better. Alas, I just don’t have time to coordinate another crowdfunding campaign for Sandstorm on the side.</p>
+
+<h4 id="can-i-donate-to-sandstorm-via-patreon-or-something">Can I donate to Sandstorm via Patreon or something?</h4>
+
+<p>The best way to “donate” to Sandstorm is to sign up for a paid Oasis account. This is already set up, and the payment processing fees we pay to Stripe are much lower than what Patreon and the like would charge. All revenue from Oasis goes directly to paying for operation costs.</p>
+
+<h4 id="will-oasis-shut-down-eventually">Will Oasis shut down eventually?</h4>
+
+<p>If Oasis remains non-profitable after this change, we’ll eventually have to shut it down. If it pays for itself, I’d like to keep it running, but I cannot make any guarantees. I will, of course, provide plenty of advance warning before shutting it down entirely.</p>
+
+
+</section>
 
 <section>
   <h2><a href="/news/2018-02-19-http-rewrite-and-more">HTTP proxy rewrite and other updates</a></h2>
@@ -232,84 +277,6 @@ time working on Sandstorm.</p>
 
 </section>
 
-<section>
-  <h2><a href="/news/2017-03-02-security-review">Sandstorm gets a security review</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2017-03-02-security-review">02 Mar 2017</a>
-  <p>Sandstorm recently underwent a security review by <a href="http://devco.re/">DevCore Inc.</a>, commissioned by Department of Cyber Security of Taiwan. The company has in the past found RCEs in big-name services like <a href="https://hackerone.com/reports/125980">Uber</a> and <a href="http://devco.re/blog/2016/04/21/how-I-hacked-facebook-and-found-someones-backdoor-script-eng-ver/">Facebook</a>.</p>
-
-<p>Although the full report is not public (and is not in English), Taiwan’s Digital Minister, <a href="https://en.wikipedia.org/wiki/Audrey_Tang">Audrey Tang</a>, tells us that overall DevCore feels Sandstorm has “excellent security design.”</p>
-
-<p>As would be expected of any good security review, DevCore did find several issues. Last night we released build 0.203 to fix them. All servers should automatically update within 24 hours of the release (by midnight tonight, PST), but if you’d like to speed up the process (or if you have disabled automatic updates), you can SSH into your server now and type:</p>
-
-<pre><code>sudo sandstorm update
-</code></pre>
-
-<h3 id="vulnerabilities-discovered-and-fixed">Vulnerabilities Discovered (and fixed)</h3>
-
-<h4 id="1-insufficient-e-mail-address-validation">1. Insufficient e-mail address validation</h4>
-
-<p>When logging in with an e-mail address, a user could enter an address like “foo@evil.com,bar@example.com”. In this case, login e-mails would be sent to <em>both</em> addresses, while Sandstorm would treat the user as if they were a member of the latter domain, “example.com”. Hence, an attacker could specify their real address as the first address and a fake address at a domain of their choice as the second, in order to appear to be a member of the domain. Servers that use Sandstorm’s organizational features (until recently only available as part of the <a href="https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots">now-defunct</a> product “Sandstorm for Work”) can be configured to automatically promote members of a domain to full users, allowing them to install apps, create grains, and discover the identities of other members of the organization. Such users would <strong>not</strong> receive access to any other grains on the server, but an attacker could install their own apps that consume the server’s resources, including CPU, RAM, and disk. An attacker could also combine this vulnerability with one of the others below, all of which require full user status as a starting point.</p>
-
-<p>The root cause of this bug is Sandstorm’s use of a library called Nodemailer to send e-mail. It turns out that Nodemailer “helpfully” interprets comma-separated lists of addresses as multiple addresses. This is true even if the string is already part of an array. For instance, say you pass the following array in the <code>to</code> field of a mail sent via Nodemailer:</p>
-
-<pre><code>[ "foo@example.com",
-  "bar@example.com,baz@example.com",
-  { name: "Garply", address: "qux@example.com,corge@example.com" } ]
-</code></pre>
-
-<p>Surprisingly, this three-element array will send e-mail to <em>five</em> addresses – foo@, bar@, baz@, qux@, and corge@.</p>
-
-<p>We did not anticipate this feature and assumed that Nodemailer would fail to send e-mail to an invalid address.</p>
-
-<p><strong>Severity:</strong> Moderate <strong>if</strong> Sandstorm is configured with an organization defined by e-mail domain. If you do not define an organization, or if you define it by LDAP, SAML, or G Suite domain, then we do not believe this bug can be meaningfully exploited.</p>
-
-<p><strong>Fix:</strong> Sandstorm now performs its own validation of addresses to ensure, among other things, that no separator characters are accepted and only one @-sign is allowed. Fixed in commit <a href="https://github.com/sandstorm-io/sandstorm/commit/37bd9a7f4eb776cdc2d3615f0bfea1254b66f59d">37bd9a7</a>.</p>
-
-<h4 id="2-insufficient-path-validation-when-building-zip-backups">2. Insufficient path validation when building ZIP backups</h4>
-
-<p>The owner of a Sandstorm grain can download a backup of the grain’s content in ZIP format. Sandstorm shells out to the <code>zip</code> utility to build this archive, but does so inside a sandbox designed to prevent exploitation of bugs in the utility.</p>
-
-<p>Unfortunately, a combination of factors resulted in the possibility of a minor data leak:</p>
-
-<ul>
-  <li>The list of files to include in the archive is passed to <code>zip</code> on standard input, delimited by newlines. However, it is possible for a filename to contain a newline character. Sandstorm actually checked for this, but accidentally failed to perform the check in one code path triggered by the existence of an empty directory.</li>
-  <li>The zip sandbox carefully hid sensitive directories like <code>/var</code>, <code>/proc</code>, and even <code>/etc</code>. However, after the zip sandbox was written, two new directories, <code>/etc.host</code> and <code>/run.host</code>, which are aliases for the host system’s <code>/etc</code> and <code>/run</code>, were added. Unfortunately, the zip sandbox was not updated to hide these directories, hence they were visible to the zip program.</li>
-</ul>
-
-<p>As a result of this, a user could create a grain containing an empty directory named <code>/var/blah\n/etc.host/passwd</code>, save a backup, and find the backup contained a copy of the host’s <code>/etc/passwd</code> file (which, despite its name, does not contain passwords, but does contain a list of local user accounts).</p>
-
-<p><strong>Severity:</strong> Low. An attacker who has full user status (permission to create grains) can read files located in the server’s <code>/etc</code> and <code>/run</code> directories that are set world-readable (or specifically readable to the Sandstorm service account). No other host system directories are exposed. Usually, any files under <code>/etc</code> that contain sensitive secrets would be hidden from all users except root, hence would not be readable by Sandstorm nor by the attacker.</p>
-
-<p><strong>Fix:</strong> We have fixed the validation of filenames so that newlines are never permitted, and we have enhanced the zip sandbox to use a whitelist of top-level directories rather than a blacklist. Fixed in commits <a href="https://github.com/sandstorm-io/sandstorm/commit/4ea8df7403381d9b657b121b3c98d8081b27414d">4ea8df7</a> and <a href="https://github.com/sandstorm-io/sandstorm/commit/6e8572ea8bb56d0216bb1b410e5040edc051b120">6e8572e</a>.</p>
-
-<h4 id="3-server-side-request-forgery">3. Server-side request forgery</h4>
-
-<p>Apps running on Sandstorm can make outgoing HTTP requests through a few mechanisms. Additionally, users can instruct Sandstorm to download an app package file from an arbitrary URL. Sandstorm did not attempt to prevent these requests from reaching localhost or private network destinations. Because of this, a full user of the Sandstorm server (but not a visitor) could probe the internal network on which the Sandstorm server was hosted, as well as services exposed to localhost on the server itself.</p>
-
-<p>This is a problem if unprotected services are exposed to the Sandstorm server <em>and</em> you have invited users to your server who should not be trusted to access those services. Sandstorm itself does not expose any unprotected services to localhost, so some other service must be running locally to cause a problem. Only HTTP requests are possible.</p>
-
-<p><strong>Severity:</strong> High <strong>if</strong> unprotected HTTP services are visible to the Sandstorm server <em>and</em> you have invited users to your server who should not be trusted to access those services. Otherwise, low. Sandstorm itself does not expose any unprotected services to localhost, so some other service must be running locally to cause a problem. Only HTTP requests are possible.</p>
-
-<p><strong>Fix:</strong> Sandstorm now allows the server admin to configure an IP address blacklist. User-initiated requests will not be allowed from these addresses. By default, standard private network address ranges are blacklisted. Annoyingly, this “fix” is likely to break some servers who use private app indexes, but avoiding such breakage would mean leaving others vulnerable. Admins will need to update their blacklists accordingly. Fixed in commit <a href="https://github.com/sandstorm-io/sandstorm/commit/164997fb958effbc90c5328c166706280a84aaa1">164997f</a>.</p>
-
-<h4 id="4-failure-to-mitigate-linux-kernel-cve-2017-6074">4. Failure to mitigate Linux kernel CVE-2017-6074</h4>
-
-<p><em>(This was caught by Sandstorm core developer <a href="https://github.com/dwrensha">David Renshaw</a>, not by DevCore, but is fixed in the same release.)</em></p>
-
-<p>A recent Linux kernel bug could allow a malicious app to cause a kernel panic or perhaps break out of its sandbox. The bug is in Linux, but Sandstorm aims to protect against such bugs via seccomp. <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/#linux-kernel">Historically, Sandstorm’s sandbox has been very successful at blocking Linux vulnerabilities before they are discovered.</a> However, this one slipped through. On Sandstorm, the published PoC exploit for this bug only causes a kernel panic (not a sandbox breakout), but a developer with deep understanding of the bug and the Linux kernel might be able to create a successful attack in other ways.</p>
-
-<p><strong>Severity:</strong> High if you permit users you don’t trust to install apps on your server, or commonly install apps from untrustworthy sources, and you do not keep your kernel up-to-date.</p>
-
-<p><strong>Fix:</strong> Sandstorm’s seccomp filter has been updated to prohibit the creation of DCCP sockets. Fixed in commit <a href="https://github.com/sandstorm-io/sandstorm/commit/34749f9c0141a89680860b15433e8ac9dbdbbb62">34749f9</a>.</p>
-
-<h3 id="conclusion">Conclusion</h3>
-
-<p>We are excited to have received such a thorough security review. Some of the problems discovered were very obscure and we’re impressed that DevCore was able to find them. We thank Audrey Tang and the Department of Cyber Security of Taiwan for commissioning this review.</p>
-
-</section>
-
 
 <nav class="pagination bottom">
   
@@ -395,13 +362,6 @@ time working on Sandstorm.</p>
   			</ul>
         </li>
         <li>
-          <h3>Join our mailing list!</h3>
-            <div class="subscribe-small">
-                                                        <form action="https://sandstorm.us7.list-manage.com/subscribe/post?u=1a036c5ea0fc3c215793748ed&amp;id=5d9399a0af" method="post">
-                                                                <input type="email" name="EMAIL" placeholder="e-mail" required>
-                                                                <input type="submit" value="Submit">
-                                                                </form>
-            </div>
           <ul>
             <li><a href=""></a>
           </ul>

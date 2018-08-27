@@ -7,6 +7,55 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Oasis free plan will be discontinued October 14</title>
+				<description>&lt;p&gt;Starting October 14, 2018, Sandstorm Oasis’s “free” plan will be discontinued. Users will still be able to log in for free to access apps and grains owned by other, paying users, but free users will not be able to install their own apps nor create grains. Existing grains owned by free users will remain available for download via the “download backup” function, allowing you to transfer the data to a self-hosted Sandstorm server or manually extract it. However, the grains will no longer be able to start on Oasis unless you upgrade to a paid account.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-do-this&quot;&gt;Why do this?&lt;/h3&gt;
+
+&lt;p&gt;Unfortunately, Oasis does not make enough money to support itself.&lt;/p&gt;
+
+&lt;p&gt;As of this writing, Oasis hosts 2642 monthly active users. This number is actually up in the last few months, despite Sandstorm having put no effort at all into user growth since &lt;a href=&quot;/news/2017-02-06-sandstorm-returning-to-community-roots&quot;&gt;we changed gears in early 2017&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, only 88 of those users have a paid subscription, generating a total of $828 in monthly revenue. Unfortunately, the bare cost of operating Oasis currently comes to about $960 per month, mostly to pay for servers. Additionally, to keep Sandstorm the corporation in existence as a vehicle to operate Oasis costs around an additional $600 per month (for things like taxes, tax preparation, banking fees, etc.). Although these fees don’t technically go to keeping the service running, dissolving Sandstorm the company would almost certainly require shutting down Oasis, and so to keep Oasis running we must pay these fees.&lt;/p&gt;
+
+&lt;p&gt;All told, this means Oasis is running a deficit of $700 per month, which I personally pay out-of-pocket.&lt;/p&gt;
+
+&lt;p&gt;I do not want to shut down Oasis, because I know a lot of people depend on it and use it every day. But, it doesn’t make sense for me personally to pay for compute for every person who signs up. I need each user to pay their share.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-are-the-options-for-existing-users&quot;&gt;What are the options for existing users?&lt;/h3&gt;
+
+&lt;p&gt;If you currently have a free account with data on Sandstorm Oasis, you will need to do one of the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Upgrade to a paid plan on Oasis.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://sandstorm.io/install&quot;&gt;Switch to a self-hosted Sandstorm server.&lt;/a&gt; You can transfer your grains from Oasis to the new server by downloading a backup of each grain (down-arrow icon in the top bar when the grain is open) and uploading it to the new server. You won’t need to pay Sandstorm anything in this case, but by moving your grains off Oasis, you can help us shut down some servers to save money.&lt;/li&gt;
+  &lt;li&gt;Download your data and extract it manually. Sandstorm grain backups are simple zip files containing all of the data the app stored. The format is different from each app – it may be a JSON file, a SQLite database, a MongoDB, etc. You may need special tools and knowledge to extract the data, but it’s all there.&lt;/li&gt;
+  &lt;li&gt;Do nothing. Your data will remain intact and can be downloaded at any time. If you aren’t actively using your Oasis account, then you need not take action at this time.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;faq&quot;&gt;FAQ&lt;/h3&gt;
+
+&lt;h4 id=&quot;have-you-considered-a-crowdfunding-campaign&quot;&gt;Have you considered a crowdfunding campaign?&lt;/h4&gt;
+
+&lt;p&gt;Crowdfunding campaigns are harder than they look. Sandstorm ran one early in its life, successfully raising about $60,000. During that time, I had to spend every day for a month and a half going out and selling people on it. We lined up press articles. We had two paid employees pumping out apps. We got on Hacker News several times.&lt;/p&gt;
+
+&lt;p&gt;These days, I have a day job leading development of &lt;a href=&quot;https://blog.cloudflare.com/cloudflare-workers-unleashed/&quot;&gt;Cloudflare Workers&lt;/a&gt; and related projects. Workers is taking off quickly and there’s tons to do to make it better. Alas, I just don’t have time to coordinate another crowdfunding campaign for Sandstorm on the side.&lt;/p&gt;
+
+&lt;h4 id=&quot;can-i-donate-to-sandstorm-via-patreon-or-something&quot;&gt;Can I donate to Sandstorm via Patreon or something?&lt;/h4&gt;
+
+&lt;p&gt;The best way to “donate” to Sandstorm is to sign up for a paid Oasis account. This is already set up, and the payment processing fees we pay to Stripe are much lower than what Patreon and the like would charge. All revenue from Oasis goes directly to paying for operation costs.&lt;/p&gt;
+
+&lt;h4 id=&quot;will-oasis-shut-down-eventually&quot;&gt;Will Oasis shut down eventually?&lt;/h4&gt;
+
+&lt;p&gt;If Oasis remains non-profitable after this change, we’ll eventually have to shut it down. If it pays for itself, I’d like to keep it running, but I cannot make any guarantees. I will, of course, provide plenty of advance warning before shutting it down entirely.&lt;/p&gt;
+
+</description>
+				<pubDate>Mon, 27 Aug 2018 00:00:00 -0700</pubDate>
+                                <link>https://sandstorm.io/news/2018-08-27-discontinuing-free-plan</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2018-08-27-discontinuing-free-plan</guid>
+			</item>
+		
+			<item>
 				<title>HTTP proxy rewrite and other updates</title>
 				<description>&lt;p&gt;Development of Sandstorm continues! Despite now having a day job, I still spent a lot of my free
 time working on Sandstorm.&lt;/p&gt;
@@ -440,59 +489,6 @@ Get an estimate »
 				<pubDate>Thu, 17 Nov 2016 00:00:00 -0800</pubDate>
                                 <link>https://sandstorm.io/news/2016-11-17-oasis-emerging-from-beta</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2016-11-17-oasis-emerging-from-beta</guid>
-			</item>
-		
-			<item>
-				<title>Sandstorm now supports RHEL 7, CentOS 7, Arch, and more</title>
-				<description>&lt;p&gt;As of a couple weeks ago – October 23, 2016 – Sandstorm can now be installed on systems with:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Linux Kernel 3.10+ (previously required 3.13+)&lt;/li&gt;
-  &lt;li&gt;User namespaces disabled (previously required unprivileged user namespaces)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This means that Sandstorm can now be installed on Red Hat Enterprise Linux (RHEL) 7, as well as its cousin CentOS 7, both of which use kernel version 3.10.&lt;/p&gt;
-
-&lt;p&gt;It also means that Sandstorm can now be installed on Arch Linux, which has historically shipped kernels compiled with &lt;code&gt;CONFIG_USER_NS=n&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;So if you previously couldn’t install Sandstorm because you were using one of these distros, now you can!&lt;/p&gt;
-
-&lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;https://sandstorm.io/install&quot;&gt;Install Sandstorm now »&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;what-changed&quot;&gt;What changed?&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;For the technically curious…&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Sandstorm uses the Linux kernel’s “namespaces” feature as part of setting up the secure sandboxes in which apps run. Normally, creating namespaces requires root privileges, because these features could be used to escalate privileges. However, using “user namespaces”, a process that does not have root privileges can create a special kind of namespace in which other namespaces are (ostensibly) safe to use. Hence, it allows unprivileged processes to create sandboxes.&lt;/p&gt;
-
-&lt;p&gt;For security reasons, most of Sandstorm does not run with root privileges. Because of this, it has long relied on user namespaces to allow it to set up sandboxes. At the time the Sandstorm project started, it looked like user namespaces would soon be broadly available across Linux distros, so this seemed like a reasonable strategy.&lt;/p&gt;
-
-&lt;p&gt;Unfortunately, this has not been entirely true in practice. The enterprise-oriented RHEL and CentOS distros have long release cycles. Today, they still use kernel version 3.10, which is nearly three years old. Because user namespaces still had many problems in this kernel version, they were disabled by default and are today available only with a boot flag. Meanwhile, some faster-moving distros like Arch have chosen to &lt;a href=&quot;https://bugs.archlinux.org/task/36969&quot;&gt;keep user namespaces disabled&lt;/a&gt; even with newer kernel versions due to security concerns: the user namespaces feature has been the source of many local privilege escalation exploits in Linux. Although these vulnerabilities &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/#linux-kernel&quot;&gt;can’t be exploited by Sandstorm apps&lt;/a&gt;, such frequent vulnerabilities are problematic for servers which rely on user account separation for security outside of Sandstorm.&lt;/p&gt;
-
-&lt;p&gt;Even as it became apparent that Sandstorm’s use of user namespaces was preventing it from being used on some distros, we were hesitant to try other approaches. It seemed like the only way to solve the problem would be to employ a setuid-root binary to set up sandboxes when user namespaces were not available. setuid-root binaries are inherently risky – if not written exactly correctly, it could open its own privilege escalation vulnerability. Also, it would require a major refactoring of Sandstorm internals to move the supervisor into its own binary.&lt;/p&gt;
-
-&lt;p&gt;But a couple weeks ago, I realized suddenly that a different idea would work. The Sandstorm server normally starts up as root, but then runs several child processes under a regular user account. Most of Sandstorm’s business logic is in a node.js web server. That process talks via Cap’n Proto RPC to a “back-end” daemon written in C++, which in turn launches app sandboxes. This back-end daemon is hand-coded in C++, with the core logic all living in a single file.&lt;/p&gt;
-
-&lt;p&gt;Because of this design, it turned out to be relatively easy to pass superuser privileges down through the back-end, while still keeping them away from the web server. Specifically, the back-end can execute with its &lt;em&gt;effective&lt;/em&gt; UID set to a normal user account, but its &lt;em&gt;real&lt;/em&gt; UID being root. Then, when it comes time to start a sandbox, it can promote itself back to root to do the work.&lt;/p&gt;
-
-&lt;p&gt;This turned out to take only a couple hours to &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/pull/2644&quot;&gt;implement&lt;/a&gt;. In retrospect, the design seems obvious, and I wish I’d thought of it sooner!&lt;/p&gt;
-
-&lt;p&gt;There is a minor downside: If a vulnerability allows an attacker to cause the back-end to execute arbitrary code, that code could claim the superuser privileges, whereas before it would be limited to the Sandstorm server UID. This risk is probably small because the back-end is a relatively simple program that only speaks directly to other trusted programs (although it speaks indirectly to potentially-malicious actors). Nevertheless, if user namespaces are available, then Sandstorm will avoid handing root privileges to the back-end at all, continuing to operate as it did historically.&lt;/p&gt;
-
-&lt;h3 id=&quot;what-do-i-need-to-do&quot;&gt;What do I need to do?&lt;/h3&gt;
-
-&lt;p&gt;Existing Sandstorm users need not take any action. Your servers will continue to operate exactly as they always have.&lt;/p&gt;
-
-&lt;p&gt;But if you’ve been held back from installing Sandstorm before because it wouldn’t work on your distro, you should try again now!&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://sandstorm.io/install&quot;&gt;Install Sandstorm Standard »&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://sandstorm.io/get-feature-key&quot;&gt;Try Sandstorm for Work (supports corporate SSO via LDAP/SAML/AD and organization management features) »&lt;/a&gt;&lt;/p&gt;
-
-</description>
-				<pubDate>Thu, 10 Nov 2016 00:00:00 -0800</pubDate>
-                                <link>https://sandstorm.io/news/2016-11-10-rhel-centos-arch-support</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-11-10-rhel-centos-arch-support</guid>
 			</item>
 		
 	</channel>

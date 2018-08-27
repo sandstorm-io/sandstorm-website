@@ -1572,6 +1572,16 @@ body > footer {
           transition: transform 0.75s ease, background 0.35s ease;
           transition: transform 0.75s ease, background 0.35s ease, -webkit-transform 0.75s ease;
           margin: 0 auto; }
+      #get #managed-hosting .oasis-plans .oasis-plan .accept-shares-only {
+        height: 100px;
+        margin-bottom: -100px;
+        border-bottom: none;
+        padding: 0.8em;
+        text-align: left; }
+      #get #managed-hosting .oasis-plans .oasis-plan #free .storage, #get #managed-hosting .oasis-plans .oasis-plan #free .grains {
+        color: transparent; }
+      #get #managed-hosting .oasis-plans .oasis-plan #free .storage {
+        border-bottom: none; }
   #get #managed-hosting #faq {
     padding-bottom: 20px; }
     #get #managed-hosting #faq h2 {
