@@ -47,7 +47,9 @@
 		
 			<item>
 				<title>Oasis free plan will be discontinued October 14</title>
-				<description>&lt;p&gt;Starting October 14, 2018, Sandstorm Oasis’s “free” plan will be discontinued. Users will still be able to log in for free to access apps and grains owned by other, paying users, but free users will not be able to install their own apps nor create grains. Existing grains owned by free users will remain available for download via the “download backup” function, allowing you to transfer the data to a self-hosted Sandstorm server or manually extract it. However, the grains will no longer be able to start on Oasis unless you upgrade to a paid account.&lt;/p&gt;
+				<description>&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; This change has now taken effect. Looking for help downloading your data from Oasis? &lt;a href=&quot;2018-10-18-how-to-download-oasis-data&quot;&gt;See our latest blog post »&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Starting October 14, 2018, Sandstorm Oasis’s “free” plan will be discontinued. Users will still be able to log in for free to access apps and grains owned by other, paying users, but free users will not be able to install their own apps nor create grains. Existing grains owned by free users will remain available for download via the “download backup” function, allowing you to transfer the data to a self-hosted Sandstorm server or manually extract it. However, the grains will no longer be able to start on Oasis unless you upgrade to a paid account.&lt;/p&gt;
 
 &lt;h3 id=&quot;why-do-this&quot;&gt;Why do this?&lt;/h3&gt;
 
