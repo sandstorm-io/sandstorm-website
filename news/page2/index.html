@@ -94,6 +94,29 @@
 
 
 <section>
+  <h2><a href="/news/2017-03-13-joining-cloudflare">The Sandstorm Team is joining Cloudflare</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2017-03-13-joining-cloudflare">13 Mar 2017</a>
+  <p>Recently, we announced that <a href="https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots">Sandstorm is returning to its community roots</a>, transitioning away from being a for-profit startup and towards being a community-effort, open source project. The Sandstorm team is committed to keep building Sandstorm in collaboration with our amazing community, and we will keep operating Sandstorm Oasis as a service. But, Sandstorm will no longer be our full-time jobs.</p>
+
+<p>So, what will be?</p>
+
+<p>Starting today, most of the Sandstorm team – including Jade and myself – now work for Cloudflare.</p>
+
+<p>Sandstorm has actually been a user of Cloudflare since the beginning. Our web site and static parts of Oasis are served through them. I’ve long been a fan of Cloudflare’s focus on security. A few years back, I enjoyed their <a href="https://blog.cloudflare.com/answering-the-critical-question-can-you-get-private-ssl-keys-using-heartbleed/">Heartbleed Challenge</a> which proved conclusively that, yes, private keys can be leaked by Heartbleed. Although Cloudflare recently suffered from <a href="https://blog.cloudflare.com/incident-report-on-memory-leak-caused-by-cloudflare-parser-bug/">a widely-reported security incident</a>, their response was impressively fast and transparent.</p>
+
+<p>But a bigger reason I’m excited about joining Cloudflare is that they are big users – perhaps the biggest users – of <a href="https://capnproto.org">Cap’n Proto</a>, the serialization and RPC framework developed by Sandstorm. Cloudflare actually <a href="https://blog.cloudflare.com/introducing-lua-capnproto-better-serialization-in-lua/">developed the Lua bindings for Cap’n Proto</a> and has <a href="http://www.thedotpost.com/2015/06/john-graham-cumming-i-got-10-trillion-problems-but-logging-aint-one">spoken publicly about using Cap’n Proto in their logging pipeline</a>.</p>
+
+<p>Sandstorm, for its part, remains an independent entity, and I won’t be working on it during my day job at Cloudflare. However, I will be working on Cap’n Proto. This should be good news for Cap’n Proto fans who have been disappointed by the lack of releases lately. Although Sandstorm uses Cap’n Proto extensively, in our scramble to build Sandstorm we tended to commit changes only to git master while neglecting to build (and test) formal releases. With a larger corporate backer, we can now afford to be more professional, doing more frequent releases, and putting effort into supporting more languages and platforms.</p>
+
+<p>I will also be working on building some fascinating new infrastructure at Cloudflare. As a member of the edge platform team, I’ll be coming up with new ways to utilize Cloudflare’s machines located in over a hundred data centers around the world. Jade, meanwhile, will be working on building out Cloudflare’s community and developer advocacy program.</p>
+
+<p>The Sandstorm community can expect to see me merging pull requests and pushing releases on weekends, with new releases at least every three weeks. There has been a flurry of activity lately around mobilizing community contributions. Join the discussion on <a href="https://groups.google.com/forum/#!forum/sandstorm-dev">the sandstorm-dev mailing list</a> or on <a href="https://kiwiirc.com/client/irc.freenode.net/?channel=#sandstorm">IRC (#sandstorm on Freenode)</a>!</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2017-03-02-security-review">Sandstorm gets a security review</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
@@ -330,54 +353,6 @@ Get an estimate »
 
 <p>Need something different?  We’re happy to talk about how we can help you succeed - drop us a line at
 <a href="mailto:solutions@sandstorm.io?subject=Sandstorm%20Solutions%20estimate%20request%20for%20%28your%20company%20name%29&amp;body=Hi%20Sandstorm%20team%2C%0A%0AOur%20problem%20that%20we%20need%20solved%20is%3A%0A%0A%28explain%20problem%20here%29%0A%0AWhat%20can%20you%20do%20to%20help%20us%2C%20and%20how%20much%20would%20it%20cost%3F%0A%0AThanks%21%0A%0A%28your%20name%29%0A%28your%20company%29%0A%28your%20phone%20number%29%0A">solutions@sandstorm.io</a>.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-11-17-oasis-emerging-from-beta">Sandstorm Oasis emerging from beta</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2016-11-17-oasis-emerging-from-beta">17 Nov 2016</a>
-  <p>Sandstorm is about making it easy to run a personal server. But we also offer <a href="https://oasis.sandstorm.io">Sandstorm Oasis</a>, a service which runs your Sandstorm server for you.</p>
-
-<p>Contradiction?</p>
-
-<p>Actually, no: Even if you run your own server, Oasis benefits you. Oasis is important because it makes it possible for anyone to use <a href="https://apps.sandstorm.io">Sandstorm’s library of open source apps</a>, even if they really don’t want to run their own server. A larger audience means that more and better apps will become available. Indeed, after we launched Oasis last year, the rate of new apps becoming available on Sandstorm spiked.</p>
-
-<p>That benefits self-hosters, because those same apps can be used on your private server, too.</p>
-
-<p>In fact, we at Sandstorm don’t necessarily think “the cloud” is a bad idea. What we believe is that you should have the freedom to choose what makes sense for you. But that choice is moot if the particular app you need to use is only available in the cloud – we need the same apps to be available everywhere.</p>
-
-<p>Oasis has now been running reliably for over a year. The Sandstorm team uses Oasis every day to get our own work done. I am composing this blog post in <a href="https://oasis.sandstorm.io/appdemo/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60">Etherpad</a>, while organizing my task list in <a href="https://oasis.sandstorm.io/appdemo/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h">Wekan</a>, chatting with teammates in <a href="https://oasis.sandstorm.io/appdemo/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a>, and syncing files with <a href="https://oasis.sandstorm.io/appdemo/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h">Davros</a>.</p>
-
-<p>Here are just some of the things we’ve changed since Oasis was launched:</p>
-
-<ul>
-  <li>Implemented automatic updates for apps.</li>
-  <li>Added cryptographic verification of app author identity.</li>
-  <li>Added unified notifications and activity indicators, so you can find out when apps need attention without opening them to find out.</li>
-  <li>Added collections, allowing you to share a group of grains as one unit.</li>
-  <li>Added the ability to share grains through other apps, e.g. sharing a document to a Rocket.Chat channel, without generating a magic link.</li>
-  <li>Added a “trash” mechanism to make it harder to accidentally delete an important grain.</li>
-  <li>Added the ability to delete your own account.</li>
-  <li>Added support for apps to export WebDAV APIs.</li>
-  <li>Made it easier for Sandstorm apps to connect with mobile client apps.</li>
-  <li>Made Sandstorm’s UI mobile-friendly.</li>
-  <li>Made it so that our most-used apps are pre-installed for new users.</li>
-  <li>Made sharing easier and more secure by adding contact auto-complete and “request access” UIs.</li>
-  <li>Added the ability to attach multiple credentials to one account, so that one login provider being unresponsive won’t prevent you from accessing Sandstorm.</li>
-  <li>Made the left sidebar collapseable for more screen space.</li>
-  <li>With the help of our developer community, doubled the number of apps available on Sandstorm.</li>
-  <li>Improved onboarding for new users with tutorial hints.</li>
-  <li>Performance, scalability, and stability improvements.</li>
-  <li><a href="https://github.com/sandstorm-io/sandstorm/blob/master/CHANGELOG.md">Much more.</a></li>
-</ul>
-
-<p>We’ve so far kept Oasis labeled “beta”, mostly because, as engineers, we always feel like there’s so much more to do. But, that will always be true – no good software project is ever “done”. With Oasis being used for so much real work, the time has come to remove the “beta” label.</p>
-
-<p>Oasis will officially emerge from beta on November 27. We wanted to give advance notice of this change because it affects our paying users: we will no longer be waiving your subscription fee as we have during the beta period. For backers of our Indiegogo campaign who opted for free hosting as a perk, the timer on your service will start now (hey, you got an extra free year!). For the rest, your next monthly invoice will be charged from your credit card. Your subscription payments help support further development of Sandstorm and packaging more apps. Thank you for your support!</p>
-
-<p><a class="linkbutton" href="https://oasis.sandstorm.io/demo">Demo Oasis now »<span style="font-size:60%"><br />(no sign-in required)</span></a></p>
 
 </section>
 

@@ -94,6 +94,155 @@
 
 
 <section>
+  <h2><a href="/news/2015-02-11-app-updates">Results from app update week</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2015-02-11-app-updates">11 Feb 2015</a>
+  <h3 id="updates-to-the-porting-guide">Updates to the porting guide</h3>
+
+<p>Over the past year, the Sandstorm platform has grown new features to fit
+app developers’ needs.
+For example, Sandstorm apps can now
+<a href="https://github.com/sandstorm-io/sandstorm/wiki/Using-Email-From-Your-Sandstorm-App">send and receive email</a>
+and
+<a href="https://github.com/sandstorm-io/sandstorm/wiki/Exporting-HTTP-APIs">export an HTTP API</a>,
+enabling apps to <a href="http://mediagoblin.org/pages/campaign.html">federate across sites</a>
+or communicate with a mobile app.</p>
+
+<p>The process of porting an app to Sandstorm has also become better-documented
+and more reliable.
+The
+<a href="https://github.com/sandstorm-io/sandstorm/wiki/Porting-Guide">Porting Guide</a>
+contains our collected wisdom on making an app work great under Sandstorm,
+including framework-specific advice to streamline the porting process.
+It mentions the tool that Kenton wrote last year –
+<a href="/news/2014-08-12-meteor-spk.html">meteor-spk</a> –
+that makes porting apps for one framework as easy as running a few commands.
+More recently, David’s experience maintaining apps like ShareLaTeX and GitLab
+resulted in a
+<a href="https://github.com/sandstorm-io/sandstorm/wiki/Ruby-on-Rails">collection of tips for porting Rails apps</a>.</p>
+
+<p>I’m heartened to report that in addition to the platform and docs changes,
+there are
+three
+Sandstorm apps actively maintained by their authors: draw.io,
+EtherCalc, and LibreBoard. Those apps now appear
+at the top of the
+<a href="https://sandstorm.io/apps/">Sandstorm app list</a>. In the long run,
+the best way
+for a Sandstorm
+port to stay up-to-date is for the
+app’s own community to actively maintain the app on Sandstorm as well.</p>
+
+<h3 id="app-update-week-changelog">App update week changelog</h3>
+
+<p>The core team still maintains twenty apps, and this experience allows us to
+continuously improve the the documentation and automation behind the porting
+process and prioritize which platform features to build.
+Those apps’ own communities have been hard at work, so we took the
+past week to make those changes available to users of Sandstorm.</p>
+
+<p>Here’s a list of the apps that received updates.</p>
+
+<ul>
+  <li>
+    <p>Etherpad, updated by Kenton. Updated to v1.5.
+See their
+<a href="https://github.com/ether/etherpad-lite/blob/develop/CHANGELOG.md">CHANGELOG.md</a>
+for more
+details. Also added better integration with Sandstorm user accounts, so now your
+color stays consistent across sessions and your display name is pre-populated
+from Sandstorm.</p>
+  </li>
+  <li>
+    <p>Ghost, updated by Jason. Updated from v0.4.2 to v0.5.8. See
+Ghost’s <a href="https://github.com/TryGhost/Ghost/releases">releases page</a> for a list
+of changes.</p>
+  </li>
+  <li>
+    <p>GitLab, updated by David. Kept same upstream version. Improved startup time. Fixed to
+account for
+<a href="https://github.com/sandstorm-io/sandstorm/pull/229">new Sandstorm support for Content-Encoding header</a>.
+Added per-startup session secrets.</p>
+  </li>
+  <li>
+    <p>GitWeb, updated by David. Kept same upstream version. Fixed to account for
+<a href="https://github.com/sandstorm-io/sandstorm/pull/229">new Sandstorm support for Content-Encoding header</a>.</p>
+  </li>
+  <li>
+    <p>Groove Basin, updated by David from upstream v1.4.0 to v1.5.0.
+See <a href="https://github.com/andrewrk/groovebasin/blob/master/CHANGELOG.md">Groove Basin’s CHANGELOG</a>.
+Better
+integration with Sandstorm accounts. Enabled the chat/events tab.</p>
+  </li>
+  <li>
+    <p>Hacker CMS, updated by Kenton. Updated to a more recent version of Jekyll and
+made the tree view sidebar scrollable.</p>
+  </li>
+  <li>
+    <p>IPython Notebook, updated by Jason. Updated from v2.0.0 to v2.4.0. See
+<a href="http://ipython.org/ipython-doc/2/whatsnew/version2.0.html">IPython’s “What’s New” page</a>
+for a list of changes.
+Also fixed Sandstorm specific bugs where grains could hang on startup or when
+clicking “Restart Kernel” in the app.</p>
+  </li>
+  <li>
+    <p>Mailpile, updated by Jason. Updated from Alpha II (v0.3.1) to v0.4.3. Unfortunately,
+the major changes to Mailpile have involved encryption and key management which
+we have removed from the app. As soon as we figure out a good way to keep keys
+secure and fully owned by the user, we will add this funcitonality back in.</p>
+  </li>
+  <li>
+    <p>MediaGoblin, updated by Jason. Updated from v0.7.0 to v0.7.1. This was a minor
+bugfix release. See the
+<a href="http://mediagoblin.readthedocs.org/en/latest/siteadmin/relnotes.html">release notes</a>
+for more details.</p>
+  </li>
+  <li>
+    <p>MediaWiki, updated by Jason. Updated from v1.23.2 to v1.24.1.
+See the <a href="https://www.mediawiki.org/wiki/MediaWiki_1.24">MediaWiki 1.24 release page</a>
+for a list of changes.
+Also, Sandstorm specific, enabled the ability to upload images.</p>
+  </li>
+  <li>
+    <p>Meteor Todos, updated by Asheesh. The new version lost a feature
+(tagging your todo items) and gained some nicer CSS. We used a new app ID rather
+than make this truly an upgrade so that people with existing todo lists aren’t
+disturbed by the feature removal.</p>
+  </li>
+  <li>
+    <p>Roundcube, updated by Jason. Updated from v1.0.1 to v1.1-rc. See
+the <a href="https://github.com/roundcube/roundcubemail/blob/master/CHANGELOG">Roundcube CHANGELOG</a>
+for a list of
+changes.</p>
+  </li>
+  <li>
+    <p>ShareLaTeX, updated by David, from upstream pre-v0.1.0 to v0.1.2.
+Details at ShareLaTeX’s <a href="https://github.com/sharelatex/sharelatex/blob/master/CHANGELOG.md">CHANGELOG.md</a>.
+Add
+per-startup session secrets.</p>
+  </li>
+  <li>
+    <p>Telescope, updated by Jason. Updated from a git head pre v0.9.0 to v0.14.0.
+See <a href="https://github.com/TelescopeJS/Telescope/blob/master/History.md">Telescope History</a>
+for a list
+of changes. Also fixed Sandstorm specific bugs with profiles not being accessible.</p>
+  </li>
+  <li>
+    <p>TinyTinyRSS, updated by Jason. Updated from v1.13 to v1.15.3.</p>
+  </li>
+  <li>
+    <p>WordPress, updated by David from upstream v3.9 to v4.1. Changelogs:
+<a href="http://codex.wordpress.org/Version_4.0">4.0</a>,
+<a href="http://codex.wordpress.org/Version_4.1">4.1</a>.
+Hooked up the “New User Default Role” option so that it works as it should
+with Sandstorm sharing. Added per-startup session secrets.</p>
+  </li>
+</ul>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-02-06-app-demo">One click to try an open source web application</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
@@ -230,67 +379,6 @@ people knowing about the project.</p>
 <p>Sandstorm enables a more fundamental kind of modularization. Because it is decentralized and carefully designed to take full advantage of <a href="https://capnproto.org/">Cap’n Proto</a>’s object-capabilities, Sandstorm allows web software to be split into fine-grained components along <em>user-facing</em> concerns. The components can be so finely grained, in fact, that scalability ceases to be a major concern. When each app instance (a “grain” in Sandstorm jargon) contains only a single document, app developers can instead focus on user-facing functionality, and can start thinking seriously about cooperation between apps.</p>
 
 <p>And that’s why we’ve set up the GitWeb and GitLab apps to provide only a single repository per grain. This setup means that sharing a Git repository with another user through these apps works just like sharing anything else in Sandstorm. Although it does imply that some GitLab features, like forks and merge requests, are not supported within our port, it also means that once we’ve fully implemented Sandstorm’s Powerbox interface for sharing capabilities between grains, “fork” and “merge request” can be actions that are allowed to take place between instances of <em>any</em> Git app.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-01-15-sandstorm-1.3M-seed-round-pay-it-forward">Sandstorm raises $1.3M seed; paying forward crowdfunds</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2015-01-15-sandstorm-1.3M-seed-round-pay-it-forward">15 Jan 2015</a>
-  <p>Lately, some of you may have noticed that Sandstorm’s <a href="https://groups.google.com/group/sandstorm-dev">daily meeting notes</a> have often contained the ill-defined bullet point “business crap”. Today we’re finally able to share what that meant: we have secured $1.3M in seed funding from a great group of venture capitalists and angel investors, led by <a href="http://questvp.com">Quest Venture Partners</a>.</p>
-
-<p>When we decided to raise VC money, we insisted on doing it in a way that keeps us aligned with our original grassroots goals. We needed a business plan that allowed us to make money by protecting our users’ privacy, not by violating it. We’re happy to say that we found one.</p>
-
-<p>As it turns out, every problem individuals have with increasing centralization of “the cloud”, businesses have ten-fold. Businesses, too, worry about things like privacy, security, being able to customize their software to their needs, and being able to smoothly integrate software from multiple vendors. In fact, businesses worry about these things far more than the average user. As a result, many businesses – especially the largest enterprises – maintain massive in-house compute infrastructure, at heavy cost. Securing this infrastructure has proven difficult, as attacks on Target, Sony Pictures, and so many other large companies have proven. We and our investors believe that the technology we are building in Sandstorm can solve these problems – and any time you solve a problem for big businesses, money is not far away.</p>
-
-<p>We like this objective because it keeps us totally aligned with our users. In fact, we are now arguably more aligned with the community than before. Whereas previously there had been a lot of pressure on us to focus on our subscription-based managed hosting option as a way to get revenue, our immediate goal now is just to develop and prove the platform. That means that self-hosted users are just as important to us as paying subscribers. To that end, the first thing we have done with our new money is <a href="/news/2015-01-07-asheesh-and-irc.html">to hire Asheesh Laroia</a>, a long-time self-hosting and Free Software enthusiast, whose main focus will be improving Sandstorm’s self-hosting experience. To be clear, everything you need to run your own Sandstorm server will always be free and open source, still developed in the open.</p>
-
-<p>To fund Sandstorm’s development, we will be also starting a separate project – codenamed “Blackrock” – aimed specifically at building tools to maintain large Sandstorm clusters integrated with common enterprise-oriented infrastructure (such as Active Directory). Some of this may not be open source, but if it turns out that a feature of Blackrock is of interest to the community at large, we will look to move that code into Sandstorm proper. I personally hate the idea that some of my code may not be open – I have been releasing all of my personal code under open source licenses since high school – but I am happy that it means we can fund heavy development of the open source Sandstorm platform, without the need for advertising or data mining.</p>
-
-<h3 id="paying-it-forward-indiegogo-backers">Paying it Forward: Indiegogo Backers</h3>
-
-<p>Back in August, the <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform">community gave us $58,929 to make Sandstorm happen</a>. We could not have gotten to this point without the help of our Indiegogo backers, and we are deeply grateful for your support both during the campaign and since. You helped us prove that a decentralized internet is something people want. Now that we’ve raised VC money, we want to pay forward your investment in us.</p>
-
-<p>First, all of our Indiegogo perks will of course be honored. T-shirts and stickers have been sent out already (if you didn’t get yours, please <a href="mailto:support@sandstorm.io">let us know</a>), the App Committee has been actively meeting, and our managed hosting option will open later this year.</p>
-
-<p>We would also like our backers’ help in growing a marketplace that makes open source web applications <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">viable</a>. With this new funding, we are able to build a marketplace in which open source Sandstorm apps will be sold on a “pay what you want” basis, with all proceeds going to the developer. To honor our backers, we will be providing credit in our marketplace equal to backers’ contribution on Indiegogo. Use this credit to fund any open source web application that matters to you. Yes, you can choose your own project – even if it contains only one line of code – but we hope you’ll spread the love and choose a project that is advancing the decentralized web.</p>
-
-<h3 id="stretch-goals">Stretch Goals</h3>
-
-<p>With our new funding, we will be able to implement all of the “stretch goals” listed in our Indiegogo campaign. We don’t have a timeline for these yet, but they are coming! Here they are, for those that don’t remember:</p>
-
-<ul>
-  <li><strong>Indie App Market:</strong> We will develop and run an app marketplace, allowing other indie and open source developers to sell their apps on a “pay what you want” model. This will encourage development of more apps, making Sandstorm itself more useful. Users will have the option to filter for only open source apps, and the app market implementation itself will be open source.</li>
-  <li><strong>Powerbox:</strong> We will develop rich sharing, federation, and service discovery through the use of Cap’n Proto and capability-based security. Users will be able to connect apps to each other through a Powerbox interface, allowing apps to establish secure links without worrying about any of the details of authentication or access control, even when they are not owned by the same user.</li>
-  <li><strong>GPG login:</strong> We will implement GPG-based cryptographic login. Forget passwords! Create an account based on your public key.</li>
-  <li><strong>Per-document encryption:</strong> We will implement encrypted storage, with each document having a separate encryption key that can only be accessed by the people with whom it is shared. If all those people use GPG login, we’ll make sure that it’s impossible for us to decrypt the document except when a legitimate user is online and accessing the doc.</li>
-  <li><strong>End-to-end encryption:</strong> We’ll build a browser extension (or build on an existing extension) that allows Sandstorm apps to use end-to-end encryption without encryption keys ever reaching the server.</li>
-</ul>
-
-<h3 id="pre-order-managed-hosting">Pre-order Managed Hosting</h3>
-
-<p>While Sandstorm is getting easier to run on your own Linux machine, many people don’t want the hassle of maintaining a physical server. Thus, we are planning to provide subscription-based managed hosting option as well.</p>
-
-<p>For those who missed the Indiegogo campaign, <a href="https://sandstorm.io/preorder.html">we are now accepting pre-orders for this service</a>. Pre-ordering now will get you free access to our beta (when it is ready); you will not actually be charged until the beta is over.</p>
-
-<h3 id="get-involved">Get Involved</h3>
-
-<p>We regularly post internal meeting notes and answer questions on <a href="https://groups.google.com/group/sandstorm-dev">the sandstorm-dev mailing list</a>, and we are usually available to chat on <a href="https://kiwiirc.com/client/irc.freenode.net/?channel=#sandstorm">IRC (#sandstorm on freenode)</a>. Feel free to come talk to us in either place!</p>
-
-<p>Want to write a Sandstorm app, or port an existing app to Sandstorm? Check out the <a href="https://github.com/sandstorm-io/sandstorm/wiki/Porting-Guide">Porting Guide</a> and drop us a line in <a href="https://groups.google.com/group/sandstorm-dev">sandstorm-dev</a> if you get stuck.</p>
-
-<h3 id="faq">FAQ</h3>
-
-<p><strong>Who controls Sandstorm?</strong></p>
-
-<p>Sandstorm and Cap’n Proto are properties of Sandstorm Development Group, Inc., a company founded by Kenton Varda and Jade Wang. Kenton is the CEO. Jade is the President. The Board of Directors is Kenton and Jade. The company is majority-owned by Kenton and Jade, with room for additional financing rounds without losing that majority.</p>
-
-<p><strong>When will managed hosting be available?</strong></p>
-
-<p>Software project time estimates are always autorectumatic, but we anticipate the beta will open in Summer of this year. Once the service is stable, secure, and backed up, it will come out of beta and we will start charging for it. To get a spot in the beta, pre-order now (we won’t actually charge you until after the beta is over).</p>
-
-<h3 id="thank-you">Thank You</h3>
 
 </section>
 

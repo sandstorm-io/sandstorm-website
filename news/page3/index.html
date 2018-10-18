@@ -94,6 +94,54 @@
 
 
 <section>
+  <h2><a href="/news/2016-11-17-oasis-emerging-from-beta">Sandstorm Oasis emerging from beta</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2016-11-17-oasis-emerging-from-beta">17 Nov 2016</a>
+  <p>Sandstorm is about making it easy to run a personal server. But we also offer <a href="https://oasis.sandstorm.io">Sandstorm Oasis</a>, a service which runs your Sandstorm server for you.</p>
+
+<p>Contradiction?</p>
+
+<p>Actually, no: Even if you run your own server, Oasis benefits you. Oasis is important because it makes it possible for anyone to use <a href="https://apps.sandstorm.io">Sandstorm’s library of open source apps</a>, even if they really don’t want to run their own server. A larger audience means that more and better apps will become available. Indeed, after we launched Oasis last year, the rate of new apps becoming available on Sandstorm spiked.</p>
+
+<p>That benefits self-hosters, because those same apps can be used on your private server, too.</p>
+
+<p>In fact, we at Sandstorm don’t necessarily think “the cloud” is a bad idea. What we believe is that you should have the freedom to choose what makes sense for you. But that choice is moot if the particular app you need to use is only available in the cloud – we need the same apps to be available everywhere.</p>
+
+<p>Oasis has now been running reliably for over a year. The Sandstorm team uses Oasis every day to get our own work done. I am composing this blog post in <a href="https://oasis.sandstorm.io/appdemo/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60">Etherpad</a>, while organizing my task list in <a href="https://oasis.sandstorm.io/appdemo/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h">Wekan</a>, chatting with teammates in <a href="https://oasis.sandstorm.io/appdemo/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a>, and syncing files with <a href="https://oasis.sandstorm.io/appdemo/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h">Davros</a>.</p>
+
+<p>Here are just some of the things we’ve changed since Oasis was launched:</p>
+
+<ul>
+  <li>Implemented automatic updates for apps.</li>
+  <li>Added cryptographic verification of app author identity.</li>
+  <li>Added unified notifications and activity indicators, so you can find out when apps need attention without opening them to find out.</li>
+  <li>Added collections, allowing you to share a group of grains as one unit.</li>
+  <li>Added the ability to share grains through other apps, e.g. sharing a document to a Rocket.Chat channel, without generating a magic link.</li>
+  <li>Added a “trash” mechanism to make it harder to accidentally delete an important grain.</li>
+  <li>Added the ability to delete your own account.</li>
+  <li>Added support for apps to export WebDAV APIs.</li>
+  <li>Made it easier for Sandstorm apps to connect with mobile client apps.</li>
+  <li>Made Sandstorm’s UI mobile-friendly.</li>
+  <li>Made it so that our most-used apps are pre-installed for new users.</li>
+  <li>Made sharing easier and more secure by adding contact auto-complete and “request access” UIs.</li>
+  <li>Added the ability to attach multiple credentials to one account, so that one login provider being unresponsive won’t prevent you from accessing Sandstorm.</li>
+  <li>Made the left sidebar collapseable for more screen space.</li>
+  <li>With the help of our developer community, doubled the number of apps available on Sandstorm.</li>
+  <li>Improved onboarding for new users with tutorial hints.</li>
+  <li>Performance, scalability, and stability improvements.</li>
+  <li><a href="https://github.com/sandstorm-io/sandstorm/blob/master/CHANGELOG.md">Much more.</a></li>
+</ul>
+
+<p>We’ve so far kept Oasis labeled “beta”, mostly because, as engineers, we always feel like there’s so much more to do. But, that will always be true – no good software project is ever “done”. With Oasis being used for so much real work, the time has come to remove the “beta” label.</p>
+
+<p>Oasis will officially emerge from beta on November 27. We wanted to give advance notice of this change because it affects our paying users: we will no longer be waiving your subscription fee as we have during the beta period. For backers of our Indiegogo campaign who opted for free hosting as a perk, the timer on your service will start now (hey, you got an extra free year!). For the rest, your next monthly invoice will be charged from your credit card. Your subscription payments help support further development of Sandstorm and packaging more apps. Thank you for your support!</p>
+
+<p><a class="linkbutton" href="https://oasis.sandstorm.io/demo">Demo Oasis now »<span style="font-size:60%"><br />(no sign-in required)</span></a></p>
+
+</section>
+
+<section>
   <h2><a href="/news/2016-11-10-rhel-centos-arch-support">Sandstorm now supports RHEL 7, CentOS 7, Arch, and more</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
@@ -307,104 +355,6 @@
 <p>And just like that, the problem stopped.</p>
 
 <p>Meanwhile, we’ve also <a href="https://bugs.chromium.org/p/v8/issues/detail?id=5338">filed an issue against V8</a>, requesting that they replace their linked list with a hashtable. This wouldn’t have completely mitigated the fiber bombs, but it would have at least prevented them from permanently crippling the process.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-09-13-whats-new">August changelog: what's new in Sandstorm</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2016-09-13-whats-new">13 Sep 2016</a>
-  <p>August’s most visible change is that when new users join a Sandstorm server, some apps are installed
-automatically. By default, and on
-<a href="https://oasis.sandstorm.io/">Oasis,</a> users can jump into Davros, Etherpad, Rocket.Chat, and Wekan,
-and they can create collections using the <a href="https://sandstorm.io/news/2016-08-09-collections-app">Collections
-app</a>. The server administrator can choose
-which apps come preinstalled for their users. We hope this helps people quickly become productive
-with Sandstorm!</p>
-
-<p>We made some underlying technical changes this month, too. The most significant is that we migrated
-to <a href="http://info.meteor.com/blog/announcing-meteor-1.4">Meteor 1.4</a>, which allowed us to switch to
-the most recent long-term supported version of nodejs, <a href="https://nodejs.org/en/blog/release/v4.0.0/">node
-4.</a> This required some substantial upheaval behind the
-scenes. It also enabled a change we’ve wanted to make for a long time: users of our
-<a href="https://docs.sandstorm.io/en/latest/administering/sandcats/">sandcats.io</a> free HTTPS service now
-use ciphers supporting <a href="http://stackoverflow.com/questions/14034508/dh-vs-dhe-and-ecdhe-and-perfect-forward-secrecy">perfect forward
-secrecy.</a>
-If you test your own sandcats-enabled server on the <a href="https://www.ssllabs.com/ssltest/">Qualys SSL Labs server
-test</a>, you’ll see that your grade has improved from an A- to an A!</p>
-
-<p>Sandstorm servers have automatic updates enabled by default, so to get these updates, you don’t
-have to do anything. Sandstorm checks for updates and smoothly switches to the latest code every
-24 hours.</p>
-
-<p>Here’s the full August changelog!</p>
-
-<h3 id="v0179-2016-08-26">v0.179 (2016-08-26)</h3>
-<ul>
-  <li>A user can now request deletion of their own account, unless they are a member of a Sandstorm for Work organization. Deletion has a 7-day cooldown during whith the user can change their mind.</li>
-  <li>Admins can now suspend and delete accounts from the admin panel.</li>
-  <li>Apps can now request that an offer template be a link with a special protocol scheme that can trigger a mobile intent, allowing one-click setup of mobile apps. Apps will need to be updated to take advantage of this.</li>
-  <li>Identity capabilities now have a getProfile() method, allowing a grain to discover when a user’s profile information has changed without requiring the user to return to the grain.</li>
-  <li>Fixed that admins were unable to un-configure SMTP after it had been configured.</li>
-  <li>Fixed problems in sandstorm-http-bridge that could make notifications unreliable. Affected apps will need to rebuild.</li>
-  <li>Increased expiration time for uploading a backup from 15 minutes to 2 hours, to accommodate large backup files on slow connections.</li>
-  <li>Fixed email attachments from apps having incorrect filenames.</li>
-  <li>Fixed various styling issues.</li>
-  <li>Various ongoing refactoring.</li>
-</ul>
-
-<h3 id="v0178-2016-08-20">v0.178 (2016-08-20)</h3>
-<ul>
-  <li>The grain list can now be sorted by clicking on the column headers.</li>
-  <li>Many improvements to mobile UI. (Still more to do.)</li>
-  <li>Your current identity’s profile picture now appears next to your name in the upper-right.</li>
-  <li>Fixed desktop notifications displaying grain titles incorrectly.</li>
-  <li>Fixed <code>spk publish</code> throwing an exception due to a bug in email handling.</li>
-  <li>Improved accessibility of “Sandstorm has been updated - click to reload” bar.</li>
-  <li>When an app returns an invalid <code>ETag</code> header, sandstorm-http-bridge will now log an error and drop it rather than throw an exception.</li>
-  <li>Updated to Meteor 1.4.1.</li>
-  <li>Oasis: Fixed appdemo not working for Davros.</li>
-</ul>
-
-<h3 id="v0177-2016-08-15-bugfixes">v0.177 (2016-08-15) [bugfixes]</h3>
-<ul>
-  <li>Changes to SMTP handling in v0.175 caused Sandstorm to begin verifying TLS certificates strictly. Unfortunately, the prevailing norm in SMTP is loose enforcement and many actual users found Sandstorm no longer worked with their SMTP providers. This update therefore relaxes the rules again, but in the near future we will add configuration options to control this.</li>
-</ul>
-
-<h3 id="v0176-2016-08-13-bugfixes">v0.176 (2016-08-13) [bugfixes]</h3>
-<ul>
-  <li>Fix web publishing to alternate hosts, broken by an API change in Node.</li>
-</ul>
-
-<h3 id="v0175-2016-08-13">v0.175 (2016-08-13)</h3>
-<ul>
-  <li>Grain sizes now appear on the grain list.</li>
-  <li>Added <code>sandstorm uninstall</code> shell command.</li>
-  <li>Upgraded to Meteor 1.4 and Node 4.</li>
-  <li>Sandcats: HTTPS connections now support ECDHE forward secrecy (as a result of the Node upgrade). Qualys grade increased from A- to A.</li>
-  <li>Bell-menu notifications now also trigger desktop notifications.</li>
-  <li>The collections app has been added to the default preinstall list for new servers. (We highly recommend existing servers add it in the admin settings, too.)</li>
-  <li>No apps will be automatically installed on dev/testing servers (e.g. vagrant-spk).</li>
-  <li>Switched to newer, better mail-handling libraries.</li>
-  <li>Fixed the “close” button on the email self-test dialog.</li>
-  <li>Fixed the “dismiss” button on notifications behaving like you’d clicked the notification body.</li>
-  <li>Errors during a powerbox request will now be shown on-screen rather than just printed to the console.</li>
-  <li>Fixed that uploading a backup left a bogus history entry, breaking the browser’s back button.</li>
-  <li>Fixed powerbox search box, which was apparently completely broken.</li>
-</ul>
-
-<h3 id="v0174-2016-08-05">v0.174 (2016-08-05)</h3>
-<ul>
-  <li>Admins can now choose to pre-install certain apps into new user accounts. For all new servers and Oasis, our four most-popular apps will be pre-installed by default: Etherpad, Wekan, Rocket.Chat, and Davros. Admins can disable this if they prefer, and servers predating this change will not pre-install any apps by default (but the admin can change this).</li>
-  <li>offer()ing a grain capability now works for anonymous users, which means anonymous users can use the collections app. This app will be officially released shortly.</li>
-  <li>Identicons are now rendered as SVGs rather than PNGs, which makes them much more efficient to generate. This in particular fixes the noticeable pause when the sharing contact auto-complete first appears for users who have many contacts.</li>
-  <li>Updated to Meteor 1.3.5.1 (1.4 / Node 4 coming soon!).</li>
-  <li>Fixed that Sandstorm sometimes temporarily incorrectly flashed “(incognito)” in place of the user name when starting.</li>
-  <li>Sandstorm for Work: Non-square whitelabel icons now do something reasonable.</li>
-  <li>Various refactoring.</li>
-  <li>Somewhat improved styling of bell-menu notifications. (More work to be done.)</li>
-</ul>
 
 </section>
 
