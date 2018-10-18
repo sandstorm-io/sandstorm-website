@@ -5,6 +5,8 @@ author: Kenton Varda
 authorUrl: https://github.com/kentonv
 ---
 
+**Update:** This change has now taken effect. Looking for help downloading your data from Oasis? [See our latest blog post »](2018-10-18-how-to-download-oasis-data)
+
 Starting October 14, 2018, Sandstorm Oasis's "free" plan will be discontinued. Users will still be able to log in for free to access apps and grains owned by other, paying users, but free users will not be able to install their own apps nor create grains. Existing grains owned by free users will remain available for download via the "download backup" function, allowing you to transfer the data to a self-hosted Sandstorm server or manually extract it. However, the grains will no longer be able to start on Oasis unless you upgrade to a paid account.
 
 ### Why do this?
