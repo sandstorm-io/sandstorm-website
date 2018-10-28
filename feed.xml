@@ -7,6 +7,40 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Results of discontinuing the free plan</title>
+				<description>&lt;p&gt;&lt;a href=&quot;2018-08-27-discontinuing-free-plan&quot;&gt;Recently we made the tough decision to end Sandstorm Oasis’s free plan.&lt;/a&gt; This change has now been made and the dust is settled. (If you’re affected and are unsure how to export your data, &lt;a href=&quot;2018-10-18-how-to-download-oasis-data&quot;&gt;see my previous blog post&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;p&gt;Today, for the purpose of transparency, I wanted to show you the results of this change.&lt;/p&gt;
+
+&lt;p&gt;First, I’m happy to report that revenue increased more than I expected:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/news/images/revenue-post-free-plan.png&quot; alt=&quot;Graph of revenue showing when change was announced and implemented.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Timeline:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;August 27: MRR is $828. I announced decision to end the free plan on our blog and Twitter.&lt;/li&gt;
+  &lt;li&gt;September 2: MRR is still $828. I updated Oasis UI to add prominent warnings for free users.&lt;/li&gt;
+  &lt;li&gt;October 17: MRR has reached $1104. I flip the switch to turn off the free plan.&lt;/li&gt;
+  &lt;li&gt;October 28: MRR is now $1428.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Second, server resources were reduced. In particular, utilization of Oasis’s “worker” machines (where users’ apps actually run) dropped in half:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/news/images/cpu-post-free-plan.png&quot; alt=&quot;Graph of CPU usage showing when change was implemented.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We previously had four worker VMs, each of which was a GCE “n1-highmem-2” machine costing $60.50 per month. We were able to cut two of those machines for a savings of $121.&lt;/p&gt;
+
+&lt;p&gt;Sandstorm currently runs 13 other VMs – six others to operate Oasis itself, three to run our web site and app market, two for Sandcats.io DNS, one for monitoring and one for metrics aggregation. It’s likely that we could further consolidate some of these, although these machines run smaller-sized instances with bespoke purposes meaning it will take a lot more work for comparatively smaller savings.&lt;/p&gt;
+
+&lt;p&gt;In August I estimated that the cost to continue operating Sandstorm (including servers and corporate maintenance) at about $1560 per month. With the server reduction, we’re now at $1439 per month – just barely above the $1428 in revenue. So, we went from a $700/month deficit ($8400/year) to break-even by making this change.&lt;/p&gt;
+</description>
+				<pubDate>Sun, 28 Oct 2018 00:00:00 -0700</pubDate>
+                                <link>https://sandstorm.io/news/2018-10-28-results-of-ending-free-plan</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2018-10-28-results-of-ending-free-plan</guid>
+			</item>
+		
+			<item>
 				<title>How to download your Oasis data</title>
 				<description>&lt;p&gt;&lt;a href=&quot;2018-08-27-discontinuing-free-plan&quot;&gt;We announced in August&lt;/a&gt; that Oasis’s free plan would be discontinued on October 14. &lt;a href=&quot;2018-08-27-discontinuing-free-plan&quot;&gt;As I explained then&lt;/a&gt;, we were forced to do this as Oasis costs $1500 per month to run, but was only earning $828 per month in revenue. I have been personally paying the remaining $700 every month to subsidize free users of the service, and I am unable to continue doing so. By limiting the service to only paying users, Oasis will be able to break even.&lt;/p&gt;
 
@@ -442,46 +476,6 @@ time working on Sandstorm.&lt;/p&gt;
 				<pubDate>Mon, 06 Feb 2017 00:00:00 -0800</pubDate>
                                 <link>https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots</guid>
-			</item>
-		
-			<item>
-				<title>Sandstorm Solutions: pay for feature prioritization</title>
-				<description>&lt;p&gt;Is there a feature or bug holding you back from deploying Sandstorm at your company or for your
-team?  Do you need the Sandstorm core devs to prioritize a feature?  &lt;strong&gt;Sandstorm
-Solutions&lt;/strong&gt; can fix that.&lt;/p&gt;
-
-&lt;p&gt;There’s always way more on our roadmap than time and people to do it.  We receive requests from
-potential customers around the world who would love to use Sandstorm, but need a particular planned
-but unimplemented feature, or hit a bug that affects them in particular.
-&lt;strong&gt;We now offer Sandstorm feature prioritization to our customers&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;We’re happy to adjust our priorities to support these folks, so we figure we should state that
-clearly and make sure it’s something everyone can take advantage of, not just the people who
-inquire.&lt;/p&gt;
-
-&lt;p&gt;So here’s the deal with Sandstorm Solutions: if you want a Sandstorm feature prioritized, or a
-particular bug fixed, we can do it.  The way this works is:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;You email us at
-&lt;a href=&quot;mailto:solutions@sandstorm.io?subject=Sandstorm%20Solutions%20estimate%20request%20for%20%28your%20company%20name%29&amp;amp;body=Hi%20Sandstorm%20team%2C%0A%0AOur%20problem%20that%20we%20need%20solved%20is%3A%0A%0A%28explain%20problem%20here%29%0A%0AWhat%20can%20you%20do%20to%20help%20us%2C%20and%20how%20much%20would%20it%20cost%3F%0A%0AThanks%21%0A%0A%28your%20name%29%0A%28your%20company%29%0A%28your%20phone%20number%29%0A&quot;&gt;solutions@sandstorm.io&lt;/a&gt;
-with an explanation of what you need.&lt;/li&gt;
-  &lt;li&gt;We’ll make sure it fits into our roadmap, and if so, we’ll give you an preliminary estimate of how
-long we think it’ll take to implement, and how much it’ll cost.&lt;/li&gt;
-  &lt;li&gt;We own the copyright on our work.&lt;/li&gt;
-  &lt;li&gt;If everything sounds good, we’ll draw up a contract and get to work!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a class=&quot;linkbutton&quot; href=&quot;mailto:solutions@sandstorm.io?subject=Sandstorm%20Solutions%20estimate%20request%20for%20%28your%20company%20name%29&amp;amp;body=Hi%20Sandstorm%20team%2C%0A%0AOur%20problem%20that%20we%20need%20solved%20is%3A%0A%0A%28explain%20problem%20here%29%0A%0AWhat%20can%20you%20do%20to%20help%20us%2C%20and%20how%20much%20would%20it%20cost%3F%0A%0AThanks%21%0A%0A%28your%20name%29%0A%28your%20company%29%0A%28your%20phone%20number%29%0A&quot;&gt;
-Get an estimate »
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Need something different?  We’re happy to talk about how we can help you succeed - drop us a line at
-&lt;a href=&quot;mailto:solutions@sandstorm.io?subject=Sandstorm%20Solutions%20estimate%20request%20for%20%28your%20company%20name%29&amp;amp;body=Hi%20Sandstorm%20team%2C%0A%0AOur%20problem%20that%20we%20need%20solved%20is%3A%0A%0A%28explain%20problem%20here%29%0A%0AWhat%20can%20you%20do%20to%20help%20us%2C%20and%20how%20much%20would%20it%20cost%3F%0A%0AThanks%21%0A%0A%28your%20name%29%0A%28your%20company%29%0A%28your%20phone%20number%29%0A&quot;&gt;solutions@sandstorm.io&lt;/a&gt;.&lt;/p&gt;
-</description>
-				<pubDate>Thu, 01 Dec 2016 00:00:00 -0800</pubDate>
-                                <link>https://sandstorm.io/news/2016-12-01-sandstorm-solutions</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2016-12-01-sandstorm-solutions</guid>
 			</item>
 		
 	</channel>

@@ -86,10 +86,92 @@
     
 
     
+      <a class="older" href="/news/page23/" title="Next Page">Older posts &raquo;</a>
+    
     <br clear="both">
   </nav>
 
 
+
+<section>
+  <h2><a href="/news/2014-07-07-mailpile">Mailpile on Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/jparyani">Jason Paryani</a>
+    
+    - <a href="/news/2014-07-07-mailpile">07 Jul 2014</a>
+  <p>Hello, I’m Jason, a new member of the Sandstorm team. Today I’m excited to
+announce that I’ve extended Sandstorm to support e-mail, and ported
+<a href="https://www.mailpile.is/">Mailpile Alpha II</a> to demonstrate. Mailpile is
+available on the <a href="https://sandstorm.io/apps/">Sandstorm app list</a> right now, so
+go ahead and try it out.</p>
+
+<p>You may know Mailpile from
+<a href="https://www.indiegogo.com/projects/mailpile-taking-e-mail-back">their successful Indiegogo campaign</a>
+last year. They’ve been working hard to create a web mail app that is designed
+to be self-hosted, which makes it a perfect fit for Sandstorm. It’s worth noting
+that Mailpile itself is, like Sandstorm, still in alpha. It is still somewhat
+rough around the edges, and may not quite be ready to replace your regular
+e-mail client yet. We will be updating our port as Mailpile matures, and we’re
+also looking at porting some other web mail apps so that you can choose the one
+that’s right for you.</p>
+
+<h3 id="how-sandstorm-does-e-mail">How Sandstorm does e-mail</h3>
+
+<p>We know that switching people over to using Sandstorm for e-mail will take time.
+So, we are starting with a design that makes it safe and easy to try out
+Sandstorm without committing.</p>
+
+<p>When you launch an e-mail application on Sandstorm, it is assigned a random
+e-mail address at your server, like “JBuaKxjkwiJq7oksS@alpha.sandstorm.io”. Any
+e-mail sent to that address is delivered to the app. The idea is not that you’d
+actually use this address publicly, but rather that you should set up e-mail
+forwarding from your real address to this address. For example, GMail allows
+you to set up such forwarding while still keeping a copy in your GMail inbox,
+and even lets you do the forwarding conditionally based on a filter.
+Additionally, most domain registrars have the ability to set up basic e-mail
+forwarding, so if you have your own domain, it’s easy to set up an address that
+redirects to a Sandstorm app.</p>
+
+<p>When you send e-mail from a Sandstorm app, we allow you to set the “From”
+header either to your app’s random address or to your verified Sandstorm login
+address. In the future, we’d like to add the ability to attach additional
+verified addresses to your account. Either way, the message’s envelope return
+address is always the app’s address. As a result, the mail recipient may see
+that the message was sent “via” your server.</p>
+
+<p>For more details on how to write an app that uses e-mail, and how to set up
+your Sandstorm server to support e-mail, check out the docs:</p>
+<ul>
+  <li><a href="https://github.com/sandstorm-io/sandstorm/wiki/Configuring-your-server-for-email">Configuring your server for e-mail.</a></li>
+  <li><a href="https://github.com/sandstorm-io/sandstorm/wiki/Using-Email-From-Your-Sandstorm-App">Writing an app to use e-mail.</a></li>
+</ul>
+
+<h3 id="a-note-on-encryption">A note on encryption</h3>
+
+<p>A key feature of Mailpile is its support for PGP / GPG encryption and
+signatures. Unfortunately, this is not yet supported by our Sandstorm port, as
+we need to do more work to get crypto right.</p>
+
+<p>The simplest way we could support crypto would be to have you upload your
+private key into the app, to be stored on the server. This is not a good idea!
+In an ideal world, your private key would live only on a physical token or
+smart card and never even touch the storage of a real computer. Barring that,
+you should at least keep your key only on systems you own. If you run your own
+Sandstorm server, then uploading your key might be OK, but for anyone using a
+shared server, it’s not a good idea. We want a solution that works for everyone.</p>
+
+<p>Therefore we are looking into how we can make crypto available to Sandstorm
+apps without sending your key to the server. We are hopeful that the nascent
+<a href="http://www.w3.org/TR/WebCryptoAPI/">WebCrypto API</a> might solve this problem,
+but at present the standard is still under development and there is apparently
+some controversy over its design. In the meantime, browser-extension-based
+approaches like <a href="https://code.google.com/p/end-to-end/">Google’s End-To-End</a>
+provide an intriguing alternative, although Chrome’s decision to kill off NPAPI
+may make it impossible to access hardware tokens or your local GPG agent in
+this way.</p>
+
+<p>In any case, this is something we’ll be investigating further in the future.</p>
+
+</section>
 
 <section>
   <h2><a href="/news/2014-07-03-team-update">New team members; security improvements; backup/restore</a></h2>
@@ -396,16 +478,6 @@ will make this process much easier; stay tuned.</p>
 
 </section>
 
-<section>
-  <h2><a href="/news/2014-03-24-sandstorm-alpha">Sandstorm Alpha Launched!</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2014-03-24-sandstorm-alpha">24 Mar 2014</a>
-  <p>Today I’m announcing the release and launch of the alpha version of
-Sandstorm.io.  <a href="https://sandstorm.io">See the site for more.</a></p>
-
-</section>
-
 
 <nav class="pagination bottom">
   
@@ -414,6 +486,8 @@ Sandstorm.io.  <a href="https://sandstorm.io">See the site for more.</a></p>
     
   
 
+  
+    <a class="older" href="/news/page23/" title="Next Page">Older posts &raquo;</a>
   
   <br clear="both">
 </nav>
