@@ -1529,6 +1529,23 @@ body >footer {
   #oasis, #managed-hosting {
     .title {
       background-color: #f5edfd;
+
+      p.shutting-down {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        a {
+          padding: 0.6em 2em;
+          display: block;
+          background-color: #b22;
+          color: white;
+          &:hover {
+            text-decoration: underline !important;
+          }
+        }
+      }
     }
     .offer {
       background-color: #f5edfd;
