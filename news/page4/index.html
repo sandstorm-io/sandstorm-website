@@ -94,6 +94,47 @@
 
 
 <section>
+  <h2><a href="/news/2016-10-13-sharing-documents-rocketchat">Sharing documents with a Rocket.Chat room in Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Q. Wang</a>
+    
+    - <a href="/news/2016-10-13-sharing-documents-rocketchat">13 Oct 2016</a>
+  <p>I’m sharing a pro-tip today because I like making sure that everyone gets the most productivity they can out of Sandstorm.</p>
+
+<p>Let’s say I want to share a grain (e.g., a document, spreadsheet, git repository, or a <a href="https://sandstorm.io/news/2016-08-09-collections-app">Collection</a>) with a group of colleagues who are already in the same <a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> chatroom. To do so, I first click the + icon in Rocket.Chat.</p>
+
+<p><img src="/news/images/rc_button.png" alt="Click on the + button in Rocket Chat" /></p>
+
+<p>This opens a <a href="https://sandstorm.io/how-it-works#powerbox">Powerbox</a> request with a type-ahead search box. Before I’ve typed anything, I can see the grains that have most recently been opened by me.</p>
+
+<p><img src="/news/images/rc2.png" alt="Powerbox list of grains (ordered by most recently opened)" /></p>
+
+<p>For instance, if I’m looking for feedback for a blog post I drafted in <a href="https://apps.sandstorm.io/app/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60">Etherpad</a>, I can type “Etherpad” and it will list all Etherpads that I have access to on this server.</p>
+
+<p><img src="/news/images/rc3.png" alt="Search by grain type" /></p>
+
+<p>Here are all the Etherpads I have access to. But today, I’m actually searching for something else: a Collection titled “Sales / Revenue docs”. I can also search for grains by title, so I search for “revenue”:</p>
+
+<p><img src="/news/images/rc4.png" alt="Search by grain type or title" /></p>
+
+<p>Once I’ve selected the grain, I can choose whether I’d like to give everyone in this chatroom the permission to edit or only view this Collection before I connect the grain with this Rocket.Chat room.</p>
+
+<p><img src="/news/images/rc5.png" alt="grant permission" /></p>
+
+<p>When I share a grain in a chatroom, it automatically renders a snippet which includes the icon for the app that opens the grain. It looks like this:</p>
+
+<p><img src="/news/images/rc6_shared.png" alt="snippet" /></p>
+
+<p>Now, everyone who is in this chatroom has access to this Collection (as well as every grain inside it). No need to go share it with them separately.</p>
+
+<p>To try it out for yourself, go install <a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> now!</p>
+
+<p>Do you use Sandstorm to collaborate at work? <a href="https://sandstorm.io/business">Sandstorm for Work</a> (<a href="https://sandstorm.io/get-feature-key">60-day free trial</a>) comes with priority support, organization management features, and integration with enterprise infrastructure.</p>
+
+<p>By the way, if you found this useful and would like to see more bite-sized pro-tip style blog posts in the future, please reshare this and let me know (I’m <a href="https://twitter.com/qiqing">@qiqing</a> on Twitter)!</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2016-09-30-fiber-bomb-debugging-story">The Mysterious Fiber Bomb Problem: A Debugging Story</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
@@ -358,82 +399,6 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
 <p>The only way to solve these problems is by decentralizing the software (not just the storage). Software must be provided as a package – not as a service – with each user running their own private copy. It doesn’t really matter if the user chooses to deploy to “the cloud” or to their own machine, as long as they can run any package they want. It is, however, important that the means to deploy software be accessible even to non-technical users, so that everyone can participate and developers can reach a wide audience. Deploying an app on your server must therefore be as easy as installing an app on your phone, and must be “secure by default”.</p>
 
 <p>This is the focus of Sandstorm.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-08-09-collections-app">Share many as one, with the Collections app</a></h2>
-  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
-    
-    - <a href="/news/2016-08-09-collections-app">09 Aug 2016</a>
-  <p>Starting work on a project in Sandstorm often means creating many grains, each pertaining to a
-different aspect of your work. In a typical project, you might have a spreadsheet, a chat room, a
-kanban board, and several source code repositories. Sandstorm makes it easy to share these grains
-with your collaborators, but until recently, you would need to share each grain to each collaborator
-separately — a task that could quickly become tedious. What if you want to share the entire
-project as a single unit?</p>
-
-<p>Now that we have released the
-<a href="https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h">Collections app</a>,
-we have a satisfying answer to that question; to share many grains at once, you add them to a collection.</p>
-
-<p><img src="/news/images/collections-1.png" title="a collection with a chatroom, a kanban board, a spreadsheet, and two git repos" /></p>
-
-<p>A collection is a list of grains. Any collaborator with whom you share a collection gets access to
-all of the grains in it. On the flip side, when you remove a grain from the collection, your
-collaborators lose access to that grain. Moreover, when you revoke a collaborator from the
-collection, that (now former-) collaborator loses access to all of the collection’s grains.</p>
-
-<p>And since a collection is itself a grain, sharing one works just like sharing anything else on
-Sandstorm, through the “Share access” button.</p>
-
-<p><img src="/news/images/collections-2.png" title="the &quot;Share access&quot; dialog" /></p>
-
-<h3 id="powerbox-makes-it-possible">Powerbox makes it possible</h3>
-
-<p>The fact that we have implemented collections <em>as an app</em> may come as a surprise, since the notion
-of a collection might seem fundamental enough to deserve being baked-in as a core feature of
-Sandstorm. However, Sandstorm bakes in an even more fundamental notion: the idea that grains can
-refer to and coordinate with one another. The embodiment of this idea is the <a href="/how-it-works#powerbox">powerbox</a>,
-an interface — mediated and auditable by the user — through which grains can exchange capabilities.</p>
-
-<p>When you click the “Add grain” button in a collection, the collection in fact initiates a powerbox
-request. Sandstorm then asks you, the user, to choose a grain with which to fulfill the request.</p>
-
-<p><img src="/news/images/collections-3.png" title="Making a powerbox request" /></p>
-
-<p>Once you select a grain, the collection receives a reference to that grain. It can then use that
-reference to retrieve metadata such as the grain’s icon and the the name of the app that created the
-grain. Crucially, it can also offer the reference to your collaborators, so that your single “Add
-grain” action can result in all of your collaborators receiving access to the grain.
-The behind-the-scenes details of how this all works can be found in our
-<a href="https://docs.sandstorm.io/en/latest/developing/powerbox/">technical documentation</a>.</p>
-
-<p>Other apps can use the powerbox in the same way. You could write an alternative implementation of
-collections, either by starting from scratch or by forking
-<a href="https://github.com/sandstorm-io/collections-app">ours</a>. Apps whose primary purpose has nothing
-to do with collections can also benefit from the ability to request and offer grain references. For
-example, a chat room could be enhanced by the ability to embed Sandstorm-aware links to other
-grains. Indeed, the latest release of
-<a href="https://apps.sandstorm.io/app/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0">Rocket.Chat</a> does just that.</p>
-
-<h3 id="built-with-rust">Built with Rust</h3>
-
-<p>Although a fast startup time and a small memory footprint are important performance goals for any
-Sandstorm app, they are especially important for the Collections app, as it provides such a central
-piece of functionality. Collections need to be lightweight so that their integration with the rest
-of Sandstorm can feel seamless. Our primary strategy for achieving such performance has been to
-develop the Collections app using the <a href="https://www.rust-lang.org/">Rust programming language</a>,
-interfacing directly with Sandstorm’s <a href="https://sandstorm.io/news/2014-12-15-capnproto-0.5"> Cap’n Proto interfaces </a>.
-Rust has worked well so far, and along the way we
-have produced some <a href="https://crates.io/crates/sandstorm">libraries</a> and <a href="https://github.com/dwrensha/sandstorm-rawapi-example-rust">examples</a> to help others also get started using it
-for Sandstorm app development.</p>
-
-<p>Whether or not you are a developer, now is an exciting time to
-<a href="https://sandstorm.io/community">get involved</a>
-with Sandstorm. The powerbox is still in its early stages, and the
-Collections app is a hint at the kinds of things it will enable.
-So <a href="https://apps.sandstorm.io/app/s3u2xgmqwznz2n3apf30sm3gw1d85y029enw5pymx734cnk5n78h">try it out and let us know what you think</a>!</p>
 
 </section>
 

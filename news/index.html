@@ -81,6 +81,86 @@
 
 
 <section>
+  <h2><a href="/news/2019-09-15-shutting-down-oasis">Sandstorm Oasis is Shutting Down</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2019-09-15-shutting-down-oasis">15 Sep 2019</a>
+  <p>On December 31st, 2019, Sandstorm’s paid hosting service, Sandstorm Oasis, will begin winding down.</p>
+
+<ul>
+  <li>Only Oasis is affected. Other Sandstorm services, such as Sandcats.io, the app market, and automatic updates for self-hosted Sandstorm, will continue to operate.</li>
+  <li>No new monthly payments will be accepted starting January 1st, 2020. Users will be able to finish out their last billing period paid in December and ending in January. Once your subscription ends, your apps will not be able to start up.</li>
+  <li>Grain owners will continue to be able to download their data or transfer it to another Sandstorm server for at least another six months, until June 31, 2020. After that, data may become permanently unavailable.</li>
+</ul>
+
+<h2 id="its-time-to-go-self-hosted">It’s time to go Self-Hosted</h2>
+
+<p>If you’re an Oasis user, fear not! You can keep using Sandstorm <a href="https://sandstorm.io/install">on your own server</a>, and you can easily <a href="https://oasis.sandstorm.io/transfers">transfer all your Oasis data</a> to it.</p>
+
+<p>Indeed, today, there’s almost no reason to prefer Oasis over a self-hosted Sandstorm server. Consider:</p>
+
+<ul>
+  <li>A similarly-priced server on Digital Ocean running Sandstorm will load apps much faster than Oasis does, while giving you 5x the storage space.</li>
+  <li>Users in Europe (of which Oasis has disproportionately many, even though we never really intended Oasis to be suitable for them) would be better-served by a European hosting provider, providing lower latency, and governed by European laws. Oasis is located in the United States.</li>
+  <li>Oasis is currently operated by one person (me). I do my best, but should something happen to me, Oasis could disappear suddenly. In contrast, your self-hosted server will never disappear no matter what I do.</li>
+  <li>Once Sandstorm is installed on your server, it’s almost entirely self-managing. Updates are installed automatically. TLS certificates are renewed automatically (with Sandcats.io). Modern VM hosts (like Digital Ocean) can perform automatic backups.</li>
+</ul>
+
+<p>In order to make it extra-easy to transfer your data to a new server, I have added a new “Mass transfers” feature to Sandstorm. Find it by clicking the button at the top of your Grains list:</p>
+
+<p><img src="/news/images/mass-transfer.png" alt="Screenshot showing the mass transfer button, located at the top of the Grains list between the &quot;Restore backup...&quot; button and the &quot;View trash&quot; button." /></p>
+
+<p>Then follow the on-screen directions to specify a destination server, review the list of grains to transfer, and then execute the transfer.</p>
+
+<p>To recap:</p>
+
+<ol>
+  <li><a href="https://sandstorm.io/install">Set up your own self-hosted Sandstorm server now »</a></li>
+  <li><a href="https://oasis.sandstorm.io/transfers">Transfer your grains from Oasis »</a></li>
+</ol>
+
+<h2 id="why-shut-down-oasis">Why shut down Oasis?</h2>
+
+<h3 id="the-story-of-the-last-few-years">The story of the last few years</h3>
+
+<p>Sandstorm, as a company, <a href="https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots">mostly shut down two years ago</a>. The company had run out of investor money while having achieved essentially no revenue, and no hard evidence that we’d ever achieve any. While Sandstorm was popular on Hacker News, that popularity never really converted into paying users. Meanwhile, in the market where we imagined we’d find real profits – enterprise software – we’d made no real progress whatsoever. In this state, we were unable to attract new investors, and we were unable to find a company to acquire the business.</p>
+
+<p>The Sandstorm team was forced to look for new jobs. <a href="https://sandstorm.io/news/2017-03-13-joining-cloudflare">Most of us were hired by Cloudflare</a>, though some chose to go elsewhere. Personally, I chose Cloudflare because I had always liked the technical culture I saw in their blog posts, and because I was interested in the project they wanted me to work on.</p>
+
+<p>Originally, my plan had been to keep developing Sandstorm as an open source project. I felt – and still feel – that if only some rough edges could be smoothed out and some key missing features filled in, Sandstorm could really be a plausible replacement for the set of web services people use every day. I set a goal of getting myself off of Google services by replacing the key bits with Sandstorm apps – especially email. I thought that if I could really get that working, maybe we’d be in a position to relaunch the company.</p>
+
+<p>I made some progress. On nights and weekends, I managed to clean up one of the hairiest rough edges of Sandstorm, <a href="https://sandstorm.io/news/2017-05-08-refactoring-identities">fixing the identity system</a>. I also <a href="https://sandstorm.io/news/2018-02-19-http-rewrite-and-more">rewrote the basics of how Sandstorm handles HTTP traffic</a>, making it much faster and cleaner and removing JavaScript from a part of the system where it had no business being.</p>
+
+<p>For a while, Oasis was costing far more to operate than it was taking in in revenue, with me making up the difference out-of-pocket. But, between the HTTP rewrite (which saved several machines), and <a href="https://sandstorm.io/news/2018-08-27-discontinuing-free-plan">discontinuing the Oasis free plan</a>, I was able to bring things to the point where <a href="https://sandstorm.io/news/2018-10-28-results-of-ending-free-plan">Oasis is mildly profitable</a>, earning a few hundred dollars a month.</p>
+
+<p>But, meanwhile, at my new job at Cloudflare, I am the lead engineer / architect of a project called <a href="https://workers.cloudflare.com/">Cloudflare Workers</a>, a “serverless” platform that simultaneously deploys your code to 193 (and growing) locations around the world. Starting from scratch when I joined, I built a first prototype in a few months, had a <a href="https://blog.cloudflare.com/introducing-cloudflare-workers/">public demo</a> and beta customers shortly thereafter, and <a href="https://blog.cloudflare.com/cloudflare-workers-unleashed/">launched it to the world</a> exactly (by coincidence!) a year after joining. Today, Cloudflare Workers handles something like a million times the traffic Sandstorm ever did. Meanwhile, the team has grown from just me to a literal bus-load of people. And we’re really just getting started.</p>
+
+<p>As much as I love Sandstorm, it’s hard to come home from my successful day job to work on an unsuccessful side project. And so, I have been spending less and less time on Sandstorm. I still push updates every month to keep the dependencies fresh, but hadn’t worked on any new features in about a year and a half before adding mass transfers recently.</p>
+
+<p>Meanwhile, without leadership, the community has mostly disbanded. The only app that gets regular updates anymore is Wekan, thanks to its maintainer Lauri “xet7” Ojansivu. Jake Weisz heroically continues to carry the Sandstorm flag, reviewing app submissions (mostly from Lauri), replying to questions and bug reports, and advocating Sandstorm around the internet. A couple others lurk on the mailing list and IRC. Most people have moved on.</p>
+
+<h3 id="why-not-leave-oasis-running">Why not leave Oasis running?</h3>
+
+<p>Oasis is mildly profitable: it brings in about $1800 in revenue each month, while costing around $1400 each month between infrastructure, services, fees, and business upkeep (e.g. tax prep). Almost 200 people are paying for it and it appears most of them are in fact using it. As long as it isn’t losing money, why not let it be?</p>
+
+<p>First, the obvious reason: It still takes time to operate. Once a month I have to spend my Saturday afternoon testing and pushing an update. Several times, changes in dependencies have broken things, requiring debugging time. In fact, Oasis’s cluster management and storage back-end (known as “Blackrock”) is still running a build from October 2018! For reasons I’ve been unable to determine, newer builds after that point start crashing under moderate load. I’m unable to reproduce such load in a test environment, so the only way to test potential fixes is to push out a full release, watch it fail, and roll it back. After several tries, I’ve mostly given up. Luckily, this component of Oasis has had no major changes and does not have any directly-exposed attack surface, so pinning the old version is mostly fine… but it’s a fragile position to be in.</p>
+
+<p>On a related note, I am on call 24/7 for Oasis. It rarely breaks, but when it does, I have trouble fixing it in a timely fashion. For one example, in January, <a href="https://twitter.com/SandstormIO/status/1089664116925427712">an unexplained Google Cloud hiccup forced me to transfer Oasis to another zone</a>, which it wasn’t designed for (whoops, yeah, it’s not multi-homed, we never got that far). It was down for hours. Luckily it was a weekend and I was at home, or it could have been days. In another incident, I discovered that GMail had been routing all my monitoring alerts (and e-mail to support@, security@, contact@, etc.) directly to spam for months.</p>
+
+<p>But, more important than the time burden on me is that I no longer feel good about charging money for this product. Almost all the app packages are from 2015-2016; many of those apps have had significant updates in their standalone versions since then which are missing on Sandstorm. Apps load super-slowly on Oasis. Many have significant missing features vs. their stand-alone versions, due to not having adapted to Sandstorm’s security model. And the Sandstorm UI itself remains woefully incomplete and janky. I constantly worry that most of the people paying for Oasis signed up by mistake and never noticed it on their credit card statements – that may sound far-fetched, but in fact I have had at least a few complaints from people who did just that (which I then refunded). I worry that it seems like we have European customers and I wonder if they realize Sandstorm is located in the US and may not comply with relevant European regulations. I feel embarrassed that people who haven’t read the blog assume the product is supported by full-time staff. Would Oasis still be profitable if it were only used by people who fully understand the state of the company? I’m not sure.</p>
+
+<p>Finally, Oasis today provides almost no advantages over self-hosting. The price of virtual servers has come down to the point where self-hosting Sandstorm on an equivalently-priced server will give you a much better experience than Oasis can. Sandstorm was always supposed to be about owning your own server anyway. In fact, in retrospect, I think we never should have created Oasis, but should instead have focused entirely on self-hosting all along.</p>
+
+<h3 id="whats-next">What’s next?</h3>
+
+<p>Sandstorm will continue to exist as an open source project. I personally plan to transfer my Oasis grains to a self-hosted server, and keep using it. I have to admit, building the mass transfer feature was kind of fun – I’d forgotten how little time it takes to build significant features in Meteor. And I’m still interested in self-hosting my email, if I can cobble together a decent UX. Maybe I’ll be inspired to build something on Sandstorm… we’ll see.</p>
+
+<p>However, after the shutdown of Oasis, the project should be understood to be a hobby project, not a business. People should no longer rely on me, working in my spare time, to safeguard your data or keep it accessible.</p>
+
+
+</section>
+
+<section>
   <h2><a href="/news/2018-10-28-results-of-ending-free-plan">Results of discontinuing the free plan</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
@@ -248,21 +328,6 @@ time working on Sandstorm.</p>
 </ul>
 
 <p>Want to get involved? <a href="https://groups.google.com/group/sandstorm-dev">Join the sandstorm-dev mailing list.</a> and <a href="https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md">check out ways to contribute</a>.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2017-10-28-i18n">Sandstorm UI now available in Chinese, Dutch</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2017-10-28-i18n">28 Oct 2017</a>
-  <p>As of last week’s Sandstorm release (version 0.216), the Sandstorm UI is (mostly) now internationalized, meaning text has been moved out of the interface into separate translation tables.</p>
-
-<p><a href="https://github.com/sandstorm-io/sandstorm/pull/2985">This work</a> was mostly done by <a href="https://github.com/urakagi">Romulus Urakagi Tsai</a> and <a href="https://github.com/caasi">Caasi Huang</a>, supported by <a href="http://g0v.tw">g0v.tw</a>. Additionally, they contributed translation tables for Traditional Chinese, as well as a partial translation to Simplified Chinese (though the latter is still incomplete).</p>
-
-<p>With i18n in place, other Sandstorm users immediately began work on other translations. In this week’s release (0.218), we’ve merged a <a href="https://github.com/sandstorm-io/sandstorm/pull/2999">Dutch translation</a> by <a href="https://github.com/m-burg">Michel van der Burg</a>.</p>
-
-<p>Would you like to contribute a Sandstorm translation? It’s easy – no programming required. Check out <a href="https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md#internationalization-i18n">the contributing guide</a> for instructions, and talk to us on <a href="https://groups.google.com/group/sandstorm-dev">the sandstorm-dev mailing list</a>.</p>
 
 </section>
 

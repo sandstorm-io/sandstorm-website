@@ -1398,6 +1398,19 @@ body > footer {
     background-color: #4e58c8; }
 #get #oasis .title, #get #managed-hosting .title {
   background-color: #f5edfd; }
+  #get #oasis .title p.shutting-down, #get #managed-hosting .title p.shutting-down {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important; }
+    #get #oasis .title p.shutting-down a, #get #managed-hosting .title p.shutting-down a {
+      padding: 0.6em 2em;
+      display: block;
+      background-color: #b22;
+      color: white; }
+      #get #oasis .title p.shutting-down a:hover, #get #managed-hosting .title p.shutting-down a:hover {
+        text-decoration: underline !important; }
 #get #oasis .offer, #get #managed-hosting .offer {
   background-color: #f5edfd; }
 #get #oasis .get > a, #get #managed-hosting .get > a {

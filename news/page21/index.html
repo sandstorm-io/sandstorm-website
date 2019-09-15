@@ -94,6 +94,33 @@
 
 
 <section>
+  <h2><a href="/news/2014-07-25-sharelatex">ShareLaTeX: Collaborative scientific typesetting</a></h2>
+  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
+    
+    - <a href="/news/2014-07-25-sharelatex">25 Jul 2014</a>
+  <p>Today we are releasing our port of <a href="http://www.sharelatex.com">ShareLaTeX</a>, a real-time collaborative editor for typesetting scientific documents.</p>
+
+<p>You can install it on your Sandstorm server now, or try it on <a href="https://demo.sandstorm.io">our demo server</a>.</p>
+
+<p>LaTeX has long been a standard tool in the world of academic publishing, and we think that ShareLaTeX does a great job at making it more accessible and useful.</p>
+
+<p><a href="/news/images/sharelatex-screenshot-big.png"><img src="/news/images/sharelatex-screenshot.png" /></a><br /><span class="caption">Using ShareLaTeX in Sandstorm to typeset <a href="http://www.cs.cmu.edu/~rjsimmon/">Rob Simmons</a>'s <a href="https://github.com/robsimmons/thesis">PhD thesis</a>.</span></p>
+
+<p>We also think that, as an open source web app, ShareLaTeX makes a fascinating case study.</p>
+
+<p>On the one hand, it’s hard to imagine any of the giant internet corporations ever offering anything like it, as its potential user base is probably not large enough to merit their attention. On the other hand, within its niche ShareLaTeX addresses a very real need – a need that’s certainly large enough to merit the attention of small teams of indie developers.</p>
+
+<p>ShareLaTeX illustrates some of the barriers faced by such developers. Its core functionality consists of an in-browser editor and a server-side compiler, but to be a viable product it has had to do a fair bit more than that. ShareLaTeX also implements a secure login system, an interface for managing multiple projects, and a sharing model. Moreover, there is the question of hosting.</p>
+
+<p>The striking thing about our port of ShareLaTeX is that it simply bypasses this non-core functionality. Sandstorm already handles login, already has a file selection and organization interface for managing multiple projects, and already implements sharing. The main changes we made to the ShareLaTeX code – and we did not in fact change very much at all –  were to remove these features and delegate their responsibilities to Sandstorm instead.</p>
+
+<p>Sandstorm, of course, also resolves the hosting question, making it easy for users to deploy ShareLaTeX to servers they control.</p>
+
+<p>We take all of this as evidence that Sandstorm can eliminate many of the less-interesting and potentially costly parts of developing web apps. We hope that Sandstorm will enable developers to create many more apps like ShareLaTeX, catering to audiences of all sizes.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2014-07-24-tinytinyrss-plus-security-discussion">We now have an RSS reader; plus let's talk about security</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
@@ -234,60 +261,6 @@
 <p>Sandstorm is already working and useful (this very blog is hosted on it), but to get it the rest of the way to production, we need your help!</p>
 
 <h3 id="sandstorm-on-indiegogo-"><a href="http://igg.me/at/sandstorm">Sandstorm on Indiegogo »</a></h3>
-
-</section>
-
-<section>
-  <h2><a href="/news/2014-07-11-demo-and-app-updates">Demo box; App updates</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2014-07-11-demo-and-app-updates">11 Jul 2014</a>
-  <p>A few quick updates today.</p>
-
-<h3 id="new-demo-server">New Demo server</h3>
-
-<p>It’s now possible to try out Sandstorm without an invite, and without installing
-it locally. Just go to <a href="https://demo.sandstorm.io/demo">demo.sandstorm.io</a>.</p>
-
-<p>On the demo server, anyone can create a one-hour trial account. We hope that
-this will make it much easier for people to understand what Sandstorm does,
-before they install it or wait in line for an invite. If a picture
-is worth a thousand words, a demo is worth ten thousand.</p>
-
-<h3 id="app-updates">App updates</h3>
-
-<p>We’ve posted updates to several apps with bug fixes and other improvements.
-Currently, in order to update an app, you must re-install it from the
-<a href="https://sandstorm.io/apps">app list</a>. (Push updates for apps are on our
-todo list.) So, if you’ve installed any of the following, install them again.</p>
-
-<ul>
-  <li><strong>Mailpile:</strong> Fixed bug where sent mail sometimes wasn’t saved.</li>
-  <li><strong>IPython Notebook:</strong> Added numpy and plotting packages, so you can now plot graphs.</li>
-  <li><strong>Etherpad:</strong> Minor UI tweaks.</li>
-</ul>
-
-<h3 id="new-features-and-fixes">New features and fixes</h3>
-
-<ul>
-  <li>We’ve added a “reset” button to the top bar, which lets you restart an app
-if it somehow gets wedged. This is rare, but otherwise really annoying when
-it happens.</li>
-  <li>Apps now receive the user’s display name and a unique stable identifier,
-which are useful for collaborative apps meant to be used by more than one
-user.</li>
-  <li>We fixed a crash that happened when updating a Sandstorm instance that runs
-as non-root, and tightened some security knobs in this mode.</li>
-</ul>
-
-<h3 id="license-is-now-apache-20">License is now Apache 2.0</h3>
-
-<p>Several people told us they were not comfortable contributing to Sandstorm
-when licensed under the GNU AGPL, or that their employers were hesitant to
-allow them to contribute. We think this is entirely understandable. We have
-always intended to switch to Apache 2.0 after gaining some momentum (which is
-why we have asked contributors to sign a CLA allowing us to make this change).
-So, we’ve gone ahead and made the switch now.</p>
 
 </section>
 

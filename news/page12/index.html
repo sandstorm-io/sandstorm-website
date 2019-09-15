@@ -94,6 +94,95 @@
 
 
 <section>
+  <h2><a href="/news/2015-05-18-sandcats">Sandcats.io: free dynamic DNS for Sandstorm users</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2015-05-18-sandcats">18 May 2015</a>
+  <p>Sandstorm is open source server software that makes it easy to install web apps
+like <a href="https://ethercalc.org/">Ethercalc</a> or
+<a href="http://sdelements.github.io/lets-chat/">Let’s Chat</a>. But that’s not much use
+if your server doesn’t have
+a name, and setting up DNS correctly for Sandstorm has until now been a complicated,
+fiddly process.</p>
+
+<p>That’s why today I’m announcing <em>sandcats.io</em>, a free dynamic DNS service
+for Sandstorm users. It now takes 120 seconds to go from an empty
+Linux virtual machine to a working personal server, DNS and all.</p>
+
+<p>The Sandstorm install script asks you what subdomain you want; if you type <em>alice</em>, then
+your server is online at <em>alice.sandcats.io</em>.</p>
+
+<p>It’s as simple as that. Check out this 30 second ASCII screencast.</p>
+
+<p><a href="https://asciinema.org/a/bw9mgfk8m55rfa3ntrfvhvjat?autoplay=1">
+<img src="https://asciinema.org/a/bw9mgfk8m55rfa3ntrfvhvjat.png" width="600" />
+</a></p>
+
+<h3 id="solving-dns-for-sandstorm-users">Solving DNS for Sandstorm users</h3>
+
+<p>I say it <em>solves</em> DNS for Sandstorm users because the <em>sandcats.io</em> service
+handles all the following complications:</p>
+
+<ul>
+  <li>
+    <p><strong>Domain provisioning.</strong> You type the name you want for your server while
+running the install script.</p>
+  </li>
+  <li>
+    <p><strong>Wildcard DNS.</strong> Sandstorm needs wildcard DNS because, with its security model,
+each session of each app runs on a unique unguessable subdomain. This protects against
+most cross-site request forgery attacks, for example. Sandcats.io provides wildcard
+DNS; this also means that any time a user
+runs a new app on your personal Sandstorm server, DNS is already configured.</p>
+  </li>
+  <li>
+    <p><strong>Automatic updates.</strong> Every 60 seconds, your Sandstorm server sends a small
+UDP message to the Sandcats.io service. If your IP address has changed, the
+service replies with another short message. Upon receipt of that, your server
+sends an authenticated message, and <em>sandcats.io</em> updates its records.
+Our DNS records have a 60 second
+TTL, so if your IP address changes, it will propagate out within two minutes,
+and you never had to lift a finger.</p>
+  </li>
+  <li>
+    <p><strong>Domain recovery.</strong> If you lose your authentication keys, you can recover
+the domain by typing <code>help</code> into the Sandstorm installer.</p>
+  </li>
+</ul>
+
+<p>I’d love to hear your feedback; I’m asheesh@sandstorm.io.</p>
+
+<p>The code is open souce, and you can read more in the
+<a href="https://github.com/sandstorm-io/sandstorm/wiki/Sandcats-dynamic-DNS">technical documentation</a>,
+but what I really recommend you do is try it out.</p>
+
+<h3 id="switch-to-your-own-domain-whenever-you-want">Switch to your own domain whenever you want</h3>
+
+<p>The Sandcats service is optional. If you already have a domain of your own, you
+can join the many other people actively running Sandstorm on their own
+domain.</p>
+
+<p>If you know you want to go it alone, the install script allows you to opt out
+and configure DNS yourself.</p>
+
+<p>Moreover, if you start out with a
+<em>sandcats.io</em> sudomain, and you decide you want a little more personality to
+your server, you can reconfigure it at any time. Look for your server’s
+<code>sandstorm.conf</code> file.</p>
+
+<h3 id="install-sandstorm-now-to-try-it-out">Install Sandstorm now to try it out</h3>
+
+<p>Sandstorm exists to make it easy to run web apps like Etherpad, HackerSlides,
+Let’s Chat, and others as easily as you install apps on your phone. If that’s
+something you want
+on a server for you or your organization, I hope you install Sandstorm right now.</p>
+
+<p><strong><a href="https://sandstorm.io/install/">Install Sandstorm with our easy install instructions!</a></strong></p>
+
+
+</section>
+
+<section>
   <h2><a href="/news/2015-05-14-sf-meetup">First San Francisco Meetup</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
@@ -380,36 +469,6 @@ memo: "example.com login challenge:1Z5ns8ectRGTMNYz3N"
 
 <p><em>Thanks to Ryan Sleevi, Tony Arcieri, and Glenn Willen for providing <a href="https://plus.google.com/+KentonVarda/posts/J3vcacmUUc1">pointers and insights</a> that went into writing this article. However, any misunderstandings of cryptography are strictly my own.</em></p>
 
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-04-17-progress-technology-culture">Progress, Technology, Culture</a></h2>
-  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
-    
-    - <a href="/news/2015-04-17-progress-technology-culture">17 Apr 2015</a>
-  <p>How does the technological development of a civilization relate to its culture?</p>
-
-<p>At equilibrium, a society with safe, affordable and widely accessible forms of birth control has different cultural values from one that does not. A <a href="http://www.huffingtonpost.ca/2012/08/02/broadband-internet-penetration-oecd_n_1730332.html">society with affordable, ubiquitous, and open Internet access</a> will have different cultural values, productivity, and global impact on other cultures from <a href="http://en.wikipedia.org/wiki/Internet_in_North_Korea">one that does not</a>. And of course, a society with ubiquitous smartphone cameras will <a href="http://www.nytimes.com/2015/04/08/us/south-carolina-officer-is-charged-with-murder-in-black-mans-death.html">hold its police officers more accountable</a> for human lives than one that relies on human eyewitness testimony.</p>
-
-<p>Ubiquitous. Widely accessible. Democratized. It is not enough for these technologies to simply exist; there is a limit to the impact of a technology that only the wealthy few percent can afford, and a limit on the pressure exerted on that culture to adapt to its new environmental conditions. There is something amazing, akin to a phase transition, that happens when each technology gets democratized past a certain point. It’s like the difference between a society with access to measles and polio vaccines and one that does not. It’s the efficiency of trade in a developing nation with infrastructure to support basic, affordable SMS service versus one that does not.</p>
-
-<p>Those of us working in technology today would do well to keep these things in mind: we don’t just serve deep pockets, we serve humanity. Democratizing access to existing technology is just as important as creating new technology.</p>
-
-<p>The cultural effects of widespread and democratized access to personal servers is left as an exercise for the reader.</p>
-
-<ul>
-  <li>2015: Why would ordinary people want a personal server?</li>
-  <li>1977: There is no reason for any individual to have a computer in their home.</li>
-  <li>1946: [Television] won’t be able to hold on to any market it captures after the first six months.</li>
-  <li>1905: Sensible and responsible women do not want to vote.</li>
-  <li>1878: This ‘telephone’ has too many shortcomings to be seriously considered as a practical form of communication.</li>
-  <li>1762: One half of the children born die before their eighth year. This is nature’s law; why try to contradict it?</li>
-</ul>
-
-<p>Defining “progress” is also left as an exercise for the reader.</p>
-
-<div style="text-align:center"><img src="/news/images/keep-calm-and-spread-progress.png" style="width: 50%" /></div>
 
 </section>
 
