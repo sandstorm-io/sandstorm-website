@@ -9,7 +9,7 @@ On December 31st, 2019, Sandstorm's paid hosting service, Sandstorm Oasis, will 
 
 - Only Oasis is affected. Other Sandstorm services, such as Sandcats.io, the app market, and automatic updates for self-hosted Sandstorm, will continue to operate.
 - No new monthly payments will be accepted starting January 1st, 2020. Users will be able to finish out their last billing period paid in December and ending in January. Once your subscription ends, your apps will not be able to start up.
-- Grain owners will continue to be able to download their data or transfer it to another Sandstorm server for at least another six months, until June 31, 2020. After that, data may become permanently unavailable.
+- Grain owners will continue to be able to download their data or transfer it to another Sandstorm server for at least another six months, until June 30, 2020. After that, data may become permanently unavailable.
 
 ## It's time to go Self-Hosted
 
