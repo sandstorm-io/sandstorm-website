@@ -32,7 +32,7 @@ That looks to be changing.
 About two months ago, Lyre Calliope sent [an email][3] to the sandstorm-dev
 mailing list, starting a discussion on how to get the project moving again.
 Since then, I and others have been contributing code and documentation,
-we've been having weekly "office hours" meetings, and in spite of a full
+and have had weekly "office hours" meetings. In spite of a full
 time job, moving across the country, and a new baby to take care of,
 Kenton has still managed find a bit of time to review and merge pull
 requests, and help plan. Here are some highlights of what's been happening
