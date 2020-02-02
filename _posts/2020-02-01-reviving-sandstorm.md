@@ -5,6 +5,10 @@ author: Ian Denhardt
 authorUrl: https://github.com/zenhack
 ---
 
+Hi! I'm Ian Denhardt, a long-time Sandstorm user and community member.
+I have some exciting news to share. Let's start by talking about some
+recent history.
+
 It's no secret that development on Sandstorm has been pretty sparse
 since Sandstorm-the-business [shut down in 2017][1]. The tone of that
 announcement was optimistic; while Sandstorm had failed as a business,
