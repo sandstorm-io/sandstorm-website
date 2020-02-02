@@ -457,7 +457,6 @@ body >footer {
 			}
 
 			&.twitter::before { content: "\e908"; }
-			&.google::before { content: "\e904"; }
 			&.facebook::before { content: "\e902"; }
 			&.github::before { content: "\e903"; }
 			}
@@ -2284,14 +2283,12 @@ body >footer {
             }
 
             &.twitter::before { content: "\e908"; }
-            &.google::before { content: "\e904"; }
             &.facebook::before { content: "\e902"; }
             &.github::before { content: "\e903"; }
             &.livechat::before { content: "\e905"; }
             &.inperson::before { content: "\e907"; }
             &.devgroup::before { content: "\e901"; }
             &.youtube::before { content: "\e909"; }
-            &.linkedin::before { content: "\e910"; }
           }
         }
       }
@@ -2752,14 +2749,12 @@ body >footer {
 				}
 
 				&.twitter::before { content: "\e908"; }
-				&.google::before { content: "\e904"; }
 				&.facebook::before { content: "\e902"; }
 				&.github::before { content: "\e903"; }
 				&.livechat::before { content: "\e905"; }
 				&.inperson::before { content: "\e907"; }
 				&.devgroup::before { content: "\e901"; }
 				&.youtube::before { content: "\e909"; }
-				&.linkedin::before { content: "\e910"; }
 			}
 			a:hover:before {
 				color: $purple-highlight;
