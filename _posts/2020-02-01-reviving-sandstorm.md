@@ -45,7 +45,7 @@ in terms of development:
 - I recently implemented support for apps scheduling background tasks,
   something that's been a major pain point for developing certain types
   of applications. I'm working on a few follow-up tasks and related
-  functionality, and put together a [demo app][4] that uses the
+  functionality, and put together a [demo app][4] that uses
   Sandstorm's Powerbox API. To me, this is one of Sandstorm's most
   exciting features, but having been implemented only shortly before
   the company shut down, it still has rough edges and the documentation
