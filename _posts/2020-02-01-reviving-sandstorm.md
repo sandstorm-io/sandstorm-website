@@ -42,14 +42,9 @@ Kenton has still managed find a bit of time to review and merge pull
 requests, and help plan. Here are some highlights of what's been happening
 in terms of development:
 
-- I recently implemented support for apps scheduling background tasks,
-  something that's been a major pain point for developing certain types
-  of applications. I'm working on a few follow-up tasks and related
-  functionality, and put together a [demo app][4] that uses
-  Sandstorm's Powerbox API. To me, this is one of Sandstorm's most
-  exciting features, but having been implemented only shortly before
-  the company shut down, it still has rough edges and the documentation
-  is lacking. I plan to fix that.
+- Jacob Weisz has done a ton of much-need work triaging our issue
+  tracker, and has been working on some updates to vagrant-spk,
+  looking to get a 1.0 release out soon.
 - Adam Bliss updated our tooling for managing the [docs website][5],
   to make review easier and so we can get updates out more quickly.
   As part of this, he's updated the GitWeb app, and included support
@@ -59,9 +54,14 @@ in terms of development:
 - Lauri Ojansivu has been working on internationalizing the mass
   transfer feature that was added recently, and translating it into
   Finnish.
-- Jacob Weisz has done a ton of much-need work triaging our issue
-  tracker, and has been working on some updates to vagrant-spk,
-  looking to get a 1.0 release out soon.
+- I recently implemented support for apps scheduling background tasks,
+  something that's been a major pain point for developing certain types
+  of applications. I'm working on a few follow-up tasks and related
+  functionality, and put together a [demo app][4] that uses
+  Sandstorm's Powerbox API. To me, this is one of Sandstorm's most
+  exciting features, but having been implemented only shortly before
+  the company shut down, it still has rough edges and the documentation
+  is lacking. I plan to fix that.
 
 As a community we're once again very hopeful, and I personally am
 committed to spending what time I can making Sandstorm's vision a
