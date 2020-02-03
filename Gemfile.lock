@@ -13,7 +13,7 @@ GEM
       http_parser.rb (~> 0.6.0)
     eventmachine (1.2.7)
     execjs (2.7.0)
-    ffi (1.9.23)
+    ffi (1.12.2)
     formatador (0.2.5)
     forwardable-extended (2.6.0)
     guard (2.14.2)
