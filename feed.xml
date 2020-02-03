@@ -7,6 +7,79 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Reviving Sandstorm</title>
+				<description>&lt;p&gt;Hi! I’m Ian Denhardt, a long-time Sandstorm user and community member.
+I have some exciting news to share. Let’s start by talking about some
+recent history.&lt;/p&gt;
+
+&lt;p&gt;It’s no secret that development on Sandstorm has been pretty sparse
+since Sandstorm-the-business &lt;a href=&quot;https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots&quot;&gt;shut down in 2017&lt;/a&gt;. The tone of that
+announcement was optimistic; while Sandstorm had failed as a business,
+as an open source project it had attracted an vibrant community, and
+there was hope that the project could continue to be successful outside
+of a for-profit setting.&lt;/p&gt;
+
+&lt;p&gt;Things didn’t go as smoothly as we’d hoped, however. While Sandstorm had
+had a healthy community of folks using it and building apps, there had
+been fewer contributions to Sandstorm itself from outside the company,
+and no one but Sandstorm employees had been doing major core development
+on a regular basis. Additionally, Kenton has had less time than he’d
+hoped to work on Sandstorm.&lt;/p&gt;
+
+&lt;p&gt;The project never quite died. It has continued to receive security and
+maintenance updates. &lt;a href=&quot;https://sandstorm.io/news/2017-10-28-i18n&quot;&gt;Internationalization support was added&lt;/a&gt;, and
+several folks have stepped up to translate the UI into other languages.
+A few other features landed, and a few apps continued to see updates as
+well. But it would be more than fair to say that the project had stagnated,
+and while I and many others were still using it, it was clear that
+development wasn’t going anywhere fast.&lt;/p&gt;
+
+&lt;p&gt;That looks to be changing.&lt;/p&gt;
+
+&lt;p&gt;About two months ago, Lyre Calliope sent &lt;a href=&quot;https://groups.google.com/d/msg/sandstorm-dev/cVPH014H2iY/8Em-dPDyBQAJ&quot;&gt;an email&lt;/a&gt; to the sandstorm-dev
+mailing list, starting a discussion on how to get the project moving again.
+Since then, I and others have been contributing code and documentation,
+and have had weekly “office hours” meetings. In spite of a full
+time job, moving across the country, and a new baby to take care of,
+Kenton has still managed find a bit of time to review and merge pull
+requests, and help plan. Here are some highlights of what’s been happening
+in terms of development:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Jacob Weisz has done a ton of much-need work triaging our issue
+tracker, and has been working on some updates to vagrant-spk,
+looking to get a 1.0 release out soon.&lt;/li&gt;
+  &lt;li&gt;Adam Bliss updated our tooling for managing the &lt;a href=&quot;https://docs.sandstorm.io/&quot;&gt;docs website&lt;/a&gt;,
+to make review easier and so we can get updates out more quickly.
+As part of this, he’s updated the GitWeb app, and included support
+for static publishing. We’re calling the feature “GitWeb Pages”.
+He also fixed a long-standing &lt;a href=&quot;https://github.com/sandstorm-io/vagrant-spk/issues/213&quot;&gt;bug&lt;/a&gt; in &lt;a href=&quot;https://github.com/sandstorm-io/vagrant-spk/&quot;&gt;vagrant-spk&lt;/a&gt;, which
+will make the app development experience better.&lt;/li&gt;
+  &lt;li&gt;Lauri Ojansivu has been working on internationalizing the mass
+transfer feature that was added recently, and translating it into
+Finnish.&lt;/li&gt;
+  &lt;li&gt;I recently implemented support for apps scheduling background tasks,
+something that’s been a major pain point for developing certain types
+of applications. I’m working on a few follow-up tasks and related
+functionality, and put together a &lt;a href=&quot;https://github.com/zenhack/hello-sandstorm-oauth&quot;&gt;demo app&lt;/a&gt; that uses
+Sandstorm’s Powerbox API. To me, this is one of Sandstorm’s most
+exciting features, but having been implemented only shortly before
+the company shut down, it still has rough edges and the documentation
+is lacking. I plan to fix that.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As a community we’re once again very hopeful, and I personally am
+committed to spending what time I can making Sandstorm’s vision a
+reality. If you want to help, join us in the #sandstorm IRC channel
+on Freenode, and sign up for the &lt;a href=&quot;https://groups.google.com/forum/#!forum/sandstorm-dev&quot;&gt;sandstorm-dev mailing list&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+				<pubDate>Mon, 03 Feb 2020 00:00:00 -0600</pubDate>
+                                <link>https://sandstorm.io/news/2020-02-03-reviving-sandstorm</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2020-02-03-reviving-sandstorm</guid>
+			</item>
+		
+			<item>
 				<title>Sandstorm Oasis is Shutting Down</title>
 				<description>&lt;p&gt;On December 31st, 2019, Sandstorm’s paid hosting service, Sandstorm Oasis, will begin winding down.&lt;/p&gt;
 
@@ -81,7 +154,7 @@
 &lt;p&gt;However, after the shutdown of Oasis, the project should be understood to be a hobby project, not a business. People should no longer rely on me, working in my spare time, to safeguard your data or keep it accessible.&lt;/p&gt;
 
 </description>
-				<pubDate>Sun, 15 Sep 2019 00:00:00 -0700</pubDate>
+				<pubDate>Sun, 15 Sep 2019 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2019-09-15-shutting-down-oasis</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2019-09-15-shutting-down-oasis</guid>
 			</item>
@@ -115,7 +188,7 @@
 
 &lt;p&gt;In August I estimated that the cost to continue operating Sandstorm (including servers and corporate maintenance) at about $1560 per month. With the server reduction, we’re now at $1439 per month – just barely above the $1428 in revenue. So, we went from a $700/month deficit ($8400/year) to break-even by making this change.&lt;/p&gt;
 </description>
-				<pubDate>Sun, 28 Oct 2018 00:00:00 -0700</pubDate>
+				<pubDate>Sun, 28 Oct 2018 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2018-10-28-results-of-ending-free-plan</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2018-10-28-results-of-ending-free-plan</guid>
 			</item>
@@ -154,7 +227,7 @@
 
 &lt;p&gt;You now have a (temporary) functioning version of your grain.&lt;/p&gt;
 </description>
-				<pubDate>Thu, 18 Oct 2018 00:00:00 -0700</pubDate>
+				<pubDate>Thu, 18 Oct 2018 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2018-10-18-how-to-download-oasis-data</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2018-10-18-how-to-download-oasis-data</guid>
 			</item>
@@ -205,7 +278,7 @@
 &lt;p&gt;If Oasis remains non-profitable after this change, we’ll eventually have to shut it down. If it pays for itself, I’d like to keep it running, but I cannot make any guarantees. I will, of course, provide plenty of advance warning before shutting it down entirely.&lt;/p&gt;
 
 </description>
-				<pubDate>Mon, 27 Aug 2018 00:00:00 -0700</pubDate>
+				<pubDate>Mon, 27 Aug 2018 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2018-08-27-discontinuing-free-plan</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2018-08-27-discontinuing-free-plan</guid>
 			</item>
@@ -252,7 +325,7 @@ time working on Sandstorm.&lt;/p&gt;
 
 &lt;p&gt;Want to get involved? &lt;a href=&quot;https://groups.google.com/group/sandstorm-dev&quot;&gt;Join the sandstorm-dev mailing list.&lt;/a&gt; and &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md&quot;&gt;check out ways to contribute&lt;/a&gt;.&lt;/p&gt;
 </description>
-				<pubDate>Mon, 19 Feb 2018 00:00:00 -0800</pubDate>
+				<pubDate>Mon, 19 Feb 2018 00:00:00 -0600</pubDate>
                                 <link>https://sandstorm.io/news/2018-02-19-http-rewrite-and-more</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2018-02-19-http-rewrite-and-more</guid>
 			</item>
@@ -267,7 +340,7 @@ time working on Sandstorm.&lt;/p&gt;
 
 &lt;p&gt;Would you like to contribute a Sandstorm translation? It’s easy – no programming required. Check out &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md#internationalization-i18n&quot;&gt;the contributing guide&lt;/a&gt; for instructions, and talk to us on &lt;a href=&quot;https://groups.google.com/group/sandstorm-dev&quot;&gt;the sandstorm-dev mailing list&lt;/a&gt;.&lt;/p&gt;
 </description>
-				<pubDate>Sat, 28 Oct 2017 00:00:00 -0700</pubDate>
+				<pubDate>Sat, 28 Oct 2017 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2017-10-28-i18n</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2017-10-28-i18n</guid>
 			</item>
@@ -330,7 +403,7 @@ time working on Sandstorm.&lt;/p&gt;
 
 &lt;p&gt;As of this post, these changes have not yet been implemented. We wanted to let people know of the changes in advance, in case anyone is relying on the current behavior. The next Sandstorm update will include code which detects users who might be affected and notifies them to read this blog post. The full change will probably take several weeks or maybe months to implement, as it is a huge change. We’ll update this post when it’s done.&lt;/p&gt;
 </description>
-				<pubDate>Mon, 08 May 2017 00:00:00 -0700</pubDate>
+				<pubDate>Mon, 08 May 2017 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2017-05-08-refactoring-identities</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2017-05-08-refactoring-identities</guid>
 			</item>
@@ -353,7 +426,7 @@ time working on Sandstorm.&lt;/p&gt;
 
 &lt;p&gt;The Sandstorm community can expect to see me merging pull requests and pushing releases on weekends, with new releases at least every three weeks. There has been a flurry of activity lately around mobilizing community contributions. Join the discussion on &lt;a href=&quot;https://groups.google.com/forum/#!forum/sandstorm-dev&quot;&gt;the sandstorm-dev mailing list&lt;/a&gt; or on &lt;a href=&quot;https://kiwiirc.com/client/irc.freenode.net/?channel=#sandstorm&quot;&gt;IRC (#sandstorm on Freenode)&lt;/a&gt;!&lt;/p&gt;
 </description>
-				<pubDate>Mon, 13 Mar 2017 00:00:00 -0700</pubDate>
+				<pubDate>Mon, 13 Mar 2017 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2017-03-13-joining-cloudflare</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2017-03-13-joining-cloudflare</guid>
 			</item>
@@ -431,59 +504,9 @@ time working on Sandstorm.&lt;/p&gt;
 
 &lt;p&gt;We are excited to have received such a thorough security review. Some of the problems discovered were very obscure and we’re impressed that DevCore was able to find them. We thank Audrey Tang and the Department of Cyber Security of Taiwan for commissioning this review.&lt;/p&gt;
 </description>
-				<pubDate>Thu, 02 Mar 2017 00:00:00 -0800</pubDate>
+				<pubDate>Thu, 02 Mar 2017 00:00:00 -0600</pubDate>
                                 <link>https://sandstorm.io/news/2017-03-02-security-review</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2017-03-02-security-review</guid>
-			</item>
-		
-			<item>
-				<title>Impact of Cloudflare security advisory on Sandstorm Oasis</title>
-				<description>&lt;p&gt;A few days ago, Cloudflare &lt;a href=&quot;https://blog.cloudflare.com/incident-report-on-memory-leak-caused-by-cloudflare-parser-bug/&quot;&gt;disclosed a security bug&lt;/a&gt; in their services which may have leaked secrets from sites which use Cloudflare. Sandstorm uses Cloudflare as a cache in front of our web site and Sandstorm Oasis, and so some of our users have asked if this problem affects them.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt; If you uploaded or downloaded a grain backup (zip file) between September 22, 2016 and February 18, 2017 (more so between Feb 13 to Feb 18), there is a very remote chance that some portion of the content of your backup could have been leaked to a third party, due to a bug in Cloudflare. We suspect, but cannot say for sure, that no such leakage occurred. We believe that no data other than grain backups could have leaked.&lt;/p&gt;
-
-&lt;h3 id=&quot;details&quot;&gt;Details&lt;/h3&gt;
-
-&lt;p&gt;We believe that Sandstorm services are mostly unaffected (with the exception of grain backups, described below). We intentionally divide our services such that public, static content is served from different hosts from dynamic/private content. We only enable Cloudflare in front of the public, static content (to provide caching and faster delivery). Moreover, the public, static hosts avoid storing sensitive credentials in cookies.&lt;/p&gt;
-
-&lt;p&gt;Specifically, we have Cloudflare enabled on the following hosts:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;sandstorm.io&lt;/strong&gt;, which serves our public web site. There are no secrets here.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;docs.sandstorm.io&lt;/strong&gt;, which serves our public documentation. There are no secrets here.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;dl.sandstorm.io&lt;/strong&gt;, from which Sandstorm install packages and updates are served. There are no secrets here.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;oasis.sandstorm.io&lt;/strong&gt;, which serves the static HTML, Javascript, CSS, and images for Sandstorm Oasis. Dynamic content in the Sandstorm UI is delivered – and user actions are communicated – via a WebSocket on ddp.oasis.sandstorm.io, which does not use Cloudflare. The user’s authentication token is stored in localStorage rather than a cookie and is only ever transmitted over the WebSocket. Sandstorm apps are served from randomly-generated subdomains of oasis.sandstorm.io, which are not served through Cloudflare. However, grain backup uploads and downloads occur on the main host and could be affected – see below.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;app-index.sandstorm.io&lt;/strong&gt;, which serves public Sandstorm app packages and metadata for use by the app market and for implementing automatic updates. There are no secrets here.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;apps.sandstorm.io&lt;/strong&gt;, which serves the static HTML, Javascript, CSS, and images for our app market. As with Oasis, dynamic content and interaction (mainly, reading/posting reviews) happens via a WebSocket on apps-ddp.sandstorm.io and credentials are stored in localStorage.&lt;/li&gt;
-  &lt;li&gt;Various internal testing hosts and hosts that only redirect to other hosts.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We chose this design because we rely on Cloudflare only for caching purposes. Since dynamic data cannot be cached anyway, it made sense to form direct connections for that data rather than pass through a proxy, both to reduce our TCB and to improve performance. On the other hand, this means we cannot fully take advantage of Cloudflare’s security features such as its Web Application Firewall and DDoS protection, but we felt comfortable with this trade-off.&lt;/p&gt;
-
-&lt;p&gt;That said, we’ve identified one notable exception to our design: When you download a backup of a grain via the Sandstorm Oasis UI, or upload a backup to be restored, the zip file is transmitted through the main Oasis host, proxied through Cloudflare. This seems to be an oversight; it would make sense for these requests to go through the DDP host (I’ve prepared &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/pull/2877&quot;&gt;a pull request&lt;/a&gt; to fix this). These transfers are authorized via short-lived tokens, so there’s no risk of Oasis credentials being leaked. However, the contents of a .zip file could possibly have been leaked by Cloudflare.&lt;/p&gt;
-
-&lt;p&gt;Cloudflare reports that the bug existed between 2016-09-22 and 2017-02-18, with the greatest potential impact being in the last four days of that period. If you uploaded or downloaded a grain backup in that time, it could have been leaked. However, Cloudflare reports that the incidence of such leaks was extremely small, and each instance would have leaked data from an essentially random website served by Cloudflare, of which there are many (Cloudflare handles some 10% of all internet traffic). Given the probabilities, it is likely that no Sandstorm grain backup data was actually leaked. There is also so far no evidence that anyone was actively exploiting this bug.&lt;/p&gt;
-
-&lt;p&gt;With all that said, if you are worried about the possibility that your data was leaked, the proper course of action depends on the app and grain involved. Sandstorm is explicitly designed to keep credentials out of the hands of apps, so usually the only sensitive information in a grain backup is information that you gave to it yourself. For example, if you had an Etherpad document where you kept a list of passwords (and you downloaded a backup of that document recently), you may want to change those passwords. Otherwise, there is nothing to do.&lt;/p&gt;
-
-&lt;h3 id=&quot;editorial&quot;&gt;Editorial&lt;/h3&gt;
-
-&lt;p&gt;Bugs like this probably exist in a lot of software. The Cloudflare bug is notable because:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;It was discovered. (Most bugs aren’t.)&lt;/li&gt;
-  &lt;li&gt;Cloudflare handles some 10% of all internet traffic, meaning that basically everyone on the internet is possibly affected.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;It’s important to keep in mind that security is not binary. Security is about risk management. The Cloudflare bug did not change anyone’s security level from “secure” to “insecure” – instead, it increased the likelihood of any particular person becoming the victim of a real attack from, say, 5.26% to 5.28% (numbers made up to illustrate point). Had Cloudflare been slow to respond once the vulnerability was found, this risk may have shot up. Fortunately, though, they were anything but.&lt;/p&gt;
-
-&lt;p&gt;Now, consider the use of password-based authentication. Nearly every service on the web uses it. However, it is demonstrably horribly insecure: Not only do people regularly use bad passwords or reuse the same password across sites, but passwords stored in a database (even if hashed) make it much easier for attackers to escalate a read-only database snapshot into full access privileges (possibly even to sites other than the one attacked). By requiring the user to receive an authentication code by e-mail each time they log in from a new location, a service can hugely reduce their users’ risk of compromise – probably by an order of magnitude! By this measure, bare password-based authentication should be considered a vulnerability, and a much more serious one than Cloudflare’s bug.&lt;/p&gt;
-
-&lt;p&gt;And yet, people accept passwords because they are more convenient than other mechanisms. &lt;em&gt;(Well, many people do. Sandstorm does not implement passwords.)&lt;/em&gt; So, we admit that security is not absolute, but rather a trade-off which needs to be judged against other factors. We need to weigh the risks of our infrastructure being insecure against the value that infrastructure brings – and Cloudflare certainly brings a lot of value. That said, with good design, it’s often possible to reduce and contain risks without sacrificing too much utility. This is one of the core goals of Sandstorm – to introduce an &lt;a href=&quot;https://sandstorm.io/how-it-works&quot;&gt;infrastructure model&lt;/a&gt; and &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-practices/&quot;&gt;security practices&lt;/a&gt; which &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/&quot;&gt;mitigate risks&lt;/a&gt;.&lt;/p&gt;
-</description>
-				<pubDate>Tue, 28 Feb 2017 00:00:00 -0800</pubDate>
-                                <link>https://sandstorm.io/news/2017-02-28-cloudbleed</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2017-02-28-cloudbleed</guid>
 			</item>
 		
 	</channel>

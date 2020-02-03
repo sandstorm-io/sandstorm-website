@@ -94,6 +94,62 @@
 
 
 <section>
+  <h2><a href="/news/2016-10-25-cve-2016-5195-dirtycow-mitigated">Linux kernel CVE-2016-5195 &quot;Dirty COW&quot; mitigated by Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2016-10-25-cve-2016-5195-dirtycow-mitigated">25 Oct 2016</a>
+  <p>Last week, a Linux kernel bug, <a href="https://www.google.com/search?q=CVE-2016-5195">CVE-2016-5195</a>, was described as <a href="http://arstechnica.com/security/2016/10/most-serious-linux-privilege-escalation-bug-ever-is-under-active-exploit/">“the most serious Linux local privilege escalation ever”</a>. The bug – which potentially allowed any code running on a Linux machine to escalate its privileges to root – was already being actively exploited in the wild before it was fixed, and had existed in the kernel for many years.</p>
+
+<p>Since Sandstorm allows any user of a server to upload their own apps, you might wonder if this bug could allow a Sandstorm user to compromise the server.</p>
+
+<p>We’re happy to report that the answer appears to be “no”. As is <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/#linux-kernel">often the case</a> with Linux kernel bugs, our sandbox blocked the exploit.</p>
+
+<p><em>Of course, we still recommend updating your kernel in case the bug can be exploited in ways that have not been discovered yet.</em></p>
+
+<h3 id="technical-details">Technical Details</h3>
+
+<p>The bug in question was a race condition in the handling of memory pages mapped copy-on-write. A process can ask that a read-only file be mapped into its memory space in such a way that it is allowed to modify the mapped memory. When the process writes to the memory, the kernel makes a private copy of the affected page, so that the process only modifies its copy, not the original. Meanwhile, a process can request later on that the modifications it made be discarded, returning the page to its original state. In certain circumstances, by both writing to a page and requesting this discard at the same time (in separate threads), the process could end up writing to the original pages that are shared with other processes on the system, instead of its own private copy. Hence, the process could modify any file on the system. By modifying, say, the <code>sudo</code> utility, it could give itself a backdoor which allows it to gain root privileges trivially.</p>
+
+<p>However, not just any old write worked here. In order to trigger the race condition, the process had to write in a way that calls the kernel’s <code>get_user_pages()</code> function with the <code>force</code> parameter set to <code>1</code>. The <code>force</code> parameter says: “If this page is mapped copy-on-write, then let me write to it (making a private copy) even if the page’s protection mode is read-only.” As it turns out, it is possible for a memory mapping to be both read-only and copy-on-write, and in fact this is the mode that is usually used when mapping in a program’s main binary and shared libraries. Normally, no copy is ever performed, because the writes that would trigger them are not allowed. However, there is a special case where this combination of flags matters: If you are running a program in a debugger, and you ask the debugger to insert a breakpoint, it does so by overwriting the instruction at the given address with a break instruction. That is, it modifies the mapped executable. The <code>force</code> flag actually exists for exactly this purpose: so that the debugger can inject breakpoints into the program being executed by the process being debugged (without affecting any other processes that happen to be running the same program).</p>
+
+<p>Because the <code>force</code> flag is only useful in very specific circumstances, only certain code paths can trigger the vulnerability. Kernel security engineer and Sandstorm contributor Andrew Lutomirski tells us the only entry points appear to be:</p>
+
+<ul>
+  <li>The <code>ptrace()</code> system call’s <code>PTRACE_POKEDATA</code> operation, which is explicitly meant to be used by debuggers, often for the purpose of setting breakpoints.</li>
+  <li>Writes to <code>/proc/&lt;pid&gt;/mem</code>. It’s unclear why this code uses <code>force</code> – possibly it was a mistake.</li>
+  <li>Various drivers, which are also probably using the flag by mistake.</li>
+</ul>
+
+<p>As it turns out, none of these code paths can be exploited by Sandstorm apps:</p>
+
+<ul>
+  <li>Sandstorm uses seccomp to block the app from invoking <code>ptrace()</code>.</li>
+  <li>Sandstorm does not mount <code>/proc</code> inside app sandboxes.</li>
+  <li>Sandstorm does not expose driver interfaces from inside app sandboxes. For example, <code>/dev</code> contains only <code>null</code>, <code>zero</code>, and <code>urandom</code>.</li>
+</ul>
+
+<p>So, as far as we can tell, Sandstorm has never been vulnerable to this bug.</p>
+
+<h3 id="defense-in-depth">Defense in depth</h3>
+
+<p>Even if Sandstorm were vulnerable, the exploit would have far reduced impact inside Sandstorm than in a typical Linux environment, because:</p>
+
+<ul>
+  <li>Within a Sandstorm app’s sandbox, the visible filesystem consists of the contents of its own package. It cannot see the host system’s files nor files belonging to other apps, hence it would not be able to memory-map them in order to modify them using this bug.</li>
+  <li>App packages cannot contain setuid binaries and, even if they could, apps would not be able to execute them, because Sandstorm sets the <code>NO_NEW_PRIVS</code> <code>prctl()</code> flag inside the sandbox.</li>
+</ul>
+
+<p>When running on Sandstorm, a user’s data in an app like Etherpad is containerized separately from another user’s data. In fact, we go one step further and <a href="https://sandstorm.io/how-it-works#grains">containerize each document separately</a>. In the case that Sandstorm had not mitigated the bug outright, it appears the impact of the bug would be that an app could break Sandstorm’s per-document isolation and read/write documents from any number of users, so long as those users all use the same version of the same app on the same server. The app still would not have been able to interfere with other apps. This is the status quo in a typical Linux environment: in most non-Sandstorm environments, an app keeps all users’ data in a single database without per-user isolation. Overall, this is much less significant than a privilege escalation to root. Thankfully, our seccomp mitigation prevented this.</p>
+
+<h3 id="sandstorms-security-record">Sandstorm’s Security Record</h3>
+
+<p>This is not the first Linux security bug mitigated by Sandstorm. In fact, we’ve kept a long list. Moreover, in addition to mitigating Linux kernel problem, Sandstorm mitigates most vulnerabilities in the apps that run on top of it. Check out the whole list of mitigated vulnerabilities that we’ve compiled: <a href="https://docs.sandstorm.io/en/latest/using/security-non-events/">Sandstorm Security Non-Events</a></p>
+
+<p>Want to try out Sandstorm as a user? <a href="https://demo.sandstorm.io">Try the online demo »</a></p>
+
+</section>
+
+<section>
   <h2><a href="/news/2016-10-13-sharing-documents-rocketchat">Sharing documents with a Rocket.Chat room in Sandstorm</a></h2>
   <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Q. Wang</a>
     
@@ -372,33 +428,6 @@ have to do anything. Sandstorm checks for updates and smoothly switches to the l
 <p>Sandstorm for Work is 100% open source software with a thriving community. That means it will never disappear or stop working. Read more in <a href="https://sandstorm.io/news/2016-04-06-sandstorm-for-work">our original announcement</a>.</p>
 
 <p><a class="linkbutton" href="https://sandstorm.io/get-feature-key">Get Sandstorm for Work »</a></p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-08-17-decentralization-is-about-diversity">Decentralization is about diversity</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2016-08-17-decentralization-is-about-diversity">17 Aug 2016</a>
-  <p><img src="/news/images/decentralize.png" alt="" /></p>
-
-<p>Lately, there has been a flurry of activity around decentralizing the web. Summits have been held. New projects – and companies – have been started. Having worked on this issue for several years now, we’re excited to see it becoming increasingly mainstream.</p>
-
-<p>But what, exactly, are we trying to solve? Most people think it has something to do with privacy, and maybe also security. Some argue that data ownership and mobility are the most important things. Sometimes this leads decentralization projects to focus on data storage while neglecting compute. Some projects even propose that so long as storage is decentralized, it doesn’t matter where the software actually runs.</p>
-
-<p>Privacy, security, ownership, and mobility are all important, but I feel there is a much more important goal that is often poorly understood:</p>
-
-<p style="font-weight: bold; text-align: center; font-size: 130%; margin: 1em auto; width: 500px; max-width: 90%;">The most important reason to decentralize is software&mdash;and developer&mdash;diversity.</p>
-
-<p>By “diversity”, I mean this: Who can develop software that other people can plausibly use? Is it primarily mega-corps like Apple and Google? VC-backed startups? Or can one random person, working in their spare time, build just the right app and reach millions of people? Can a community of unfunded volunteers build an open source app that wins because it is the best? Can an employee of one company, having built a useful internal app to solve a problem they had, give (or sell) that app to another company in the same position, without a lot of hassle? Can a teenage fan of a particular video game build an app that assists players of the game, and then share that app with the rest of the game’s community?</p>
-
-<p>All of the above happens regularly with mobile and desktop apps, but it is far more difficult on the web.</p>
-
-<p>We live in a time when our tools are so good that a single competent application developer working weekends can create almost any web application you can imagine. However, rarely can that single developer also run a secure, scalable service and a business around it. As a result, when software is delivered as a service, the only software that is available is that which was deemed <em>a priori</em> to be sufficiently lucrative to interest a mega-corp like Google or a VC-backed startup. <strong>Therefore, the only software services we get come courtesy of these gatekeepers.</strong> Experimental, indie, or amateur projects are rare. Novel services serving a small niche community are rare. Services designed by people who aren’t well-represented in the tech industry are rare. Community-driven open source projects <a href="https://sandstorm.io/news/2014-07-21-open-source-web-apps-require-federated-hosting">basically aren’t viable</a>.</p>
-
-<p>The only way to solve these problems is by decentralizing the software (not just the storage). Software must be provided as a package – not as a service – with each user running their own private copy. It doesn’t really matter if the user chooses to deploy to “the cloud” or to their own machine, as long as they can run any package they want. It is, however, important that the means to deploy software be accessible even to non-technical users, so that everyone can participate and developers can reach a wide audience. Deploying an app on your server must therefore be as easy as installing an app on your phone, and must be “secure by default”.</p>
-
-<p>This is the focus of Sandstorm.</p>
 
 </section>
 

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Reviving Sandstorm - Sandstorm Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Reviving Sandstorm">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sandstorm.io/images/sandcat.png">
+    <meta property="og:url" content="https://sandstorm.io/news/2020-02-03-reviving-sandstorm">
+    <meta property="og:description"
+        content="Real-time collaborative web productivity suite behind the firewall.">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
+  </head>
+
+
+
+  <body id="blog">
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a href="/get">Get Sandstorm</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">Technology</a>
+      <a href="/news/">Blog</a>
+      <a href="https://docs.sandstorm.io">Docs</a>
+      <a href="https://github.com/sandstorm-io/sandstorm">Code</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <!-- TODO: search -->
+    </nav>
+
+    <header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+<div class="post-list">
+
+<div class="sidebar">
+  <ul class="socialmedia">
+    <li><a class="twitter" href="https://twitter.com/SandstormIO">Twitter</a>
+    <li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank">Facebook</a>
+    <li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank">Google</a>
+    <li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank">Github</a>
+  </ul>
+
+  <div class="more">
+    <a href="/get">
+      Sandstorm is a self-hostable web productivity suite.
+      <span class="signup" href="https://oasis.sandstorm.io">Sign up</span>
+      <span class="selfhost" href="/install">or host your own</span>
+    </a>
+    
+    <h3>Recommended Posts</h3>
+    <ul>
+      <li><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">Open Source Web Apps Aren't Viable; Let's Fix That</a></li>
+      <li><a href="/news/2016-02-29-security-track-record">Sandstorm's security track record, and what it means for self-hosting</a></li>
+      <li><a href="/news/2016-08-17-decentralization-is-about-diversity">Decentralization is about diversity</a></li>
+      <li><a href="/news/2016-01-22-8-new-open-source-apps.html">8 New open source self-hostable apps</a></li>
+      <li><a href="/news/2016-04-06-sandstorm-for-work">Sandstorm for Work Beta: LDAP, SAML, organization management</a></li>
+      <li><a href="/news/2016-02-05-app-author-publicity-oasis">Free publicity for your indie web app, and free Oasis service for you</a></li>
+      <li><a href="/news/2015-10-01-free-ssl-certificates.html">Free, automated SSL certificates for Sandstorm self-hosters</a></li>
+      <li><a href="/news/2014-08-19-why-not-run-docker-apps.html">Why doesn't Sandstorm just run Docker apps?</a></li>
+      <li><a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization.html">Understand the Sandstorm sharing model</a></li>
+    </ul>
+    
+    <h3>Further Reading</h3>
+      <ul>
+        <li><a href="/how-it-works">How Sandstorm Works</a></li>
+        <li><a href="http://docs.sandstorm.io">Sandstorm Documentation</a></li>
+        <li><a href="/install">How to install Sandstorm</a></li>
+      </ul>
+  </div>
+</div>
+
+
+<nav class="pagination top">
+  <a class="newer" href="/news/" title="All posts">&laquo; All posts</a>
+</nav>
+
+<section>
+  <h2>Reviving Sandstorm</h2>
+  <p class="post-details">By <a href="https://github.com/zenhack">Ian Denhardt</a>
+    
+    - 03 Feb 2020
+  <p>Hi! I’m Ian Denhardt, a long-time Sandstorm user and community member.
+I have some exciting news to share. Let’s start by talking about some
+recent history.</p>
+
+<p>It’s no secret that development on Sandstorm has been pretty sparse
+since Sandstorm-the-business <a href="https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots">shut down in 2017</a>. The tone of that
+announcement was optimistic; while Sandstorm had failed as a business,
+as an open source project it had attracted an vibrant community, and
+there was hope that the project could continue to be successful outside
+of a for-profit setting.</p>
+
+<p>Things didn’t go as smoothly as we’d hoped, however. While Sandstorm had
+had a healthy community of folks using it and building apps, there had
+been fewer contributions to Sandstorm itself from outside the company,
+and no one but Sandstorm employees had been doing major core development
+on a regular basis. Additionally, Kenton has had less time than he’d
+hoped to work on Sandstorm.</p>
+
+<p>The project never quite died. It has continued to receive security and
+maintenance updates. <a href="https://sandstorm.io/news/2017-10-28-i18n">Internationalization support was added</a>, and
+several folks have stepped up to translate the UI into other languages.
+A few other features landed, and a few apps continued to see updates as
+well. But it would be more than fair to say that the project had stagnated,
+and while I and many others were still using it, it was clear that
+development wasn’t going anywhere fast.</p>
+
+<p>That looks to be changing.</p>
+
+<p>About two months ago, Lyre Calliope sent <a href="https://groups.google.com/d/msg/sandstorm-dev/cVPH014H2iY/8Em-dPDyBQAJ">an email</a> to the sandstorm-dev
+mailing list, starting a discussion on how to get the project moving again.
+Since then, I and others have been contributing code and documentation,
+and have had weekly “office hours” meetings. In spite of a full
+time job, moving across the country, and a new baby to take care of,
+Kenton has still managed find a bit of time to review and merge pull
+requests, and help plan. Here are some highlights of what’s been happening
+in terms of development:</p>
+
+<ul>
+  <li>Jacob Weisz has done a ton of much-need work triaging our issue
+tracker, and has been working on some updates to vagrant-spk,
+looking to get a 1.0 release out soon.</li>
+  <li>Adam Bliss updated our tooling for managing the <a href="https://docs.sandstorm.io/">docs website</a>,
+to make review easier and so we can get updates out more quickly.
+As part of this, he’s updated the GitWeb app, and included support
+for static publishing. We’re calling the feature “GitWeb Pages”.
+He also fixed a long-standing <a href="https://github.com/sandstorm-io/vagrant-spk/issues/213">bug</a> in <a href="https://github.com/sandstorm-io/vagrant-spk/">vagrant-spk</a>, which
+will make the app development experience better.</li>
+  <li>Lauri Ojansivu has been working on internationalizing the mass
+transfer feature that was added recently, and translating it into
+Finnish.</li>
+  <li>I recently implemented support for apps scheduling background tasks,
+something that’s been a major pain point for developing certain types
+of applications. I’m working on a few follow-up tasks and related
+functionality, and put together a <a href="https://github.com/zenhack/hello-sandstorm-oauth">demo app</a> that uses
+Sandstorm’s Powerbox API. To me, this is one of Sandstorm’s most
+exciting features, but having been implemented only shortly before
+the company shut down, it still has rough edges and the documentation
+is lacking. I plan to fix that.</li>
+</ul>
+
+<p>As a community we’re once again very hopeful, and I personally am
+committed to spending what time I can making Sandstorm’s vision a
+reality. If you want to help, join us in the #sandstorm IRC channel
+on Freenode, and sign up for the <a href="https://groups.google.com/forum/#!forum/sandstorm-dev">sandstorm-dev mailing list</a>.</p>
+
+
+</section>
+
+</div>
+
+
+    <footer>
+      <ul>
+        <li>
+          <h3><a href="/get">Get Sandstorm</a></h3>
+          <ul>
+            <li><a href="/get">Sandstorm on Oasis</a>
+            <li><a href="/get">Self-host Sandstorm</a>
+            <li><a href="https://github.com/sandstorm-io/sandstorm">Source code (GitHub)</a>
+            <li><a href="/go/education">For educators</a></li>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/features">Features</a></h3>
+          <ul>
+            <li><a href="https://apps.sandstorm.io">App Market</a></li>
+            <li><a href="/features">Core features</a>
+            <li><a href="/features#security">Security features</a>
+            <li><a href="/business#scale-features">Scale-out</a>
+            <li><a href="/business">For organizations</a>
+            <li><a href="/developer">For developers</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="https://docs.sandstorm.io">Documentation</a></h3>
+          <ul>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/">How to use Sandstorm</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/developing/">Developer Hub</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/administering/">Administering &amp; installing</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/security-practices/">Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/how-it-works">Technology (How it Works)</a></h3>
+          <ul>
+            <li><a href="/how-it-works#grains">Fine-grained object containers</a>
+            <li><a href="/how-it-works#capabilities">Capability-based security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a></h3>
+          <ul>
+            <li><a href="/news">Sandstorm Blog</a>
+            <li><a href="/community#connect-with">Connect with us</a>
+            <li><a href="/community#helpothers">Help others</a>
+            <li><a href="/community#helpproject">Help the project</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/about">About</a></h3>
+          <ul>
+            <li><a href="/about">Sandstorm story</a>
+            <li><a href="/about#team">Team</a>
+            <li><a href="/about#advisors">Advisors</a>
+            <li><a href="mailto:contact@sandstorm.io">Contact</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <ul>
+            <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
+          </ul>
+        </li>
+        <li>
+          <h3>Connect</h3>
+          <ul id="socialmedia-small">
+						<li><a class="twitter" href="https://twitter.com/SandstormIO"></a>
+						<li><a class="google" href="https://plus.google.com/+SandstormIo" target="_blank"></a>
+						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
+						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
+  			</ul>
+        </li>
+        <li>
+          <ul>
+            <li><a href=""></a>
+          </ul>
+        </li>
+      </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
+    </footer>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
+  </body>
+</html>

@@ -81,6 +81,79 @@
 
 
 <section>
+  <h2><a href="/news/2020-02-03-reviving-sandstorm">Reviving Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/zenhack">Ian Denhardt</a>
+    
+    - <a href="/news/2020-02-03-reviving-sandstorm">03 Feb 2020</a>
+  <p>Hi! I’m Ian Denhardt, a long-time Sandstorm user and community member.
+I have some exciting news to share. Let’s start by talking about some
+recent history.</p>
+
+<p>It’s no secret that development on Sandstorm has been pretty sparse
+since Sandstorm-the-business <a href="https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots">shut down in 2017</a>. The tone of that
+announcement was optimistic; while Sandstorm had failed as a business,
+as an open source project it had attracted an vibrant community, and
+there was hope that the project could continue to be successful outside
+of a for-profit setting.</p>
+
+<p>Things didn’t go as smoothly as we’d hoped, however. While Sandstorm had
+had a healthy community of folks using it and building apps, there had
+been fewer contributions to Sandstorm itself from outside the company,
+and no one but Sandstorm employees had been doing major core development
+on a regular basis. Additionally, Kenton has had less time than he’d
+hoped to work on Sandstorm.</p>
+
+<p>The project never quite died. It has continued to receive security and
+maintenance updates. <a href="https://sandstorm.io/news/2017-10-28-i18n">Internationalization support was added</a>, and
+several folks have stepped up to translate the UI into other languages.
+A few other features landed, and a few apps continued to see updates as
+well. But it would be more than fair to say that the project had stagnated,
+and while I and many others were still using it, it was clear that
+development wasn’t going anywhere fast.</p>
+
+<p>That looks to be changing.</p>
+
+<p>About two months ago, Lyre Calliope sent <a href="https://groups.google.com/d/msg/sandstorm-dev/cVPH014H2iY/8Em-dPDyBQAJ">an email</a> to the sandstorm-dev
+mailing list, starting a discussion on how to get the project moving again.
+Since then, I and others have been contributing code and documentation,
+and have had weekly “office hours” meetings. In spite of a full
+time job, moving across the country, and a new baby to take care of,
+Kenton has still managed find a bit of time to review and merge pull
+requests, and help plan. Here are some highlights of what’s been happening
+in terms of development:</p>
+
+<ul>
+  <li>Jacob Weisz has done a ton of much-need work triaging our issue
+tracker, and has been working on some updates to vagrant-spk,
+looking to get a 1.0 release out soon.</li>
+  <li>Adam Bliss updated our tooling for managing the <a href="https://docs.sandstorm.io/">docs website</a>,
+to make review easier and so we can get updates out more quickly.
+As part of this, he’s updated the GitWeb app, and included support
+for static publishing. We’re calling the feature “GitWeb Pages”.
+He also fixed a long-standing <a href="https://github.com/sandstorm-io/vagrant-spk/issues/213">bug</a> in <a href="https://github.com/sandstorm-io/vagrant-spk/">vagrant-spk</a>, which
+will make the app development experience better.</li>
+  <li>Lauri Ojansivu has been working on internationalizing the mass
+transfer feature that was added recently, and translating it into
+Finnish.</li>
+  <li>I recently implemented support for apps scheduling background tasks,
+something that’s been a major pain point for developing certain types
+of applications. I’m working on a few follow-up tasks and related
+functionality, and put together a <a href="https://github.com/zenhack/hello-sandstorm-oauth">demo app</a> that uses
+Sandstorm’s Powerbox API. To me, this is one of Sandstorm’s most
+exciting features, but having been implemented only shortly before
+the company shut down, it still has rough edges and the documentation
+is lacking. I plan to fix that.</li>
+</ul>
+
+<p>As a community we’re once again very hopeful, and I personally am
+committed to spending what time I can making Sandstorm’s vision a
+reality. If you want to help, join us in the #sandstorm IRC channel
+on Freenode, and sign up for the <a href="https://groups.google.com/forum/#!forum/sandstorm-dev">sandstorm-dev mailing list</a>.</p>
+
+
+</section>
+
+<section>
   <h2><a href="/news/2019-09-15-shutting-down-oasis">Sandstorm Oasis is Shutting Down</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
@@ -281,53 +354,6 @@
 
 <p>If Oasis remains non-profitable after this change, we’ll eventually have to shut it down. If it pays for itself, I’d like to keep it running, but I cannot make any guarantees. I will, of course, provide plenty of advance warning before shutting it down entirely.</p>
 
-
-</section>
-
-<section>
-  <h2><a href="/news/2018-02-19-http-rewrite-and-more">HTTP proxy rewrite and other updates</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2018-02-19-http-rewrite-and-more">19 Feb 2018</a>
-  <p>Development of Sandstorm continues! Despite now having a day job, I still spent a lot of my free
-time working on Sandstorm.</p>
-
-<p>This past weekend, <a href="https://github.com/sandstorm-io/sandstorm/pull/3038">I deleted some of the oldest code in Sandstorm</a>. This is the culmination of a few months of work: ever since early September, I have been working to transition the Sandstorm HTTP proxy from JavaScript to C++. This is the code which receives incoming HTTP requests, authenticates them, and forwards them to the appropriate grain (application instance). This low-level, performance-critical systems code.</p>
-
-<p>Historically, HTTP proxying was a duty of Sandstorm’s “Shell” server. The Sandstorm Shell is Sandstorm’s user interface, an application written on <a href="https://meteor.com">Meteor</a> and <a href="https://nodejs.org">Node</a>, and is responsible for most of Sandstorm’s business logic. Historically, the other major component of Sandstorm has been the “back end”, written in C++, responsible for running application containers and managing storage. HTTP proxying was done in the shell mostly because this was the most convenient place, building on Node.js’s HTTP library. However, performance (both CPU and memory usage) has been disappointing at best, and <a href="https://sandstorm.io/news/2016-09-30-fiber-bomb-debugging-story">a debugging nightmare at worst</a>.</p>
-
-<p>Sandstorm now has a third component: the “Gateway”. This component receives all incoming HTTP traffic and forwards it to the appropriate destination. Requests related to Sandstorm’s UI are forwarded on as HTTP to the Shell over an internal Unix domain socket. Requests intended for apps are converted by the Gateway into Cap’n Proto requests and routed to the appropriate app. The Gateway also performs TLS termination (e.g. for users of our <a href="https://docs.sandstorm.io/en/latest/administering/sandcats/">free TLS certificates under sandcats.io</a>).</p>
-
-<p>The Gateway is written in C++, using the <a href="https://github.com/capnproto/capnproto/blob/master/c++/src/kj/compat/http.h">KJ HTTP Library</a>. KJ is the C++ toolkit library originally built as part of the <a href="https://capnproto.org">Cap’n Proto</a> project (itself a sub-project of Sandstorm), but which is beginning to take on a life of its own. KJ HTTP is a low-level yet easy-to-use HTTP client and server library, built on top of the KJ asynchronous framework (think Promises but in C++), all authored by yours truly. KJ HTTP is also used in the implementation of <a href="https://blog.cloudflare.com/introducing-cloudflare-workers/">Cloudflare Workers</a> (the project I lead in my day job), where it has already handled billions of requests.</p>
-
-<p>We can see the performance improvement for Sandstorm Oasis, our hosting service which runs <a href="https://github.com/sandstorm-io/blackrock">a special cluster-scalable version of Sandstorm</a>. Oasis runs instances of the Sandstorm Shell on dedicated machines, with the ability to add more replicas as needed to handle traffic. Here’s the recent CPU usage history of one such replica:</p>
-
-<p><img src="/images/http-gateway-cpu-improvement.png" alt="Graph of shell CPU usage across Gateway deployment." /></p>
-
-<p>As you can see, introducing the gateway more than halved the CPU usage of the Sandstorm shell. Rather than reduce the number of replicas, I decided to cut the instance size in half. Either way, switching to the C++ Gateway saved money.</p>
-
-<p>What about the Gateway itself? Where does it run, and how much CPU does it add? Well, historically, Oasis used an nginx instance for ingress, to provide TLS termination and load balancing. With the Gateway introduced, we were able to eliminate nginx from our stack: the Gateway is perfectly capable of handling TLS termination itself, and is able to implement session-affinity load-balancing much more effectively than nginx could due to the Gateway’s intimate knowledge of Sansdtorm internals. Thus, introducing the Gateway did not add any new VM instances to our system: it simply replaced the existing nginx instance. The Gateway’s CPU usage is negligible, using only a few percent of a CPU core. It appears to be on par with nginx, although when the numbers are this low it’s hard to really tell. I did ultimately decide to reduce the Gateway instance from a full CPU core to a half core to save some more cash.</p>
-
-<p>These changes will roll out in full to self-hosted Sandstorm users on March 11 (the code is in git now, but I won’t have time to roll a release until then). Adventurous users can set <code>EXPERIMENTAL_GATEWAY=true</code> in their <code>/opt/sandstorm/sandstorm.conf</code> today, although note that this will give you the implementation as of the previous release two weeks ago, which still uses the old proxy for some things.</p>
-
-<h3 id="other-updates">Other updates</h3>
-
-<p><a href="https://github.com/xet7">Lauri Ojansivu</a> has translated the Sandstorm UI to Finnish, and <a href="https://github.com/Xia0ben">Benoit Renault</a> and <a href="https://github.com/jeau">Thierry Pasquier</a> have translated the Sandstorm UI to French. This means, along with English, Chinese, and Dutch, Sandstorm now supports five languages. <a href="https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md#internationalization-i18n">Learn how to help translate Sandstorm here.</a></p>
-
-<h3 id="next-up">Next up</h3>
-
-<p>Here’s some things I want to work on next:</p>
-
-<ul>
-  <li>Improving how app updates work. Today, you receive a notification when an app has been updated, and must explicitly accept the update. This unfortunately means that big Sandstorm servers with lots of users tend to get stuck storing every single historical version of every app forever, since there’s always someone who never updated after some version. I’d like to make updates fully automatic, but this requires some story for users who want to pin an older version, and some way to roll back to and older version in case of breakage.</li>
-  <li>Integrating with Let’s Encrypt, <a href="https://letsencrypt.org/2017/07/06/wildcard-certificates-coming-jan-2018.html">once they support wildcard certificates</a>. Hopefully, this will finally make it easy to run a secure Sandstorm server on your own domain. However, issuing a certificate requires completing a DNS challenge, and Sandstorm currently does not act as a DNS server. So, some manual intervention will likely still be required.</li>
-  <li>Really supporting e-mail. Today, Sandstorm has some limited ability to accept e-mail, but can’t really act as a standalone e-mail server. I’d like to fix this, with the goal of migrating my own personal e-mail off of GMail and onto Sandstorm.</li>
-  <li>Really supporting development workflows, centered around git. I want to be able to host a git repository, code review tools, a reasonable issue tracker, and a CI, all on Sandstorm, and all as separate apps.</li>
-  <li>Making the top bar less ugly. People complain that Sandstorm’s UI is suffocating, especially the black bar across the top. However, Sandstorm’s security model requires that we have a place to hang trusted UI bits – such as the sharing dialog – that is separate from the app proper. Many apps, though, also have their own top bar with app-specific features, creating a double-top-bar effect. What I’d like to do instead is have a single top bar rendered by Sandstorm, but which can be customized by the app to include app-specific controls as well and to look visually consistent with the rest of the app.</li>
-  <li>Many other things!</li>
-</ul>
-
-<p>Want to get involved? <a href="https://groups.google.com/group/sandstorm-dev">Join the sandstorm-dev mailing list.</a> and <a href="https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md">check out ways to contribute</a>.</p>
 
 </section>
 
