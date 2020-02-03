@@ -15,7 +15,7 @@ That benefits self-hosters, because those same apps can be used on your private 
 
 In fact, we at Sandstorm don't necessarily think "the cloud" is a bad idea. What we believe is that you should have the freedom to choose what makes sense for you. But that choice is moot if the particular app you need to use is only available in the cloud -- we need the same apps to be available everywhere.
 
-Oasis has now been running reliably for over a year. The Sandstorm team uses Oasis every day to get our own work done. I am composing this blog post in [Etherpad](https://oasis.sandstorm.io/appdemo/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60), while organizing my task list in [Wekan](https://oasis.sandstorm.io/appdemo/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h), chatting with teammates in [Rocket.Chat](https://oasis.sandstorm.io/appdemo/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0), and syncing files with [Davros](https://oasis.sandstorm.io/appdemo/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h).
+Oasis has now been running reliably for over a year. The Sandstorm team uses Oasis every day to get our own work done. I am composing this blog post in [Etherpad](https://demo.sandstorm.io/appdemo/h37dm17aa89yrd8zuqpdn36p6zntumtv08fjpu8a8zrte7q1cn60), while organizing my task list in [Wekan](https://demo.sandstorm.io/appdemo/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h), chatting with teammates in [Rocket.Chat](https://demo.sandstorm.io/appdemo/vfnwptfn02ty21w715snyyczw0nqxkv3jvawcah10c6z7hj1hnu0), and syncing files with [Davros](https://demo.sandstorm.io/appdemo/8aspz4sfjnp8u89000mh2v1xrdyx97ytn8hq71mdzv4p4d8n0n3h).
 
 Here are just some of the things we've changed since Oasis was launched:
 
