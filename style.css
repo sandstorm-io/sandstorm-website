@@ -2061,7 +2061,7 @@ body > footer {
         min-height: 268px;
         background: bottom/contain no-repeat url(/images/blog-sidebar-logo.svg);
         background-color: #2f2250; }
-        #blog > div.post-list > div.sidebar > .more > a span.signup {
+        #blog > div.post-list > div.sidebar > .more > a span.selfhost {
           display: block;
           width: 80%;
           margin: 30px auto 16px;
@@ -2071,12 +2071,9 @@ body > footer {
           background-image: linear-gradient(to bottom, #744ccc, #613c91);
           box-shadow: 0 3px 3px rgba(41, 25, 66, 0.6);
           background-color: #613c91; }
-          #blog > div.post-list > div.sidebar > .more > a span.signup:hover {
+          #blog > div.post-list > div.sidebar > .more > a span.selfhost:hover {
             background-image: linear-gradient(to bottom, #955fcc, #7a3cab);
             background-color: #744ccc; }
-        #blog > div.post-list > div.sidebar > .more > a span.selfhost {
-          text-decoration: underline;
-          font-size: 22px; }
   @media (max-width: 800px) {
     #blog > div.post-list {
       display: flex;
