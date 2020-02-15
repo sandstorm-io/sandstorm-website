@@ -228,7 +228,7 @@ body>.notice {
     @media (max-width: 900px) {
       font-size: 22px;
     }
-    @media (max-width: 800px) { 
+    @media (max-width: 800px) {
       font-size: 16px;
     }
     @media (max-width: 370px) {
@@ -1495,7 +1495,7 @@ body >footer {
     padding-top: 20px;
     font-weight: 300;
   }
-  
+
   #self-hosting {
     .title {
       background-color: #f9eff5;
@@ -1510,7 +1510,7 @@ body >footer {
       }
     }
   }
-  
+
   #organizations {
     .title {
       background-color: #eaf2fd;
@@ -1525,7 +1525,7 @@ body >footer {
       }
     }
   }
-  
+
   #oasis, #managed-hosting {
     .title {
       background-color: #f5edfd;
@@ -1557,7 +1557,7 @@ body >footer {
       }
     }
   }
-  
+
   .action {
     color: #fff;
     padding: 10px 0 25px 0;
@@ -1569,7 +1569,7 @@ body >footer {
       padding: 0 75% 0 0;
     }
     &:after {
-     background-color: #2e2765; 
+     background-color: #2e2765;
     }
     li {
       display: block;
@@ -1593,7 +1593,7 @@ body >footer {
       padding-bottom: 30px;
     }
   }
-  
+
 // =======================================================================================
 // Oasis pricing tables on get.html
 
@@ -1628,15 +1628,15 @@ body >footer {
     width: 80%;
     max-width: 850px;
     transition: all 4s ease-in-out;
-    
+
     @media (max-width: 800px) {
-     width: 95%; 
+     width: 95%;
     }
-    
+
     @media (max-width: 500px) {
       width: 100%;
     }
-    
+
     .content {
       max-height: 80%;
       overflow: hidden;
@@ -1648,13 +1648,13 @@ body >footer {
       font-weight: 400;
       top: 20px;
       right: 30px;
-      transition: all 200ms; 
-    }    
+      transition: all 200ms;
+    }
     .close:hover {
       color: #684599;
     }
   }
-  
+
   .overlay {
     position: fixed;
     width: 100%;
@@ -1674,13 +1674,13 @@ body >footer {
     opacity: 1;
     visibility: visible;
   }
-  
+
   #managed-hosting {
     padding: 0 20px;
     @media (max-width: 750px) {
       padding: 0 10px;
     }
-    
+
     h1 {
       font-size: 30px;
       font-weight: 400;
@@ -1689,7 +1689,7 @@ body >footer {
         font-size: 25px;
       }
     }
-    
+
     h2, h3 {
       text-align: center;
     }
@@ -1773,7 +1773,7 @@ body >footer {
         #free .storage { border-bottom: none; }
       }
     }
-    
+
     #faq {
       padding-bottom: 20px;
       h2 {
@@ -1788,7 +1788,7 @@ body >footer {
       }
     }
   }
-  
+
 // =======================================================================================
 
   #plan-table {
@@ -1875,7 +1875,7 @@ body >footer {
             p {
               max-width: 375px;
               margin: 0.6em auto;
-            }         
+            }
             a {
               text-decoration: none;
             }
@@ -2044,7 +2044,7 @@ body >footer {
                     &::before { background-image: url(images/xmark.svg); }
                   }
                 }
-              } 
+              }
             }
           }
         }
@@ -2347,7 +2347,7 @@ body >footer {
           background: bottom/contain no-repeat url(/images/blog-sidebar-logo.svg);
           background-color: #2f2250;
 
-          span.signup {
+          span.selfhost {
             display: block;
             width: 80%;
             margin: 30px auto 16px;
@@ -2363,11 +2363,6 @@ body >footer {
               background-image: linear-gradient(to bottom, #955fcc, #7a3cab);
               background-color: #744ccc;
             }
-          }
-
-          span.selfhost {
-            text-decoration: underline;
-            font-size: 22px;
           }
         }
       }
@@ -2930,7 +2925,7 @@ body >footer {
         }
       }
     }
-    
+
     >.aws {
       >a {
         display: block;
@@ -2945,7 +2940,7 @@ body >footer {
         &:hover {
           background-color: #f28e22;
         }
-      } 
+      }
     }
 
     pre {
@@ -3682,7 +3677,7 @@ body >footer {
       text-align: center;
       a {
         margin: 0 auto;
-        background-color: #d13f6c; 
+        background-color: #d13f6c;
         border: 1.5px solid #eee9f4;
         width: 300px;
         display: block;
