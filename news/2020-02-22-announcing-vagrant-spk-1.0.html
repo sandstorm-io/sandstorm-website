@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Announcing the release of vagrant-spk 1.0 - Sandstorm Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Announcing the release of vagrant-spk 1.0">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sandstorm.io/images/sandcat.png">
+    <meta property="og:url" content="https://sandstorm.io/news/2020-02-22-announcing-vagrant-spk-1.0">
+    <meta property="og:description"
+        content="Real-time collaborative web productivity suite behind the firewall.">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
+  </head>
+
+
+
+  <body id="blog">
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a href="/get">Get Sandstorm</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">Technology</a>
+      <a href="/news/">Blog</a>
+      <a href="https://docs.sandstorm.io">Docs</a>
+      <a href="https://github.com/sandstorm-io/sandstorm">Code</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <!-- TODO: search -->
+    </nav>
+
+    <header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+<div class="post-list">
+
+<div class="sidebar">
+  <ul class="socialmedia">
+    <li><a class="twitter" href="https://twitter.com/SandstormIO">Twitter</a>
+    <li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank">Facebook</a>
+    <li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank">Github</a>
+  </ul>
+
+  <div class="more">
+    <a href="/get">
+      Sandstorm is a self-hostable web productivity suite.
+      <span class="selfhost" href="/install">Host your own</span>
+    </a>
+
+    <h3>Recommended Posts</h3>
+    <ul>
+      <li><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">Open Source Web Apps Aren't Viable; Let's Fix That</a></li>
+      <li><a href="/news/2016-02-29-security-track-record">Sandstorm's security track record, and what it means for self-hosting</a></li>
+      <li><a href="/news/2016-08-17-decentralization-is-about-diversity">Decentralization is about diversity</a></li>
+      <li><a href="/news/2016-01-22-8-new-open-source-apps.html">8 New open source self-hostable apps</a></li>
+      <li><a href="/news/2016-04-06-sandstorm-for-work">Sandstorm for Work Beta: LDAP, SAML, organization management</a></li>
+      <li><a href="/news/2016-02-05-app-author-publicity-oasis">Free publicity for your indie web app, and free Oasis service for you</a></li>
+      <li><a href="/news/2015-10-01-free-ssl-certificates.html">Free, automated SSL certificates for Sandstorm self-hosters</a></li>
+      <li><a href="/news/2014-08-19-why-not-run-docker-apps.html">Why doesn't Sandstorm just run Docker apps?</a></li>
+      <li><a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization.html">Understand the Sandstorm sharing model</a></li>
+    </ul>
+
+    <h3>Further Reading</h3>
+      <ul>
+        <li><a href="/how-it-works">How Sandstorm Works</a></li>
+        <li><a href="http://docs.sandstorm.io">Sandstorm Documentation</a></li>
+        <li><a href="/install">How to install Sandstorm</a></li>
+      </ul>
+  </div>
+</div>
+
+
+<nav class="pagination top">
+  <a class="newer" href="/news/" title="All posts">&laquo; All posts</a>
+</nav>
+
+<section>
+  <h2>Announcing the release of vagrant-spk 1.0</h2>
+  <p class="post-details">By <a href="https://github.com/ocdtrekkie">Jacob Weisz</a>
+    
+    - 22 Feb 2020
+  <p>Hello! I’m Jacob Weisz, a member of the Sandstorm community, a long-time contributor, and the new maintainer of the vagrant-spk tool. I’m thrilled to announce the <a href="https://github.com/sandstorm-io/vagrant-spk/releases/tag/v1.0">1.0 release of vagrant-spk</a>.</p>
+
+<h2 id="whats-vagrant-spk">What’s vagrant-spk?</h2>
+
+<p>vagrant-spk is the premier tool for packaging Sandstorm apps. Unlike the spk tool built into Sandstorm, vagrant-spk creates a virtual environment within which to build your app. This provides a reasonable measure of reproducibility and maintainability, along with default templates (or “stacks”) of common configurations apps likely need to run.</p>
+
+<h2 id="whats-new">What’s new?</h2>
+
+<ul>
+  <li>All vagrant-spk stacks now work correctly with the Debian Stretch box we’ve currently standardized on. Most recently this includes reworked support for Node.</li>
+  <li>A new <code>upgradevm</code> feature has been added to make it easy to move to the latest Vagrantfile and global-setup file supported by vagrant-spk. Along with this we’ve improved detection for broken configurations.</li>
+  <li>We’ve changed vagrant-spk to use port 6090 so that it no longer conflicts with local Sandstorm installs using default ports. You can use <code>upgradevm</code> to switch your package to this.</li>
+  <li>The enter-grain feature, which has been broken for a long time, has now been fixed thanks to Adam Bliss and Ian Denhardt.</li>
+</ul>
+
+<h2 id="why-go-to-10-now">Why go to 1.0 now?</h2>
+
+<p>Historically, vagrant-spk was frequently released alongside Sandstorm releases and was regularly dependent on those Sandstorm releases for functionality. At the time, the convention was to release vagrant-spk with versioning complimentary to Sandstorm releases.</p>
+
+<p>However, times have changed. vagrant-spk improvements are rarely strongly correlated with Sandstorm releases, and of course, both Sandstorm and vagrant-spk releases are less frequent in nature.</p>
+
+<p>vagrant-spk is also now a mature tool, having been used to package a large portion of Sandstorm apps. The natural progression at this time is to move from 0.236 to 1.0. This release is fairly small because the priority for 1.0 is to deliver a polished, stable release that we can then iterate upon.</p>
+
+<h2 id="the-future-of-vagrant-spk">The future of vagrant-spk</h2>
+
+<p>We have a list of improvements and features we are beginning to think about for vagrant-spk’s future. As part of renewed community efforts to <a href="https://sandstorm.io/news/2020-02-03-reviving-sandstorm">revive the Sandstorm project</a>, we are planning a regular cadence of releases for vagrant-spk. We have already begun designating goals for <a href="https://github.com/sandstorm-io/vagrant-spk/milestone/4">vagrant-spk 1.1</a>, which we’d like to deliver later this year.</p>
+
+
+</section>
+
+</div>
+
+
+    <footer>
+      <ul>
+        <li>
+          <h3><a href="/get">Get Sandstorm</a></h3>
+          <ul>
+            <li><a href="/get">Self-host Sandstorm</a>
+            <li><a href="https://github.com/sandstorm-io/sandstorm">Source code (GitHub)</a>
+            <li><a href="/go/education">For educators</a></li>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/features">Features</a></h3>
+          <ul>
+            <li><a href="https://apps.sandstorm.io">App Market</a></li>
+            <li><a href="/features">Core features</a>
+            <li><a href="/features#security">Security features</a>
+            <li><a href="/business#scale-features">Scale-out</a>
+            <li><a href="/business">For organizations</a>
+            <li><a href="/developer">For developers</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="https://docs.sandstorm.io">Documentation</a></h3>
+          <ul>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/">How to use Sandstorm</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/developing/">Developer Hub</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/administering/">Administering &amp; installing</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/security-practices/">Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/how-it-works">Technology (How it Works)</a></h3>
+          <ul>
+            <li><a href="/how-it-works#grains">Fine-grained object containers</a>
+            <li><a href="/how-it-works#capabilities">Capability-based security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a></h3>
+          <ul>
+            <li><a href="/news">Sandstorm Blog</a>
+            <li><a href="/community#connect-with">Connect with us</a>
+            <li><a href="/community#helpothers">Help others</a>
+            <li><a href="/community#helpproject">Help the project</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/about">About</a></h3>
+          <ul>
+            <li><a href="/about">Sandstorm story</a>
+            <li><a href="/about#team">Team</a>
+            <li><a href="/about#advisors">Advisors</a>
+            <li><a href="mailto:contact@sandstorm.io">Contact</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="https://oasis.sandstorm.io">Oasis Hosting</a></h3>
+          <ul>
+            <li class="sign-in-footer"><a href="https://oasis.sandstorm.io">Sign in</a>
+          </ul>
+        </li>
+        <li>
+          <h3>Connect</h3>
+          <ul id="socialmedia-small">
+						<li><a class="twitter" href="https://twitter.com/SandstormIO"></a>
+						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
+						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
+  			</ul>
+        </li>
+        <li>
+          <ul>
+            <li><a href=""></a>
+          </ul>
+        </li>
+      </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
+    </footer>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
+  </body>
+</html>

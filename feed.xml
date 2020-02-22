@@ -7,6 +7,41 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Announcing the release of vagrant-spk 1.0</title>
+				<description>&lt;p&gt;Hello! I’m Jacob Weisz, a member of the Sandstorm community, a long-time contributor, and the new maintainer of the vagrant-spk tool. I’m thrilled to announce the &lt;a href=&quot;https://github.com/sandstorm-io/vagrant-spk/releases/tag/v1.0&quot;&gt;1.0 release of vagrant-spk&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;whats-vagrant-spk&quot;&gt;What’s vagrant-spk?&lt;/h2&gt;
+
+&lt;p&gt;vagrant-spk is the premier tool for packaging Sandstorm apps. Unlike the spk tool built into Sandstorm, vagrant-spk creates a virtual environment within which to build your app. This provides a reasonable measure of reproducibility and maintainability, along with default templates (or “stacks”) of common configurations apps likely need to run.&lt;/p&gt;
+
+&lt;h2 id=&quot;whats-new&quot;&gt;What’s new?&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;All vagrant-spk stacks now work correctly with the Debian Stretch box we’ve currently standardized on. Most recently this includes reworked support for Node.&lt;/li&gt;
+  &lt;li&gt;A new &lt;code&gt;upgradevm&lt;/code&gt; feature has been added to make it easy to move to the latest Vagrantfile and global-setup file supported by vagrant-spk. Along with this we’ve improved detection for broken configurations.&lt;/li&gt;
+  &lt;li&gt;We’ve changed vagrant-spk to use port 6090 so that it no longer conflicts with local Sandstorm installs using default ports. You can use &lt;code&gt;upgradevm&lt;/code&gt; to switch your package to this.&lt;/li&gt;
+  &lt;li&gt;The enter-grain feature, which has been broken for a long time, has now been fixed thanks to Adam Bliss and Ian Denhardt.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;why-go-to-10-now&quot;&gt;Why go to 1.0 now?&lt;/h2&gt;
+
+&lt;p&gt;Historically, vagrant-spk was frequently released alongside Sandstorm releases and was regularly dependent on those Sandstorm releases for functionality. At the time, the convention was to release vagrant-spk with versioning complimentary to Sandstorm releases.&lt;/p&gt;
+
+&lt;p&gt;However, times have changed. vagrant-spk improvements are rarely strongly correlated with Sandstorm releases, and of course, both Sandstorm and vagrant-spk releases are less frequent in nature.&lt;/p&gt;
+
+&lt;p&gt;vagrant-spk is also now a mature tool, having been used to package a large portion of Sandstorm apps. The natural progression at this time is to move from 0.236 to 1.0. This release is fairly small because the priority for 1.0 is to deliver a polished, stable release that we can then iterate upon.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-future-of-vagrant-spk&quot;&gt;The future of vagrant-spk&lt;/h2&gt;
+
+&lt;p&gt;We have a list of improvements and features we are beginning to think about for vagrant-spk’s future. As part of renewed community efforts to &lt;a href=&quot;https://sandstorm.io/news/2020-02-03-reviving-sandstorm&quot;&gt;revive the Sandstorm project&lt;/a&gt;, we are planning a regular cadence of releases for vagrant-spk. We have already begun designating goals for &lt;a href=&quot;https://github.com/sandstorm-io/vagrant-spk/milestone/4&quot;&gt;vagrant-spk 1.1&lt;/a&gt;, which we’d like to deliver later this year.&lt;/p&gt;
+
+</description>
+				<pubDate>Sat, 22 Feb 2020 00:00:00 -0600</pubDate>
+                                <link>https://sandstorm.io/news/2020-02-22-announcing-vagrant-spk-1.0</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2020-02-22-announcing-vagrant-spk-1.0</guid>
+			</item>
+		
+			<item>
 				<title>Reviving Sandstorm</title>
 				<description>&lt;p&gt;Hi! I’m Ian Denhardt, a long-time Sandstorm user and community member.
 I have some exciting news to share. Let’s start by talking about some
@@ -429,84 +464,6 @@ time working on Sandstorm.&lt;/p&gt;
 				<pubDate>Mon, 13 Mar 2017 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2017-03-13-joining-cloudflare</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2017-03-13-joining-cloudflare</guid>
-			</item>
-		
-			<item>
-				<title>Sandstorm gets a security review</title>
-				<description>&lt;p&gt;Sandstorm recently underwent a security review by &lt;a href=&quot;http://devco.re/&quot;&gt;DevCore Inc.&lt;/a&gt;, commissioned by Department of Cyber Security of Taiwan. The company has in the past found RCEs in big-name services like &lt;a href=&quot;https://hackerone.com/reports/125980&quot;&gt;Uber&lt;/a&gt; and &lt;a href=&quot;http://devco.re/blog/2016/04/21/how-I-hacked-facebook-and-found-someones-backdoor-script-eng-ver/&quot;&gt;Facebook&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Although the full report is not public (and is not in English), Taiwan’s Digital Minister, &lt;a href=&quot;https://en.wikipedia.org/wiki/Audrey_Tang&quot;&gt;Audrey Tang&lt;/a&gt;, tells us that overall DevCore feels Sandstorm has “excellent security design.”&lt;/p&gt;
-
-&lt;p&gt;As would be expected of any good security review, DevCore did find several issues. Last night we released build 0.203 to fix them. All servers should automatically update within 24 hours of the release (by midnight tonight, PST), but if you’d like to speed up the process (or if you have disabled automatic updates), you can SSH into your server now and type:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo sandstorm update
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;vulnerabilities-discovered-and-fixed&quot;&gt;Vulnerabilities Discovered (and fixed)&lt;/h3&gt;
-
-&lt;h4 id=&quot;1-insufficient-e-mail-address-validation&quot;&gt;1. Insufficient e-mail address validation&lt;/h4&gt;
-
-&lt;p&gt;When logging in with an e-mail address, a user could enter an address like “foo@evil.com,bar@example.com”. In this case, login e-mails would be sent to &lt;em&gt;both&lt;/em&gt; addresses, while Sandstorm would treat the user as if they were a member of the latter domain, “example.com”. Hence, an attacker could specify their real address as the first address and a fake address at a domain of their choice as the second, in order to appear to be a member of the domain. Servers that use Sandstorm’s organizational features (until recently only available as part of the &lt;a href=&quot;https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots&quot;&gt;now-defunct&lt;/a&gt; product “Sandstorm for Work”) can be configured to automatically promote members of a domain to full users, allowing them to install apps, create grains, and discover the identities of other members of the organization. Such users would &lt;strong&gt;not&lt;/strong&gt; receive access to any other grains on the server, but an attacker could install their own apps that consume the server’s resources, including CPU, RAM, and disk. An attacker could also combine this vulnerability with one of the others below, all of which require full user status as a starting point.&lt;/p&gt;
-
-&lt;p&gt;The root cause of this bug is Sandstorm’s use of a library called Nodemailer to send e-mail. It turns out that Nodemailer “helpfully” interprets comma-separated lists of addresses as multiple addresses. This is true even if the string is already part of an array. For instance, say you pass the following array in the &lt;code&gt;to&lt;/code&gt; field of a mail sent via Nodemailer:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[ &quot;foo@example.com&quot;,
-  &quot;bar@example.com,baz@example.com&quot;,
-  { name: &quot;Garply&quot;, address: &quot;qux@example.com,corge@example.com&quot; } ]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Surprisingly, this three-element array will send e-mail to &lt;em&gt;five&lt;/em&gt; addresses – foo@, bar@, baz@, qux@, and corge@.&lt;/p&gt;
-
-&lt;p&gt;We did not anticipate this feature and assumed that Nodemailer would fail to send e-mail to an invalid address.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Severity:&lt;/strong&gt; Moderate &lt;strong&gt;if&lt;/strong&gt; Sandstorm is configured with an organization defined by e-mail domain. If you do not define an organization, or if you define it by LDAP, SAML, or G Suite domain, then we do not believe this bug can be meaningfully exploited.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Fix:&lt;/strong&gt; Sandstorm now performs its own validation of addresses to ensure, among other things, that no separator characters are accepted and only one @-sign is allowed. Fixed in commit &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/commit/37bd9a7f4eb776cdc2d3615f0bfea1254b66f59d&quot;&gt;37bd9a7&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h4 id=&quot;2-insufficient-path-validation-when-building-zip-backups&quot;&gt;2. Insufficient path validation when building ZIP backups&lt;/h4&gt;
-
-&lt;p&gt;The owner of a Sandstorm grain can download a backup of the grain’s content in ZIP format. Sandstorm shells out to the &lt;code&gt;zip&lt;/code&gt; utility to build this archive, but does so inside a sandbox designed to prevent exploitation of bugs in the utility.&lt;/p&gt;
-
-&lt;p&gt;Unfortunately, a combination of factors resulted in the possibility of a minor data leak:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The list of files to include in the archive is passed to &lt;code&gt;zip&lt;/code&gt; on standard input, delimited by newlines. However, it is possible for a filename to contain a newline character. Sandstorm actually checked for this, but accidentally failed to perform the check in one code path triggered by the existence of an empty directory.&lt;/li&gt;
-  &lt;li&gt;The zip sandbox carefully hid sensitive directories like &lt;code&gt;/var&lt;/code&gt;, &lt;code&gt;/proc&lt;/code&gt;, and even &lt;code&gt;/etc&lt;/code&gt;. However, after the zip sandbox was written, two new directories, &lt;code&gt;/etc.host&lt;/code&gt; and &lt;code&gt;/run.host&lt;/code&gt;, which are aliases for the host system’s &lt;code&gt;/etc&lt;/code&gt; and &lt;code&gt;/run&lt;/code&gt;, were added. Unfortunately, the zip sandbox was not updated to hide these directories, hence they were visible to the zip program.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;As a result of this, a user could create a grain containing an empty directory named &lt;code&gt;/var/blah\n/etc.host/passwd&lt;/code&gt;, save a backup, and find the backup contained a copy of the host’s &lt;code&gt;/etc/passwd&lt;/code&gt; file (which, despite its name, does not contain passwords, but does contain a list of local user accounts).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Severity:&lt;/strong&gt; Low. An attacker who has full user status (permission to create grains) can read files located in the server’s &lt;code&gt;/etc&lt;/code&gt; and &lt;code&gt;/run&lt;/code&gt; directories that are set world-readable (or specifically readable to the Sandstorm service account). No other host system directories are exposed. Usually, any files under &lt;code&gt;/etc&lt;/code&gt; that contain sensitive secrets would be hidden from all users except root, hence would not be readable by Sandstorm nor by the attacker.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Fix:&lt;/strong&gt; We have fixed the validation of filenames so that newlines are never permitted, and we have enhanced the zip sandbox to use a whitelist of top-level directories rather than a blacklist. Fixed in commits &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/commit/4ea8df7403381d9b657b121b3c98d8081b27414d&quot;&gt;4ea8df7&lt;/a&gt; and &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/commit/6e8572ea8bb56d0216bb1b410e5040edc051b120&quot;&gt;6e8572e&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h4 id=&quot;3-server-side-request-forgery&quot;&gt;3. Server-side request forgery&lt;/h4&gt;
-
-&lt;p&gt;Apps running on Sandstorm can make outgoing HTTP requests through a few mechanisms. Additionally, users can instruct Sandstorm to download an app package file from an arbitrary URL. Sandstorm did not attempt to prevent these requests from reaching localhost or private network destinations. Because of this, a full user of the Sandstorm server (but not a visitor) could probe the internal network on which the Sandstorm server was hosted, as well as services exposed to localhost on the server itself.&lt;/p&gt;
-
-&lt;p&gt;This is a problem if unprotected services are exposed to the Sandstorm server &lt;em&gt;and&lt;/em&gt; you have invited users to your server who should not be trusted to access those services. Sandstorm itself does not expose any unprotected services to localhost, so some other service must be running locally to cause a problem. Only HTTP requests are possible.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Severity:&lt;/strong&gt; High &lt;strong&gt;if&lt;/strong&gt; unprotected HTTP services are visible to the Sandstorm server &lt;em&gt;and&lt;/em&gt; you have invited users to your server who should not be trusted to access those services. Otherwise, low. Sandstorm itself does not expose any unprotected services to localhost, so some other service must be running locally to cause a problem. Only HTTP requests are possible.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Fix:&lt;/strong&gt; Sandstorm now allows the server admin to configure an IP address blacklist. User-initiated requests will not be allowed from these addresses. By default, standard private network address ranges are blacklisted. Annoyingly, this “fix” is likely to break some servers who use private app indexes, but avoiding such breakage would mean leaving others vulnerable. Admins will need to update their blacklists accordingly. Fixed in commit &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/commit/164997fb958effbc90c5328c166706280a84aaa1&quot;&gt;164997f&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h4 id=&quot;4-failure-to-mitigate-linux-kernel-cve-2017-6074&quot;&gt;4. Failure to mitigate Linux kernel CVE-2017-6074&lt;/h4&gt;
-
-&lt;p&gt;&lt;em&gt;(This was caught by Sandstorm core developer &lt;a href=&quot;https://github.com/dwrensha&quot;&gt;David Renshaw&lt;/a&gt;, not by DevCore, but is fixed in the same release.)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;A recent Linux kernel bug could allow a malicious app to cause a kernel panic or perhaps break out of its sandbox. The bug is in Linux, but Sandstorm aims to protect against such bugs via seccomp. &lt;a href=&quot;https://docs.sandstorm.io/en/latest/using/security-non-events/#linux-kernel&quot;&gt;Historically, Sandstorm’s sandbox has been very successful at blocking Linux vulnerabilities before they are discovered.&lt;/a&gt; However, this one slipped through. On Sandstorm, the published PoC exploit for this bug only causes a kernel panic (not a sandbox breakout), but a developer with deep understanding of the bug and the Linux kernel might be able to create a successful attack in other ways.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Severity:&lt;/strong&gt; High if you permit users you don’t trust to install apps on your server, or commonly install apps from untrustworthy sources, and you do not keep your kernel up-to-date.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Fix:&lt;/strong&gt; Sandstorm’s seccomp filter has been updated to prohibit the creation of DCCP sockets. Fixed in commit &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/commit/34749f9c0141a89680860b15433e8ac9dbdbbb62&quot;&gt;34749f9&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;We are excited to have received such a thorough security review. Some of the problems discovered were very obscure and we’re impressed that DevCore was able to find them. We thank Audrey Tang and the Department of Cyber Security of Taiwan for commissioning this review.&lt;/p&gt;
-</description>
-				<pubDate>Thu, 02 Mar 2017 00:00:00 -0600</pubDate>
-                                <link>https://sandstorm.io/news/2017-03-02-security-review</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2017-03-02-security-review</guid>
 			</item>
 		
 	</channel>
