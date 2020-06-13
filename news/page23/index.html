@@ -90,6 +90,100 @@
 
 
 <section>
+  <h2><a href="/news/2014-07-03-team-update">New team members; security improvements; backup/restore</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-07-03-team-update">03 Jul 2014</a>
+  <p>We have a bunch of updates for you today.</p>
+
+<h3 id="lots-of-apps-coming">Lots of apps coming!</h3>
+
+<p>We’ve ported a number of interesting apps to Sandstorm and will begin releasing
+them within the next few days. First up will be
+<a href="https://www.mailpile.is">Mailpile</a> – yes, e-mail in Sandstorm!
+Expect a full announcement on Monday, and other app announcements over the
+following days and weeks.</p>
+
+<h3 id="team-updates">Team updates</h3>
+
+<p>The Sandstorm team is no longer just me. I’d like to introduce all the new
+faces that you now see on our front page:</p>
+
+<ul>
+  <li><a href="https://github.com/jparyani"><strong>Jason Paryani</strong></a>, the author of Cap’n Proto’s
+<a href="https://github.com/jparyani/pycapnp">Python port</a>, has been working
+on features like backup/restore, e-mail, improved sharing/permissions, and
+porting a number of exciting apps.</li>
+  <li><a href="https://github.com/dwrensha"><strong>David Renshaw</strong></a>, the author of the
+<a href="https://github.com/dwrensha/capnproto-rust">Rust</a>
+and <a href="https://github.com/dwrensha/capnproto-java">Java</a> ports of Cap’n Proto, is
+now joining the team as well. He’s written a couple games that you can find on
+the app list (Duolodo and Acronymy) and is working on ports of
+<a href="https://www.sharelatex.com/">ShareLaTeX</a> and other apps.</li>
+  <li><a href="https://github.com/jadeqwang"><strong>Jade Wang</strong></a> has been working part-time on
+developer outreach and operations. She organized our recent app hackathon
+and other things you’ll be hearing about soon.</li>
+</ul>
+
+<p>We also have a couple of key advisors. These guys are contributing advice, resouces,
+and the occasional patch in their spare time; Sandstorm is not affiliated with
+their respective employers.</p>
+
+<ul>
+  <li><a href="https://github.com/amluto"><strong>Andy Lutomirski</strong></a> is a Linux kernel developer
+and has been helping us take better advantage of the kernel’s sandboxing features.</li>
+  <li><a href="https://github.com/swetland"><strong>Brian Swetland</strong></a> spent nine years as
+Android’s Systems Engineering lead and has been advising us on platform design.</li>
+</ul>
+
+<h3 id="backup--restore-functionality">Backup / Restore functionality</h3>
+
+<p>Jason has implemented the ability to back up
+and restore grains (app instances) from you Sandstorm server. Just click the
+new download icon on the top bar when viewing a grain. You will get a zip file
+containing the grain’s storage, which you can re-upload to the server (or to a
+different server) later on.</p>
+
+<h3 id="security-no-need-for-root">Security: No need for root</h3>
+
+<p>Sandstorm can now be installed and run without root privileges or setuid
+binaries. To accomplish this, we use Linux’s “UID namespaces” feature, which
+essentially allows other sandboxing features to be accessed by an unprivileged user.</p>
+
+<p>Unfortunately, if you are developing Sandstorm apps, it is still necessary to
+install Sandstorm with root privileges because the dev tools rely on FUSE and
+FUSE filesystems cannot currently be mounted inside UID namespaces. We hope the
+Linux kernel will eventually add this feature.</p>
+
+<p>Due to the use of UID namespaces, Sandstorm now requires Linux kernel version
+3.13 or better. The installer will verify that you are ready to run Sandstorm.</p>
+
+<p>Thanks to Andy for contributing much of the work on this.</p>
+
+<h3 id="seccomp-bpf-sandboxing">Seccomp-BPF Sandboxing</h3>
+
+<p>We’ve now enabled a basic seccomp filter to disable some dangerous system calls.
+Seccomp is a Linux feature that makes sandboxing more secure by disabling system
+calls (OS features) that apps don’t need. A typical web server uses only a tiny
+fraction of Linux’s system calls. By disabling the rest, we make sure that if a
+kernel exploit is found in one of them, it won’t allow an app to escape its
+sandbox.</p>
+
+<p>For now, we’ve disabled a few calls that provide complicated functionality that
+has been the subjects of vulnerabilities in the past, and that no web server
+rightly needs. We plan to expand on this in the future, eventually implementing
+a small whitelist and probably moving many system calls to userspace. All of
+this will be totally transparent to apps.</p>
+
+<p>Again, thanks to Andy for getting this started.</p>
+
+<h3 id="lwn-coverage">LWN Coverage</h3>
+
+<p>Linux Weekly News <a href="http://lwn.net/Articles/603485/">wrote about Sandstorm</a> last week!</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2014-06-04-self-service-web-publishing">Host Your Web Site</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Let's Encrypt support for Sandstorm and Sandcats - Sandstorm Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Let's Encrypt support for Sandstorm and Sandcats">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sandstorm.io/images/sandcat.png">
+    <meta property="og:url" content="https://sandstorm.io/news/2020-06-13-lets-encrypt">
+    <meta property="og:description"
+        content="Real-time collaborative web productivity suite behind the firewall.">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Sandstorm.io Blog" href="/feed.xml">
+  </head>
+
+
+
+  <body id="blog">
+    <nav>
+      <a href="/">Sandstorm.io</a>
+      <a href="/get">Get Sandstorm</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">Technology</a>
+      <a href="/news/">Blog</a>
+      <a href="https://docs.sandstorm.io">Docs</a>
+      <a href="https://github.com/sandstorm-io/sandstorm">Code</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <!-- TODO: search -->
+    </nav>
+
+    <header>
+  <div class="sand">
+    <h1>Sandstorm Blog</h1>
+  </div>
+</header>
+
+<div class="post-list">
+
+<div class="sidebar">
+  <ul class="socialmedia">
+    <li><a class="twitter" href="https://twitter.com/SandstormIO">Twitter</a>
+    <li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank">Facebook</a>
+    <li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank">Github</a>
+  </ul>
+
+  <div class="more">
+    <a href="/get">
+      Sandstorm is a self-hostable web productivity suite.
+      <span class="selfhost" href="/install">Host your own</span>
+    </a>
+
+    <h3>Recommended Posts</h3>
+    <ul>
+      <li><a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting">Open Source Web Apps Aren't Viable; Let's Fix That</a></li>
+      <li><a href="/news/2016-02-29-security-track-record">Sandstorm's security track record, and what it means for self-hosting</a></li>
+      <li><a href="/news/2016-08-17-decentralization-is-about-diversity">Decentralization is about diversity</a></li>
+      <li><a href="/news/2016-01-22-8-new-open-source-apps.html">8 New open source self-hostable apps</a></li>
+      <li><a href="/news/2016-04-06-sandstorm-for-work">Sandstorm for Work Beta: LDAP, SAML, organization management</a></li>
+      <li><a href="/news/2016-02-05-app-author-publicity-oasis">Free publicity for your indie web app, and free Oasis service for you</a></li>
+      <li><a href="/news/2015-10-01-free-ssl-certificates.html">Free, automated SSL certificates for Sandstorm self-hosters</a></li>
+      <li><a href="/news/2014-08-19-why-not-run-docker-apps.html">Why doesn't Sandstorm just run Docker apps?</a></li>
+      <li><a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization.html">Understand the Sandstorm sharing model</a></li>
+    </ul>
+
+    <h3>Further Reading</h3>
+      <ul>
+        <li><a href="/how-it-works">How Sandstorm Works</a></li>
+        <li><a href="http://docs.sandstorm.io">Sandstorm Documentation</a></li>
+        <li><a href="/install">How to install Sandstorm</a></li>
+      </ul>
+  </div>
+</div>
+
+
+<nav class="pagination top">
+  <a class="newer" href="/news/" title="All posts">&laquo; All posts</a>
+</nav>
+
+<section>
+  <h2>Let's Encrypt support for Sandstorm and Sandcats</h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - 13 Jun 2020
+  <p>Sandstorm now has built-in support for fetching certificates from Let’s Encrypt. This applies both to Sandcats and to custom domains.</p>
+
+<h2 id="lets-encrypt-with-sandcats">Let’s Encrypt with Sandcats</h2>
+
+<h3 id="backstory">Backstory</h3>
+
+<p><a href="https://sandcats.io">Sandcats.io</a> is Sandstorm’s free dynamic DNS and TLS (aka SSL) certificate service. Since 2015, Sandcats has been making it easier to set up self-hosted Sandstorm servers, by letting anyone claim a subdomain of <code>sandcats.io</code> on which to host their server, automatically configuring DNS and HTTPS.</p>
+
+<p><a href="https://docs.sandstorm.io/en/latest/administering/wildcard/">Sandstorm requires a wildcard host</a> so that it can create sandboxes by assigning random hostnames. So, the certificates issued by Sandcats.io have always been wildcard certs. Back in 2015, that was a challenge: at the time, Let’s Encrypt did not yet offer wildcard certs, so the only way to get one was to pay for it. Unfortunately, many CAs considered wildcards to be an “enterprise feature” and charged excessive amounts of money for them, often hundreds or even thousands of dollars.</p>
+
+<p>So how were we able to offer wildcard certificates for free? Well, we negotiated a deal with GlobalSign. Recognizing that subdomains of Sandcats.io were unlikely to be enterprise customers, and recognizing a growth opportunity if Sandstorm took off, GlobalSign offered us a deal that worked. Sandstorm was a funded startup at the time, and we were happy to pay a few bucks per certificate-year and call it “customer acquisition cost”. We paid for thousands of certificate-years upfront, anticipating growth.</p>
+
+<p>But, the growth we hoped for didn’t happen, and we only ever had about 500 self-hosted servers using Sandcats. In 2017, <a href="https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots">Sandstorm failed as a startup and reverted to being just an open source project</a>. Having never seen the growth we were hoping for, we hadn’t even come close to using up the first block of certificates we had paid for from GlobalSign. Since we had already paid, we left the system running, happily issuing certificates.</p>
+
+<p>Fast forward to 2020. Finally, our contract is running out. In fact, it did run out, in early March – embarrassingly, I had miscounted how much time we had left. However, GlobalSign was nice enough to give us a small extension, giving us time to migrate our users without disruption. And it turns out that, these days, Let’s Encrypt supports wildcards. So, moving to them is the obvious choice.</p>
+
+<h3 id="whats-new">What’s New</h3>
+
+<p>Starting a few days ago, all Sandstorm servers using Sandcats.io are in the process of switching to Let’s Encrypt for future certificates. The process is designed to happen slowly so that we can address any problems that arise, but so far everything has been smooth. All servers should be transitioned by the end of the month.</p>
+
+<p>If you’d like your server to start using Let’s Encrypt immediately, visit the TLS certificates admin page at <code>/admin/certificates</code> on your server, click the button to create an ACME account (you will be prompted to agree to Let’s Encrypt’s Terms of Service), and then click “Fetch Certificate Now”.</p>
+
+<p>Note that at present, we have not yet updated the install flow, so newly-installed Sandstorm servers will still use a GlobalSign certificate initially and then will switch to Let’s Encrypt later. We’ll be updating the installer soon, and then we will decommission the GlobalSign flow.</p>
+
+<h2 id="lets-encrypt-with-non-sandcats-domains">Let’s Encrypt with non-Sandcats domains</h2>
+
+<p>To implement Let’s Encrypt support for Sandcats.io, it made sense for your self-hosted Sandstorm server to directly talk to Let’s Encrypt via the ACME protocol. This differs from the old GlobalSign flow, in which Sandstorm would talk to a central Sandcats.io server, which then talked to the GlobalSign API on your behalf. This was necessary for GlobalSign since Sandstorm the company was paying for the certificates, so our credentials were needed when talking to the API. But for Let’s Encrypt, the Sandcats.io central server only needs to set some DNS records to pass an ACME DNS-01 challenge; everything else happens on your own server.</p>
+
+<p>Given this implementation, it was straightforward to support domains other than sandcats.io. I chose to use the <a href="https://git.rootprojects.org/root/acme.js.git">ACME.js library</a> to implement the ACME protocol, and it turns out this library already had a suite of plugins to support a variety of popular DNS providers. If your domain uses any of the DNS providers supported by ACME.js, then Sandstorm can now automatically obtain TLS certificates for your domain from Let’s Encrypt.</p>
+
+<p>However, at present, initial setup is difficult, because of the chicken-and-egg problem: How do you access the admin UI to configure certificates, without a certificate? And than brings me to…</p>
+
+<h3 id="help-make-it-better">Help make it better!</h3>
+
+<p>Currently, there are two major problems with setting up Sandstorm TLS on your own domain:</p>
+
+<ol>
+  <li>The UI is very bad. I am a terrible designer, and I didn’t have much time to work on it. Especially bad is the fact that to configure any DNS plugin, currently, you need to enter a JSON blob into a textarea, where the JSON blob’s format is different for every plugin and documented in their respective READMEs as a JavaScript method parameter (not even JSON)… Only experienced programmers could possibly understand what to do. We should make the UI better. <a href="https://github.com/sandstorm-io/sandstorm/issues/3300">See issue #3300.</a></li>
+  <li>There is a chicken-and-egg problem at install time, as the current UI to configure TLS is accessed over HTTP – which implies that you already need a TLS certificate for it to be secure. We need a CLI configuration option as an alternative. <a href="https://github.com/sandstorm-io/sandstorm/issues/3367">See issue #3367.</a></li>
+</ol>
+
+<p>If you’d like to help implement either of these, click on the issue links above and comment!</p>
+
+
+</section>
+
+</div>
+
+
+    <footer>
+      <ul>
+        <li>
+          <h3><a href="/get">Get Sandstorm</a></h3>
+          <ul>
+            <li><a href="/get">Self-host Sandstorm</a>
+            <li><a href="https://github.com/sandstorm-io/sandstorm">Source code (GitHub)</a>
+            <li><a href="/go/education">For educators</a></li>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/features">Features</a></h3>
+          <ul>
+            <li><a href="https://apps.sandstorm.io">App Market</a></li>
+            <li><a href="/features">Core features</a>
+            <li><a href="/features#security">Security features</a>
+            <li><a href="/business#scale-features">Scale-out</a>
+            <li><a href="/business">For organizations</a>
+            <li><a href="/developer">For developers</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="https://docs.sandstorm.io">Documentation</a></h3>
+          <ul>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/">How to use Sandstorm</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/developing/">Developer Hub</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/administering/">Administering &amp; installing</a>
+            <li><a href="https://docs.sandstorm.io/en/latest/using/security-practices/">Security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/how-it-works">Technology (How it Works)</a></h3>
+          <ul>
+            <li><a href="/how-it-works#grains">Fine-grained object containers</a>
+            <li><a href="/how-it-works#capabilities">Capability-based security</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/community">Community</a></h3>
+          <ul>
+            <li><a href="/news">Sandstorm Blog</a>
+            <li><a href="/community#connect-with">Connect with us</a>
+            <li><a href="/community#helpothers">Help others</a>
+            <li><a href="/community#helpproject">Help the project</a>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="/about">About</a></h3>
+          <ul>
+            <li><a href="/about">Sandstorm story</a>
+            <li><a href="/about#team">Team</a>
+            <li><a href="/about#advisors">Advisors</a>
+            <li><a href="mailto:contact@sandstorm.io">Contact</a>
+          </ul>
+        </li>
+        <li>
+          <h3>Connect</h3>
+          <ul id="socialmedia-small">
+						<li><a class="twitter" href="https://twitter.com/SandstormIO"></a>
+						<li><a class="facebook" href="https://www.facebook.com/sandstorm.io" target="blank"></a>
+						<li><a class="github" href="https://github.com/sandstorm-io/sandstorm" target="_blank"></a>
+  			</ul>
+        </li>
+        <li>
+          <ul>
+            <li><a href=""></a>
+          </ul>
+        </li>
+      </ul>
+      <p>This page was hand-crafted using only the finest web technologies.
+    </footer>
+
+    <!-- livereload, for development -->
+    <script type="text/javascript">
+      if (document.location.hostname === "localhost") {
+        document.write('<script src="http://localhost:35729/livereload.js"></scr' + 'ipt>');
+      }
+    </script>
+  </body>
+</html>

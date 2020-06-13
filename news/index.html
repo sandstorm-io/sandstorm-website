@@ -79,6 +79,57 @@
 
 
 <section>
+  <h2><a href="/news/2020-06-13-lets-encrypt">Let's Encrypt support for Sandstorm and Sandcats</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2020-06-13-lets-encrypt">13 Jun 2020</a>
+  <p>Sandstorm now has built-in support for fetching certificates from Let’s Encrypt. This applies both to Sandcats and to custom domains.</p>
+
+<h2 id="lets-encrypt-with-sandcats">Let’s Encrypt with Sandcats</h2>
+
+<h3 id="backstory">Backstory</h3>
+
+<p><a href="https://sandcats.io">Sandcats.io</a> is Sandstorm’s free dynamic DNS and TLS (aka SSL) certificate service. Since 2015, Sandcats has been making it easier to set up self-hosted Sandstorm servers, by letting anyone claim a subdomain of <code>sandcats.io</code> on which to host their server, automatically configuring DNS and HTTPS.</p>
+
+<p><a href="https://docs.sandstorm.io/en/latest/administering/wildcard/">Sandstorm requires a wildcard host</a> so that it can create sandboxes by assigning random hostnames. So, the certificates issued by Sandcats.io have always been wildcard certs. Back in 2015, that was a challenge: at the time, Let’s Encrypt did not yet offer wildcard certs, so the only way to get one was to pay for it. Unfortunately, many CAs considered wildcards to be an “enterprise feature” and charged excessive amounts of money for them, often hundreds or even thousands of dollars.</p>
+
+<p>So how were we able to offer wildcard certificates for free? Well, we negotiated a deal with GlobalSign. Recognizing that subdomains of Sandcats.io were unlikely to be enterprise customers, and recognizing a growth opportunity if Sandstorm took off, GlobalSign offered us a deal that worked. Sandstorm was a funded startup at the time, and we were happy to pay a few bucks per certificate-year and call it “customer acquisition cost”. We paid for thousands of certificate-years upfront, anticipating growth.</p>
+
+<p>But, the growth we hoped for didn’t happen, and we only ever had about 500 self-hosted servers using Sandcats. In 2017, <a href="https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots">Sandstorm failed as a startup and reverted to being just an open source project</a>. Having never seen the growth we were hoping for, we hadn’t even come close to using up the first block of certificates we had paid for from GlobalSign. Since we had already paid, we left the system running, happily issuing certificates.</p>
+
+<p>Fast forward to 2020. Finally, our contract is running out. In fact, it did run out, in early March – embarrassingly, I had miscounted how much time we had left. However, GlobalSign was nice enough to give us a small extension, giving us time to migrate our users without disruption. And it turns out that, these days, Let’s Encrypt supports wildcards. So, moving to them is the obvious choice.</p>
+
+<h3 id="whats-new">What’s New</h3>
+
+<p>Starting a few days ago, all Sandstorm servers using Sandcats.io are in the process of switching to Let’s Encrypt for future certificates. The process is designed to happen slowly so that we can address any problems that arise, but so far everything has been smooth. All servers should be transitioned by the end of the month.</p>
+
+<p>If you’d like your server to start using Let’s Encrypt immediately, visit the TLS certificates admin page at <code>/admin/certificates</code> on your server, click the button to create an ACME account (you will be prompted to agree to Let’s Encrypt’s Terms of Service), and then click “Fetch Certificate Now”.</p>
+
+<p>Note that at present, we have not yet updated the install flow, so newly-installed Sandstorm servers will still use a GlobalSign certificate initially and then will switch to Let’s Encrypt later. We’ll be updating the installer soon, and then we will decommission the GlobalSign flow.</p>
+
+<h2 id="lets-encrypt-with-non-sandcats-domains">Let’s Encrypt with non-Sandcats domains</h2>
+
+<p>To implement Let’s Encrypt support for Sandcats.io, it made sense for your self-hosted Sandstorm server to directly talk to Let’s Encrypt via the ACME protocol. This differs from the old GlobalSign flow, in which Sandstorm would talk to a central Sandcats.io server, which then talked to the GlobalSign API on your behalf. This was necessary for GlobalSign since Sandstorm the company was paying for the certificates, so our credentials were needed when talking to the API. But for Let’s Encrypt, the Sandcats.io central server only needs to set some DNS records to pass an ACME DNS-01 challenge; everything else happens on your own server.</p>
+
+<p>Given this implementation, it was straightforward to support domains other than sandcats.io. I chose to use the <a href="https://git.rootprojects.org/root/acme.js.git">ACME.js library</a> to implement the ACME protocol, and it turns out this library already had a suite of plugins to support a variety of popular DNS providers. If your domain uses any of the DNS providers supported by ACME.js, then Sandstorm can now automatically obtain TLS certificates for your domain from Let’s Encrypt.</p>
+
+<p>However, at present, initial setup is difficult, because of the chicken-and-egg problem: How do you access the admin UI to configure certificates, without a certificate? And than brings me to…</p>
+
+<h3 id="help-make-it-better">Help make it better!</h3>
+
+<p>Currently, there are two major problems with setting up Sandstorm TLS on your own domain:</p>
+
+<ol>
+  <li>The UI is very bad. I am a terrible designer, and I didn’t have much time to work on it. Especially bad is the fact that to configure any DNS plugin, currently, you need to enter a JSON blob into a textarea, where the JSON blob’s format is different for every plugin and documented in their respective READMEs as a JavaScript method parameter (not even JSON)… Only experienced programmers could possibly understand what to do. We should make the UI better. <a href="https://github.com/sandstorm-io/sandstorm/issues/3300">See issue #3300.</a></li>
+  <li>There is a chicken-and-egg problem at install time, as the current UI to configure TLS is accessed over HTTP – which implies that you already need a TLS certificate for it to be secure. We need a CLI configuration option as an alternative. <a href="https://github.com/sandstorm-io/sandstorm/issues/3367">See issue #3367.</a></li>
+</ol>
+
+<p>If you’d like to help implement either of these, click on the issue links above and comment!</p>
+
+
+</section>
+
+<section>
   <h2><a href="/news/2020-02-22-announcing-vagrant-spk-1.0">Announcing the release of vagrant-spk 1.0</a></h2>
   <p class="post-details">By <a href="https://github.com/ocdtrekkie">Jacob Weisz</a>
     
@@ -297,45 +348,6 @@ on Freenode, and sign up for the <a href="https://groups.google.com/forum/#!foru
 <p>Sandstorm currently runs 13 other VMs – six others to operate Oasis itself, three to run our web site and app market, two for Sandcats.io DNS, one for monitoring and one for metrics aggregation. It’s likely that we could further consolidate some of these, although these machines run smaller-sized instances with bespoke purposes meaning it will take a lot more work for comparatively smaller savings.</p>
 
 <p>In August I estimated that the cost to continue operating Sandstorm (including servers and corporate maintenance) at about $1560 per month. With the server reduction, we’re now at $1439 per month – just barely above the $1428 in revenue. So, we went from a $700/month deficit ($8400/year) to break-even by making this change.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2018-10-18-how-to-download-oasis-data">How to download your Oasis data</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2018-10-18-how-to-download-oasis-data">18 Oct 2018</a>
-  <p><a href="2018-08-27-discontinuing-free-plan">We announced in August</a> that Oasis’s free plan would be discontinued on October 14. <a href="2018-08-27-discontinuing-free-plan">As I explained then</a>, we were forced to do this as Oasis costs $1500 per month to run, but was only earning $828 per month in revenue. I have been personally paying the remaining $700 every month to subsidize free users of the service, and I am unable to continue doing so. By limiting the service to only paying users, Oasis will be able to break even.</p>
-
-<p>For the past month or so, the Sandstorm UI has featured a prominent message warning that the free plan was going away:</p>
-
-<p><img src="/news/images/free-plan-discontinue-warning.png" alt="screenshot" /></p>
-
-<p>Unfortunately, we were unable to send an e-mail warning, as there are well over 100,000 free accounts on Oasis, the vast majority of which are abandoned. A mass e-mail would likely have landed us on spam blocklists (and rightly so, as we’d be annoying a lot of people).</p>
-
-<p>I had hoped that the message in the UI was prominent enough that all active users would notice it. However, it appears that some people did not see the message, and now find themselves unexpectedly unable to open their apps. I’m very sorry for this!</p>
-
-<h3 id="your-data-is-still-there">Your data is still there</h3>
-
-<p>You can still download your data. To do so, open a grain and click the “download backup” button in the top bar, which looks like a down-arrow:</p>
-
-<p><img src="/news/images/download-backup-screenshot.png" alt="screenshot of download backup button" /></p>
-
-<p>This will give you a ZIP file that contains all the data from the grain.</p>
-
-<p>In some cases, you will be able to open this data easily. However, many apps store their data in custom formats that you may have difficulty opening. In these cases, it’s best to use the app itself to access the data, which means you need Sandstorm. One option is to <a href="/install">install Sandstorm on your own server</a>, but not everyone has a server available for this.</p>
-
-<p>As a hack, another option is to use the Sandstorm Demo itself to get temporary access to your grains. The Sandstorm Demo gives you a temporary account which you can use to run any app on the Sandstorm app market, for free. The only catch is that your demo account will be deleted after one hour – but this should be enough time to upload your grain, open it, and copy out data. In the worst case, after your demo expires, you can always start another demo to extract more data.</p>
-
-<p>To start a demo, <strong>open an incognito window</strong> or log out of Oasis, so that Oasis doesn’t know you have an account already. Then, <a href="https://demo.sandstorm.io">visit demo.sandstorm.io</a> or click the button on the <a href="https://sandstorm.io">Sandstorm.io home page</a>:</p>
-
-<p><img src="/news/images/demo-button-screenshot.png" alt="screenshot of demo button" /></p>
-
-<p>Once the demo has started, make sure to install the app that your grain was created with. Then, visit the “Grains” tab, click “Restore backup…”, and choose the backup zip that you downloaded before.</p>
-
-<p><img src="/news/images/restore-backup-screenshot.png" alt="screenshot of restore backup button" /></p>
-
-<p>You now have a (temporary) functioning version of your grain.</p>
 
 </section>
 

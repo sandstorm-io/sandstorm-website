@@ -7,6 +7,57 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Let's Encrypt support for Sandstorm and Sandcats</title>
+				<description>&lt;p&gt;Sandstorm now has built-in support for fetching certificates from Let’s Encrypt. This applies both to Sandcats and to custom domains.&lt;/p&gt;
+
+&lt;h2 id=&quot;lets-encrypt-with-sandcats&quot;&gt;Let’s Encrypt with Sandcats&lt;/h2&gt;
+
+&lt;h3 id=&quot;backstory&quot;&gt;Backstory&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://sandcats.io&quot;&gt;Sandcats.io&lt;/a&gt; is Sandstorm’s free dynamic DNS and TLS (aka SSL) certificate service. Since 2015, Sandcats has been making it easier to set up self-hosted Sandstorm servers, by letting anyone claim a subdomain of &lt;code&gt;sandcats.io&lt;/code&gt; on which to host their server, automatically configuring DNS and HTTPS.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.sandstorm.io/en/latest/administering/wildcard/&quot;&gt;Sandstorm requires a wildcard host&lt;/a&gt; so that it can create sandboxes by assigning random hostnames. So, the certificates issued by Sandcats.io have always been wildcard certs. Back in 2015, that was a challenge: at the time, Let’s Encrypt did not yet offer wildcard certs, so the only way to get one was to pay for it. Unfortunately, many CAs considered wildcards to be an “enterprise feature” and charged excessive amounts of money for them, often hundreds or even thousands of dollars.&lt;/p&gt;
+
+&lt;p&gt;So how were we able to offer wildcard certificates for free? Well, we negotiated a deal with GlobalSign. Recognizing that subdomains of Sandcats.io were unlikely to be enterprise customers, and recognizing a growth opportunity if Sandstorm took off, GlobalSign offered us a deal that worked. Sandstorm was a funded startup at the time, and we were happy to pay a few bucks per certificate-year and call it “customer acquisition cost”. We paid for thousands of certificate-years upfront, anticipating growth.&lt;/p&gt;
+
+&lt;p&gt;But, the growth we hoped for didn’t happen, and we only ever had about 500 self-hosted servers using Sandcats. In 2017, &lt;a href=&quot;https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots&quot;&gt;Sandstorm failed as a startup and reverted to being just an open source project&lt;/a&gt;. Having never seen the growth we were hoping for, we hadn’t even come close to using up the first block of certificates we had paid for from GlobalSign. Since we had already paid, we left the system running, happily issuing certificates.&lt;/p&gt;
+
+&lt;p&gt;Fast forward to 2020. Finally, our contract is running out. In fact, it did run out, in early March – embarrassingly, I had miscounted how much time we had left. However, GlobalSign was nice enough to give us a small extension, giving us time to migrate our users without disruption. And it turns out that, these days, Let’s Encrypt supports wildcards. So, moving to them is the obvious choice.&lt;/p&gt;
+
+&lt;h3 id=&quot;whats-new&quot;&gt;What’s New&lt;/h3&gt;
+
+&lt;p&gt;Starting a few days ago, all Sandstorm servers using Sandcats.io are in the process of switching to Let’s Encrypt for future certificates. The process is designed to happen slowly so that we can address any problems that arise, but so far everything has been smooth. All servers should be transitioned by the end of the month.&lt;/p&gt;
+
+&lt;p&gt;If you’d like your server to start using Let’s Encrypt immediately, visit the TLS certificates admin page at &lt;code&gt;/admin/certificates&lt;/code&gt; on your server, click the button to create an ACME account (you will be prompted to agree to Let’s Encrypt’s Terms of Service), and then click “Fetch Certificate Now”.&lt;/p&gt;
+
+&lt;p&gt;Note that at present, we have not yet updated the install flow, so newly-installed Sandstorm servers will still use a GlobalSign certificate initially and then will switch to Let’s Encrypt later. We’ll be updating the installer soon, and then we will decommission the GlobalSign flow.&lt;/p&gt;
+
+&lt;h2 id=&quot;lets-encrypt-with-non-sandcats-domains&quot;&gt;Let’s Encrypt with non-Sandcats domains&lt;/h2&gt;
+
+&lt;p&gt;To implement Let’s Encrypt support for Sandcats.io, it made sense for your self-hosted Sandstorm server to directly talk to Let’s Encrypt via the ACME protocol. This differs from the old GlobalSign flow, in which Sandstorm would talk to a central Sandcats.io server, which then talked to the GlobalSign API on your behalf. This was necessary for GlobalSign since Sandstorm the company was paying for the certificates, so our credentials were needed when talking to the API. But for Let’s Encrypt, the Sandcats.io central server only needs to set some DNS records to pass an ACME DNS-01 challenge; everything else happens on your own server.&lt;/p&gt;
+
+&lt;p&gt;Given this implementation, it was straightforward to support domains other than sandcats.io. I chose to use the &lt;a href=&quot;https://git.rootprojects.org/root/acme.js.git&quot;&gt;ACME.js library&lt;/a&gt; to implement the ACME protocol, and it turns out this library already had a suite of plugins to support a variety of popular DNS providers. If your domain uses any of the DNS providers supported by ACME.js, then Sandstorm can now automatically obtain TLS certificates for your domain from Let’s Encrypt.&lt;/p&gt;
+
+&lt;p&gt;However, at present, initial setup is difficult, because of the chicken-and-egg problem: How do you access the admin UI to configure certificates, without a certificate? And than brings me to…&lt;/p&gt;
+
+&lt;h3 id=&quot;help-make-it-better&quot;&gt;Help make it better!&lt;/h3&gt;
+
+&lt;p&gt;Currently, there are two major problems with setting up Sandstorm TLS on your own domain:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The UI is very bad. I am a terrible designer, and I didn’t have much time to work on it. Especially bad is the fact that to configure any DNS plugin, currently, you need to enter a JSON blob into a textarea, where the JSON blob’s format is different for every plugin and documented in their respective READMEs as a JavaScript method parameter (not even JSON)… Only experienced programmers could possibly understand what to do. We should make the UI better. &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/issues/3300&quot;&gt;See issue #3300.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;There is a chicken-and-egg problem at install time, as the current UI to configure TLS is accessed over HTTP – which implies that you already need a TLS certificate for it to be secure. We need a CLI configuration option as an alternative. &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/issues/3367&quot;&gt;See issue #3367.&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If you’d like to help implement either of these, click on the issue links above and comment!&lt;/p&gt;
+
+</description>
+				<pubDate>Sat, 13 Jun 2020 00:00:00 -0500</pubDate>
+                                <link>https://sandstorm.io/news/2020-06-13-lets-encrypt</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2020-06-13-lets-encrypt</guid>
+			</item>
+		
+			<item>
 				<title>Announcing the release of vagrant-spk 1.0</title>
 				<description>&lt;p&gt;Hello! I’m Jacob Weisz, a member of the Sandstorm community, a long-time contributor, and the new maintainer of the vagrant-spk tool. I’m thrilled to announce the &lt;a href=&quot;https://github.com/sandstorm-io/vagrant-spk/releases/tag/v1.0&quot;&gt;1.0 release of vagrant-spk&lt;/a&gt;.&lt;/p&gt;
 
@@ -441,29 +492,6 @@ time working on Sandstorm.&lt;/p&gt;
 				<pubDate>Mon, 08 May 2017 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2017-05-08-refactoring-identities</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2017-05-08-refactoring-identities</guid>
-			</item>
-		
-			<item>
-				<title>The Sandstorm Team is joining Cloudflare</title>
-				<description>&lt;p&gt;Recently, we announced that &lt;a href=&quot;https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots&quot;&gt;Sandstorm is returning to its community roots&lt;/a&gt;, transitioning away from being a for-profit startup and towards being a community-effort, open source project. The Sandstorm team is committed to keep building Sandstorm in collaboration with our amazing community, and we will keep operating Sandstorm Oasis as a service. But, Sandstorm will no longer be our full-time jobs.&lt;/p&gt;
-
-&lt;p&gt;So, what will be?&lt;/p&gt;
-
-&lt;p&gt;Starting today, most of the Sandstorm team – including Jade and myself – now work for Cloudflare.&lt;/p&gt;
-
-&lt;p&gt;Sandstorm has actually been a user of Cloudflare since the beginning. Our web site and static parts of Oasis are served through them. I’ve long been a fan of Cloudflare’s focus on security. A few years back, I enjoyed their &lt;a href=&quot;https://blog.cloudflare.com/answering-the-critical-question-can-you-get-private-ssl-keys-using-heartbleed/&quot;&gt;Heartbleed Challenge&lt;/a&gt; which proved conclusively that, yes, private keys can be leaked by Heartbleed. Although Cloudflare recently suffered from &lt;a href=&quot;https://blog.cloudflare.com/incident-report-on-memory-leak-caused-by-cloudflare-parser-bug/&quot;&gt;a widely-reported security incident&lt;/a&gt;, their response was impressively fast and transparent.&lt;/p&gt;
-
-&lt;p&gt;But a bigger reason I’m excited about joining Cloudflare is that they are big users – perhaps the biggest users – of &lt;a href=&quot;https://capnproto.org&quot;&gt;Cap’n Proto&lt;/a&gt;, the serialization and RPC framework developed by Sandstorm. Cloudflare actually &lt;a href=&quot;https://blog.cloudflare.com/introducing-lua-capnproto-better-serialization-in-lua/&quot;&gt;developed the Lua bindings for Cap’n Proto&lt;/a&gt; and has &lt;a href=&quot;http://www.thedotpost.com/2015/06/john-graham-cumming-i-got-10-trillion-problems-but-logging-aint-one&quot;&gt;spoken publicly about using Cap’n Proto in their logging pipeline&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Sandstorm, for its part, remains an independent entity, and I won’t be working on it during my day job at Cloudflare. However, I will be working on Cap’n Proto. This should be good news for Cap’n Proto fans who have been disappointed by the lack of releases lately. Although Sandstorm uses Cap’n Proto extensively, in our scramble to build Sandstorm we tended to commit changes only to git master while neglecting to build (and test) formal releases. With a larger corporate backer, we can now afford to be more professional, doing more frequent releases, and putting effort into supporting more languages and platforms.&lt;/p&gt;
-
-&lt;p&gt;I will also be working on building some fascinating new infrastructure at Cloudflare. As a member of the edge platform team, I’ll be coming up with new ways to utilize Cloudflare’s machines located in over a hundred data centers around the world. Jade, meanwhile, will be working on building out Cloudflare’s community and developer advocacy program.&lt;/p&gt;
-
-&lt;p&gt;The Sandstorm community can expect to see me merging pull requests and pushing releases on weekends, with new releases at least every three weeks. There has been a flurry of activity lately around mobilizing community contributions. Join the discussion on &lt;a href=&quot;https://groups.google.com/forum/#!forum/sandstorm-dev&quot;&gt;the sandstorm-dev mailing list&lt;/a&gt; or on &lt;a href=&quot;https://kiwiirc.com/client/irc.freenode.net/?channel=#sandstorm&quot;&gt;IRC (#sandstorm on Freenode)&lt;/a&gt;!&lt;/p&gt;
-</description>
-				<pubDate>Mon, 13 Mar 2017 00:00:00 -0500</pubDate>
-                                <link>https://sandstorm.io/news/2017-03-13-joining-cloudflare</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2017-03-13-joining-cloudflare</guid>
 			</item>
 		
 	</channel>

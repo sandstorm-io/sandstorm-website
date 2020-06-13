@@ -92,6 +92,21 @@
 
 
 <section>
+  <h2><a href="/news/2014-08-27-sandcat">Meet the Sand Cat</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-08-27-sandcat">27 Aug 2014</a>
+  <p>Allow me to introduce Sandstorm’s new mascot, the Sand Cat. Based on the <a href="https://www.google.com/search?q=sand+cat&amp;tbm=isch">adorable desert animal</a> who can go for weeks without drinking by using only the water from its prey, the Sand Cat is the handiwork of talented illustrator <a href="http://nenanguyen.ca/">Néna Nguyen</a>.</p>
+
+<p style="text-align: center"><a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=8&amp;perk_id=2166937"><img src="https://sandstorm.io/sandcat2.png" alt="Sand cat illustration #2" /></a></p>
+
+<p>The Sand Cat’s story will begin to unfold over the coming weeks, but we wanted to give you a sneak peek so that we could let you know that we’ll be adding Sand Cat stickers to every sticker pack sold as part of <a href="http://igg.me/at/sandstorm">our Indiegogo campaign</a>. So, if you haven’t had a chance yet, grab <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=8&amp;perk_id=2166937">a sticker pack for $8</a> or <a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=32&amp;perk_id=2166959">a t-shirt plus sticker pack for $32</a>.</p>
+
+<p style="text-align: center"><a href="https://www.indiegogo.com/projects/sandstorm-io-personal-cloud-platform/contributions/new?perk_amt=8&amp;perk_id=2166937"><img src="https://sandstorm.io/sandcat1.png" alt="Sand cat illustration #1" /> <img src="https://sandstorm.io/sandcat3.png" alt="Sand cat illustration #3" /></a></p>
+
+</section>
+
+<section>
   <h2><a href="/news/2014-08-26-groove-basin">Streaming Music with Groove Basin</a></h2>
   <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
     
@@ -250,71 +265,6 @@
 <p>We see companies shutting down useful apps all the time. Often, they offer users the opportunity to download their data as massive zip files full of useless XML. Wouldn’t it be great if these companies could give you not just your data, but also the app, in a format that you could easily keep using? We hope that in the future, developers will decide that it makes more sense to convert their failed SaaS offerings into Sandstorm apps. This way, companies can cut their costs without leaving users out in the cold.</p>
 
 <p><em>If you want to see Sandstorm succeed, there are 12 days left to <a href="http://igg.me/at/sandstorm">contribute to the campaign</a>.</em></p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2014-08-19-why-not-run-docker-apps">Why doesn't Sandstorm just run Docker apps?</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2014-08-19-why-not-run-docker-apps">19 Aug 2014</a>
-  <p>We get this question a lot. Sandstorm and Docker use the same Linux kernel features for containerization. Docker already has a large ecosystem of apps. Why introduce a new app format? Why not simply position Sandstorm as a UI for Docker? Wouldn’t that save a lot of work? Why reinvent the wheel?</p>
-
-<p>The fact of the matter is, Sandstorm and Docker, despite similar underlying tech, are very different platforms. Asking why Sandstorm doesn’t run Docker apps is a lot like asking why Android doesn’t run Linux desktop apps. If it’s the same Linux kernel under the hood, shouldn’t it be able to run the same apps? Well, a Linux desktop app would have a lot of problems running on Android. Most obviously, a desktop app’s UX would be all wrong on a small touchscreen. Moreover, the app would not fit into Android’s security model. It would not understand Android’s battery-saving lifecycle rules. It would not know how to tap into the unique devices (e.g. accelerometer, GPS) and opportunities (e.g. connecting with nearby devices) commonly available on phones but not on desktop.</p>
-
-<blockquote>Asking why Sandstorm doesn't run Docker apps is a lot like asking why Android doesn't run Linux desktop apps.</blockquote>
-
-<p>Running a Docker app on Sandstorm would be much the same story. Docker is designed to run off-the-shelf server-oriented Linux software and distributions inside containers. Docker’s platform, from the app’s point of view, is just Linux. From the user’s point of view, you use Docker much like you’d use traditional VMs and compute clusters; it’s just a lot more efficient.</p>
-
-<p>Sandstorm, though, is doing something completely different. We are trying to manage personal servers for end users. With Sandstorm, the person deciding what software to deploy is not necessarily a developer or system administrator. They may not know how to use a command line or edit config files. They may not know what a database is, and so aren’t likely to understand why they need to set up MySQL before they can run that app they’re interested in.</p>
-
-<p>This use case calls for a completely different model, just as phones call for a different model from desktops. We need to design a bunch of things differently:</p>
-
-<ul>
-  <li>
-    <p>Every app must have a web interface, and they must expose all configuration options through that interface.</p>
-  </li>
-  <li>
-    <p>Users expect their data to be organized in units of documents or other semantic objects, not in units of databases or relational tables. Apps must set up their own database and encapsulate it appropriately; the user won’t do it for them.</p>
-  </li>
-  <li>
-    <p>Users should not have to log into every app separately, especially when the app instance already belongs specifically to them and Sandstorm is already protecting access. So, apps must integrate with Sandstorm’s unified login system.</p>
-  </li>
-  <li>
-    <p>It would also be nice if users did not have to master a different sharing model for every app. Sandstorm supports fine-grained containers, such that every document can actually be in a separate container. This way, the platform can handle sharing consistently across all apps, by applying sharing to the containers. But, apps have to be designed for this.</p>
-  </li>
-  <li>
-    <p>Permission grants must be expressed in a way that users can understand. A user does not know what it means to allow an app to communicate on port 25, but they do know what it means to allow an app to send and receive e-mail under a particular e-mail address. In order for such permissions to be enforceable, the platform’s security model must actually operate in terms of these semantic permissions, not arbitrary TCP connections.</p>
-  </li>
-  <li>
-    <p>Updating an app must be a one-click (or even automatic) process. This means there must be a clearly-defined separation between the app “image” and its instance data, so that the platform is able to replace the former without harming the latter.</p>
-  </li>
-  <li>
-    <p>Users <em>will</em> install malicious apps from time to time, and they must be protected from these. The regular Linux kernel interface is far too wide, and critical exploits are found too often. We must instead present a much narrower interface and force apps to adapt. <a href="/news/2014-08-13-sandbox-security.html">See our previous post on this.</a></p>
-  </li>
-</ul>
-
-<p>For all these reasons, a Docker app simply would not be able to run under Sandstorm without modification. The modifications needed for typical Linux web apps tend to be light, but they are necessary.</p>
-
-<h3 id="why-not-at-least-use-the-container-tech">Why not at least use the container tech?</h3>
-
-<p>So, we’ve seen that it wouldn’t make sense to run a regular Docker app on Sandstorm. But, why don’t we still use Docker’s tech, and simply define an extra set of rules which Sandstorm apps much follow? Sandstorm would only be able to run the apps explicitly targeted for it, but at least we wouldn’t be reinventing the wheel technically, right?</p>
-
-<p>Well, first of all, we <em>do</em> use a lot of the same tech as Docker. Namely, we use the Linux kernel sandboxing features, such as namespaces and (soon) cgroups. These features do all of the heavy lifting of containerization.</p>
-
-<p>When it comes to userspace tools, it turns out that we just don’t really need anything Docker provides. Docker’s tools are designed to be highly adaptable and configurable in order to accommodate a wide range of Linux software without modification. Sandstorm, however, isn’t trying to run arbitrary Linux software. Apps already have to be adapted to Sandstorm’s environment. So, we are actually better off providing minimal configurability in order to keep the core system simple.</p>
-
-<p>Setting up a Sandstorm sandbox, based on raw Linux system calls, takes only a few hundred lines of code. Using Docker, it would probably be a few hundred lines of configuration instead, while adding a huge new dependency and all the maintenance issues that come with that. We would probably regularly find ourselves needing to push features upstream to Docker which Docker doesn’t otherwise need or want. It’s a lot of burden that wouldn’t buy us anything.</p>
-
-<p>We <em>do</em> often use Docker’s build tools in the process of building Sandstorm packages, simply because they provide a structured and reproducible way to gather an app and its dependencies into a chroot environment, which we can then package up. This is a fine option for app developers that does not affect the runtime system.</p>
-
-<h3 id="to-be-clear-docker-is-awesome">To be clear, Docker is awesome</h3>
-
-<p>We aren’t trying to dis Docker here. For what it’s trying to do – replace VMs with something not as horribly inefficient – Docker is amazing. We are excited to see it replace legacy IaaS solutions, and we will likely be targeting it as a way to run Sandstorm itself.</p>
-
-<p>But despite an initial appearance of similarity, Docker and Sandstorm simply aren’t the same thing, and forced sharing of code for very different purposes would not benefit either project.</p>
-
-<p><em>If you want to see Sandstorm succeed, there are 13 days left to <a href="http://igg.me/at/sandstorm">contribute to the campaign</a>.</em></p>
 
 </section>
 

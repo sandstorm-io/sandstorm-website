@@ -92,6 +92,105 @@
 
 
 <section>
+  <h2><a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization">Delegation is the Cornerstone of Civilization: Sharing in Sandstorm.io</a></h2>
+  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
+    
+      and <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2015-05-05-delegation-is-the-cornerstone-of-civilization">05 May 2015</a>
+  <p>We sometimes describe Sandstorm as: “Like Google Docs, except open source, you can run it on your own server, and you can extend it with apps written by anyone.”</p>
+
+<p>Sandstorm is all about collaboration – we have apps for real-time collaborative document editing, chat rooms, even collaborative music streaming. Collaboration, of course, requires access control. Sometimes you want some people to be able to edit a document while others can only read. Up until now, Sandstorm relied on each app to implement its own access control model, and many simply did not. For example, with Etherpad on Sandstorm before now, you could only share full write access.</p>
+
+<p>Today, we’re introducing Sandstorm’s new built-in sharing model. With it, apps can define a set of “permissions” (like “read” and “write”) which make sense for the app, and then Sandstorm itself will present a user interface by which the user can grant these permissions to other users. Since Sandstorm is designed to support fine-grained app containers (where, for example, each Etherpad document runs as a completely separate instance of the app in its own container), Sandstorm can implement this access control model at the container level, freeing the app of most of the work. The app need not track users itself; Sandstorm will tell it (e.g. through HTTP headers) exactly which permissions the current user has, so all the app needs to do is implement those.</p>
+
+<p>Moreover, Sandstorm implements a radical <em>capability-based</em> sharing model, which emphasizes the importance of <em>delegation</em>. Under our model, if you have access to a document, you can share that access with others, <em>without</em> requiring the document owner to intervene. This is important, because any obstacle to delegation is an obstacle to getting work done. Marc Stiegler said it best:</p>
+
+<blockquote style="font-weight: normal">The truth of the matter is: delegation cannot be prevented. The further truth of the matter is: we do not appreciate how fortunate it is that delegation cannot be prevented.
+Because in fact, <b>delegation is the cornerstone of civilization</b>. - Marc Stiegler</blockquote>
+
+<div style="margin:1em auto"><iframe class="youtube" src="//www.youtube.com/embed/vrbmMPlCp3U?start=3970" frameborder="0" allowfullscreen="true"> </iframe></div>
+
+<p>More on this in a bit, but first let’s look at how it works.</p>
+
+<h3 id="how-it-works">How it works</h3>
+
+<p>Consider the <a href="https://demo.sandstorm.io/appdemo/6va4cjamc21j0znf5h5rrgnv0rpyvh1vaxurkrgknefvj0x63ash">GitWeb app</a>.
+With the new sharing features in place, after Alice creates a new repository
+she can, for example, share read-only access with Bob and share read/write access with Carol.</p>
+
+<p><img src="/news/images/better-sharing-model-1.png" style="width:80%;margin:0 auto;display:block" /></p>
+
+<p>Then, in turn, both Bob and Carol can reshare the repo to other users. If they both share their full access to Dave, then Dave gets read/write access.</p>
+
+<p><img src="/news/images/better-sharing-model-2.png" style="width:80%;margin:0 auto;display:block" /></p>
+
+<p>If Alice now unshares with Carol, then Carol loses all access and Dave loses write access. Dave continues to hold the read-only access that he received from Bob.
+Carol’s share to Dave continues to exist, but it no longer carries any permissions, as Carol herself no longer holds any permissions.</p>
+
+<p><img src="/news/images/better-sharing-model-3.png" style="width:80%;margin:0 auto;display:block" /></p>
+
+<p>Throughout this whole interaction, the app itself has no need to keep track of users! It only needs to know how to filter requests based on permissions.
+Teaching GitWeb to do this was easy, requiring only a <a href="https://github.com/dwrensha/gitweb-sandstorm/commit/7f510ec82a935a9f94ebcf9651983d0bbadcf82a">few small changes</a>
+in configuration files. The app remains dead simple. The only data that it stores is the Git repository that it hosts.
+There is no in-app user database.</p>
+
+<p>Apps have complete control over the meanings of permissions. While “can read” and “can write” permissions will be sufficient in many cases,
+some apps, such as Groove Basin, might support a much wider range of permissions.
+In our <a href="https://demo.sandstorm.io/appdemo/wfg1r0qra2ewyvns05r0rddqttt57qxurz3nz5z95rjnm63et7e0">updated Groove Basin package</a>, sharing carries such diverse permissions
+as “can listen,” “can control the audio stream,” “can upload music,” and “can edit tags and delete music.”</p>
+
+<h3 id="delegation-why-you-want-it">Delegation: Why you want it</h3>
+
+<p>Traditional access control is accomplished using “access control lists” (ACLs), in which a document owner (Alice) maintains an ACL for the document specifying exactly who has access (Bob and Carol). In many systems, Bob and Carol cannot directly add a new person (Dave) to this ACL – they must ask Alice to do it. Usually, this is treated as a security “feature”.</p>
+
+<p><strong>Preventing delegation is not a feature. It provides no security benefit, and it creates obstacles to legitimate work.</strong></p>
+
+<p>For example, say Alice has asked Carol to update the document to add some data that Carol has collected, with a deadline of 6PM. Around 4PM, Carol realizes she won’t have time, so she asks her assistant, Dave, to do the work. Unfortunately, Dave doesn’t have access, and Alice is unavailable because she’s in a meeting. Now what?</p>
+
+<p>Here’s what inevitably happens: Carol copies the whole document into a <em>new</em> document, and then shares that with Dave. Later, when Dave is done, Carol copies the contents of the new document <em>back</em> into the original, overwriting it.</p>
+
+<p>Or, worse, Carol just gives Dave her password.</p>
+
+<p>What just happened? <strong>Carol bypassed the access control that prevented delegation to Dave!</strong> In fact, she did so <em>trivially</em>; no “hacking” required. It is obvious, in fact, that <a href="https://www.youtube.com/watch?v=vrbmMPlCp3U#t=1h5m30s">there is <em>no</em> technology</a> which would prevent Carol from delegating access to Dave, except to cut off all communications between Carol and Dave, which would be silly. So, our security “feature” actually provided no security benefit.</p>
+
+<p>With that said, what Carol did was annoying and error-prone. It took time, and the document could have been damaged, especially if someone else were editing at the same time and had their changes overwritten. It would have been much better if Dave could have simply had direct access to the document.</p>
+
+<p>So, that’s what Sandstorm allows.</p>
+
+<h3 id="policies-and-auditability">Policies and Auditability</h3>
+
+<p>There is an objection to unrestricted delegation which has some merit: preventing delegation can help guard against accidental leaks. For example, I might share a sensitive document with a coworker for review, but I might not trust that my coworker really understands the sensitivity of the document. I trust my coworker not to violate my wishes, but my coworker might not understand that I don’t want them to reshare. I’d feel a lot more comfortable if I can simply prohibit resharing. Yes, they can always go out of their way to get around any barrier I put up, but hopefully it will be obvious to them that they shouldn’t.</p>
+
+<p>This is a valid point, but solving it via the heavy-handed ACL model is overkill. As a user, what I really want is not a draconian security wall, but two things:</p>
+
+<ul>
+  <li>A way to inform people of my wishes with regards to resharing.</li>
+  <li>A way to hold them accountable if they break my wishes.</li>
+</ul>
+
+<p>Sandstorm aims to provide both of these:</p>
+
+<ul>
+  <li>You’ll be able to express “policies” when sharing, such as “please don’t reshare.” When people attempt to anyway, they will be informed that this is against your wishes, and perhaps blocked (at the UI level) from doing so. This is not strictly a security feature, but simply risk management: it helps nudge people in the right direction.</li>
+  <li>Sandstorm tracks not just a list but a full sharing <em>graph</em>. This means it is always possible to tell not just who has access but <em>how</em> they got access. We will be developing visualizations and auditing tools so that when you discover someone has received access that shouldn’t have, you can find out whom to blame. And as mentioned above, if you revoke that person’s access, then <em>everyone</em> they reshared to transitively loses access – unless you decide to restore those connections by sharing with those people directly.</li>
+</ul>
+
+<p>For enterprise users, we will further develop features that allow system administrators to set policies and audit access across an organization.</p>
+
+<p>Many users may never need these features. That’s fine – the basic sharing interface works intuitively without requiring you to understand “sharing graphs” or “policies”. But for those who need it, especially in a business setting, these features will be invaluable.</p>
+
+<h3 id="try-it-now">Try it now!</h3>
+
+<p>Sharing is a new feature and we still have lots of work to do on it, but the initial version is already live.
+If you want to try sharing but have not yet <a href="https://github.com/sandstorm-io/sandstorm#installing-the-easy-way">set up your own server</a>, you can <a href="https://demo.sandstorm.io">use the demo</a>.
+We’ve already enabled nontrivial permissions on GitWeb, Groove Basin, and Etherpad, and more app updates will be coming.
+Better yet, try <a href="https://github.com/sandstorm-io/sandstorm/wiki/Sandstorm-App-Developer-Handbook">writing an app</a> that takes avantage of the new features.
+Enabling apps to easily support sharing is just one more way that Sandstorm makes <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">open source web apps viable</a>.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-05-04-introducing-drew-and-sf-meetup">Introducing Drew and SF Meetup</a></h2>
   <p class="post-details">By <a href="https://github.com/zarvox">Drew Fisher</a>
     
@@ -294,52 +393,6 @@ memo: "example.com login challenge:1Z5ns8ectRGTMNYz3N"
 <p>A few notes on the packaging process: This package doesn’t use the normal MongoDB, but instead <a href="https://github.com/kentonv/mongo/tree/niscu">Kenton’s fork</a>. This allows the app to only use ~300KB of storage when each instance is created instead of the normal minimum of a few hundred MB for Mongo. Otherwise, the packaging process went very smoothly except for dealing with passport, a Node.js authentication library. I ended up forking <a href="https://github.com/leepowellcouk/passport-token">passport-token</a> to look at HTTP headers only (by default it will look at POST data as well, which would make it insecure inside Sandstorm). You can see the forked code <a href="https://github.com/jparyani/lets-chat/tree/sandstorm/node_modules/passport-token">here</a>, and if there’s some interest, I can work to get it published on NPM.</p>
 
 <p>You can see the full package source <a href="https://github.com/jparyani/lets-chat">here</a>, and if you want to use <a href="https://demo.sandstorm.io/appdemo/qkgkaxfqhgsff8zgx2f4nf1a8xvmpte6wa19egmfkk06mzt7e8dh">Let’s Chat</a>, check it out on the <a href="https://sandstorm.io/apps/">app list</a>. Feel free to let me know what you think on <a href="https://groups.google.com/group/sandstorm-dev">sandstorm-dev</a>.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-04-08-osx-security-bug">Remotely send Chrome and Node.js into infinite loops via this one weird OSX kernel bug</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2015-04-08-osx-security-bug">08 Apr 2015</a>
-  <p>A few months ago I discovered a security bug in the Darwin kernel used by most Apple products. The bug could allow an attacker to trivially remotely DoS a variety of network services and apps, from Node.js to Chrome. Today, <a href="https://support.apple.com/en-us/HT204659">Apple released a patch</a> (look for CVE-2015-1105), so now I can tell you about it.</p>
-
-<p>Now, just to be clear, I’m no <a href="https://www.imperialviolet.org/">Adam Langley</a>. This bug is “just” a DoS, nothing like a Heartbleed or a Shellshock. The worst it can do is allow an attacker to cause a temporary service disruption. But I think all security bugs deserve a writeup so that we can learn from them, and Apple’s terse description of the problem doesn’t accomplish this. Also, it’s a fun story.</p>
-
-<p>I discovered the problem while doing research on the different interfaces that various operating systems provide for doing event-driven I/O – that is, how you tell the platform: “Here are all my open connections; wake me up when one of them receives a message.” It turns out that every OS does this differently. Linux has <code>epoll</code>. BSD has <code>kqueue</code>. Windows has… well, about five different mechanisms that cover differing subsets of usecases and you can only choose one. In any case, I was trying to build an abstraction layer over these for <a href="https://capnproto.org">Cap’n Proto</a>, so I wanted to make sure I understood them all.</p>
-
-<p>I noticed a curious thing: some man pages discussed an event called “out-of-band data” while others didn’t. “Out-of-band data” (OOB), also known as “urgent data”, is a little-used feature of TCP connections that essentially allows you to send a byte that “jumps the queue” so that the receiving app can receive it before receiving other data sent before it. You probably didn’t know about this, because basically no one uses this feature – except for Telnet, which needs a way to signal that you pressed “ctrl+C” when the destination app is not otherwise processing input.</p>
-
-<p>With almost all event notification APIs, regular data and OOB data raise different kinds of events. For example, <code>poll()</code> (and its successor on Linux, <code>epoll</code>) has <code>POLLIN</code> for regular data and <code>POLLPRI</code> for OOB. This way, if your app does not expect to receive OOB data, it simply doesn’t ask to be notified about that type of event, and the kernel happily discards it for you (or maybe inserts it into the regular stream, which is fine).</p>
-
-<p>Curiously, the BSD <code>kqueue</code> docs are unclear on how OOB data is handled. <a href="https://www.freebsd.org/cgi/man.cgi?query=kqueue&amp;sektion=2">FreeBSD’s <code>kqueue</code></a> makes no mention of it, and as far as I’ve been able to determine it simply doesn’t support notification of OOB events at all. <a href="http://leaf.dragonflybsd.org/cgi/web-man?command=kqueue&amp;section=2">DragonflyBSD’s <code>kqueue</code></a> defines an <code>EVFILT_EXCEPT</code> event type.</p>
-
-<p><a href="https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man2/kqueue.2.html">Darwin’s (OSX/iOS) <code>kqueue</code></a> also doesn’t mention OOB data, but some Googling revealed an undocumented “feature”: on OOB data, Darwin will raise a regular <code>EVFILT_READ</code> event (which normally indicates that regular in-band data was received) but set the special flag <code>EV_OOBAND</code> on the event structure.</p>
-
-<p>Of course, if you aren’t <em>expecting</em> OOB data, you’re not going to check for that flag. So when you receive <code>EVFILT_READ</code>, you’re going to believe you’ve received regular data. And you’re going to do a <code>recv()</code> call to read that data, and there isn’t going to be any. And then you’re going to say “oh well” and return to the event loop. But if you are using <code>kqueue()</code> in level-triggered mode (as most people do, because it’s easier), then the operating system is going to see that the OOB data is still there, and is going to give you <em>the exact same event again</em>.</p>
-
-<p>So you go into an infinite loop.</p>
-
-<p><strong>Wait, doesn’t that mean almost all event-driven OSX network apps will go into an infinite loop if they receive a single TCP packet with the urgent bit set?</strong></p>
-
-<p>I didn’t think that could possibly be true at first, so I fired up a Mac machine to try it. Sure enough:</p>
-
-<ul>
-  <li>
-    <p>When Google Chrome visited an HTTP server that sent back an OOB byte, the whole app (not just the tab, but everything) locked up and had to be force-quit. It turns out Chrome does all networking from the main process, so the per-tab process separation did not help. (<a href="https://code.google.com/p/chromium/issues/detail?id=437642">Chromium issue 437642</a> – currently still locked down as a security issue)</p>
-  </li>
-  <li>
-    <p>When a <a href="https://nodejs.org">Node.js</a> server received an OOB byte from a client, the server would go into an infinite loop and stop handling other connections. (<a href="https://github.com/libuv/libuv/commit/e19089f7b14800d3f9bd74d9699e841e4b61a36d">fixed in this commit</a>)</p>
-  </li>
-</ul>
-
-<p>On the other hand, my third test case – <a href="http://nginx.org">nginx</a> – was not affected, because it uses kqueue in edge-triggered mode, and therefore it only receives the unexpected event when new data arrives rather than any time data is available – i.e. once rather than infinity times. But two of three is a pretty worrisome hit rate, especially when these are some very big names.</p>
-
-<p>Arguably the worst / most interesting part of this problem is that it was a problem inherent in the API. Technically it was not that the kernel was buggy, but that the interface was confusing (and underdocumented) in a way that caused the same bug to manifest in several different apps. Fixing the problem either required fixing every app (and being ever-vigilant in the future), or changing the API and <em>breaking</em> any existing app that depended on the behavior (of which there appears to be a few).</p>
-
-<p>To Apple’s credit, they did what I think is the right thing: they changed the interface so that it no longer reports <code>EVFILT_READ</code> events on TCP OOB data. I do not quite understand their description of this problem as a “state inconsistency issue”, but my tests confirm that OOB data is now ignored.</p>
-
-<p>The moral of the story? <strong>Confusing APIs are a security problem. If many users of your API get it wrong in a way that introduces a security bug, that’s a bug in your API, not their code.</strong></p>
 
 </section>
 

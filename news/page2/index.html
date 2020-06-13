@@ -92,6 +92,45 @@
 
 
 <section>
+  <h2><a href="/news/2018-10-18-how-to-download-oasis-data">How to download your Oasis data</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2018-10-18-how-to-download-oasis-data">18 Oct 2018</a>
+  <p><a href="2018-08-27-discontinuing-free-plan">We announced in August</a> that Oasis’s free plan would be discontinued on October 14. <a href="2018-08-27-discontinuing-free-plan">As I explained then</a>, we were forced to do this as Oasis costs $1500 per month to run, but was only earning $828 per month in revenue. I have been personally paying the remaining $700 every month to subsidize free users of the service, and I am unable to continue doing so. By limiting the service to only paying users, Oasis will be able to break even.</p>
+
+<p>For the past month or so, the Sandstorm UI has featured a prominent message warning that the free plan was going away:</p>
+
+<p><img src="/news/images/free-plan-discontinue-warning.png" alt="screenshot" /></p>
+
+<p>Unfortunately, we were unable to send an e-mail warning, as there are well over 100,000 free accounts on Oasis, the vast majority of which are abandoned. A mass e-mail would likely have landed us on spam blocklists (and rightly so, as we’d be annoying a lot of people).</p>
+
+<p>I had hoped that the message in the UI was prominent enough that all active users would notice it. However, it appears that some people did not see the message, and now find themselves unexpectedly unable to open their apps. I’m very sorry for this!</p>
+
+<h3 id="your-data-is-still-there">Your data is still there</h3>
+
+<p>You can still download your data. To do so, open a grain and click the “download backup” button in the top bar, which looks like a down-arrow:</p>
+
+<p><img src="/news/images/download-backup-screenshot.png" alt="screenshot of download backup button" /></p>
+
+<p>This will give you a ZIP file that contains all the data from the grain.</p>
+
+<p>In some cases, you will be able to open this data easily. However, many apps store their data in custom formats that you may have difficulty opening. In these cases, it’s best to use the app itself to access the data, which means you need Sandstorm. One option is to <a href="/install">install Sandstorm on your own server</a>, but not everyone has a server available for this.</p>
+
+<p>As a hack, another option is to use the Sandstorm Demo itself to get temporary access to your grains. The Sandstorm Demo gives you a temporary account which you can use to run any app on the Sandstorm app market, for free. The only catch is that your demo account will be deleted after one hour – but this should be enough time to upload your grain, open it, and copy out data. In the worst case, after your demo expires, you can always start another demo to extract more data.</p>
+
+<p>To start a demo, <strong>open an incognito window</strong> or log out of Oasis, so that Oasis doesn’t know you have an account already. Then, <a href="https://demo.sandstorm.io">visit demo.sandstorm.io</a> or click the button on the <a href="https://sandstorm.io">Sandstorm.io home page</a>:</p>
+
+<p><img src="/news/images/demo-button-screenshot.png" alt="screenshot of demo button" /></p>
+
+<p>Once the demo has started, make sure to install the app that your grain was created with. Then, visit the “Grains” tab, click “Restore backup…”, and choose the backup zip that you downloaded before.</p>
+
+<p><img src="/news/images/restore-backup-screenshot.png" alt="screenshot of restore backup button" /></p>
+
+<p>You now have a (temporary) functioning version of your grain.</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2018-08-27-discontinuing-free-plan">Oasis free plan will be discontinued October 14</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
@@ -264,29 +303,6 @@ time working on Sandstorm.</p>
 <h3 id="timeline">Timeline</h3>
 
 <p>As of this post, these changes have not yet been implemented. We wanted to let people know of the changes in advance, in case anyone is relying on the current behavior. The next Sandstorm update will include code which detects users who might be affected and notifies them to read this blog post. The full change will probably take several weeks or maybe months to implement, as it is a huge change. We’ll update this post when it’s done.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2017-03-13-joining-cloudflare">The Sandstorm Team is joining Cloudflare</a></h2>
-  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
-    
-    - <a href="/news/2017-03-13-joining-cloudflare">13 Mar 2017</a>
-  <p>Recently, we announced that <a href="https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots">Sandstorm is returning to its community roots</a>, transitioning away from being a for-profit startup and towards being a community-effort, open source project. The Sandstorm team is committed to keep building Sandstorm in collaboration with our amazing community, and we will keep operating Sandstorm Oasis as a service. But, Sandstorm will no longer be our full-time jobs.</p>
-
-<p>So, what will be?</p>
-
-<p>Starting today, most of the Sandstorm team – including Jade and myself – now work for Cloudflare.</p>
-
-<p>Sandstorm has actually been a user of Cloudflare since the beginning. Our web site and static parts of Oasis are served through them. I’ve long been a fan of Cloudflare’s focus on security. A few years back, I enjoyed their <a href="https://blog.cloudflare.com/answering-the-critical-question-can-you-get-private-ssl-keys-using-heartbleed/">Heartbleed Challenge</a> which proved conclusively that, yes, private keys can be leaked by Heartbleed. Although Cloudflare recently suffered from <a href="https://blog.cloudflare.com/incident-report-on-memory-leak-caused-by-cloudflare-parser-bug/">a widely-reported security incident</a>, their response was impressively fast and transparent.</p>
-
-<p>But a bigger reason I’m excited about joining Cloudflare is that they are big users – perhaps the biggest users – of <a href="https://capnproto.org">Cap’n Proto</a>, the serialization and RPC framework developed by Sandstorm. Cloudflare actually <a href="https://blog.cloudflare.com/introducing-lua-capnproto-better-serialization-in-lua/">developed the Lua bindings for Cap’n Proto</a> and has <a href="http://www.thedotpost.com/2015/06/john-graham-cumming-i-got-10-trillion-problems-but-logging-aint-one">spoken publicly about using Cap’n Proto in their logging pipeline</a>.</p>
-
-<p>Sandstorm, for its part, remains an independent entity, and I won’t be working on it during my day job at Cloudflare. However, I will be working on Cap’n Proto. This should be good news for Cap’n Proto fans who have been disappointed by the lack of releases lately. Although Sandstorm uses Cap’n Proto extensively, in our scramble to build Sandstorm we tended to commit changes only to git master while neglecting to build (and test) formal releases. With a larger corporate backer, we can now afford to be more professional, doing more frequent releases, and putting effort into supporting more languages and platforms.</p>
-
-<p>I will also be working on building some fascinating new infrastructure at Cloudflare. As a member of the edge platform team, I’ll be coming up with new ways to utilize Cloudflare’s machines located in over a hundred data centers around the world. Jade, meanwhile, will be working on building out Cloudflare’s community and developer advocacy program.</p>
-
-<p>The Sandstorm community can expect to see me merging pull requests and pushing releases on weekends, with new releases at least every three weeks. There has been a flurry of activity lately around mobilizing community contributions. Join the discussion on <a href="https://groups.google.com/forum/#!forum/sandstorm-dev">the sandstorm-dev mailing list</a> or on <a href="https://kiwiirc.com/client/irc.freenode.net/?channel=#sandstorm">IRC (#sandstorm on Freenode)</a>!</p>
 
 </section>
 
