@@ -7,6 +7,77 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Updating Tiny Tiny RSS, Moving Sandstorm's Security Model Forward.</title>
+				<description>&lt;p&gt;This past week I updated the Sandstorm package for Tiny Tiny RSS. In
+addition to updating to the latest upstream code, I’ve also made some
+improvements to the package’s integration with Sandstorm. In particular:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The package now uses Sandstorm’s scheduling API (merged earlier this
+year) to check for updates periodically even when the user isn’t
+actively using the app. This was a major pain point for some users,
+as it meant that if they didn’t check their feeds often enough, they
+could miss articles.&lt;/li&gt;
+  &lt;li&gt;I’ve migrated the package away from using Sandstorm’s deprecated
+HackSession interface for fetching feeds, and over to using the
+Powerbox.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The latter of these is critical to enable Sandstorm’s goal of full
+network isolation for applications. It has always been the intent that
+apps running on a Sandstorm server should not be able to phone home or
+otherwise access the network without the user’s consent, but early on
+the team implemented some temporary hacks that apps could make use of
+until Sandstorm’s Powerbox API was actually available. Now it is, so
+it’s time to migrate existing code away from these legacy APIs. Once
+we’ve done that, we can remove the holes, and finally deliver on
+Sandstorm’s security promise of network isolation for server code.&lt;/p&gt;
+
+&lt;p&gt;In order to make this happen, I wrote &lt;a href=&quot;https://github.com/zenhack/powerbox-http-proxy&quot;&gt;a daemon&lt;/a&gt; that runs inside of
+the grain, intercepting HTTP traffic and making powerbox requests for
+access to the relevant hosts on-demand. The daemon is re-usable and
+could be used as a quick way to port other existing apps that have
+legitimate need to access a variety of different hosts at runtime,
+which are not known in advance.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, this transition does come with some growing pains, and
+there are a few things users should be aware of when upgrading.&lt;/p&gt;
+
+&lt;p&gt;First, since existing TTRSS grains will already have subscriptions to
+feeds that they haven’t requested access to, the first time you start
+the new version of TTRSS you’ll see a flood of requests for all of your
+existing feeds. This is annoying, but fortunately after this initial
+setup you’ll only need to grant access when adding new feeds.&lt;/p&gt;
+
+&lt;p&gt;Second, a more serious limitation of the current implementation is that
+it makes it impossible to add new feeds through mobile &amp;amp; desktop clients
+– at least without also having a browser window open somewhere. This is
+because, without the Sandstorm UI open, Sandstorm has no way of actually
+showing a user the powerbox dialog. We’d like to find ways to improve
+on this.&lt;/p&gt;
+
+&lt;p&gt;Finally, while the daemon is exciting for app packagers, in that it can
+make basic porting of apps not designed for Sandstorm much quicker,
+the integration is imperfect, resulting in a sub-par UX: as it stands,
+users will see an extra prompt (or two) when first subscribing to a
+feed.&lt;/p&gt;
+
+&lt;p&gt;Maintaining security while avoiding annoying extra prompts like this &lt;a href=&quot;https://sandstorm.io/news/2015-06-10-network-access-permission-android-vs-sandstorm&quot;&gt;is
+one of the design goals&lt;/a&gt; of Sandstorm’s powerbox, but to fully take
+advantage of it will require more invasive changes to TTRSS; rather than
+prompting the user for a feed URL and then trying to fetch it (causing
+the daemon to request access), it should just ask Sandstorm for a feed
+directly. If you’re an enterprising PHP hacker and want to help make
+this happen, get in touch on the &lt;a href=&quot;https://groups.google.com/forum/#!forum/sandstorm-dev&quot;&gt;sandstorm-dev mailing list&lt;/a&gt; or the
+#sandstorm IRC channel on Freenode.&lt;/p&gt;
+
+</description>
+				<pubDate>Sat, 08 Aug 2020 00:00:00 -0500</pubDate>
+                                <link>https://sandstorm.io/news/2020-08-08-tiny-tiny-rss-and-the-powerbox</link>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2020-08-08-tiny-tiny-rss-and-the-powerbox</guid>
+			</item>
+		
+			<item>
 				<title>Let's Encrypt support for Sandstorm and Sandcats</title>
 				<description>&lt;p&gt;Sandstorm now has built-in support for fetching certificates from Let’s Encrypt. This applies both to Sandcats and to custom domains.&lt;/p&gt;
 
@@ -429,69 +500,6 @@ time working on Sandstorm.&lt;/p&gt;
 				<pubDate>Sat, 28 Oct 2017 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2017-10-28-i18n</link>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2017-10-28-i18n</guid>
-			</item>
-		
-			<item>
-				<title>We're changing the way identities work</title>
-				<description>&lt;p&gt;&lt;strong&gt;UPDATE September 2, 2017:&lt;/strong&gt; &lt;em&gt;This change has been fully released and will roll out to all servers within the next 24 hours.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Over the next few weeks, I’ll be making a major change to the way Sandstorm handles user accounts and identities. My goal is to make things far less confusing.&lt;/p&gt;
-
-&lt;p&gt;Most Sandstorm users probably have no idea that these features exist, and so won’t notice the change. However, if you’ve linked multiple “identities” (multiple e-mail, Google, or GitHub accounts) to your Sandstorm account, you may want to read this.&lt;/p&gt;
-
-&lt;h3 id=&quot;history-the-current-system-and-why-it-was-built-this-way&quot;&gt;History: The current system and why it was built this way&lt;/h3&gt;
-
-&lt;p&gt;Way back in late 2015, we introduced the concept of “multiple identities” in Sandstorm. Ever since, a user account on a Sandstorm server has been able to have multiple identities attached to it, each with a different profile (name, picture, etc.). Once a user has multiple identities, they can choose which identity to act as when using apps. When users share with each other, they often do so “by identity”, meaning you choose the identity (not the account) with whom you want to share. It’s even possible for multiple accounts to share a common identity, in order to have multiple people “acting as” the same persona.&lt;/p&gt;
-
-&lt;p&gt;When we designed this system, we were attempting to solve several different problems at once:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;We had long offered users the ability to log in with Google, GitHub, or e-mail. Sometimes, though, people wanted to attach multiple login mechanisms to the same account, e.g. both their Google and their GitHub account. This redundancy can protect people against one of these services being down, and would help avoid confusion when people can’t remember which login mechanism they used last time. We also anticipated that in the future, Sandstorm apps might want to talk to Google and GitHub APIs, and this access would be authenticated through the user’s connected accounts.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;We wanted to ensure that the user ID seen by an app was a global identifier – meaning it would be the same even if the app was moved to a different Sandstorm server. This required that the ID be derived from the user’s credentials, e.g. a hash of their Google or GitHub user ID.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;When users share with each other, we wanted them to be able to do so using well-known public identifiers, for additional security. Typically, Sandstorm users share with each other by creating and sending “secret links”; anyone who receives the link can get access. This is convenient, but sometimes you want some additional assurance that a link can’t be leaked. In that case, you might want to specify a specific GitHub username or Google account e-mail address with whom to share, and have Sandstorm guarantee that the receiver must authenticate as that identity to open the link.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;We wanted people to be able to manage multiple “personas” with which they interact with other users within Sandstorm. We imagined that users may in fact want to prevent other users from discovering that these personas belonged to the same physical person. We imagined that this would in particular be useful to groups who fear harassment and abuse, and therefore choose to interact under a pseudonym.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;We wanted multiple users to be able to collectively manage a shared persona, like a “brand account” on Twitter, while keeping independent Sandstorm accounts.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;With all of these goals mashed together, we came up with a design: We would allow you to connect multiple credentials (e.g. Google, GitHub, e-mail, even multiple of each) to your account. Each connected credential became an “identity”, with its own profile (name, picture, and other details shown to users you collaborate with). Each identity could also be marked as being for authentication (in which case you could use it to log into your account) or not (in which case you couldn’t use it to log in, but you could use it as a persona and a sharing target). Non-login identities could also be shared between multiple accounts. Whenever you interacted with a grain, you would choose which identity you wanted to act as, which determined how collaborators saw you.&lt;/p&gt;
-
-&lt;h3 id=&quot;why-it-didnt-work&quot;&gt;Why it didn’t work&lt;/h3&gt;
-
-&lt;p&gt;In retrospect, it was a mistake to try to solve all of these problems at the same time, as they are all fundamentally different. By trying to link them together, we largely failed to solve any of them.&lt;/p&gt;
-
-&lt;p&gt;The idea that your Google and GitHub accounts each represented a different “identity” confused many users. Most people in fact only have one persona, and their accounts on various services represent that same persona. But if you attached both to your Sandstorm account, then Sandstorm would begin asking you to choose which identity you wished to act as – a question that made no sense to most people. Moreover, other people, when sharing with you, would begin to see multiple “copies” of you showing up in their contacts list – one for each credential. Often it was hard for people to tell what the difference was or which they should choose. Because of this confusion, the Sandstorm team has tended to steer people away from linking multiple identities in the first place. Obviously, this defeats the goals for which multi-identity was created.&lt;/p&gt;
-
-&lt;p&gt;Meanwhile, for people who actually wanted to manage multiple personas – pseudonyms, brand identities, etc. – we never managed to provide a good experience. It was very easy to accidentally use the wrong identity and reveal yourself. At the same time, the need to support this use case often exacerbated the confusion for users who only had one logical persona (as described in the previous paragraph). Without this design constraint, we could make a better UX for most people.&lt;/p&gt;
-
-&lt;p&gt;Finally, in practice this design didn’t really solve the ability to move grains between Sandstorm servers, because different Sandstorm servers may very well use totally different login mechanisms. Often, people want to transition grains from Oasis – where they used e-mail login – to a new self-hosted server – where they used LDAP or SAML login. Since the login mechanisms differed, user IDs didn’t match up anyway. To really solve this problem, we need something more dynamic.&lt;/p&gt;
-
-&lt;h3 id=&quot;what-were-doing-instead&quot;&gt;What we’re doing instead&lt;/h3&gt;
-
-&lt;p&gt;We are dropping support for multiple “personas”. Going forward, each Sandstorm account will have only one profile – one name, one profile picture, one entry in the sharing auto-complete list, etc. If you have multiple identities today, the profile from exactly one of those identities will become your account profile, and the other profiles will disappear. If you’re worried about which one Sandstorm will take, make sure to edit all your identities so that their profiles are the same.&lt;/p&gt;
-
-&lt;p&gt;What we call “identities” today will be renamed to “credentials”. A credential will no longer have its own profile, and you will no longer need to choose which credential you are acting as when accessing grains. Authentication-related features of credentials (for login, and for secure sharing) will remain mostly intact.&lt;/p&gt;
-
-&lt;p&gt;Users who rely on the ability to manage multiple personas today will need to transition to using multiple accounts instead. I suspect that there are vanishingly few such users, as most users never understood Sandstorm’s identity system in the first place. That said, if you are affected, I apologize. I would love it if you would &lt;a href=&quot;/community&quot;&gt;get in contact with us&lt;/a&gt; to let us know about your specific needs, so that we can try to design a better experience for you. (For what it’s worth, I personally recommend using the multi-profile feature provided by various browsers to separate your personas into totally separate browser contexts with different window themes – this makes it much easier to prevent accidental leakage.)&lt;/p&gt;
-
-&lt;p&gt;Finally, we will be disassociating the user ID as seen by apps from the underlying user credentials. In the future, each grain will actually see a totally unique ID for each user. When a grain is transferred between servers, the owner will have the opportunity to remap users in arbitrary ways – though by default we’ll correlate based on verified e-mail address. This scheme has the additional benefit that because a particular user’s ID will be different in every grain they access, it will no longer be possible for apps to illicitly identify and correlate users by their IDs. Instead, they will have to use explicit APIs for this purpose, which can be carefully controlled for privacy.&lt;/p&gt;
-
-&lt;h3 id=&quot;timeline&quot;&gt;Timeline&lt;/h3&gt;
-
-&lt;p&gt;As of this post, these changes have not yet been implemented. We wanted to let people know of the changes in advance, in case anyone is relying on the current behavior. The next Sandstorm update will include code which detects users who might be affected and notifies them to read this blog post. The full change will probably take several weeks or maybe months to implement, as it is a huge change. We’ll update this post when it’s done.&lt;/p&gt;
-</description>
-				<pubDate>Mon, 08 May 2017 00:00:00 -0500</pubDate>
-                                <link>https://sandstorm.io/news/2017-05-08-refactoring-identities</link>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2017-05-08-refactoring-identities</guid>
 			</item>
 		
 	</channel>

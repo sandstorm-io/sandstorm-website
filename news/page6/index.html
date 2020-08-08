@@ -92,6 +92,75 @@
 
 
 <section>
+  <h2><a href="/news/2016-08-03-whats-new">July changelog - what's new in Sandstorm</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2016-08-03-whats-new">03 Aug 2016</a>
+  <p>In July, we introduced a new Sandstorm feature: Apps can notify users when something interesting
+happens within a grain. For example, Etherpad uses this to tell you when someone leaves a comment on
+a document. This ActivityEvent API was designed by Kenton Varda and its visual elements were
+designed by Néna Nguyễn. You can read more in its <a href="https://github.com/sandstorm-io/sandstorm/blob/master/src/sandstorm/activity.capnp">Cap’n Proto
+definition</a>; any
+app within Sandstorm can use it. The easiest way to try it out is to make a new Etherpad document,
+then open it in an incognito window, and use the incognito window to leave yourself a comment.</p>
+
+<p>This change, and many more, went live during July. To keep your Sandstorm server updated, you can
+sit back and relax. In the default configuration, Sandstorm’s automatic updates will install updates
+within 24 hours of a new release.</p>
+
+<p>Here’s the full July changelog!</p>
+
+<h3 id="v0173-2016-07-23">v0.173 (2016-07-23)</h3>
+<ul>
+  <li>Sandstorm for Work: Added server whitelabeling features. Find under “Personalization” in the admin panel.</li>
+  <li>Apps now receive profile pictures for all users. Users who have no picture get an identicon. Previously, apps were expected to generate identicons themselves.</li>
+  <li>HTTP requests to / responses from apps now pass through any header prefixed with <code>X-Sandstorm-App-</code>. Also, <code>X-OC-Mtime</code> is whitelisted in responses, to improve Davros’ compatibility with ownCloud clients.</li>
+  <li>Attempting to download a backup of a collection will show a warning explaining that this doesn’t do what you expect.</li>
+  <li>Prevented guests from uploading grain backups. These uploads weren’t creating actual grains, but could use up server-side disk space.</li>
+  <li>Fix bug in grainlist deduplification on app details page.</li>
+  <li>Fixed that the admin page for managing a specific user only showed their login identities, not non-login identities. The main list showed both, but the non-login identities would disappear when clicking through to a specific user.</li>
+  <li>The favicon is now transparent instead of white-background.</li>
+  <li>The guided tour highlight of the “share access” button no longer blacks out the button on Firefox.</li>
+  <li>The admin UI’s “Personalization” page no longer fails to save if you haven’t entered a Terms of Service or Privacy Policy URL.</li>
+  <li>“204 No Content” responses from apps now preserve the ETag.</li>
+  <li>Refactored powerbox client-side code to make it more pluggable.</li>
+</ul>
+
+<h3 id="v0172-2016-07-15-bugfixes">v0.172 (2016-07-15) [bugfixes]</h3>
+<ul>
+  <li>Fixed a regression that caused accepting an app update notification to have no effect. Sandstorm will re-notify about missed updates within 24 hours.</li>
+  <li>Fixed bugs preventing Sandstorm from working on IE10.</li>
+  <li>Tweaked new activity event API.</li>
+  <li>Major refactor of powerbox-related code.</li>
+  <li>Bugfixes related to upcoming collections app.</li>
+</ul>
+
+<h3 id="v0171-2016-07-09">v0.171 (2016-07-09)</h3>
+<ul>
+  <li><strong>Activity/Notifications API:</strong> Apps can now inform Sandstorm when a grain has been modified. Sandstorm will then highlight the grain in the user interface to show that it has new content, and in some cases deliver notifications to interested users. Apps need to be updated to use the API, but an update to Etherpad will ship on Sunday with updates to Rocket.Chat and Wekan soon thereafter.</li>
+  <li>Fixed regression where grain UIs would not refresh when the grain’s package was updated.</li>
+  <li>Fixed bug where it was possible to have a “shared with me” copy of a grain you own show up in your grain list, which in turn caused other bugs.</li>
+  <li>Fixed spurious deprecation warning in server logs and reduced the size of the Sandstorm bundle by 10% by eliminating redundant copies of the Connect framework which were being included due to npm dependency semantics.</li>
+  <li>Fixed some modal dialogs stretching off the screen on mobile.</li>
+  <li>Various code refactoring.</li>
+  <li>Oasis: Fixed that save()ing a capability was producing a SturdyRef that could not be restored due to bookkeeping errors.</li>
+  <li>Sandstorm for Work: The SAML XML blob is now available even if the SAML identity provider has not yet been enabled. This should make setup easier.</li>
+</ul>
+
+<h3 id="v0170-2016-07-02-bugfixes">v0.170 (2016-07-02) [bugfixes]</h3>
+<ul>
+  <li>Meteor-based apps will no longer go into redirect loops when WebSockets are not working.</li>
+  <li>Sandstorm for Work: Fixed SAML login failing when a user’s name contained non-ASCII characters.</li>
+  <li>The Powerbox API has changed slightly to involve a server-side exchange after the client-side selection operation. This improve security. Existing powerbox-using apps will need to be updated – but no major apps are using it yet.</li>
+  <li>When using email login and clicking the link (rather than copy/pasting the token), you will now be redirected back to the URL from which you initiated login.</li>
+  <li>Improved design of profile editor UI.</li>
+  <li>The user table in the admin panel can now be sorted by clicking column headers.</li>
+  <li>Fixed “guided tour” hint bubble for installing apps showing for users who aren’t allowed to install apps.</li>
+</ul>
+
+</section>
+
+<section>
   <h2><a href="/news/2016-07-13-whats-new">June changelog - what's new in Sandstorm</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
@@ -267,45 +336,6 @@ changelog at any time.</p>
 I hope you enjoy creating photo albums using <a href="https://apps.sandstorm.io/app/z6rj6js4h8p8rjz2myp3dwmv3mcfv40qyfdn0d7714qxzvzvq3w0">Lychee from the Sandstorm App Market</a>. Don't forget to leave a review!
 </p>
 </h3></h3>
-
-</section>
-
-<section>
-  <h2><a href="/news/2016-06-06-upcoming-events-june">Upcoming events in June in San Francisco, Morgantown</a></h2>
-  <p class="post-details">By <a href="https://github.com/jadeqwang">Jade Wang</a>
-    
-    - <a href="/news/2016-06-06-upcoming-events-june">06 Jun 2016</a>
-  <p><img src="/news/images/drew-talk.jpeg" /></p>
-
-<p><strong>Designing secure systems with Object-Capabilities, Python, and Cap’n Proto (San Francisco, CA)</strong></p>
-
-<p>Join us for a talk from Sandstorm core dev <a href="https://github.com/zarvox">Drew Fisher</a> about an object-oriented programming inspired technique for designing secure systems called object-capability security. Drew’s talk will be followed by a Q&amp;A session with opportunities to chat with Sandstorm’s community before and after. A huge shoutout and thanks to <a href="https://www.thoughtworks.com/">ThoughtWorks</a> for hosting the meetup and for dinner!</p>
-
-<p>Thursday, June 16, 2016
-<br />
-6:00 PM to 9:30 PM
-<br />
-ThoughtWorks
-<br />
-814 Mission St, 5th Floor, San Francisco, CA</p>
-
-<p>RSVP here: <a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231065150/">http://www.meetup.com/Sandstorm-SF-Bay-Area/events/231065150/</a></p>
-
-<p><img src="/news/images/david-talk.jpg" /></p>
-
-<p><strong>Building a decentralized web with Sandstorm</strong></p>
-
-<p>If you’re in Morgantown, West Virginia, join the <a href="http://www.meetup.com/Morgantown-Linux-User-Group/">Linux User Group</a>, and meet Sandstorm core dev <a href="https://github.com/dwrensha">David Renshaw</a>! David will give an overview of Sandstorm, and will dive into some of the technical details of what makes Sandstorm tick.</p>
-
-<p>Thursday, June 9, 2016
-<br />
-7:00 PM
-<br />
-Listhub
-<br />
-453 Suncrest Towne Centre, 2nd Floor, Morgantown, WV</p>
-
-<p>RSVP here: <a href="http://www.meetup.com/Morgantown-Linux-User-Group/events/228038429/">http://www.meetup.com/Morgantown-Linux-User-Group/events/228038429/</a></p>
 
 </section>
 
