@@ -15,6 +15,7 @@ layout: none
 				<description>{{ post.content | xml_escape }}</description>
 				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
                                 <link>https://sandstorm.io{{ post.url }}</link>
+                                <dc:creator>{{ post.author | xml_escape }}</dc:creator>
                                 <guid isPermaLink="true">https://sandstorm.io{{ post.url }}</guid>
 			</item>
 		{% endfor %}
