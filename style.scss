@@ -1370,11 +1370,8 @@ body >footer {
       }
     }
 
-    .failover, .encryption, {
-      width: 50%;
-      @media (max-width: 700px) {
-        width: 100%;
-      }
+    .encryption {
+      width: 100%;
     }
 
     ul {
