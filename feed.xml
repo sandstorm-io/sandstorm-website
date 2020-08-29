@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<channel>
 		<title>Sandstorm.io Blog</title>
 		<description>Latest updates on Sandstorm.io</description>		
@@ -74,6 +74,7 @@ this happen, get in touch on the &lt;a href=&quot;https://groups.google.com/foru
 </description>
 				<pubDate>Sat, 08 Aug 2020 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2020-08-08-tiny-tiny-rss-and-the-powerbox</link>
+                                <dc:creator>Ian Denhardt</dc:creator>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2020-08-08-tiny-tiny-rss-and-the-powerbox</guid>
 			</item>
 		
@@ -125,6 +126,7 @@ this happen, get in touch on the &lt;a href=&quot;https://groups.google.com/foru
 </description>
 				<pubDate>Sat, 13 Jun 2020 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2020-06-13-lets-encrypt</link>
+                                <dc:creator>Kenton Varda</dc:creator>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2020-06-13-lets-encrypt</guid>
 			</item>
 		
@@ -160,6 +162,7 @@ this happen, get in touch on the &lt;a href=&quot;https://groups.google.com/foru
 </description>
 				<pubDate>Sat, 22 Feb 2020 00:00:00 -0600</pubDate>
                                 <link>https://sandstorm.io/news/2020-02-22-announcing-vagrant-spk-1.0</link>
+                                <dc:creator>Jacob Weisz</dc:creator>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2020-02-22-announcing-vagrant-spk-1.0</guid>
 			</item>
 		
@@ -233,6 +236,7 @@ on Freenode, and sign up for the &lt;a href=&quot;https://groups.google.com/foru
 </description>
 				<pubDate>Mon, 03 Feb 2020 00:00:00 -0600</pubDate>
                                 <link>https://sandstorm.io/news/2020-02-03-reviving-sandstorm</link>
+                                <dc:creator>Ian Denhardt</dc:creator>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2020-02-03-reviving-sandstorm</guid>
 			</item>
 		
@@ -313,6 +317,7 @@ on Freenode, and sign up for the &lt;a href=&quot;https://groups.google.com/foru
 </description>
 				<pubDate>Sun, 15 Sep 2019 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2019-09-15-shutting-down-oasis</link>
+                                <dc:creator>Kenton Varda</dc:creator>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2019-09-15-shutting-down-oasis</guid>
 			</item>
 		
@@ -347,6 +352,7 @@ on Freenode, and sign up for the &lt;a href=&quot;https://groups.google.com/foru
 </description>
 				<pubDate>Sun, 28 Oct 2018 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2018-10-28-results-of-ending-free-plan</link>
+                                <dc:creator>Kenton Varda</dc:creator>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2018-10-28-results-of-ending-free-plan</guid>
 			</item>
 		
@@ -386,6 +392,7 @@ on Freenode, and sign up for the &lt;a href=&quot;https://groups.google.com/foru
 </description>
 				<pubDate>Thu, 18 Oct 2018 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2018-10-18-how-to-download-oasis-data</link>
+                                <dc:creator>Kenton Varda</dc:creator>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2018-10-18-how-to-download-oasis-data</guid>
 			</item>
 		
@@ -437,6 +444,7 @@ on Freenode, and sign up for the &lt;a href=&quot;https://groups.google.com/foru
 </description>
 				<pubDate>Mon, 27 Aug 2018 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2018-08-27-discontinuing-free-plan</link>
+                                <dc:creator>Kenton Varda</dc:creator>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2018-08-27-discontinuing-free-plan</guid>
 			</item>
 		
@@ -484,6 +492,7 @@ time working on Sandstorm.&lt;/p&gt;
 </description>
 				<pubDate>Mon, 19 Feb 2018 00:00:00 -0600</pubDate>
                                 <link>https://sandstorm.io/news/2018-02-19-http-rewrite-and-more</link>
+                                <dc:creator>Kenton Varda</dc:creator>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2018-02-19-http-rewrite-and-more</guid>
 			</item>
 		
@@ -499,6 +508,7 @@ time working on Sandstorm.&lt;/p&gt;
 </description>
 				<pubDate>Sat, 28 Oct 2017 00:00:00 -0500</pubDate>
                                 <link>https://sandstorm.io/news/2017-10-28-i18n</link>
+                                <dc:creator>Kenton Varda</dc:creator>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2017-10-28-i18n</guid>
 			</item>
 		
