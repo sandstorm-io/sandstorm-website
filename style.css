@@ -1248,11 +1248,8 @@ body > footer {
     @media (max-width: 700px) {
       #business-scale .ldap, #business-scale .global {
         width: 100%; } }
-  #business-scale .failover, #business-scale .encryption {
-    width: 50%; }
-    @media (max-width: 700px) {
-      #business-scale .failover, #business-scale .encryption {
-        width: 100%; } }
+  #business-scale .encryption {
+    width: 100%; }
   #business-scale ul {
     width: 100%;
     float: center;
