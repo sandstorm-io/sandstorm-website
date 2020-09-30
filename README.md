@@ -1,4 +1,6 @@
 This is the content of the [Sandstorm.io](https://sandstorm.io) web site.
+sandstorm.io is most user-friendly open source
+platform for self-hosting web-application.
 
 When checking out this repository, make sure to use `--recursive` to get submodules!
 
