@@ -66,7 +66,7 @@ in terms of development:
 As a community we're once again very hopeful, and I personally am
 committed to spending what time I can making Sandstorm's vision a
 reality. If you want to help, join us in the #sandstorm IRC channel
-on Freenode, and sign up for the [sandstorm-dev mailing list][8].
+on libera.chat, and sign up for the [sandstorm-dev mailing list][8].
 
 [1]: https://sandstorm.io/news/2017-02-06-sandstorm-returning-to-community-roots
 [2]: https://sandstorm.io/news/2017-10-28-i18n
