@@ -69,7 +69,7 @@ prompting the user for a feed URL and then trying to fetch it (causing
 the daemon to request access), it should just ask Sandstorm for a feed
 directly. If you’re an enterprising PHP hacker and want to help make
 this happen, get in touch on the &lt;a href=&quot;https://groups.google.com/forum/#!forum/sandstorm-dev&quot;&gt;sandstorm-dev mailing list&lt;/a&gt; or the
-#sandstorm IRC channel on Freenode.&lt;/p&gt;
+#sandstorm IRC channel on libera.chat.&lt;/p&gt;
 
 </description>
 				<pubDate>Sat, 08 Aug 2020 00:00:00 -0500</pubDate>
@@ -231,7 +231,7 @@ is lacking. I plan to fix that.&lt;/li&gt;
 &lt;p&gt;As a community we’re once again very hopeful, and I personally am
 committed to spending what time I can making Sandstorm’s vision a
 reality. If you want to help, join us in the #sandstorm IRC channel
-on Freenode, and sign up for the &lt;a href=&quot;https://groups.google.com/forum/#!forum/sandstorm-dev&quot;&gt;sandstorm-dev mailing list&lt;/a&gt;.&lt;/p&gt;
+on libera.chat, and sign up for the &lt;a href=&quot;https://groups.google.com/forum/#!forum/sandstorm-dev&quot;&gt;sandstorm-dev mailing list&lt;/a&gt;.&lt;/p&gt;
 
 </description>
 				<pubDate>Mon, 03 Feb 2020 00:00:00 -0600</pubDate>
