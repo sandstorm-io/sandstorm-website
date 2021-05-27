@@ -64,7 +64,7 @@ prompting the user for a feed URL and then trying to fetch it (causing
 the daemon to request access), it should just ask Sandstorm for a feed
 directly. If you're an enterprising PHP hacker and want to help make
 this happen, get in touch on the [sandstorm-dev mailing list][3] or the
-#sandstorm IRC channel on Freenode.
+#sandstorm IRC channel on libera.chat.
 
 [1]: https://github.com/zenhack/powerbox-http-proxy
 [2]: https://sandstorm.io/news/2015-06-10-network-access-permission-android-vs-sandstorm
