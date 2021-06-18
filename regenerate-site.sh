@@ -61,7 +61,7 @@ echo
 if [ "x$YESNO" == "xy" ]; then
   (cd _published && git push)
   git push -u origin "$BRANCH:$BRANCH"
-  CLOUDSDK_COMPUTE_ZONE=us-central1-a gcloud --project=sandstorm-io compute ssh fe --command 'cd /var/www/sandstorm.io && pull-and-purge-cf-cache.sh'
+  CLOUDSDK_COMPUTE_ZONE=us-central1-a gcloud --project=sandstorm-io compute ssh alpha2 --command 'cd /var/www/sandstorm.io && pull-and-purge-cf-cache.sh'
 else
   echo "Push CANCELED"
   echo "You can examine the canceled changes in: ./_published"
