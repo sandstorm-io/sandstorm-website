@@ -92,6 +92,56 @@
 
 
 <section>
+  <h2><a href="/news/2015-08-11-meetup-recap">Recap of our August meetup</a></h2>
+  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
+    
+    - <a href="/news/2015-08-11-meetup-recap">11 Aug 2015</a>
+  <p>Last Thursday, <a href="http://rethinkdb.com/">RethinkDB</a> co-hosted the first
+<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/events/223144969/">Sandstorm meetup in the South Bay</a>
+Here’s the view of the crowd at their Mountain View office.</p>
+
+<p><img src="/news/images/2015-08-meetup-rethinkdb.jpg" height="356" width="600" alt="Meetup at RethinkDB HQ" /></p>
+
+<p>I gave a talk introducing Sandstorm, inspired by Kenton’s blog post explaining
+the <a href="/news/2014-07-21-open-source-web-apps-require-federated-hosting.html">motivation for Sandstorm: making it possible for open source and indie
+developers to build successful web apps</a>.</p>
+
+<p><a href="https://twitter.com/thejsj">Jorge Silva</a> followed that with a talk focusing on
+RethinkDB. He explained how
+the open source RethinkDB database makes real-time apps easy to build, and showed
+how to package RethinkDB apps for Sandstorm. He used the new Sandstorm packaging
+tool called <a href="https://docs.sandstorm.io/en/latest/developing/">vagrant-spk</a>.</p>
+
+<p>We then heard four lightning talks.</p>
+
+<ul>
+  <li><a href="https://github.com/pelzlpj">Paul Pelzl</a> explained how and why he wrote an
+implementation of <a href="https://pelzlpj.github.io/capnp-ocaml/">Cap’n Proto in OCaml</a>.</li>
+  <li><a href="https://github.com/wtogami">Warren Togami</a> talked about the importance of
+security in enterprise chat.</li>
+  <li><a href="https://github.com/amluto">Andy Lutomirski</a> discussed recent Linux security
+vulnerabilities, the history of Linux’s surprisingly large attack surface, and
+his excitement that Sandstorm will bring <a href="http://erights.org/elib/capability/ode/ode-capabilities.html">object-capability security</a>
+to the world.</li>
+  <li><a href="https://github.com/zombiezen">Ross Light</a> showed us the simple file
+uploading and sharing app he is building using <a href="https://golang.org/">Go</a>. The app
+looks sharp and he expects it’s almost ready for release. He remarked that it
+has a 3MB package file, and that could shrink further as he works on implementing
+replacing <a href="https://github.com/sandstorm-io/sandstorm/blob/master/src/sandstorm/sandstorm-http-bridge.c%2B%2B">sandstorm-http-bridge</a>
+with new code using his support for <a href="https://github.com/zombiezen/go-capnproto">Cap’n Proto RPC in Go</a>.</li>
+</ul>
+
+<p>My personal thanks go out to
+<a href="https://twitter.com/christinakeelan">Christina Keelan</a> for handling the
+logistics and planning that made the event a success.</p>
+
+<p>I plan to organize September’s event in San Francisco and return to the South
+Bay in October. If you want to hear about those events,
+<a href="http://www.meetup.com/Sandstorm-SF-Bay-Area/">join the Sandstorm Meetup group</a>!</p>
+
+</section>
+
+<section>
   <h2><a href="/news/2015-07-22-south-bay">Thu Aug 6: First Sandstorm meetup in the South Bay</a></h2>
   <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
     
@@ -293,95 +343,6 @@ to drop me a line; I’m asheesh at sandstorm.io.</p>
 <p>We have been laying the groundwork for the Powerbox for some time. The <a href="https://github.com/sandstorm-io/sandstorm/wiki/Security-Practices-Overview#capability-based-usable-security">infrastructure</a> is ready, and we are now working on giving it a UI. This will happen gradually over the next couple months.</p>
 
 <p>Even without the Powerbox, Sandstorm is highly usable today. <a href="https://demo.sandstorm.io">Try the demo</a>, <a href="https://sandstorm.io/install/">install your own (it’s open source)</a>, or <a href="https://sandstorm.io/preorder.html">preorder hosting</a>.</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2015-05-18-sandcats">Sandcats.io: free dynamic DNS for Sandstorm users</a></h2>
-  <p class="post-details">By <a href="https://github.com/paulproteus">Asheesh Laroia</a>
-    
-    - <a href="/news/2015-05-18-sandcats">18 May 2015</a>
-  <p>Sandstorm is open source server software that makes it easy to install web apps
-like <a href="https://ethercalc.org/">Ethercalc</a> or
-<a href="http://sdelements.github.io/lets-chat/">Let’s Chat</a>. But that’s not much use
-if your server doesn’t have
-a name, and setting up DNS correctly for Sandstorm has until now been a complicated,
-fiddly process.</p>
-
-<p>That’s why today I’m announcing <em>sandcats.io</em>, a free dynamic DNS service
-for Sandstorm users. It now takes 120 seconds to go from an empty
-Linux virtual machine to a working personal server, DNS and all.</p>
-
-<p>The Sandstorm install script asks you what subdomain you want; if you type <em>alice</em>, then
-your server is online at <em>alice.sandcats.io</em>.</p>
-
-<p>It’s as simple as that. Check out this 30 second ASCII screencast.</p>
-
-<p><a href="https://asciinema.org/a/bw9mgfk8m55rfa3ntrfvhvjat?autoplay=1">
-<img src="https://asciinema.org/a/bw9mgfk8m55rfa3ntrfvhvjat.png" width="600" />
-</a></p>
-
-<h3 id="solving-dns-for-sandstorm-users">Solving DNS for Sandstorm users</h3>
-
-<p>I say it <em>solves</em> DNS for Sandstorm users because the <em>sandcats.io</em> service
-handles all the following complications:</p>
-
-<ul>
-  <li>
-    <p><strong>Domain provisioning.</strong> You type the name you want for your server while
-running the install script.</p>
-  </li>
-  <li>
-    <p><strong>Wildcard DNS.</strong> Sandstorm needs wildcard DNS because, with its security model,
-each session of each app runs on a unique unguessable subdomain. This protects against
-most cross-site request forgery attacks, for example. Sandcats.io provides wildcard
-DNS; this also means that any time a user
-runs a new app on your personal Sandstorm server, DNS is already configured.</p>
-  </li>
-  <li>
-    <p><strong>Automatic updates.</strong> Every 60 seconds, your Sandstorm server sends a small
-UDP message to the Sandcats.io service. If your IP address has changed, the
-service replies with another short message. Upon receipt of that, your server
-sends an authenticated message, and <em>sandcats.io</em> updates its records.
-Our DNS records have a 60 second
-TTL, so if your IP address changes, it will propagate out within two minutes,
-and you never had to lift a finger.</p>
-  </li>
-  <li>
-    <p><strong>Domain recovery.</strong> If you lose your authentication keys, you can recover
-the domain by typing <code>help</code> into the Sandstorm installer.</p>
-  </li>
-</ul>
-
-<p>I’d love to hear your feedback; I’m asheesh@sandstorm.io.</p>
-
-<p>The code is open souce, and you can read more in the
-<a href="https://github.com/sandstorm-io/sandstorm/wiki/Sandcats-dynamic-DNS">technical documentation</a>,
-but what I really recommend you do is try it out.</p>
-
-<h3 id="switch-to-your-own-domain-whenever-you-want">Switch to your own domain whenever you want</h3>
-
-<p>The Sandcats service is optional. If you already have a domain of your own, you
-can join the many other people actively running Sandstorm on their own
-domain.</p>
-
-<p>If you know you want to go it alone, the install script allows you to opt out
-and configure DNS yourself.</p>
-
-<p>Moreover, if you start out with a
-<em>sandcats.io</em> sudomain, and you decide you want a little more personality to
-your server, you can reconfigure it at any time. Look for your server’s
-<code>sandstorm.conf</code> file.</p>
-
-<h3 id="install-sandstorm-now-to-try-it-out">Install Sandstorm now to try it out</h3>
-
-<p>Sandstorm exists to make it easy to run web apps like Etherpad, HackerSlides,
-Let’s Chat, and others as easily as you install apps on your phone. If that’s
-something you want
-on a server for you or your organization, I hope you install Sandstorm right now.</p>
-
-<p><strong><a href="https://sandstorm.io/install/">Install Sandstorm with our easy install instructions!</a></strong></p>
-
 
 </section>
 

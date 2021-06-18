@@ -92,6 +92,42 @@
 
 
 <section>
+  <h2><a href="/news/2014-08-13-sandbox-security">Sandstorm vs. Kernel Exploits</a></h2>
+  <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
+    
+    - <a href="/news/2014-08-13-sandbox-security">13 Aug 2014</a>
+  <p>A few weeks ago, I discovered a vulnerability in the Linux kernel that may allow sandboxed programs to break out of a container. The same problem can also be exploited in a different way on many typical Linux systems to gain local root privileges. I reported the problem to the kernel’s security team. Yesterday, upon release of a fix for the issue, the vulnerability was <a href="http://www.openwall.com/lists/oss-security/2014/08/12/6">disclosed publicly</a> (<a href="https://www.google.com/search?q=CVE-2014-5206">CVE-2014-5206</a> and <a href="https://www.google.com/search?q=CVE-2014-5207">CVE-2014-5207</a>).</p>
+
+<p>Docker, in many configurations, is likely vulnerable to this exploit. Sandstorm, however, is not.</p>
+
+<p>To be fair, Docker is not primarily designed to be a sandbox. It is instead designed to run arbitrary off-the-shelf Linux applications and distributions in a clean, hermetic way – and at this, it excels. There are some provisions for security, but the general recommendation is to avoid deploying anything that could be actively malicious.</p>
+
+<p>Sandstorm, on the other hand, cares deeply about sandboxing, and is willing trade off compatibility for security. We are happy to hide or disable whole swaths of the Linux platform that most apps don’t need, at the expense of having to develop work-arounds for the few apps that do need them. By doing this, we reduce the “attack surface” of the Linux kernel – any vulnerabilities found in the features we disabled do not affect Sandstorm. Of course, it is exactly these rarely-used obscure features which have received the least scrutiny and thus are the most likely to contain vulnerabilities.</p>
+
+<p>Some examples of features we remove:</p>
+
+<ul>
+  <li>We use seccomp-bpf to disable system calls that are not needed by apps. For example, by disabling the <code>mount(2)</code> system call as well as blocking the creation of new UID namespaces, Sandstorm sidesteps the vulnerability I discovered. (Ironically, Sandstorm itself relies on these very features to set up the sandbox, but apps do not need them.)</li>
+  <li>We do not mount <code>/proc</code> or <code>/sys</code>, which are filesystem-based interfaces exposing myriad kernel features.</li>
+  <li>The only devices we present to apps are <code>/dev/null</code>, <code>/dev/zero</code>, and <code>/dev/urandom</code>.</li>
+  <li>We prohibit sandboxes from using setuid binaries to gain privileges by setting the <code>no_new_privs</code> process flag and other measures.</li>
+</ul>
+
+<p>Many of these things can be enabled in Docker as well, but only by manual configuration.</p>
+
+<p>All of these things potentially break some applications, but when problems do come up, it’s usually easy to work around the issue by tweaking the application code. Sandstorm’s willingness to require such changes is a key design difference from Docker. To be clear, I am not criticizing Docker’s choice – it makes tons of sense for what Docker is trying to accomplish. But Sandstorm is trying to accomplish something different.</p>
+
+<p>In the future, we hope to further improve the Sandstorm sandbox by moving more kernel functionality to userspace. Using seccomp-bpf, we can actually cause some system calls to raise <code>SIGSYS</code>, thus allowing us to “virtualize” the call by implementing it in a signal handler. Through this, we can do anything from mocking out an irrelevant system call to implementing a whole virtual filesystem (by intercepting <code>open(2)</code>).</p>
+
+<p>One thing in particular that we’d like to do is implement <code>exec(2)</code> in userspace. Parsing ELF binaries is non-trivial, and there have been vulnerabilities in the kernel’s ELF parser in the past. But, this work does not actually need to happen in the kernel. The main function of exec which cannot be performed in userspace is granting privileges to setuid binaries – but we actively <em>don’t want</em> that feature anyway.</p>
+
+<p>Two of Sandstorm’s advisors – Andrew Lutomirski (a security-focused kernel developer) and Mark Seaborn (a member of Chrome’s Native Client sandbox team) – are experts on these issues and have been helping us work out the details. Andy actually implemented the <code>no_new_privs</code> kernel feature and contributed Sandstorm’s seccomp filter. He has been keeping us informed as new kernel vulnerabilities arise. Mark has implemented several Linux native code sandboxes before and is helping us design what we hope will be the best yet. (Note: Our advisors contribute in their spare time, not on behalf of their employers.)</p>
+
+<p>Of course, to see any of this happen, we need your help. :) <a href="http://igg.me/at/sandstorm">Please fund our Indiegogo campaign.</a></p>
+
+</section>
+
+<section>
   <h2><a href="/news/2014-08-12-meteor-spk">Porting Meteor apps to Sandstorm in three minutes</a></h2>
   <p class="post-details">By <a href="https://github.com/kentonv">Kenton Varda</a>
     
@@ -290,33 +326,6 @@ piece of Free Software to reach a wider audience than it could before.</p>
 
 <p>And if you’d like to see the missing features fixed in the future, be sure
 to <a href="http://igg.me/at/sandstorm">fund our Indiegogo campaign</a>. :)</p>
-
-</section>
-
-<section>
-  <h2><a href="/news/2014-07-25-sharelatex">ShareLaTeX: Collaborative scientific typesetting</a></h2>
-  <p class="post-details">By <a href="https://github.com/dwrensha">David Renshaw</a>
-    
-    - <a href="/news/2014-07-25-sharelatex">25 Jul 2014</a>
-  <p>Today we are releasing our port of <a href="http://www.sharelatex.com">ShareLaTeX</a>, a real-time collaborative editor for typesetting scientific documents.</p>
-
-<p>You can install it on your Sandstorm server now, or try it on <a href="https://demo.sandstorm.io">our demo server</a>.</p>
-
-<p>LaTeX has long been a standard tool in the world of academic publishing, and we think that ShareLaTeX does a great job at making it more accessible and useful.</p>
-
-<p><a href="/news/images/sharelatex-screenshot-big.png"><img src="/news/images/sharelatex-screenshot.png" /></a><br /><span class="caption">Using ShareLaTeX in Sandstorm to typeset <a href="http://www.cs.cmu.edu/~rjsimmon/">Rob Simmons</a>'s <a href="https://github.com/robsimmons/thesis">PhD thesis</a>.</span></p>
-
-<p>We also think that, as an open source web app, ShareLaTeX makes a fascinating case study.</p>
-
-<p>On the one hand, it’s hard to imagine any of the giant internet corporations ever offering anything like it, as its potential user base is probably not large enough to merit their attention. On the other hand, within its niche ShareLaTeX addresses a very real need – a need that’s certainly large enough to merit the attention of small teams of indie developers.</p>
-
-<p>ShareLaTeX illustrates some of the barriers faced by such developers. Its core functionality consists of an in-browser editor and a server-side compiler, but to be a viable product it has had to do a fair bit more than that. ShareLaTeX also implements a secure login system, an interface for managing multiple projects, and a sharing model. Moreover, there is the question of hosting.</p>
-
-<p>The striking thing about our port of ShareLaTeX is that it simply bypasses this non-core functionality. Sandstorm already handles login, already has a file selection and organization interface for managing multiple projects, and already implements sharing. The main changes we made to the ShareLaTeX code – and we did not in fact change very much at all –  were to remove these features and delegate their responsibilities to Sandstorm instead.</p>
-
-<p>Sandstorm, of course, also resolves the hosting question, making it easy for users to deploy ShareLaTeX to servers they control.</p>
-
-<p>We take all of this as evidence that Sandstorm can eliminate many of the less-interesting and potentially costly parts of developing web apps. We hope that Sandstorm will enable developers to create many more apps like ShareLaTeX, catering to audiences of all sizes.</p>
 
 </section>
 

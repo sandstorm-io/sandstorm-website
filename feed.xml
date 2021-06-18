@@ -7,6 +7,47 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Fundraising for the Sandstorm Community</title>
+				<description>&lt;p&gt;Hey Everyone!&lt;/p&gt;
+
+&lt;p&gt;Members of the Sandstorm community are doing some fundraising!&lt;/p&gt;
+
+&lt;p&gt;Specifically,&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In the immediate term, we’re &lt;a href=&quot;https://fundoss.org/collective/sandstormcommunity&quot;&gt;participating in FundOSS&lt;/a&gt;, a donation
+matching program that is a joint effort between &lt;a href=&quot;https://www.oscollective.org/&quot;&gt;Open Source
+Collective&lt;/a&gt; and &lt;a href=&quot;https://gitcoin.co/&quot;&gt;GitCoin&lt;/a&gt; with a novel &lt;a href=&quot;https://fundoss.org/democratic-funding&quot;&gt;democratic funding&lt;/a&gt;
+model for allocating matching funds, designed to boost the impact of
+many small donations.&lt;/li&gt;
+  &lt;li&gt;Longer term, we’re looking to promote an &lt;a href=&quot;https://opencollective.com/sandstormcommunity&quot;&gt;OpenCollective community
+organization&lt;/a&gt;, as a basis to support Sandstorm’s development financially.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The organizers are familiar faces, but we aren’t and haven’t ever been
+formally affiliated with Sandstorm, Inc; we’re just long-time community
+members looking to chart a path for the Sandstorm project going forward.
+We all miss the days when there were several people working on Sandstorm
+full-time, and want to find ways to support continued development of
+new features and additional app packaging efforts.&lt;/p&gt;
+
+&lt;p&gt;If you want to help us out here’s how you can:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://fundoss.org/collective/sandstormcommunity&quot;&gt;Make a donation&lt;/a&gt; (even a small one) via FundOSS between now and June
+24th.&lt;/li&gt;
+  &lt;li&gt;If you want to support us in the long term, consider also making recurring
+donation to our &lt;a href=&quot;https://opencollective.com/sandstormcommunity&quot;&gt;OpenCollective organization&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Thu, 17 Jun 2021 00:00:00 -0500</pubDate>
+                                <link>https://sandstorm.io/news/2021-06-17-sandstorm-community-fundraising</link>
+                                <dc:creator>Ian Denhardt</dc:creator>
+                                <guid isPermaLink="true">https://sandstorm.io/news/2021-06-17-sandstorm-community-fundraising</guid>
+			</item>
+		
+			<item>
 				<title>Updating Tiny Tiny RSS, Moving Sandstorm's Security Model Forward.</title>
 				<description>&lt;p&gt;This past week I updated the Sandstorm package for Tiny Tiny RSS. In
 addition to updating to the latest upstream code, I’ve also made some
@@ -494,22 +535,6 @@ time working on Sandstorm.&lt;/p&gt;
                                 <link>https://sandstorm.io/news/2018-02-19-http-rewrite-and-more</link>
                                 <dc:creator>Kenton Varda</dc:creator>
                                 <guid isPermaLink="true">https://sandstorm.io/news/2018-02-19-http-rewrite-and-more</guid>
-			</item>
-		
-			<item>
-				<title>Sandstorm UI now available in Chinese, Dutch</title>
-				<description>&lt;p&gt;As of last week’s Sandstorm release (version 0.216), the Sandstorm UI is (mostly) now internationalized, meaning text has been moved out of the interface into separate translation tables.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/pull/2985&quot;&gt;This work&lt;/a&gt; was mostly done by &lt;a href=&quot;https://github.com/urakagi&quot;&gt;Romulus Urakagi Tsai&lt;/a&gt; and &lt;a href=&quot;https://github.com/caasi&quot;&gt;Caasi Huang&lt;/a&gt;, supported by &lt;a href=&quot;http://g0v.tw&quot;&gt;g0v.tw&lt;/a&gt;. Additionally, they contributed translation tables for Traditional Chinese, as well as a partial translation to Simplified Chinese (though the latter is still incomplete).&lt;/p&gt;
-
-&lt;p&gt;With i18n in place, other Sandstorm users immediately began work on other translations. In this week’s release (0.218), we’ve merged a &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/pull/2999&quot;&gt;Dutch translation&lt;/a&gt; by &lt;a href=&quot;https://github.com/m-burg&quot;&gt;Michel van der Burg&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Would you like to contribute a Sandstorm translation? It’s easy – no programming required. Check out &lt;a href=&quot;https://github.com/sandstorm-io/sandstorm/blob/master/CONTRIBUTING.md#internationalization-i18n&quot;&gt;the contributing guide&lt;/a&gt; for instructions, and talk to us on &lt;a href=&quot;https://groups.google.com/group/sandstorm-dev&quot;&gt;the sandstorm-dev mailing list&lt;/a&gt;.&lt;/p&gt;
-</description>
-				<pubDate>Sat, 28 Oct 2017 00:00:00 -0500</pubDate>
-                                <link>https://sandstorm.io/news/2017-10-28-i18n</link>
-                                <dc:creator>Kenton Varda</dc:creator>
-                                <guid isPermaLink="true">https://sandstorm.io/news/2017-10-28-i18n</guid>
 			</item>
 		
 	</channel>
