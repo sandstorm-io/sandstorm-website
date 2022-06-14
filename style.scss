@@ -2013,8 +2013,6 @@ body >footer {
 				}
 
 				&.kenton::before { background-image: url("images/people/kenton.png"); }
-				&.wagner::before { background-image: url("images/people/wagner.png"); }
-				&.tang::before { background-image: url("images/people/audrey.png"); }
 			}
 
 			@media (max-width: 800px) {
@@ -2054,40 +2052,6 @@ body >footer {
                                 white-space: nowrap;
 				overflow: hidden;
                         }
-		}
-	}
-
-	#corporate {
-		ul {
-			width: 100%;
-			padding: 0px;
-			margin: 0px;
-			display: flex;
-                        flex-direction: row;
-			flex-wrap: wrap;
-			justify-content: space-around;
-		}
-
-		li {
-			display: inline-block;
-			width: 25%;
-			padding: 15px 15px;
-			position: relative;
-
-			&::before {
-			content: " ";
-			display: block;
-			background-repeat: no-repeat;
-			height: 200px;
-			background: center/contain no-repeat;
-			}
-			&.drawio::before { background-image: url("thirdparty/draw.io-logo.svg"); }
-			&.humanweb::before { background-image: url("thirdparty/humanweb.png"); }
-			&.uniregistry::before { background-image: url("thirdparty/uniregistry.svg"); }
-			}
-
-		#anonymous {
-			display: block;
 		}
 	}
 }
