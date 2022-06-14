@@ -1952,14 +1952,14 @@ body >footer {
 		}
 	}
 
-	.story {
+	.story, .history {
 		width: 90%;
 		p {
 			padding: 0 0 40px 0;
 		}
 	}
 
-	#team, #past-team, #advisors, #sponsors {
+	#team, #sponsors {
 
 		li h3 {
 			border-bottom: 1px solid #ddd;
@@ -2013,18 +2013,6 @@ body >footer {
 				}
 
 				&.kenton::before { background-image: url("images/people/kenton.png"); }
-				&.jade::before { background-image: url("images/people/jade.png"); }
-				&.jason::before { background-image: url("images/people/jason.png"); }
-				&.david::before { background-image: url("images/people/david.png"); }
-				&.asheesh::before { background-image: url("images/people/asheesh.png"); }
-				&.nena::before { background-image: url("images/people/nena.png"); }
-				&.drew::before { background-image: url("images/people/drew.png"); }
-				&.garply::before { background-image: url("images/people/garply.png"); }
-				&.swetland::before { background-image: url("images/people/swetland.png"); }
-				&.lutomirski::before { background-image: url("images/people/luto.png"); }
-				&.nagra::before { background-image: url("images/people/jasvir.png"); }
-				&.seaborn::before { background-image: url("images/people/seaborn.png"); }
-				&.miller::before { background-image: url("images/people/miller.png"); }
 				&.wagner::before { background-image: url("images/people/wagner.png"); }
 				&.tang::before { background-image: url("images/people/audrey.png"); }
 			}
