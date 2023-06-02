@@ -456,7 +456,7 @@ body >footer {
 					color: $purple-highlight;
 			}
 
-			&.twitter::before { content: "\e908"; }
+			&.fediverse::before { content: "\e908"; }
 			&.google::before { content: "\e904"; }
 			&.facebook::before { content: "\e902"; }
 			&.github::before { content: "\e903"; }
@@ -1697,7 +1697,7 @@ body >footer {
               font-size: 30px;
             }
 
-            &.twitter::before { content: "\e908"; }
+		&.fediverse::before { content: "\e908"; }
             &.google::before { content: "\e904"; }
             &.facebook::before { content: "\e902"; }
             &.github::before { content: "\e903"; }
@@ -2160,7 +2160,7 @@ body >footer {
 					background: bottom/contain no-repeat;
 				}
 
-				&.twitter::before { content: "\e908"; }
+				&.fediverse::before { content: "\e908"; }
 				&.google::before { content: "\e904"; }
 				&.facebook::before { content: "\e902"; }
 				&.github::before { content: "\e903"; }
