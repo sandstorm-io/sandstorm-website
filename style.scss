@@ -1706,10 +1706,12 @@ body >footer {
 			width: 30px;
 			background-size: 30px 30px;
 		}
-            &.github::before { content: "\e903"; }
-            &.livechat::before { content: "\e905"; }
-            &.devgroup::before { content: "\e901"; }
-            &.youtube::before { content: "\e909"; }
+            &.github {
+			background-image: url(/images/github.svg);
+			height: 30px;
+			width: 30px;
+			background-size: 30px 30px;
+	    }
           }
         }
       }
