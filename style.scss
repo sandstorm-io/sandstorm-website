@@ -456,9 +456,12 @@ body >footer {
 					color: $purple-highlight;
 			}
 
-			&.fediverse::before { content: "\e908"; }
-			&.google::before { content: "\e904"; }
-			&.facebook::before { content: "\e902"; }
+			&.fediverse {
+				height: 25px;
+				width: 25px;
+				background-size: 25px 25px;
+				background-image: url(/images/fediverse.svg);
+			}
 			&.github::before { content: "\e903"; }
 			}
 
@@ -1697,15 +1700,16 @@ body >footer {
               font-size: 30px;
             }
 
-		&.fediverse::before { content: "\e908"; }
-            &.google::before { content: "\e904"; }
-            &.facebook::before { content: "\e902"; }
+		&.fediverse {
+			background-image: url(/images/fediverse.svg);
+			height: 30px;
+			width: 30px;
+			background-size: 30px 30px;
+		}
             &.github::before { content: "\e903"; }
             &.livechat::before { content: "\e905"; }
-            &.inperson::before { content: "\e907"; }
             &.devgroup::before { content: "\e901"; }
             &.youtube::before { content: "\e909"; }
-            &.linkedin::before { content: "\e910"; }
           }
         }
       }
@@ -2160,15 +2164,18 @@ body >footer {
 					background: bottom/contain no-repeat;
 				}
 
-				&.fediverse::before { content: "\e908"; }
-				&.google::before { content: "\e904"; }
-				&.facebook::before { content: "\e902"; }
+				&.fediverse {
+					height: 55px;
+					padding-top: 55px;
+					background-image: url(/images/fediverse.svg);
+					background-repeat: no-repeat;
+					background-size: 55px 55px;
+					background-position: center;
+				}
 				&.github::before { content: "\e903"; }
 				&.livechat::before { content: "\e905"; }
-				&.inperson::before { content: "\e907"; }
 				&.devgroup::before { content: "\e901"; }
 				&.youtube::before { content: "\e909"; }
-				&.linkedin::before { content: "\e910"; }
 			}
 			a:hover:before {
 				color: $purple-highlight;
