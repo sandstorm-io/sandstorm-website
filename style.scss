@@ -144,6 +144,33 @@ strong {
 // =======================================================================================
 // _layout/page.html
 
+#historical-alert {
+  position: relative;
+  padding: 0;
+
+  >a {
+    display: block;
+    width: 100%;
+    color: white;
+    padding: 12px 8px;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &:after {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 50vw);
+    width: 100vw;
+    z-index: -1;
+    background-color: #a00;
+  }
+}
+
 body>nav {
   height: 48px;
   text-align: right;
